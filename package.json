@@ -1,0 +1,54 @@
+{
+  "name": "gymly",
+  "version": "1.0.0",
+  "description": "GDPR-compliant fitness social media app",
+  "main": "index.js",
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+  },
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.21.0",
+    "@react-navigation/bottom-tabs": "^6.5.11",
+    "@react-navigation/native": "^6.1.9",
+    "@react-navigation/stack": "^6.3.20",
+    "axios": "^1.6.2",
+    "date-fns": "^3.0.6",
+    "expo-secure-store": "^12.8.1",
+    "react": "18.3.1",
+    "react-native": "0.76.5",
+    "react-native-gesture-handler": "^2.14.1",
+    "react-native-keychain": "^8.1.2",
+    "react-native-reanimated": "~3.10.1",
+    "react-native-safe-area-context": "^4.8.2",
+    "react-native-screens": "^3.29.0",
+    "react-native-vector-icons": "^10.0.3",
+    "zustand": "^4.4.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.5",
+    "@babel/preset-env": "^7.23.5",
+    "@babel/runtime": "^7.23.5",
+    "@react-native-community/cli": "^20.0.2",
+    "@react-native-community/cli-platform-android": "^20.0.2",
+    "@react-native-community/cli-platform-ios": "^20.0.2",
+    "@react-native/babel-preset": "^0.76.0",
+    "@react-native/eslint-config": "^0.76.0",
+    "@react-native/metro-config": "^0.76.0",
+    "@react-native/typescript-config": "^0.76.0",
+    "@types/react": "^18.3.12",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "jest": "^29.7.0",
+    "metro-react-native-babel-preset": "^0.77.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
