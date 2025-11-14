@@ -1,0 +1,7176 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.8 e802775f",
+  "osm3s": {
+    "timestamp_osm_base": "2025-11-14T19:35:45Z",
+    "timestamp_areas_base": "2025-11-14T15:20:00Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 497381657,
+  "lat": 55.6647686,
+  "lon": 12.5114021,
+  "tags": {
+    "alt_name": "SATS Danmark Valby",
+    "branch": "KBH - Valby",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "check_date:opening_hours": "2024-12-17",
+    "email": "Valby@sats.com",
+    "fvst:navnelbnr": "551582",
+    "leisure": "fitness_centre",
+    "name": "SATS KBH - Valby",
+    "opening_hours": "Mo-Th 06:00-22:00; Fr 06:00-21:00; Sa 07:00-19:00; Su 07:00-20:00",
+    "phone": "+45 82 21 21 00",
+    "ref:DK:cvr": "20370599",
+    "ref:DK:cvr:pnummer": "1014839352",
+    "ref:sats": "431",
+    "sport": "fitness",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-valby/"
+  }
+},
+{
+  "type": "node",
+  "id": 898936694,
+  "lat": 55.6826776,
+  "lon": 12.5823306,
+  "tags": {
+    "branch": "KBH - Adelgade",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "email": "Adelgade@sats.com",
+    "fvst:navnelbnr": "542628",
+    "leisure": "fitness_centre",
+    "name": "SATS KBH - Adelgade",
+    "opening_hours": "Mo-Th 05:30-22:00; Fr 05:30-20:00; Sa 07:00-19:00; Su 07:00-21:00",
+    "phone": "+33 43 28 00",
+    "ref:DK:cvr": "20370599",
+    "ref:DK:cvr:pnummer": "1014186405",
+    "ref:sats": "412",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-adelgade/"
+  }
+},
+{
+  "type": "node",
+  "id": 1027929994,
+  "lat": 56.0099718,
+  "lon": 12.5842073,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Borupgård Fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 1112453804,
+  "lat": 55.7049892,
+  "lon": 12.5374830,
+  "tags": {
+    "branch": "Lygten",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "leisure": "fitness_centre",
+    "name": "PureGym"
+  }
+},
+{
+  "type": "node",
+  "id": 1141433639,
+  "lat": 55.6979378,
+  "lon": 12.5405316,
+  "tags": {
+    "branch": "Esromgade",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "fvst:navnelbnr": "574108",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "24/7",
+    "phone": "+45 50608771",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1022002690",
+    "sport": "fitness",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 1315775600,
+  "lat": 57.4457413,
+  "lon": 10.5075895,
+  "tags": {
+    "branch": "Frederikshavn Hjørringvej",
+    "fvst:navnelbnr": "559731",
+    "leisure": "fitness_centre",
+    "name": "PureGym Frederikshavn",
+    "ref": "C203",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017807095",
+    "website": "https://www.fitnessworld.com/dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 1335815416,
+  "lat": 55.5015032,
+  "lon": 8.4550450,
+  "tags": {
+    "branch": "Esbjerg, Stormgade",
+    "brand": "PureGym Danmark",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:PureGym",
+    "facebook": "https://facebook.com/puregymstormgade/",
+    "fvst:navnelbnr": "772096",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1019587793",
+    "website": "https://www.puregym.dk/find-center/esbjerg-stormgade"
+  }
+},
+{
+  "type": "node",
+  "id": 1463851133,
+  "lat": 55.6823410,
+  "lon": 12.5568860,
+  "tags": {
+    "leisure": "fitness_centre"
+  }
+},
+{
+  "type": "node",
+  "id": 1489323572,
+  "lat": 55.4828566,
+  "lon": 9.4757261,
+  "tags": {
+    "branch": "Kolding",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "931414",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1025033910",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 1513201140,
+  "lat": 55.4787074,
+  "lon": 8.4372459,
+  "tags": {
+    "branch": "Esbjerg, Gl. Vardevej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:PureGym",
+    "check_date": "2025-08-07",
+    "end_date": "2025-08-31",
+    "facebook": "https://facebook.com/puregymglvardevej/",
+    "fvst:name": "Fitness World A/S - Esbjerg, Gl. Vardevej (C254)",
+    "fvst:navnelbnr": "772115",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref": "C254",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1022745626",
+    "source:end_date": "https://migogesbjerg.dk/puregym-lukker-farvel-til-traening-i-dette-center/",
+    "sport": "fitness",
+    "website": "https://www.puregym.dk/find-center/gl-vardevej"
+  }
+},
+{
+  "type": "node",
+  "id": 1568119114,
+  "lat": 55.4681155,
+  "lon": 8.4399273,
+  "tags": {
+    "branch": "Esbjerg - Strandbytorv",
+    "facebook": "https://www.facebook.com/fitnessx.esbjerg.strandbytorv/",
+    "leisure": "fitness_centre",
+    "name": "FitnessX",
+    "old_name": "SATS",
+    "ref:DK:cvr": "37360333",
+    "ref:DK:cvr:pnummer": "1026293630",
+    "website": "https://www.fitnessx.dk/centre/esbjerg-strandbytorv"
+  }
+},
+{
+  "type": "node",
+  "id": 1589706561,
+  "lat": 55.3940057,
+  "lon": 10.3489105,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Orange Fitness",
+    "website": "https://www.orangefitness.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 1779005080,
+  "lat": 55.7300520,
+  "lon": 12.5214682,
+  "tags": {
+    "branch": "Søborg",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "766153",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref": "C215",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1018177516"
+  }
+},
+{
+  "type": "node",
+  "id": 1787256791,
+  "lat": 55.3102688,
+  "lon": 10.7877890,
+  "tags": {
+    "brand": "LOOP Fitness",
+    "brand:wikidata": "Q18647221",
+    "check_date": "2023-04-27",
+    "email": "nyborg@loopfitness.dk",
+    "leisure": "fitness_centre",
+    "name": "LOOP Fitness",
+    "opening_hours": "PH,Mo-Su 05:00-22:00",
+    "website": "https://loopfitness.com/da/nyborg/",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1945583586,
+  "lat": 57.0536357,
+  "lon": 9.9052179,
+  "tags": {
+    "branch": "Aalborg Dannebrogsgade",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "126429",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1015131361"
+  }
+},
+{
+  "type": "node",
+  "id": 1945583587,
+  "lat": 57.0370026,
+  "lon": 9.9333700,
+  "tags": {
+    "branch": "Aalborg Eternitten",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:name": "Fitness World - Aalborg Eternitten (C200)",
+    "fvst:navnelbnr": "767941",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "Mo-Su 05:00-24:00",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017528331",
+    "sport": "fitness",
+    "website": "http://www.fitnessworld.dk/center/fitness-world-eternitten"
+  }
+},
+{
+  "type": "node",
+  "id": 1945583588,
+  "lat": 57.0473620,
+  "lon": 9.9264298,
+  "tags": {
+    "branch": "Aalborg Citycenter Friis Nytorv",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "fvst:navnelbnr": "126427",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1015711074"
+  }
+},
+{
+  "type": "node",
+  "id": 1945583589,
+  "lat": 57.0203534,
+  "lon": 9.9255844,
+  "tags": {
+    "fvst:name": "Fitness World - Aalborg Gugvej (C173)",
+    "fvst:navnelbnr": "767798",
+    "leisure": "fitness_centre",
+    "name": "Fitness World Aalborg Gugvej",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017088420",
+    "sport": "fitness",
+    "website": "http://www.fitnessworld.dk/center/fitness-world-gugvej"
+  }
+},
+{
+  "type": "node",
+  "id": 1945583591,
+  "lat": 56.8033466,
+  "lon": 9.5106505,
+  "tags": {
+    "branch": "Aars",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "leisure": "fitness_centre",
+    "name": "PureGym"
+  }
+},
+{
+  "type": "node",
+  "id": 1945583595,
+  "lat": 55.5054103,
+  "lon": 8.4044619,
+  "tags": {
+    "branch": "Esbjerg, Ådalsparken",
+    "brand": "PureGym Danmark",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:PureGym",
+    "facebook": "https://m.facebook.com/puregymaadalsparken/",
+    "fvst:name": "Fitness World - Esbjerg, Ådalsparken (C196)",
+    "fvst:navnelbnr": "767931",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref": "C196",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017316539",
+    "sport": "fitness",
+    "website": "https://www.puregym.dk/find-center/esbjerg-v-aadalsparken"
+  }
+},
+{
+  "type": "node",
+  "id": 1945583598,
+  "lat": 55.2540978,
+  "lon": 9.5033067,
+  "tags": {
+    "branch": "Haderslev",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1015422056"
+  }
+},
+{
+  "type": "node",
+  "id": 1945583599,
+  "lat": 56.1370767,
+  "lon": 8.9673993,
+  "tags": {
+    "branch": "Herning Møllegade",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 1945583602,
+  "lat": 55.8567090,
+  "lon": 9.8526790,
+  "tags": {
+    "branch": "Horsens Høegh Guldbergs Gade",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "sport": "fitness",
+    "website": "http://www.fitnessworld.dk/center/fitness-world-hoeegh-guldbergs-gade"
+  }
+},
+{
+  "type": "node",
+  "id": 1945583604,
+  "lat": 55.4861706,
+  "lon": 9.4736619,
+  "tags": {
+    "branch": "Kolding",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1015131256",
+    "sport": "fitness",
+    "website": "https://www.puregym.dk/find-center/kolding-sydbanegade"
+  }
+},
+{
+  "type": "node",
+  "id": 1945583606,
+  "lat": 55.3174234,
+  "lon": 10.7892728,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Pure Gym Nyborg",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017983446",
+    "sport": "fitness",
+    "website": "http://www.fitnessworld.dk/center/fitness-world-nyborg"
+  }
+},
+{
+  "type": "node",
+  "id": 1945583609,
+  "lat": 55.3625614,
+  "lon": 10.3506944,
+  "tags": {
+    "branch": "Bondovej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "767826",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "05:00-24:00",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017173924",
+    "website": "http://www.fitnessworld.dk/center/fitness-world-bondovej"
+  }
+},
+{
+  "type": "node",
+  "id": 1945583610,
+  "lat": 55.3948859,
+  "lon": 10.3664679,
+  "tags": {
+    "branch": "Odense Grønløkkevej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "fvst:navnelbnr": "126232",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "PH,Mo-Su 05:00-24:00",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1015557385",
+    "sport": "fitness",
+    "website": "https://www.fitnessworld.com/dk2/find-center/odense-c-groenloekkevej"
+  }
+},
+{
+  "type": "node",
+  "id": 1945583611,
+  "lat": 55.3681758,
+  "lon": 10.3932436,
+  "tags": {
+    "branch": "Odense Odensevej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:name": "Fitness World - Odense S Odensevej (C174)",
+    "fvst:navnelbnr": "767800",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref": "C174",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017088455",
+    "sport": "fitness",
+    "website": "https://www.fitnessworld.com/dk2/find-center/odense-s-odensevej"
+  }
+},
+{
+  "type": "node",
+  "id": 1945583612,
+  "lat": 55.3966041,
+  "lon": 10.3831498,
+  "tags": {
+    "alt_name": "Fitness World Slotscenter",
+    "branch": "Odense Slotscenter",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "fvst:navnelbnr": "126230",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1015131051"
+  }
+},
+{
+  "type": "node",
+  "id": 1945583613,
+  "lat": 55.4144231,
+  "lon": 10.3407275,
+  "tags": {
+    "branch": "Odense Tarupvej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:name": "Fitness World - Odense NV Tarupvej (C192)",
+    "fvst:navnelbnr": "767929",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017316482",
+    "sport": "fitness",
+    "website": "http://www.fitnessworld.dk/center/fitness-world-tarupvej"
+  }
+},
+{
+  "type": "node",
+  "id": 1945583616,
+  "lat": 55.3350349,
+  "lon": 8.7727465,
+  "tags": {
+    "branch": "Ribe",
+    "leisure": "fitness_centre",
+    "name": "Local Fitness",
+    "opening_hours": "Mo,Fr 09:00-12:00; We 09:00-13:00; Th 12:00-16:00",
+    "website": "https://www.localfitness.dk/center/ribe"
+  }
+},
+{
+  "type": "node",
+  "id": 1945583617,
+  "lat": 56.2018084,
+  "lon": 10.2447135,
+  "tags": {
+    "branch": "Risskov",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "check_date": "2025-06-13",
+    "fvst:navnelbnr": "126118",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1016182164"
+  }
+},
+{
+  "type": "node",
+  "id": 1945583618,
+  "lat": 56.1872046,
+  "lon": 9.5593288,
+  "tags": {
+    "branch": "Silkeborg Stagehøjvej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "fvst:name": "Fitness World - Silkeborg Stagehøjvej (C199)",
+    "fvst:navnelbnr": "767940",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017316563",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 1945583619,
+  "lat": 56.1730270,
+  "lon": 9.5579400,
+  "tags": {
+    "branch": "Silkeborg",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "126117",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1015557180"
+  }
+},
+{
+  "type": "node",
+  "id": 1945583622,
+  "lat": 54.9200573,
+  "lon": 9.8077353,
+  "tags": {
+    "branch": "Sønderborg",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "fvst:navnelbnr": "126282",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017983373"
+  }
+},
+{
+  "type": "node",
+  "id": 1945583640,
+  "lat": 56.1318740,
+  "lon": 10.1584109,
+  "tags": {
+    "branch": "Viby",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "126197",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1015557245",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 1945583647,
+  "lat": 55.2480177,
+  "lon": 9.3080748,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Fitness World Vojens",
+    "sport": "fitness",
+    "website": "http://www.fitnessworld.dk/center/fitness-world-vojens"
+  }
+},
+{
+  "type": "node",
+  "id": 1945583653,
+  "lat": 56.1696619,
+  "lon": 10.1937077,
+  "tags": {
+    "branch": "Århus Jens Baggesens Vej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:name": "Fitness World - Jens Baggesens vej (C113)",
+    "fvst:navnelbnr": "766155",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "PH,Mo-Su 05:00-24:00",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1015131299",
+    "sport": "fitness",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1945583672,
+  "lat": 56.1680683,
+  "lon": 10.1612410,
+  "tags": {
+    "branch": "Viborgvej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "126116",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "05:00-23:59",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1015131833"
+  }
+},
+{
+  "type": "node",
+  "id": 1946625994,
+  "lat": 55.8710343,
+  "lon": 12.3577002,
+  "tags": {
+    "branch": "Allerød",
+    "brand": "PureGym",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "operator": "PureGym",
+    "personal_trainer": "yes",
+    "sport": "fitness",
+    "website": "https://www.puregym.dk/find-center/alleroed-banetorvet"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626003,
+  "lat": 55.7296181,
+  "lon": 12.3579672,
+  "tags": {
+    "branch": "Ballerup",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:name": "Fitness World Ballerup Kosttilskud",
+    "fvst:navnelbnr": "127389",
+    "leisure": "fitness_centre",
+    "level": "2",
+    "name": "PureGym",
+    "opening_hours": "Mo-Su 05:30-22:00",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1015428526",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626009,
+  "lat": 55.8413612,
+  "lon": 12.4400470,
+  "tags": {
+    "branch": "Birkerød Kongevej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017173878",
+    "sport": "fitness",
+    "website": "https://www.puregym.dk/find-center/birkeroed-kongevej"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626014,
+  "lat": 55.6673030,
+  "lon": 12.4383494,
+  "tags": {
+    "branch": "Brøndby",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:name": "Fitness World Brøndby Kosttilskud",
+    "fvst:navnelbnr": "127994",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours:signed": "no",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1015429204",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626035,
+  "lat": 55.6830906,
+  "lon": 12.5524718,
+  "tags": {
+    "branch": "Frederiksberg Forum",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:name": "Fitness World Forum Kosttilskud",
+    "fvst:navnelbnr": "127379",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1016479752",
+    "sport": "fitness",
+    "website": "http://www.fitnessworld.dk/center/fitness-world-forum"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626046,
+  "lat": 55.8395269,
+  "lon": 12.0643280,
+  "tags": {
+    "fvst:name": "Fitness World - Frederikssund Falkenborggården (C171)",
+    "fvst:navnelbnr": "767795",
+    "leisure": "fitness_centre",
+    "name": "Fitness World Frederikssund",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017025380",
+    "sport": "fitness",
+    "website": "http://www.fitnessworld.dk/center/fitness-world-frederikssund"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626056,
+  "lat": 55.7386120,
+  "lon": 12.5378949,
+  "tags": {
+    "branch": "Gentofte",
+    "fvst:name": "Fitness World Gentofte Kosttilskud",
+    "fvst:navnelbnr": "127393",
+    "leisure": "fitness_centre",
+    "name": "Pure Gym Lyngbyvej",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1014946035",
+    "sport": "fitness",
+    "website": "http://www.fitnessworld.dk/center/fitness-world-gentofte"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626064,
+  "lat": 56.1112020,
+  "lon": 12.3299312,
+  "tags": {
+    "branch": "Gilleleje Fiskerbakken",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:name": "Fitness World - Gilleleje Fiskerbakken (C179)",
+    "fvst:navnelbnr": "767827",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017173592",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626067,
+  "lat": 55.6639723,
+  "lon": 12.4016945,
+  "tags": {
+    "branch": "Glostrup",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "leisure": "fitness_centre",
+    "name": "PureGym"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626072,
+  "lat": 55.5987709,
+  "lon": 12.3274148,
+  "tags": {
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "leisure": "fitness_centre",
+    "name": "PureGym"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626078,
+  "lat": 55.5905648,
+  "lon": 12.2984612,
+  "tags": {
+    "branch": "Greve",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:name": "Fitness World Greve Kosttilskud",
+    "fvst:navnelbnr": "127384",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017983535",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626088,
+  "lat": 56.0633108,
+  "lon": 12.2825654,
+  "tags": {
+    "branch": "Græsted",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "sport": "fitness",
+    "website": "http://www.fitnessworld.dk/center/fitness-world-graested"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626095,
+  "lat": 55.7253403,
+  "lon": 12.4160534,
+  "tags": {
+    "branch": "Herlev",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:name": "Fitness World - Herlev Stålen (C120)",
+    "fvst:navnelbnr": "127392",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1015131477",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626111,
+  "lat": 55.9329875,
+  "lon": 12.2853065,
+  "tags": {
+    "branch": "Hillerød",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:name": "Fitness World Hillerød Kosttilskud",
+    "fvst:navnelbnr": "127396",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "Mo-Su 05:00-24:00",
+    "ref:DK:cvr": "25652991",
+    "sport": "fitness",
+    "website": "https://www.puregym.dk/find-center/hilleroed-frejasvej"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626112,
+  "lat": 55.7095419,
+  "lon": 12.4810239,
+  "tags": {
+    "branch": "Husum",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:name": "Fitness World Husum Kosttilskud",
+    "fvst:navnelbnr": "127378",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1014850178",
+    "sport": "fitness",
+    "website": "http://www.fitnessworld.dk/center/fitness-world-husum"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626115,
+  "lat": 55.8788434,
+  "lon": 12.4987013,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Fitness World Hørsholm",
+    "sport": "fitness",
+    "website": "http://www.fitnessworld.dk/center/fitness-world-hoersholm"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626133,
+  "lat": 55.6507568,
+  "lon": 12.5108247,
+  "tags": {
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "check_date": "2025-09-17",
+    "check_date:opening_hours": "2025-09-17",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "05:00-24:00",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626135,
+  "lat": 55.7218740,
+  "lon": 12.5409464,
+  "tags": {
+    "branch": "København Emdrup Station",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "sport": "fitness",
+    "website": "http://www.fitnessworld.dk/center/fitness-world-emdrup-station"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626137,
+  "lat": 55.6569690,
+  "lon": 12.6043943,
+  "tags": {
+    "branch": "Kbh S Englandsvej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "767850",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017316474",
+    "sport": "fitness",
+    "website": "https://www.fitnessworld.dk/center/fitness-world-englandsvej"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626140,
+  "lat": 55.6708078,
+  "lon": 12.5570237,
+  "tags": {
+    "branch": "Gasværksvej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "check_date": "2025-10-27",
+    "fvst:name": "Fitness World Vesterbro Kosttilskud",
+    "fvst:navnelbnr": "127374",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1015130543",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626153,
+  "lat": 55.6965287,
+  "lon": 12.5510063,
+  "tags": {
+    "branch": "Jagtvej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:name": "Normal",
+    "fvst:navnelbnr": "767943",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017807087",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626168,
+  "lat": 55.6613686,
+  "lon": 12.6099453,
+  "tags": {
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "leisure": "fitness_centre",
+    "name": "PureGym"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626173,
+  "lat": 55.6985181,
+  "lon": 12.5364747,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Fitness World København Nordre Fasanvej",
+    "sport": "fitness",
+    "website": "http://www.fitnessworld.dk/center/fitness-world-ndr.-fasanvej"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626178,
+  "lat": 55.7219293,
+  "lon": 12.5777494,
+  "tags": {
+    "branch": "Kbh Ø Strandvejen",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:name": "Fitness World - Kbh Ø Strandvejen (C172)",
+    "fvst:navnelbnr": "767796",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017025437"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626184,
+  "lat": 55.6782088,
+  "lon": 12.5623173,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Power House København"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626189,
+  "lat": 55.7067616,
+  "lon": 12.5873054,
+  "tags": {
+    "branch": "Århusgade",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "Mo-Su 05:00-24:00",
+    "opening_hours:signed": "no",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1015131515",
+    "website": "https://www.puregym.dk/find-center/kbh-oe-aarhusgade",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626194,
+  "lat": 55.4750332,
+  "lon": 12.1757291,
+  "tags": {
+    "branch": "Køge",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "717543",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017983748",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626199,
+  "lat": 55.7688733,
+  "lon": 12.5039159,
+  "tags": {
+    "branch": "Lyngby",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:name": "Fitness World Lyngby Kosttilskud",
+    "fvst:navnelbnr": "127390",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1016320273"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626205,
+  "lat": 55.7485909,
+  "lon": 12.3187172,
+  "tags": {
+    "branch": "Måløv",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "fvst:name": "Fitness World Måløv Kosttilskud",
+    "fvst:navnelbnr": "127391",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1016511168",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626210,
+  "lat": 54.7683352,
+  "lon": 11.8677224,
+  "tags": {
+    "brand": "MimoGym",
+    "leisure": "fitness_centre",
+    "name": "MimoGym",
+    "not:brand:wikidata": "Q12311466",
+    "opening_hours": "24/7",
+    "sport": "fitness",
+    "website": "https://mimogym.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626216,
+  "lat": 55.2330843,
+  "lon": 11.7580451,
+  "tags": {
+    "branch": "Næstved Dania",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:name": "Fitness World - Næstved Dania (C187)",
+    "fvst:navnelbnr": "767844",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017173843",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626221,
+  "lat": 55.2304189,
+  "lon": 11.7702488,
+  "tags": {
+    "branch": "Næstved Grønvej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "767822",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017088463",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626226,
+  "lat": 55.4469454,
+  "lon": 11.7874122,
+  "tags": {
+    "branch": "Ringsted",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "fvst:navnelbnr": "128703",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1016290765"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626232,
+  "lat": 55.6406985,
+  "lon": 12.0890504,
+  "tags": {
+    "branch": "Roskilde",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "fvst:navnelbnr": "766160",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017983489",
+    "sport": "fitness",
+    "website": "http://www.fitnessworld.dk/center/fitness-world-roskilde"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626236,
+  "lat": 55.7472446,
+  "lon": 11.9558618,
+  "tags": {
+    "branch": "Skiby",
+    "brand": "Fair Fitness",
+    "leisure": "fitness_centre",
+    "name": "Fair Fitness",
+    "sport": "fitness",
+    "website": "https://fairfit.dk/skibby/"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626241,
+  "lat": 55.3969854,
+  "lon": 11.3402877,
+  "tags": {
+    "branch": "Slagelse Bornholmsvej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "fvst:navnelbnr": "767848",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref": "C189",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017173916",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626246,
+  "lat": 55.7678671,
+  "lon": 12.1954275,
+  "tags": {
+    "branch": "Stenløse Centertorvet",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017173835",
+    "website": "https://www.fitnessworld.com/dk2/find-center/stenloese-centertorvet"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626256,
+  "lat": 55.7395909,
+  "lon": 12.4932893,
+  "tags": {
+    "branch": "Søborg",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:name": "Fitness World - Søborg Telefonvej (C176)",
+    "fvst:navnelbnr": "767823",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017088528",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626257,
+  "lat": 55.6517607,
+  "lon": 12.3028001,
+  "tags": {
+    "branch": "Taastrup",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "Mo-Su 05:00-00:00",
+    "sport": "fitness",
+    "website": "https://www.puregym.dk/find-center/taastrup-torv-taastrup"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626262,
+  "lat": 55.6674858,
+  "lon": 12.5134815,
+  "tags": {
+    "fvst:name": "Fitness World Valby Kosttilskud",
+    "fvst:navnelbnr": "127382",
+    "leisure": "fitness_centre",
+    "name": "Fitness World Valby Mosedalvej",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1015131302",
+    "sport": "fitness",
+    "website": "http://www.fitnessworld.dk/center/fitness-world-valby"
+  }
+},
+{
+  "type": "node",
+  "id": 1946626266,
+  "lat": 55.7822148,
+  "lon": 12.3615574,
+  "tags": {
+    "branch": "Værløse",
+    "check_date": "2023-08-16",
+    "fvst:name": "Fitness World Værløse Kosttilskud",
+    "fvst:navnelbnr": "127394",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017983578",
+    "sport": "fitness",
+    "website": "https://www.puregym.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 2306155131,
+  "lat": 55.4098422,
+  "lon": 10.3854485,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Løfteriet"
+  }
+},
+{
+  "type": "node",
+  "id": 2347031535,
+  "lat": 55.7249283,
+  "lon": 12.4393379,
+  "tags": {
+    "branch": "Herlev",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "email": "herlev@sats.com",
+    "fvst:navnelbnr": "551194",
+    "leisure": "fitness_centre",
+    "level": "1;2",
+    "name": "SATS",
+    "old_name": "fitness dk",
+    "opening_hours": "Mo-Th 06:00-22:00; Fr 06:00-20:00; Sa 07:00-18:00; Su 07:00-20:00",
+    "phone": "+45 72 22 02 09",
+    "ref:DK:cvr": "20370599",
+    "ref:DK:cvr:pnummer": "1017823953",
+    "ref:sats": "421",
+    "website": "https://www.sats.dk/fitnesscenter/sjaelland/sats-herlev/"
+  }
+},
+{
+  "type": "node",
+  "id": 2936449601,
+  "lat": 55.6642780,
+  "lon": 12.6256890,
+  "tags": {
+    "branch": "Lergravsvej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "fvst:navnelbnr": "1252852",
+    "internet_access": "wlan",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "Mo-Su 05:00-00:00",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1020198199",
+    "website": "https://www.puregym.dk/find-center/kbh-s-lergravsvej",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 3096058127,
+  "lat": 56.1387260,
+  "lon": 10.1789271,
+  "tags": {
+    "branch": "Århus S Skanderborgvej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "713633",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "24/7",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1022001708"
+  }
+},
+{
+  "type": "node",
+  "id": 3359335823,
+  "lat": 55.8454890,
+  "lon": 12.0677430,
+  "tags": {
+    "check_date": "2025-07-07",
+    "fvst:navnelbnr": "531061",
+    "leisure": "fitness_centre",
+    "name": "Frederikssund Motion Center",
+    "phone": "+4547313333",
+    "ref:DK:cvr": "11574548",
+    "sport": "fitness",
+    "website": "https://frederikssundmotioncenter.dk/",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 3402665065,
+  "lat": 54.9170798,
+  "lon": 9.8117425,
+  "tags": {
+    "alt_name": "Fitness Syd",
+    "fvst:navnelbnr": "77042",
+    "leisure": "fitness_centre",
+    "name": "Sønderborg Fitness",
+    "ref:DK:cvr": "28698364",
+    "ref:DK:cvr:pnummer": "1001364549",
+    "website": "https://fitnesssyd.dk"
+  }
+},
+{
+  "type": "node",
+  "id": 3452508011,
+  "lat": 55.3283231,
+  "lon": 11.1387870,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "LOOP",
+    "opening_hours": "Mo-Su 05:00-22:00"
+  }
+},
+{
+  "type": "node",
+  "id": 3811442572,
+  "lat": 55.7182795,
+  "lon": 12.4485001,
+  "tags": {
+    "branch": "Herlev BIG",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "574206",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1022002259"
+  }
+},
+{
+  "type": "node",
+  "id": 3899245989,
+  "lat": 55.9074561,
+  "lon": 8.5173794,
+  "tags": {
+    "email": "kontakt@pureperformancefitness.dk",
+    "leisure": "fitness_centre",
+    "name": "Pure Performance Fitness",
+    "opening_hours": "Mo-Su 05:00-22:00",
+    "personal_trainer": "yes",
+    "phone": "+4528302017",
+    "website": "https://www.pureperformancefitness.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 4204145897,
+  "lat": 55.6973814,
+  "lon": 12.5488728,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Nørrebro Fysioterapi & Træningscenter",
+    "phone": "+45 35 81 48 00",
+    "website": "https://noerrebrofysioterapi.dk/",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "node",
+  "id": 4261811189,
+  "lat": 54.9074413,
+  "lon": 9.7896688,
+  "tags": {
+    "email": "zielkes@zielkes.dk",
+    "leisure": "fitness_centre",
+    "name": "Zielke",
+    "opening_hours": "Mo-Fr 06:00-22:30; Sa-Su 06:00-20:00",
+    "phone": "+45 74 42 68 81",
+    "website": "https://www.zielkes.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 4329370009,
+  "lat": 55.7937046,
+  "lon": 12.1575561,
+  "tags": {
+    "check_date": "2023-05-08",
+    "leisure": "fitness_centre",
+    "name": "Purple Fitness",
+    "opening_hours": "Mo-Su 05:00-23:00"
+  }
+},
+{
+  "type": "node",
+  "id": 4370169201,
+  "lat": 55.1367985,
+  "lon": 15.1451012,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Svaneke Yoga"
+  }
+},
+{
+  "type": "node",
+  "id": 4382678703,
+  "lat": 55.2510111,
+  "lon": 8.8242468,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Roager Foreningsfitness"
+  }
+},
+{
+  "type": "node",
+  "id": 4455806490,
+  "lat": 56.1559111,
+  "lon": 10.1795971,
+  "tags": {
+    "branch": "Aarhus C / Karupvej",
+    "leisure": "fitness_centre",
+    "name": "Fit&Sund",
+    "ref:DK:cvr": "28655630",
+    "ref:DK:cvr:pnummer": "1012391060",
+    "sport": "fitness",
+    "website": "https://fitogsund.dk/c/huse/aarhus-c-karupvej"
+  }
+},
+{
+  "type": "node",
+  "id": 4470427892,
+  "lat": 55.8585488,
+  "lon": 9.8535509,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Fittnes"
+  }
+},
+{
+  "type": "node",
+  "id": 4493239651,
+  "lat": 55.3751520,
+  "lon": 10.0504550,
+  "tags": {
+    "email": "aarup@sportogfitness.dk",
+    "leisure": "fitness_centre",
+    "name": "Sport & Fitness Aarup",
+    "opening_hours": "Mo-Su 05:30-22:00",
+    "phone": "+45 40 54 88 09",
+    "website": "https://aarup.sportogfitness.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 4622108122,
+  "lat": 56.1106713,
+  "lon": 8.9789935,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "TræningsHuset - Lind"
+  }
+},
+{
+  "type": "node",
+  "id": 4671867545,
+  "lat": 55.7004290,
+  "lon": 12.5305023,
+  "tags": {
+    "female": "yes",
+    "leisure": "fitness_centre",
+    "male": "no",
+    "name": "Inzhape",
+    "website": "https://inzhape.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 4718005112,
+  "lat": 55.4696488,
+  "lon": 8.6991557,
+  "tags": {
+    "facebook": "https://www.facebook.com/brammingfitness.dk/",
+    "leisure": "fitness_centre",
+    "name": "Bramming Fitness",
+    "website": "https://www.brammingfitness.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 4757850257,
+  "lat": 57.0722469,
+  "lon": 9.9257494,
+  "tags": {
+    "branch": "Nørresundby",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "772104",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "05:00-24:00",
+    "phone": "+45 50 60 62 43",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1021282517",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 4792189701,
+  "lat": 55.9068390,
+  "lon": 12.4746175,
+  "tags": {
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "leisure": "fitness_centre",
+    "name": "PureGym"
+  }
+},
+{
+  "type": "node",
+  "id": 4872509214,
+  "lat": 56.4574872,
+  "lon": 10.0401306,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Fitness Studiet",
+    "source": "Kaart Ground Survey 2017",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 4878979931,
+  "lat": 55.6752450,
+  "lon": 12.5634595,
+  "tags": {
+    "branch": "KBH - Vesterport",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "email": "vesterport@sats.com",
+    "fvst:navnelbnr": "551203",
+    "leisure": "fitness_centre",
+    "name": "SATS KBH - Vesterport",
+    "opening_hours": "Mo-Th 05:30-22:00; Fr 05:30-21:00; Sa 07:00-19:00; Su 07:00-20:00",
+    "phone": "+45 82 11 00 00",
+    "ref:DK:cvr": "20370599",
+    "ref:DK:cvr:pnummer": "1014186413",
+    "ref:sats": "413",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-vesterport/"
+  }
+},
+{
+  "type": "node",
+  "id": 4883939640,
+  "lat": 55.7017618,
+  "lon": 12.5722892,
+  "tags": {
+    "branch": "KBH - Parken",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "check_date:opening_hours": "2022-08-20",
+    "email": "Parken@sats.com",
+    "fvst:navnelbnr": "551226",
+    "leisure": "fitness_centre",
+    "name": "SATS KBH - Parken",
+    "opening_hours": "Mo-Th 06:00-22:00; Fr 06:00-20:00; Sa 07:00-18:00; Su 07:00-20:00",
+    "phone": "+45 35 55 00 78",
+    "ref:DK:cvr": "20370599",
+    "ref:DK:cvr:pnummer": "1026371631",
+    "ref:sats": "420",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-parken/",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 4885880761,
+  "lat": 55.3928466,
+  "lon": 10.3640946,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Urban Gym",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 4888246708,
+  "lat": 55.6613013,
+  "lon": 12.6318655,
+  "tags": {
+    "alt_name": "SATS Danmark",
+    "branch": "Amager Strandvej",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "check_date": "2024-06-01",
+    "email": "amagerstrand@sats.com",
+    "fvst:navnelbnr": "559314",
+    "leisure": "fitness_centre",
+    "name": "SATS KBH",
+    "opening_hours": "Mo-Th 05:30-22:00; Fr 05:30-20:00; Sa 07:00-18:00; Su 07:00-20:00",
+    "phone": "+45 41 33 60 70",
+    "ref:DK:cvr": "20370599",
+    "ref:DK:cvr:pnummer": "1020149570",
+    "ref:sats": "428",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-amager-strand/"
+  }
+},
+{
+  "type": "node",
+  "id": 4888542837,
+  "lat": 55.6327337,
+  "lon": 12.6214683,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Fysio",
+    "opening_hours": "Mo-Th 06:00-21:30; Fr 06:00-19:00; PH,Sa,Su 08:00-16:00",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 4890164605,
+  "lat": 55.7040173,
+  "lon": 9.5310755,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Cross Cardio Fitness",
+    "operator": "Urban Gym",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 4898355986,
+  "lat": 56.1702757,
+  "lon": 9.5680889,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Silkeborg Sports Center",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 4976396376,
+  "lat": 56.6939508,
+  "lon": 9.4938062,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Krop & Yoga",
+    "sport": "yoga"
+  }
+},
+{
+  "type": "node",
+  "id": 5044926325,
+  "lat": 55.6684471,
+  "lon": 12.5620948,
+  "tags": {
+    "check_date": "2023-04-22",
+    "contact:facebook": "Butcherslab",
+    "contact:instagram": "Butcherslab",
+    "email": "info@butcherslab.dk",
+    "leisure": "fitness_centre",
+    "name": "Butcher's LAB",
+    "opening_hours": "Mo-Su 05:00-22:00",
+    "phone": "70232235",
+    "website": "https://butcherslab.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 5076070006,
+  "lat": 55.6668967,
+  "lon": 12.5864751,
+  "tags": {
+    "branch": "Scandinavia",
+    "brand": "SHC",
+    "leisure": "fitness_centre",
+    "name": "SHC Scandinavia",
+    "opening_hours": "Mo-Su 00:00-00:00",
+    "website": "https://sportinghealthclub.dk/shc-scandinavia/"
+  }
+},
+{
+  "type": "node",
+  "id": 5155164294,
+  "lat": 55.8356818,
+  "lon": 12.0647288,
+  "tags": {
+    "branch": "Frederikssund",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "check_date": "2024-10-31",
+    "email": "Frederikssund@sats.com",
+    "fvst:name": "SATS Danmark Frederikssund",
+    "fvst:navnelbnr": "732501",
+    "layer": "0",
+    "leisure": "fitness_centre",
+    "name": "SATS",
+    "opening_hours": "Mo-Th 05:30-22:00; Fr 05:30-20:00; Sa-Su 07:00-20:00",
+    "phone": "+45 70 30 16 88",
+    "ref:DK:cvr": "20370599",
+    "ref:DK:cvr:pnummer": "1022809381",
+    "ref:sats": "427",
+    "start_date": "2019-01-01",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-frederikssund/"
+  }
+},
+{
+  "type": "node",
+  "id": 5203118021,
+  "lat": 55.0584557,
+  "lon": 15.1346096,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Local Fitness Nexø",
+    "ref:DK:cvr": "33869150",
+    "ref:DK:cvr:pnummer": "1024910675",
+    "website": "https://www.localfitness.dk/center/nexo"
+  }
+},
+{
+  "type": "node",
+  "id": 5270606025,
+  "lat": 56.4140123,
+  "lon": 10.8929549,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Grenaa Fitness",
+    "opening_hours": "Mo-Su 06:00-23:00"
+  }
+},
+{
+  "type": "node",
+  "id": 5295777046,
+  "lat": 55.7048699,
+  "lon": 12.5443471,
+  "tags": {
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "Mo-Su 05:00-00:00",
+    "phone": "+45 50 60 62 45",
+    "website": "https://www.puregym.dk/find-center/kbh-tagensvej",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 5310397129,
+  "lat": 55.5185481,
+  "lon": 8.3682829,
+  "tags": {
+    "branch": "Hjerting / Esbjerg",
+    "leisure": "fitness_centre",
+    "name": "Fit&Sund",
+    "website": "https://fitogsund.dk/c/huse/hjerting-esbjerg"
+  }
+},
+{
+  "type": "node",
+  "id": 5338685722,
+  "lat": 55.4477982,
+  "lon": 12.1661557,
+  "tags": {
+    "brand": "LOOP Fitness",
+    "brand:wikidata": "Q18647221",
+    "leisure": "fitness_centre",
+    "name": "LOOP Fitness",
+    "opening_hours": "Mo-Su 05:00-24:00",
+    "phone": "+45 41 74 62 38",
+    "sport": "fitness;exercise",
+    "website": "https://loopfitness.dk/centre/loop-fitness-koege/"
+  }
+},
+{
+  "type": "node",
+  "id": 5419140590,
+  "lat": 55.7188020,
+  "lon": 9.5625000,
+  "tags": {
+    "fvst:navnelbnr": "731975",
+    "leisure": "fitness_centre",
+    "name": "Apollo Fitness",
+    "ref:DK:cvr": "38991442",
+    "ref:DK:cvr:pnummer": "1022907103",
+    "website": "https://www.apollofitness.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 5628383088,
+  "lat": 55.6223864,
+  "lon": 12.4213181,
+  "tags": {
+    "branch": "Brøndby Strand",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1019420643"
+  }
+},
+{
+  "type": "node",
+  "id": 5664554632,
+  "lat": 56.1653463,
+  "lon": 10.1333401,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "FitnessX"
+  }
+},
+{
+  "type": "node",
+  "id": 5671442252,
+  "lat": 56.1536948,
+  "lon": 10.2189596,
+  "tags": {
+    "check_date": "2022-11-17",
+    "leisure": "fitness_centre",
+    "name": "Aarhus Crossfit",
+    "opening_hours": "Mo-Th 06:00-21:00; Fr 06:00-19:00; Sa-Su 08:30-18:00",
+    "website": "https://aarhuscrossfit.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 5676162578,
+  "lat": 56.1559392,
+  "lon": 10.1831754,
+  "tags": {
+    "branch": "Frisko Aarhus",
+    "check_date": "2023-05-02",
+    "fvst:navnelbnr": "951310",
+    "leisure": "fitness_centre",
+    "name": "FitnessX",
+    "opening_hours": "Mo-Fr 05:00-22:00; Sa-Su 07:00-22:00",
+    "ref:DK:cvr": "41405341",
+    "ref:DK:cvr:pnummer": "1026015665",
+    "website": "https://fitnessx.dk/find-center/aarhus-frisko/"
+  }
+},
+{
+  "type": "node",
+  "id": 5681193814,
+  "lat": 56.1871555,
+  "lon": 10.2109242,
+  "tags": {
+    "branch": "Århus N Vejlby",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "772098",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref": "C235",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1019794470"
+  }
+},
+{
+  "type": "node",
+  "id": 5681193815,
+  "lat": 56.1884305,
+  "lon": 10.2145259,
+  "tags": {
+    "check_date": "2025-11-08",
+    "leisure": "fitness_centre",
+    "level": "1",
+    "name": "Fitness United",
+    "sport": "fitness",
+    "website": "https://www.sats.com/fitnesscenter/jylland/sats-arhus-risskov/"
+  }
+},
+{
+  "type": "node",
+  "id": 5686106272,
+  "lat": 56.1554964,
+  "lon": 10.1797459,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Ultimate Gym"
+  }
+},
+{
+  "type": "node",
+  "id": 5686106274,
+  "lat": 56.1547431,
+  "lon": 10.1812666,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "b:fit by Zeenta"
+  }
+},
+{
+  "type": "node",
+  "id": 5691809840,
+  "lat": 55.4852076,
+  "lon": 8.4920175,
+  "tags": {
+    "leisure": "fitness_centre"
+  }
+},
+{
+  "type": "node",
+  "id": 5692297927,
+  "lat": 56.1622124,
+  "lon": 10.2118332,
+  "tags": {
+    "branch": "Århus C. Nørreport",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "check_date": "2023-04-23",
+    "fvst:navnelbnr": "768251",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "PH,Mo-Su 05:00-24:00",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1018177532"
+  }
+},
+{
+  "type": "node",
+  "id": 5719417683,
+  "lat": 55.4140873,
+  "lon": 9.1027684,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Skrave Fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 5734941904,
+  "lat": 55.7954536,
+  "lon": 12.4741141,
+  "tags": {
+    "brand": "LOOP Fitness",
+    "brand:wikidata": "Q18647221",
+    "check_date": "2025-09-06",
+    "leisure": "fitness_centre",
+    "name": "LOOP Fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 5738366913,
+  "lat": 55.6236832,
+  "lon": 12.3883473,
+  "tags": {
+    "branch": "Vallensbæk",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "716488",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "Mo-Su 05:30-10:00",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1021606606"
+  }
+},
+{
+  "type": "node",
+  "id": 5764078960,
+  "lat": 55.8752740,
+  "lon": 12.3525715,
+  "tags": {
+    "email": "post@undergroundyoga.dk",
+    "leisure": "fitness_centre",
+    "name": "Underground Yoga",
+    "phone": "+45 93860603",
+    "sport": "yoga",
+    "website": "https://www.undergroundyoga.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 5802005680,
+  "lat": 55.6979732,
+  "lon": 12.5420376,
+  "tags": {
+    "branch": "Farumgade",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "fvst:navnelbnr": "760688",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "Mo-Su 05:30-22:00",
+    "phone": "+45 50606256",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1022967955",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 5809585765,
+  "lat": 55.6499227,
+  "lon": 12.5543485,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Dóttir Yoga & Juice Bar",
+    "sport": "yoga"
+  }
+},
+{
+  "type": "node",
+  "id": 5809585769,
+  "lat": 55.6477598,
+  "lon": 12.5522402,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Yum",
+    "opening_hours": "Mo-Sa 08:00-20:00; Su 08:30-18:00",
+    "sport": "yoga",
+    "website": "https://www.yum.dk"
+  }
+},
+{
+  "type": "node",
+  "id": 5832282557,
+  "lat": 56.4136890,
+  "lon": 10.8868617,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Gold Gym"
+  }
+},
+{
+  "type": "node",
+  "id": 5916933729,
+  "lat": 56.7180221,
+  "lon": 10.1145931,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "MyHeart Fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 5916933733,
+  "lat": 56.7158389,
+  "lon": 10.1149297,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Loop"
+  }
+},
+{
+  "type": "node",
+  "id": 5930807166,
+  "lat": 54.9855188,
+  "lon": 12.2845870,
+  "tags": {
+    "email": "vibe@yoganamnam.dk",
+    "leisure": "fitness_centre",
+    "name": "YogaNamNam Studio",
+    "phone": "+45 27282329",
+    "website": "http://www.yoganamnam.dk"
+  }
+},
+{
+  "type": "node",
+  "id": 5941086848,
+  "lat": 56.4628883,
+  "lon": 10.0376562,
+  "tags": {
+    "branch": "Randers Thors Bakke",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "fvst:navnelbnr": "574115",
+    "leisure": "fitness_centre",
+    "level": "1",
+    "name": "PureGym",
+    "note": "optager hele førstesalen",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1022001201"
+  }
+},
+{
+  "type": "node",
+  "id": 5955615123,
+  "lat": 55.6860225,
+  "lon": 12.5874245,
+  "tags": {
+    "email": "info@fitness-institute.dk",
+    "facebook": "https://www.facebook.com/Fitnessuddannelser/",
+    "leisure": "fitness_centre",
+    "name": "Fitness Institute",
+    "phone": "+45 42729413",
+    "website": "https://fitness-institute.dk"
+  }
+},
+{
+  "type": "node",
+  "id": 6150038217,
+  "lat": 55.8703759,
+  "lon": 12.3547486,
+  "tags": {
+    "email": "contact@theclubfitness.dk",
+    "leisure": "fitness_centre",
+    "level": "0",
+    "name": "The Club Fitness",
+    "phone": "+45 8877 7600",
+    "sport": "fitness;yoga",
+    "website": "https://theclubfitness.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 6208565153,
+  "lat": 55.6629519,
+  "lon": 12.6099829,
+  "tags": {
+    "check_date": "2025-03-18",
+    "leisure": "fitness_centre",
+    "name": "Form og Fitness",
+    "opening_hours": "Mo-Fr 06:00-22:00, Sa-Su 08:00-20:00",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 6334910932,
+  "lat": 55.2436133,
+  "lon": 8.9683507,
+  "tags": {
+    "leisure": "fitness_centre"
+  }
+},
+{
+  "type": "node",
+  "id": 6360263198,
+  "lat": 56.1433687,
+  "lon": 10.2006809,
+  "tags": {
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 6397292348,
+  "lat": 55.6867981,
+  "lon": 12.5034442,
+  "tags": {
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "fvst:navnelbnr": "1110618",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "Mo-Su 05:00-12:00",
+    "ref": "106",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1015130985"
+  }
+},
+{
+  "type": "node",
+  "id": 6399647310,
+  "lat": 55.6720513,
+  "lon": 12.5908971,
+  "tags": {
+    "email": "info@yogaflat.com",
+    "leisure": "fitness_centre",
+    "name": "The Yoga Flat",
+    "sport": "yoga",
+    "website": "https://www.yogaflat.com"
+  }
+},
+{
+  "type": "node",
+  "id": 6402856988,
+  "lat": 55.4873016,
+  "lon": 9.4655670,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Urban Gym",
+    "old_name": "Fitness World Vestre Ringgade",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1022002615",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 6416538086,
+  "lat": 55.6096053,
+  "lon": 8.4946641,
+  "tags": {
+    "brand": "LOOP Fitness",
+    "brand:wikidata": "Q18647221",
+    "facebook": "https://www.facebook.com/LoopFitnessVarde/",
+    "leisure": "fitness_centre",
+    "name": "LOOP Fitness",
+    "website": "https://loopfitness.com/da/varde/"
+  }
+},
+{
+  "type": "node",
+  "id": 6418955188,
+  "lat": 55.8108227,
+  "lon": 12.5140746,
+  "tags": {
+    "internet_access": "wlan",
+    "leisure": "fitness_centre",
+    "name": "Paul Bergsøe Kollegiet fitness centre",
+    "opening_hours": "Mo-Su,PH 00:00+"
+  }
+},
+{
+  "type": "node",
+  "id": 6431113886,
+  "lat": 55.6720147,
+  "lon": 12.5526861,
+  "tags": {
+    "branch": "Centralen",
+    "brand": "Arca",
+    "leisure": "fitness_centre",
+    "name": "Arca Centralen",
+    "opening_hours": "Ma-Fr 05:45-22:00; Sa-Su 07:45-20:00",
+    "website": "https://arca.dk/centralen/"
+  }
+},
+{
+  "type": "node",
+  "id": 6434733048,
+  "lat": 55.8408201,
+  "lon": 12.4312200,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "LOOP Birkerød",
+    "opening_hours": "Mo-Su 05:00-22:00",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 6466655173,
+  "lat": 55.6627330,
+  "lon": 12.5773091,
+  "tags": {
+    "branch": "Kbh S. Bryggen",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "fvst:navnelbnr": "768117",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1018118617"
+  }
+},
+{
+  "type": "node",
+  "id": 6499180324,
+  "lat": 55.5941251,
+  "lon": 11.8621190,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Go2Fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 6501523032,
+  "lat": 55.9202710,
+  "lon": 12.3146710,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Yogamandala",
+    "phone": "+45 25 21 05 85",
+    "sport": "yoga",
+    "website": "https://yogamandala.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 6568393384,
+  "lat": 55.6684003,
+  "lon": 12.5621736,
+  "tags": {
+    "brand": "CrossFit",
+    "brand:wikidata": "Q2072840",
+    "leisure": "fitness_centre",
+    "name": "CrossFit"
+  }
+},
+{
+  "type": "node",
+  "id": 6570661360,
+  "lat": 55.6717271,
+  "lon": 12.5793239,
+  "tags": {
+    "branch": "KBH - Blox",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "email": "Blox@sats.com",
+    "leisure": "fitness_centre",
+    "name": "SATS KBH - Blox",
+    "opening_hours": "Mo-Th 05:30-22:00; Fr 05:30-20:00; Sa 07:00-18:00; Su 07:00-20:00",
+    "phone": "+45 88 63 23 20",
+    "ref:sats": "429",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-blox/"
+  }
+},
+{
+  "type": "node",
+  "id": 6790551952,
+  "lat": 55.7088550,
+  "lon": 12.5748297,
+  "tags": {
+    "branch": "Klubben",
+    "brand": "Arca",
+    "leisure": "fitness_centre",
+    "name": "Arca Klubben",
+    "opening_hours": "05:45-22:00; Sa-Su 07:45-20:00",
+    "website": "https://arca.dk/klubben/",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 6797188068,
+  "lat": 55.7122748,
+  "lon": 12.5762602,
+  "tags": {
+    "branch": "Nygårdsvej",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "email": "nygardsvej@sats.com",
+    "fvst:navnelbnr": "551191",
+    "leisure": "fitness_centre",
+    "name": "SATS",
+    "opening_hours": "Mo-Th 05:30-24:00; Fr 05:30-21:00; Sa-Su 07:00-20:00",
+    "phone": "+45 39 12 90 00",
+    "ref:DK:cvr": "20370599",
+    "ref:DK:cvr:pnummer": "1014186324",
+    "ref:sats": "410",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-nygardsvej/",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 6833041639,
+  "lat": 55.4675600,
+  "lon": 8.4516736,
+  "tags": {
+    "leisure": "fitness_centre",
+    "level": "0",
+    "name": "Hotel Britannia Fitness",
+    "source": "https://www.ugeavisen-esbjerg.dk/esbjerg/Spaendende-Britannia-aabner-op-for-fitness/artikel/415999",
+    "source:name": "https://ugeavisenesbjerg.e-pages.pub/titles/ugeavisenesbjerg/7987/publications/426/pages/6"
+  }
+},
+{
+  "type": "node",
+  "id": 6893808629,
+  "lat": 56.3905367,
+  "lon": 8.7977797,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Skave Fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 6964820050,
+  "lat": 55.7083396,
+  "lon": 12.5581390,
+  "tags": {
+    "check_date": "2023-03-29",
+    "leisure": "fitness_centre",
+    "name": "Loop"
+  }
+},
+{
+  "type": "node",
+  "id": 7115480809,
+  "lat": 55.4661637,
+  "lon": 8.6998678,
+  "tags": {
+    "facebook": "https://facebook.com/nemfitness/",
+    "leisure": "fitness_centre",
+    "name": "Nem Fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 7124791843,
+  "lat": 55.6637681,
+  "lon": 12.6224008,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "[jo:ga]"
+  }
+},
+{
+  "type": "node",
+  "id": 7156944316,
+  "lat": 55.5057475,
+  "lon": 8.4565696,
+  "tags": {
+    "facebook": "https://www.facebook.com/profile.php?id=61562264504361",
+    "leisure": "fitness_centre",
+    "name": "CrossFit Halo",
+    "opening_date": "2024-11-01",
+    "ref:DK:cvr": "44784041",
+    "website": "https://crossfithalo.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 7243417352,
+  "lat": 55.7027632,
+  "lon": 12.5484306,
+  "tags": {
+    "branch": "Nørrebro",
+    "brand": "LOOP Fitness",
+    "brand:wikidata": "Q18647221",
+    "check_date": "2023-04-03",
+    "email": "noerrebro@loopfitness.dk",
+    "leisure": "fitness_centre",
+    "name": "LOOP Fitness",
+    "opening_hours": "Mo-Su 05:00-22:00",
+    "phone": "+4541746335",
+    "sport": "fitness",
+    "website": "https://loopfitness.dk",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 7294403568,
+  "lat": 55.4658454,
+  "lon": 8.6993369,
+  "tags": {
+    "facebook": "https://facebook.com/goyogabramming/",
+    "leisure": "fitness_centre",
+    "name": "Go-yoga Bramming",
+    "source": "https://www.ugeavisen-bramming.dk/bramming/Goyoga-i-Bramming-i-fuld-gang/artikel/440981",
+    "sport": "yoga",
+    "website": "https://www.goyogabramming.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 7362395522,
+  "lat": 56.6454833,
+  "lon": 9.9713305,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Mariager motionscenter",
+    "opening_hours": "Mo-Su 06:00 - 23:00",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 7376776162,
+  "lat": 55.5673606,
+  "lon": 9.7575208,
+  "tags": {
+    "check_date:opening_hours": "2025-09-20",
+    "contact:facebook": "PERFORMBYIRANI",
+    "contact:instagram": "performbyirani",
+    "leisure": "fitness_centre",
+    "name": "Perform BY IRANI",
+    "opening_hours:signed": "no",
+    "sport": "fitness;exercise",
+    "website": "https://www.facebook.com/PERFORMBYIRANI/"
+  }
+},
+{
+  "type": "node",
+  "id": 7473224311,
+  "lat": 55.6325393,
+  "lon": 8.4831076,
+  "tags": {
+    "branch": "Varde",
+    "check_date": "2025-10-27",
+    "fixme": "no cvr registration at check_date",
+    "leisure": "fitness_centre",
+    "name": "Club Energy Fitness",
+    "website": "https://clubenergyfitness.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 7527304493,
+  "lat": 55.4685243,
+  "lon": 8.4398764,
+  "tags": {
+    "facebook": "https://facebook.com/loopesbjerg/",
+    "leisure": "fitness_centre",
+    "name": "Loop",
+    "website": "https://loopfitness.dk/centre/loop-fitness-esbjerg/"
+  }
+},
+{
+  "type": "node",
+  "id": 7537276964,
+  "lat": 56.8894000,
+  "lon": 10.1129000,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Kongerslev Fitnesscenter"
+  }
+},
+{
+  "type": "node",
+  "id": 7556419265,
+  "lat": 55.3811904,
+  "lon": 10.4204078,
+  "tags": {
+    "bike_friend": "yes",
+    "leisure": "fitness_centre",
+    "name": "Frank Institute of Sports",
+    "website": "https://www.frankinstituteofsports.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 7685220548,
+  "lat": 55.7787425,
+  "lon": 12.5243171,
+  "tags": {
+    "branch": "Lundtoftegårdsvej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "1109534",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1025592316"
+  }
+},
+{
+  "type": "node",
+  "id": 7717864185,
+  "lat": 56.6953651,
+  "lon": 8.2044171,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Thyborøn Motionscenter"
+  }
+},
+{
+  "type": "node",
+  "id": 7740545895,
+  "lat": 55.7037698,
+  "lon": 12.5548778,
+  "tags": {
+    "brand": "Arca",
+    "leisure": "fitness_centre",
+    "name": "Arca Smedjen",
+    "opening_hours": "Mo-Fr 05:45-22:00; Sa-Su 07:45-20:00",
+    "sport": "crossfit",
+    "website": "https://arca.dk/smedjen/"
+  }
+},
+{
+  "type": "node",
+  "id": 7780381165,
+  "lat": 55.5320946,
+  "lon": 9.7765154,
+  "tags": {
+    "brand": "LOOP Fitness",
+    "brand:wikidata": "Q18647221",
+    "leisure": "fitness_centre",
+    "name": "LOOP Fitness",
+    "phone": "+45 41 74 62 63",
+    "website": "https://loopfitness.dk/centre/loop-fitness-strib/"
+  }
+},
+{
+  "type": "node",
+  "id": 7800664320,
+  "lat": 56.9563589,
+  "lon": 8.6921328,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Loop"
+  }
+},
+{
+  "type": "node",
+  "id": 7803371335,
+  "lat": 56.5627006,
+  "lon": 9.0288927,
+  "tags": {
+    "branch": "Skive",
+    "email": "skive@fitogsund.dk",
+    "leisure": "fitness_centre",
+    "name": "Fit&Sund Skive",
+    "opening_hours": "24/7",
+    "phone": "+4597524040",
+    "website": "https://fitogsund.dk/c/huse/skive"
+  }
+},
+{
+  "type": "node",
+  "id": 7803371341,
+  "lat": 56.5656423,
+  "lon": 9.0311097,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "LOOP Skive"
+  }
+},
+{
+  "type": "node",
+  "id": 7803371343,
+  "lat": 56.5656034,
+  "lon": 9.0268884,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Fit&Sund Skive"
+  }
+},
+{
+  "type": "node",
+  "id": 7807117810,
+  "lat": 55.7954520,
+  "lon": 12.1588586,
+  "tags": {
+    "check_date": "2023-05-08",
+    "leisure": "fitness_centre",
+    "name": "Multifitness"
+  }
+},
+{
+  "type": "node",
+  "id": 7807117816,
+  "lat": 55.7933825,
+  "lon": 12.1569693,
+  "tags": {
+    "check_date": "2023-05-08",
+    "leisure": "fitness_centre",
+    "name": "LOOP",
+    "opening_hours": "Mo-Su 05:00-22:00"
+  }
+},
+{
+  "type": "node",
+  "id": 7843844350,
+  "lat": 55.5732188,
+  "lon": 11.7844087,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Stestrup Fritidsgård"
+  }
+},
+{
+  "type": "node",
+  "id": 7888218670,
+  "lat": 55.7153971,
+  "lon": 10.0107128,
+  "tags": {
+    "email": "juelsminde@fitogsund.dk",
+    "leisure": "fitness_centre",
+    "name": "Fit&Sund",
+    "phone": "+45 7569 3299",
+    "sport": "fitness",
+    "website": "https://fitogsund.dk/c/huse/juelsminde"
+  }
+},
+{
+  "type": "node",
+  "id": 7994906335,
+  "lat": 55.6520387,
+  "lon": 11.2916227,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Det Lille Træningscenter",
+    "opening_hours": "Mo-Su 06:00-22:00"
+  }
+},
+{
+  "type": "node",
+  "id": 8049679203,
+  "lat": 56.2023401,
+  "lon": 10.2469209,
+  "tags": {
+    "brand": "LOOP Fitness",
+    "brand:wikidata": "Q18647221",
+    "leisure": "fitness_centre",
+    "name": "LOOP Fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 8074735923,
+  "lat": 55.6477571,
+  "lon": 12.2694130,
+  "tags": {
+    "email": "info@fitnesstaastrup.dk",
+    "leisure": "fitness_centre",
+    "name": "Fitness Taastrup",
+    "opening_hours": "Mo-Su 05:00-24:00",
+    "phone": "+4532200100",
+    "sport": "fitness;pilates;yoga;boxing;crossfit",
+    "website": "https://www.fitnesstaastrup.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 8098941843,
+  "lat": 55.6722190,
+  "lon": 12.5589633,
+  "tags": {
+    "fvst:navnelbnr": "944987",
+    "leisure": "fitness_centre",
+    "name": "Tiger Sport Copenhagen",
+    "ref:DK:cvr": "40470492",
+    "website": "https://tigersport.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 8109952224,
+  "lat": 55.7003640,
+  "lon": 12.5305240,
+  "tags": {
+    "fvst:navnelbnr": "661763",
+    "leisure": "fitness_centre",
+    "name": "InZhape",
+    "ref:DK:cvr": "37041459"
+  }
+},
+{
+  "type": "node",
+  "id": 8121859565,
+  "lat": 56.6378858,
+  "lon": 9.7966075,
+  "tags": {
+    "fvst:navnelbnr": "23936",
+    "leisure": "fitness_centre",
+    "name": "Hobro Helsesport",
+    "phone": "+45 30321444",
+    "ref:DK:cvr": "12171897",
+    "website": "http://helsesport.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 8127622739,
+  "lat": 55.4331277,
+  "lon": 11.7913699,
+  "tags": {
+    "fvst:navnelbnr": "906575",
+    "leisure": "fitness_centre",
+    "name": "Fitness Lab",
+    "ref:DK:cvr": "37365688",
+    "website": "https://fitnesslab.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 8211607338,
+  "lat": 55.6710950,
+  "lon": 12.5936040,
+  "tags": {
+    "check_date": "2025-07-22",
+    "check_date:opening_hours": "2023-05-14",
+    "fvst:name": "Luca Desun",
+    "leisure": "fitness_centre",
+    "name": "Hot Yoga CPH",
+    "opening_hours:signed": "no",
+    "ref:DK:cvr:pnummer": "1026359259",
+    "website": "https://hotyogacph.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 8229143754,
+  "lat": 56.1243620,
+  "lon": 12.3084862,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "DyrkYoga.dk",
+    "website": "https://www.dyrkyoga.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 8254386586,
+  "lat": 55.6921776,
+  "lon": 12.5367355,
+  "tags": {
+    "branch": "Borups Allé",
+    "brand": "SHC",
+    "leisure": "fitness_centre",
+    "name": "SHC Borups Allé",
+    "opening_hours": "Mo-Th 05:00-23:59; Fr 05:00-23:59; Sa 05:00-23:559; Su 05:00-23:59",
+    "website": "https://sportinghealthclub.dk/shc-borups-alle/"
+  }
+},
+{
+  "type": "node",
+  "id": 8384372801,
+  "lat": 55.6845518,
+  "lon": 12.5387296,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Kaatsu Fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 8401697108,
+  "lat": 56.1685474,
+  "lon": 10.1916610,
+  "tags": {
+    "description": "kampsport træning center",
+    "leisure": "fitness_centre",
+    "name": "Krav Maga Aarhus",
+    "website": "https://www.kravmagaaarhus.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 8564193726,
+  "lat": 55.6677017,
+  "lon": 12.5970063,
+  "tags": {
+    "check_date:opening_hours": "2025-08-04",
+    "leisure": "fitness_centre",
+    "name": "Alex Beck",
+    "opening_hours:signed": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 8582555169,
+  "lat": 55.6552087,
+  "lon": 12.3949076,
+  "tags": {
+    "branch": "Brøndbyvester",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "fvst:navnelbnr": "574217",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "PH,Mo-Su 05:00-24:00",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1022002542",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 8595596434,
+  "lat": 55.6440412,
+  "lon": 12.2747620,
+  "tags": {
+    "branch": "Taastrup",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "email": "taastrup@sats.com",
+    "fvst:navnelbnr": "551188",
+    "leisure": "fitness_centre",
+    "level": "3",
+    "name": "SATS Taastrup",
+    "opening_hours": "Mo-Th 06:00-22:00; Fr 06:00-20:00; Sa 07:00-19:00; Su 07:00-20:00",
+    "phone": "+45 43 71 05 43",
+    "ref:DK:cvr": "20370599",
+    "ref:DK:cvr:pnummer": "1014839689",
+    "ref:sats": "438",
+    "sport": "fitness",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-taastrup/"
+  }
+},
+{
+  "type": "node",
+  "id": 8598925317,
+  "lat": 55.6636449,
+  "lon": 12.4745684,
+  "tags": {
+    "branch": "Hvidovre C",
+    "brand": "PureGym Hvidovre Stationscenter",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "1416405",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1018177435"
+  }
+},
+{
+  "type": "node",
+  "id": 8665305333,
+  "lat": 56.1648253,
+  "lon": 9.5421575,
+  "tags": {
+    "fvst:navnelbnr": "788646",
+    "leisure": "fitness_centre",
+    "name": "Go Motion",
+    "ref:DK:cvr": "37138355",
+    "ref:DK:cvr:pnummer": "1020830294",
+    "website": "https://gomotion.nu/"
+  }
+},
+{
+  "type": "node",
+  "id": 8674392819,
+  "lat": 56.4831294,
+  "lon": 8.7792353,
+  "tags": {
+    "fvst:navnelbnr": "551174",
+    "leisure": "fitness_centre",
+    "name": "Vinderup Fitness",
+    "phone": "+45 97443336",
+    "ref:DK:cvr": "33326890",
+    "ref:DK:cvr:pnummer": "1016584998",
+    "website": "https://vinderup-fitness.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 8676737921,
+  "lat": 56.4607048,
+  "lon": 10.0275536,
+  "tags": {
+    "fvst:navnelbnr": "747035",
+    "leisure": "fitness_centre",
+    "name": "Dansk fitness Randers",
+    "ref:DK:cvr": "36504536",
+    "ref:DK:cvr:pnummer": "1021073861"
+  }
+},
+{
+  "type": "node",
+  "id": 8694104382,
+  "lat": 56.4664193,
+  "lon": 9.3973173,
+  "tags": {
+    "fvst:navnelbnr": "958855",
+    "leisure": "fitness_centre",
+    "name": "Fitness 8800",
+    "ref:DK:cvr": "38831763",
+    "ref:DK:cvr:pnummer": "1022719994"
+  }
+},
+{
+  "type": "node",
+  "id": 8695324537,
+  "lat": 55.7049510,
+  "lon": 12.5375168,
+  "tags": {
+    "branch": "Enigheden Kosttilskud",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "127992",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1015131582",
+    "shop": "health_food"
+  }
+},
+{
+  "type": "node",
+  "id": 8716115822,
+  "lat": 55.8189690,
+  "lon": 12.3723670,
+  "tags": {
+    "branch": "Hvedemarken",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "check_date": "2025-09-27",
+    "fvst:name": "Fitness World - Farum (C118)",
+    "fvst:navnelbnr": "913985",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "PH,Mo-Su 05:00-24:00",
+    "phone": "+45 50606118",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1015131434"
+  }
+},
+{
+  "type": "node",
+  "id": 8718296334,
+  "lat": 55.7008248,
+  "lon": 12.5369024,
+  "tags": {
+    "branch": "Nørrebro",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "email": "norrebro@sats.com",
+    "fvst:navnelbnr": "551209",
+    "leisure": "fitness_centre",
+    "name": "SATS KBH",
+    "opening_hours": "Mo-Th 06:00-23:00; Fr 06:00-21:00; Sa 07:00-20:00; Su 07:00-21:00",
+    "phone": "+45 35 81 22 43",
+    "ref:DK:cvr": "20370599",
+    "ref:DK:cvr:pnummer": "1004799817",
+    "ref:sats": "430",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-norrebro/"
+  }
+},
+{
+  "type": "node",
+  "id": 8756871274,
+  "lat": 55.6817367,
+  "lon": 11.1037531,
+  "tags": {
+    "branch": "Sct Jørgensbjerg",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:name": "Fitness World - Kalundborg Sct. Jørgensbjerg (C255)",
+    "fvst:navnelbnr": "772116",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1022815519"
+  }
+},
+{
+  "type": "node",
+  "id": 8786158405,
+  "lat": 55.6656531,
+  "lon": 11.1198683,
+  "tags": {
+    "fvst:navnelbnr": "84741",
+    "leisure": "fitness_centre",
+    "name": "Go form",
+    "ref:DK:cvr": "26599989",
+    "ref:DK:cvr:pnummer": "1009098247",
+    "website": "http://go-form.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 8803282752,
+  "lat": 55.5667858,
+  "lon": 12.2677214,
+  "tags": {
+    "branch": "Karlslunde",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:name": "Fitness World - Karlsunde Karlslunde Parkvej (C221)",
+    "fvst:navnelbnr": "768792",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1018646699"
+  }
+},
+{
+  "type": "node",
+  "id": 8812111383,
+  "lat": 55.7736415,
+  "lon": 12.4990297,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Pilates B",
+    "sport": "pilates",
+    "website": "https://www.pilatesb.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 8899169245,
+  "lat": 55.4942378,
+  "lon": 9.4705182,
+  "tags": {
+    "branch": "Slotssøbadet",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "959944",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1025033872"
+  }
+},
+{
+  "type": "node",
+  "id": 8922511483,
+  "lat": 54.9139875,
+  "lon": 9.8056631,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Sønderborg City Fitness",
+    "ref:DK:cvr": "31838509",
+    "ref:DK:cvr:pnummer": "1014988161",
+    "website": "http://www.c-fitness.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 8990288638,
+  "lat": 55.6897772,
+  "lon": 12.4887009,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Fitbarsel"
+  }
+},
+{
+  "type": "node",
+  "id": 8998628117,
+  "lat": 55.4742790,
+  "lon": 12.1747550,
+  "tags": {
+    "fvst:navnelbnr": "788783",
+    "leisure": "fitness_centre",
+    "name": "PMT GYM Køge",
+    "ref:DK:cvr": "32377998",
+    "ref:DK:cvr:pnummer": "1015507434",
+    "website": "https://pmtgym.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 8999781067,
+  "lat": 55.4775970,
+  "lon": 12.1862598,
+  "tags": {
+    "branch": "Køge - Den hvide by",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "email": "koge@sats.com",
+    "fvst:navnelbnr": "507007",
+    "leisure": "fitness_centre",
+    "name": "SATS Køge - Den hvide by",
+    "opening_hours": "Mo-Th 05:30-22:00; Fr 05:30-20:00; Sa 07:00-18:00; Su 08:00-19:00",
+    "phone": "+45 56 63 45 45",
+    "ref:DK:cvr": "20370599",
+    "ref:DK:cvr:pnummer": "1017097020",
+    "ref:sats": "422",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-koge-den-hvide-by/"
+  }
+},
+{
+  "type": "node",
+  "id": 9005329840,
+  "lat": 55.3801745,
+  "lon": 10.4175693,
+  "tags": {
+    "branch": "Klokkestøbervej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:name": "Fitness World - Odense M. Klokkestøbervej (C227)",
+    "fvst:navnelbnr": "768888",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1019313758"
+  }
+},
+{
+  "type": "node",
+  "id": 9006944117,
+  "lat": 55.4021640,
+  "lon": 10.3903195,
+  "tags": {
+    "branch": "Odense Dannebrogsgade",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "fvst:name": "FITNESS WORLD Odense C. Dannebrogsgade - (FF 609)",
+    "fvst:navnelbnr": "712905",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1022001295"
+  }
+},
+{
+  "type": "node",
+  "id": 9008890814,
+  "lat": 54.8889422,
+  "lon": 12.0529368,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Foreningsfitness Stubbekøbing",
+    "ref:DK:cvr": "39554720",
+    "ref:DK:cvr:pnummer": "1023599763",
+    "sport": "fitness;yoga",
+    "website": "https://ffstbk.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 9015458453,
+  "lat": 55.6229582,
+  "lon": 12.3870789,
+  "tags": {
+    "branch": "Vallensbæk",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "email": "vallensbaek@sats.com",
+    "leisure": "fitness_centre",
+    "name": "SATS Vallensbæk",
+    "opening_hours": "Mo-Th 05:30-22:00; Fr 05:30-20:00; Sa 07:00-18:00; Su 07:00-20:00",
+    "phone": "+45 72 22 02 26",
+    "ref:sats": "436",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-vallensbaek/"
+  }
+},
+{
+  "type": "node",
+  "id": 9015458454,
+  "lat": 55.7412020,
+  "lon": 12.4848540,
+  "tags": {
+    "branch": "Søborg",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "email": "soborg@sats.com",
+    "fvst:navnelbnr": "658337",
+    "leisure": "fitness_centre",
+    "name": "SATS Søborg",
+    "opening_hours": "Mo-Th 06:00-22:00; Fr 06:00-20:00; Sa 07:00-18:00; Su 07:00-20:00",
+    "phone": "+45 88 13 61 14",
+    "ref:DK:cvr": "20370599",
+    "ref:DK:cvr:pnummer": "1021046082",
+    "ref:sats": "417",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-soborg/"
+  }
+},
+{
+  "type": "node",
+  "id": 9015458455,
+  "lat": 55.6414180,
+  "lon": 12.1001650,
+  "tags": {
+    "branch": "Roskilde",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "email": "roskilde@sats.com",
+    "leisure": "fitness_centre",
+    "level": "1",
+    "name": "SATS Roskilde",
+    "opening_hours": "Mo-Su 05:00-23:00",
+    "phone": "+45 46 35 60 93",
+    "ref:sats": "434",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-roskilde/"
+  }
+},
+{
+  "type": "node",
+  "id": 9015458456,
+  "lat": 55.8162474,
+  "lon": 12.5287191,
+  "tags": {
+    "alt_name": "SATS Danmark Nærum",
+    "branch": "Nærum",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "email": "naerum@sats.com",
+    "fvst:navnelbnr": "577844",
+    "leisure": "fitness_centre",
+    "name": "SATS Nærum",
+    "opening_hours": "Mo-Th 06:00-22:00; Fr 06:00-20:00; Sa 07:00-18:00; Su 07:00-20:00",
+    "phone": "+45 88 61 00 61",
+    "ref:DK:cvr": "20370599",
+    "ref:DK:cvr:pnummer": "1020841415",
+    "ref:sats": "425",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-naerum/"
+  }
+},
+{
+  "type": "node",
+  "id": 9015458457,
+  "lat": 55.7733420,
+  "lon": 12.5072910,
+  "tags": {
+    "branch": "Lyngby – Kanalvej",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "email": "kanalvej@sats.com",
+    "leisure": "fitness_centre",
+    "name": "SATS Lyngby – Kanalvej",
+    "opening_hours": "Mo-Th 06:00-22:00; Fr 06:00-20:00; Sa 07:00-18:00; Su 07:00-20:00",
+    "phone": "+45 88247575",
+    "ref:sats": "442",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-lyngby--kanalvej/"
+  }
+},
+{
+  "type": "node",
+  "id": 9015458459,
+  "lat": 55.4574000,
+  "lon": 12.1850970,
+  "tags": {
+    "branch": "Køge - Strædet",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "email": "KogeStraedet@sats.com",
+    "fvst:navnelbnr": "1340649",
+    "leisure": "fitness_centre",
+    "name": "SATS Køge - Strædet",
+    "opening_hours": "Mo-Th 05:30-22:00; Fr 05:30-20:00; Sa 07:00-18:00; Su 08:00-19:00",
+    "phone": "+45 56 63 50 53",
+    "ref:DK:cvr": "20370599",
+    "ref:DK:cvr:pnummer": "1011022878",
+    "ref:sats": "435",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-koge-straedet/"
+  }
+},
+{
+  "type": "node",
+  "id": 9015458460,
+  "lat": 55.6529288,
+  "lon": 12.5423548,
+  "tags": {
+    "branch": "KBH - Sydhavn",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "email": "Sydhavn@sats.com",
+    "fvst:name": "SATS Danmark Sydhavn",
+    "fvst:navnelbnr": "551200",
+    "leisure": "fitness_centre",
+    "name": "SATS",
+    "opening_hours": "Mo-Th 06:00-22:00; Fr 06:00-21:00; Sa 08:00-18:00; Su 08:00-20:00",
+    "phone": "+45 82100130",
+    "ref:DK:cvr": "20370599",
+    "ref:DK:cvr:pnummer": "1014186081",
+    "ref:sats": "415",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-sydhavn/"
+  }
+},
+{
+  "type": "node",
+  "id": 9015458461,
+  "lat": 55.6616517,
+  "lon": 12.5621303,
+  "tags": {
+    "branch": "Fisketorvet",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "check_date:opening_hours": "2023-10-04",
+    "email": "fisketorvet@sats.com",
+    "fvst:navnelbnr": "551204",
+    "leisure": "fitness_centre",
+    "name": "SATS",
+    "opening_hours": "Mo-Th 06:00-22:00; Fr 06:00-20:00; Sa 07:00-18:00; Su 07:00-20:00",
+    "phone": "+45 72220232",
+    "ref:DK:cvr": "20370599",
+    "ref:DK:cvr:pnummer": "1018060767",
+    "ref:sats": "423",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-fisketorvet/"
+  }
+},
+{
+  "type": "node",
+  "id": 9015458462,
+  "lat": 55.6297415,
+  "lon": 12.5780829,
+  "tags": {
+    "branch": "Fields",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "email": "Fields@sats.com",
+    "fvst:name": "SATS Danmark Fields",
+    "fvst:navnelbnr": "551218",
+    "leisure": "fitness_centre",
+    "level": "2",
+    "name": "SATS",
+    "opening_hours": "Mo-Su 05:00-23:00",
+    "phone": "+45 32 62 60 80",
+    "ref:DK:cvr": "20370599",
+    "ref:DK:cvr:pnummer": "1010878760",
+    "ref:sats": "433",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-fields/"
+  }
+},
+{
+  "type": "node",
+  "id": 9015458463,
+  "lat": 55.8784948,
+  "lon": 12.4976780,
+  "tags": {
+    "alt_name": "SATS Danmark Hørsholm",
+    "branch": "Hørsholm",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "email": "Horsholm@sats.com",
+    "fvst:navnelbnr": "637637",
+    "leisure": "fitness_centre",
+    "name": "SATS Hørsholm",
+    "opening_hours": "Mo-Th 06:00-22:00; Fr 06:00-20:00; Sa 07:00-18:00; Su 07:00-20:00",
+    "phone": "+45 88136113",
+    "ref:DK:cvr": "20370599",
+    "ref:DK:cvr:pnummer": "1020841393",
+    "ref:sats": "418",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-horsholm/"
+  }
+},
+{
+  "type": "node",
+  "id": 9015458464,
+  "lat": 56.0252070,
+  "lon": 12.5884400,
+  "tags": {
+    "branch": "Helsingør",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "email": "Helsingor@sats.com",
+    "fvst:navnelbnr": "110159",
+    "leisure": "fitness_centre",
+    "name": "SATS Helsingør",
+    "opening_hours": "Mo-Th 06:00-22:00; Fr 06:00-20:00; Sa 07:00-18:00; Su 07:00-20:00",
+    "phone": "+45 49 21 78 24",
+    "ref:DK:cvr": "20370599",
+    "ref:DK:cvr:pnummer": "1008966695",
+    "ref:sats": "437",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-helsingor/"
+  }
+},
+{
+  "type": "node",
+  "id": 9015458465,
+  "lat": 55.7473290,
+  "lon": 12.5412660,
+  "tags": {
+    "branch": "Gentofte",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "email": "Gentofte@sats.com",
+    "fvst:name": "SATS Danmark Gentofte",
+    "fvst:navnelbnr": "551576",
+    "leisure": "fitness_centre",
+    "name": "SATS Gentofte",
+    "opening_hours": "Mo-Th 05:30-22:00; Fr 05:30-20:00; Sa 07:00-19:00; Su 07:00-20:00",
+    "phone": "+45 82 22 22 00",
+    "ref:DK:cvr": "20370599",
+    "ref:DK:cvr:pnummer": "1014186448",
+    "ref:sats": "414",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-gentofte/"
+  }
+},
+{
+  "type": "node",
+  "id": 9015458466,
+  "lat": 55.6803610,
+  "lon": 12.5307500,
+  "tags": {
+    "alt_name": "SATS Danmark Falkoner",
+    "branch": "FRB - Falkoner",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "email": "Falkoner@sats.com",
+    "fvst:navnelbnr": "114956",
+    "leisure": "fitness_centre",
+    "name": "SATS FRB - Falkoner",
+    "opening_hours": "Mo-Th 06:00-22:00; Fr 06:00-21:00; Sa 07:00-19:00; Su 07:00-20:00",
+    "phone": "+45 38 88 02 00",
+    "ref:DK:cvr": "20370599",
+    "ref:DK:cvr:pnummer": "1011022983",
+    "ref:sats": "432",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-frb-falkoner/"
+  }
+},
+{
+  "type": "node",
+  "id": 9015458467,
+  "lat": 55.6749240,
+  "lon": 12.5341950,
+  "tags": {
+    "alt_name": "SATS Danmark ABC",
+    "branch": "FRB - ABC",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "email": "ABC@sats.com",
+    "fvst:navnelbnr": "551223",
+    "leisure": "fitness_centre",
+    "name": "SATS FRB - ABC",
+    "opening_hours": "Mo-Th 06:00-22:00; Fr 06:00-20:00; Sa 07:00-18:00; Su 07:00-20:00",
+    "phone": "+45 33 86 30 30",
+    "ref:DK:cvr": "20370599",
+    "ref:DK:cvr:pnummer": "1014186375",
+    "ref:sats": "411",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-frb-abc/"
+  }
+},
+{
+  "type": "node",
+  "id": 9015458468,
+  "lat": 55.8391060,
+  "lon": 12.4346980,
+  "tags": {
+    "alt_name": "SATS Danmark Birkerød",
+    "branch": "Birkerød",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "check_date": "2023-07-12",
+    "email": "Birkerod@sats.com",
+    "fvst:navnelbnr": "551193",
+    "leisure": "fitness_centre",
+    "name": "SATS Birkerød",
+    "opening_hours": "Mo-Th 06:00-22:00; Fr 06:00-20:00; Sa 07:00-18:00; Su 07:00-20:00",
+    "phone": "+45 88 82 88 40",
+    "ref:DK:cvr": "20370599",
+    "ref:DK:cvr:pnummer": "1014186146",
+    "ref:sats": "416",
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-birkerod/"
+  }
+},
+{
+  "type": "node",
+  "id": 9015628413,
+  "lat": 55.5329450,
+  "lon": 12.2213672,
+  "tags": {
+    "branch": "Solrød Strand Solrød center (C246)",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "768788",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "phone": "+45 50606246",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1021927976"
+  }
+},
+{
+  "type": "node",
+  "id": 9029868807,
+  "lat": 55.6335494,
+  "lon": 12.6531338,
+  "tags": {
+    "check_date": "2023-04-30",
+    "fvst:navnelbnr": "773705",
+    "leisure": "fitness_centre",
+    "name": "TarGet Gym",
+    "ref:DK:cvr": "39659573",
+    "ref:DK:cvr:pnummer": "1023723200"
+  }
+},
+{
+  "type": "node",
+  "id": 9035036308,
+  "lat": 55.6419450,
+  "lon": 12.1070940,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Anytime Gym",
+    "official_name": "Anytime Gym i Roskilde ApS",
+    "opening_hours": "24/7",
+    "opening_hours:description:da": "Bemanding: Man–Fr 12:00-18:00; Lør–Søn efter aftale",
+    "operator": "Anytime Gym i Roskilde ApS",
+    "ref:DK:cvr": "38163493",
+    "ref:DK:cvr:pnummer": "1021903139",
+    "website": "https://www.anytimegym.dk"
+  }
+},
+{
+  "type": "node",
+  "id": 9038229887,
+  "lat": 55.6416473,
+  "lon": 12.1009771,
+  "tags": {
+    "branch": "Ro's Torv",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "brand:wikipedia": "fi:SATS",
+    "fvst:navnelbnr": "551217",
+    "leisure": "fitness_centre",
+    "level": "2",
+    "name": "SATS Danmark",
+    "opening_hours": "Mo-Su 05:00-23:00",
+    "ref:DK:cvr": "20370599",
+    "ref:DK:cvr:pnummer": "1014839212"
+  }
+},
+{
+  "type": "node",
+  "id": 9038989660,
+  "lat": 55.6140553,
+  "lon": 12.3559716,
+  "tags": {
+    "branch": "Ishøj Bycenter",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:name": "Fitness World - Ishøj Bycenter (C252)",
+    "fvst:navnelbnr": "772113",
+    "leisure": "fitness_centre",
+    "level": "3",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1022669334"
+  }
+},
+{
+  "type": "node",
+  "id": 9044078567,
+  "lat": 55.6264465,
+  "lon": 12.4844243,
+  "tags": {
+    "branch": "Frihedens Butikscenter",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "718217",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1019843803"
+  }
+},
+{
+  "type": "node",
+  "id": 9044433488,
+  "lat": 55.6556362,
+  "lon": 12.3548722,
+  "tags": {
+    "fvst:navnelbnr": "94837",
+    "leisure": "fitness_centre",
+    "name": "New Fitness",
+    "ref:DK:cvr": "31589754",
+    "ref:DK:cvr:pnummer": "1014553912",
+    "website": "https://newfitness.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 9051050441,
+  "lat": 55.6503700,
+  "lon": 12.5242100,
+  "tags": {
+    "branch": "Kbh SV Sjælør",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "574205",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1022002453"
+  }
+},
+{
+  "type": "node",
+  "id": 9057397746,
+  "lat": 55.3940180,
+  "lon": 10.4210300,
+  "tags": {
+    "branch": "Odense SØ",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:name": "FITNESS WORLD Odense SØ. Ejbygade - (FF 619)",
+    "fvst:navnelbnr": "712907",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1022002275",
+    "website": "https://www.fitnessworld.com/dk2/find-center/odense-soe-ejbygade"
+  }
+},
+{
+  "type": "node",
+  "id": 9061629650,
+  "lat": 55.7230438,
+  "lon": 9.5960696,
+  "tags": {
+    "branch": "Bredballe",
+    "facebook": "https://www.facebook.com/fitogsund",
+    "leisure": "fitness_centre",
+    "name": "Fit&Sund",
+    "website": "https://fitogsund.dk/c/huse/bredballe"
+  }
+},
+{
+  "type": "node",
+  "id": 9061629661,
+  "lat": 55.9711878,
+  "lon": 9.6116958,
+  "tags": {
+    "branch": "Brædstrup",
+    "check_date": "2024-07-22",
+    "facebook": "https://www.facebook.com/fitogsund",
+    "leisure": "fitness_centre",
+    "name": "Fit&Sund",
+    "website": "https://fitogsund.dk/c/huse/braedstrup"
+  }
+},
+{
+  "type": "node",
+  "id": 9061629664,
+  "lat": 55.6651356,
+  "lon": 12.3632372,
+  "tags": {
+    "branch": "Albertslund",
+    "facebook": "https://www.facebook.com/fitogsund",
+    "leisure": "fitness_centre",
+    "name": "Fit&Sund",
+    "website": "https://fitogsund.dk/c/huse/albertslund"
+  }
+},
+{
+  "type": "node",
+  "id": 9061629667,
+  "lat": 55.7323230,
+  "lon": 12.3833158,
+  "tags": {
+    "branch": "Ballerup",
+    "check_date": "2023-12-08",
+    "facebook": "https://www.facebook.com/fitogsund",
+    "leisure": "fitness_centre",
+    "name": "Fit&Sund",
+    "website": "https://fitogsund.dk/c/huse/ballerup"
+  }
+},
+{
+  "type": "node",
+  "id": 9063246466,
+  "lat": 55.6528234,
+  "lon": 12.5067763,
+  "tags": {
+    "alt_name": "CPH GYM",
+    "fvst:name": "Beat Your Best Co. CPH Gym",
+    "fvst:navnelbnr": "1467134",
+    "leisure": "fitness_centre",
+    "name": "Copenhagen Gym",
+    "phone": "+45 41414191",
+    "website": "https://www.copenhagengym.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 9067184649,
+  "lat": 55.6603426,
+  "lon": 12.5926407,
+  "tags": {
+    "branch": "Rued Langgaardsvej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "check_date:opening_hours": "2025-06-27",
+    "fvst:navnelbnr": "574111",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours:signed": "no",
+    "phone": "+45 50608772",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1021998024"
+  }
+},
+{
+  "type": "node",
+  "id": 9084325442,
+  "lat": 55.6777602,
+  "lon": 12.6032017,
+  "tags": {
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "05:00-24:00",
+    "ref:DK:cvr": "25652991",
+    "sport": "fitness",
+    "website": "https://www.puregym.dk/find-center/kbh-k-christianshavn"
+  }
+},
+{
+  "type": "node",
+  "id": 9084822557,
+  "lat": 55.6944788,
+  "lon": 12.4346096,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Anger Management",
+    "ref:DK:cvr": "37144916",
+    "ref:DK:cvr:pnummer": "1020799389",
+    "website": "https://www.angergym.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 9084822565,
+  "lat": 55.6797356,
+  "lon": 12.4564091,
+  "tags": {
+    "leisure": "fitness_centre",
+    "level": "2",
+    "name": "PureGym - Rødovre Rødovre Centrum",
+    "ref": "C218",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1018551833"
+  }
+},
+{
+  "type": "node",
+  "id": 9091517113,
+  "lat": 55.6727768,
+  "lon": 12.5508500,
+  "tags": {
+    "fvst:navnelbnr": "921194",
+    "leisure": "fitness_centre",
+    "level": "2",
+    "name": "Vesterbronx",
+    "phone": "+45 31656656",
+    "ref:DK:cvr": "36420146",
+    "ref:DK:cvr:pnummer": "1019850435",
+    "website": "https://vesterbronxgym.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 9095746149,
+  "lat": 55.6716180,
+  "lon": 12.5466740,
+  "tags": {
+    "branch": "Vesterbrogade",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "phone": "+45 50608774",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1022001112"
+  }
+},
+{
+  "type": "node",
+  "id": 9110835337,
+  "lat": 55.6810412,
+  "lon": 12.5767830,
+  "tags": {
+    "branch": "Kbh K. Købmagergade",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "check_date": "2025-04-14",
+    "fvst:navnelbnr": "574113",
+    "leisure": "fitness_centre",
+    "level": "1",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1022002577"
+  }
+},
+{
+  "type": "node",
+  "id": 9145322692,
+  "lat": 56.4436391,
+  "lon": 9.3946004,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "iGym",
+    "opening_hours": "Mo-Su 05:00-23:00"
+  }
+},
+{
+  "type": "node",
+  "id": 9150230345,
+  "lat": 55.7187707,
+  "lon": 9.6095736,
+  "tags": {
+    "branch": "Bredballe Center 24",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "768768",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1023556304"
+  }
+},
+{
+  "type": "node",
+  "id": 9151013614,
+  "lat": 55.7113018,
+  "lon": 12.5646460,
+  "tags": {
+    "branch": "Kbh Ø Æbeløgade",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "574119",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "note": "check cvr etc, new name",
+    "opening_hours": "Mo-Su 05:00-00:00",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1022001554",
+    "sport": "fitness;bodybuilding;weightlifting;spinning",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 9151044928,
+  "lat": 55.7260365,
+  "lon": 12.5801083,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Well-come Fitness og Spa",
+    "ref:DK:cvr": "27218997",
+    "ref:DK:cvr:pnummer": "1009943087",
+    "website": "https://www.well-come.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 9153366895,
+  "lat": 55.6343340,
+  "lon": 12.0531480,
+  "tags": {
+    "fvst:navnelbnr": "96686",
+    "leisure": "fitness_centre",
+    "name": "LifeClub",
+    "opening_hours": "Mo-Th 06:00-22:00; Fr 06:00-20:00; Sa 08:00-17:00; Su 08:00-18:00",
+    "ref:DK:cvr": "31475589",
+    "ref:DK:cvr:pnummer": "1014457697",
+    "website": "https://lifeclub.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 9155650865,
+  "lat": 55.5974013,
+  "lon": 12.3301652,
+  "tags": {
+    "branch": "Hundige",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:name": "Fitness World Hundige Kosttilskud",
+    "fvst:navnelbnr": "108498",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017983683"
+  }
+},
+{
+  "type": "node",
+  "id": 9159362405,
+  "lat": 55.8508012,
+  "lon": 12.1635951,
+  "tags": {
+    "branch": "Slangerup",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "558863",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1019935538"
+  }
+},
+{
+  "type": "node",
+  "id": 9163443033,
+  "lat": 55.7039573,
+  "lon": 9.5313473,
+  "tags": {
+    "branch": "Vejle Damhaven",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1022002585",
+    "website": "https://www.fitnessworld.com/dk2/find-center/vejle-damhaven"
+  }
+},
+{
+  "type": "node",
+  "id": 9180771129,
+  "lat": 55.6488810,
+  "lon": 12.5544471,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Fysio Puls",
+    "opening_hours": "Mo-Th 07:00-21:00; Fr 07:00-18:00; Sa,Su 09:00-17:00",
+    "phone": "+45 2424 5044",
+    "website": "https://www.fysiopuls.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 9207580208,
+  "lat": 55.5684508,
+  "lon": 9.7558482,
+  "tags": {
+    "branch": "Nørre Voldgade Fredericia",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "574214",
+    "leisure": "fitness_centre",
+    "level": "0",
+    "name": "PureGym",
+    "phone": "+45 50608794",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1022002526"
+  }
+},
+{
+  "type": "node",
+  "id": 9212191791,
+  "lat": 55.9058187,
+  "lon": 12.4753961,
+  "tags": {
+    "branch": "Kokkedal",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "710141",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1018975471"
+  }
+},
+{
+  "type": "node",
+  "id": 9218279089,
+  "lat": 56.0289830,
+  "lon": 12.5661950,
+  "tags": {
+    "fvst:navnelbnr": "94089",
+    "leisure": "fitness_centre",
+    "name": "Mana Gym",
+    "ref:DK:cvr": "19005984",
+    "ref:DK:cvr:pnummer": "1003644501",
+    "website": "https://www.managym.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 9270832980,
+  "lat": 55.0429620,
+  "lon": 9.4162536,
+  "tags": {
+    "branch": "Aabenraa",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "fvst:navnelbnr": "126283",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017983616"
+  }
+},
+{
+  "type": "node",
+  "id": 9273428330,
+  "lat": 54.9810141,
+  "lon": 12.2762372,
+  "tags": {
+    "check_date": "2024-09-12",
+    "email": "kontakt@fitnessmoen.dk",
+    "leisure": "fitness_centre",
+    "name": "Fitness Møn",
+    "phone": "+45 22 75 77 72",
+    "website": "https://fitnessmoen.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 9277977861,
+  "lat": 55.0055239,
+  "lon": 11.9654092,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Yogaloft",
+    "sport": "yoga",
+    "website": "https://yogaloft.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 9284378852,
+  "lat": 56.4542380,
+  "lon": 10.0410560,
+  "tags": {
+    "branch": "Randers Gudenåcentret",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1022002178"
+  }
+},
+{
+  "type": "node",
+  "id": 9302703992,
+  "lat": 55.6867945,
+  "lon": 12.4910668,
+  "tags": {
+    "brand": "LOOP Fitness",
+    "brand:wikidata": "Q18647221",
+    "leisure": "fitness_centre",
+    "name": "LOOP Fitness",
+    "opening_hours": "Mo-Su 05:00-22:00"
+  }
+},
+{
+  "type": "node",
+  "id": 9307585551,
+  "lat": 56.4049408,
+  "lon": 10.8866031,
+  "tags": {
+    "fvst:navnelbnr": "122071",
+    "leisure": "fitness_centre",
+    "name": "Fit og sund",
+    "ref:DK:cvr": "28655509",
+    "ref:DK:cvr:pnummer": "1012390080",
+    "website": "https://fitogsund.dk/c/huse/grenaa"
+  }
+},
+{
+  "type": "node",
+  "id": 9343161579,
+  "lat": 55.9606381,
+  "lon": 11.8525507,
+  "tags": {
+    "check_date": "2025-05-26",
+    "check_date:opening_hours": "2025-05-26",
+    "leisure": "fitness_centre",
+    "name": "Gym 53",
+    "opening_hours": "Mo-Fr 05:00-22:00; Sa,Su 05:00-20:00",
+    "phone": "+45 42 43 65 53",
+    "sport": "fitness",
+    "website": "https://gym53.dk"
+  }
+},
+{
+  "type": "node",
+  "id": 9386731166,
+  "lat": 55.0132631,
+  "lon": 11.9215398,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "DGI Fitnesscenteret",
+    "website": "https://www.dgihusetvordingborg.dk/traening/fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 9445282345,
+  "lat": 56.3663369,
+  "lon": 8.6369544,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "PerformanceLab og CrossFit Lageret",
+    "opening_hours": "24/7",
+    "phone": "+45 24 66 21 84",
+    "website": "https://www.performancelageret.dk"
+  }
+},
+{
+  "type": "node",
+  "id": 9514125953,
+  "lat": 55.0993970,
+  "lon": 10.2405688,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Dansk Fitness Faaborg",
+    "ref:DK:cvr": "78917113",
+    "ref:DK:cvr:pnummer": "1002565609",
+    "website": "https://www.danskfitness.dk/faaborg"
+  }
+},
+{
+  "type": "node",
+  "id": 9516551182,
+  "lat": 55.8113401,
+  "lon": 12.4716902,
+  "tags": {
+    "branch": "Holte Midtpunkt",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "768779",
+    "leisure": "fitness_centre",
+    "level": "2",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1018551817",
+    "website": "https://www.fitnessworld.com/dk2/find-center/holte-midtpunkt"
+  }
+},
+{
+  "type": "node",
+  "id": 9527413988,
+  "lat": 55.4019765,
+  "lon": 10.3589809,
+  "tags": {
+    "email": "hello@polerepublic.dk",
+    "leisure": "fitness_centre",
+    "mobile": "+45 5379 7802",
+    "name": "Pole Republic",
+    "website": "https://polerepublic.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 9528501199,
+  "lat": 55.6639865,
+  "lon": 12.3641543,
+  "tags": {
+    "fvst:navnelbnr": "1109531",
+    "leisure": "fitness_centre",
+    "name": "Fitness World Albertslund",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1026014189",
+    "website": "https://www.fitnessworld.com/dk2/find-center/albertslund"
+  }
+},
+{
+  "type": "node",
+  "id": 9540286682,
+  "lat": 57.0464650,
+  "lon": 9.9277911,
+  "tags": {
+    "check_date": "2025-04-14",
+    "leisure": "fitness_centre",
+    "name": "Shape Studio"
+  }
+},
+{
+  "type": "node",
+  "id": 9549613366,
+  "lat": 55.6934343,
+  "lon": 12.4848435,
+  "tags": {
+    "branch": "Skalbakken",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "768776",
+    "leisure": "fitness_centre",
+    "level": "1;2",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1018458965"
+  }
+},
+{
+  "type": "node",
+  "id": 9556295819,
+  "lat": 56.0303747,
+  "lon": 12.6064615,
+  "tags": {
+    "branch": "Helsingør",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "768794",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref": "C222",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1018646745",
+    "website": "https://www.fitnessworld.com/dk2/find-center/helsingoer-soendre-strandvej"
+  }
+},
+{
+  "type": "node",
+  "id": 9590509652,
+  "lat": 55.6819436,
+  "lon": 12.5806984,
+  "tags": {
+    "branch": "Bootcamp Denmark",
+    "brand": "Barry's",
+    "brand:wikidata": "Q96373178",
+    "fvst:navnelbnr": "1145309",
+    "leisure": "fitness_centre",
+    "name": "Barry's",
+    "phone": "+45 60139655",
+    "ref:DK:cvr": "40517529",
+    "ref:DK:cvr:pnummer": "1024700840",
+    "website": "https://www.barrys.com/studio/copenhagen/"
+  }
+},
+{
+  "type": "node",
+  "id": 9622556315,
+  "lat": 55.6800377,
+  "lon": 11.1033356,
+  "tags": {
+    "fvst:navnelbnr": "794950",
+    "leisure": "fitness_centre",
+    "name": "Storm Fitness",
+    "ref:DK:cvr": "40228446",
+    "ref:DK:cvr:pnummer": "1024371766",
+    "website": "https://shop.stormfitness.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 9631020516,
+  "lat": 55.3296710,
+  "lon": 11.1468132,
+  "tags": {
+    "branch": "Korsør Nordvangen",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:name": "Fitness World - Korsør (C133)",
+    "fvst:navnelbnr": "766159",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017983454"
+  }
+},
+{
+  "type": "node",
+  "id": 9633198608,
+  "lat": 55.6657333,
+  "lon": 12.6262783,
+  "tags": {
+    "contact:email": "contact@nordicperformancetraining.com",
+    "contact:website": "https://www.nordicperformancetraining.com/",
+    "facebook": "nordicperformancetraining",
+    "leisure": "fitness_centre",
+    "name": "Nordic Performance Training",
+    "opening_hours": "Mo-Su 06:00-22:00"
+  }
+},
+{
+  "type": "node",
+  "id": 9643909591,
+  "lat": 55.7585998,
+  "lon": 12.4497929,
+  "tags": {
+    "branch": "Bagsværd",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "1109535",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "Mo-Su 05:00-24:00",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1026014146",
+    "website": "https://www.puregym.dk/find-center/bagsvaerd"
+  }
+},
+{
+  "type": "node",
+  "id": 9643924481,
+  "lat": 55.7736190,
+  "lon": 12.5061650,
+  "tags": {
+    "branch": "Lyngby Kanalvej",
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "fvst:navnelbnr": "950820",
+    "leisure": "fitness_centre",
+    "name": "SATS Danmark Lyngby Kanalvej",
+    "ref:DK:cvr": "20370599",
+    "ref:DK:cvr:pnummer": "1025869601",
+    "website": "https://www.sats.dk/fitnesscenter/sjaelland/sats-lyngby--kanalvej/"
+  }
+},
+{
+  "type": "node",
+  "id": 9645234918,
+  "lat": 56.1440486,
+  "lon": 10.1999615,
+  "tags": {
+    "branch": "Dalgas Avenue",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "772099",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref": "C239",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1020601929"
+  }
+},
+{
+  "type": "node",
+  "id": 9645234942,
+  "lat": 56.1066200,
+  "lon": 10.2058340,
+  "tags": {
+    "branch": "Højbjerg Stenvej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "768893",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref": "C232",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1019587750"
+  }
+},
+{
+  "type": "node",
+  "id": 9645439884,
+  "lat": 55.7076132,
+  "lon": 12.5223590,
+  "tags": {
+    "branch": "Tomsgårdsvej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "768796",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref": "C223",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1018910396"
+  }
+},
+{
+  "type": "node",
+  "id": 9645634605,
+  "lat": 55.7169674,
+  "lon": 11.7155938,
+  "tags": {
+    "branch": "Holbæk Ahlgade",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "768785",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref": "C220",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1018646729"
+  }
+},
+{
+  "type": "node",
+  "id": 9646079284,
+  "lat": 57.0286140,
+  "lon": 9.9757480,
+  "tags": {
+    "branch": "Langagervej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "768892",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref": "C231",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1019469189",
+    "website": "https://www.puregym.dk/find-center/aalborg-langagervej"
+  }
+},
+{
+  "type": "node",
+  "id": 9647018019,
+  "lat": 55.9713900,
+  "lon": 12.0232520,
+  "tags": {
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "contact:facebook": "puregymfrederiksvaerk",
+    "fvst:name": "Fitness World - Frederiksværk Bagerstræde (C182)",
+    "fvst:navnelbnr": "767834",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "Mo-Su 05:00-00:00",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017173711",
+    "website": "https://www.puregym.dk/find-center/frederiksvaerk"
+  }
+},
+{
+  "type": "node",
+  "id": 9650455592,
+  "lat": 56.0336643,
+  "lon": 9.9305334,
+  "tags": {
+    "branch": "Skanderborg Adelgade",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "768115",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref": "C205",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017807125"
+  }
+},
+{
+  "type": "node",
+  "id": 9651538166,
+  "lat": 55.4053903,
+  "lon": 11.3529047,
+  "tags": {
+    "branch": "Slagelse City 3",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "768782",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref": "C209",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1018119907"
+  }
+},
+{
+  "type": "node",
+  "id": 9652099007,
+  "lat": 56.4603620,
+  "lon": 9.3990150,
+  "tags": {
+    "branch": "Viborg Farvervej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "772130",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref": "C263",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1023773593"
+  }
+},
+{
+  "type": "node",
+  "id": 9652099010,
+  "lat": 56.4475742,
+  "lon": 9.4030101,
+  "tags": {
+    "branch": "Viborg Slagterivej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "574202",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1022002216"
+  }
+},
+{
+  "type": "node",
+  "id": 9653443092,
+  "lat": 55.4659429,
+  "lon": 8.4589934,
+  "tags": {
+    "branch": "Broen",
+    "brand": "PureGym Danmark",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:PureGym",
+    "fvst:name": "Fitness World Broen",
+    "fvst:navnelbnr": "1220031",
+    "leisure": "fitness_centre",
+    "level": "0",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1015130683",
+    "website": "https://www.puregym.dk/find-center/esbjerg-broen"
+  }
+},
+{
+  "type": "node",
+  "id": 9653551931,
+  "lat": 55.7054473,
+  "lon": 12.5902709,
+  "tags": {
+    "brand": "SHC",
+    "leisure": "fitness_centre",
+    "name": "SHC Østbanegade",
+    "opening_hours": "Mo-Su 05:00-24:00",
+    "website": "https://sportinghealthclub.dk/shc-oestbanegade/",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 9653551932,
+  "lat": 55.6852252,
+  "lon": 12.5508943,
+  "tags": {
+    "branch": "Åboulevarden",
+    "brand": "SHC",
+    "leisure": "fitness_centre",
+    "name": "SHC Åboulevarden",
+    "opening_hours": "Mo-Th 05:00-23:59; Fr 05:00-23:59; Sa 05:00-23:59; Su 05:00-23:59",
+    "website": "https://sportinghealthclub.dk/shc-aaboulevarden/"
+  }
+},
+{
+  "type": "node",
+  "id": 9653551933,
+  "lat": 55.4039828,
+  "lon": 10.3839136,
+  "tags": {
+    "leisure": "fitness_centre"
+  }
+},
+{
+  "type": "node",
+  "id": 9653630259,
+  "lat": 55.9262406,
+  "lon": 12.3126801,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Smiley Fitness",
+    "website": "https://smileyfitness.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 9653673804,
+  "lat": 55.6921953,
+  "lon": 12.5882884,
+  "tags": {
+    "branch": "Oslo Plads",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "fvst:navnelbnr": "1415473",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1024897911"
+  }
+},
+{
+  "type": "node",
+  "id": 9653673805,
+  "lat": 55.6196386,
+  "lon": 12.5747216,
+  "tags": {
+    "branch": "Himmelbyen",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 9653673806,
+  "lat": 55.6032782,
+  "lon": 12.5864716,
+  "tags": {
+    "branch": "Kastrup Vestamagercentret",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "brand:wikipedia": "da:Fitness World",
+    "fvst:navnelbnr": "768889",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "Mo-Su 05:00-00:00",
+    "ref": "C229",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1019445026"
+  }
+},
+{
+  "type": "node",
+  "id": 9653673807,
+  "lat": 55.6413957,
+  "lon": 12.4691301,
+  "tags": {
+    "branch": "Hvidovre Bibliotekvej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "leisure": "fitness_centre",
+    "name": "PureGym Hvidovre Bibliotekvej",
+    "website": "https://www.puregym.dk/find-center/hvidovre-bibliotekvej"
+  }
+},
+{
+  "type": "node",
+  "id": 9653711176,
+  "lat": 55.6820736,
+  "lon": 12.5839722,
+  "tags": {
+    "branch": "Gothersgade",
+    "brand": "SHC",
+    "leisure": "fitness_centre",
+    "name": "SHC Gothersgade",
+    "opening_hours": "Mo-Th 06:00-22:00; Fr 06:00-19:00; Sa 08:00-18:00; Su 08:00-18:00",
+    "website": "https://sportinghealthclub.dk/shc-gothersgade/"
+  }
+},
+{
+  "type": "node",
+  "id": 9653711177,
+  "lat": 55.6803727,
+  "lon": 12.5613698,
+  "tags": {
+    "branch": "Søerne",
+    "leisure": "fitness_centre",
+    "name": "SHC",
+    "website": "https://sportinghealthclub.dk/shc-soerne/"
+  }
+},
+{
+  "type": "node",
+  "id": 9654202647,
+  "lat": 56.1362390,
+  "lon": 8.9623480,
+  "tags": {
+    "branch": "Herning Vestergade",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "772134",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "Tu-Su 11:00-16:00",
+    "ref": "C264",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1023773631"
+  }
+},
+{
+  "type": "node",
+  "id": 9654241978,
+  "lat": 56.1551217,
+  "lon": 10.1347734,
+  "tags": {
+    "branch": "City Vest",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "772100",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref": "C240",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1020601937"
+  }
+},
+{
+  "type": "node",
+  "id": 9655655353,
+  "lat": 56.4721576,
+  "lon": 10.0179231,
+  "tags": {
+    "branch": "Randers Gl. Hobrovej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "772140",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref": "C269",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1023992198"
+  }
+},
+{
+  "type": "node",
+  "id": 9658642164,
+  "lat": 55.9334045,
+  "lon": 12.3137470,
+  "tags": {
+    "branch": "Hillerød Københavnsvej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "915735",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref": "274",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1024167247"
+  }
+},
+{
+  "type": "node",
+  "id": 9661884648,
+  "lat": 55.6845090,
+  "lon": 12.5321810,
+  "tags": {
+    "branch": "Frederiksberg Svømmehal",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "leisure": "fitness_centre",
+    "level": "2;3",
+    "name": "PureGym",
+    "ref": "C211",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1018177044",
+    "website": "https://www.puregym.dk/find-center/frb-frederiksberg-svoemmehal"
+  }
+},
+{
+  "type": "node",
+  "id": 9690523887,
+  "lat": 55.4661704,
+  "lon": 8.4527882,
+  "tags": {
+    "check_date": "2023-09-15",
+    "facebook": "https://www.facebook.com/nextgenfitnessdk/",
+    "fvst:fixme": "fvst:no_pos",
+    "fvst:navnelbnr": "1357674",
+    "leisure": "fitness_centre",
+    "level": "2",
+    "name": "Next Gen Fitness",
+    "ref:DK:cvr": "43206133",
+    "ref:DK:cvr:pnummer": "1028182674",
+    "source": "https://jv.dk/esbjerg/saa-er-ny-lejer-i-midt-i-klar-til-at-melde-det-ud-en-it-mand-og-to-tidligere-bodybuildere-gaar-sammen-om-satsning",
+    "source:start_date": "https://www.facebook.com/nextgenfitnessdk/posts/pfbid0HCmpcHnoT7QVMpogP8vPCPdtn1AKBrcCDBhBj62Mgj6TDaAsEBgkuCGppt3i4Dv2l",
+    "start_date": "2023-04-08",
+    "website": "https://nextgenfitness.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 9710167691,
+  "lat": 55.6875008,
+  "lon": 12.4928911,
+  "tags": {
+    "branch": "Vanløse torv",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "772108",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref": "C248",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1022468193"
+  }
+},
+{
+  "type": "node",
+  "id": 9724474585,
+  "lat": 56.9728296,
+  "lon": 9.8512988,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Svenstrup Fysioterapi & Fitness",
+    "phone": "+45 98 10 25 00",
+    "website": "https://svenstrupfysioterapi.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 9804299873,
+  "lat": 56.1708182,
+  "lon": 10.2120451,
+  "tags": {
+    "branch": "Trøjborg",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "1244738",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "PH,Mo-Su 05:00-24:00",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1015131876"
+  }
+},
+{
+  "type": "node",
+  "id": 9825810694,
+  "lat": 56.1561909,
+  "lon": 10.2121206,
+  "tags": {
+    "check_date": "2022-06-17",
+    "leisure": "fitness_centre",
+    "name": "Hot yoga Aarhus",
+    "sport": "yoga",
+    "website": "https://hotyogaaarhus.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 9835395069,
+  "lat": 56.1574207,
+  "lon": 10.2011841,
+  "tags": {
+    "check_date": "2024-06-22",
+    "leisure": "fitness_centre",
+    "name": "Yogaskolen",
+    "sport": "yoga",
+    "website": "https://yogaskolen.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 9864731859,
+  "lat": 55.4800543,
+  "lon": 8.4790273,
+  "tags": {
+    "branch": "Esbjerg Jagtvej",
+    "leisure": "fitness_centre",
+    "name": "FitnessX",
+    "opening_date": "2022-08-29",
+    "source": "https://jv.dk/artikel/fitness-k%C3%A6de-rykker-ind-i-fakta",
+    "website": "https://fitnessx.dk/kampagne/aabning-af-jagtvej-esbjerg/"
+  }
+},
+{
+  "type": "node",
+  "id": 9939827634,
+  "lat": 55.6838417,
+  "lon": 12.5240702,
+  "tags": {
+    "branch": "Frederiksberg",
+    "brand": "LOOP Fitness",
+    "brand:wikidata": "Q18647221",
+    "leisure": "fitness_centre",
+    "name": "LOOP Fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 9939928568,
+  "lat": 55.6788113,
+  "lon": 12.5134462,
+  "tags": {
+    "check_date": "2025-04-11",
+    "leisure": "fitness_centre",
+    "name": "Loop Fitness Peter Bangs Vej"
+  }
+},
+{
+  "type": "node",
+  "id": 9941126649,
+  "lat": 55.6823472,
+  "lon": 12.5040391,
+  "tags": {
+    "check_date": "2025-04-11",
+    "leisure": "fitness_centre",
+    "name": "Raw Gym",
+    "website": "https://rawgym.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 9941126650,
+  "lat": 55.6820183,
+  "lon": 12.5225798,
+  "tags": {
+    "branch": "FitnessX - Nordre Fasanvej",
+    "brand": "FitnessX",
+    "leisure": "fitness_centre",
+    "name": "FitnessX",
+    "website": "https://fitnessx.dk/find-center/fasanvej/"
+  }
+},
+{
+  "type": "node",
+  "id": 9941126651,
+  "lat": 55.6686001,
+  "lon": 12.5353628,
+  "tags": {
+    "branch": "FitnessX - Carlsberg Byen",
+    "brand": "FitnessX",
+    "leisure": "fitness_centre",
+    "name": "FitnessX",
+    "website": "https://fitnessx.dk/find-center/koebenhavn-v-carlsberg-byen/"
+  }
+},
+{
+  "type": "node",
+  "id": 9941126652,
+  "lat": 55.6544920,
+  "lon": 12.4885251,
+  "tags": {
+    "branch": "FitnessX - Vigerslevvej",
+    "brand": "FitnessX",
+    "leisure": "fitness_centre",
+    "name": "FitnessX",
+    "website": "https://fitnessx.dk/find-center/valby-vigerslevvej/"
+  }
+},
+{
+  "type": "node",
+  "id": 9941126653,
+  "lat": 55.6459617,
+  "lon": 12.6360870,
+  "tags": {
+    "branch": "FitnessX - Femøren",
+    "brand": "FitnessX",
+    "leisure": "fitness_centre",
+    "name": "FitnessX",
+    "website": "https://fitnessx.dk/find-center/koebenhavn-femoren/"
+  }
+},
+{
+  "type": "node",
+  "id": 9941126654,
+  "lat": 55.7887656,
+  "lon": 12.4667409,
+  "tags": {
+    "branch": "FitnessX - Virum",
+    "brand": "FitnessX",
+    "leisure": "fitness_centre",
+    "name": "FitnessX",
+    "website": "https://fitnessx.dk/find-center/virum/"
+  }
+},
+{
+  "type": "node",
+  "id": 9964852238,
+  "lat": 55.6708074,
+  "lon": 12.6273650,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "VICI Gym",
+    "sport": "calisthenics",
+    "website": "https://teamvici.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 10024156900,
+  "lat": 55.6593500,
+  "lon": 11.4015637,
+  "tags": {
+    "check_date": "2024-10-26",
+    "leisure": "fitness_centre",
+    "name": "Loop"
+  }
+},
+{
+  "type": "node",
+  "id": 10024173852,
+  "lat": 55.6592480,
+  "lon": 11.4001162,
+  "tags": {
+    "check_date": "2022-09-14",
+    "leisure": "fitness_centre",
+    "name": "Multi fitness",
+    "sport": "fitness",
+    "website": "https://multi-fitness.dk/jyderup/"
+  }
+},
+{
+  "type": "node",
+  "id": 10076883318,
+  "lat": 56.1480949,
+  "lon": 10.1899952,
+  "tags": {
+    "leisure": "fitness_centre",
+    "level": "-1",
+    "name": "FitnessX",
+    "opening_hours": "Mo-Fr 05:00-23:00; Sa-Su 07:00-23:00",
+    "website": "https://fitnessx.dk/find-center/aarhus-c-ankersgade/"
+  }
+},
+{
+  "type": "node",
+  "id": 10076928119,
+  "lat": 56.1575315,
+  "lon": 10.1926223,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "FitnessX",
+    "opening_hours": "Mo-Fr 05:00-23:00; Sa-Su 07:00-23:00",
+    "website": "https://fitnessx.dk/find-center/aarhus-c-prismet/"
+  }
+},
+{
+  "type": "node",
+  "id": 10092190242,
+  "lat": 55.3932713,
+  "lon": 10.4493655,
+  "tags": {
+    "check_date:opening_hours": "2024-07-03",
+    "leisure": "fitness_centre",
+    "name": "Iron House ApS",
+    "opening_hours": "Mo-Su 04:00-24:00",
+    "phone": "+45 22 51 40 98",
+    "sport": "exercise;fitness",
+    "website": "https://ironhouse.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 10113355743,
+  "lat": 55.0998324,
+  "lon": 10.2411002,
+  "tags": {
+    "contact:email": "kundeservice@localfitness.dk",
+    "contact:facebook": "https://www.facebook.com/localfitnessfaaborg/",
+    "contact:phone": "+45 71 74 17 17",
+    "leisure": "fitness_centre",
+    "name": "Local Fitness Faaborg",
+    "website": "https://www.localfitness.dk/center/faaborg/"
+  }
+},
+{
+  "type": "node",
+  "id": 10148648830,
+  "lat": 55.4641888,
+  "lon": 8.4357653,
+  "tags": {
+    "contact:instagram": "https://www.instagram.com/vane.staerk/",
+    "end_date": "2025-01-31",
+    "facebook": "https://facebook.com/PTSandraLykke",
+    "leisure": "fitness_centre",
+    "name": "Vane|Stærk",
+    "note": "relocating to Ådalsparken 9 (Sundhedhus Sædding) on 2025-02-01",
+    "ref:DK:cvr": "35975942",
+    "ref:DK:cvr:pnummer": "1028111696",
+    "source:end_date": "https://www.instagram.com/vane.staerk/p/DDtk_HWqXvh/?img_index=2",
+    "website": "https://vanestaerk.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 10200325804,
+  "lat": 55.4177642,
+  "lon": 11.3370604,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "FysioDanmark Slagelse",
+    "name:en": "Slagelse Physiotherapy & Training",
+    "phone": "+4558527011",
+    "website": "https://fysiodanmarkslagelse.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 10237714400,
+  "lat": 56.3006895,
+  "lon": 10.4766334,
+  "tags": {
+    "check_date": "2025-03-16",
+    "leisure": "fitness_centre",
+    "name": "EasyFit"
+  }
+},
+{
+  "type": "node",
+  "id": 10237941359,
+  "lat": 56.3009082,
+  "lon": 10.4786545,
+  "tags": {
+    "check_date": "2025-03-16",
+    "leisure": "fitness_centre",
+    "name": "Dit fitness",
+    "website": "https://ditfitness.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 10304995025,
+  "lat": 56.1706300,
+  "lon": 9.5506355,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Yoga matha",
+    "sport": "yoga",
+    "website": "https://yogamatha.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 10311650990,
+  "lat": 56.1714296,
+  "lon": 9.5525506,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Vores Fitness",
+    "website": "https://www.vfsilkeborg.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 10555060795,
+  "lat": 56.1677048,
+  "lon": 9.5454307,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Ananda",
+    "sport": "yoga",
+    "website": "https://anandayog.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 10577186750,
+  "lat": 55.7051573,
+  "lon": 12.5798091,
+  "tags": {
+    "check_date:opening_hours": "2025-04-02",
+    "leisure": "fitness_centre",
+    "name": "Stjerne Gym",
+    "opening_hours:signed": "no",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 10612236773,
+  "lat": 56.1650704,
+  "lon": 10.2231457,
+  "tags": {
+    "check_date": "2025-06-16",
+    "fvst:navnelbnr": "1271445",
+    "leisure": "fitness_centre",
+    "name": "Power House Aarhus",
+    "ref:DK:cvr": "41519541",
+    "ref:DK:cvr:pnummer": "1026035453",
+    "sport": "fitness",
+    "website": "https://powerhouseaarhus.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 10681170626,
+  "lat": 55.6614914,
+  "lon": 11.4051319,
+  "tags": {
+    "check_date": "2024-04-27",
+    "leisure": "fitness_centre",
+    "name": "Damgaard Boksning",
+    "website": "http://www.damgaardboksning.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 10728393709,
+  "lat": 56.4387332,
+  "lon": 9.4037749,
+  "tags": {
+    "description": "CVR: 36614781",
+    "email": "birgitte@bodyandmindstudio.dk",
+    "leisure": "fitness_centre",
+    "name": "Body & Mind Studio",
+    "phone": "+45 20 24 80 89",
+    "sport": "yoga;pilates;trx_suspension_training",
+    "website": "https://www.bodyandmindstudio.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 10733754330,
+  "lat": 55.4091299,
+  "lon": 11.3698748,
+  "tags": {
+    "fvst:navnelbnr": "793134",
+    "leisure": "fitness_centre",
+    "name": "PMT GYM Slagelse",
+    "ref:DK:cvr": "32377998",
+    "ref:DK:cvr:pnummer": "1015507434"
+  }
+},
+{
+  "type": "node",
+  "id": 10738149731,
+  "lat": 55.6641785,
+  "lon": 12.4012501,
+  "tags": {
+    "branch": "Glostrup Banegårdsvej (C170)",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "767793",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017025372"
+  }
+},
+{
+  "type": "node",
+  "id": 10741735530,
+  "lat": 56.4396624,
+  "lon": 10.0508046,
+  "tags": {
+    "branch": "Århusvej",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "1241130",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "opening_hours": "05:00-24:00",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1022002178",
+    "website": "https://www.fitnessworld.com/dk2/find-center/randers-aarhusvej"
+  }
+},
+{
+  "type": "node",
+  "id": 10749233189,
+  "lat": 56.4550371,
+  "lon": 9.4025534,
+  "tags": {
+    "alt_name": "Fitness 1 Viborg",
+    "branch": "Viborg",
+    "leisure": "fitness_centre",
+    "name": "Fitness X",
+    "ref:DK:cvr": "38946110",
+    "ref:DK:cvr:pnummer": "1022853275"
+  }
+},
+{
+  "type": "node",
+  "id": 10812271169,
+  "lat": 57.1004755,
+  "lon": 9.5192778,
+  "tags": {
+    "fvst:navnelbnr": "1256143",
+    "leisure": "fitness_centre",
+    "name": "Brovst Motion & Fitness",
+    "ref:DK:cvr": "42853518",
+    "ref:DK:cvr:pnummer": "1027750164",
+    "website": "https://brovstmotionogfitness.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 10812600028,
+  "lat": 56.9546198,
+  "lon": 8.6917258,
+  "tags": {
+    "branch": "Thisted Storegade",
+    "fvst:navnelbnr": "1447720",
+    "leisure": "fitness_centre",
+    "name": "Gym & Fit 4 u Thisted",
+    "ref:DK:cvr": "42330892",
+    "ref:DK:cvr:pnummer": "1029785941"
+  }
+},
+{
+  "type": "node",
+  "id": 10911607242,
+  "lat": 55.2276042,
+  "lon": 11.7519040,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Fit4livetbootcamp",
+    "ref:DK:cvr": "39968894",
+    "ref:DK:cvr:pnummer": "1024071959",
+    "website": "https://fit4livetbootcamp.dk/fitnesscenter-naestved/"
+  }
+},
+{
+  "type": "node",
+  "id": 10922736026,
+  "lat": 56.1820928,
+  "lon": 10.1239280,
+  "tags": {
+    "branch": "Tilst",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "check_date": "2024-05-27",
+    "fvst:navnelbnr": "1269150",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1015131868"
+  }
+},
+{
+  "type": "node",
+  "id": 10923952308,
+  "lat": 55.2626329,
+  "lon": 9.5016128,
+  "tags": {
+    "alt_name": "Fitness World Haderslev",
+    "branch": "Haderslev",
+    "brand": "Puregym",
+    "fvst:navnelbnr": "1218267",
+    "leisure": "fitness_centre",
+    "name": "Puregym Haderslev",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1015422056",
+    "website": "https://www.puregym.dk/find-center/haderslev-christian-x-vej"
+  }
+},
+{
+  "type": "node",
+  "id": 10946834672,
+  "lat": 56.1299737,
+  "lon": 10.1619154,
+  "tags": {
+    "leisure": "fitness_centre",
+    "level": "0",
+    "name": "Form & Styrke"
+  }
+},
+{
+  "type": "node",
+  "id": 10968676218,
+  "lat": 55.7130083,
+  "lon": 12.5696663,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Fysisk Form Østerbro",
+    "opening_hours": "Mo-Th 06:30-22:00; Fr 06:30-20:00; Sa 08:00-18:00; Su 08:00-19:00",
+    "phone": "38404500",
+    "website": "https://fysiskform.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 11008357036,
+  "lat": 55.7585709,
+  "lon": 12.4486953,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Loop"
+  }
+},
+{
+  "type": "node",
+  "id": 11073686105,
+  "lat": 55.7067553,
+  "lon": 9.5539320,
+  "tags": {
+    "leisure": "fitness_centre",
+    "opening_hours": "Su-Sa 08:00-21:00"
+  }
+},
+{
+  "type": "node",
+  "id": 11079201390,
+  "lat": 57.0001845,
+  "lon": 10.3071779,
+  "tags": {
+    "contact:email": "info@halsmotionscenter.dk",
+    "leisure": "fitness_centre",
+    "name": "Hals Motionscenter",
+    "opening_hours": "Mo-Su 05:00-23:00",
+    "sport": "fitness",
+    "website": "https://halsmotionscenter.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 11116182445,
+  "lat": 55.3151626,
+  "lon": 12.3898795,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Multifitness"
+  }
+},
+{
+  "type": "node",
+  "id": 11116182446,
+  "lat": 55.3100206,
+  "lon": 12.3893983,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Fit&Sund"
+  }
+},
+{
+  "type": "node",
+  "id": 11121454171,
+  "lat": 55.6591868,
+  "lon": 12.5547413,
+  "tags": {
+    "leisure": "fitness_centre"
+  }
+},
+{
+  "type": "node",
+  "id": 11138798975,
+  "lat": 54.9829839,
+  "lon": 12.2835142,
+  "tags": {
+    "check_date": "2025-10-21",
+    "contact:email": "Stegegym@outlook.dk",
+    "contact:facebook": "STEGE-GYM",
+    "description": "Gym & Fitness",
+    "leisure": "fitness_centre",
+    "name": "Stege Gym",
+    "opening_hours": "05:00-22:00"
+  }
+},
+{
+  "type": "node",
+  "id": 11152623795,
+  "lat": 55.4088380,
+  "lon": 10.3908086,
+  "tags": {
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "leisure": "fitness_centre",
+    "name": "PureGym"
+  }
+},
+{
+  "type": "node",
+  "id": 11155350407,
+  "lat": 55.7170948,
+  "lon": 12.6067692,
+  "tags": {
+    "email": "hej@norce.dk",
+    "leisure": "fitness_centre",
+    "name": "Norce",
+    "sport": "crossfit",
+    "website": "https://www.norce.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 11158384349,
+  "lat": 55.6714577,
+  "lon": 12.5472350,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Fysisk Form Vesterbro",
+    "website": "https://fysiskform.dk/form/vesterbro"
+  }
+},
+{
+  "type": "node",
+  "id": 11203275279,
+  "lat": 56.3057197,
+  "lon": 10.3146749,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Hornslet Motionscenter",
+    "website": "https://hornslet.halbooking.dk/newlook/default.asp?pid=01"
+  }
+},
+{
+  "type": "node",
+  "id": 11217083099,
+  "lat": 55.4702362,
+  "lon": 8.4385167,
+  "tags": {
+    "fvst:navnelbnr": "1395445",
+    "leisure": "fitness_centre",
+    "level": "1",
+    "name": "Uma",
+    "ref:DK:cvr": "44202492",
+    "ref:DK:cvr:pnummer": "1029506295",
+    "source": "https://jv.dk/esbjerg/mia-fik-fjernet-sine-bryster-som-27-aarig-fik-stress-og-blev-sygemeldt-og-sagde-sit-job-op-nu-bliver-hun-familiens-foerste-selvstaendige",
+    "sport": "yoga",
+    "start_date": "2023-10-14",
+    "website": "https://www.umayoga.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 11248977186,
+  "lat": 56.1526563,
+  "lon": 10.1967075,
+  "tags": {
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "check_date": "2023-10-10",
+    "fvst:navnelbnr": "48955",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1015557202",
+    "website": "https://www.puregym.dk/find-center/aarhus-c-scandinavian"
+  }
+},
+{
+  "type": "node",
+  "id": 11248977189,
+  "lat": 56.1527869,
+  "lon": 10.1959066,
+  "tags": {
+    "check_date": "2023-10-09",
+    "leisure": "fitness_centre",
+    "name": "YO Studios",
+    "sport": "yoga",
+    "website": "https://www.yostudios.dk"
+  }
+},
+{
+  "type": "node",
+  "id": 11251464670,
+  "lat": 56.1530012,
+  "lon": 10.2062335,
+  "tags": {
+    "check_date": "2023-10-09",
+    "leisure": "fitness_centre",
+    "name": "Fitness X"
+  }
+},
+{
+  "type": "node",
+  "id": 11251578936,
+  "lat": 56.1526680,
+  "lon": 10.1966060,
+  "tags": {
+    "check_date": "2023-10-10",
+    "leisure": "fitness_centre",
+    "name": "Rules Boxing Club",
+    "sport": "boxing",
+    "website": "https://rulesboxingclub.com"
+  }
+},
+{
+  "type": "node",
+  "id": 11253347142,
+  "lat": 55.7110913,
+  "lon": 12.5768046,
+  "tags": {
+    "check_date:opening_hours": "2023-10-09",
+    "leisure": "fitness_centre",
+    "name": "Løberlab",
+    "opening_hours:signed": "no",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 11268610031,
+  "lat": 55.4723041,
+  "lon": 8.4376472,
+  "tags": {
+    "facebook": "https://facebook.com/people/Yoga-By-Lykke/100089929745002/",
+    "leisure": "fitness_centre",
+    "name": "Yoga By Lykke",
+    "source": "https://jv.dk/esbjerg/helle-er-sygeplejerske-men-naar-hun-har-fri-gaar-hun-ikke-hjem-saa-tager-hun-paa-sit-andet-arbejde-og-nu-aabner-helle-ogsaa-i-nummer-65",
+    "sport": "yoga",
+    "website": "https://yogabylykke.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 11274919461,
+  "lat": 56.1636418,
+  "lon": 10.2105596,
+  "tags": {
+    "check_date": "2023-10-19",
+    "leisure": "fitness_centre",
+    "name": "Fitness X"
+  }
+},
+{
+  "type": "node",
+  "id": 11310155054,
+  "lat": 55.7380609,
+  "lon": 8.1837148,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "GymStudio"
+  }
+},
+{
+  "type": "node",
+  "id": 11324080993,
+  "lat": 56.1524394,
+  "lon": 10.1768159,
+  "tags": {
+    "check_date": "2023-11-05",
+    "leisure": "fitness_centre",
+    "name": "ACT Gym",
+    "website": "https://actgym.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 11505671212,
+  "lat": 55.0706148,
+  "lon": 10.6301585,
+  "tags": {
+    "brand": "LOOP Fitness",
+    "brand:wikidata": "Q18647221",
+    "leisure": "fitness_centre",
+    "name": "LOOP Fitness",
+    "phone": "+45 41 74 62 68",
+    "website": "https://loopfitness.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 11548259693,
+  "lat": 56.4323030,
+  "lon": 9.9480824,
+  "tags": {
+    "check_date": "2024-01-25",
+    "internet_access": "wlan",
+    "internet_access:fee": "customers",
+    "leisure": "fitness_centre",
+    "name": "Stevnstrup Fitness",
+    "payment:cards": "no",
+    "payment:cash": "yes",
+    "payment:credit_cards": "no",
+    "payment:debit_cards": "no",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 11630325374,
+  "lat": 55.2524032,
+  "lon": 9.5023336,
+  "tags": {
+    "brand": "LOOP Fitness",
+    "brand:wikidata": "Q18647221",
+    "leisure": "fitness_centre",
+    "name": "LOOP Fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 11656163498,
+  "lat": 55.3987583,
+  "lon": 10.3782133,
+  "tags": {
+    "branch": "Odense",
+    "brand": "Power House",
+    "fvst:navnelbnr": "1402021",
+    "leisure": "fitness_centre",
+    "name": "Power House Odense",
+    "ref:DK:cvr": "44308533",
+    "ref:DK:cvr:pnummer": "1029645473",
+    "website": "https://powerhousedanmark.dk/power-house-odense/"
+  }
+},
+{
+  "type": "node",
+  "id": 11688246502,
+  "lat": 55.3188188,
+  "lon": 10.7798461,
+  "tags": {
+    "branch": "Nyborg",
+    "leisure": "fitness_centre",
+    "name": "Fitness Fokus",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 11773842588,
+  "lat": 55.6589779,
+  "lon": 11.3963730,
+  "tags": {
+    "check_date": "2024-03-30",
+    "leisure": "fitness_centre",
+    "name": "Body Fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 11805747576,
+  "lat": 55.2168221,
+  "lon": 11.7544186,
+  "tags": {
+    "branch": "Sanct Jørgens Park",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "1109538",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1025380165",
+    "website": "https://www.puregym.dk/find-center/sct-joergenspark-naestved"
+  }
+},
+{
+  "type": "node",
+  "id": 11807402811,
+  "lat": 57.4561695,
+  "lon": 10.0148213,
+  "tags": {
+    "branch": "Hjørring",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "1411147",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1017807117",
+    "website": "https://www.puregym.dk/find-center/hjoerring-frederikshavnsvej"
+  }
+},
+{
+  "type": "node",
+  "id": 11822859269,
+  "lat": 56.1828745,
+  "lon": 9.5396628,
+  "tags": {
+    "brand": "LOOP Fitness",
+    "brand:wikidata": "Q18647221",
+    "leisure": "fitness_centre",
+    "name": "LOOP Fitness",
+    "opening_hours": "Mo-Su 05:00-00:00",
+    "website": "https://loopfitness.dk/centre/loop-fitness-silkeborg/"
+  }
+},
+{
+  "type": "node",
+  "id": 11834687733,
+  "lat": 55.6457910,
+  "lon": 12.5404471,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Oxygym",
+    "opening_hours": "Mo-Th 06:00-21:00, Fr 06:00-17:00, Sa 09:00-11:00, Su 09:00-13:00",
+    "phone": "+45 92 45 59 27",
+    "sport": "fitness",
+    "website": "https://oxygym.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 11862105171,
+  "lat": 55.6614226,
+  "lon": 11.4054800,
+  "tags": {
+    "check_date": "2024-04-28",
+    "leisure": "fitness_centre",
+    "name": "Gym4You",
+    "opening_hours": "24/7",
+    "website": "https://gym4you.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 11885367023,
+  "lat": 55.5255688,
+  "lon": 8.4621256,
+  "tags": {
+    "branch": "Tarp",
+    "building": "yes",
+    "check_date": "2024-05-07",
+    "fixme": "no pnummer on location at check_date",
+    "leisure": "fitness_centre",
+    "name": "Pulsn",
+    "ref:DK:cvr": "43655329",
+    "source": "https://jv.dk/esbjerg/tine-og-asger-har-investeret-millioner-i-fitnesscenter-nummer-to-nu-holder-de-vejret-det-er-risky-business",
+    "website": "https://pulsn.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 11904172839,
+  "lat": 56.0435179,
+  "lon": 10.1914615,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Køleboxen",
+    "opening_hours": "Mo-Su 05:00-23:00",
+    "phone": "+45 20 29 39 03",
+    "sport": "fitness;obstacle_course;yoga",
+    "website": "https://køleboxen.dk"
+  }
+},
+{
+  "type": "node",
+  "id": 11909477150,
+  "lat": 55.5676833,
+  "lon": 9.7556819,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "BODY CLUB Lisa Ravn",
+    "opening_hours": "Mo-Fr 05:00-22:00; Sa-Su 07:00-22:00",
+    "sport": "pilates",
+    "website": "https://www.bodyclublisaravn.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 11922966217,
+  "lat": 56.1260420,
+  "lon": 10.1570304,
+  "tags": {
+    "check_date": "2024-05-21",
+    "leisure": "fitness_centre",
+    "name": "Loop"
+  }
+},
+{
+  "type": "node",
+  "id": 11931220685,
+  "lat": 57.0204551,
+  "lon": 9.8957430,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "P.S Studio"
+  }
+},
+{
+  "type": "node",
+  "id": 11958110969,
+  "lat": 56.1092407,
+  "lon": 10.0782883,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Fitness X",
+    "opening_hours": "Mo-Fr 05:00-22:00; Sa-Su 07:00-22:00",
+    "website": "https://fitnessx.dk/fitness/fitness-aarhus/fitness-aarhus-hasselager-kolt-ostervej-25/"
+  }
+},
+{
+  "type": "node",
+  "id": 11978246200,
+  "lat": 55.8467875,
+  "lon": 9.7360564,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Fit&Sund",
+    "website": "https://fitogsund.dk/c/huse/horsens"
+  }
+},
+{
+  "type": "node",
+  "id": 11990789096,
+  "lat": 54.8013501,
+  "lon": 11.6366329,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Sakskøbing Fysioterapi & Fitnesscenter"
+  }
+},
+{
+  "type": "node",
+  "id": 12012675105,
+  "lat": 55.6907370,
+  "lon": 12.5322592,
+  "tags": {
+    "branch": "Mariendalsvej",
+    "brand": "PureGym",
+    "fvst:navnelbnr": "1242216",
+    "leisure": "fitness_centre",
+    "name": "PureGym Mariendalsvej",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1025385256"
+  }
+},
+{
+  "type": "node",
+  "id": 12037491694,
+  "lat": 55.3968996,
+  "lon": 10.3838137,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Kaatsu",
+    "opening_hours": "Mo-Fr 06:45-20:00, Sa-Su 09:00-16:00",
+    "phone": "31 64 10 61",
+    "website": "https://kaatsufitness.dk/kaatsu-fitness-odense/"
+  }
+},
+{
+  "type": "node",
+  "id": 12045540569,
+  "lat": 55.9798770,
+  "lon": 12.0269774,
+  "tags": {
+    "contact:facebook": "FrederiksvaerkMotionscenter",
+    "email": "frv-fitness@frv-fitness.dk",
+    "leisure": "fitness_centre",
+    "name": "Frederiksværk Motionscenter",
+    "opening_hours": "Mo-Su 04:00-00:00",
+    "phone": "+45 47725909",
+    "website": "https://frv-fitness.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 12070227098,
+  "lat": 56.2345723,
+  "lon": 10.0863732,
+  "tags": {
+    "leisure": "fitness_centre",
+    "survey:date": "2024-07-23",
+    "website": "https://skic.dk/fitness-og-holdtraening/"
+  }
+},
+{
+  "type": "node",
+  "id": 12070227099,
+  "lat": 56.2340994,
+  "lon": 10.0850039,
+  "tags": {
+    "leisure": "fitness_centre",
+    "level": "-1",
+    "survey:date": "2024-07-23",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 12074989975,
+  "lat": 57.0493320,
+  "lon": 9.9205525,
+  "tags": {
+    "check_date": "2025-05-01",
+    "leisure": "fitness_centre",
+    "name": "Fitness United",
+    "opening_hours": "05:00-23:00"
+  }
+},
+{
+  "type": "node",
+  "id": 12095812218,
+  "lat": 55.5262945,
+  "lon": 8.6537891,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Grimstrup Fitness",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 12157293713,
+  "lat": 55.3705501,
+  "lon": 10.3709894,
+  "tags": {
+    "brand": "LOOP Fitness",
+    "brand:wikidata": "Q18647221",
+    "leisure": "fitness_centre",
+    "name": "LOOP Fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 12212505908,
+  "lat": 56.2180976,
+  "lon": 10.2930572,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Yogastudiet",
+    "phone": "+ 45 23 42 50 24",
+    "sport": "yoga"
+  }
+},
+{
+  "type": "node",
+  "id": 12255302603,
+  "lat": 55.8591241,
+  "lon": 9.8551136,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "FitnessX"
+  }
+},
+{
+  "type": "node",
+  "id": 12321228199,
+  "lat": 56.2649790,
+  "lon": 10.0622660,
+  "tags": {
+    "check_date": "2025-10-28",
+    "leisure": "fitness_centre",
+    "name": "LOOP",
+    "opening_hours": "Mo-Fr 05:00-22:00"
+  }
+},
+{
+  "type": "node",
+  "id": 12337046229,
+  "lat": 56.2481184,
+  "lon": 10.0721618,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Hinnerup Fitness",
+    "opening_hours": "Mo-Su 05:00-23:00"
+  }
+},
+{
+  "type": "node",
+  "id": 12339907469,
+  "lat": 57.0394053,
+  "lon": 9.9283529,
+  "tags": {
+    "branch": "North",
+    "brand": "CrossFit",
+    "brand:wikidata": "Q2072840",
+    "leisure": "fitness_centre",
+    "name": "CrossFit",
+    "opening_hours": "Mo-Su 05:00-23:00",
+    "website": "http://crossfitnorth.dk"
+  }
+},
+{
+  "type": "node",
+  "id": 12339929455,
+  "lat": 57.0388553,
+  "lon": 9.9260036,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "THIMMS"
+  }
+},
+{
+  "type": "node",
+  "id": 12411568112,
+  "lat": 55.6455061,
+  "lon": 12.5475084,
+  "tags": {
+    "brand": "Sats",
+    "brand:wikidata": "Q4411496",
+    "leisure": "fitness_centre",
+    "name": "SATS Sluseholmen",
+    "opening_hours": "Mo-Su 05:00-23:00"
+  }
+},
+{
+  "type": "node",
+  "id": 12419048269,
+  "lat": 56.2311897,
+  "lon": 10.2412373,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Loop"
+  }
+},
+{
+  "type": "node",
+  "id": 12451471290,
+  "lat": 55.5047588,
+  "lon": 8.4037153,
+  "tags": {
+    "facebook": "https://facebook.com/PTSandraLykke",
+    "leisure": "fitness_centre",
+    "name": "Vane|Stærk",
+    "note": "relocating from D. Lauritzens vej 12 on 2025-02-01",
+    "opening_date": "2025-02-01",
+    "ref:DK:cvr": "35975942",
+    "ref:DK:cvr:pnummer": "1028111696",
+    "source:end_date": "https://www.instagram.com/vane.staerk/p/DDtk_HWqXvh/?img_index=2",
+    "website": "https://vanestaerk.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 12487546332,
+  "lat": 55.7095345,
+  "lon": 12.5945912,
+  "tags": {
+    "check_date": "2025-01",
+    "leisure": "fitness_centre",
+    "level": "0",
+    "name": "Nordic Strong",
+    "website": "https://nordicstrong.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 12544102608,
+  "lat": 55.7037225,
+  "lon": 12.5548643,
+  "tags": {
+    "leisure": "fitness_centre",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 12565505837,
+  "lat": 55.0120105,
+  "lon": 11.9084750,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Loop"
+  }
+},
+{
+  "type": "node",
+  "id": 12618047150,
+  "lat": 54.9977516,
+  "lon": 11.8922309,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "My Gym"
+  }
+},
+{
+  "type": "node",
+  "id": 12618499506,
+  "lat": 55.8438155,
+  "lon": 9.8432834,
+  "tags": {
+    "fvst:navnelbnr": "69683",
+    "leisure": "fitness_centre",
+    "ref:DK:cvr": "17693875",
+    "ref:DK:cvr:pnummer": "1001340489"
+  }
+},
+{
+  "type": "node",
+  "id": 12657208204,
+  "lat": 55.0028537,
+  "lon": 11.9053403,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "En sundere kurs",
+    "sport": "pilates"
+  }
+},
+{
+  "type": "node",
+  "id": 12660892230,
+  "lat": 55.0622721,
+  "lon": 10.6208558,
+  "tags": {
+    "branch": "Svendborg",
+    "brand": "Training for Warriors",
+    "contact:facebook": "https://www.facebook.com/TFWSvendborg/",
+    "contact:instagram": "https://www.instagram.com/tfw_svendborg/",
+    "contact:linkedin": "https://www.linkedin.com/company/tfw5700/",
+    "email": "info@tfw.dk",
+    "leisure": "fitness_centre",
+    "name": "Training for Warriors Svendborg",
+    "phone": "+45 30 30 61 91",
+    "ref:DK:cvr": "39375516",
+    "ref:DK:cvr:pnummer": "1023395475",
+    "website": "https://tfw.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 12679452833,
+  "lat": 56.0400205,
+  "lon": 9.9165327,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Sport og Fitness Skanderborg",
+    "website": "https://sportogfitness.dk/skanderborg/"
+  }
+},
+{
+  "type": "node",
+  "id": 12722732786,
+  "lat": 55.7126693,
+  "lon": 12.5778043,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "The Studio"
+  }
+},
+{
+  "type": "node",
+  "id": 12743694369,
+  "lat": 54.9377135,
+  "lon": 9.2561101,
+  "tags": {
+    "contact:instagram": "https://www.instagram.com/safe.and.fit/",
+    "facebook": "https://facebook.com/100089045342762/",
+    "leisure": "fitness_centre",
+    "name": "Safe & fit",
+    "ref:DK:cvr": "45240487",
+    "ref:DK:cvr:pnummer": "1030879593",
+    "website": "https://www.safe-and-fit.eu/"
+  }
+},
+{
+  "type": "node",
+  "id": 12787567918,
+  "lat": 57.0512889,
+  "lon": 9.8975532,
+  "tags": {
+    "check_date": "2025-08-27",
+    "email": "info@aig-aalborg.dk",
+    "leisure": "fitness_centre",
+    "name": "Aalborg Idrætsgymnastik",
+    "short_name": "AIG",
+    "sport": "gymnastics",
+    "website": "https://aig-aalborg.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 12797453276,
+  "lat": 55.6855452,
+  "lon": 12.4624120,
+  "tags": {
+    "fvst:navnelbnr": "1351697",
+    "leisure": "fitness_centre",
+    "name": "Rødovre Fitness Club",
+    "ref:DK:cvr": "41599464",
+    "ref:DK:cvr:pnummer": "1026163826",
+    "website": "https://www.roedovrefitnessclub.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 12798297678,
+  "lat": 55.7398484,
+  "lon": 12.5766767,
+  "tags": {
+    "brand": "LOOP Fitness",
+    "brand:wikidata": "Q18647221",
+    "leisure": "fitness_centre",
+    "name": "LOOP Fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 12805983101,
+  "lat": 56.3778005,
+  "lon": 9.6464365,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Sport og Fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 12812214370,
+  "lat": 57.1622138,
+  "lon": 10.2976890,
+  "tags": {
+    "brand": "LOOP Fitness",
+    "brand:wikidata": "Q18647221",
+    "leisure": "fitness_centre",
+    "name": "LOOP Fitness",
+    "opening_hours": "Mo-Su 05:00-22:00",
+    "phone": "+45 41 74 62 52",
+    "website": "https://loopfitness.dk/centre/loop-fitness-dronninglund/"
+  }
+},
+{
+  "type": "node",
+  "id": 12815299139,
+  "lat": 55.5270079,
+  "lon": 11.4964838,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Puls Fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 12815299141,
+  "lat": 55.5268034,
+  "lon": 11.4960417,
+  "tags": {
+    "brand": "LOOP Fitness",
+    "brand:wikidata": "Q18647221",
+    "leisure": "fitness_centre",
+    "name": "LOOP Fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 12823399019,
+  "lat": 55.6590619,
+  "lon": 12.6039314,
+  "tags": {
+    "check_date": "2025-05-09",
+    "leisure": "fitness_centre",
+    "name": "V. Performance"
+  }
+},
+{
+  "type": "node",
+  "id": 12849619335,
+  "lat": 57.0150430,
+  "lon": 9.9247220,
+  "tags": {
+    "fvst:navnelbnr": "1403057",
+    "leisure": "fitness_centre",
+    "name": "Gym og Fitness",
+    "ref:DK:cvr": "37006327",
+    "ref:DK:cvr:pnummer": "1020660380",
+    "website": "https://gymandfitness.nu/"
+  }
+},
+{
+  "type": "node",
+  "id": 12882873041,
+  "lat": 56.1456509,
+  "lon": 8.9945723,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Fitness United",
+    "website": "https://fitnessunited.dk/herning"
+  }
+},
+{
+  "type": "node",
+  "id": 12883029674,
+  "lat": 55.2494051,
+  "lon": 9.4879787,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Fitness One",
+    "website": "https://fitnessone.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 12883074567,
+  "lat": 55.3585008,
+  "lon": 10.3956199,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "HCA CrossFit",
+    "sport": "fitness",
+    "website": "https://hcacrossfit.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 12899565501,
+  "lat": 55.7154564,
+  "lon": 12.4325959,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "BK Health"
+  }
+},
+{
+  "type": "node",
+  "id": 12912199368,
+  "lat": 55.6256720,
+  "lon": 12.6268967,
+  "tags": {
+    "fvst:navnelbnr": "1464454",
+    "leisure": "fitness_centre",
+    "name": "BEAR MOVE",
+    "phone": "+45 30252591",
+    "ref:DK:cvr": "45040127",
+    "ref:DK:cvr:pnummer": "1030619745",
+    "website": "https://www.bearmove.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 12913468445,
+  "lat": 55.7106206,
+  "lon": 9.5239001,
+  "tags": {
+    "fvst:navnelbnr": "1472783",
+    "leisure": "fitness_centre",
+    "name": "BSG Gym",
+    "ref:DK:cvr": "43050885",
+    "ref:DK:cvr:pnummer": "1027990947"
+  }
+},
+{
+  "type": "node",
+  "id": 12913547972,
+  "lat": 57.2682853,
+  "lon": 9.9477852,
+  "tags": {
+    "fvst:navnelbnr": "1447718",
+    "leisure": "fitness_centre",
+    "name": "Gym & Fit 4 u Brønderslev",
+    "ref:DK:cvr": "42330892",
+    "ref:DK:cvr:pnummer": "1030188531"
+  }
+},
+{
+  "type": "node",
+  "id": 12914892503,
+  "lat": 57.7272902,
+  "lon": 10.5682672,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Destination Skagen Gym",
+    "ref:DK:cvr": "43675230",
+    "ref:DK:cvr:pnummer": "1028793282"
+  }
+},
+{
+  "type": "node",
+  "id": 12951376936,
+  "lat": 56.9568140,
+  "lon": 9.2635418,
+  "tags": {
+    "fvst:navnelbnr": "1447721",
+    "leisure": "fitness_centre",
+    "name": "Gym & Fit 4 u Løgstør",
+    "ref:DK:cvr": "42330892",
+    "ref:DK:cvr:pnummer": "1028685773"
+  }
+},
+{
+  "type": "node",
+  "id": 12959841024,
+  "lat": 55.6774702,
+  "lon": 12.6033780,
+  "tags": {
+    "branch": "Christianshavn Kbh K Kosttilskud",
+    "brand": "PureGym",
+    "brand:wikidata": "Q12311466",
+    "fvst:navnelbnr": "117915",
+    "leisure": "fitness_centre",
+    "name": "PureGym",
+    "ref:DK:cvr": "25652991",
+    "ref:DK:cvr:pnummer": "1015131221"
+  }
+},
+{
+  "type": "node",
+  "id": 12972822836,
+  "lat": 55.0570768,
+  "lon": 10.6094503,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Fit&Sund Svendborg",
+    "opening_hours": "Mo-Su 04:00-24:00",
+    "sport": "fitness",
+    "website": "https://fitogsund.dk/c/huse/svendborg"
+  }
+},
+{
+  "type": "node",
+  "id": 13006253630,
+  "lat": 55.6648356,
+  "lon": 12.6099395,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Fysisk Form"
+  }
+},
+{
+  "type": "node",
+  "id": 13016721724,
+  "lat": 55.0354081,
+  "lon": 10.5444912,
+  "tags": {
+    "email": "dortelausten@gmail.com",
+    "leisure": "fitness_centre",
+    "name": "Atelier Lausten Yoga",
+    "phone": "+45 22 16 90 19",
+    "sport": "yoga",
+    "website": "https://www.dortelausten.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 13030592497,
+  "lat": 56.1497989,
+  "lon": 10.1689592,
+  "tags": {
+    "fvst:navnelbnr": "1464704",
+    "leisure": "fitness_centre",
+    "name": "THEGYM Aarhus",
+    "ref:DK:cvr": "42046809",
+    "ref:DK:cvr:pnummer": "1026712781",
+    "website": "https://thegymaarhus.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 13041253022,
+  "lat": 56.2702723,
+  "lon": 10.3097312,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Loop Skødstrup",
+    "opening_hours": "05:00-22:00",
+    "website": "https://loopfitness.dk"
+  }
+},
+{
+  "type": "node",
+  "id": 13043541371,
+  "lat": 56.2755340,
+  "lon": 10.3154958,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "EasyFit Plus",
+    "opening_hours": "06:00-22:00",
+    "phone": "+45  06 99 07 87",
+    "website": "https://easyfit.nu/fitnesscenter/plus/loegten/"
+  }
+},
+{
+  "type": "node",
+  "id": 13045507577,
+  "lat": 56.2786877,
+  "lon": 10.3188765,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Stina Yoga",
+    "phone": "+45 22871212",
+    "sport": "yoga",
+    "website": "https://www.stinayoga.dk"
+  }
+},
+{
+  "type": "node",
+  "id": 13045894241,
+  "lat": 57.0392280,
+  "lon": 9.9295911,
+  "tags": {
+    "check_date": "2025-08-03",
+    "description": "Personlig træning i Aalborg.",
+    "leisure": "fitness_centre",
+    "name": "Unlimited Performance"
+  }
+},
+{
+  "type": "node",
+  "id": 13050091756,
+  "lat": 56.2794057,
+  "lon": 10.3198473,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "EasyFit Cirkletræning",
+    "opening_hours": "Mo-Th 08:00-11:00,16:00-19:00; Fr 08:00-11:00; Sa-Su 09:00-11:00",
+    "phone": "+45 86 99 07 87",
+    "sport": "fitness",
+    "website": "https://easyfit.nu/fitnesscenter/cirkeltraening/logten/"
+  }
+},
+{
+  "type": "node",
+  "id": 13051353947,
+  "lat": 55.6866088,
+  "lon": 12.5822478,
+  "tags": {
+    "fvst:navnelbnr": "1448432",
+    "leisure": "fitness_centre",
+    "name": "Prudence Davis",
+    "ref:DK:cvr": "43536435",
+    "ref:DK:cvr:pnummer": "1028606687",
+    "shop": "tea",
+    "website": "https://www.prudencedavis.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 13052710702,
+  "lat": 55.6195080,
+  "lon": 9.7612609,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Motion Bøgeskov"
+  }
+},
+{
+  "type": "node",
+  "id": 13059514754,
+  "lat": 55.6970490,
+  "lon": 12.5948398,
+  "tags": {
+    "branch": "Østerbro",
+    "brand": "PWR.8",
+    "fvst:navnelbnr": "1251902",
+    "leisure": "fitness_centre",
+    "name": "PWR.8 Østerbro",
+    "ref:DK:cvr": "41295732",
+    "ref:DK:cvr:pnummer": "1025738868",
+    "website": "https://www.pwr8.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 13063936975,
+  "lat": 55.6637498,
+  "lon": 12.5603409,
+  "tags": {
+    "branch": "Kaktus Towers",
+    "brand": "SHC",
+    "leisure": "fitness_centre",
+    "name": "SHC Kaktus Towers",
+    "opening_hours": "24/7",
+    "website": "https://sportinghealthclub.dk/shc-kaktus-towers/"
+  }
+},
+{
+  "type": "node",
+  "id": 13063936976,
+  "lat": 55.6834710,
+  "lon": 12.5662948,
+  "tags": {
+    "branch": "Ørstedsparken",
+    "brand": "SHC",
+    "leisure": "fitness_centre",
+    "name": "SHC Ørstedsparken",
+    "opening_hours": "Mo-Th 06:00-21:30; Fr 06:00-19:00; Sa 06:00-16:00; Su 09:00-17:00",
+    "website": "https://sportinghealthclub.dk/orstedsparken/",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 13063997054,
+  "lat": 55.6832914,
+  "lon": 12.5828985,
+  "tags": {
+    "branch": "Garagen",
+    "brand": "Arca",
+    "leisure": "fitness_centre",
+    "name": "Arca Garagen",
+    "opening_hours": "Mo-Fr 05:45-22:00; Sa-Su 07:45-20:00",
+    "website": "https://arca.dk/garagen/"
+  }
+},
+{
+  "type": "node",
+  "id": 13063997055,
+  "lat": 55.6888937,
+  "lon": 12.5552852,
+  "tags": {
+    "branch": "Kirken",
+    "brand": "Arca",
+    "leisure": "fitness_centre",
+    "name": "Arca Kirken",
+    "opening_hours": "Mo-Fr 05:45-22:00; Sa-Su 7:45-20:00",
+    "website": "https://arca.dk/kirken/"
+  }
+},
+{
+  "type": "node",
+  "id": 13063997056,
+  "lat": 55.6978290,
+  "lon": 12.5328195,
+  "tags": {
+    "branch": "Lageret",
+    "brand": "Arca",
+    "leisure": "fitness_centre",
+    "name": "Arca Lageret",
+    "phone": "Mo-Fr 05:45-22:00;Sa-Su 07:45-20:00",
+    "website": "https://arca.dk/lageret/"
+  }
+},
+{
+  "type": "node",
+  "id": 13063997057,
+  "lat": 55.7069416,
+  "lon": 12.5279775,
+  "tags": {
+    "branch": "Trykkeriet",
+    "brand": "Arcaplanet",
+    "leisure": "fitness_centre",
+    "name": "Arca Trykkeriet",
+    "opening_hours": "Mo-Fr 05:45-22:00; Sa-Su 07:45-20:00",
+    "website": "https://arca.dk/trykkeriet/"
+  }
+},
+{
+  "type": "node",
+  "id": 13063997058,
+  "lat": 55.6604302,
+  "lon": 12.6078911,
+  "tags": {
+    "branch": "Boxen",
+    "brand": "Arca",
+    "leisure": "fitness_centre",
+    "name": "Arca Boxen",
+    "opening_hours": "Ma-Fr 05:45-22:00; Sa-Su 07:45-20:00",
+    "website": "https://arca.dk/boxen/"
+  }
+},
+{
+  "type": "node",
+  "id": 13063997059,
+  "lat": 55.6641040,
+  "lon": 12.5990784,
+  "tags": {
+    "branch": "Omstillingen",
+    "brand": "Arca",
+    "leisure": "fitness_centre",
+    "name": "Arca Omstillingen",
+    "opening_hours": "Ma-Fr 05:45-22:00; Sa-Su 07:45-20:00",
+    "website": "https://arca.dk/omstillingen/"
+  }
+},
+{
+  "type": "node",
+  "id": 13063997060,
+  "lat": 55.6990387,
+  "lon": 12.5795866,
+  "tags": {
+    "branch": "Krydsfeltet",
+    "brand": "Arca",
+    "leisure": "fitness_centre",
+    "name": "Arca Krydsfeltet",
+    "opening_hours": "Ma-Fr 05:45-22:00; Sa-Su 07:45-20:00",
+    "website": "https://arca.dk/krydsfeltet/"
+  }
+},
+{
+  "type": "node",
+  "id": 13063997061,
+  "lat": 55.6814863,
+  "lon": 12.5191292,
+  "tags": {
+    "branch": "Kogeriet",
+    "brand": "Arca",
+    "leisure": "fitness_centre",
+    "name": "Arca Kogeriet",
+    "opening_hours": "Ma-Fr 05:45-22:00; Sa-Su 07:45-20:00",
+    "website": "https://arca.dk/kogeriet/"
+  }
+},
+{
+  "type": "node",
+  "id": 13063997062,
+  "lat": 55.6577662,
+  "lon": 12.5057310,
+  "tags": {
+    "branch": "Bazaren",
+    "brand": "Arca",
+    "leisure": "fitness_centre",
+    "name": "Arca Bazaren",
+    "opening_hours": "Ma-Fr 05:45-22:00; Sa-Su 07:45-20:00",
+    "website": "https://arca.dk/bazaren/"
+  }
+},
+{
+  "type": "node",
+  "id": 13063997063,
+  "lat": 55.6840849,
+  "lon": 12.4906681,
+  "tags": {
+    "branch": "Værkstedet",
+    "brand": "Arca",
+    "leisure": "fitness_centre",
+    "name": "Arca Værkstedet",
+    "opening_hours": "Ma-Fr 05:45-22:00; Sa-Su 07:45-20:00",
+    "website": "https://arca.dk/vaerkstedet/"
+  }
+},
+{
+  "type": "node",
+  "id": 13063997064,
+  "lat": 55.7045292,
+  "lon": 12.5029893,
+  "tags": {
+    "branch": "Højen",
+    "brand": "Arca",
+    "leisure": "fitness_centre",
+    "name": "Arca Højen",
+    "opening_hours": "Ma-Fr 05:45-22:00; Sa-Su 07:45-20:00",
+    "website": "https://arca.dk/hojen/"
+  }
+},
+{
+  "type": "node",
+  "id": 13063997065,
+  "lat": 55.7531698,
+  "lon": 12.5420527,
+  "tags": {
+    "branch": "Posthuset",
+    "brand": "Arca",
+    "leisure": "fitness_centre",
+    "name": "Arca Posthuset",
+    "opening_hours": "Ma-Fr 05:45-22:00; Sa-Su 06:00-20:00",
+    "website": "https://arca.dk/posthuset/"
+  }
+},
+{
+  "type": "node",
+  "id": 13076711009,
+  "lat": 56.1497922,
+  "lon": 10.1689230,
+  "tags": {
+    "fvst:navnelbnr": "1488772",
+    "leisure": "fitness_centre",
+    "name": "THESTUDIO Aarhus",
+    "ref:DK:cvr": "45602729",
+    "ref:DK:cvr:pnummer": "1031322312"
+  }
+},
+{
+  "type": "node",
+  "id": 13101172495,
+  "lat": 57.0501249,
+  "lon": 9.9168884,
+  "tags": {
+    "check_date": "2025-08-27",
+    "leisure": "fitness_centre",
+    "name": "Power House Aalborg"
+  }
+},
+{
+  "type": "node",
+  "id": 13113360218,
+  "lat": 56.1361484,
+  "lon": 8.9968971,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Loop"
+  }
+},
+{
+  "type": "node",
+  "id": 13132290573,
+  "lat": 55.6639447,
+  "lon": 12.4587294,
+  "tags": {
+    "contact:email": "info@pmtgym.dk",
+    "fvst:navnelbnr": "794195",
+    "leisure": "fitness_centre",
+    "name": "PMT GYM Rødovre",
+    "opening_hours": "Mo-Fr 11:00-20:00; Sa,Su 09:00-16:00 || 24/7 open \"no staff present\"",
+    "ref:DK:cvr": "32377998",
+    "ref:DK:cvr:pnummer": "1015507434",
+    "website": "https://pmtgym.dk/",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 13145014502,
+  "lat": 55.7328250,
+  "lon": 12.3047693,
+  "tags": {
+    "contact:facebook": "https://www.facebook.com/REFORMStudiobyBecks",
+    "leisure": "fitness_centre",
+    "name": "Re:Form Studio By Becks",
+    "opening_hours": "Mo-Su 05:00-22:00",
+    "payment:app": "yes",
+    "payment:credit_cards": "yes",
+    "payment:visa": "yes",
+    "website": "https://www.reformbybecks.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 13149030158,
+  "lat": 55.7537905,
+  "lon": 12.4958104,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Gladsaxe MultiFitness",
+    "opening_hours": "Mo-Su 05:00-23:00",
+    "sport": "fitness",
+    "website": "https://gladsaxemultifitness.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 13157246382,
+  "lat": 55.8669555,
+  "lon": 12.3543686,
+  "tags": {
+    "email": "livk2@yahoo.dk",
+    "leisure": "fitness_centre",
+    "name": "Lillerød Vægtløftningsklub",
+    "opening_hours": "Mo-Su 05:00-22:00",
+    "toilets": "yes",
+    "website": "https://www.livk.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 13159486701,
+  "lat": 55.6779121,
+  "lon": 12.5755796,
+  "tags": {
+    "contact:facebook": "kailoyogacph",
+    "contact:instagram": "kailoyogacph",
+    "email": "info@kailoyoga.dk",
+    "leisure": "fitness_centre",
+    "name": "Kailo yoga",
+    "phone": "26208224",
+    "website": "https://kailoyoga.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 13169390629,
+  "lat": 56.1720499,
+  "lon": 10.1899864,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Styrk"
+  }
+},
+{
+  "type": "node",
+  "id": 13255498911,
+  "lat": 55.5620941,
+  "lon": 9.7234924,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Fit & Sund"
+  }
+},
+{
+  "type": "node",
+  "id": 13256517641,
+  "lat": 55.6492676,
+  "lon": 12.0984016,
+  "tags": {
+    "access": "private",
+    "leisure": "fitness_centre",
+    "name": "Margrethegårdens Fitnessrum",
+    "website": "https://www.margrethegaarden-roskilde.dk/faelles-faciliteter/fitnessrum.html"
+  }
+},
+{
+  "type": "node",
+  "id": 13267549650,
+  "lat": 55.6583141,
+  "lon": 12.1056132,
+  "tags": {
+    "check_date": "2025-10-29",
+    "leisure": "fitness_centre",
+    "name": "Sport og Fitness Himmelev",
+    "operator": "Sport og Fitness - Dit Center Himmelev I/S",
+    "phone": "+45 25 70 90 31",
+    "ref:DK:cvr": "36094400",
+    "website": "https://sportogfitness.dk/sjaelland/himmelev/"
+  }
+},
+{
+  "type": "node",
+  "id": 13273946293,
+  "lat": 55.5083109,
+  "lon": 8.4502430,
+  "tags": {
+    "branch": "Esbjerg",
+    "check_date": "2025-10-27",
+    "contact:instagram": "https://www.instagram.com/clubenergyreformerstudio/",
+    "fixme": "no cvr registration at check_date",
+    "leisure": "fitness_centre",
+    "name": "Club Energy Reformer Studio & Hot Yoga",
+    "source:name": "sign",
+    "website": "https://clubenergyfitness.dk/"
+  }
+},
+{
+  "type": "node",
+  "id": 13277153701,
+  "lat": 55.6489669,
+  "lon": 12.2019135,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Fitness Hedehusene",
+    "opening_hours": "24/7",
+    "phone": "32 20 01 00",
+    "website": "https://www.fitnesshedehusene.dk"
+  }
+}
+
+  ]
+}

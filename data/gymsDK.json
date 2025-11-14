@@ -1,0 +1,4042 @@
+[
+  {
+    "id": 497381657,
+    "name": "SATS KBH - Valby",
+    "brand": "Sats",
+    "city": "KBH - Valby",
+    "region": "København",
+    "latitude": 55.6647686,
+    "longitude": 12.5114021,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-valby/"
+  },
+  {
+    "id": 898936694,
+    "name": "SATS KBH - Adelgade",
+    "brand": "Sats",
+    "city": "KBH - Adelgade",
+    "region": "København",
+    "latitude": 55.6826776,
+    "longitude": 12.5823306,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-adelgade/"
+  },
+  {
+    "id": 1027929994,
+    "name": "Borupgård Fitness",
+    "region": "Sjælland",
+    "latitude": 56.0099718,
+    "longitude": 12.5842073
+  },
+  {
+    "id": 1112453804,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Lygten",
+    "region": "København",
+    "latitude": 55.7049892,
+    "longitude": 12.537483
+  },
+  {
+    "id": 1141433639,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Esromgade",
+    "region": "København",
+    "latitude": 55.6979378,
+    "longitude": 12.5405316
+  },
+  {
+    "id": 1315775600,
+    "name": "PureGym Frederikshavn",
+    "city": "Frederikshavn Hjørringvej",
+    "region": "Jylland",
+    "latitude": 57.4457413,
+    "longitude": 10.5075895,
+    "website": "https://www.fitnessworld.com/dk/"
+  },
+  {
+    "id": 1335815416,
+    "name": "PureGym",
+    "brand": "PureGym Danmark",
+    "city": "Esbjerg, Stormgade",
+    "region": "Jylland",
+    "latitude": 55.5015032,
+    "longitude": 8.455045,
+    "website": "https://www.puregym.dk/find-center/esbjerg-stormgade"
+  },
+  {
+    "id": 1489323572,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Kolding",
+    "region": "Fyn",
+    "latitude": 55.4828566,
+    "longitude": 9.4757261
+  },
+  {
+    "id": 1513201140,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Esbjerg, Gl. Vardevej",
+    "region": "Jylland",
+    "latitude": 55.4787074,
+    "longitude": 8.4372459,
+    "website": "https://www.puregym.dk/find-center/gl-vardevej"
+  },
+  {
+    "id": 1568119114,
+    "name": "FitnessX",
+    "city": "Esbjerg - Strandbytorv",
+    "region": "Jylland",
+    "latitude": 55.4681155,
+    "longitude": 8.4399273,
+    "website": "https://www.fitnessx.dk/centre/esbjerg-strandbytorv"
+  },
+  {
+    "id": 1589706561,
+    "name": "Orange Fitness",
+    "region": "Fyn",
+    "latitude": 55.3940057,
+    "longitude": 10.3489105,
+    "website": "https://www.orangefitness.dk/"
+  },
+  {
+    "id": 1779005080,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Søborg",
+    "region": "København",
+    "latitude": 55.730052,
+    "longitude": 12.5214682
+  },
+  {
+    "id": 1787256791,
+    "name": "LOOP Fitness",
+    "brand": "LOOP Fitness",
+    "region": "Sjælland",
+    "latitude": 55.3102688,
+    "longitude": 10.787789,
+    "website": "https://loopfitness.com/da/nyborg/"
+  },
+  {
+    "id": 1945583586,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Aalborg Dannebrogsgade",
+    "region": "Jylland",
+    "latitude": 57.0536357,
+    "longitude": 9.9052179
+  },
+  {
+    "id": 1945583587,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Aalborg Eternitten",
+    "region": "Jylland",
+    "latitude": 57.0370026,
+    "longitude": 9.93337,
+    "website": "http://www.fitnessworld.dk/center/fitness-world-eternitten"
+  },
+  {
+    "id": 1945583588,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Aalborg Citycenter Friis Nytorv",
+    "region": "Jylland",
+    "latitude": 57.047362,
+    "longitude": 9.9264298
+  },
+  {
+    "id": 1945583589,
+    "name": "Fitness World Aalborg Gugvej",
+    "region": "Jylland",
+    "latitude": 57.0203534,
+    "longitude": 9.9255844,
+    "website": "http://www.fitnessworld.dk/center/fitness-world-gugvej"
+  },
+  {
+    "id": 1945583591,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Aars",
+    "region": "Jylland",
+    "latitude": 56.8033466,
+    "longitude": 9.5106505
+  },
+  {
+    "id": 1945583595,
+    "name": "PureGym",
+    "brand": "PureGym Danmark",
+    "city": "Esbjerg, Ådalsparken",
+    "region": "Jylland",
+    "latitude": 55.5054103,
+    "longitude": 8.4044619,
+    "website": "https://www.puregym.dk/find-center/esbjerg-v-aadalsparken"
+  },
+  {
+    "id": 1945583598,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Haderslev",
+    "region": "Fyn",
+    "latitude": 55.2540978,
+    "longitude": 9.5033067
+  },
+  {
+    "id": 1945583599,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Herning Møllegade",
+    "region": "Jylland",
+    "latitude": 56.1370767,
+    "longitude": 8.9673993
+  },
+  {
+    "id": 1945583602,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Horsens Høegh Guldbergs Gade",
+    "region": "Jylland",
+    "latitude": 55.856709,
+    "longitude": 9.852679,
+    "website": "http://www.fitnessworld.dk/center/fitness-world-hoeegh-guldbergs-gade"
+  },
+  {
+    "id": 1945583604,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Kolding",
+    "region": "Fyn",
+    "latitude": 55.4861706,
+    "longitude": 9.4736619,
+    "website": "https://www.puregym.dk/find-center/kolding-sydbanegade"
+  },
+  {
+    "id": 1945583606,
+    "name": "Pure Gym Nyborg",
+    "region": "Sjælland",
+    "latitude": 55.3174234,
+    "longitude": 10.7892728,
+    "website": "http://www.fitnessworld.dk/center/fitness-world-nyborg"
+  },
+  {
+    "id": 1945583609,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Bondovej",
+    "region": "Fyn",
+    "latitude": 55.3625614,
+    "longitude": 10.3506944,
+    "website": "http://www.fitnessworld.dk/center/fitness-world-bondovej"
+  },
+  {
+    "id": 1945583610,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Odense Grønløkkevej",
+    "region": "Fyn",
+    "latitude": 55.3948859,
+    "longitude": 10.3664679,
+    "website": "https://www.fitnessworld.com/dk2/find-center/odense-c-groenloekkevej"
+  },
+  {
+    "id": 1945583611,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Odense Odensevej",
+    "region": "Fyn",
+    "latitude": 55.3681758,
+    "longitude": 10.3932436,
+    "website": "https://www.fitnessworld.com/dk2/find-center/odense-s-odensevej"
+  },
+  {
+    "id": 1945583612,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Odense Slotscenter",
+    "region": "Fyn",
+    "latitude": 55.3966041,
+    "longitude": 10.3831498
+  },
+  {
+    "id": 1945583613,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Odense Tarupvej",
+    "region": "Fyn",
+    "latitude": 55.4144231,
+    "longitude": 10.3407275,
+    "website": "http://www.fitnessworld.dk/center/fitness-world-tarupvej"
+  },
+  {
+    "id": 1945583616,
+    "name": "Local Fitness",
+    "city": "Ribe",
+    "region": "Jylland",
+    "latitude": 55.3350349,
+    "longitude": 8.7727465,
+    "website": "https://www.localfitness.dk/center/ribe"
+  },
+  {
+    "id": 1945583617,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Risskov",
+    "region": "Jylland",
+    "latitude": 56.2018084,
+    "longitude": 10.2447135
+  },
+  {
+    "id": 1945583618,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Silkeborg Stagehøjvej",
+    "region": "Jylland",
+    "latitude": 56.1872046,
+    "longitude": 9.5593288
+  },
+  {
+    "id": 1945583619,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Silkeborg",
+    "region": "Jylland",
+    "latitude": 56.173027,
+    "longitude": 9.55794
+  },
+  {
+    "id": 1945583622,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Sønderborg",
+    "region": "Fyn",
+    "latitude": 54.9200573,
+    "longitude": 9.8077353
+  },
+  {
+    "id": 1945583640,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Viby",
+    "region": "Jylland",
+    "latitude": 56.131874,
+    "longitude": 10.1584109
+  },
+  {
+    "id": 1945583647,
+    "name": "Fitness World Vojens",
+    "region": "Fyn",
+    "latitude": 55.2480177,
+    "longitude": 9.3080748,
+    "website": "http://www.fitnessworld.dk/center/fitness-world-vojens"
+  },
+  {
+    "id": 1945583653,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Århus Jens Baggesens Vej",
+    "region": "Jylland",
+    "latitude": 56.1696619,
+    "longitude": 10.1937077
+  },
+  {
+    "id": 1945583672,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Viborgvej",
+    "region": "Jylland",
+    "latitude": 56.1680683,
+    "longitude": 10.161241
+  },
+  {
+    "id": 1946625994,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Allerød",
+    "region": "Sjælland",
+    "latitude": 55.8710343,
+    "longitude": 12.3577002,
+    "website": "https://www.puregym.dk/find-center/alleroed-banetorvet"
+  },
+  {
+    "id": 1946626003,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Ballerup",
+    "region": "København",
+    "latitude": 55.7296181,
+    "longitude": 12.3579672
+  },
+  {
+    "id": 1946626009,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Birkerød Kongevej",
+    "region": "Sjælland",
+    "latitude": 55.8413612,
+    "longitude": 12.440047,
+    "website": "https://www.puregym.dk/find-center/birkeroed-kongevej"
+  },
+  {
+    "id": 1946626014,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Brøndby",
+    "region": "København",
+    "latitude": 55.667303,
+    "longitude": 12.4383494
+  },
+  {
+    "id": 1946626035,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Frederiksberg Forum",
+    "region": "København",
+    "latitude": 55.6830906,
+    "longitude": 12.5524718,
+    "website": "http://www.fitnessworld.dk/center/fitness-world-forum"
+  },
+  {
+    "id": 1946626046,
+    "name": "Fitness World Frederikssund",
+    "region": "Sjælland",
+    "latitude": 55.8395269,
+    "longitude": 12.064328,
+    "website": "http://www.fitnessworld.dk/center/fitness-world-frederikssund"
+  },
+  {
+    "id": 1946626056,
+    "name": "Pure Gym Lyngbyvej",
+    "city": "Gentofte",
+    "region": "København",
+    "latitude": 55.738612,
+    "longitude": 12.5378949,
+    "website": "http://www.fitnessworld.dk/center/fitness-world-gentofte"
+  },
+  {
+    "id": 1946626064,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Gilleleje Fiskerbakken",
+    "region": "Sjælland",
+    "latitude": 56.111202,
+    "longitude": 12.3299312
+  },
+  {
+    "id": 1946626067,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Glostrup",
+    "region": "København",
+    "latitude": 55.6639723,
+    "longitude": 12.4016945
+  },
+  {
+    "id": 1946626072,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "region": "København",
+    "latitude": 55.5987709,
+    "longitude": 12.3274148
+  },
+  {
+    "id": 1946626078,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Greve",
+    "region": "København",
+    "latitude": 55.5905648,
+    "longitude": 12.2984612
+  },
+  {
+    "id": 1946626088,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Græsted",
+    "region": "Sjælland",
+    "latitude": 56.0633108,
+    "longitude": 12.2825654,
+    "website": "http://www.fitnessworld.dk/center/fitness-world-graested"
+  },
+  {
+    "id": 1946626095,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Herlev",
+    "region": "København",
+    "latitude": 55.7253403,
+    "longitude": 12.4160534
+  },
+  {
+    "id": 1946626111,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Hillerød",
+    "region": "Sjælland",
+    "latitude": 55.9329875,
+    "longitude": 12.2853065,
+    "website": "https://www.puregym.dk/find-center/hilleroed-frejasvej"
+  },
+  {
+    "id": 1946626112,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Husum",
+    "region": "København",
+    "latitude": 55.7095419,
+    "longitude": 12.4810239,
+    "website": "http://www.fitnessworld.dk/center/fitness-world-husum"
+  },
+  {
+    "id": 1946626115,
+    "name": "Fitness World Hørsholm",
+    "region": "Sjælland",
+    "latitude": 55.8788434,
+    "longitude": 12.4987013,
+    "website": "http://www.fitnessworld.dk/center/fitness-world-hoersholm"
+  },
+  {
+    "id": 1946626133,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "region": "København",
+    "latitude": 55.6507568,
+    "longitude": 12.5108247
+  },
+  {
+    "id": 1946626135,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "København Emdrup Station",
+    "region": "København",
+    "latitude": 55.721874,
+    "longitude": 12.5409464,
+    "website": "http://www.fitnessworld.dk/center/fitness-world-emdrup-station"
+  },
+  {
+    "id": 1946626137,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Kbh S Englandsvej",
+    "region": "København",
+    "latitude": 55.656969,
+    "longitude": 12.6043943,
+    "website": "https://www.fitnessworld.dk/center/fitness-world-englandsvej"
+  },
+  {
+    "id": 1946626140,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Gasværksvej",
+    "region": "København",
+    "latitude": 55.6708078,
+    "longitude": 12.5570237
+  },
+  {
+    "id": 1946626153,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Jagtvej",
+    "region": "København",
+    "latitude": 55.6965287,
+    "longitude": 12.5510063
+  },
+  {
+    "id": 1946626168,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "region": "København",
+    "latitude": 55.6613686,
+    "longitude": 12.6099453
+  },
+  {
+    "id": 1946626173,
+    "name": "Fitness World København Nordre Fasanvej",
+    "region": "København",
+    "latitude": 55.6985181,
+    "longitude": 12.5364747,
+    "website": "http://www.fitnessworld.dk/center/fitness-world-ndr.-fasanvej"
+  },
+  {
+    "id": 1946626178,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Kbh Ø Strandvejen",
+    "region": "København",
+    "latitude": 55.7219293,
+    "longitude": 12.5777494
+  },
+  {
+    "id": 1946626184,
+    "name": "Power House København",
+    "region": "København",
+    "latitude": 55.6782088,
+    "longitude": 12.5623173
+  },
+  {
+    "id": 1946626189,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Århusgade",
+    "region": "København",
+    "latitude": 55.7067616,
+    "longitude": 12.5873054,
+    "website": "https://www.puregym.dk/find-center/kbh-oe-aarhusgade"
+  },
+  {
+    "id": 1946626194,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Køge",
+    "region": "Sjælland",
+    "latitude": 55.4750332,
+    "longitude": 12.1757291
+  },
+  {
+    "id": 1946626199,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Lyngby",
+    "region": "København",
+    "latitude": 55.7688733,
+    "longitude": 12.5039159
+  },
+  {
+    "id": 1946626205,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Måløv",
+    "region": "København",
+    "latitude": 55.7485909,
+    "longitude": 12.3187172
+  },
+  {
+    "id": 1946626210,
+    "name": "MimoGym",
+    "brand": "MimoGym",
+    "region": "Sjælland",
+    "latitude": 54.7683352,
+    "longitude": 11.8677224,
+    "website": "https://mimogym.dk/"
+  },
+  {
+    "id": 1946626216,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Næstved Dania",
+    "region": "Sjælland",
+    "latitude": 55.2330843,
+    "longitude": 11.7580451
+  },
+  {
+    "id": 1946626221,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Næstved Grønvej",
+    "region": "Sjælland",
+    "latitude": 55.2304189,
+    "longitude": 11.7702488
+  },
+  {
+    "id": 1946626226,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Ringsted",
+    "region": "Sjælland",
+    "latitude": 55.4469454,
+    "longitude": 11.7874122
+  },
+  {
+    "id": 1946626232,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Roskilde",
+    "region": "Sjælland",
+    "latitude": 55.6406985,
+    "longitude": 12.0890504,
+    "website": "http://www.fitnessworld.dk/center/fitness-world-roskilde"
+  },
+  {
+    "id": 1946626236,
+    "name": "Fair Fitness",
+    "brand": "Fair Fitness",
+    "city": "Skiby",
+    "region": "Sjælland",
+    "latitude": 55.7472446,
+    "longitude": 11.9558618,
+    "website": "https://fairfit.dk/skibby/"
+  },
+  {
+    "id": 1946626241,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Slagelse Bornholmsvej",
+    "region": "Sjælland",
+    "latitude": 55.3969854,
+    "longitude": 11.3402877
+  },
+  {
+    "id": 1946626246,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Stenløse Centertorvet",
+    "region": "Sjælland",
+    "latitude": 55.7678671,
+    "longitude": 12.1954275,
+    "website": "https://www.fitnessworld.com/dk2/find-center/stenloese-centertorvet"
+  },
+  {
+    "id": 1946626256,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Søborg",
+    "region": "København",
+    "latitude": 55.7395909,
+    "longitude": 12.4932893
+  },
+  {
+    "id": 1946626257,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Taastrup",
+    "region": "København",
+    "latitude": 55.6517607,
+    "longitude": 12.3028001,
+    "website": "https://www.puregym.dk/find-center/taastrup-torv-taastrup"
+  },
+  {
+    "id": 1946626262,
+    "name": "Fitness World Valby Mosedalvej",
+    "region": "København",
+    "latitude": 55.6674858,
+    "longitude": 12.5134815,
+    "website": "http://www.fitnessworld.dk/center/fitness-world-valby"
+  },
+  {
+    "id": 1946626266,
+    "name": "PureGym",
+    "city": "Værløse",
+    "region": "København",
+    "latitude": 55.7822148,
+    "longitude": 12.3615574,
+    "website": "https://www.puregym.dk/"
+  },
+  {
+    "id": 2306155131,
+    "name": "Løfteriet",
+    "region": "Fyn",
+    "latitude": 55.4098422,
+    "longitude": 10.3854485
+  },
+  {
+    "id": 2347031535,
+    "name": "SATS",
+    "brand": "Sats",
+    "city": "Herlev",
+    "region": "København",
+    "latitude": 55.7249283,
+    "longitude": 12.4393379,
+    "website": "https://www.sats.dk/fitnesscenter/sjaelland/sats-herlev/"
+  },
+  {
+    "id": 2936449601,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Lergravsvej",
+    "region": "København",
+    "latitude": 55.664278,
+    "longitude": 12.625689,
+    "website": "https://www.puregym.dk/find-center/kbh-s-lergravsvej"
+  },
+  {
+    "id": 3096058127,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Århus S Skanderborgvej",
+    "region": "Jylland",
+    "latitude": 56.138726,
+    "longitude": 10.1789271
+  },
+  {
+    "id": 3359335823,
+    "name": "Frederikssund Motion Center",
+    "region": "Sjælland",
+    "latitude": 55.845489,
+    "longitude": 12.067743,
+    "website": "https://frederikssundmotioncenter.dk/"
+  },
+  {
+    "id": 3402665065,
+    "name": "Sønderborg Fitness",
+    "region": "Fyn",
+    "latitude": 54.9170798,
+    "longitude": 9.8117425,
+    "website": "https://fitnesssyd.dk"
+  },
+  {
+    "id": 3452508011,
+    "name": "LOOP",
+    "region": "Sjælland",
+    "latitude": 55.3283231,
+    "longitude": 11.138787
+  },
+  {
+    "id": 3811442572,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Herlev BIG",
+    "region": "København",
+    "latitude": 55.7182795,
+    "longitude": 12.4485001
+  },
+  {
+    "id": 3899245989,
+    "name": "Pure Performance Fitness",
+    "region": "Jylland",
+    "latitude": 55.9074561,
+    "longitude": 8.5173794,
+    "website": "https://www.pureperformancefitness.dk/"
+  },
+  {
+    "id": 4204145897,
+    "name": "Nørrebro Fysioterapi & Træningscenter",
+    "region": "København",
+    "latitude": 55.6973814,
+    "longitude": 12.5488728,
+    "website": "https://noerrebrofysioterapi.dk/"
+  },
+  {
+    "id": 4261811189,
+    "name": "Zielke",
+    "region": "Fyn",
+    "latitude": 54.9074413,
+    "longitude": 9.7896688,
+    "website": "https://www.zielkes.dk/"
+  },
+  {
+    "id": 4329370009,
+    "name": "Purple Fitness",
+    "region": "Sjælland",
+    "latitude": 55.7937046,
+    "longitude": 12.1575561
+  },
+  {
+    "id": 4370169201,
+    "name": "Svaneke Yoga",
+    "region": "Jylland",
+    "latitude": 55.1367985,
+    "longitude": 15.1451012
+  },
+  {
+    "id": 4382678703,
+    "name": "Roager Foreningsfitness",
+    "region": "Jylland",
+    "latitude": 55.2510111,
+    "longitude": 8.8242468
+  },
+  {
+    "id": 4455806490,
+    "name": "Fit&Sund",
+    "city": "Aarhus C / Karupvej",
+    "region": "Jylland",
+    "latitude": 56.1559111,
+    "longitude": 10.1795971,
+    "website": "https://fitogsund.dk/c/huse/aarhus-c-karupvej"
+  },
+  {
+    "id": 4470427892,
+    "name": "Fittnes",
+    "region": "Jylland",
+    "latitude": 55.8585488,
+    "longitude": 9.8535509
+  },
+  {
+    "id": 4493239651,
+    "name": "Sport & Fitness Aarup",
+    "region": "Fyn",
+    "latitude": 55.375152,
+    "longitude": 10.050455,
+    "website": "https://aarup.sportogfitness.dk/"
+  },
+  {
+    "id": 4622108122,
+    "name": "TræningsHuset - Lind",
+    "region": "Jylland",
+    "latitude": 56.1106713,
+    "longitude": 8.9789935
+  },
+  {
+    "id": 4671867545,
+    "name": "Inzhape",
+    "region": "København",
+    "latitude": 55.700429,
+    "longitude": 12.5305023,
+    "website": "https://inzhape.dk/"
+  },
+  {
+    "id": 4718005112,
+    "name": "Bramming Fitness",
+    "region": "Jylland",
+    "latitude": 55.4696488,
+    "longitude": 8.6991557,
+    "website": "https://www.brammingfitness.dk/"
+  },
+  {
+    "id": 4757850257,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Nørresundby",
+    "region": "Jylland",
+    "latitude": 57.0722469,
+    "longitude": 9.9257494
+  },
+  {
+    "id": 4792189701,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "region": "Sjælland",
+    "latitude": 55.906839,
+    "longitude": 12.4746175
+  },
+  {
+    "id": 4872509214,
+    "name": "Fitness Studiet",
+    "region": "Jylland",
+    "latitude": 56.4574872,
+    "longitude": 10.0401306
+  },
+  {
+    "id": 4878979931,
+    "name": "SATS KBH - Vesterport",
+    "brand": "Sats",
+    "city": "KBH - Vesterport",
+    "region": "København",
+    "latitude": 55.675245,
+    "longitude": 12.5634595,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-vesterport/"
+  },
+  {
+    "id": 4883939640,
+    "name": "SATS KBH - Parken",
+    "brand": "Sats",
+    "city": "KBH - Parken",
+    "region": "København",
+    "latitude": 55.7017618,
+    "longitude": 12.5722892,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-parken/"
+  },
+  {
+    "id": 4885880761,
+    "name": "Urban Gym",
+    "region": "Fyn",
+    "latitude": 55.3928466,
+    "longitude": 10.3640946
+  },
+  {
+    "id": 4888246708,
+    "name": "SATS KBH",
+    "brand": "Sats",
+    "city": "Amager Strandvej",
+    "region": "København",
+    "latitude": 55.6613013,
+    "longitude": 12.6318655,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-amager-strand/"
+  },
+  {
+    "id": 4888542837,
+    "name": "Fysio",
+    "region": "København",
+    "latitude": 55.6327337,
+    "longitude": 12.6214683
+  },
+  {
+    "id": 4890164605,
+    "name": "Cross Cardio Fitness",
+    "region": "Jylland",
+    "latitude": 55.7040173,
+    "longitude": 9.5310755
+  },
+  {
+    "id": 4898355986,
+    "name": "Silkeborg Sports Center",
+    "region": "Jylland",
+    "latitude": 56.1702757,
+    "longitude": 9.5680889
+  },
+  {
+    "id": 4976396376,
+    "name": "Krop & Yoga",
+    "region": "Jylland",
+    "latitude": 56.6939508,
+    "longitude": 9.4938062
+  },
+  {
+    "id": 5044926325,
+    "name": "Butcher's LAB",
+    "region": "København",
+    "latitude": 55.6684471,
+    "longitude": 12.5620948,
+    "website": "https://butcherslab.dk/"
+  },
+  {
+    "id": 5076070006,
+    "name": "SHC Scandinavia",
+    "brand": "SHC",
+    "city": "Scandinavia",
+    "region": "København",
+    "latitude": 55.6668967,
+    "longitude": 12.5864751,
+    "website": "https://sportinghealthclub.dk/shc-scandinavia/"
+  },
+  {
+    "id": 5155164294,
+    "name": "SATS",
+    "brand": "Sats",
+    "city": "Frederikssund",
+    "region": "Sjælland",
+    "latitude": 55.8356818,
+    "longitude": 12.0647288,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-frederikssund/"
+  },
+  {
+    "id": 5203118021,
+    "name": "Local Fitness Nexø",
+    "region": "Jylland",
+    "latitude": 55.0584557,
+    "longitude": 15.1346096,
+    "website": "https://www.localfitness.dk/center/nexo"
+  },
+  {
+    "id": 5270606025,
+    "name": "Grenaa Fitness",
+    "region": "Sjælland",
+    "latitude": 56.4140123,
+    "longitude": 10.8929549
+  },
+  {
+    "id": 5295777046,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "region": "København",
+    "latitude": 55.7048699,
+    "longitude": 12.5443471,
+    "website": "https://www.puregym.dk/find-center/kbh-tagensvej"
+  },
+  {
+    "id": 5310397129,
+    "name": "Fit&Sund",
+    "city": "Hjerting / Esbjerg",
+    "region": "Jylland",
+    "latitude": 55.5185481,
+    "longitude": 8.3682829,
+    "website": "https://fitogsund.dk/c/huse/hjerting-esbjerg"
+  },
+  {
+    "id": 5338685722,
+    "name": "LOOP Fitness",
+    "brand": "LOOP Fitness",
+    "region": "Sjælland",
+    "latitude": 55.4477982,
+    "longitude": 12.1661557,
+    "website": "https://loopfitness.dk/centre/loop-fitness-koege/"
+  },
+  {
+    "id": 5419140590,
+    "name": "Apollo Fitness",
+    "region": "Jylland",
+    "latitude": 55.718802,
+    "longitude": 9.5625,
+    "website": "https://www.apollofitness.dk/"
+  },
+  {
+    "id": 5628383088,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Brøndby Strand",
+    "region": "København",
+    "latitude": 55.6223864,
+    "longitude": 12.4213181
+  },
+  {
+    "id": 5664554632,
+    "name": "FitnessX",
+    "region": "Jylland",
+    "latitude": 56.1653463,
+    "longitude": 10.1333401
+  },
+  {
+    "id": 5671442252,
+    "name": "Aarhus Crossfit",
+    "region": "Jylland",
+    "latitude": 56.1536948,
+    "longitude": 10.2189596,
+    "website": "https://aarhuscrossfit.dk/"
+  },
+  {
+    "id": 5676162578,
+    "name": "FitnessX",
+    "city": "Frisko Aarhus",
+    "region": "Jylland",
+    "latitude": 56.1559392,
+    "longitude": 10.1831754,
+    "website": "https://fitnessx.dk/find-center/aarhus-frisko/"
+  },
+  {
+    "id": 5681193814,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Århus N Vejlby",
+    "region": "Jylland",
+    "latitude": 56.1871555,
+    "longitude": 10.2109242
+  },
+  {
+    "id": 5681193815,
+    "name": "Fitness United",
+    "region": "Jylland",
+    "latitude": 56.1884305,
+    "longitude": 10.2145259,
+    "website": "https://www.sats.com/fitnesscenter/jylland/sats-arhus-risskov/"
+  },
+  {
+    "id": 5686106272,
+    "name": "Ultimate Gym",
+    "region": "Jylland",
+    "latitude": 56.1554964,
+    "longitude": 10.1797459
+  },
+  {
+    "id": 5686106274,
+    "name": "b:fit by Zeenta",
+    "region": "Jylland",
+    "latitude": 56.1547431,
+    "longitude": 10.1812666
+  },
+  {
+    "id": 5692297927,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Århus C. Nørreport",
+    "region": "Jylland",
+    "latitude": 56.1622124,
+    "longitude": 10.2118332
+  },
+  {
+    "id": 5719417683,
+    "name": "Skrave Fitness",
+    "region": "Fyn",
+    "latitude": 55.4140873,
+    "longitude": 9.1027684
+  },
+  {
+    "id": 5734941904,
+    "name": "LOOP Fitness",
+    "brand": "LOOP Fitness",
+    "region": "København",
+    "latitude": 55.7954536,
+    "longitude": 12.4741141
+  },
+  {
+    "id": 5738366913,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Vallensbæk",
+    "region": "København",
+    "latitude": 55.6236832,
+    "longitude": 12.3883473
+  },
+  {
+    "id": 5764078960,
+    "name": "Underground Yoga",
+    "region": "Sjælland",
+    "latitude": 55.875274,
+    "longitude": 12.3525715,
+    "website": "https://www.undergroundyoga.dk/"
+  },
+  {
+    "id": 5802005680,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Farumgade",
+    "region": "København",
+    "latitude": 55.6979732,
+    "longitude": 12.5420376
+  },
+  {
+    "id": 5809585765,
+    "name": "Dóttir Yoga & Juice Bar",
+    "region": "København",
+    "latitude": 55.6499227,
+    "longitude": 12.5543485
+  },
+  {
+    "id": 5809585769,
+    "name": "Yum",
+    "region": "København",
+    "latitude": 55.6477598,
+    "longitude": 12.5522402,
+    "website": "https://www.yum.dk"
+  },
+  {
+    "id": 5832282557,
+    "name": "Gold Gym",
+    "region": "Sjælland",
+    "latitude": 56.413689,
+    "longitude": 10.8868617
+  },
+  {
+    "id": 5916933729,
+    "name": "MyHeart Fitness",
+    "region": "Jylland",
+    "latitude": 56.7180221,
+    "longitude": 10.1145931
+  },
+  {
+    "id": 5916933733,
+    "name": "Loop",
+    "region": "Jylland",
+    "latitude": 56.7158389,
+    "longitude": 10.1149297
+  },
+  {
+    "id": 5930807166,
+    "name": "YogaNamNam Studio",
+    "region": "Sjælland",
+    "latitude": 54.9855188,
+    "longitude": 12.284587,
+    "website": "http://www.yoganamnam.dk"
+  },
+  {
+    "id": 5941086848,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Randers Thors Bakke",
+    "region": "Jylland",
+    "latitude": 56.4628883,
+    "longitude": 10.0376562
+  },
+  {
+    "id": 5955615123,
+    "name": "Fitness Institute",
+    "region": "København",
+    "latitude": 55.6860225,
+    "longitude": 12.5874245,
+    "website": "https://fitness-institute.dk"
+  },
+  {
+    "id": 6150038217,
+    "name": "The Club Fitness",
+    "region": "Sjælland",
+    "latitude": 55.8703759,
+    "longitude": 12.3547486,
+    "website": "https://theclubfitness.dk/"
+  },
+  {
+    "id": 6208565153,
+    "name": "Form og Fitness",
+    "region": "København",
+    "latitude": 55.6629519,
+    "longitude": 12.6099829
+  },
+  {
+    "id": 6360263198,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "region": "Jylland",
+    "latitude": 56.1433687,
+    "longitude": 10.2006809
+  },
+  {
+    "id": 6397292348,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "region": "København",
+    "latitude": 55.6867981,
+    "longitude": 12.5034442
+  },
+  {
+    "id": 6399647310,
+    "name": "The Yoga Flat",
+    "region": "København",
+    "latitude": 55.6720513,
+    "longitude": 12.5908971,
+    "website": "https://www.yogaflat.com"
+  },
+  {
+    "id": 6402856988,
+    "name": "Urban Gym",
+    "region": "Fyn",
+    "latitude": 55.4873016,
+    "longitude": 9.465567
+  },
+  {
+    "id": 6416538086,
+    "name": "LOOP Fitness",
+    "brand": "LOOP Fitness",
+    "region": "Jylland",
+    "latitude": 55.6096053,
+    "longitude": 8.4946641,
+    "website": "https://loopfitness.com/da/varde/"
+  },
+  {
+    "id": 6418955188,
+    "name": "Paul Bergsøe Kollegiet fitness centre",
+    "region": "København",
+    "latitude": 55.8108227,
+    "longitude": 12.5140746
+  },
+  {
+    "id": 6431113886,
+    "name": "Arca Centralen",
+    "brand": "Arca",
+    "city": "Centralen",
+    "region": "København",
+    "latitude": 55.6720147,
+    "longitude": 12.5526861,
+    "website": "https://arca.dk/centralen/"
+  },
+  {
+    "id": 6434733048,
+    "name": "LOOP Birkerød",
+    "region": "Sjælland",
+    "latitude": 55.8408201,
+    "longitude": 12.43122
+  },
+  {
+    "id": 6466655173,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Kbh S. Bryggen",
+    "region": "København",
+    "latitude": 55.662733,
+    "longitude": 12.5773091
+  },
+  {
+    "id": 6499180324,
+    "name": "Go2Fitness",
+    "region": "Sjælland",
+    "latitude": 55.5941251,
+    "longitude": 11.862119
+  },
+  {
+    "id": 6501523032,
+    "name": "Yogamandala",
+    "region": "Sjælland",
+    "latitude": 55.920271,
+    "longitude": 12.314671,
+    "website": "https://yogamandala.dk/"
+  },
+  {
+    "id": 6568393384,
+    "name": "CrossFit",
+    "brand": "CrossFit",
+    "region": "København",
+    "latitude": 55.6684003,
+    "longitude": 12.5621736
+  },
+  {
+    "id": 6570661360,
+    "name": "SATS KBH - Blox",
+    "brand": "Sats",
+    "city": "KBH - Blox",
+    "region": "København",
+    "latitude": 55.6717271,
+    "longitude": 12.5793239,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-blox/"
+  },
+  {
+    "id": 6790551952,
+    "name": "Arca Klubben",
+    "brand": "Arca",
+    "city": "Klubben",
+    "region": "København",
+    "latitude": 55.708855,
+    "longitude": 12.5748297,
+    "website": "https://arca.dk/klubben/"
+  },
+  {
+    "id": 6797188068,
+    "name": "SATS",
+    "brand": "Sats",
+    "city": "Nygårdsvej",
+    "region": "København",
+    "latitude": 55.7122748,
+    "longitude": 12.5762602,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-nygardsvej/"
+  },
+  {
+    "id": 6833041639,
+    "name": "Hotel Britannia Fitness",
+    "region": "Jylland",
+    "latitude": 55.46756,
+    "longitude": 8.4516736
+  },
+  {
+    "id": 6893808629,
+    "name": "Skave Fitness",
+    "region": "Jylland",
+    "latitude": 56.3905367,
+    "longitude": 8.7977797
+  },
+  {
+    "id": 6964820050,
+    "name": "Loop",
+    "region": "København",
+    "latitude": 55.7083396,
+    "longitude": 12.558139
+  },
+  {
+    "id": 7115480809,
+    "name": "Nem Fitness",
+    "region": "Jylland",
+    "latitude": 55.4661637,
+    "longitude": 8.6998678
+  },
+  {
+    "id": 7124791843,
+    "name": "[jo:ga]",
+    "region": "København",
+    "latitude": 55.6637681,
+    "longitude": 12.6224008
+  },
+  {
+    "id": 7156944316,
+    "name": "CrossFit Halo",
+    "region": "Jylland",
+    "latitude": 55.5057475,
+    "longitude": 8.4565696,
+    "website": "https://crossfithalo.dk/"
+  },
+  {
+    "id": 7243417352,
+    "name": "LOOP Fitness",
+    "brand": "LOOP Fitness",
+    "city": "Nørrebro",
+    "region": "København",
+    "latitude": 55.7027632,
+    "longitude": 12.5484306,
+    "website": "https://loopfitness.dk"
+  },
+  {
+    "id": 7294403568,
+    "name": "Go-yoga Bramming",
+    "region": "Jylland",
+    "latitude": 55.4658454,
+    "longitude": 8.6993369,
+    "website": "https://www.goyogabramming.dk/"
+  },
+  {
+    "id": 7362395522,
+    "name": "Mariager motionscenter",
+    "region": "Jylland",
+    "latitude": 56.6454833,
+    "longitude": 9.9713305
+  },
+  {
+    "id": 7376776162,
+    "name": "Perform BY IRANI",
+    "region": "Fyn",
+    "latitude": 55.5673606,
+    "longitude": 9.7575208,
+    "website": "https://www.facebook.com/PERFORMBYIRANI/"
+  },
+  {
+    "id": 7473224311,
+    "name": "Club Energy Fitness",
+    "city": "Varde",
+    "region": "Jylland",
+    "latitude": 55.6325393,
+    "longitude": 8.4831076,
+    "website": "https://clubenergyfitness.dk/"
+  },
+  {
+    "id": 7527304493,
+    "name": "Loop",
+    "region": "Jylland",
+    "latitude": 55.4685243,
+    "longitude": 8.4398764,
+    "website": "https://loopfitness.dk/centre/loop-fitness-esbjerg/"
+  },
+  {
+    "id": 7537276964,
+    "name": "Kongerslev Fitnesscenter",
+    "region": "Jylland",
+    "latitude": 56.8894,
+    "longitude": 10.1129
+  },
+  {
+    "id": 7556419265,
+    "name": "Frank Institute of Sports",
+    "region": "Fyn",
+    "latitude": 55.3811904,
+    "longitude": 10.4204078,
+    "website": "https://www.frankinstituteofsports.com/"
+  },
+  {
+    "id": 7685220548,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Lundtoftegårdsvej",
+    "region": "København",
+    "latitude": 55.7787425,
+    "longitude": 12.5243171
+  },
+  {
+    "id": 7717864185,
+    "name": "Thyborøn Motionscenter",
+    "region": "Jylland",
+    "latitude": 56.6953651,
+    "longitude": 8.2044171
+  },
+  {
+    "id": 7740545895,
+    "name": "Arca Smedjen",
+    "brand": "Arca",
+    "region": "København",
+    "latitude": 55.7037698,
+    "longitude": 12.5548778,
+    "website": "https://arca.dk/smedjen/"
+  },
+  {
+    "id": 7780381165,
+    "name": "LOOP Fitness",
+    "brand": "LOOP Fitness",
+    "region": "Fyn",
+    "latitude": 55.5320946,
+    "longitude": 9.7765154,
+    "website": "https://loopfitness.dk/centre/loop-fitness-strib/"
+  },
+  {
+    "id": 7800664320,
+    "name": "Loop",
+    "region": "Jylland",
+    "latitude": 56.9563589,
+    "longitude": 8.6921328
+  },
+  {
+    "id": 7803371335,
+    "name": "Fit&Sund Skive",
+    "city": "Skive",
+    "region": "Jylland",
+    "latitude": 56.5627006,
+    "longitude": 9.0288927,
+    "website": "https://fitogsund.dk/c/huse/skive"
+  },
+  {
+    "id": 7803371341,
+    "name": "LOOP Skive",
+    "region": "Jylland",
+    "latitude": 56.5656423,
+    "longitude": 9.0311097
+  },
+  {
+    "id": 7803371343,
+    "name": "Fit&Sund Skive",
+    "region": "Jylland",
+    "latitude": 56.5656034,
+    "longitude": 9.0268884
+  },
+  {
+    "id": 7807117810,
+    "name": "Multifitness",
+    "region": "Sjælland",
+    "latitude": 55.795452,
+    "longitude": 12.1588586
+  },
+  {
+    "id": 7807117816,
+    "name": "LOOP",
+    "region": "Sjælland",
+    "latitude": 55.7933825,
+    "longitude": 12.1569693
+  },
+  {
+    "id": 7843844350,
+    "name": "Stestrup Fritidsgård",
+    "region": "Sjælland",
+    "latitude": 55.5732188,
+    "longitude": 11.7844087
+  },
+  {
+    "id": 7888218670,
+    "name": "Fit&Sund",
+    "region": "Jylland",
+    "latitude": 55.7153971,
+    "longitude": 10.0107128,
+    "website": "https://fitogsund.dk/c/huse/juelsminde"
+  },
+  {
+    "id": 7994906335,
+    "name": "Det Lille Træningscenter",
+    "region": "Sjælland",
+    "latitude": 55.6520387,
+    "longitude": 11.2916227
+  },
+  {
+    "id": 8049679203,
+    "name": "LOOP Fitness",
+    "brand": "LOOP Fitness",
+    "region": "Jylland",
+    "latitude": 56.2023401,
+    "longitude": 10.2469209
+  },
+  {
+    "id": 8074735923,
+    "name": "Fitness Taastrup",
+    "region": "København",
+    "latitude": 55.6477571,
+    "longitude": 12.269413,
+    "website": "https://www.fitnesstaastrup.dk/"
+  },
+  {
+    "id": 8098941843,
+    "name": "Tiger Sport Copenhagen",
+    "region": "København",
+    "latitude": 55.672219,
+    "longitude": 12.5589633,
+    "website": "https://tigersport.dk/"
+  },
+  {
+    "id": 8109952224,
+    "name": "InZhape",
+    "region": "København",
+    "latitude": 55.700364,
+    "longitude": 12.530524
+  },
+  {
+    "id": 8121859565,
+    "name": "Hobro Helsesport",
+    "region": "Jylland",
+    "latitude": 56.6378858,
+    "longitude": 9.7966075,
+    "website": "http://helsesport.dk/"
+  },
+  {
+    "id": 8127622739,
+    "name": "Fitness Lab",
+    "region": "Sjælland",
+    "latitude": 55.4331277,
+    "longitude": 11.7913699,
+    "website": "https://fitnesslab.dk/"
+  },
+  {
+    "id": 8211607338,
+    "name": "Hot Yoga CPH",
+    "region": "København",
+    "latitude": 55.671095,
+    "longitude": 12.593604,
+    "website": "https://hotyogacph.dk/"
+  },
+  {
+    "id": 8229143754,
+    "name": "DyrkYoga.dk",
+    "region": "Sjælland",
+    "latitude": 56.124362,
+    "longitude": 12.3084862,
+    "website": "https://www.dyrkyoga.dk/"
+  },
+  {
+    "id": 8254386586,
+    "name": "SHC Borups Allé",
+    "brand": "SHC",
+    "city": "Borups Allé",
+    "region": "København",
+    "latitude": 55.6921776,
+    "longitude": 12.5367355,
+    "website": "https://sportinghealthclub.dk/shc-borups-alle/"
+  },
+  {
+    "id": 8384372801,
+    "name": "Kaatsu Fitness",
+    "region": "København",
+    "latitude": 55.6845518,
+    "longitude": 12.5387296
+  },
+  {
+    "id": 8401697108,
+    "name": "Krav Maga Aarhus",
+    "region": "Jylland",
+    "latitude": 56.1685474,
+    "longitude": 10.191661,
+    "website": "https://www.kravmagaaarhus.com/"
+  },
+  {
+    "id": 8564193726,
+    "name": "Alex Beck",
+    "region": "København",
+    "latitude": 55.6677017,
+    "longitude": 12.5970063
+  },
+  {
+    "id": 8582555169,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Brøndbyvester",
+    "region": "København",
+    "latitude": 55.6552087,
+    "longitude": 12.3949076
+  },
+  {
+    "id": 8595596434,
+    "name": "SATS Taastrup",
+    "brand": "Sats",
+    "city": "Taastrup",
+    "region": "København",
+    "latitude": 55.6440412,
+    "longitude": 12.274762,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-taastrup/"
+  },
+  {
+    "id": 8598925317,
+    "name": "PureGym",
+    "brand": "PureGym Hvidovre Stationscenter",
+    "city": "Hvidovre C",
+    "region": "København",
+    "latitude": 55.6636449,
+    "longitude": 12.4745684
+  },
+  {
+    "id": 8665305333,
+    "name": "Go Motion",
+    "region": "Jylland",
+    "latitude": 56.1648253,
+    "longitude": 9.5421575,
+    "website": "https://gomotion.nu/"
+  },
+  {
+    "id": 8674392819,
+    "name": "Vinderup Fitness",
+    "region": "Jylland",
+    "latitude": 56.4831294,
+    "longitude": 8.7792353,
+    "website": "https://vinderup-fitness.dk/"
+  },
+  {
+    "id": 8676737921,
+    "name": "Dansk fitness Randers",
+    "region": "Jylland",
+    "latitude": 56.4607048,
+    "longitude": 10.0275536
+  },
+  {
+    "id": 8694104382,
+    "name": "Fitness 8800",
+    "region": "Jylland",
+    "latitude": 56.4664193,
+    "longitude": 9.3973173
+  },
+  {
+    "id": 8695324537,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Enigheden Kosttilskud",
+    "region": "København",
+    "latitude": 55.704951,
+    "longitude": 12.5375168
+  },
+  {
+    "id": 8716115822,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Hvedemarken",
+    "region": "København",
+    "latitude": 55.818969,
+    "longitude": 12.372367
+  },
+  {
+    "id": 8718296334,
+    "name": "SATS KBH",
+    "brand": "Sats",
+    "city": "Nørrebro",
+    "region": "København",
+    "latitude": 55.7008248,
+    "longitude": 12.5369024,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-norrebro/"
+  },
+  {
+    "id": 8756871274,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Sct Jørgensbjerg",
+    "region": "Sjælland",
+    "latitude": 55.6817367,
+    "longitude": 11.1037531
+  },
+  {
+    "id": 8786158405,
+    "name": "Go form",
+    "region": "Sjælland",
+    "latitude": 55.6656531,
+    "longitude": 11.1198683,
+    "website": "http://go-form.dk/"
+  },
+  {
+    "id": 8803282752,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Karlslunde",
+    "region": "København",
+    "latitude": 55.5667858,
+    "longitude": 12.2677214
+  },
+  {
+    "id": 8812111383,
+    "name": "Pilates B",
+    "region": "København",
+    "latitude": 55.7736415,
+    "longitude": 12.4990297,
+    "website": "https://www.pilatesb.dk/"
+  },
+  {
+    "id": 8899169245,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Slotssøbadet",
+    "region": "Fyn",
+    "latitude": 55.4942378,
+    "longitude": 9.4705182
+  },
+  {
+    "id": 8922511483,
+    "name": "Sønderborg City Fitness",
+    "region": "Fyn",
+    "latitude": 54.9139875,
+    "longitude": 9.8056631,
+    "website": "http://www.c-fitness.dk/"
+  },
+  {
+    "id": 8990288638,
+    "name": "Fitbarsel",
+    "region": "København",
+    "latitude": 55.6897772,
+    "longitude": 12.4887009
+  },
+  {
+    "id": 8998628117,
+    "name": "PMT GYM Køge",
+    "region": "Sjælland",
+    "latitude": 55.474279,
+    "longitude": 12.174755,
+    "website": "https://pmtgym.dk/"
+  },
+  {
+    "id": 8999781067,
+    "name": "SATS Køge - Den hvide by",
+    "brand": "Sats",
+    "city": "Køge - Den hvide by",
+    "region": "Sjælland",
+    "latitude": 55.477597,
+    "longitude": 12.1862598,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-koge-den-hvide-by/"
+  },
+  {
+    "id": 9005329840,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Klokkestøbervej",
+    "region": "Fyn",
+    "latitude": 55.3801745,
+    "longitude": 10.4175693
+  },
+  {
+    "id": 9006944117,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Odense Dannebrogsgade",
+    "region": "Fyn",
+    "latitude": 55.402164,
+    "longitude": 10.3903195
+  },
+  {
+    "id": 9008890814,
+    "name": "Foreningsfitness Stubbekøbing",
+    "region": "Sjælland",
+    "latitude": 54.8889422,
+    "longitude": 12.0529368,
+    "website": "https://ffstbk.dk/"
+  },
+  {
+    "id": 9015458453,
+    "name": "SATS Vallensbæk",
+    "brand": "Sats",
+    "city": "Vallensbæk",
+    "region": "København",
+    "latitude": 55.6229582,
+    "longitude": 12.3870789,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-vallensbaek/"
+  },
+  {
+    "id": 9015458454,
+    "name": "SATS Søborg",
+    "brand": "Sats",
+    "city": "Søborg",
+    "region": "København",
+    "latitude": 55.741202,
+    "longitude": 12.484854,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-soborg/"
+  },
+  {
+    "id": 9015458455,
+    "name": "SATS Roskilde",
+    "brand": "Sats",
+    "city": "Roskilde",
+    "region": "Sjælland",
+    "latitude": 55.641418,
+    "longitude": 12.100165,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-roskilde/"
+  },
+  {
+    "id": 9015458456,
+    "name": "SATS Nærum",
+    "brand": "Sats",
+    "city": "Nærum",
+    "region": "København",
+    "latitude": 55.8162474,
+    "longitude": 12.5287191,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-naerum/"
+  },
+  {
+    "id": 9015458457,
+    "name": "SATS Lyngby – Kanalvej",
+    "brand": "Sats",
+    "city": "Lyngby – Kanalvej",
+    "region": "København",
+    "latitude": 55.773342,
+    "longitude": 12.507291,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-lyngby--kanalvej/"
+  },
+  {
+    "id": 9015458459,
+    "name": "SATS Køge - Strædet",
+    "brand": "Sats",
+    "city": "Køge - Strædet",
+    "region": "Sjælland",
+    "latitude": 55.4574,
+    "longitude": 12.185097,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-koge-straedet/"
+  },
+  {
+    "id": 9015458460,
+    "name": "SATS",
+    "brand": "Sats",
+    "city": "KBH - Sydhavn",
+    "region": "København",
+    "latitude": 55.6529288,
+    "longitude": 12.5423548,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-sydhavn/"
+  },
+  {
+    "id": 9015458461,
+    "name": "SATS",
+    "brand": "Sats",
+    "city": "Fisketorvet",
+    "region": "København",
+    "latitude": 55.6616517,
+    "longitude": 12.5621303,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-fisketorvet/"
+  },
+  {
+    "id": 9015458462,
+    "name": "SATS",
+    "brand": "Sats",
+    "city": "Fields",
+    "region": "København",
+    "latitude": 55.6297415,
+    "longitude": 12.5780829,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-fields/"
+  },
+  {
+    "id": 9015458463,
+    "name": "SATS Hørsholm",
+    "brand": "Sats",
+    "city": "Hørsholm",
+    "region": "Sjælland",
+    "latitude": 55.8784948,
+    "longitude": 12.497678,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-horsholm/"
+  },
+  {
+    "id": 9015458464,
+    "name": "SATS Helsingør",
+    "brand": "Sats",
+    "city": "Helsingør",
+    "region": "Sjælland",
+    "latitude": 56.025207,
+    "longitude": 12.58844,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-helsingor/"
+  },
+  {
+    "id": 9015458465,
+    "name": "SATS Gentofte",
+    "brand": "Sats",
+    "city": "Gentofte",
+    "region": "København",
+    "latitude": 55.747329,
+    "longitude": 12.541266,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-gentofte/"
+  },
+  {
+    "id": 9015458466,
+    "name": "SATS FRB - Falkoner",
+    "brand": "Sats",
+    "city": "FRB - Falkoner",
+    "region": "København",
+    "latitude": 55.680361,
+    "longitude": 12.53075,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-frb-falkoner/"
+  },
+  {
+    "id": 9015458467,
+    "name": "SATS FRB - ABC",
+    "brand": "Sats",
+    "city": "FRB - ABC",
+    "region": "København",
+    "latitude": 55.674924,
+    "longitude": 12.534195,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-frb-abc/"
+  },
+  {
+    "id": 9015458468,
+    "name": "SATS Birkerød",
+    "brand": "Sats",
+    "city": "Birkerød",
+    "region": "København",
+    "latitude": 55.839106,
+    "longitude": 12.434698,
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-birkerod/"
+  },
+  {
+    "id": 9015628413,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Solrød Strand Solrød center (C246)",
+    "region": "Sjælland",
+    "latitude": 55.532945,
+    "longitude": 12.2213672
+  },
+  {
+    "id": 9029868807,
+    "name": "TarGet Gym",
+    "region": "København",
+    "latitude": 55.6335494,
+    "longitude": 12.6531338
+  },
+  {
+    "id": 9035036308,
+    "name": "Anytime Gym",
+    "region": "Sjælland",
+    "latitude": 55.641945,
+    "longitude": 12.107094,
+    "website": "https://www.anytimegym.dk"
+  },
+  {
+    "id": 9038229887,
+    "name": "SATS Danmark",
+    "brand": "Sats",
+    "city": "Ro's Torv",
+    "region": "Sjælland",
+    "latitude": 55.6416473,
+    "longitude": 12.1009771
+  },
+  {
+    "id": 9038989660,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Ishøj Bycenter",
+    "region": "København",
+    "latitude": 55.6140553,
+    "longitude": 12.3559716
+  },
+  {
+    "id": 9044078567,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Frihedens Butikscenter",
+    "region": "København",
+    "latitude": 55.6264465,
+    "longitude": 12.4844243
+  },
+  {
+    "id": 9044433488,
+    "name": "New Fitness",
+    "region": "København",
+    "latitude": 55.6556362,
+    "longitude": 12.3548722,
+    "website": "https://newfitness.dk/"
+  },
+  {
+    "id": 9051050441,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Kbh SV Sjælør",
+    "region": "København",
+    "latitude": 55.65037,
+    "longitude": 12.52421
+  },
+  {
+    "id": 9057397746,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Odense SØ",
+    "region": "Fyn",
+    "latitude": 55.394018,
+    "longitude": 10.42103,
+    "website": "https://www.fitnessworld.com/dk2/find-center/odense-soe-ejbygade"
+  },
+  {
+    "id": 9061629650,
+    "name": "Fit&Sund",
+    "city": "Bredballe",
+    "region": "Jylland",
+    "latitude": 55.7230438,
+    "longitude": 9.5960696,
+    "website": "https://fitogsund.dk/c/huse/bredballe"
+  },
+  {
+    "id": 9061629661,
+    "name": "Fit&Sund",
+    "city": "Brædstrup",
+    "region": "Jylland",
+    "latitude": 55.9711878,
+    "longitude": 9.6116958,
+    "website": "https://fitogsund.dk/c/huse/braedstrup"
+  },
+  {
+    "id": 9061629664,
+    "name": "Fit&Sund",
+    "city": "Albertslund",
+    "region": "København",
+    "latitude": 55.6651356,
+    "longitude": 12.3632372,
+    "website": "https://fitogsund.dk/c/huse/albertslund"
+  },
+  {
+    "id": 9061629667,
+    "name": "Fit&Sund",
+    "city": "Ballerup",
+    "region": "København",
+    "latitude": 55.732323,
+    "longitude": 12.3833158,
+    "website": "https://fitogsund.dk/c/huse/ballerup"
+  },
+  {
+    "id": 9063246466,
+    "name": "Copenhagen Gym",
+    "region": "København",
+    "latitude": 55.6528234,
+    "longitude": 12.5067763,
+    "website": "https://www.copenhagengym.dk/"
+  },
+  {
+    "id": 9067184649,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Rued Langgaardsvej",
+    "region": "København",
+    "latitude": 55.6603426,
+    "longitude": 12.5926407
+  },
+  {
+    "id": 9084325442,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "region": "København",
+    "latitude": 55.6777602,
+    "longitude": 12.6032017,
+    "website": "https://www.puregym.dk/find-center/kbh-k-christianshavn"
+  },
+  {
+    "id": 9084822557,
+    "name": "Anger Management",
+    "region": "København",
+    "latitude": 55.6944788,
+    "longitude": 12.4346096,
+    "website": "https://www.angergym.dk/"
+  },
+  {
+    "id": 9084822565,
+    "name": "PureGym - Rødovre Rødovre Centrum",
+    "region": "København",
+    "latitude": 55.6797356,
+    "longitude": 12.4564091
+  },
+  {
+    "id": 9091517113,
+    "name": "Vesterbronx",
+    "region": "København",
+    "latitude": 55.6727768,
+    "longitude": 12.55085,
+    "website": "https://vesterbronxgym.dk/"
+  },
+  {
+    "id": 9095746149,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Vesterbrogade",
+    "region": "København",
+    "latitude": 55.671618,
+    "longitude": 12.546674
+  },
+  {
+    "id": 9110835337,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Kbh K. Købmagergade",
+    "region": "København",
+    "latitude": 55.6810412,
+    "longitude": 12.576783
+  },
+  {
+    "id": 9145322692,
+    "name": "iGym",
+    "region": "Jylland",
+    "latitude": 56.4436391,
+    "longitude": 9.3946004
+  },
+  {
+    "id": 9150230345,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Bredballe Center 24",
+    "region": "Jylland",
+    "latitude": 55.7187707,
+    "longitude": 9.6095736
+  },
+  {
+    "id": 9151013614,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Kbh Ø Æbeløgade",
+    "region": "København",
+    "latitude": 55.7113018,
+    "longitude": 12.564646
+  },
+  {
+    "id": 9151044928,
+    "name": "Well-come Fitness og Spa",
+    "region": "København",
+    "latitude": 55.7260365,
+    "longitude": 12.5801083,
+    "website": "https://www.well-come.dk/"
+  },
+  {
+    "id": 9153366895,
+    "name": "LifeClub",
+    "region": "Sjælland",
+    "latitude": 55.634334,
+    "longitude": 12.053148,
+    "website": "https://lifeclub.dk/"
+  },
+  {
+    "id": 9155650865,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Hundige",
+    "region": "København",
+    "latitude": 55.5974013,
+    "longitude": 12.3301652
+  },
+  {
+    "id": 9159362405,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Slangerup",
+    "region": "Sjælland",
+    "latitude": 55.8508012,
+    "longitude": 12.1635951
+  },
+  {
+    "id": 9163443033,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Vejle Damhaven",
+    "region": "Jylland",
+    "latitude": 55.7039573,
+    "longitude": 9.5313473,
+    "website": "https://www.fitnessworld.com/dk2/find-center/vejle-damhaven"
+  },
+  {
+    "id": 9180771129,
+    "name": "Fysio Puls",
+    "region": "København",
+    "latitude": 55.648881,
+    "longitude": 12.5544471,
+    "website": "https://www.fysiopuls.dk/"
+  },
+  {
+    "id": 9207580208,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Nørre Voldgade Fredericia",
+    "region": "Fyn",
+    "latitude": 55.5684508,
+    "longitude": 9.7558482
+  },
+  {
+    "id": 9212191791,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Kokkedal",
+    "region": "Sjælland",
+    "latitude": 55.9058187,
+    "longitude": 12.4753961
+  },
+  {
+    "id": 9218279089,
+    "name": "Mana Gym",
+    "region": "Sjælland",
+    "latitude": 56.028983,
+    "longitude": 12.566195,
+    "website": "https://www.managym.dk/"
+  },
+  {
+    "id": 9270832980,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Aabenraa",
+    "region": "Fyn",
+    "latitude": 55.042962,
+    "longitude": 9.4162536
+  },
+  {
+    "id": 9273428330,
+    "name": "Fitness Møn",
+    "region": "Sjælland",
+    "latitude": 54.9810141,
+    "longitude": 12.2762372,
+    "website": "https://fitnessmoen.dk/"
+  },
+  {
+    "id": 9277977861,
+    "name": "Yogaloft",
+    "region": "Sjælland",
+    "latitude": 55.0055239,
+    "longitude": 11.9654092,
+    "website": "https://yogaloft.dk/"
+  },
+  {
+    "id": 9284378852,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Randers Gudenåcentret",
+    "region": "Jylland",
+    "latitude": 56.454238,
+    "longitude": 10.041056
+  },
+  {
+    "id": 9302703992,
+    "name": "LOOP Fitness",
+    "brand": "LOOP Fitness",
+    "region": "København",
+    "latitude": 55.6867945,
+    "longitude": 12.4910668
+  },
+  {
+    "id": 9307585551,
+    "name": "Fit og sund",
+    "region": "Sjælland",
+    "latitude": 56.4049408,
+    "longitude": 10.8866031,
+    "website": "https://fitogsund.dk/c/huse/grenaa"
+  },
+  {
+    "id": 9343161579,
+    "name": "Gym 53",
+    "region": "Sjælland",
+    "latitude": 55.9606381,
+    "longitude": 11.8525507,
+    "website": "https://gym53.dk"
+  },
+  {
+    "id": 9386731166,
+    "name": "DGI Fitnesscenteret",
+    "region": "Sjælland",
+    "latitude": 55.0132631,
+    "longitude": 11.9215398,
+    "website": "https://www.dgihusetvordingborg.dk/traening/fitness"
+  },
+  {
+    "id": 9445282345,
+    "name": "PerformanceLab og CrossFit Lageret",
+    "region": "Jylland",
+    "latitude": 56.3663369,
+    "longitude": 8.6369544,
+    "website": "https://www.performancelageret.dk"
+  },
+  {
+    "id": 9514125953,
+    "name": "Dansk Fitness Faaborg",
+    "region": "Fyn",
+    "latitude": 55.099397,
+    "longitude": 10.2405688,
+    "website": "https://www.danskfitness.dk/faaborg"
+  },
+  {
+    "id": 9516551182,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Holte Midtpunkt",
+    "region": "København",
+    "latitude": 55.8113401,
+    "longitude": 12.4716902,
+    "website": "https://www.fitnessworld.com/dk2/find-center/holte-midtpunkt"
+  },
+  {
+    "id": 9527413988,
+    "name": "Pole Republic",
+    "region": "Fyn",
+    "latitude": 55.4019765,
+    "longitude": 10.3589809,
+    "website": "https://polerepublic.dk/"
+  },
+  {
+    "id": 9528501199,
+    "name": "Fitness World Albertslund",
+    "region": "København",
+    "latitude": 55.6639865,
+    "longitude": 12.3641543,
+    "website": "https://www.fitnessworld.com/dk2/find-center/albertslund"
+  },
+  {
+    "id": 9540286682,
+    "name": "Shape Studio",
+    "region": "Jylland",
+    "latitude": 57.046465,
+    "longitude": 9.9277911
+  },
+  {
+    "id": 9549613366,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Skalbakken",
+    "region": "København",
+    "latitude": 55.6934343,
+    "longitude": 12.4848435
+  },
+  {
+    "id": 9556295819,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Helsingør",
+    "region": "Sjælland",
+    "latitude": 56.0303747,
+    "longitude": 12.6064615,
+    "website": "https://www.fitnessworld.com/dk2/find-center/helsingoer-soendre-strandvej"
+  },
+  {
+    "id": 9590509652,
+    "name": "Barry's",
+    "brand": "Barry's",
+    "city": "Bootcamp Denmark",
+    "region": "København",
+    "latitude": 55.6819436,
+    "longitude": 12.5806984,
+    "website": "https://www.barrys.com/studio/copenhagen/"
+  },
+  {
+    "id": 9622556315,
+    "name": "Storm Fitness",
+    "region": "Sjælland",
+    "latitude": 55.6800377,
+    "longitude": 11.1033356,
+    "website": "https://shop.stormfitness.dk/"
+  },
+  {
+    "id": 9631020516,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Korsør Nordvangen",
+    "region": "Sjælland",
+    "latitude": 55.329671,
+    "longitude": 11.1468132
+  },
+  {
+    "id": 9633198608,
+    "name": "Nordic Performance Training",
+    "region": "København",
+    "latitude": 55.6657333,
+    "longitude": 12.6262783
+  },
+  {
+    "id": 9643909591,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Bagsværd",
+    "region": "København",
+    "latitude": 55.7585998,
+    "longitude": 12.4497929,
+    "website": "https://www.puregym.dk/find-center/bagsvaerd"
+  },
+  {
+    "id": 9643924481,
+    "name": "SATS Danmark Lyngby Kanalvej",
+    "brand": "Sats",
+    "city": "Lyngby Kanalvej",
+    "region": "København",
+    "latitude": 55.773619,
+    "longitude": 12.506165,
+    "website": "https://www.sats.dk/fitnesscenter/sjaelland/sats-lyngby--kanalvej/"
+  },
+  {
+    "id": 9645234918,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Dalgas Avenue",
+    "region": "Jylland",
+    "latitude": 56.1440486,
+    "longitude": 10.1999615
+  },
+  {
+    "id": 9645234942,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Højbjerg Stenvej",
+    "region": "Jylland",
+    "latitude": 56.10662,
+    "longitude": 10.205834
+  },
+  {
+    "id": 9645439884,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Tomsgårdsvej",
+    "region": "København",
+    "latitude": 55.7076132,
+    "longitude": 12.522359
+  },
+  {
+    "id": 9645634605,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Holbæk Ahlgade",
+    "region": "Sjælland",
+    "latitude": 55.7169674,
+    "longitude": 11.7155938
+  },
+  {
+    "id": 9646079284,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Langagervej",
+    "region": "Jylland",
+    "latitude": 57.028614,
+    "longitude": 9.975748,
+    "website": "https://www.puregym.dk/find-center/aalborg-langagervej"
+  },
+  {
+    "id": 9647018019,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "region": "Sjælland",
+    "latitude": 55.97139,
+    "longitude": 12.023252,
+    "website": "https://www.puregym.dk/find-center/frederiksvaerk"
+  },
+  {
+    "id": 9650455592,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Skanderborg Adelgade",
+    "region": "Jylland",
+    "latitude": 56.0336643,
+    "longitude": 9.9305334
+  },
+  {
+    "id": 9651538166,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Slagelse City 3",
+    "region": "Sjælland",
+    "latitude": 55.4053903,
+    "longitude": 11.3529047
+  },
+  {
+    "id": 9652099007,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Viborg Farvervej",
+    "region": "Jylland",
+    "latitude": 56.460362,
+    "longitude": 9.399015
+  },
+  {
+    "id": 9652099010,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Viborg Slagterivej",
+    "region": "Jylland",
+    "latitude": 56.4475742,
+    "longitude": 9.4030101
+  },
+  {
+    "id": 9653443092,
+    "name": "PureGym",
+    "brand": "PureGym Danmark",
+    "city": "Broen",
+    "region": "Jylland",
+    "latitude": 55.4659429,
+    "longitude": 8.4589934,
+    "website": "https://www.puregym.dk/find-center/esbjerg-broen"
+  },
+  {
+    "id": 9653551931,
+    "name": "SHC Østbanegade",
+    "brand": "SHC",
+    "region": "København",
+    "latitude": 55.7054473,
+    "longitude": 12.5902709,
+    "website": "https://sportinghealthclub.dk/shc-oestbanegade/"
+  },
+  {
+    "id": 9653551932,
+    "name": "SHC Åboulevarden",
+    "brand": "SHC",
+    "city": "Åboulevarden",
+    "region": "København",
+    "latitude": 55.6852252,
+    "longitude": 12.5508943,
+    "website": "https://sportinghealthclub.dk/shc-aaboulevarden/"
+  },
+  {
+    "id": 9653630259,
+    "name": "Smiley Fitness",
+    "region": "Sjælland",
+    "latitude": 55.9262406,
+    "longitude": 12.3126801,
+    "website": "https://smileyfitness.dk/"
+  },
+  {
+    "id": 9653673804,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Oslo Plads",
+    "region": "København",
+    "latitude": 55.6921953,
+    "longitude": 12.5882884
+  },
+  {
+    "id": 9653673805,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Himmelbyen",
+    "region": "København",
+    "latitude": 55.6196386,
+    "longitude": 12.5747216
+  },
+  {
+    "id": 9653673806,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Kastrup Vestamagercentret",
+    "region": "København",
+    "latitude": 55.6032782,
+    "longitude": 12.5864716
+  },
+  {
+    "id": 9653673807,
+    "name": "PureGym Hvidovre Bibliotekvej",
+    "brand": "PureGym",
+    "city": "Hvidovre Bibliotekvej",
+    "region": "København",
+    "latitude": 55.6413957,
+    "longitude": 12.4691301,
+    "website": "https://www.puregym.dk/find-center/hvidovre-bibliotekvej"
+  },
+  {
+    "id": 9653711176,
+    "name": "SHC Gothersgade",
+    "brand": "SHC",
+    "city": "Gothersgade",
+    "region": "København",
+    "latitude": 55.6820736,
+    "longitude": 12.5839722,
+    "website": "https://sportinghealthclub.dk/shc-gothersgade/"
+  },
+  {
+    "id": 9653711177,
+    "name": "SHC",
+    "city": "Søerne",
+    "region": "København",
+    "latitude": 55.6803727,
+    "longitude": 12.5613698,
+    "website": "https://sportinghealthclub.dk/shc-soerne/"
+  },
+  {
+    "id": 9654202647,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Herning Vestergade",
+    "region": "Jylland",
+    "latitude": 56.136239,
+    "longitude": 8.962348
+  },
+  {
+    "id": 9654241978,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "City Vest",
+    "region": "Jylland",
+    "latitude": 56.1551217,
+    "longitude": 10.1347734
+  },
+  {
+    "id": 9655655353,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Randers Gl. Hobrovej",
+    "region": "Jylland",
+    "latitude": 56.4721576,
+    "longitude": 10.0179231
+  },
+  {
+    "id": 9658642164,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Hillerød Københavnsvej",
+    "region": "Sjælland",
+    "latitude": 55.9334045,
+    "longitude": 12.313747
+  },
+  {
+    "id": 9661884648,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Frederiksberg Svømmehal",
+    "region": "København",
+    "latitude": 55.684509,
+    "longitude": 12.532181,
+    "website": "https://www.puregym.dk/find-center/frb-frederiksberg-svoemmehal"
+  },
+  {
+    "id": 9690523887,
+    "name": "Next Gen Fitness",
+    "region": "Jylland",
+    "latitude": 55.4661704,
+    "longitude": 8.4527882,
+    "website": "https://nextgenfitness.dk/"
+  },
+  {
+    "id": 9710167691,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Vanløse torv",
+    "region": "København",
+    "latitude": 55.6875008,
+    "longitude": 12.4928911
+  },
+  {
+    "id": 9724474585,
+    "name": "Svenstrup Fysioterapi & Fitness",
+    "region": "Jylland",
+    "latitude": 56.9728296,
+    "longitude": 9.8512988,
+    "website": "https://svenstrupfysioterapi.dk/"
+  },
+  {
+    "id": 9804299873,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Trøjborg",
+    "region": "Jylland",
+    "latitude": 56.1708182,
+    "longitude": 10.2120451
+  },
+  {
+    "id": 9825810694,
+    "name": "Hot yoga Aarhus",
+    "region": "Jylland",
+    "latitude": 56.1561909,
+    "longitude": 10.2121206,
+    "website": "https://hotyogaaarhus.dk/"
+  },
+  {
+    "id": 9835395069,
+    "name": "Yogaskolen",
+    "region": "Jylland",
+    "latitude": 56.1574207,
+    "longitude": 10.2011841,
+    "website": "https://yogaskolen.dk/"
+  },
+  {
+    "id": 9864731859,
+    "name": "FitnessX",
+    "city": "Esbjerg Jagtvej",
+    "region": "Jylland",
+    "latitude": 55.4800543,
+    "longitude": 8.4790273,
+    "website": "https://fitnessx.dk/kampagne/aabning-af-jagtvej-esbjerg/"
+  },
+  {
+    "id": 9939827634,
+    "name": "LOOP Fitness",
+    "brand": "LOOP Fitness",
+    "city": "Frederiksberg",
+    "region": "København",
+    "latitude": 55.6838417,
+    "longitude": 12.5240702
+  },
+  {
+    "id": 9939928568,
+    "name": "Loop Fitness Peter Bangs Vej",
+    "region": "København",
+    "latitude": 55.6788113,
+    "longitude": 12.5134462
+  },
+  {
+    "id": 9941126649,
+    "name": "Raw Gym",
+    "region": "København",
+    "latitude": 55.6823472,
+    "longitude": 12.5040391,
+    "website": "https://rawgym.dk/"
+  },
+  {
+    "id": 9941126650,
+    "name": "FitnessX",
+    "brand": "FitnessX",
+    "city": "FitnessX - Nordre Fasanvej",
+    "region": "København",
+    "latitude": 55.6820183,
+    "longitude": 12.5225798,
+    "website": "https://fitnessx.dk/find-center/fasanvej/"
+  },
+  {
+    "id": 9941126651,
+    "name": "FitnessX",
+    "brand": "FitnessX",
+    "city": "FitnessX - Carlsberg Byen",
+    "region": "København",
+    "latitude": 55.6686001,
+    "longitude": 12.5353628,
+    "website": "https://fitnessx.dk/find-center/koebenhavn-v-carlsberg-byen/"
+  },
+  {
+    "id": 9941126652,
+    "name": "FitnessX",
+    "brand": "FitnessX",
+    "city": "FitnessX - Vigerslevvej",
+    "region": "København",
+    "latitude": 55.654492,
+    "longitude": 12.4885251,
+    "website": "https://fitnessx.dk/find-center/valby-vigerslevvej/"
+  },
+  {
+    "id": 9941126653,
+    "name": "FitnessX",
+    "brand": "FitnessX",
+    "city": "FitnessX - Femøren",
+    "region": "København",
+    "latitude": 55.6459617,
+    "longitude": 12.636087,
+    "website": "https://fitnessx.dk/find-center/koebenhavn-femoren/"
+  },
+  {
+    "id": 9941126654,
+    "name": "FitnessX",
+    "brand": "FitnessX",
+    "city": "FitnessX - Virum",
+    "region": "København",
+    "latitude": 55.7887656,
+    "longitude": 12.4667409,
+    "website": "https://fitnessx.dk/find-center/virum/"
+  },
+  {
+    "id": 9964852238,
+    "name": "VICI Gym",
+    "region": "København",
+    "latitude": 55.6708074,
+    "longitude": 12.627365,
+    "website": "https://teamvici.dk/"
+  },
+  {
+    "id": 10024156900,
+    "name": "Loop",
+    "region": "Sjælland",
+    "latitude": 55.65935,
+    "longitude": 11.4015637
+  },
+  {
+    "id": 10024173852,
+    "name": "Multi fitness",
+    "region": "Sjælland",
+    "latitude": 55.659248,
+    "longitude": 11.4001162,
+    "website": "https://multi-fitness.dk/jyderup/"
+  },
+  {
+    "id": 10076883318,
+    "name": "FitnessX",
+    "region": "Jylland",
+    "latitude": 56.1480949,
+    "longitude": 10.1899952,
+    "website": "https://fitnessx.dk/find-center/aarhus-c-ankersgade/"
+  },
+  {
+    "id": 10076928119,
+    "name": "FitnessX",
+    "region": "Jylland",
+    "latitude": 56.1575315,
+    "longitude": 10.1926223,
+    "website": "https://fitnessx.dk/find-center/aarhus-c-prismet/"
+  },
+  {
+    "id": 10092190242,
+    "name": "Iron House ApS",
+    "region": "Fyn",
+    "latitude": 55.3932713,
+    "longitude": 10.4493655,
+    "website": "https://ironhouse.dk/"
+  },
+  {
+    "id": 10113355743,
+    "name": "Local Fitness Faaborg",
+    "region": "Fyn",
+    "latitude": 55.0998324,
+    "longitude": 10.2411002,
+    "website": "https://www.localfitness.dk/center/faaborg/"
+  },
+  {
+    "id": 10148648830,
+    "name": "Vane|Stærk",
+    "region": "Jylland",
+    "latitude": 55.4641888,
+    "longitude": 8.4357653,
+    "website": "https://vanestaerk.com/"
+  },
+  {
+    "id": 10200325804,
+    "name": "FysioDanmark Slagelse",
+    "region": "Sjælland",
+    "latitude": 55.4177642,
+    "longitude": 11.3370604,
+    "website": "https://fysiodanmarkslagelse.dk/"
+  },
+  {
+    "id": 10237714400,
+    "name": "EasyFit",
+    "region": "Jylland",
+    "latitude": 56.3006895,
+    "longitude": 10.4766334
+  },
+  {
+    "id": 10237941359,
+    "name": "Dit fitness",
+    "region": "Jylland",
+    "latitude": 56.3009082,
+    "longitude": 10.4786545,
+    "website": "https://ditfitness.dk/"
+  },
+  {
+    "id": 10304995025,
+    "name": "Yoga matha",
+    "region": "Jylland",
+    "latitude": 56.17063,
+    "longitude": 9.5506355,
+    "website": "https://yogamatha.dk/"
+  },
+  {
+    "id": 10311650990,
+    "name": "Vores Fitness",
+    "region": "Jylland",
+    "latitude": 56.1714296,
+    "longitude": 9.5525506,
+    "website": "https://www.vfsilkeborg.dk/"
+  },
+  {
+    "id": 10555060795,
+    "name": "Ananda",
+    "region": "Jylland",
+    "latitude": 56.1677048,
+    "longitude": 9.5454307,
+    "website": "https://anandayog.dk/"
+  },
+  {
+    "id": 10577186750,
+    "name": "Stjerne Gym",
+    "region": "København",
+    "latitude": 55.7051573,
+    "longitude": 12.5798091
+  },
+  {
+    "id": 10612236773,
+    "name": "Power House Aarhus",
+    "region": "Jylland",
+    "latitude": 56.1650704,
+    "longitude": 10.2231457,
+    "website": "https://powerhouseaarhus.dk/"
+  },
+  {
+    "id": 10681170626,
+    "name": "Damgaard Boksning",
+    "region": "Sjælland",
+    "latitude": 55.6614914,
+    "longitude": 11.4051319,
+    "website": "http://www.damgaardboksning.dk/"
+  },
+  {
+    "id": 10728393709,
+    "name": "Body & Mind Studio",
+    "region": "Jylland",
+    "latitude": 56.4387332,
+    "longitude": 9.4037749,
+    "website": "https://www.bodyandmindstudio.dk/"
+  },
+  {
+    "id": 10733754330,
+    "name": "PMT GYM Slagelse",
+    "region": "Sjælland",
+    "latitude": 55.4091299,
+    "longitude": 11.3698748
+  },
+  {
+    "id": 10738149731,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Glostrup Banegårdsvej (C170)",
+    "region": "København",
+    "latitude": 55.6641785,
+    "longitude": 12.4012501
+  },
+  {
+    "id": 10741735530,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Århusvej",
+    "region": "Jylland",
+    "latitude": 56.4396624,
+    "longitude": 10.0508046,
+    "website": "https://www.fitnessworld.com/dk2/find-center/randers-aarhusvej"
+  },
+  {
+    "id": 10749233189,
+    "name": "Fitness X",
+    "city": "Viborg",
+    "region": "Jylland",
+    "latitude": 56.4550371,
+    "longitude": 9.4025534
+  },
+  {
+    "id": 10812271169,
+    "name": "Brovst Motion & Fitness",
+    "region": "Jylland",
+    "latitude": 57.1004755,
+    "longitude": 9.5192778,
+    "website": "https://brovstmotionogfitness.dk/"
+  },
+  {
+    "id": 10812600028,
+    "name": "Gym & Fit 4 u Thisted",
+    "city": "Thisted Storegade",
+    "region": "Jylland",
+    "latitude": 56.9546198,
+    "longitude": 8.6917258
+  },
+  {
+    "id": 10911607242,
+    "name": "Fit4livetbootcamp",
+    "region": "Sjælland",
+    "latitude": 55.2276042,
+    "longitude": 11.751904,
+    "website": "https://fit4livetbootcamp.dk/fitnesscenter-naestved/"
+  },
+  {
+    "id": 10922736026,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Tilst",
+    "region": "Jylland",
+    "latitude": 56.1820928,
+    "longitude": 10.123928
+  },
+  {
+    "id": 10923952308,
+    "name": "Puregym Haderslev",
+    "brand": "Puregym",
+    "city": "Haderslev",
+    "region": "Fyn",
+    "latitude": 55.2626329,
+    "longitude": 9.5016128,
+    "website": "https://www.puregym.dk/find-center/haderslev-christian-x-vej"
+  },
+  {
+    "id": 10946834672,
+    "name": "Form & Styrke",
+    "region": "Jylland",
+    "latitude": 56.1299737,
+    "longitude": 10.1619154
+  },
+  {
+    "id": 10968676218,
+    "name": "Fysisk Form Østerbro",
+    "region": "København",
+    "latitude": 55.7130083,
+    "longitude": 12.5696663,
+    "website": "https://fysiskform.dk/"
+  },
+  {
+    "id": 11008357036,
+    "name": "Loop",
+    "region": "København",
+    "latitude": 55.7585709,
+    "longitude": 12.4486953
+  },
+  {
+    "id": 11079201390,
+    "name": "Hals Motionscenter",
+    "region": "Jylland",
+    "latitude": 57.0001845,
+    "longitude": 10.3071779,
+    "website": "https://halsmotionscenter.dk/"
+  },
+  {
+    "id": 11116182445,
+    "name": "Multifitness",
+    "region": "Sjælland",
+    "latitude": 55.3151626,
+    "longitude": 12.3898795
+  },
+  {
+    "id": 11116182446,
+    "name": "Fit&Sund",
+    "region": "Sjælland",
+    "latitude": 55.3100206,
+    "longitude": 12.3893983
+  },
+  {
+    "id": 11138798975,
+    "name": "Stege Gym",
+    "region": "Sjælland",
+    "latitude": 54.9829839,
+    "longitude": 12.2835142
+  },
+  {
+    "id": 11152623795,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "region": "Fyn",
+    "latitude": 55.408838,
+    "longitude": 10.3908086
+  },
+  {
+    "id": 11155350407,
+    "name": "Norce",
+    "region": "København",
+    "latitude": 55.7170948,
+    "longitude": 12.6067692,
+    "website": "https://www.norce.dk/"
+  },
+  {
+    "id": 11158384349,
+    "name": "Fysisk Form Vesterbro",
+    "region": "København",
+    "latitude": 55.6714577,
+    "longitude": 12.547235,
+    "website": "https://fysiskform.dk/form/vesterbro"
+  },
+  {
+    "id": 11203275279,
+    "name": "Hornslet Motionscenter",
+    "region": "Jylland",
+    "latitude": 56.3057197,
+    "longitude": 10.3146749,
+    "website": "https://hornslet.halbooking.dk/newlook/default.asp?pid=01"
+  },
+  {
+    "id": 11217083099,
+    "name": "Uma",
+    "region": "Jylland",
+    "latitude": 55.4702362,
+    "longitude": 8.4385167,
+    "website": "https://www.umayoga.dk/"
+  },
+  {
+    "id": 11248977186,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "region": "Jylland",
+    "latitude": 56.1526563,
+    "longitude": 10.1967075,
+    "website": "https://www.puregym.dk/find-center/aarhus-c-scandinavian"
+  },
+  {
+    "id": 11248977189,
+    "name": "YO Studios",
+    "region": "Jylland",
+    "latitude": 56.1527869,
+    "longitude": 10.1959066,
+    "website": "https://www.yostudios.dk"
+  },
+  {
+    "id": 11251464670,
+    "name": "Fitness X",
+    "region": "Jylland",
+    "latitude": 56.1530012,
+    "longitude": 10.2062335
+  },
+  {
+    "id": 11251578936,
+    "name": "Rules Boxing Club",
+    "region": "Jylland",
+    "latitude": 56.152668,
+    "longitude": 10.196606,
+    "website": "https://rulesboxingclub.com"
+  },
+  {
+    "id": 11253347142,
+    "name": "Løberlab",
+    "region": "København",
+    "latitude": 55.7110913,
+    "longitude": 12.5768046
+  },
+  {
+    "id": 11268610031,
+    "name": "Yoga By Lykke",
+    "region": "København",
+    "latitude": 55.4723041,
+    "longitude": 8.4376472,
+    "website": "https://yogabylykke.dk/"
+  },
+  {
+    "id": 11274919461,
+    "name": "Fitness X",
+    "region": "Jylland",
+    "latitude": 56.1636418,
+    "longitude": 10.2105596
+  },
+  {
+    "id": 11310155054,
+    "name": "GymStudio",
+    "region": "Jylland",
+    "latitude": 55.7380609,
+    "longitude": 8.1837148
+  },
+  {
+    "id": 11324080993,
+    "name": "ACT Gym",
+    "region": "Jylland",
+    "latitude": 56.1524394,
+    "longitude": 10.1768159,
+    "website": "https://actgym.dk/"
+  },
+  {
+    "id": 11505671212,
+    "name": "LOOP Fitness",
+    "brand": "LOOP Fitness",
+    "region": "Fyn",
+    "latitude": 55.0706148,
+    "longitude": 10.6301585,
+    "website": "https://loopfitness.dk/"
+  },
+  {
+    "id": 11548259693,
+    "name": "Stevnstrup Fitness",
+    "region": "Jylland",
+    "latitude": 56.432303,
+    "longitude": 9.9480824
+  },
+  {
+    "id": 11630325374,
+    "name": "LOOP Fitness",
+    "brand": "LOOP Fitness",
+    "region": "Fyn",
+    "latitude": 55.2524032,
+    "longitude": 9.5023336
+  },
+  {
+    "id": 11656163498,
+    "name": "Power House Odense",
+    "brand": "Power House",
+    "city": "Odense",
+    "region": "Fyn",
+    "latitude": 55.3987583,
+    "longitude": 10.3782133,
+    "website": "https://powerhousedanmark.dk/power-house-odense/"
+  },
+  {
+    "id": 11688246502,
+    "name": "Fitness Fokus",
+    "city": "Nyborg",
+    "region": "Sjælland",
+    "latitude": 55.3188188,
+    "longitude": 10.7798461
+  },
+  {
+    "id": 11773842588,
+    "name": "Body Fitness",
+    "region": "Sjælland",
+    "latitude": 55.6589779,
+    "longitude": 11.396373
+  },
+  {
+    "id": 11805747576,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Sanct Jørgens Park",
+    "region": "Sjælland",
+    "latitude": 55.2168221,
+    "longitude": 11.7544186,
+    "website": "https://www.puregym.dk/find-center/sct-joergenspark-naestved"
+  },
+  {
+    "id": 11807402811,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Hjørring",
+    "region": "Jylland",
+    "latitude": 57.4561695,
+    "longitude": 10.0148213,
+    "website": "https://www.puregym.dk/find-center/hjoerring-frederikshavnsvej"
+  },
+  {
+    "id": 11822859269,
+    "name": "LOOP Fitness",
+    "brand": "LOOP Fitness",
+    "region": "Jylland",
+    "latitude": 56.1828745,
+    "longitude": 9.5396628,
+    "website": "https://loopfitness.dk/centre/loop-fitness-silkeborg/"
+  },
+  {
+    "id": 11834687733,
+    "name": "Oxygym",
+    "region": "København",
+    "latitude": 55.645791,
+    "longitude": 12.5404471,
+    "website": "https://oxygym.dk/"
+  },
+  {
+    "id": 11862105171,
+    "name": "Gym4You",
+    "region": "Sjælland",
+    "latitude": 55.6614226,
+    "longitude": 11.40548,
+    "website": "https://gym4you.dk/"
+  },
+  {
+    "id": 11885367023,
+    "name": "Pulsn",
+    "city": "Tarp",
+    "region": "Jylland",
+    "latitude": 55.5255688,
+    "longitude": 8.4621256,
+    "website": "https://pulsn.dk/"
+  },
+  {
+    "id": 11904172839,
+    "name": "Køleboxen",
+    "region": "Jylland",
+    "latitude": 56.0435179,
+    "longitude": 10.1914615,
+    "website": "https://køleboxen.dk"
+  },
+  {
+    "id": 11909477150,
+    "name": "BODY CLUB Lisa Ravn",
+    "region": "Fyn",
+    "latitude": 55.5676833,
+    "longitude": 9.7556819,
+    "website": "https://www.bodyclublisaravn.com/"
+  },
+  {
+    "id": 11922966217,
+    "name": "Loop",
+    "region": "Jylland",
+    "latitude": 56.126042,
+    "longitude": 10.1570304
+  },
+  {
+    "id": 11931220685,
+    "name": "P.S Studio",
+    "region": "Jylland",
+    "latitude": 57.0204551,
+    "longitude": 9.895743
+  },
+  {
+    "id": 11958110969,
+    "name": "Fitness X",
+    "region": "Jylland",
+    "latitude": 56.1092407,
+    "longitude": 10.0782883,
+    "website": "https://fitnessx.dk/fitness/fitness-aarhus/fitness-aarhus-hasselager-kolt-ostervej-25/"
+  },
+  {
+    "id": 11978246200,
+    "name": "Fit&Sund",
+    "region": "Jylland",
+    "latitude": 55.8467875,
+    "longitude": 9.7360564,
+    "website": "https://fitogsund.dk/c/huse/horsens"
+  },
+  {
+    "id": 11990789096,
+    "name": "Sakskøbing Fysioterapi & Fitnesscenter",
+    "region": "Sjælland",
+    "latitude": 54.8013501,
+    "longitude": 11.6366329
+  },
+  {
+    "id": 12012675105,
+    "name": "PureGym Mariendalsvej",
+    "brand": "PureGym",
+    "city": "Mariendalsvej",
+    "region": "København",
+    "latitude": 55.690737,
+    "longitude": 12.5322592
+  },
+  {
+    "id": 12037491694,
+    "name": "Kaatsu",
+    "region": "Fyn",
+    "latitude": 55.3968996,
+    "longitude": 10.3838137,
+    "website": "https://kaatsufitness.dk/kaatsu-fitness-odense/"
+  },
+  {
+    "id": 12045540569,
+    "name": "Frederiksværk Motionscenter",
+    "region": "Sjælland",
+    "latitude": 55.979877,
+    "longitude": 12.0269774,
+    "website": "https://frv-fitness.dk/"
+  },
+  {
+    "id": 12074989975,
+    "name": "Fitness United",
+    "region": "Jylland",
+    "latitude": 57.049332,
+    "longitude": 9.9205525
+  },
+  {
+    "id": 12095812218,
+    "name": "Grimstrup Fitness",
+    "region": "Jylland",
+    "latitude": 55.5262945,
+    "longitude": 8.6537891
+  },
+  {
+    "id": 12157293713,
+    "name": "LOOP Fitness",
+    "brand": "LOOP Fitness",
+    "region": "Fyn",
+    "latitude": 55.3705501,
+    "longitude": 10.3709894
+  },
+  {
+    "id": 12212505908,
+    "name": "Yogastudiet",
+    "region": "Jylland",
+    "latitude": 56.2180976,
+    "longitude": 10.2930572
+  },
+  {
+    "id": 12255302603,
+    "name": "FitnessX",
+    "region": "Jylland",
+    "latitude": 55.8591241,
+    "longitude": 9.8551136
+  },
+  {
+    "id": 12321228199,
+    "name": "LOOP",
+    "region": "Jylland",
+    "latitude": 56.264979,
+    "longitude": 10.062266
+  },
+  {
+    "id": 12337046229,
+    "name": "Hinnerup Fitness",
+    "region": "Jylland",
+    "latitude": 56.2481184,
+    "longitude": 10.0721618
+  },
+  {
+    "id": 12339907469,
+    "name": "CrossFit",
+    "brand": "CrossFit",
+    "city": "North",
+    "region": "Jylland",
+    "latitude": 57.0394053,
+    "longitude": 9.9283529,
+    "website": "http://crossfitnorth.dk"
+  },
+  {
+    "id": 12339929455,
+    "name": "THIMMS",
+    "region": "Jylland",
+    "latitude": 57.0388553,
+    "longitude": 9.9260036
+  },
+  {
+    "id": 12411568112,
+    "name": "SATS Sluseholmen",
+    "brand": "Sats",
+    "region": "København",
+    "latitude": 55.6455061,
+    "longitude": 12.5475084
+  },
+  {
+    "id": 12419048269,
+    "name": "Loop",
+    "region": "Jylland",
+    "latitude": 56.2311897,
+    "longitude": 10.2412373
+  },
+  {
+    "id": 12451471290,
+    "name": "Vane|Stærk",
+    "region": "Jylland",
+    "latitude": 55.5047588,
+    "longitude": 8.4037153,
+    "website": "https://vanestaerk.com/"
+  },
+  {
+    "id": 12487546332,
+    "name": "Nordic Strong",
+    "region": "København",
+    "latitude": 55.7095345,
+    "longitude": 12.5945912,
+    "website": "https://nordicstrong.com/"
+  },
+  {
+    "id": 12565505837,
+    "name": "Loop",
+    "region": "Sjælland",
+    "latitude": 55.0120105,
+    "longitude": 11.908475
+  },
+  {
+    "id": 12618047150,
+    "name": "My Gym",
+    "region": "Sjælland",
+    "latitude": 54.9977516,
+    "longitude": 11.8922309
+  },
+  {
+    "id": 12657208204,
+    "name": "En sundere kurs",
+    "region": "Sjælland",
+    "latitude": 55.0028537,
+    "longitude": 11.9053403
+  },
+  {
+    "id": 12660892230,
+    "name": "Training for Warriors Svendborg",
+    "brand": "Training for Warriors",
+    "city": "Svendborg",
+    "region": "Fyn",
+    "latitude": 55.0622721,
+    "longitude": 10.6208558,
+    "website": "https://tfw.dk/"
+  },
+  {
+    "id": 12679452833,
+    "name": "Sport og Fitness Skanderborg",
+    "region": "Jylland",
+    "latitude": 56.0400205,
+    "longitude": 9.9165327,
+    "website": "https://sportogfitness.dk/skanderborg/"
+  },
+  {
+    "id": 12722732786,
+    "name": "The Studio",
+    "region": "København",
+    "latitude": 55.7126693,
+    "longitude": 12.5778043
+  },
+  {
+    "id": 12743694369,
+    "name": "Safe & fit",
+    "region": "Fyn",
+    "latitude": 54.9377135,
+    "longitude": 9.2561101,
+    "website": "https://www.safe-and-fit.eu/"
+  },
+  {
+    "id": 12787567918,
+    "name": "Aalborg Idrætsgymnastik",
+    "region": "Jylland",
+    "latitude": 57.0512889,
+    "longitude": 9.8975532,
+    "website": "https://aig-aalborg.dk/"
+  },
+  {
+    "id": 12797453276,
+    "name": "Rødovre Fitness Club",
+    "region": "København",
+    "latitude": 55.6855452,
+    "longitude": 12.462412,
+    "website": "https://www.roedovrefitnessclub.dk/"
+  },
+  {
+    "id": 12798297678,
+    "name": "LOOP Fitness",
+    "brand": "LOOP Fitness",
+    "region": "København",
+    "latitude": 55.7398484,
+    "longitude": 12.5766767
+  },
+  {
+    "id": 12805983101,
+    "name": "Sport og Fitness",
+    "region": "Jylland",
+    "latitude": 56.3778005,
+    "longitude": 9.6464365
+  },
+  {
+    "id": 12812214370,
+    "name": "LOOP Fitness",
+    "brand": "LOOP Fitness",
+    "region": "Jylland",
+    "latitude": 57.1622138,
+    "longitude": 10.297689,
+    "website": "https://loopfitness.dk/centre/loop-fitness-dronninglund/"
+  },
+  {
+    "id": 12815299139,
+    "name": "Puls Fitness",
+    "region": "Sjælland",
+    "latitude": 55.5270079,
+    "longitude": 11.4964838
+  },
+  {
+    "id": 12815299141,
+    "name": "LOOP Fitness",
+    "brand": "LOOP Fitness",
+    "region": "Sjælland",
+    "latitude": 55.5268034,
+    "longitude": 11.4960417
+  },
+  {
+    "id": 12823399019,
+    "name": "V. Performance",
+    "region": "København",
+    "latitude": 55.6590619,
+    "longitude": 12.6039314
+  },
+  {
+    "id": 12849619335,
+    "name": "Gym og Fitness",
+    "region": "Jylland",
+    "latitude": 57.015043,
+    "longitude": 9.924722,
+    "website": "https://gymandfitness.nu/"
+  },
+  {
+    "id": 12882873041,
+    "name": "Fitness United",
+    "region": "Jylland",
+    "latitude": 56.1456509,
+    "longitude": 8.9945723,
+    "website": "https://fitnessunited.dk/herning"
+  },
+  {
+    "id": 12883029674,
+    "name": "Fitness One",
+    "region": "Fyn",
+    "latitude": 55.2494051,
+    "longitude": 9.4879787,
+    "website": "https://fitnessone.dk/"
+  },
+  {
+    "id": 12883074567,
+    "name": "HCA CrossFit",
+    "region": "Fyn",
+    "latitude": 55.3585008,
+    "longitude": 10.3956199,
+    "website": "https://hcacrossfit.dk/"
+  },
+  {
+    "id": 12899565501,
+    "name": "BK Health",
+    "region": "København",
+    "latitude": 55.7154564,
+    "longitude": 12.4325959
+  },
+  {
+    "id": 12912199368,
+    "name": "BEAR MOVE",
+    "region": "København",
+    "latitude": 55.625672,
+    "longitude": 12.6268967,
+    "website": "https://www.bearmove.dk/"
+  },
+  {
+    "id": 12913468445,
+    "name": "BSG Gym",
+    "region": "Jylland",
+    "latitude": 55.7106206,
+    "longitude": 9.5239001
+  },
+  {
+    "id": 12913547972,
+    "name": "Gym & Fit 4 u Brønderslev",
+    "region": "Jylland",
+    "latitude": 57.2682853,
+    "longitude": 9.9477852
+  },
+  {
+    "id": 12914892503,
+    "name": "Destination Skagen Gym",
+    "region": "Jylland",
+    "latitude": 57.7272902,
+    "longitude": 10.5682672
+  },
+  {
+    "id": 12951376936,
+    "name": "Gym & Fit 4 u Løgstør",
+    "region": "Jylland",
+    "latitude": 56.956814,
+    "longitude": 9.2635418
+  },
+  {
+    "id": 12959841024,
+    "name": "PureGym",
+    "brand": "PureGym",
+    "city": "Christianshavn Kbh K Kosttilskud",
+    "region": "København",
+    "latitude": 55.6774702,
+    "longitude": 12.603378
+  },
+  {
+    "id": 12972822836,
+    "name": "Fit&Sund Svendborg",
+    "region": "Fyn",
+    "latitude": 55.0570768,
+    "longitude": 10.6094503,
+    "website": "https://fitogsund.dk/c/huse/svendborg"
+  },
+  {
+    "id": 13006253630,
+    "name": "Fysisk Form",
+    "region": "København",
+    "latitude": 55.6648356,
+    "longitude": 12.6099395
+  },
+  {
+    "id": 13016721724,
+    "name": "Atelier Lausten Yoga",
+    "region": "Fyn",
+    "latitude": 55.0354081,
+    "longitude": 10.5444912,
+    "website": "https://www.dortelausten.dk/"
+  },
+  {
+    "id": 13030592497,
+    "name": "THEGYM Aarhus",
+    "region": "Jylland",
+    "latitude": 56.1497989,
+    "longitude": 10.1689592,
+    "website": "https://thegymaarhus.dk/"
+  },
+  {
+    "id": 13041253022,
+    "name": "Loop Skødstrup",
+    "region": "Jylland",
+    "latitude": 56.2702723,
+    "longitude": 10.3097312,
+    "website": "https://loopfitness.dk"
+  },
+  {
+    "id": 13043541371,
+    "name": "EasyFit Plus",
+    "region": "Jylland",
+    "latitude": 56.275534,
+    "longitude": 10.3154958,
+    "website": "https://easyfit.nu/fitnesscenter/plus/loegten/"
+  },
+  {
+    "id": 13045507577,
+    "name": "Stina Yoga",
+    "region": "Jylland",
+    "latitude": 56.2786877,
+    "longitude": 10.3188765,
+    "website": "https://www.stinayoga.dk"
+  },
+  {
+    "id": 13045894241,
+    "name": "Unlimited Performance",
+    "region": "Jylland",
+    "latitude": 57.039228,
+    "longitude": 9.9295911
+  },
+  {
+    "id": 13050091756,
+    "name": "EasyFit Cirkletræning",
+    "region": "Jylland",
+    "latitude": 56.2794057,
+    "longitude": 10.3198473,
+    "website": "https://easyfit.nu/fitnesscenter/cirkeltraening/logten/"
+  },
+  {
+    "id": 13051353947,
+    "name": "Prudence Davis",
+    "region": "København",
+    "latitude": 55.6866088,
+    "longitude": 12.5822478,
+    "website": "https://www.prudencedavis.com/"
+  },
+  {
+    "id": 13052710702,
+    "name": "Motion Bøgeskov",
+    "region": "Fyn",
+    "latitude": 55.619508,
+    "longitude": 9.7612609
+  },
+  {
+    "id": 13059514754,
+    "name": "PWR.8 Østerbro",
+    "brand": "PWR.8",
+    "city": "Østerbro",
+    "region": "København",
+    "latitude": 55.697049,
+    "longitude": 12.5948398,
+    "website": "https://www.pwr8.com/"
+  },
+  {
+    "id": 13063936975,
+    "name": "SHC Kaktus Towers",
+    "brand": "SHC",
+    "city": "Kaktus Towers",
+    "region": "København",
+    "latitude": 55.6637498,
+    "longitude": 12.5603409,
+    "website": "https://sportinghealthclub.dk/shc-kaktus-towers/"
+  },
+  {
+    "id": 13063936976,
+    "name": "SHC Ørstedsparken",
+    "brand": "SHC",
+    "city": "Ørstedsparken",
+    "region": "København",
+    "latitude": 55.683471,
+    "longitude": 12.5662948,
+    "website": "https://sportinghealthclub.dk/orstedsparken/"
+  },
+  {
+    "id": 13063997054,
+    "name": "Arca Garagen",
+    "brand": "Arca",
+    "city": "Garagen",
+    "region": "København",
+    "latitude": 55.6832914,
+    "longitude": 12.5828985,
+    "website": "https://arca.dk/garagen/"
+  },
+  {
+    "id": 13063997055,
+    "name": "Arca Kirken",
+    "brand": "Arca",
+    "city": "Kirken",
+    "region": "København",
+    "latitude": 55.6888937,
+    "longitude": 12.5552852,
+    "website": "https://arca.dk/kirken/"
+  },
+  {
+    "id": 13063997056,
+    "name": "Arca Lageret",
+    "brand": "Arca",
+    "city": "Lageret",
+    "region": "København",
+    "latitude": 55.697829,
+    "longitude": 12.5328195,
+    "website": "https://arca.dk/lageret/"
+  },
+  {
+    "id": 13063997057,
+    "name": "Arca Trykkeriet",
+    "brand": "Arcaplanet",
+    "city": "Trykkeriet",
+    "region": "København",
+    "latitude": 55.7069416,
+    "longitude": 12.5279775,
+    "website": "https://arca.dk/trykkeriet/"
+  },
+  {
+    "id": 13063997058,
+    "name": "Arca Boxen",
+    "brand": "Arca",
+    "city": "Boxen",
+    "region": "København",
+    "latitude": 55.6604302,
+    "longitude": 12.6078911,
+    "website": "https://arca.dk/boxen/"
+  },
+  {
+    "id": 13063997059,
+    "name": "Arca Omstillingen",
+    "brand": "Arca",
+    "city": "Omstillingen",
+    "region": "København",
+    "latitude": 55.664104,
+    "longitude": 12.5990784,
+    "website": "https://arca.dk/omstillingen/"
+  },
+  {
+    "id": 13063997060,
+    "name": "Arca Krydsfeltet",
+    "brand": "Arca",
+    "city": "Krydsfeltet",
+    "region": "København",
+    "latitude": 55.6990387,
+    "longitude": 12.5795866,
+    "website": "https://arca.dk/krydsfeltet/"
+  },
+  {
+    "id": 13063997061,
+    "name": "Arca Kogeriet",
+    "brand": "Arca",
+    "city": "Kogeriet",
+    "region": "København",
+    "latitude": 55.6814863,
+    "longitude": 12.5191292,
+    "website": "https://arca.dk/kogeriet/"
+  },
+  {
+    "id": 13063997062,
+    "name": "Arca Bazaren",
+    "brand": "Arca",
+    "city": "Bazaren",
+    "region": "København",
+    "latitude": 55.6577662,
+    "longitude": 12.505731,
+    "website": "https://arca.dk/bazaren/"
+  },
+  {
+    "id": 13063997063,
+    "name": "Arca Værkstedet",
+    "brand": "Arca",
+    "city": "Værkstedet",
+    "region": "København",
+    "latitude": 55.6840849,
+    "longitude": 12.4906681,
+    "website": "https://arca.dk/vaerkstedet/"
+  },
+  {
+    "id": 13063997064,
+    "name": "Arca Højen",
+    "brand": "Arca",
+    "city": "Højen",
+    "region": "København",
+    "latitude": 55.7045292,
+    "longitude": 12.5029893,
+    "website": "https://arca.dk/hojen/"
+  },
+  {
+    "id": 13063997065,
+    "name": "Arca Posthuset",
+    "brand": "Arca",
+    "city": "Posthuset",
+    "region": "København",
+    "latitude": 55.7531698,
+    "longitude": 12.5420527,
+    "website": "https://arca.dk/posthuset/"
+  },
+  {
+    "id": 13076711009,
+    "name": "THESTUDIO Aarhus",
+    "region": "Jylland",
+    "latitude": 56.1497922,
+    "longitude": 10.168923
+  },
+  {
+    "id": 13101172495,
+    "name": "Power House Aalborg",
+    "region": "Jylland",
+    "latitude": 57.0501249,
+    "longitude": 9.9168884
+  },
+  {
+    "id": 13113360218,
+    "name": "Loop",
+    "region": "Jylland",
+    "latitude": 56.1361484,
+    "longitude": 8.9968971
+  },
+  {
+    "id": 13132290573,
+    "name": "PMT GYM Rødovre",
+    "region": "København",
+    "latitude": 55.6639447,
+    "longitude": 12.4587294,
+    "website": "https://pmtgym.dk/"
+  },
+  {
+    "id": 13145014502,
+    "name": "Re:Form Studio By Becks",
+    "region": "København",
+    "latitude": 55.732825,
+    "longitude": 12.3047693,
+    "website": "https://www.reformbybecks.dk/"
+  },
+  {
+    "id": 13149030158,
+    "name": "Gladsaxe MultiFitness",
+    "region": "København",
+    "latitude": 55.7537905,
+    "longitude": 12.4958104,
+    "website": "https://gladsaxemultifitness.dk/"
+  },
+  {
+    "id": 13157246382,
+    "name": "Lillerød Vægtløftningsklub",
+    "region": "Sjælland",
+    "latitude": 55.8669555,
+    "longitude": 12.3543686,
+    "website": "https://www.livk.dk/"
+  },
+  {
+    "id": 13159486701,
+    "name": "Kailo yoga",
+    "region": "København",
+    "latitude": 55.6779121,
+    "longitude": 12.5755796,
+    "website": "https://kailoyoga.dk/"
+  },
+  {
+    "id": 13169390629,
+    "name": "Styrk",
+    "region": "Jylland",
+    "latitude": 56.1720499,
+    "longitude": 10.1899864
+  },
+  {
+    "id": 13255498911,
+    "name": "Fit & Sund",
+    "region": "Fyn",
+    "latitude": 55.5620941,
+    "longitude": 9.7234924
+  },
+  {
+    "id": 13256517641,
+    "name": "Margrethegårdens Fitnessrum",
+    "region": "Sjælland",
+    "latitude": 55.6492676,
+    "longitude": 12.0984016,
+    "website": "https://www.margrethegaarden-roskilde.dk/faelles-faciliteter/fitnessrum.html"
+  },
+  {
+    "id": 13267549650,
+    "name": "Sport og Fitness Himmelev",
+    "region": "Sjælland",
+    "latitude": 55.6583141,
+    "longitude": 12.1056132,
+    "website": "https://sportogfitness.dk/sjaelland/himmelev/"
+  },
+  {
+    "id": 13273946293,
+    "name": "Club Energy Reformer Studio & Hot Yoga",
+    "city": "Esbjerg",
+    "region": "Jylland",
+    "latitude": 55.5083109,
+    "longitude": 8.450243,
+    "website": "https://clubenergyfitness.dk/"
+  },
+  {
+    "id": 13277153701,
+    "name": "Fitness Hedehusene",
+    "region": "København",
+    "latitude": 55.6489669,
+    "longitude": 12.2019135,
+    "website": "https://www.fitnesshedehusene.dk"
+  }
+]

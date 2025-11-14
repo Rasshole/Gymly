@@ -19,6 +19,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {AuthStackParamList} from '@/navigation/AuthNavigator';
 import AuthService from '@/services/auth/AuthService';
 import Icon from 'react-native-vector-icons/Ionicons';
+import GymlyLogo from '@/components/GymlyLogo';
 
 type ForgotPasswordScreenNavigationProp = StackNavigationProp<
   AuthStackParamList,
@@ -53,6 +54,9 @@ const ForgotPasswordScreen = () => {
     return (
       <View style={styles.container}>
         <View style={styles.content}>
+          <View style={styles.logoBadge}>
+            <GymlyLogo size={64} />
+          </View>
           <View style={styles.successIcon}>
             <Icon name="checkmark-circle" size={80} color="#34C759" />
           </View>
@@ -84,6 +88,7 @@ const ForgotPasswordScreen = () => {
         </TouchableOpacity>
 
         <View style={styles.header}>
+          <GymlyLogo size={64} />
           <Text style={styles.title}>Nulstil adgangskode</Text>
           <Text style={styles.subtitle}>
             Indtast din email, og vi sender dig instruktioner
@@ -138,6 +143,12 @@ const styles = StyleSheet.create({
   },
   header: {
     marginBottom: 48,
+    alignItems: 'center',
+    gap: 12,
+  },
+  logoBadge: {
+    alignItems: 'center',
+    marginBottom: 24,
   },
   title: {
     fontSize: 32,

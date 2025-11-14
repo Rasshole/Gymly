@@ -19,8 +19,46 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {AuthStackParamList} from '@/navigation/AuthNavigator';
 import {useAppStore} from '@/store/appStore';
 import AuthService from '@/services/auth/AuthService';
+import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import GymlyLogo from '@/components/GymlyLogo';
 
 type LoginScreenNavigationProp = StackNavigationProp<AuthStackParamList, 'Login'>;
+
+type SocialButtonProps = {
+  icon: string;
+  label: string;
+  backgroundColor: string;
+  textColor?: string;
+  onPress: () => void;
+  loading?: boolean;
+};
+
+const SocialButton = ({
+  icon,
+  label,
+  backgroundColor,
+  textColor = '#fff',
+  onPress,
+  loading = false,
+}: SocialButtonProps) => (
+  <TouchableOpacity
+    style={[
+      styles.socialButton,
+      {backgroundColor},
+      loading && styles.socialButtonDisabled,
+    ]}
+    onPress={onPress}
+    activeOpacity={0.85}
+    disabled={loading}>
+    {loading ? (
+      <ActivityIndicator size="small" color={textColor} style={styles.socialIcon} />
+    ) : (
+      <MaterialIcon name={icon} size={22} color={textColor} style={styles.socialIcon} />
+    )}
+    <Text style={[styles.socialLabel, {color: textColor}]}>{label}</Text>
+    <View style={styles.socialSpacer} />
+  </TouchableOpacity>
+);
 
 const LoginScreen = () => {
   const navigation = useNavigation<LoginScreenNavigationProp>();
@@ -29,6 +67,7 @@ const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [socialLoading, setSocialLoading] = useState<'apple' | 'google' | null>(null);
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -47,6 +86,18 @@ const LoginScreen = () => {
     }
   };
 
+  const handleSocialLogin = async (provider: 'apple' | 'google') => {
+    try {
+      setSocialLoading(provider);
+      const {user, tokens} = await AuthService.socialLogin(provider);
+      login(user, tokens);
+    } catch (error: any) {
+      Alert.alert('Login fejlede', error.message || 'Prøv igen');
+    } finally {
+      setSocialLoading(null);
+    }
+  };
+
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -54,9 +105,44 @@ const LoginScreen = () => {
       <View style={styles.content}>
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.icon}>💪</Text>
-          <Text style={styles.title}>Gymly</Text>
-          <Text style={styles.subtitle}>Træn sammen med dine venner</Text>
+          <View style={styles.logoBadge}>
+            <GymlyLogo size={64} />
+          </View>
+          <Text style={styles.title}>Log ind</Text>
+          <Text style={styles.subtitle}>Velkommen tilbage!</Text>
+          <View style={styles.secondaryAction}>
+            <Text style={styles.subtitleMuted}>Ny hos Gymly?</Text>
+            <TouchableOpacity
+              style={styles.signupButton}
+              onPress={() => navigation.navigate('Register')}>
+              <Text style={styles.signupButtonText}>Tilmeld dig Gymly</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        {/* Social */}
+        <View style={styles.socialSection}>
+          <SocialButton
+            icon="apple"
+            label="Fortsæt med Apple"
+            backgroundColor="#000"
+            onPress={() => handleSocialLogin('apple')}
+            loading={socialLoading === 'apple'}
+          />
+          <SocialButton
+            icon="google"
+            label="Fortsæt med Google"
+            backgroundColor="#fff"
+            textColor="#0F172A"
+            onPress={() => handleSocialLogin('google')}
+            loading={socialLoading === 'google'}
+          />
+        </View>
+
+        <View style={styles.divider}>
+          <View style={styles.dividerLine} />
+          <Text style={styles.dividerText}>eller med email</Text>
+          <View style={styles.dividerLine} />
         </View>
 
         {/* Form */}
@@ -101,13 +187,13 @@ const LoginScreen = () => {
           </TouchableOpacity>
         </View>
 
-        {/* Register Link */}
-        <View style={styles.footer}>
-          <Text style={styles.footerText}>Har du ikke en konto? </Text>
-          <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-            <Text style={styles.registerLink}>Tilmeld dig</Text>
-          </TouchableOpacity>
-        </View>
+        {/* Footer */}
+        <Text style={styles.termsText}>
+          Ved at trykke fortsæt, godkender du Gymlys{' '}
+          <Text style={styles.linkText}>brugeraftaler</Text>,{' '}
+          <Text style={styles.linkText}>Privat Politik</Text> &{' '}
+          <Text style={styles.linkText}>Cookie Politik</Text>
+        </Text>
       </View>
     </KeyboardAvoidingView>
   );
@@ -125,21 +211,98 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: 'center',
-    marginBottom: 48,
+    marginBottom: 32,
+    gap: 12,
   },
-  icon: {
-    fontSize: 72,
-    marginBottom: 16,
+  logoBadge: {
+    width: 100,
+    height: 100,
+    borderRadius: 36,
+    backgroundColor: '#E6F9FF',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 8,
   },
   title: {
-    fontSize: 36,
+    fontSize: 32,
     fontWeight: 'bold',
     color: '#000',
-    marginBottom: 8,
+  },
+  secondaryAction: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginTop: 4,
   },
   subtitle: {
     fontSize: 16,
-    color: '#666',
+    color: '#6B7280',
+    textAlign: 'center',
+  },
+  subtitleMuted: {
+    fontSize: 15,
+    color: '#94A3B8',
+    marginRight: 8,
+  },
+  signupButton: {
+    backgroundColor: '#111827',
+    paddingHorizontal: 18,
+    paddingVertical: 10,
+    borderRadius: 999,
+  },
+  signupButtonText: {
+    color: '#fff',
+    fontSize: 15,
+    fontWeight: '600',
+  },
+  linkText: {
+    color: '#007AFF',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  socialSection: {
+    gap: 12,
+    marginBottom: 24,
+  },
+  socialButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderRadius: 14,
+    paddingVertical: 14,
+    paddingHorizontal: 18,
+    borderWidth: 1,
+    borderColor: '#E5E5EA',
+  },
+  socialButtonDisabled: {
+    opacity: 0.7,
+  },
+  socialIcon: {
+    width: 24,
+  },
+  socialSpacer: {
+    width: 20,
+  },
+  socialLabel: {
+    flex: 1,
+    textAlign: 'center',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  divider: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 24,
+    gap: 8,
+  },
+  dividerLine: {
+    flex: 1,
+    height: 1,
+    backgroundColor: '#E5E7EB',
+  },
+  dividerText: {
+    color: '#9CA3AF',
+    fontSize: 14,
   },
   form: {
     marginBottom: 24,
@@ -175,19 +338,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '600',
   },
-  footer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  footerText: {
-    color: '#666',
-    fontSize: 16,
-  },
-  registerLink: {
-    color: '#007AFF',
-    fontSize: 16,
-    fontWeight: '600',
+  termsText: {
+    textAlign: 'center',
+    color: '#9CA3AF',
+    fontSize: 13,
+    lineHeight: 18,
   },
 });
 
