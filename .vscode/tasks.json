@@ -1,0 +1,70 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "🚀 Run Everything (Metro + Build + Run)",
+      "type": "shell",
+      "command": "bash",
+      "args": ["${workspaceFolder}/run-everything.sh"],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "never",
+        "panel": "dedicated",
+        "focus": false,
+        "clear": false
+      },
+      "runOptions": {
+        "runOn": "default"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "⚡ Auto Build (Silent)",
+      "type": "shell",
+      "command": "bash",
+      "args": ["${workspaceFolder}/auto-build.sh"],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "never",
+        "panel": "dedicated",
+        "focus": false,
+        "clear": false,
+        "showReuseMessage": false
+      },
+      "runOptions": {
+        "runOn": "default"
+      }
+    },
+    {
+      "label": "📦 Start Metro Bundler",
+      "type": "shell",
+      "command": "cd ${workspaceFolder} && npx react-native start",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "focus": false
+      },
+      "isBackground": true,
+      "runOptions": {
+        "runOn": "default"
+      }
+    },
+    {
+      "label": "🔨 Build & Run in Xcode",
+      "type": "shell",
+      "command": "cd ${workspaceFolder}/ios && xcodebuild -workspace Gymly.xcworkspace -scheme GymlyFresh -destination 'platform=iOS Simulator,name=iPhone 17 Pro' clean build && afplay /System/Library/Sounds/Glass.aiff",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "focus": false
+      },
+      "group": "build"
+    }
+  ]
+}
+
