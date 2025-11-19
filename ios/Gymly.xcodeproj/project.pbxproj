@@ -175,6 +175,7 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
 				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				F1A2B3C4D5E6F7A8B9C0D1E2F3A4B5 /* Play Build Complete Sound */,
 			);
 			buildRules = (
 			);
@@ -312,6 +313,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GymlyFresh/Pods-GymlyFresh-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1A2B3C4D5E6F7A8B9C0D1E2F3A4B5 /* Play Build Complete Sound */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Play Build Complete Sound";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Afspil lyd når build er færdig\nafplay /System/Library/Sounds/Glass.aiff 2>/dev/null || say \"Build færdig\" 2>/dev/null || echo \"\\a\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
