@@ -52,9 +52,19 @@
 
 ### iOS Issues:
 
-**Problem: "Command not found: pod"**
+**Problem: "Command not found: pod" eller ActiveSupport Logger fejl**
 ```bash
-sudo gem install cocoapods
+# Installer CocoaPods i user space (uden sudo)
+gem install cocoapods --user-install
+
+# Tilføj til PATH (tilføj til ~/.zshrc for permanent)
+export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
+export RUBYOPT="-r/usr/lib/ruby/2.6.0/logger"
+
+# Kør pod install
+cd ios
+pod install
+cd ..
 ```
 
 **Problem: "Unable to find a specification for..."**
@@ -64,6 +74,17 @@ pod repo update
 pod install
 cd ..
 ```
+
+**Problem: "Unable to locate the executable `node`"**
+- Node.js er installeret i `~/.local/bin`
+- Sørg for at PATH er sat: `export PATH="$HOME/.local/bin:$PATH"`
+- Tilføj til `~/.zshrc` for permanent: `echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc`
+
+**Problem: Metro bundler fejler med "Cannot read properties of undefined (reading 'handle')"**
+- Dette er typisk et Node.js version problem
+- Projektet kræver Node.js >=20.19.4
+- Tjek version: `node --version`
+- Hvis version < 20, opdater Node.js (se nedenfor)
 
 ### Android Issues:
 

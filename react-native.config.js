@@ -1,13 +1,7 @@
 module.exports = {
   project: {
-    ios: {
-      sourceDir: './ios',
-    },
-    android: {
-      sourceDir: './android',
-      packageName: 'com.gymly.app',
-    },
+    ios: {},
+    android: {},
   },
-  assets: ['./assets/fonts/'],
+  assets: ['./node_modules/react-native-vector-icons/Fonts/'],
 };
-

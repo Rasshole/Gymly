@@ -7,6 +7,7 @@ import React from 'react';
 import {View, Text, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
 import {useAppStore} from '@/store/appStore';
 import Icon from 'react-native-vector-icons/Ionicons';
+import NotificationService from '@/services/notifications/NotificationService';
 
 const HomeScreen = () => {
   const {user} = useAppStore();
@@ -56,6 +57,18 @@ const HomeScreen = () => {
             Dine data er sikre og GDPR-compliant
           </Text>
         </View>
+
+        {/* Test Notification Button (for development) */}
+        <TouchableOpacity
+          style={styles.testButton}
+          onPress={() => {
+            // Simulate a friend check-in for testing
+            NotificationService.simulateRandomCheckIn();
+          }}
+          activeOpacity={0.8}>
+          <Icon name="notifications" size={20} color="#007AFF" />
+          <Text style={styles.testButtonText}>Test notifikation</Text>
+        </TouchableOpacity>
       </ScrollView>
     </View>
   );
@@ -171,6 +184,21 @@ const styles = StyleSheet.create({
     color: '#34C759',
     marginLeft: 8,
     fontWeight: '500',
+  },
+  testButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#E3F2FD',
+    padding: 12,
+    borderRadius: 12,
+    marginTop: 16,
+  },
+  testButtonText: {
+    fontSize: 14,
+    color: '#007AFF',
+    fontWeight: '600',
+    marginLeft: 8,
   },
 });
 

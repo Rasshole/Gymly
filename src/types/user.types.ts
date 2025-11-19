@@ -16,6 +16,9 @@ export interface User {
   // GDPR consent tracking
   gdprConsent: GDPRConsent;
   
+  // Favorite gyms (top 3 local training centers)
+  favoriteGyms?: number[]; // Array of gym IDs (max 3)
+  
   // Account timestamps
   createdAt: Date;
   updatedAt: Date;

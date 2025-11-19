@@ -22,6 +22,7 @@ interface AppState {
   logout: () => Promise<void>;
   setUser: (user: User) => void;
   setLoading: (loading: boolean) => void;
+  setFavoriteGyms: (gymIds: number[]) => void; // Set top 3 favorite gyms
 }
 
 export const useAppStore = create<AppState>((set, get) => ({
@@ -113,6 +114,22 @@ export const useAppStore = create<AppState>((set, get) => ({
    */
   setLoading: (loading: boolean) => {
     set({isLoading: loading});
+  },
+
+  /**
+   * Set favorite gyms (top 3)
+   */
+  setFavoriteGyms: (gymIds: number[]) => {
+    const state = get();
+    if (state.user) {
+      const updatedUser = {
+        ...state.user,
+        favoriteGyms: gymIds.slice(0, 3), // Max 3 gyms
+        updatedAt: new Date(),
+      };
+      set({user: updatedUser});
+      SecureStorage.saveUserData(updatedUser);
+    }
   },
 }));
 
