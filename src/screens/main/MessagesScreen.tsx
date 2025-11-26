@@ -3,7 +3,7 @@
  * List of messages/conversations with friends
  */
 
-import React from 'react';
+import React, {useMemo} from 'react';
 import {
   View,
   Text,
@@ -15,20 +15,27 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
-
-type Message = {
-  id: string;
-  name: string;
-  lastMessage: string;
-  timestamp: string;
-  unreadCount?: number;
-  avatar?: string;
-};
+import {useChatStore} from '@/store/chatStore';
+import {formatDistanceToNow} from 'date-fns';
+import {da} from 'date-fns/locale';
 
 const MessagesScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
-  // Empty list for now since no friends yet
-  const messages: Message[] = [];
+  const {chats} = useChatStore();
+  
+  const messages = useMemo(() => {
+    return chats.map(chat => ({
+      id: chat.id,
+      name: chat.participantNames.filter(name => name !== 'Dig').join(', ') || 'Gruppe',
+      lastMessage: chat.lastMessage?.text || '',
+      timestamp: chat.lastMessage 
+        ? formatDistanceToNow(chat.lastMessage.timestamp, {addSuffix: true, locale: da})
+        : formatDistanceToNow(chat.lastActivity, {addSuffix: true, locale: da}),
+      unreadCount: chat.unreadCount,
+      participantIds: chat.participantIds,
+      participants: chat.participantNames,
+    }));
+  }, [chats]);
 
   const renderEmptyState = () => (
     <View style={styles.emptyContainer}>
@@ -48,9 +55,19 @@ const MessagesScreen = () => {
       activeOpacity={0.7}
       onPress={() => {
         // Navigate to chat screen
+        const participantIds = item.participantIds || [];
+        const participants = participantIds
+          .filter(id => id !== 'current_user')
+          .map((id, idx) => ({
+            id,
+            name: item.participants?.[idx + 1] || 'Ven',
+          }));
+        
         navigation.navigate('Chat', {
-          friendId: item.id,
+          chatId: item.id,
+          friendId: participants.length === 1 ? participants[0].id : `group_${item.id}`,
           friendName: item.name,
+          participants: participants.length > 0 ? participants : undefined,
         });
       }}>
       <View style={styles.avatarContainer}>
@@ -63,7 +80,7 @@ const MessagesScreen = () => {
             </Text>
           </View>
         )}
-        {item.unreadCount && item.unreadCount > 0 && (
+        {item.unreadCount > 0 && (
           <View style={styles.unreadBadge}>
             <Text style={styles.unreadText}>
               {item.unreadCount > 99 ? '99+' : item.unreadCount}
@@ -81,7 +98,7 @@ const MessagesScreen = () => {
         <Text
           style={[
             styles.messagePreview,
-            item.unreadCount && item.unreadCount > 0 && styles.unreadPreview,
+            item.unreadCount > 0 && styles.unreadPreview,
           ]}
           numberOfLines={1}>
           {item.lastMessage}

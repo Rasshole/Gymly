@@ -18,6 +18,8 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {useNotificationStore, Notification} from '@/store/notificationStore';
 import {useWorkoutInvitationStore} from '@/store/workoutInvitationStore';
 import {useAppStore} from '@/store/appStore';
+import {useWorkoutPlanStore} from '@/store/workoutPlanStore';
+import NotificationService from '@/services/notifications/NotificationService';
 import {formatDistanceToNow} from 'date-fns';
 import {da} from 'date-fns/locale';
 
@@ -30,8 +32,10 @@ const NotificationsScreen = () => {
     markAsRead,
     markAllAsRead,
     removeNotification,
+    markInviteJoined,
   } = useNotificationStore();
-  const {getPendingInvitations} = useWorkoutInvitationStore();
+  const {getPendingInvitations, acceptInvitation} = useWorkoutInvitationStore();
+  const {acceptPlanInvite} = useWorkoutPlanStore();
   const [currentTime, setCurrentTime] = useState(new Date());
 
   const pendingInvitations = user ? getPendingInvitations(user.id) : [];
@@ -88,6 +92,33 @@ const NotificationsScreen = () => {
     </View>
   );
 
+  const handleJoinWorkout = (notification: Notification) => {
+    if (notification.type !== 'workout_invite' || notification.joined) {
+      return;
+    }
+
+    markInviteJoined(notification.id);
+
+    const {user} = useAppStore.getState();
+    const joinerName = user?.displayName || 'En ven';
+
+    if (notification.planId && user) {
+      acceptPlanInvite(notification.planId, user.id);
+    }
+
+    if (notification.friendName) {
+      NotificationService.notifyInviteAccepted(
+        notification.friendName,
+        joinerName,
+        notification.gymName || 'dit center',
+      );
+    }
+
+    if (notification.planId) {
+      navigation.navigate('WorkoutSchedule', {initialTab: 'upcoming'});
+    }
+  };
+
   const renderNotificationItem = ({item}: {item: Notification}) => {
     const getIcon = () => {
       switch (item.type) {
@@ -95,6 +126,10 @@ const NotificationsScreen = () => {
           return 'location';
         case 'friend_request':
           return 'person-add';
+        case 'workout_invite':
+          return 'fitness';
+        case 'invite_response':
+          return 'checkmark-done-outline';
         case 'message':
           return 'chatbubble';
         default:
@@ -141,14 +176,51 @@ const NotificationsScreen = () => {
           {item.type !== 'friend_checkin' && (
             <Text style={styles.notificationTime}>{formatTime(item.timestamp)}</Text>
           )}
+          {item.type === 'workout_invite' && item.scheduledAt && (
+            <Text style={styles.scheduledTime}>
+              {new Date(item.scheduledAt).toLocaleString('da-DK', {
+                day: 'numeric',
+                month: 'short',
+                hour: '2-digit',
+                minute: '2-digit',
+              })}
+            </Text>
+          )}
         </View>
-        {!item.read && <View style={styles.unreadDot} />}
-        <TouchableOpacity
-          onPress={() => removeNotification(item.id)}
-          style={styles.deleteButton}
-          hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}>
-          <Icon name="close" size={20} color="#C7C7CC" />
-        </TouchableOpacity>
+        {!item.read && !item.joined && <View style={styles.unreadDot} />}
+        {item.type === 'workout_invite' ? (
+          <View style={styles.actionButtons}>
+            <TouchableOpacity
+              onPress={() => handleJoinWorkout(item)}
+              style={[
+                styles.joinButton,
+                item.joined && styles.joinButtonJoined,
+              ]}
+              activeOpacity={0.7}
+              disabled={item.joined}>
+              <Text
+                style={[
+                  styles.joinButtonText,
+                  item.joined && styles.joinButtonTextJoined,
+                ]}>
+                {item.joined ? 'Joined' : 'Join'}
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => removeNotification(item.id)}
+              style={styles.deleteButton}
+              hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}>
+              <Icon name="close" size={20} color="#C7C7CC" />
+            </TouchableOpacity>
+          </View>
+        ) : (
+          <TouchableOpacity
+            onPress={() => removeNotification(item.id)}
+            style={styles.deleteButton}
+            hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}>
+            <Icon name="close" size={20} color="#C7C7CC" />
+          </TouchableOpacity>
+        )}
       </TouchableOpacity>
     );
   };
@@ -346,6 +418,36 @@ const styles = StyleSheet.create({
   },
   deleteButton: {
     padding: 4,
+  },
+  actionButtons: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  joinButton: {
+    backgroundColor: '#007AFF',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 8,
+  },
+  joinButtonJoined: {
+    backgroundColor: '#fff',
+    borderWidth: 1,
+    borderColor: '#CBD5F5',
+  },
+  joinButtonText: {
+    color: '#fff',
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  joinButtonTextJoined: {
+    color: '#0F172A',
+  },
+  scheduledTime: {
+    fontSize: 12,
+    color: '#007AFF',
+    marginTop: 4,
+    fontWeight: '600',
   },
 });
 

@@ -13,10 +13,65 @@ const mockFriends = [
   {id: '2', name: 'Marie'},
   {id: '3', name: 'Lars'},
   {id: '4', name: 'Sofia'},
+  {id: '5', name: 'Patti'},
 ];
 
 class NotificationService {
   private static simulationInterval: NodeJS.Timeout | null = null;
+
+  /**
+   * Send a workout invite notification to vores (mock) venner
+   */
+  static sendWorkoutInvite(
+    inviterName: string,
+    gym: DanishGym,
+    musclesDescription: string,
+    friendIds?: string[],
+    planId?: string,
+    scheduledAt?: Date,
+    muscles?: string[],
+  ) {
+    if (!gym) {
+      console.warn('sendWorkoutInvite called without gym');
+      return;
+    }
+    const {addNotification} = useNotificationStore.getState();
+    const workoutText = musclesDescription || 'en træning';
+    const recipients =
+      friendIds && friendIds.length > 0
+        ? mockFriends.filter(friend => friendIds.includes(friend.id))
+        : mockFriends;
+
+    recipients.forEach(friend => {
+      addNotification({
+        type: 'workout_invite',
+        title: `${inviterName} inviterer dig`,
+        message: `${inviterName} træner ${workoutText} på ${gym.name}`,
+        friendName: inviterName,
+        gymName: gym.name,
+        isActive: false,
+        planId,
+        gymId: gym.id,
+        muscles: muscles || [],
+        scheduledAt: scheduledAt || new Date(),
+      });
+    });
+  }
+
+  /**
+   * Notify inviter that a friend has joined their workout
+   */
+  static notifyInviteAccepted(inviterName: string, joinerName: string, gymName: string) {
+    const {addNotification} = useNotificationStore.getState();
+    addNotification({
+      type: 'invite_response',
+      title: `${joinerName} joiner din træning`,
+      message: `${joinerName} deltager på ${gymName}`,
+      friendName: joinerName,
+      gymName,
+      isActive: false,
+    });
+  }
 
   /**
    * Simulate a friend checking in
@@ -25,7 +80,7 @@ class NotificationService {
   static simulateFriendCheckIn(friendName: string, gym: DanishGym) {
     const {addNotification, checkOutFriend} = useNotificationStore.getState();
     const checkInTime = new Date();
-    
+
     addNotification({
       type: 'friend_checkin',
       title: `${friendName} har tjekket ind`,
@@ -50,7 +105,7 @@ class NotificationService {
   static simulateRandomCheckIn() {
     const randomFriend = mockFriends[Math.floor(Math.random() * mockFriends.length)];
     // Import dynamically to avoid circular dependencies
-    import('@/data/danishGyms').then((module) => {
+    import('@/data/danishGyms').then(module => {
       const danishGyms = module.default;
       const randomGym = danishGyms[Math.floor(Math.random() * danishGyms.length)];
       this.simulateFriendCheckIn(randomFriend.name, randomGym);

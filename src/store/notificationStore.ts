@@ -5,7 +5,12 @@
 
 import {create} from 'zustand';
 
-export type NotificationType = 'friend_checkin' | 'friend_request' | 'message';
+export type NotificationType =
+  | 'friend_checkin'
+  | 'friend_request'
+  | 'message'
+  | 'workout_invite'
+  | 'invite_response';
 
 export interface Notification {
   id: string;
@@ -19,6 +24,13 @@ export interface Notification {
   checkInTime?: Date; // When the friend checked in
   isActive?: boolean; // Whether the friend is still checked in
   checkOutTime?: Date; // When the friend checked out
+  // Workout invitation fields
+  workoutInviteId?: string; // ID of the workout invitation
+  planId?: string; // ID of the planned workout
+  gymId?: number; // ID of the gym
+  muscles?: string[]; // Muscle groups for the workout
+  scheduledAt?: Date; // When the workout is scheduled
+  joined?: boolean; // Whether the user has joined the workout invite
 }
 
 interface NotificationState {
@@ -32,6 +44,7 @@ interface NotificationState {
   clearNotifications: () => void;
   removeNotification: (id: string) => void;
   checkOutFriend: (friendName: string) => void; // Mark friend as checked out
+  markInviteJoined: (id: string) => void;
 }
 
 export const useNotificationStore = create<NotificationState>((set, get) => ({
@@ -50,6 +63,7 @@ export const useNotificationStore = create<NotificationState>((set, get) => ({
       read: false,
       checkInTime: notificationData.checkInTime || now,
       isActive: notificationData.isActive !== undefined ? notificationData.isActive : true,
+      joined: notificationData.type === 'workout_invite' ? false : undefined,
     };
 
     set((state) => ({
@@ -136,6 +150,21 @@ export const useNotificationStore = create<NotificationState>((set, get) => ({
       });
       return {
         notifications: updated,
+      };
+    });
+  },
+
+  /**
+   * Mark workout invite as joined
+   */
+  markInviteJoined: id => {
+    set(state => {
+      const notifications = state.notifications.map(notif =>
+        notif.id === id ? {...notif, joined: true, read: true} : notif,
+      );
+      return {
+        notifications,
+        unreadCount: notifications.filter(notif => !notif.read).length,
       };
     });
   },
