@@ -26,7 +26,7 @@ export interface User {
 }
 
 export interface PrivacySettings {
-  profileVisibility: 'everyone' | 'friends' | 'private';
+  profileVisibility: 'everyone' | 'friends' | 'friends_and_gyms' | 'private';
   locationSharingEnabled: boolean;
   showWorkoutHistory: boolean;
   allowFriendRequests: boolean;
@@ -81,6 +81,7 @@ export interface UserRegistration {
     marketingConsent: boolean;
     analyticsConsent: boolean;
   };
+  favoriteGyms?: number[]; // Array of gym IDs (max 3)
 }
 
 export interface UserLogin {

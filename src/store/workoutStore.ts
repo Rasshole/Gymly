@@ -14,6 +14,12 @@ interface WorkoutState {
   getWeeklyStats: () => WeeklyStats;
   getDailyData: (days: number) => DailyWorkoutData[];
   getThisWeekData: () => DailyWorkoutData[];
+  getTotalWorkoutTime: () => number; // Total workout time in minutes (all time)
+  getWorkoutTimeForPeriod: (period: 'week' | 'month' | 'year' | 'all') => number; // Get workout time for specific period
+  getCheckInsForPeriod: (period: 'week' | 'month' | 'year' | 'all') => number; // Get check-ins for specific period
+  getWorkoutsWithFriendsForPeriod: (period: 'week' | 'month' | 'year' | 'all') => number; // Get workouts with friends for specific period
+  getMostTrainedMuscleGroup: () => string | null; // Most frequently trained muscle group
+  getWorkoutsWithFriends: () => number; // Number of workouts done with friends (all time)
 }
 
 // Helper function to get start of week (Monday)
@@ -66,6 +72,14 @@ export const useWorkoutStore = create<WorkoutState>((set, get) => ({
         const startTime = new Date(date);
         startTime.setHours(8 + Math.floor(Math.random() * 12), Math.floor(Math.random() * 60), 0);
         
+        const muscleGroups = [
+          'Bryst & Triceps',
+          'Ben & Ryg',
+          'Skulder & Biceps',
+          'Mave & Cardio',
+          'Hele kroppen',
+        ];
+        
         mockWorkouts.push({
           id: `workout_${Date.now()}_${i}`,
           userId: 'current_user',
@@ -73,6 +87,7 @@ export const useWorkoutStore = create<WorkoutState>((set, get) => ({
           startTime,
           duration,
           workoutType: ['cardio', 'strength', 'mixed'][Math.floor(Math.random() * 3)],
+          muscleGroup: muscleGroups[Math.floor(Math.random() * muscleGroups.length)],
         });
       }
     }
@@ -199,6 +214,163 @@ export const useWorkoutStore = create<WorkoutState>((set, get) => ({
     }
     
     return data;
+  },
+
+  /**
+   * Get total workout time (all time, in minutes)
+   */
+  getTotalWorkoutTime: () => {
+    const state = get();
+    return state.workouts.reduce((sum, w) => sum + w.duration, 0);
+  },
+
+  /**
+   * Get workout time for a specific period
+   */
+  getWorkoutTimeForPeriod: (period: 'week' | 'month' | 'year' | 'all') => {
+    const state = get();
+    const now = new Date();
+    
+    let startDate: Date;
+    
+    switch (period) {
+      case 'week': {
+        startDate = getStartOfWeek(now);
+        break;
+      }
+      case 'month': {
+        startDate = new Date(now.getFullYear(), now.getMonth(), 1);
+        startDate.setHours(0, 0, 0, 0);
+        break;
+      }
+      case 'year': {
+        startDate = new Date(now.getFullYear(), 0, 1);
+        startDate.setHours(0, 0, 0, 0);
+        break;
+      }
+      case 'all':
+      default:
+        return state.workouts.reduce((sum, w) => sum + w.duration, 0);
+    }
+    
+    const endDate = new Date(now);
+    endDate.setHours(23, 59, 59, 999);
+    
+    return state.workouts
+      .filter(w => w.startTime >= startDate && w.startTime <= endDate)
+      .reduce((sum, w) => sum + w.duration, 0);
+  },
+
+  /**
+   * Get most frequently trained muscle group
+   */
+  getMostTrainedMuscleGroup: () => {
+    const state = get();
+    const muscleGroupCounts: Record<string, number> = {};
+    
+    state.workouts.forEach((workout) => {
+      if (workout.muscleGroup) {
+        muscleGroupCounts[workout.muscleGroup] = 
+          (muscleGroupCounts[workout.muscleGroup] || 0) + 1;
+      }
+    });
+    
+    if (Object.keys(muscleGroupCounts).length === 0) {
+      return null;
+    }
+    
+    const mostTrained = Object.entries(muscleGroupCounts).reduce((a, b) =>
+      a[1] > b[1] ? a : b
+    );
+    
+    return mostTrained[0];
+  },
+
+  /**
+   * Get number of workouts done with friends
+   * For now, we'll use a mock calculation - in real app this would check for group workouts
+   */
+  getWorkoutsWithFriends: () => {
+    const state = get();
+    // Mock: Assume 30% of workouts are with friends
+    return Math.floor(state.workouts.length * 0.3);
+  },
+
+  /**
+   * Get check-ins for a specific period
+   */
+  getCheckInsForPeriod: (period: 'week' | 'month' | 'year' | 'all') => {
+    const state = get();
+    const now = new Date();
+    
+    let startDate: Date;
+    
+    switch (period) {
+      case 'week': {
+        startDate = getStartOfWeek(now);
+        break;
+      }
+      case 'month': {
+        startDate = new Date(now.getFullYear(), now.getMonth(), 1);
+        startDate.setHours(0, 0, 0, 0);
+        break;
+      }
+      case 'year': {
+        startDate = new Date(now.getFullYear(), 0, 1);
+        startDate.setHours(0, 0, 0, 0);
+        break;
+      }
+      case 'all':
+      default:
+        return state.workouts.length;
+    }
+    
+    const endDate = new Date(now);
+    endDate.setHours(23, 59, 59, 999);
+    
+    return state.workouts.filter(
+      w => w.startTime >= startDate && w.startTime <= endDate
+    ).length;
+  },
+
+  /**
+   * Get workouts with friends for a specific period
+   */
+  getWorkoutsWithFriendsForPeriod: (period: 'week' | 'month' | 'year' | 'all') => {
+    const state = get();
+    const now = new Date();
+    
+    let startDate: Date;
+    
+    switch (period) {
+      case 'week': {
+        startDate = getStartOfWeek(now);
+        break;
+      }
+      case 'month': {
+        startDate = new Date(now.getFullYear(), now.getMonth(), 1);
+        startDate.setHours(0, 0, 0, 0);
+        break;
+      }
+      case 'year': {
+        startDate = new Date(now.getFullYear(), 0, 1);
+        startDate.setHours(0, 0, 0, 0);
+        break;
+      }
+      case 'all':
+      default:
+        return Math.floor(state.workouts.length * 0.3);
+    }
+    
+    const endDate = new Date(now);
+    endDate.setHours(23, 59, 59, 999);
+    
+    const periodWorkouts = state.workouts.filter(
+      w => w.startTime >= startDate && w.startTime <= endDate
+    );
+    
+    // Mock: Assume 30% of workouts are with friends
+    return Math.floor(periodWorkouts.length * 0.3);
   },
 }));
 

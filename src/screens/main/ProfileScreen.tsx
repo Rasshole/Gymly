@@ -4,9 +4,11 @@
  */
 
 import React, {useState, useMemo} from 'react';
-import {View, Text, StyleSheet, ScrollView, Image, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Switch, Alert} from 'react-native';
 import {useAppStore} from '@/store/appStore';
 import {useWorkoutStore} from '@/store/workoutStore';
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import FavoriteGymsSelector from './FavoriteGymsSelector';
 import danishGyms, {DanishGym} from '@/data/danishGyms';
@@ -48,10 +50,28 @@ const FavoriteGymItem = ({gym, index}: {gym: DanishGym; index: number}) => {
   );
 };
 
+type TimePeriod = 'week' | 'month' | 'year' | 'all';
+
+type ProfileScreenNavigationProp = StackNavigationProp<any>;
+
+type ProfileVisibility = 'everyone' | 'friends' | 'friends_and_gyms' | 'private';
+
 const ProfileScreen = () => {
-  const {user} = useAppStore();
-  const {getWeeklyStats} = useWorkoutStore();
+  const navigation = useNavigation<ProfileScreenNavigationProp>();
+  const {user, setUser} = useAppStore();
+  const {
+    getWeeklyStats,
+    getTotalWorkoutTime,
+    getWorkoutTimeForPeriod,
+    getCheckInsForPeriod,
+    getWorkoutsWithFriendsForPeriod,
+    getMostTrainedMuscleGroup,
+    getWorkoutsWithFriends,
+  } = useWorkoutStore();
   const [showGymSelector, setShowGymSelector] = useState(false);
+  const [selectedPeriod, setSelectedPeriod] = useState<TimePeriod>('all');
+  const [selectedStatsPeriod, setSelectedStatsPeriod] = useState<TimePeriod>('all');
+  const [showProfileVisibilityPicker, setShowProfileVisibilityPicker] = useState(false);
 
   const favoriteGyms = useMemo(() => {
     if (!user?.favoriteGyms) return [];
@@ -61,6 +81,70 @@ const ProfileScreen = () => {
   }, [user?.favoriteGyms]);
 
   const weeklyStats = getWeeklyStats();
+  const workoutTimeForPeriod = getWorkoutTimeForPeriod(selectedPeriod);
+  const checkInsForPeriod = getCheckInsForPeriod(selectedStatsPeriod);
+  const workoutsWithFriendsForPeriod = getWorkoutsWithFriendsForPeriod(selectedStatsPeriod);
+  const mostTrainedMuscleGroup = getMostTrainedMuscleGroup();
+
+  // Handle profile visibility change
+  const handleProfileVisibilityChange = (visibility: ProfileVisibility) => {
+    if (!user) return;
+    
+    const updatedUser = {
+      ...user,
+      privacySettings: {
+        ...user.privacySettings,
+        profileVisibility: visibility,
+      },
+      updatedAt: new Date(),
+    };
+    setUser(updatedUser);
+    setShowProfileVisibilityPicker(false);
+  };
+
+  // Handle location sharing toggle
+  const handleLocationSharingToggle = (enabled: boolean) => {
+    if (!user) return;
+    
+    const updatedUser = {
+      ...user,
+      privacySettings: {
+        ...user.privacySettings,
+        locationSharingEnabled: enabled,
+      },
+      updatedAt: new Date(),
+    };
+    setUser(updatedUser);
+  };
+
+  // Get profile visibility label
+  const getProfileVisibilityLabel = (visibility: string): string => {
+    switch (visibility) {
+      case 'friends':
+        return 'Kun Venner';
+      case 'friends_and_gyms':
+        return 'Kun Venner & Lokal Centre';
+      case 'everyone':
+        return 'Alle';
+      case 'private':
+        return 'Privat';
+      default:
+        return 'Privat';
+    }
+  };
+
+  // Format total workout time
+  const formatTotalTime = (minutes: number): string => {
+    if (minutes < 60) {
+      return `${minutes}m`;
+    }
+    const hours = Math.floor(minutes / 60);
+    const mins = minutes % 60;
+    if (mins === 0) {
+      return `${hours}t`;
+    }
+    return `${hours}t ${mins}m`;
+  };
 
   return (
     <View style={styles.container}>
@@ -80,21 +164,209 @@ const ProfileScreen = () => {
           <Text style={styles.username}>@{user?.username}</Text>
         </View>
 
+        {/* PR's og Reps Section */}
+        <TouchableOpacity
+          style={styles.section}
+          onPress={() => navigation.navigate('PersonalPRsReps')}
+          activeOpacity={0.7}>
+          <View style={styles.sectionHeader}>
+            <View style={styles.prRepsHeaderLeft}>
+              <Icon name="trophy" size={20} color="#007AFF" />
+              <Text style={styles.sectionTitle}>Dine PR's og Reps</Text>
+            </View>
+            <Icon name="chevron-forward" size={20} color="#8E8E93" />
+          </View>
+        </TouchableOpacity>
+
         {/* Stats */}
         <View style={styles.statsContainer}>
-          <View style={styles.statItem}>
-            <Text style={styles.statValue}>{weeklyStats.workouts}</Text>
-            <Text style={styles.statLabel}>Workouts</Text>
+          {/* Period Selection Buttons for Stats */}
+          <View style={styles.statsPeriodButtonsContainer}>
+            <TouchableOpacity
+              style={[
+                styles.statsPeriodButton,
+                selectedStatsPeriod === 'week' && styles.statsPeriodButtonActive,
+              ]}
+              onPress={() => setSelectedStatsPeriod('week')}
+              activeOpacity={0.7}>
+              <Text
+                style={[
+                  styles.statsPeriodButtonText,
+                  selectedStatsPeriod === 'week' && styles.statsPeriodButtonTextActive,
+                ]}>
+                Uge
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                styles.statsPeriodButton,
+                selectedStatsPeriod === 'month' && styles.statsPeriodButtonActive,
+              ]}
+              onPress={() => setSelectedStatsPeriod('month')}
+              activeOpacity={0.7}>
+              <Text
+                style={[
+                  styles.statsPeriodButtonText,
+                  selectedStatsPeriod === 'month' && styles.statsPeriodButtonTextActive,
+                ]}>
+                Måned
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                styles.statsPeriodButton,
+                selectedStatsPeriod === 'year' && styles.statsPeriodButtonActive,
+              ]}
+              onPress={() => setSelectedStatsPeriod('year')}
+              activeOpacity={0.7}>
+              <Text
+                style={[
+                  styles.statsPeriodButtonText,
+                  selectedStatsPeriod === 'year' && styles.statsPeriodButtonTextActive,
+                ]}>
+                År
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                styles.statsPeriodButton,
+                selectedStatsPeriod === 'all' && styles.statsPeriodButtonActive,
+              ]}
+              onPress={() => setSelectedStatsPeriod('all')}
+              activeOpacity={0.7}>
+              <Text
+                style={[
+                  styles.statsPeriodButtonText,
+                  selectedStatsPeriod === 'all' && styles.statsPeriodButtonTextActive,
+                ]}>
+                I alt
+              </Text>
+            </TouchableOpacity>
           </View>
-          <View style={styles.statDivider} />
-          <View style={styles.statItem}>
-            <Text style={styles.statValue}>0</Text>
-            <Text style={styles.statLabel}>Venner</Text>
+
+          <View style={styles.statsRow}>
+            <View style={styles.statItem}>
+              <Text style={styles.statValue}>{checkInsForPeriod}</Text>
+              <Text style={styles.statLabel}>Check-ins</Text>
+            </View>
+            <View style={styles.statDivider} />
+            <View style={styles.statItem}>
+              <Text style={styles.statValue}>0</Text>
+              <Text style={styles.statLabel}>Venner</Text>
+            </View>
+            <View style={styles.statDivider} />
+            <View style={styles.statItem}>
+              <Text style={styles.statValue}>{workoutsWithFriendsForPeriod}</Text>
+              <Text style={styles.statLabel}>Workouts med venner</Text>
+            </View>
           </View>
-          <View style={styles.statDivider} />
-          <View style={styles.statItem}>
-            <Text style={styles.statValue}>{weeklyStats.workouts}</Text>
-            <Text style={styles.statLabel}>Check-ins</Text>
+        </View>
+
+        {/* Additional Stats */}
+        <View style={styles.additionalStatsContainer}>
+          {/* Period Selection Buttons */}
+          <View style={styles.periodButtonsContainer}>
+            <TouchableOpacity
+              style={[
+                styles.periodButton,
+                selectedPeriod === 'week' && styles.periodButtonActive,
+              ]}
+              onPress={() => setSelectedPeriod('week')}
+              activeOpacity={0.7}>
+              <Text
+                style={[
+                  styles.periodButtonText,
+                  selectedPeriod === 'week' && styles.periodButtonTextActive,
+                ]}>
+                Uge
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                styles.periodButton,
+                selectedPeriod === 'month' && styles.periodButtonActive,
+              ]}
+              onPress={() => setSelectedPeriod('month')}
+              activeOpacity={0.7}>
+              <Text
+                style={[
+                  styles.periodButtonText,
+                  selectedPeriod === 'month' && styles.periodButtonTextActive,
+                ]}>
+                Måned
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                styles.periodButton,
+                selectedPeriod === 'year' && styles.periodButtonActive,
+              ]}
+              onPress={() => setSelectedPeriod('year')}
+              activeOpacity={0.7}>
+              <Text
+                style={[
+                  styles.periodButtonText,
+                  selectedPeriod === 'year' && styles.periodButtonTextActive,
+                ]}>
+                År
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                styles.periodButton,
+                selectedPeriod === 'all' && styles.periodButtonActive,
+              ]}
+              onPress={() => setSelectedPeriod('all')}
+              activeOpacity={0.7}>
+              <Text
+                style={[
+                  styles.periodButtonText,
+                  selectedPeriod === 'all' && styles.periodButtonTextActive,
+                ]}>
+                I alt
+              </Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.additionalStatItem}>
+            <Icon name="time-outline" size={20} color="#007AFF" style={styles.statIcon} />
+            <View style={styles.additionalStatContent}>
+              <Text style={styles.additionalStatLabel}>Tid trænet</Text>
+              <Text style={styles.additionalStatValue}>
+                {formatTotalTime(workoutTimeForPeriod)}
+              </Text>
+            </View>
+          </View>
+
+          {mostTrainedMuscleGroup && (
+            <View style={[styles.additionalStatItem, styles.additionalStatItemLast]}>
+              <Icon name="fitness-outline" size={20} color="#007AFF" style={styles.statIcon} />
+              <View style={styles.additionalStatContent}>
+                <Text style={styles.additionalStatLabel}>Oftest trænet</Text>
+                <Text style={styles.additionalStatValue}>{mostTrainedMuscleGroup}</Text>
+              </View>
+            </View>
+          )}
+        </View>
+
+        {/* Goals Section */}
+        <View style={styles.section}>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>Mål</Text>
+            <TouchableOpacity
+              style={styles.addGoalButton}
+              onPress={() => navigation.navigate('AddGoal')}
+              activeOpacity={0.7}>
+              <Icon name="add-circle" size={20} color="#007AFF" />
+              <Text style={styles.addGoalButtonText}>Tilføj Mål</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.emptyGoals}>
+            <Icon name="flag-outline" size={48} color="#C7C7CC" />
+            <Text style={styles.emptyGoalsText}>Ingen mål endnu</Text>
+            <Text style={styles.emptyGoalsSubtext}>
+              Tilføj et mål for at holde dig motiveret
+            </Text>
           </View>
         </View>
 
@@ -130,18 +402,94 @@ const ProfileScreen = () => {
 
         {/* Privacy Settings Overview */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Privacy Indstillinger</Text>
-          <View style={styles.privacyItem}>
+          <Text style={styles.sectionTitle}>Privat Indstillinger</Text>
+          
+          {/* Profile Visibility */}
+          <TouchableOpacity
+            style={styles.privacyItem}
+            onPress={() => setShowProfileVisibilityPicker(!showProfileVisibilityPicker)}
+            activeOpacity={0.7}>
             <Icon name="eye" size={20} color="#007AFF" />
-            <Text style={styles.privacyText}>
-              Profil synlighed: {user?.privacySettings.profileVisibility === 'friends' ? 'Venner' : user?.privacySettings.profileVisibility === 'everyone' ? 'Alle' : 'Privat'}
-            </Text>
-          </View>
+            <View style={styles.privacyItemContent}>
+              <Text style={styles.privacyLabel}>Profil synlighed</Text>
+              <Text style={styles.privacyValue}>
+                {getProfileVisibilityLabel(user?.privacySettings.profileVisibility || 'private')}
+              </Text>
+            </View>
+            <Icon name="chevron-down" size={20} color="#8E8E93" />
+          </TouchableOpacity>
+          
+          {showProfileVisibilityPicker && (
+            <View style={styles.visibilityOptions}>
+              <TouchableOpacity
+                style={[
+                  styles.visibilityOption,
+                  user?.privacySettings.profileVisibility === 'friends' && styles.visibilityOptionSelected,
+                ]}
+                onPress={() => handleProfileVisibilityChange('friends')}
+                activeOpacity={0.7}>
+                <Text
+                  style={[
+                    styles.visibilityOptionText,
+                    user?.privacySettings.profileVisibility === 'friends' && styles.visibilityOptionTextSelected,
+                  ]}>
+                  Kun Venner
+                </Text>
+                {user?.privacySettings.profileVisibility === 'friends' && (
+                  <Icon name="checkmark" size={20} color="#007AFF" />
+                )}
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[
+                  styles.visibilityOption,
+                  user?.privacySettings.profileVisibility === 'friends_and_gyms' && styles.visibilityOptionSelected,
+                ]}
+                onPress={() => handleProfileVisibilityChange('friends_and_gyms')}
+                activeOpacity={0.7}>
+                <Text
+                  style={[
+                    styles.visibilityOptionText,
+                    user?.privacySettings.profileVisibility === 'friends_and_gyms' && styles.visibilityOptionTextSelected,
+                  ]}>
+                  Kun Venner & Lokal Centre
+                </Text>
+                {user?.privacySettings.profileVisibility === 'friends_and_gyms' && (
+                  <Icon name="checkmark" size={20} color="#007AFF" />
+                )}
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[
+                  styles.visibilityOption,
+                  user?.privacySettings.profileVisibility === 'everyone' && styles.visibilityOptionSelected,
+                ]}
+                onPress={() => handleProfileVisibilityChange('everyone')}
+                activeOpacity={0.7}>
+                <Text
+                  style={[
+                    styles.visibilityOptionText,
+                    user?.privacySettings.profileVisibility === 'everyone' && styles.visibilityOptionTextSelected,
+                  ]}>
+                  Alle
+                </Text>
+                {user?.privacySettings.profileVisibility === 'everyone' && (
+                  <Icon name="checkmark" size={20} color="#007AFF" />
+                )}
+              </TouchableOpacity>
+            </View>
+          )}
+
+          {/* Location Sharing */}
           <View style={styles.privacyItem}>
             <Icon name="location" size={20} color="#007AFF" />
-            <Text style={styles.privacyText}>
-              Lokationsdeling: {user?.privacySettings.locationSharingEnabled ? 'Aktiveret' : 'Deaktiveret'}
-            </Text>
+            <View style={styles.privacyItemContent}>
+              <Text style={styles.privacyLabel}>Lokationsdeling</Text>
+            </View>
+            <Switch
+              value={user?.privacySettings.locationSharingEnabled || false}
+              onValueChange={handleLocationSharingToggle}
+              trackColor={{false: '#E5E5EA', true: '#34C759'}}
+              thumbColor="#fff"
+            />
           </View>
         </View>
 
@@ -277,7 +625,6 @@ const styles = StyleSheet.create({
     color: '#666',
   },
   statsContainer: {
-    flexDirection: 'row',
     backgroundColor: '#fff',
     padding: 20,
     borderRadius: 16,
@@ -287,6 +634,35 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 8,
     elevation: 3,
+  },
+  statsPeriodButtonsContainer: {
+    flexDirection: 'row',
+    marginBottom: 16,
+    gap: 8,
+  },
+  statsPeriodButton: {
+    flex: 1,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: 8,
+    backgroundColor: '#F0F0F0',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  statsPeriodButtonActive: {
+    backgroundColor: '#007AFF',
+  },
+  statsPeriodButtonText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: '#666',
+  },
+  statsPeriodButtonTextActive: {
+    color: '#fff',
+  },
+  statsRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   statItem: {
     flex: 1,
@@ -305,6 +681,67 @@ const styles = StyleSheet.create({
   statDivider: {
     width: 1,
     backgroundColor: '#E5E5EA',
+  },
+  additionalStatsContainer: {
+    backgroundColor: '#fff',
+    padding: 20,
+    borderRadius: 16,
+    marginBottom: 24,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 3,
+  },
+  additionalStatItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  additionalStatItemLast: {
+    marginBottom: 0,
+  },
+  statIcon: {
+    marginRight: 12,
+  },
+  additionalStatContent: {
+    flex: 1,
+  },
+  additionalStatLabel: {
+    fontSize: 14,
+    color: '#8E8E93',
+    marginBottom: 4,
+  },
+  additionalStatValue: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#000',
+  },
+  periodButtonsContainer: {
+    flexDirection: 'row',
+    marginTop: 16,
+    marginBottom: 16,
+    gap: 8,
+  },
+  periodButton: {
+    flex: 1,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    borderRadius: 8,
+    backgroundColor: '#F0F0F0',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  periodButtonActive: {
+    backgroundColor: '#007AFF',
+  },
+  periodButtonText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#666',
+  },
+  periodButtonTextActive: {
+    color: '#fff',
   },
   section: {
     backgroundColor: '#fff',
@@ -327,6 +764,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '600',
     color: '#000',
+  },
+  prRepsHeaderLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   editButton: {
     flexDirection: 'row',
@@ -412,15 +853,78 @@ const styles = StyleSheet.create({
     color: '#8E8E93',
     textAlign: 'center',
   },
+  addGoalButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  addGoalButtonText: {
+    fontSize: 16,
+    color: '#007AFF',
+    fontWeight: '600',
+    marginLeft: 4,
+  },
+  emptyGoals: {
+    alignItems: 'center',
+    padding: 32,
+  },
+  emptyGoalsText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#333',
+    marginTop: 12,
+    marginBottom: 4,
+  },
+  emptyGoalsSubtext: {
+    fontSize: 14,
+    color: '#8E8E93',
+    textAlign: 'center',
+  },
   privacyItem: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 12,
+    paddingVertical: 8,
   },
-  privacyText: {
+  privacyItemContent: {
+    flex: 1,
+    marginLeft: 12,
+  },
+  privacyLabel: {
     fontSize: 16,
     color: '#000',
-    marginLeft: 12,
+    fontWeight: '500',
+  },
+  privacyValue: {
+    fontSize: 14,
+    color: '#8E8E93',
+    marginTop: 2,
+  },
+  visibilityOptions: {
+    marginLeft: 32,
+    marginBottom: 12,
+    backgroundColor: '#F8F9FA',
+    borderRadius: 12,
+    padding: 8,
+  },
+  visibilityOption: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: 12,
+    paddingHorizontal: 12,
+    borderRadius: 8,
+    marginBottom: 4,
+  },
+  visibilityOptionSelected: {
+    backgroundColor: '#E3F2FD',
+  },
+  visibilityOptionText: {
+    fontSize: 16,
+    color: '#000',
+  },
+  visibilityOptionTextSelected: {
+    color: '#007AFF',
+    fontWeight: '600',
   },
   thisWeekSection: {
     backgroundColor: '#fff',
@@ -512,6 +1016,10 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: '#8E8E93',
     marginTop: 8,
+  },
+  prRepsHeaderLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });
 

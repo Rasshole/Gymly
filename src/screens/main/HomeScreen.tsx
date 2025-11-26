@@ -3,18 +3,24 @@
  * Main feed and workout check-ins
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
 import {useAppStore} from '@/store/appStore';
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import NotificationService from '@/services/notifications/NotificationService';
+import PRRepsScreen from './PRRepsScreen';
+
+type HomeScreenNavigationProp = StackNavigationProp<any>;
 
 const HomeScreen = () => {
+  const navigation = useNavigation<HomeScreenNavigationProp>();
   const {user} = useAppStore();
+  const [activeTab, setActiveTab] = useState<'feed' | 'pr'>('feed');
 
-  return (
-    <View style={styles.container}>
-      <ScrollView style={styles.scrollView} contentContainerStyle={styles.content}>
+  const renderFeedContent = () => (
+    <ScrollView style={styles.scrollView} contentContainerStyle={styles.content}>
         {/* Welcome Section */}
         <View style={styles.welcomeSection}>
           <Text style={styles.welcomeText}>Hej, {user?.displayName}! 👋</Text>
@@ -69,7 +75,51 @@ const HomeScreen = () => {
           <Icon name="notifications" size={20} color="#007AFF" />
           <Text style={styles.testButtonText}>Test notifikation</Text>
         </TouchableOpacity>
-      </ScrollView>
+    </ScrollView>
+  );
+
+  return (
+    <View style={styles.container}>
+      {/* Tab Selector */}
+      <View style={styles.tabContainer}>
+        <TouchableOpacity
+          style={[styles.tab, activeTab === 'feed' && styles.tabActive]}
+          onPress={() => setActiveTab('feed')}
+          activeOpacity={0.7}>
+          <Icon
+            name="home"
+            size={20}
+            color={activeTab === 'feed' ? '#007AFF' : '#8E8E93'}
+          />
+          <Text
+            style={[
+              styles.tabText,
+              activeTab === 'feed' && styles.tabTextActive,
+            ]}>
+            Feed
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.tab, activeTab === 'pr' && styles.tabActive]}
+          onPress={() => setActiveTab('pr')}
+          activeOpacity={0.7}>
+          <Icon
+            name="trophy"
+            size={20}
+            color={activeTab === 'pr' ? '#007AFF' : '#8E8E93'}
+          />
+          <Text
+            style={[
+              styles.tabText,
+              activeTab === 'pr' && styles.tabTextActive,
+            ]}>
+            PR & Reps
+          </Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* Content */}
+      {activeTab === 'feed' ? renderFeedContent() : <PRRepsScreen />}
     </View>
   );
 };
@@ -78,6 +128,35 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F8F9FA',
+  },
+  tabContainer: {
+    flexDirection: 'row',
+    backgroundColor: '#fff',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: '#E5E5EA',
+  },
+  tab: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 12,
+    borderRadius: 8,
+    marginHorizontal: 4,
+  },
+  tabActive: {
+    backgroundColor: '#E3F2FD',
+  },
+  tabText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#8E8E93',
+    marginLeft: 8,
+  },
+  tabTextActive: {
+    color: '#007AFF',
   },
   scrollView: {
     flex: 1,

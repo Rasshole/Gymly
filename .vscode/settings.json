@@ -1,0 +1,12 @@
+{
+  "files.associations": {
+    "*.pbxproj": "xml"
+  },
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "task.autoDetect": "on",
+  "task.quickOpen.history": 10,
+  "task.quickOpen.detail": true,
+  "task.quickOpen.skip": false,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000
+}

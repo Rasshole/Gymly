@@ -24,13 +24,17 @@ interface GymState {
 }
 
 // Mock data for demonstration
-const mockActivities: GymActivity[] = [
-  {gymId: 1, activeUsers: 12, activeUserIds: []},
-  {gymId: 2, activeUsers: 5, activeUserIds: []},
-  {gymId: 3, activeUsers: 8, activeUserIds: []},
-  {gymId: 4, activeUsers: 3, activeUserIds: []},
-  {gymId: 5, activeUsers: 15, activeUserIds: []},
-];
+// Generate random active users for many gyms to make it visible
+// We'll generate for first 200 gyms with varying activity levels
+const mockActivities: GymActivity[] = Array.from({length: 200}, (_, i) => {
+  // Some gyms have no active users, some have many
+  const hasActivity = Math.random() > 0.3; // 70% chance of having active users
+  return {
+    gymId: i + 1,
+    activeUsers: hasActivity ? Math.floor(Math.random() * 25) + 1 : 0, // Random between 1-25 or 0
+    activeUserIds: [],
+  };
+});
 
 const mockCheckIns: GymCheckIn[] = [
   {
@@ -160,7 +164,13 @@ export const useGymStore = create<GymState>((set, get) => ({
   getActiveUsersCount: (gymId) => {
     const state = get();
     const activity = state.activities.find((activity) => activity.gymId === gymId);
-    return activity?.activeUsers || 0;
+    // If no activity found in mock data, return a random number for demonstration
+    if (!activity) {
+      // Generate a consistent random number based on gymId for demo purposes
+      const seed = gymId * 12345;
+      return (seed % 20) + (seed % 3 === 0 ? 0 : 1); // Some gyms have 0, most have 1-20
+    }
+    return activity.activeUsers;
   },
 
   /**

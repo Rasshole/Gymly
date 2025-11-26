@@ -10,12 +10,15 @@ import {
   StyleSheet,
   TouchableOpacity,
   Dimensions,
+  Image,
 } from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import danishGyms, {DanishGym} from '@/data/danishGyms';
+import {getGymLogo, hasGymLogo} from '@/utils/gymLogos';
+import {useGymStore} from '@/store/gymStore';
 
 type OnlineUser = {
   id: string;
@@ -25,26 +28,33 @@ type OnlineUser = {
   longitude: number;
 };
 
+// Mock friends for counting online friends
+type Friend = {
+  id: string;
+  name: string;
+  isOnline: boolean;
+  gymId?: number;
+};
+
+const mockFriends: Friend[] = [
+  {id: '1', name: 'Jeff', isOnline: true, gymId: 1},
+  {id: '2', name: 'Marie', isOnline: false},
+  {id: '3', name: 'Lars', isOnline: true, gymId: 2},
+  {id: '4', name: 'Sofia', isOnline: true, gymId: 1},
+];
+
 const MapScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
   const mapRef = useRef<MapView>(null);
   const [selectedGym, setSelectedGym] = useState<DanishGym | null>(null);
+  const {getActiveUsersCount} = useGymStore();
 
-  // Mock data - in real app, this would come from API
-  // For now, we'll show some gyms with mock online users
-  const onlineUsers: OnlineUser[] = [];
-
-  // Get gyms with online users
-  const gymsWithUsers = danishGyms
-    .map(gym => {
-      const usersAtGym = onlineUsers.filter(user => user.gymId === gym.id);
-      return {
-        gym,
-        userCount: usersAtGym.length,
-        users: usersAtGym,
-      };
-    })
-    .filter(item => item.userCount > 0);
+  // Count total active users and friends online
+  const totalActiveUsers = danishGyms.reduce(
+    (sum, gym) => sum + getActiveUsersCount(gym.id),
+    0,
+  );
+  const friendsOnline = mockFriends.filter(friend => friend.isOnline).length;
 
   // Calculate initial region to show all Danish gyms
   const calculateInitialRegion = () => {
@@ -96,8 +106,10 @@ const MapScreen = () => {
   };
 
   const renderGymMarker = (gym: DanishGym) => {
-    const usersAtGym = onlineUsers.filter(user => user.gymId === gym.id);
-    const hasUsers = usersAtGym.length > 0;
+    const activeCount = getActiveUsersCount(gym.id);
+    const hasActiveUsers = activeCount > 0;
+    const logoUrl = getGymLogo(gym.brand);
+    const hasLogo = hasGymLogo(gym.brand);
 
     return (
       <Marker
@@ -111,17 +123,25 @@ const MapScreen = () => {
           <View
             style={[
               styles.marker,
-              hasUsers && styles.markerActive,
+              hasActiveUsers && styles.markerActive,
             ]}>
-            <Icon
-              name="fitness"
-              size={hasUsers ? 24 : 20}
-              color={hasUsers ? '#fff' : '#8E8E93'}
-            />
+            {hasLogo && logoUrl ? (
+              <Image
+                source={{uri: logoUrl}}
+                style={styles.markerLogo}
+                resizeMode="contain"
+              />
+            ) : (
+              <Icon
+                name="fitness"
+                size={hasActiveUsers ? 24 : 20}
+                color={hasActiveUsers ? '#fff' : '#8E8E93'}
+              />
+            )}
           </View>
-          {hasUsers && (
+          {hasActiveUsers && (
             <View style={styles.userCountBadge}>
-              <Text style={styles.userCountText}>{usersAtGym.length}</Text>
+              <Text style={styles.userCountText}>{activeCount}</Text>
             </View>
           )}
         </View>
@@ -163,8 +183,8 @@ const MapScreen = () => {
           <View style={styles.userInfo}>
             <Icon name="people" size={16} color="#007AFF" />
             <Text style={styles.userInfoText}>
-              {onlineUsers.filter(u => u.gymId === selectedGym.id).length}{' '}
-              {onlineUsers.filter(u => u.gymId === selectedGym.id).length === 1 ? 'person' : 'personer'} online
+              {getActiveUsersCount(selectedGym.id)}{' '}
+              {getActiveUsersCount(selectedGym.id) === 1 ? 'person' : 'personer'} aktive
             </Text>
           </View>
           <TouchableOpacity
@@ -187,20 +207,26 @@ const MapScreen = () => {
       <View style={styles.legend}>
         <View style={styles.legendItem}>
           <View style={[styles.legendMarker, styles.markerActive]} />
-          <Text style={styles.legendText}>Folk online</Text>
+          <View style={styles.legendTextContainer}>
+            <Text style={styles.legendText}>Folk aktive</Text>
+            <Text style={styles.legendCount}>{totalActiveUsers}</Text>
+          </View>
         </View>
         <View style={styles.legendItem}>
           <View style={[styles.legendMarker, styles.marker]} />
-          <Text style={styles.legendText}>Ingen online</Text>
+          <View style={styles.legendTextContainer}>
+            <Text style={styles.legendText}>Venner online</Text>
+            <Text style={styles.legendCount}>{friendsOnline}</Text>
+          </View>
         </View>
       </View>
 
       {/* Empty State Info Box - Non-blocking */}
-      {onlineUsers.length === 0 && !selectedGym && (
+      {totalActiveUsers === 0 && !selectedGym && (
         <View style={styles.emptyInfoBox}>
           <View style={styles.emptyInfoContent}>
             <Icon name="people-outline" size={20} color="#8E8E93" />
-            <Text style={styles.emptyInfoText}>Ingen online endnu</Text>
+            <Text style={styles.emptyInfoText}>Ingen aktive endnu</Text>
           </View>
         </View>
       )}
@@ -235,6 +261,11 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 24,
+  },
+  markerLogo: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
   },
   userCountBadge: {
     position: 'absolute',
@@ -342,9 +373,19 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginRight: 8,
   },
+  legendTextContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   legendText: {
     fontSize: 12,
     color: '#000',
+  },
+  legendCount: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: '#007AFF',
+    marginLeft: 4,
   },
   emptyInfoBox: {
     position: 'absolute',

@@ -277,6 +277,22 @@ const RegisterScreen = () => {
 
     setIsLoading(true);
     try {
+      // Get the selected gym ID if a gym was selected
+      let favoriteGymId: number | undefined;
+      if (selectedGym) {
+        favoriteGymId = selectedGym.id;
+      } else if (localGym) {
+        // Try to find the gym by name/city if it wasn't selected from suggestions
+        const foundGym = danishGyms.find(
+          gym =>
+            gym.name.toLowerCase().includes(localGym.toLowerCase()) ||
+            (gym.city && gym.city.toLowerCase().includes(localGym.toLowerCase())),
+        );
+        if (foundGym) {
+          favoriteGymId = foundGym.id;
+        }
+      }
+
       if (method === 'email') {
         const {user, tokens} = await AuthService.register({
           email,
@@ -289,6 +305,7 @@ const RegisterScreen = () => {
             marketingConsent: false,
             analyticsConsent: false,
           },
+          favoriteGyms: favoriteGymId ? [favoriteGymId] : undefined,
         });
 
         login(user, tokens);
@@ -299,6 +316,7 @@ const RegisterScreen = () => {
         firstName: firstName.trim(),
         lastName: lastName.trim(),
         email: email.trim(),
+        favoriteGyms: favoriteGymId ? [favoriteGymId] : undefined,
       });
 
       login(user, tokens);
