@@ -92,3 +92,5 @@ git pull origin main
 - **Push regelmæssigt** så dine ændringer er sikret
 - **Opret PR** når du er klar til at merge dine ændringer
 
+
+

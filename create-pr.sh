@@ -39,3 +39,5 @@ echo "Gå til: https://github.com/Rasshole/Gymly/compare/main...Patti"
 echo ""
 echo "📝 Udfyld PR formularen på GitHub og klik 'Create pull request'"
 
+
+

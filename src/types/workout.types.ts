@@ -12,6 +12,7 @@ export interface Workout {
   endTime?: Date;
   duration: number; // Duration in minutes
   workoutType?: string; // e.g., "cardio", "strength", "mixed"
+  muscleGroup?: string; // e.g., "Bryst & Triceps", "Ben & Ryg"
   notes?: string;
 }
 

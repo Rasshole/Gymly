@@ -7,11 +7,13 @@ import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import FriendsScreen from './FriendsScreen';
+import GroupsScreen from './GroupsScreen';
 import CentresScreen from './CentresScreen';
 import MapScreen from './MapScreen';
 
 export type FriendsTabParamList = {
   Venner: undefined;
+  Grupper: undefined;
   Centre: undefined;
   Kort: undefined;
 };
@@ -83,6 +85,14 @@ const FriendsNavigator = () => {
           options={{
             title: 'Venner',
             tabBarLabel: 'Venner',
+          }}
+        />
+        <Tab.Screen
+          name="Grupper"
+          component={GroupsScreen}
+          options={{
+            title: 'Grupper',
+            tabBarLabel: 'Grupper',
           }}
         />
         <Tab.Screen

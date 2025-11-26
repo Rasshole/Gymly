@@ -111,14 +111,6 @@ const FavoriteGymItemWithLogo = ({
             {gym.address}
           </Text>
         )}
-        {activeUsers > 0 && (
-          <View style={styles.activeUsersContainer}>
-            <Icon name="people" size={14} color="#34C759" />
-            <Text style={styles.activeUsersText}>
-              {activeUsers} aktiv{activeUsers > 1 ? 'e' : ''}
-            </Text>
-          </View>
-        )}
         {/* Open/Closed Status */}
         <View style={styles.statusRow}>
           <View
@@ -139,6 +131,18 @@ const FavoriteGymItemWithLogo = ({
               ]}>
               {gymStatus.isOpen ? 'Åbent nu' : 'Lukket nu'}
             </Text>
+          </View>
+          <View style={styles.activeUsersContainer}>
+            {activeUsers > 0 ? (
+              <>
+                <View style={styles.activeUsersDot} />
+                <Text style={styles.activeUsersText}>
+                  {activeUsers} aktiv{activeUsers > 1 ? 'e' : ''}
+                </Text>
+              </>
+            ) : (
+              <Text style={styles.activeUsersTextInactive}>0 aktive</Text>
+            )}
           </View>
         </View>
       </View>
@@ -365,14 +369,6 @@ const CentresScreen = () => {
             </Text>
           )}
           <View style={styles.gymMetaRow}>
-            {activeUsers > 0 && (
-              <View style={styles.activeUsersContainer}>
-                <Icon name="people" size={14} color="#34C759" />
-                <Text style={styles.activeUsersText}>
-                  {activeUsers} aktiv{activeUsers > 1 ? 'e' : ''}
-                </Text>
-              </View>
-            )}
             {/* Open/Closed Status */}
             <View
               style={[
@@ -392,6 +388,18 @@ const CentresScreen = () => {
                 ]}>
                 {gymStatus.isOpen ? 'Åbent' : 'Lukket'}
               </Text>
+            </View>
+            <View style={styles.activeUsersContainer}>
+              {activeUsers > 0 ? (
+                <>
+                  <View style={styles.activeUsersDot} />
+                  <Text style={styles.activeUsersText}>
+                    {activeUsers} aktiv{activeUsers > 1 ? 'e' : ''}
+                  </Text>
+                </>
+              ) : (
+                <Text style={styles.activeUsersTextInactive}>0 aktive</Text>
+              )}
             </View>
           </View>
         </View>
@@ -679,17 +687,29 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 4,
   },
+  activeUsersDot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: '#34C759',
+    marginRight: 6,
+  },
   activeUsersText: {
     fontSize: 12,
     color: '#34C759',
     fontWeight: '600',
-    marginLeft: 4,
+  },
+  activeUsersTextInactive: {
+    fontSize: 12,
+    color: '#8E8E93',
+    fontWeight: '500',
   },
   gymMetaRow: {
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 4,
     gap: 8,
+    flexWrap: 'wrap',
   },
   distanceText: {
     fontSize: 14,

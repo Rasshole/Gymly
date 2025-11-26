@@ -25,6 +25,7 @@ class AuthService {
         email: data.email,
         username: data.username,
         displayName: data.displayName,
+        favoriteGyms: data.favoriteGyms, // Save favorite gyms from registration
         privacySettings: {
           profileVisibility: 'friends',
           locationSharingEnabled: true,
@@ -249,6 +250,73 @@ class AuthService {
 
     if (!/^[a-zA-Z0-9_]+$/.test(username)) {
       throw new Error('Brugernavn må kun indeholde bogstaver, tal og underscore');
+    }
+  }
+
+  /**
+   * Social login (Apple/Google)
+   */
+  async socialLogin(
+    provider: 'apple' | 'google',
+    data?: {
+      firstName?: string;
+      lastName?: string;
+      email?: string;
+      favoriteGyms?: number[];
+    },
+  ): Promise<AuthResponse> {
+    try {
+      // TODO: Implement actual API call for social login
+      // For now, return mock data
+      const mockUser: User = {
+        id: Date.now().toString(),
+        email: data?.email || `${provider}@example.com`,
+        username: data?.email?.split('@')[0] || `${provider}user`,
+        displayName: data?.firstName && data?.lastName
+          ? `${data.firstName} ${data.lastName}`
+          : `${provider} User`,
+        favoriteGyms: data?.favoriteGyms, // Save favorite gyms from registration
+        privacySettings: {
+          profileVisibility: 'friends',
+          locationSharingEnabled: true,
+          showWorkoutHistory: true,
+          allowFriendRequests: true,
+          showOnlineStatus: true,
+        },
+        gdprConsent: {
+          privacyPolicyAccepted: true,
+          termsOfServiceAccepted: true,
+          dataRetentionConsent: true,
+          marketingConsent: false,
+          analyticsConsent: false,
+          locationTrackingConsent: false,
+          consentDate: new Date(),
+          privacyPolicyVersion: '1.0.0',
+          termsOfServiceVersion: '1.0.0',
+          consentHistory: [],
+        },
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        lastLoginAt: new Date(),
+      };
+
+      const mockTokens: AuthTokens = {
+        accessToken: this.generateMockToken(),
+        refreshToken: this.generateMockToken(),
+        expiresAt: Date.now() + 3600000, // 1 hour
+      };
+
+      // Save tokens securely
+      await SecureStorage.saveTokens(mockTokens);
+      await SecureStorage.saveUserData(mockUser);
+
+      return {
+        user: mockUser,
+        tokens: mockTokens,
+      };
+    } catch (error) {
+      console.error('Social login error:', error);
+      throw error;
     }
   }
 

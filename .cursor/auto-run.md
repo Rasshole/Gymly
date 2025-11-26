@@ -28,3 +28,5 @@ Når build er færdig, spiller scriptet automatisk lyd:
 
 Der er også en build phase i Xcode der automatisk spiller lyd når du bygger i Xcode.
 
+
+

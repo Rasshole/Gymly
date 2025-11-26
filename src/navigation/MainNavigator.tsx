@@ -25,6 +25,18 @@ import InviteToWorkoutScreen from '@/screens/main/InviteToWorkoutScreen';
 import WorkoutInvitationsScreen from '@/screens/main/WorkoutInvitationsScreen';
 import GymDetailScreen from '@/screens/main/GymDetailScreen';
 import RateGymScreen from '@/screens/main/RateGymScreen';
+import FriendWorkoutDetailScreen from '@/screens/main/FriendWorkoutDetailScreen';
+import AddGoalScreen from '@/screens/main/AddGoalScreen';
+import AddPRScreen from '@/screens/main/AddPRScreen';
+import AddRepScreen from '@/screens/main/AddRepScreen';
+import GroupDetailScreen from '@/screens/main/GroupDetailScreen';
+import PlannedWorkoutsScreen from '@/screens/main/PlannedWorkoutsScreen';
+import PersonalPRsRepsScreen from '@/screens/main/PersonalPRsRepsScreen';
+import ConnectDeviceScreen from '@/screens/main/ConnectDeviceScreen';
+import ChangeEmailScreen from '@/screens/main/ChangeEmailScreen';
+import HelpScreen from '@/screens/main/HelpScreen';
+import SupportScreen from '@/screens/main/SupportScreen';
+import AboutGymlyScreen from '@/screens/main/AboutGymlyScreen';
 import {useNotificationStore} from '@/store/notificationStore';
 
 export type MainTabParamList = {
@@ -59,6 +71,32 @@ export type MainStackParamList = {
     gymId: number;
     gym: any;
   };
+  FriendWorkoutDetail: {
+    friendId: string;
+    friendName: string;
+    activeTime?: string;
+    gymName?: string;
+    muscleGroup?: string;
+  };
+  AddGoal: undefined;
+  AddPR: {
+    exercise: string;
+    existingPR?: any;
+  };
+  AddRep: {
+    exercise: string;
+    existingRep?: any;
+  };
+  GroupDetail: {
+    group: any;
+  };
+  PlannedWorkouts: undefined;
+  PersonalPRsReps: undefined;
+  ConnectDevice: undefined;
+  ChangeEmail: undefined;
+  Help: undefined;
+  Support: undefined;
+  AboutGymly: undefined;
 };
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
@@ -75,8 +113,26 @@ const SettingsButton = () => {
       onPress={() => {
         navigation.navigate('Settings');
       }}
-      style={{marginRight: 8}}>
+      style={{marginLeft: 16}}>
       <Icon name="settings-outline" size={24} color="#000" />
+    </TouchableOpacity>
+  );
+};
+
+// Calendar button component for header
+const CalendarButton = () => {
+  const navigation = useNavigation<CompositeNavigationProp<
+    BottomTabNavigationProp<MainTabParamList>,
+    StackNavigationProp<MainStackParamList>
+  >>();
+
+  return (
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate('PlannedWorkouts');
+      }}
+      style={{marginRight: 16}}>
+      <Icon name="calendar-outline" size={24} color="#000" />
     </TouchableOpacity>
   );
 };
@@ -134,7 +190,7 @@ const MainTabs = () => {
           if (route.name === 'Home') {
             iconName = focused ? 'home' : 'home-outline';
           } else if (route.name === 'Friends') {
-            iconName = focused ? 'people' : 'people-outline';
+            iconName = focused ? 'radio' : 'radio-outline';
           } else if (route.name === 'Messages') {
             iconName = focused ? 'chatbubbles' : 'chatbubbles-outline';
           } else if (route.name === 'CheckIn') {
@@ -150,10 +206,11 @@ const MainTabs = () => {
         tabBarActiveTintColor: '#007AFF',
         tabBarInactiveTintColor: 'gray',
         headerShown: true,
+        headerLeft: () => <SettingsButton />,
         headerRight: () => (
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <CalendarButton />
             <NotificationsButton />
-            <SettingsButton />
           </View>
         ),
       })}>
@@ -165,7 +222,7 @@ const MainTabs = () => {
       <Tab.Screen
         name="Friends"
         component={FriendsNavigator}
-        options={{title: 'Venner'}}
+        options={{title: 'Online'}}
       />
       <Tab.Screen
         name="CheckIn"
@@ -249,6 +306,90 @@ const MainNavigator = () => {
             <Stack.Screen
               name="RateGym"
               component={RateGymScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="FriendWorkoutDetail"
+              component={FriendWorkoutDetailScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="AddGoal"
+              component={AddGoalScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="AddPR"
+              component={AddPRScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="AddRep"
+              component={AddRepScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="GroupDetail"
+              component={GroupDetailScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="PlannedWorkouts"
+              component={PlannedWorkoutsScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="PersonalPRsReps"
+              component={PersonalPRsRepsScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="ConnectDevice"
+              component={ConnectDeviceScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="ChangeEmail"
+              component={ChangeEmailScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="Help"
+              component={HelpScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="Support"
+              component={SupportScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="AboutGymly"
+              component={AboutGymlyScreen}
               options={{
                 headerShown: false,
               }}

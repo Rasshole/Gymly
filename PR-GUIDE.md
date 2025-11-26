@@ -85,3 +85,5 @@ git merge main
 - **Beskriv ændringerne**: I PR beskrivelsen, forklar hvad du har lavet og hvorfor
 - **Review selv først**: Tjek dine ændringer før du opretter PR
 
+
+
