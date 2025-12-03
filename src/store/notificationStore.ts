@@ -63,7 +63,7 @@ export const useNotificationStore = create<NotificationState>((set, get) => ({
       read: false,
       checkInTime: notificationData.checkInTime || now,
       isActive: notificationData.isActive !== undefined ? notificationData.isActive : true,
-      joined: notificationData.type === 'workout_invite' ? false : undefined,
+      joined: notificationData.type === 'workout_invite' || notificationData.type === 'friend_checkin' ? false : undefined,
     };
 
     set((state) => ({
@@ -155,13 +155,21 @@ export const useNotificationStore = create<NotificationState>((set, get) => ({
   },
 
   /**
-   * Mark workout invite as joined
+   * Mark workout invite as joined (toggle)
    */
   markInviteJoined: id => {
     set(state => {
-      const notifications = state.notifications.map(notif =>
-        notif.id === id ? {...notif, joined: true, read: true} : notif,
-      );
+      const notifications = state.notifications.map(notif => {
+        if (notif.id === id) {
+          const newJoinedState = !notif.joined;
+          return {
+            ...notif,
+            joined: newJoinedState,
+            read: newJoinedState ? true : notif.read, // Only mark as read when joining
+          };
+        }
+        return notif;
+      });
       return {
         notifications,
         unreadCount: notifications.filter(notif => !notif.read).length,

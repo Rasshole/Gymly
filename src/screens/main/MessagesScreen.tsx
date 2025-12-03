@@ -19,6 +19,17 @@ import {useChatStore} from '@/store/chatStore';
 import {formatDistanceToNow} from 'date-fns';
 import {da} from 'date-fns/locale';
 
+type Message = {
+  id: string;
+  name: string;
+  lastMessage: string;
+  timestamp: string;
+  unreadCount: number;
+  participantIds?: string[];
+  participants?: string[];
+  avatar?: string;
+};
+
 const MessagesScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
   const {chats} = useChatStore();
@@ -34,6 +45,7 @@ const MessagesScreen = () => {
       unreadCount: chat.unreadCount,
       participantIds: chat.participantIds,
       participants: chat.participantNames,
+      avatar: chat.avatar,
     }));
   }, [chats]);
 

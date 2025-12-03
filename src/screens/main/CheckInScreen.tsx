@@ -12,9 +12,11 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
+  TouchableWithoutFeedback,
   View,
   GestureResponderEvent,
 } from 'react-native';
+import {launchCamera, CameraOptions} from 'react-native-image-picker';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import DateTimePicker, {
   DateTimePickerEvent,
@@ -26,6 +28,7 @@ import {useAppStore} from '@/store/appStore';
 import NotificationService from '@/services/notifications/NotificationService';
 import {useWorkoutPlanStore} from '@/store/workoutPlanStore';
 import {formatGymDisplayName, findGymById} from '@/utils/gymDisplay';
+import {useFeedStore} from '@/store/feedStore';
 
 const SIMULATED_LOCATION = {
   latitude: 55.6875008,
@@ -118,10 +121,12 @@ const CheckInScreen = () => {
     addPlanInvites,
     addCompletedWorkout,
   } = useWorkoutPlanStore();
+  const addFeedItem = useFeedStore(state => state.addFeedItem);
   const [detectionStatus, setDetectionStatus] = useState<DetectionStatus>('searching');
   const [detectedGym, setDetectedGym] = useState<DanishGym | null>(null);
   const [detectedDistance, setDetectedDistance] = useState<number | null>(null);
   const [selectedMuscles, setSelectedMuscles] = useState<MuscleGroup[]>([]);
+  const [soloTraining, setSoloTraining] = useState(false);
   const [sliderWidth, setSliderWidth] = useState(0);
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [gymPickerVisible, setGymPickerVisible] = useState(false);
@@ -129,6 +134,7 @@ const CheckInScreen = () => {
   const [pendingSession, setPendingSession] = useState<PendingSession | null>(null);
   const [pendingInviteIds, setPendingInviteIds] = useState<string[]>([]);
   const [activeSession, setActiveSession] = useState<ActiveSession | null>(null);
+  const [sessionPhotoUri, setSessionPhotoUri] = useState<string | null>(null);
   const [inviteModalVisible, setInviteModalVisible] = useState(false);
   const [inviteContext, setInviteContext] = useState<'pending' | 'active' | 'plan' | null>(null);
   const [invitePlanId, setInvitePlanId] = useState<string | null>(null);
@@ -137,6 +143,7 @@ const CheckInScreen = () => {
   const [planSelectedGym, setPlanSelectedGym] = useState<DanishGym | null>(null);
   const [planCenterQuery, setPlanCenterQuery] = useState('');
   const [planMuscles, setPlanMuscles] = useState<MuscleGroup[]>([]);
+  const [planSoloTraining, setPlanSoloTraining] = useState(false);
   const [planDateTime, setPlanDateTime] = useState(new Date());
   const [planTimePickerVisible, setPlanTimePickerVisible] = useState(false);
   const [planCalendarMonth, setPlanCalendarMonth] = useState(() => {
@@ -154,6 +161,14 @@ const CheckInScreen = () => {
   const [selectedPr, setSelectedPr] = useState<PrOption | null>(null);
   const [prWeight, setPrWeight] = useState('');
   const [prVideoAttached, setPrVideoAttached] = useState(false);
+  const [shareComposerVisible, setShareComposerVisible] = useState(false);
+  const [shareMessage, setShareMessage] = useState('');
+  const [shareContext, setShareContext] = useState<{
+    session: ActiveSession;
+    summary: string;
+    durationMs: number;
+    photoUri?: string | null;
+  } | null>(null);
 
   const sliderAnim = useRef(new Animated.Value(0)).current;
   const sliderValueRef = useRef(0);
@@ -547,6 +562,7 @@ const CheckInScreen = () => {
     setShowConfirmation(false);
     setInviteModalVisible(false);
     setInviteContext(null);
+    setSessionPhotoUri(null);
   }, [pendingInviteIds, pendingSession]);
 
   const openInviteModal = (context: 'pending' | 'active' | 'plan', options?: {planId?: string}) => {
@@ -674,40 +690,186 @@ const CheckInScreen = () => {
     }
   };
 
-  const handleFinishWorkout = () => {
-    if (!activeSession) {
+  const captureWorkoutPhoto = useCallback(
+    async (options?: {onSuccess?: (uri: string) => void; silent?: boolean}) => {
+      try {
+        const cameraOptions: CameraOptions = {
+          mediaType: 'photo',
+          cameraType: 'back',
+          saveToPhotos: true,
+          quality: 0.8,
+        };
+        const response = await launchCamera(cameraOptions);
+        if (response.didCancel) {
       return;
     }
-    const durationText = formatDuration(elapsedTime);
-    const muscleText = formatMuscleSelection(activeSession.muscles);
-    const friendCount = activeSession.invitedFriendIds.length;
+        if (response.errorCode) {
+          Alert.alert('Kamera fejl', response.errorMessage || 'Kunne ikke åbne kameraet.');
+          return;
+        }
+        const asset = response.assets && response.assets[0];
+        if (asset?.uri) {
+          setSessionPhotoUri(asset.uri);
+          if (!options?.silent) {
+            Alert.alert('Foto gemt', 'Billedet er gemt til denne træning.');
+          }
+          options?.onSuccess?.(asset.uri);
+        }
+      } catch (error) {
+        Alert.alert('Kamera fejl', 'Kunne ikke åbne kameraet. Tjek tilladelser og prøv igen.');
+      }
+    },
+    [setSessionPhotoUri],
+  );
+
+  const handleCaptureWorkoutPhoto = () => {
+    captureWorkoutPhoto();
+  };
+
+  const buildWorkoutSummary = (session: ActiveSession, durationMs: number) => {
+    const muscleText = formatMuscleSelection(session.muscles);
+    const friendCount = session.invitedFriendIds.length;
     const friendText =
       friendCount > 0
         ? ` med ${friendCount} ${friendCount === 1 ? 'ven' : 'venner'}, hvis de accepterer invitationen`
         : '';
-    const message = `Godt gået, du trænede ${muscleText} i ${formatGymDisplayName(
-      activeSession.gym,
-    )} i ${durationText}${friendText}. Godt klaret! 💪`;
-    Alert.alert('Godt gået!', message, [
+    return `Godt gået, du trænede ${muscleText} i ${formatGymDisplayName(
+      session.gym,
+    )} i ${formatDuration(durationMs)}${friendText}. Godt klaret! 💪`;
+  };
+
+  const resetAfterCompletion = () => {
+    setActiveSession(null);
+    setInviteModalVisible(false);
+    setInviteContext(null);
+    setPendingInviteIds([]);
+    setPendingSession(null);
+    setShowConfirmation(false);
+    setSessionPhotoUri(null);
+  };
+
+  const finalizeWorkout = (
+    session: ActiveSession,
+    summary: string,
+    durationMs: number,
+    photoUri?: string | null,
+  ) => {
+    Alert.alert('Godt gået!', summary, [
       {
         text: 'Tak!',
         onPress: () => {
           addCompletedWorkout({
             id: `history_${Date.now()}`,
-            gym: activeSession.gym,
-            muscles: activeSession.muscles,
-            durationMs: elapsedTime,
+            gym: session.gym,
+            muscles: session.muscles,
+            durationMs,
             completedAt: new Date(),
-            invitedFriends: activeSession.invitedFriendIds,
-            acceptedFriends: [], // Will be populated when friends accept invitations
+            invitedFriends: session.invitedFriendIds,
+            acceptedFriends: [],
+            photoUri: photoUri ?? undefined,
           });
-          setActiveSession(null);
-          setInviteModalVisible(false);
-          setInviteContext(null);
-          setPendingInviteIds([]);
-          setPendingSession(null);
-          setShowConfirmation(false);
+          resetAfterCompletion();
         },
+      },
+    ]);
+  };
+
+  const publishWorkoutToFeed = (summary: string, photoUri?: string | null) => {
+    const feedUserName = user?.displayName || user?.username || 'Du';
+    addFeedItem({
+      id: `feed_${Date.now()}`,
+      type: photoUri ? 'photo' : 'summary',
+      user: feedUserName,
+      description: summary,
+      timestamp: 'Lige nu',
+      photoUri: photoUri ?? undefined,
+    });
+  };
+
+  const openShareComposer = (
+    session: ActiveSession,
+    summary: string,
+    durationMs: number,
+    photoUri?: string | null,
+  ) => {
+    const defaultMessage = `Trænede ${formatMuscleSelection(session.muscles)} i ${formatGymDisplayName(
+      session.gym,
+    )} i ${formatDuration(durationMs)} 💪`;
+    setShareMessage(defaultMessage);
+    setShareContext({session, summary, durationMs, photoUri});
+    setShareComposerVisible(true);
+  };
+
+  const submitShareComposer = () => {
+    if (!shareContext) {
+      return;
+    }
+    const message = shareMessage.trim().length > 0 ? shareMessage.trim() : shareContext.summary;
+    publishWorkoutToFeed(message, shareContext.photoUri);
+    finalizeWorkout(shareContext.session, shareContext.summary, shareContext.durationMs, shareContext.photoUri);
+    setShareComposerVisible(false);
+    setShareContext(null);
+    setShareMessage('');
+  };
+
+  const cancelShareComposer = () => {
+    setShareComposerVisible(false);
+    setShareContext(null);
+    setShareMessage('');
+  };
+
+  const promptShareOptions = (session: ActiveSession, summary: string, durationMs: number) => {
+    const options: {text: string; onPress?: () => void; style?: 'default' | 'cancel' | 'destructive'}[] =
+      [];
+
+    if (sessionPhotoUri) {
+      options.push({
+        text: 'Brug billede fra træning',
+        onPress: () => openShareComposer(session, summary, durationMs, sessionPhotoUri),
+      });
+    }
+
+    options.push({
+      text: 'Tag nyt billede',
+      onPress: () =>
+        captureWorkoutPhoto({
+          silent: true,
+          onSuccess: uri => openShareComposer(session, summary, durationMs, uri),
+        }),
+    });
+
+    options.push({
+      text: 'Del uden billede',
+      onPress: () => openShareComposer(session, summary, durationMs),
+    });
+
+    options.push({
+      text: 'Annuller',
+      style: 'cancel',
+    });
+
+    Alert.alert('Del træning', 'Hvordan vil du dele din træning?', options, {cancelable: true});
+  };
+
+  const handleFinishWorkout = () => {
+    if (!activeSession) {
+      return;
+    }
+    const session = activeSession;
+    const durationMs = elapsedTime;
+    const summary = buildWorkoutSummary(session, durationMs);
+    Alert.alert('Afslut træning', summary, [
+      {
+        text: 'Del træning',
+        onPress: () => promptShareOptions(session, summary, durationMs),
+      },
+      {
+        text: 'Afslut uden deling',
+        onPress: () => finalizeWorkout(session, summary, durationMs, sessionPhotoUri),
+      },
+      {
+        text: 'Annuller',
+        style: 'cancel',
       },
     ]);
   };
@@ -866,6 +1028,18 @@ const CheckInScreen = () => {
               <Text style={styles.prButtonText}>Sæt PR</Text>
             </TouchableOpacity>
             <TouchableOpacity
+              style={styles.photoButton}
+              onPress={handleCaptureWorkoutPhoto}
+              activeOpacity={0.9}>
+              <Ionicons name="camera-outline" size={20} color="#0F172A" style={{marginRight: 8}} />
+              <Text style={styles.photoButtonText}>
+                {sessionPhotoUri ? 'Tag nyt billede fra træning' : 'Tag billede fra træning'}
+              </Text>
+            </TouchableOpacity>
+            {sessionPhotoUri && (
+              <Text style={styles.photoSavedHint}>Foto gemt – bliver foreslået når du deler.</Text>
+            )}
+            <TouchableOpacity
               style={styles.finishButton}
               onPress={handleFinishWorkout}
               activeOpacity={0.9}>
@@ -875,7 +1049,7 @@ const CheckInScreen = () => {
         ) : (
           <>
             <TouchableOpacity
-              style={styles.card}
+              style={[styles.card, styles.smallerCard]}
               activeOpacity={0.9}
               onPress={() => setGymPickerVisible(true)}>
               <View style={styles.cardHeaderRow}>
@@ -909,7 +1083,7 @@ const CheckInScreen = () => {
               </View>
             </TouchableOpacity>
 
-            <View style={[styles.card, styles.flexCard]}>
+            <View style={[styles.card, styles.flexCard, styles.muscleCardSection]}>
               <View style={styles.muscleGrid}>
                 {MUSCLE_GROUPS.map(item => {
                   const isActive = selectedMuscles.includes(item.key);
@@ -921,7 +1095,7 @@ const CheckInScreen = () => {
                       activeOpacity={0.85}>
                       <Ionicons
                         name={item.icon as any}
-                        size={24}
+                        size={20}
                         color={isActive ? '#fff' : '#007AFF'}
                       />
                       <Text style={[styles.muscleLabel, isActive && styles.muscleLabelActive]}>
@@ -931,10 +1105,27 @@ const CheckInScreen = () => {
                   );
                 })}
               </View>
+              <View style={styles.soloSection}>
+                <View style={styles.soloToggleRow}>
+                  <Text style={styles.soloToggleLabel}>Solo træning</Text>
+                  <TouchableOpacity
+                    style={[styles.soloToggle, soloTraining && styles.soloToggleActive]}
+                    onPress={() => setSoloTraining(prev => !prev)}
+                    activeOpacity={0.8}>
+                    <Animated.View
+                      style={[
+                        styles.soloToggleThumb,
+                        soloTraining && styles.soloToggleThumbActive,
+                      ]}
+                    />
+                  </TouchableOpacity>
+                </View>
+                <Text style={styles.soloToggleHint}>Skjul venneforslag for denne session.</Text>
+              </View>
             </View>
 
-            <View style={styles.card}>
-              <View style={styles.sliderTrack} onLayout={handleLayout}>
+            <View style={[styles.card, styles.smallerCard, styles.sliderCardSpacing]}>
+              <View style={[styles.sliderTrack, styles.sliderTrackCompact]} onLayout={handleLayout}>
                 <Animated.Text style={[styles.sliderText, {opacity: sliderTextOpacity}]}>
                   Tjek ind
                 </Animated.Text>
@@ -1013,6 +1204,10 @@ const CheckInScreen = () => {
 
       <Modal visible={planModalVisible} transparent animationType="slide">
         <View style={styles.modalOverlay}>
+          <TouchableWithoutFeedback onPress={() => setPlanModalVisible(false)}>
+            <View style={styles.modalBackdrop} />
+          </TouchableWithoutFeedback>
+
           <View style={[styles.modalCard, styles.planModal]}>
             <ScrollView
               style={{width: '100%'}}
@@ -1032,7 +1227,9 @@ const CheckInScreen = () => {
                 autoCapitalize="words"
                 autoCorrect={false}
               />
-              {planCenterQuery.trim().length > 0 && planSuggestions.length > 0 && !planSelectedGym && (
+                  {planCenterQuery.trim().length > 0 &&
+                    planSuggestions.length > 0 &&
+                    !planSelectedGym && (
                 <View style={styles.planSuggestionList}>
                   {planSuggestions.map(option => (
                     <TouchableOpacity
@@ -1065,7 +1262,7 @@ const CheckInScreen = () => {
                       activeOpacity={0.85}>
                       <Ionicons
                         name={item.icon as any}
-                        size={24}
+                            size={20}
                         color={isActive ? '#fff' : '#007AFF'}
                       />
                       <Text style={[styles.muscleLabel, isActive && styles.muscleLabelActive]}>
@@ -1075,6 +1272,23 @@ const CheckInScreen = () => {
                   );
                 })}
               </View>
+                  <View style={styles.soloToggleRow}>
+                    <Text style={styles.soloToggleLabel}>Solo træning</Text>
+                    <TouchableOpacity
+                      style={[styles.soloToggle, planSoloTraining && styles.soloToggleActive]}
+                      onPress={() => setPlanSoloTraining(prev => !prev)}
+                      activeOpacity={0.8}>
+                      <Animated.View
+                        style={[
+                          styles.soloToggleThumb,
+                          planSoloTraining && styles.soloToggleThumbActive,
+                        ]}
+                      />
+                    </TouchableOpacity>
+                  </View>
+                  <Text style={[styles.soloToggleHint, {marginBottom: 24}]}>
+                    Planlæg som privat session.
+                  </Text>
 
               <Text style={[styles.sectionLabel, {marginTop: 8}]}>Dato</Text>
               <View style={styles.calendarContainer}>
@@ -1185,6 +1399,36 @@ const CheckInScreen = () => {
           onChange={handlePlanTimeChange}
         />
       )}
+
+      <Modal visible={shareComposerVisible} transparent animationType="fade">
+        <TouchableWithoutFeedback onPress={cancelShareComposer}>
+          <View style={styles.modalOverlay}>
+            <TouchableWithoutFeedback>
+              <View style={[styles.modalCard, styles.shareModalCard]}>
+                <Text style={styles.modalTitle}>Del træning</Text>
+                <Text style={styles.modalText}>Skriv en tekst til dit opslag</Text>
+                <TextInput
+                  style={styles.shareInput}
+                  multiline
+                  numberOfLines={4}
+                  value={shareMessage}
+                  onChangeText={setShareMessage}
+                  placeholder="Hvordan gik træningen?"
+                  textAlignVertical="top"
+                />
+                <View style={styles.shareButtonRow}>
+                  <TouchableOpacity style={styles.secondaryButton} onPress={cancelShareComposer}>
+                    <Text style={styles.secondaryButtonText}>Annuller</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.primaryButton} onPress={submitShareComposer}>
+                    <Text style={styles.primaryButtonText}>Del</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </TouchableWithoutFeedback>
+          </View>
+        </TouchableWithoutFeedback>
+      </Modal>
 
       <Modal visible={showConfirmation} transparent animationType="fade">
         <View style={styles.modalOverlay}>
@@ -1397,8 +1641,16 @@ const styles = StyleSheet.create({
     shadowRadius: 12,
     elevation: 3,
   },
+  smallerCard: {
+    paddingVertical: 14,
+    paddingHorizontal: 16,
+  },
   flexCard: {
     flex: 1,
+    paddingBottom: 48,
+  },
+  muscleCardSection: {
+    marginBottom: 16,
   },
   sectionTitle: {
     fontSize: 20,
@@ -1447,15 +1699,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
+    gap: 8,
   },
   muscleCard: {
-    width: '47%',
-    borderRadius: 16,
+    width: '46%',
+    borderRadius: 14,
     borderWidth: 1,
     borderColor: '#E5E7EB',
-    paddingVertical: 12,
-    paddingHorizontal: 10,
-    marginBottom: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 8,
+    marginBottom: 8,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#fff',
@@ -1469,10 +1722,57 @@ const styles = StyleSheet.create({
     shadowOffset: {width: 0, height: 6},
   },
   muscleLabel: {
-    marginTop: 8,
-    fontSize: 15,
+    marginTop: 6,
+    fontSize: 14,
     fontWeight: '600',
     color: '#0F172A',
+  },
+  soloToggleRow: {
+    marginTop: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  soloToggleLabel: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#0F172A',
+  },
+  soloToggle: {
+    width: 56,
+    height: 30,
+    borderRadius: 15,
+    backgroundColor: '#E2E8F0',
+    padding: 4,
+    justifyContent: 'center',
+  },
+  soloToggleActive: {
+    backgroundColor: '#007AFF33',
+  },
+  soloToggleThumb: {
+    width: 22,
+    height: 22,
+    borderRadius: 11,
+    backgroundColor: '#fff',
+    alignSelf: 'flex-start',
+  },
+  soloToggleThumbActive: {
+    backgroundColor: '#007AFF',
+    alignSelf: 'flex-end',
+  },
+  soloToggleHint: {
+    fontSize: 12,
+    color: '#94A3B8',
+    marginTop: 4,
+  },
+  soloSection: {
+    marginTop: -4,
+    paddingTop: 8,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: '#E5E7EB',
+  },
+  sliderCardSpacing: {
+    marginTop: 64,
   },
   muscleLabelActive: {
     color: '#fff',
@@ -1507,6 +1807,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     overflow: 'hidden',
   },
+  sliderTrackCompact: {
+    paddingVertical: 8,
+  },
   sliderText: {
     position: 'absolute',
     alignSelf: 'center',
@@ -1528,10 +1831,13 @@ const styles = StyleSheet.create({
   },
   modalOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.35)',
     justifyContent: 'center',
     alignItems: 'center',
     padding: 24,
+  },
+  modalBackdrop: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0,0,0,0.35)',
   },
   modalCard: {
     backgroundColor: '#fff',
@@ -1780,6 +2086,28 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     marginLeft: 8,
   },
+  photoButton: {
+    marginTop: 12,
+    backgroundColor: '#DBEAFE',
+    borderRadius: 18,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 16,
+    paddingHorizontal: 20,
+  },
+  photoButtonText: {
+    fontSize: 16,
+    color: '#0F172A',
+    fontWeight: '600',
+    marginLeft: 8,
+  },
+  photoSavedHint: {
+    marginTop: 6,
+    fontSize: 13,
+    color: '#64748B',
+    textAlign: 'center',
+  },
   finishButton: {
     marginTop: 12,
     backgroundColor: '#0F172A',
@@ -1820,6 +2148,26 @@ const styles = StyleSheet.create({
   friendList: {
     flexGrow: 0,
     marginBottom: 12,
+  },
+  shareModalCard: {
+    alignItems: 'stretch',
+  },
+  shareInput: {
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
+    borderRadius: 16,
+    padding: 16,
+    marginTop: 12,
+    minHeight: 120,
+    fontSize: 15,
+    color: '#0F172A',
+    backgroundColor: '#F8FAFC',
+  },
+  shareButtonRow: {
+    marginTop: 16,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: 12,
   },
   friendRow: {
     flexDirection: 'row',

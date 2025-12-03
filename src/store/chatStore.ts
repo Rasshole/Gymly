@@ -8,6 +8,7 @@ export interface ChatMessage {
   senderId: string;
   timestamp: Date;
   isRead: boolean;
+  imageUri?: string;
 }
 
 export interface Chat {
@@ -17,6 +18,7 @@ export interface Chat {
   lastMessage?: ChatMessage;
   lastActivity: Date;
   unreadCount: number;
+  avatar?: string;
 }
 
 export interface ChatPlan {

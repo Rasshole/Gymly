@@ -16,8 +16,11 @@ import {
   Modal,
   Alert,
   ScrollView,
+  Image,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {launchCamera, launchImageLibrary, CameraOptions, ImagePickerResponse} from 'react-native-image-picker';
 import {format} from 'date-fns';
 import {da} from 'date-fns/locale';
 import DateTimePicker, {DateTimePickerEvent} from '@react-native-community/datetimepicker';
@@ -90,6 +93,8 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
   const [planMuscles, setPlanMuscles] = useState<MuscleGroup[]>([]);
   const [planDateTime, setPlanDateTime] = useState(new Date());
   const [planTimePickerVisible, setPlanTimePickerVisible] = useState(false);
+  const [selectedImageUri, setSelectedImageUri] = useState<string | null>(null);
+  const [showImagePickerOptions, setShowImagePickerOptions] = useState(false);
   const flatListRef = useRef<FlatList>(null);
   const initialMessageHandledRef = useRef(false);
 
@@ -118,7 +123,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
     if (!chatId) {
       return;
     }
-    const baseMessages: Message[] = [
+    const baseMessages: ChatMessage[] = [
       {
         id: `${chatId}_welcome`,
         text: 'Hej! Hvordan går det?',
@@ -134,13 +139,13 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
     if (!chatId || !initialMessage || initialMessageHandledRef.current) {
       return;
     }
-    const newMessage: Message = {
-      id: Date.now().toString(),
-      text: initialMessage,
-      senderId: currentUserId,
-      timestamp: new Date(),
-      isRead: false,
-    };
+      const newMessage: ChatMessage = {
+        id: Date.now().toString(),
+        text: initialMessage,
+        senderId: currentUserId,
+        timestamp: new Date(),
+        isRead: false,
+      };
     addMessageToChat(chatId, newMessage);
     initialMessageHandledRef.current = true;
   }, [addMessageToChat, chatId, currentUserId, initialMessage]);
@@ -153,14 +158,15 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
   }, [messages]);
 
   const handleSend = () => {
-    if (!message.trim()) return;
+    if (!message.trim() && !selectedImageUri) return;
 
-    const newMessage: Message = {
+    const newMessage: ChatMessage = {
       id: Date.now().toString(),
       text: message.trim(),
       senderId: currentUserId,
       timestamp: new Date(),
       isRead: false,
+      imageUri: selectedImageUri || undefined,
     };
 
     if (chatId) {
@@ -168,6 +174,65 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
       updateChatLastMessage(chatId, newMessage);
     }
     setMessage('');
+    setSelectedImageUri(null);
+  };
+
+  const handleImagePickerToggle = () => {
+    setShowImagePickerOptions(prev => !prev);
+  };
+
+  const handleCameraPress = () => {
+    setShowImagePickerOptions(false);
+    openCamera();
+  };
+
+  const handleGalleryPress = () => {
+    setShowImagePickerOptions(false);
+    openImageLibrary();
+  };
+
+  const openCamera = () => {
+    const cameraOptions: CameraOptions = {
+      mediaType: 'photo',
+      cameraType: 'back',
+      saveToPhotos: true,
+      quality: 0.8,
+    };
+
+    launchCamera(cameraOptions, (response: ImagePickerResponse) => {
+      if (response.didCancel) {
+        return;
+      }
+      if (response.errorCode) {
+        Alert.alert('Kamera fejl', response.errorMessage || 'Kunne ikke åbne kameraet.');
+        return;
+      }
+      const asset = response.assets && response.assets[0];
+      if (asset?.uri) {
+        setSelectedImageUri(asset.uri);
+      }
+    });
+  };
+
+  const openImageLibrary = () => {
+    const libraryOptions: CameraOptions = {
+      mediaType: 'photo',
+      quality: 0.8,
+    };
+
+    launchImageLibrary(libraryOptions, (response: ImagePickerResponse) => {
+      if (response.didCancel) {
+        return;
+      }
+      if (response.errorCode) {
+        Alert.alert('Galleri fejl', response.errorMessage || 'Kunne ikke åbne galleriet.');
+        return;
+      }
+      const asset = response.assets && response.assets[0];
+      if (asset?.uri) {
+        setSelectedImageUri(asset.uri);
+      }
+    });
   };
 
   const formatTime = (date: Date) => {
@@ -273,13 +338,23 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
       return;
     }
     updateActivePlanForChat(chatId, prev => {
-      if (!prev || prev.joinedIds.includes(currentUserId)) {
+      if (!prev) {
         return prev;
       }
+      const hasJoined = prev.joinedIds.includes(currentUserId);
+      if (hasJoined) {
+        // Remove join request
+        return {
+          ...prev,
+          joinedIds: prev.joinedIds.filter(id => id !== currentUserId),
+        };
+      } else {
+        // Add join request
       return {
         ...prev,
         joinedIds: [...prev.joinedIds, currentUserId],
       };
+      }
     });
   };
 
@@ -311,13 +386,19 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
               styles.messageBubble,
               isMe ? styles.messageBubbleMe : styles.messageBubbleOther,
             ]}>
+            {item.imageUri && (
+              <Image source={{uri: item.imageUri}} style={styles.messageImage} />
+            )}
+            {item.text && (
             <Text
               style={[
                 styles.messageText,
                 isMe ? styles.messageTextMe : styles.messageTextOther,
+                  item.imageUri && styles.messageTextWithImage,
               ]}>
               {item.text}
             </Text>
+            )}
             <Text
               style={[
                 styles.messageTime,
@@ -393,17 +474,24 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                       <Text style={styles.planBannerPending}>{pendingText}</Text>
                     ) : null}
                   </View>
-                  {!activePlan.joinedIds.includes(currentUserId) && (
                     <TouchableOpacity
-                      style={styles.planBannerJoin}
+                  style={[
+                    styles.planBannerJoin,
+                    activePlan.joinedIds.includes(currentUserId) && styles.planBannerJoinAnmodet,
+                  ]}
                       onPress={event => {
                         event.stopPropagation();
                         handleJoinPlan();
                       }}
                       activeOpacity={0.9}>
-                      <Text style={styles.planBannerJoinText}>Join</Text>
+                  <Text
+                    style={[
+                      styles.planBannerJoinText,
+                      activePlan.joinedIds.includes(currentUserId) && styles.planBannerJoinTextAnmodet,
+                    ]}>
+                    {activePlan.joinedIds.includes(currentUserId) ? 'Anmodet' : 'Deltag'}
+                  </Text>
                     </TouchableOpacity>
-                  )}
                 </>
               );
             })()}
@@ -511,32 +599,32 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
               </TouchableOpacity>
             </ScrollView>
             {Platform.OS === 'ios' && planTimePickerVisible && (
-              <View style={styles.iosTimePickerOverlay} pointerEvents="box-none">
-                <TouchableOpacity
-                  style={styles.iosTimePickerBackdrop}
-                  activeOpacity={1}
-                  onPress={handlePlanTimePickerClose}
-                />
-                <View style={styles.iosTimePickerCard}>
-                  <DateTimePicker
-                    value={planDateTime}
-                    mode="datetime"
-                    display="spinner"
-                    minuteInterval={15}
-                    preferredDatePickerStyle="wheels"
-                    locale="da-DK"
-                    onChange={handlePlanTimeChange}
-                    style={styles.iosTimePickerControl}
-                  />
-                  <TouchableOpacity style={styles.modalClose} onPress={handlePlanTimePickerClose}>
-                    <Text style={styles.modalCloseText}>Færdig</Text>
-                  </TouchableOpacity>
+          <View style={styles.iosTimePickerOverlay} pointerEvents="box-none">
+            <TouchableOpacity
+              style={styles.iosTimePickerBackdrop}
+              activeOpacity={1}
+              onPress={handlePlanTimePickerClose}
+            />
+            <View style={styles.iosTimePickerCard}>
+              <DateTimePicker
+                value={planDateTime}
+                mode="datetime"
+                display="spinner"
+                minuteInterval={15}
+                preferredDatePickerStyle="wheels"
+                locale="da-DK"
+                onChange={handlePlanTimeChange}
+                style={styles.iosTimePickerControl}
+              />
+              <TouchableOpacity style={styles.modalClose} onPress={handlePlanTimePickerClose}>
+                <Text style={styles.modalCloseText}>Færdig</Text>
+              </TouchableOpacity>
                 </View>
               </View>
             )}
+            </View>
           </View>
-        </View>
-      </Modal>
+        </Modal>
 
       {planTimePickerVisible && Platform.OS === 'android' && (
         <DateTimePicker
@@ -577,16 +665,23 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                     </View>
                   ))}
                 </View>
-                {!activePlan.joinedIds.includes(currentUserId) && (
                   <TouchableOpacity
-                    style={styles.detailJoinButton}
+                  style={[
+                    styles.detailJoinButton,
+                    activePlan.joinedIds.includes(currentUserId) && styles.detailJoinButtonAnmodet,
+                  ]}
                     onPress={() => {
                       handleJoinPlan();
                       setPlanDetailVisible(false);
                     }}>
-                    <Text style={styles.detailJoinButtonText}>Join</Text>
+                  <Text
+                    style={[
+                      styles.detailJoinButtonText,
+                      activePlan.joinedIds.includes(currentUserId) && styles.detailJoinButtonTextAnmodet,
+                    ]}>
+                    {activePlan.joinedIds.includes(currentUserId) ? 'Anmodet' : 'Deltag'}
+                  </Text>
                   </TouchableOpacity>
-                )}
               </>
             )}
             <TouchableOpacity
@@ -600,13 +695,42 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
 
       {/* Input Bar */}
       <View style={styles.inputContainer}>
+        {showImagePickerOptions && (
+          <TouchableWithoutFeedback onPress={() => setShowImagePickerOptions(false)}>
+            <View style={styles.imagePickerBackdrop} />
+          </TouchableWithoutFeedback>
+        )}
         <View style={styles.inputWrapper}>
+          <View style={styles.imagePickerContainer}>
+            {showImagePickerOptions && (
+              <View style={styles.imagePickerOptions}>
+                <TouchableOpacity
+                  style={styles.imagePickerOption}
+                  onPress={handleCameraPress}
+                  activeOpacity={0.7}>
+                  <View style={styles.imagePickerIconContainer}>
+                    <Icon name="camera" size={24} color="#007AFF" />
+                  </View>
+                  <Text style={styles.imagePickerLabel}>Kamera</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.imagePickerOption}
+                  onPress={handleGalleryPress}
+                  activeOpacity={0.7}>
+                  <View style={styles.imagePickerIconContainer}>
+                    <Icon name="images" size={24} color="#007AFF" />
+                  </View>
+                  <Text style={styles.imagePickerLabel}>Galleri</Text>
+                </TouchableOpacity>
+              </View>
+            )}
           <TouchableOpacity
             style={styles.inputIconButton}
-            onPress={() => Alert.alert('Snart klar', 'Flere funktioner tilføjes her.')}
+              onPress={handleImagePickerToggle}
             activeOpacity={0.7}>
             <Icon name="add-circle-outline" size={28} color="#007AFF" />
           </TouchableOpacity>
+          </View>
           <TouchableOpacity
             style={styles.inputIconButton}
             onPress={handleOpenPlanModal}
@@ -622,7 +746,17 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
             multiline
             maxLength={1000}
           />
-          {message.trim().length > 0 && (
+          {selectedImageUri && (
+            <View style={styles.selectedImageContainer}>
+              <Image source={{uri: selectedImageUri}} style={styles.selectedImage} />
+              <TouchableOpacity
+                onPress={() => setSelectedImageUri(null)}
+                style={styles.removeImageButton}>
+                <Icon name="close-circle" size={20} color="#fff" />
+              </TouchableOpacity>
+            </View>
+          )}
+          {(message.trim().length > 0 || selectedImageUri) && (
             <TouchableOpacity
               onPress={handleSend}
               style={styles.sendButton}
@@ -733,9 +867,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 8,
   },
+  planBannerJoinAnmodet: {
+    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+  },
   planBannerJoinText: {
     color: '#16A34A',
     fontWeight: '700',
+  },
+  planBannerJoinTextAnmodet: {
+    color: '#94A3B8',
+    fontWeight: '600',
   },
   dateContainer: {
     alignItems: 'center',
@@ -782,6 +923,16 @@ const styles = StyleSheet.create({
   messageTextOther: {
     color: '#000',
   },
+  messageTextWithImage: {
+    marginTop: 8,
+  },
+  messageImage: {
+    width: 200,
+    height: 200,
+    borderRadius: 12,
+    marginBottom: 8,
+    resizeMode: 'cover',
+  },
   messageTime: {
     fontSize: 11,
     marginTop: 4,
@@ -823,6 +974,71 @@ const styles = StyleSheet.create({
   sendButton: {
     marginLeft: 8,
     padding: 4,
+  },
+  selectedImageContainer: {
+    position: 'relative',
+    marginRight: 8,
+  },
+  selectedImage: {
+    width: 60,
+    height: 60,
+    borderRadius: 8,
+    resizeMode: 'cover',
+  },
+  removeImageButton: {
+    position: 'absolute',
+    top: -8,
+    right: -8,
+    backgroundColor: '#FF3B30',
+    borderRadius: 10,
+  },
+  imagePickerBackdrop: {
+    position: 'absolute',
+    top: -1000,
+    left: -1000,
+    right: -1000,
+    bottom: -1000,
+    zIndex: 999,
+  },
+  imagePickerContainer: {
+    position: 'relative',
+    marginRight: 8,
+    zIndex: 1001,
+  },
+  imagePickerOptions: {
+    position: 'absolute',
+    bottom: 50,
+    left: 0,
+    flexDirection: 'row',
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    padding: 8,
+    shadowColor: '#000',
+    shadowOpacity: 0.15,
+    shadowRadius: 10,
+    shadowOffset: {width: 0, height: 4},
+    elevation: 5,
+    gap: 12,
+    zIndex: 1000,
+  },
+  imagePickerOption: {
+    alignItems: 'center',
+    padding: 8,
+    minWidth: 70,
+  },
+  imagePickerIconContainer: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: '#E3F2FD',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 6,
+  },
+  imagePickerLabel: {
+    fontSize: 12,
+    color: '#0F172A',
+    fontWeight: '600',
   },
   planModalOverlay: {
     flex: 1,
@@ -1090,10 +1306,17 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     alignItems: 'center',
   },
+  detailJoinButtonAnmodet: {
+    backgroundColor: '#E2E8F0',
+  },
   detailJoinButtonText: {
     color: '#fff',
     fontWeight: '700',
     fontSize: 16,
+  },
+  detailJoinButtonTextAnmodet: {
+    color: '#94A3B8',
+    fontWeight: '600',
   },
 });
 

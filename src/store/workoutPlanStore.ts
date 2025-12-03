@@ -19,6 +19,7 @@ export interface WorkoutHistoryEntry {
   completedAt: Date;
   invitedFriends: string[]; // Friends who were invited
   acceptedFriends: string[]; // Friends who actually joined/accepted
+  photoUri?: string;
 }
 
 interface WorkoutPlanState {

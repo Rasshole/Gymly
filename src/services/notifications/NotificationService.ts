@@ -84,7 +84,7 @@ class NotificationService {
     addNotification({
       type: 'friend_checkin',
       title: `${friendName} har tjekket ind`,
-      message: `${friendName} er nu på ${gym.name}`,
+      message: `${friendName} er nu i`,
       friendName,
       gymName: gym.name,
       checkInTime,
@@ -139,6 +139,20 @@ class NotificationService {
       clearInterval(this.simulationInterval);
       this.simulationInterval = null;
     }
+  }
+
+  /**
+   * Send a friend request notification
+   */
+  static sendFriendRequestNotification(friendId: string, requesterName: string) {
+    const {addNotification} = useNotificationStore.getState();
+    addNotification({
+      type: 'friend_request',
+      title: 'Ny venneanmodning',
+      message: `${requesterName} vil gerne være venner med dig`,
+      friendName: requesterName,
+      isActive: false,
+    });
   }
 }
 

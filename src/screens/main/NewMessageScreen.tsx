@@ -3,7 +3,7 @@
  * Screen to compose and send a new message to a friend
  */
 
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useMemo, useCallback} from 'react';
 import {
   View,
   Text,
@@ -15,9 +15,12 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   Platform,
+  Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useChatStore} from '@/store/chatStore';
+import {useGroupStore, CURRENT_USER_PLACEHOLDER_ID, GymlyGroup} from '@/store/groupStore';
+import {useAppStore} from '@/store/appStore';
 
 // Mock friends list - in a real app, this would come from the backend
 const mockFriends = [
@@ -28,8 +31,11 @@ const mockFriends = [
 ];
 
 const NewMessageScreen = ({navigation}: any) => {
-  const {getChatByParticipants, addChat} = useChatStore();
+  const {getChatByParticipants, addChat, initializeChatMessages} = useChatStore();
+  const {groups} = useGroupStore();
+  const {user} = useAppStore();
   const [selectedFriends, setSelectedFriends] = useState<string[]>([]);
+  const [selectedGroup, setSelectedGroup] = useState<GymlyGroup | null>(null);
   const [message, setMessage] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const [searchActive, setSearchActive] = useState(true);
@@ -37,15 +43,49 @@ const NewMessageScreen = ({navigation}: any) => {
   const searchInputRef = useRef<TextInput>(null);
   const messageInputRef = useRef<TextInput>(null);
 
+  const currentUserId = user?.id || CURRENT_USER_PLACEHOLDER_ID;
+  const currentUserName = user?.displayName || 'Dig';
+
+  const myGroups = useMemo(() => {
+    return groups.filter(group =>
+      group.members.some(
+        member =>
+          member.id === currentUserId || member.id === CURRENT_USER_PLACEHOLDER_ID,
+      ),
+    );
+  }, [groups, currentUserId]);
+
+  const normalizedGroupMembers = useCallback(
+    (group: GymlyGroup) =>
+      group.members.map(member =>
+        member.id === CURRENT_USER_PLACEHOLDER_ID
+          ? {id: currentUserId, name: currentUserName}
+          : member,
+      ),
+    [currentUserId, currentUserName],
+  );
+
   const filteredFriends = mockFriends.filter(
     friend =>
       friend.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
       !selectedFriends.includes(friend.id),
   );
 
+  const filteredGroups = useMemo(() => {
+    if (!searchQuery.trim()) {
+      return [];
+    }
+    const query = searchQuery.trim().toLowerCase();
+    return myGroups.filter(
+      group =>
+        group.name.toLowerCase().includes(query) ||
+        group.members.some(member => member.name.toLowerCase().includes(query)),
+    );
+  }, [searchQuery, myGroups]);
+
   const handleSend = () => {
-    if (selectedFriends.length === 0) {
-      Alert.alert('Vælg ven', 'Vælg venligst en ven at sende beskeden til');
+    if (selectedFriends.length === 0 && !selectedGroup) {
+      Alert.alert('Vælg modtager', 'Vælg venligst en ven eller gruppe at sende beskeden til');
       return;
     }
     if (!message.trim()) {
@@ -54,6 +94,58 @@ const NewMessageScreen = ({navigation}: any) => {
     }
 
     const trimmedMessage = message.trim();
+
+    // Handle group chat
+    if (selectedGroup) {
+      const members = normalizedGroupMembers(selectedGroup);
+      const participantIds = Array.from(
+        new Set([...members.map(member => member.id), currentUserId]),
+      );
+      const participantNames = participantIds.map(id => {
+        if (id === currentUserId) {
+          return currentUserName;
+        }
+        return (
+          members.find(member => member.id === id)?.name ||
+          'Ven'
+        );
+      });
+      const existingChat = getChatByParticipants(participantIds);
+      const chatId = existingChat?.id ?? `group_chat_${selectedGroup.id}`;
+
+      if (!existingChat) {
+        addChat({
+          id: chatId,
+          participantIds,
+          participantNames,
+          lastActivity: new Date(),
+          unreadCount: 0,
+          avatar: selectedGroup.image,
+        });
+        initializeChatMessages(chatId, []);
+      }
+
+      navigation.navigate('Chat', {
+        chatId,
+        friendId: selectedGroup.id,
+        friendName: selectedGroup.name,
+        participants: members.map(member => ({
+          id: member.id,
+          name: member.name,
+        })),
+        initialMessage: trimmedMessage,
+      });
+
+      setMessage('');
+      setSelectedGroup(null);
+      setSearchQuery('');
+      setSearchActive(true);
+      setMessageInputFocused(false);
+      Keyboard.dismiss();
+      return;
+    }
+
+    // Handle friend chat
     const friendObjects = mockFriends.filter(friend =>
       selectedFriends.includes(friend.id),
     );
@@ -63,7 +155,6 @@ const NewMessageScreen = ({navigation}: any) => {
       return;
     }
 
-    const currentUserId = 'current_user';
     const allParticipantIds = [currentUserId, ...selectedFriends].sort();
     
     // Check if chat already exists
@@ -122,6 +213,15 @@ const NewMessageScreen = ({navigation}: any) => {
       return;
     }
     setSelectedFriends(prev => [...prev, friendId]);
+    setSelectedGroup(null); // Clear group selection when selecting friend
+    setSearchQuery('');
+    setSearchActive(false);
+    Keyboard.dismiss();
+  };
+
+  const handleSelectGroup = (group: GymlyGroup) => {
+    setSelectedGroup(group);
+    setSelectedFriends([]); // Clear friend selection when selecting group
     setSearchQuery('');
     setSearchActive(false);
     Keyboard.dismiss();
@@ -136,6 +236,12 @@ const NewMessageScreen = ({navigation}: any) => {
       }
       return updated;
     });
+  };
+
+  const handleRemoveGroup = () => {
+    setSelectedGroup(null);
+    setSearchActive(true);
+    setTimeout(() => searchInputRef.current?.focus(), 50);
   };
 
 const handleSearchFocus = () => {
@@ -188,10 +294,29 @@ const handleSearchFocus = () => {
             )}
           </View>
 
-          {/* Selected Friend */}
-          {selectedFriends.length > 0 && (
+          {/* Selected Friend or Group */}
+          {(selectedFriends.length > 0 || selectedGroup) && (
             <View style={styles.selectedFriendContainer}>
               <View style={styles.chipList}>
+                {selectedGroup && (
+                  <View style={styles.selectedGroup}>
+                    {selectedGroup.image ? (
+                      <Image source={{uri: selectedGroup.image}} style={styles.selectedGroupImage} />
+                    ) : (
+                      <View style={styles.selectedGroupPlaceholder}>
+                        <Text style={styles.selectedGroupPlaceholderText}>
+                          {selectedGroup.name.charAt(0).toUpperCase()}
+                        </Text>
+                      </View>
+                    )}
+                    <Text style={styles.selectedGroupName}>{selectedGroup.name}</Text>
+                    <TouchableOpacity
+                      onPress={handleRemoveGroup}
+                      style={styles.removeButton}>
+                      <Icon name="close-circle" size={18} color="#FF3B30" />
+                    </TouchableOpacity>
+                  </View>
+                )}
                 {selectedFriends.map(friendId => {
                   const friend = mockFriends.find(f => f.id === friendId);
                   if (!friend) {
@@ -212,9 +337,53 @@ const handleSearchFocus = () => {
             </View>
           )}
 
-          {/* Friends List */}
+          {/* Friends and Groups List */}
           {searchActive && (
             <View style={styles.friendsList}>
+              {/* Groups Section */}
+              {filteredGroups.length > 0 && (
+                <View style={styles.groupsSection}>
+                  <Text style={styles.sectionSubtitle}>Grupper</Text>
+                  {filteredGroups.map(group => {
+                    const members = normalizedGroupMembers(group).filter(
+                      member => member.id !== currentUserId,
+                    );
+                    return (
+                      <TouchableOpacity
+                        key={group.id}
+                        style={styles.groupItem}
+                        onPress={() => handleSelectGroup(group)}
+                        activeOpacity={0.7}>
+                        {group.image ? (
+                          <Image source={{uri: group.image}} style={styles.groupItemImage} />
+                        ) : (
+                          <View style={styles.groupItemPlaceholder}>
+                            <Text style={styles.groupItemPlaceholderText}>
+                              {group.name.charAt(0).toUpperCase()}
+                            </Text>
+                          </View>
+                        )}
+                        <View style={styles.groupItemInfo}>
+                          <Text style={styles.groupItemName}>{group.name}</Text>
+                          <Text style={styles.groupItemMembers}>
+                            {members.length > 0
+                              ? members.map(member => member.name).join(', ')
+                              : 'Kun dig i gruppen endnu'}
+                          </Text>
+                        </View>
+                        <Icon name="chevron-forward" size={20} color="#C7C7CC" />
+                      </TouchableOpacity>
+                    );
+                  })}
+                </View>
+              )}
+
+              {/* Friends Section */}
+              {filteredFriends.length > 0 && (
+                <View style={styles.friendsSection}>
+                  {filteredGroups.length > 0 && (
+                    <Text style={styles.sectionSubtitle}>Venner</Text>
+                  )}
               {filteredFriends.map(friend => (
                 <TouchableOpacity
                   key={friend.id}
@@ -230,10 +399,14 @@ const handleSearchFocus = () => {
                   <Icon name="chevron-forward" size={20} color="#C7C7CC" />
                 </TouchableOpacity>
               ))}
-              {filteredFriends.length === 0 && searchQuery.length > 0 && (
+                </View>
+              )}
+
+              {/* Empty State */}
+              {filteredFriends.length === 0 && filteredGroups.length === 0 && searchQuery.length > 0 && (
                 <View style={styles.emptyState}>
                   <Icon name="people-outline" size={48} color="#C7C7CC" />
-                  <Text style={styles.emptyText}>Ingen venner fundet</Text>
+                  <Text style={styles.emptyText}>Ingen resultater fundet</Text>
                 </View>
               )}
             </View>
@@ -242,7 +415,7 @@ const handleSearchFocus = () => {
       </ScrollView>
 
       {/* Message Input - Instagram style at bottom */}
-      {selectedFriends.length > 0 && (
+      {(selectedFriends.length > 0 || selectedGroup) && (
         <View style={styles.messageInputBottom}>
           <View style={styles.messageInputWrapper}>
             <TextInput
@@ -391,8 +564,92 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#007AFF',
   },
+  selectedGroup: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#E3F2FD',
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 16,
+    gap: 6,
+  },
+  selectedGroupImage: {
+    width: 24,
+    height: 24,
+    borderRadius: 6,
+  },
+  selectedGroupPlaceholder: {
+    width: 24,
+    height: 24,
+    borderRadius: 6,
+    backgroundColor: '#007AFF',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  selectedGroupPlaceholderText: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: '#fff',
+  },
+  selectedGroupName: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#007AFF',
+  },
   removeButton: {
     padding: 4,
+  },
+  groupsSection: {
+    marginBottom: 16,
+  },
+  friendsSection: {
+    marginTop: 8,
+  },
+  sectionSubtitle: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: '#8E8E93',
+    marginBottom: 8,
+    textTransform: 'uppercase',
+  },
+  groupItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 4,
+  },
+  groupItemImage: {
+    width: 40,
+    height: 40,
+    borderRadius: 10,
+    marginRight: 12,
+  },
+  groupItemPlaceholder: {
+    width: 40,
+    height: 40,
+    borderRadius: 10,
+    backgroundColor: '#E0E7FF',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 12,
+  },
+  groupItemPlaceholderText: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#4338CA',
+  },
+  groupItemInfo: {
+    flex: 1,
+  },
+  groupItemName: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#000',
+    marginBottom: 2,
+  },
+  groupItemMembers: {
+    fontSize: 13,
+    color: '#8E8E93',
   },
   friendsList: {
     marginTop: 8,

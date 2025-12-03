@@ -15,14 +15,23 @@ import {
   TouchableWithoutFeedback,
   TextInput,
   Animated,
+  FlatList,
+  Image,
 } from 'react-native';
 import {useAppStore} from '@/store/appStore';
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import NotificationService from '@/services/notifications/NotificationService';
+import {useFeedStore} from '@/store/feedStore';
+
+type HomeScreenNavigationProp = StackNavigationProp<any>;
 
 const HomeScreen = () => {
+  const navigation = useNavigation<HomeScreenNavigationProp>();
   const {user} = useAppStore();
   const [activityModalVisible, setActivityModalVisible] = useState(false);
+  const [addedFriends, setAddedFriends] = useState<string[]>([]);
   const [now, setNow] = useState(Date.now());
   const [activeJoinRequests, setActiveJoinRequests] = useState<string[]>([]);
   const [upcomingJoinRequests, setUpcomingJoinRequests] = useState<string[]>([]);
@@ -40,6 +49,8 @@ const HomeScreen = () => {
     feed_summary_1: ['Elsker Repeat Fitness!', 'God inspiration 💪'],
   });
   const [commentedItems, setCommentedItems] = useState<string[]>([]);
+  const [animatingItems, setAnimatingItems] = useState<Record<string, boolean>>({});
+  const feedItems = useFeedStore(state => state.feedItems);
 
   useEffect(() => {
     const timer = setInterval(() => setNow(Date.now()), 60000);
@@ -110,41 +121,100 @@ const HomeScreen = () => {
   };
 
   const handleJoinActive = (friendName: string, friendId: string) => {
-    if (!activeJoinRequests.includes(friendId)) {
+    if (activeJoinRequests.includes(friendId)) {
+      // Remove request
+      setActiveJoinRequests(prev => prev.filter(id => id !== friendId));
+    } else {
+      // Add request
       setActiveJoinRequests(prev => [...prev, friendId]);
-      Alert.alert('Invitation sendt', `Du har bedt om at join ${friendName}s træning.`);
     }
   };
 
   const handleJoinUpcoming = (friendName: string, sessionId: string) => {
-    if (!upcomingJoinRequests.includes(sessionId)) {
+    if (upcomingJoinRequests.includes(sessionId)) {
+      // Remove request
+      setUpcomingJoinRequests(prev => prev.filter(id => id !== sessionId));
+    } else {
+      // Add request
       setUpcomingJoinRequests(prev => [...prev, sessionId]);
-      Alert.alert('Join forespørgsel', `Du joiner ${friendName}s planlagte træning.`);
     }
   };
 
-  const feedItems = useMemo(
+  const handleAddFriend = (friendId: string, friendName: string) => {
+    if (!addedFriends.includes(friendId)) {
+      setAddedFriends(prev => [...prev, friendId]);
+      const requesterName = user?.name || 'Du';
+      NotificationService.sendFriendRequestNotification(friendId, requesterName);
+      Alert.alert('Venneanmodning sendt', `${friendName} har modtaget en venneanmodning fra dig.`);
+    }
+  };
+
+  const handleViewProfile = (friendId: string, friendName: string, mutualFriends: number, gyms: string[]) => {
+    navigation.navigate('FriendProfile', {
+      friendId,
+      friendName,
+      mutualFriends,
+      gyms,
+    });
+  };
+
+  const suggestedFriends = useMemo(
     () => [
       {
-        id: 'feed_photo_1',
-        type: 'photo' as const,
-        user: 'Amalie',
-        description: 'Ben session med Sofie og Birgitte – 60 minutters grind 💪',
-        timestamp: 'for 2 timer siden',
+        id: 'suggest_1',
+        name: 'Lars',
+        avatar: null,
+        mutualFriends: 3,
+        gyms: ['PureGym Fields', 'Repeat Fitness'],
       },
       {
-        id: 'feed_pr_1',
-        type: 'pr' as const,
-        user: 'Jeff',
-        description: 'Ny PR i bænkpres: 125 kg!',
-        timestamp: 'i dag kl. 10.21',
+        id: 'suggest_2',
+        name: 'Sofia',
+        avatar: null,
+        mutualFriends: 5,
+        gyms: ['Urban Gym', 'PureGym Vanløse'],
       },
       {
-        id: 'feed_summary_1',
-        type: 'summary' as const,
-        user: 'Marie',
-        description: 'Afsluttede et fuldt bodyweight-flow i Repeat Fitness.',
-        timestamp: 'i går',
+        id: 'suggest_3',
+        name: 'Thomas',
+        avatar: null,
+        mutualFriends: 2,
+        gyms: ['Repeat Fitness Nørrebro'],
+      },
+      {
+        id: 'suggest_4',
+        name: 'Emma',
+        avatar: null,
+        mutualFriends: 4,
+        gyms: ['PureGym Fields', 'Urban Gym'],
+      },
+      {
+        id: 'suggest_5',
+        name: 'Mikkel',
+        avatar: null,
+        mutualFriends: 1,
+        gyms: ['Repeat Fitness Frederiksberg'],
+      },
+      {
+        id: 'suggest_6',
+        name: 'Anna',
+        avatar: null,
+        mutualFriends: 6,
+        gyms: ['PureGym Vanløse', 'Urban Gym'],
+      },
+      {
+        id: 'suggest_7',
+        name: 'Oliver',
+        avatar: null,
+        mutualFriends: 3,
+        gyms: ['Repeat Fitness Nørrebro', 'PureGym Fields'],
+      },
+      {
+        id: 'suggest_8',
+        name: 'Ida',
+        avatar: null,
+        mutualFriends: 2,
+        gyms: ['Urban Gym Christianshavn'],
       },
     ],
     [],
@@ -154,67 +224,152 @@ const HomeScreen = () => {
     opacity: Animated.Value;
     translateX: Animated.Value;
     translateY: Animated.Value;
+    scale: Animated.Value;
+    color: string;
   };
-  const heartAnimations = useRef<
-    Record<string, {scale: Animated.Value; particles: Particle[]}>
+  const bicepsAnimations = useRef<
+    Record<string, {scale: Animated.Value; particles: Particle[]; emojiOpacity: Animated.Value; thumbsOpacity: Animated.Value}>
   >({});
 
-  const createParticle = () => ({
+  const bicepsColors = ['#FF6B6B', '#4ECDC4', '#FFE66D', '#A8E6CF', '#FF8B94'];
+
+  const createParticle = (color: string) => ({
     opacity: new Animated.Value(0),
     translateX: new Animated.Value(0),
     translateY: new Animated.Value(0),
+    scale: new Animated.Value(0),
+    color,
   });
 
-  const ensureHeartAnimation = (itemId: string) => {
-    if (!heartAnimations.current[itemId]) {
-      heartAnimations.current[itemId] = {
+  const ensureBicepsAnimation = (itemId: string) => {
+    if (!bicepsAnimations.current[itemId]) {
+      bicepsAnimations.current[itemId] = {
         scale: new Animated.Value(1),
-        particles: Array.from({length: 24}).map(createParticle),
+        emojiOpacity: new Animated.Value(0),
+        thumbsOpacity: new Animated.Value(1),
+        particles: Array.from({length: 5}).map((_, idx) =>
+          createParticle(bicepsColors[idx % bicepsColors.length]),
+        ),
       };
     }
-    return heartAnimations.current[itemId];
+    return bicepsAnimations.current[itemId];
   };
 
   useEffect(() => {
     feedItems.forEach(item => {
-      ensureHeartAnimation(item.id);
+      ensureBicepsAnimation(item.id);
     });
   }, [feedItems]);
 
-  const runHeartAnimation = (itemId: string) => {
-    const anim = ensureHeartAnimation(itemId);
+  const runBicepsAnimation = (itemId: string) => {
+    const anim = ensureBicepsAnimation(itemId);
+    
+    // Ensure opacity values exist
+    if (!anim.thumbsOpacity) {
+      anim.thumbsOpacity = new Animated.Value(1);
+    }
+    if (!anim.emojiOpacity) {
+      anim.emojiOpacity = new Animated.Value(0);
+    }
+    
+    // Start emoji animation
+    setAnimatingItems(prev => ({...prev, [itemId]: true}));
+    
+    // Scale animation for button
     anim.scale.setValue(0.8);
     Animated.spring(anim.scale, {
       toValue: 1,
       friction: 4,
       useNativeDriver: true,
     }).start();
+    
+    // Smooth transition from thumbs up to 💪
+    anim.thumbsOpacity.setValue(1);
+    anim.emojiOpacity.setValue(0);
+    
+    Animated.parallel([
+      Animated.timing(anim.thumbsOpacity, {
+        toValue: 0,
+        duration: 210,
+        useNativeDriver: true,
+      }),
+      Animated.timing(anim.emojiOpacity, {
+        toValue: 1,
+        duration: 210,
+        useNativeDriver: true,
+      }),
+    ]).start();
+    
+    // Particle animations - start from positions around the button
     anim.particles.forEach((particle, index) => {
       const angle = (index / anim.particles.length) * Math.PI * 2;
-      const distance = 35 + (index % 5) * 5;
-      const dx = Math.cos(angle) * distance;
-      const dy = Math.sin(angle) * distance;
+      const startDistance = 20; // Start position around button
+      const endDistance = 50 + Math.random() * 20; // End position
+      
+      const startX = Math.cos(angle) * startDistance;
+      const startY = Math.sin(angle) * startDistance;
+      const endX = Math.cos(angle) * endDistance;
+      const endY = Math.sin(angle) * endDistance;
+      
       particle.opacity.setValue(1);
-      particle.translateX.setValue(0);
-      particle.translateY.setValue(0);
+      particle.scale.setValue(0);
+      particle.translateX.setValue(startX);
+      particle.translateY.setValue(startY);
+      
       Animated.parallel([
+        Animated.sequence([
+          Animated.spring(particle.scale, {
+            toValue: 1.2,
+            friction: 3,
+            tension: 100,
+            useNativeDriver: true,
+          }),
+          Animated.timing(particle.scale, {
+            toValue: 0.5,
+            duration: 280,
+            useNativeDriver: true,
+          }),
+        ]),
         Animated.timing(particle.opacity, {
           toValue: 0,
           duration: 700,
           useNativeDriver: true,
         }),
         Animated.timing(particle.translateY, {
-          toValue: dy,
+          toValue: endY,
           duration: 700,
           useNativeDriver: true,
         }),
         Animated.timing(particle.translateX, {
-          toValue: dx,
+          toValue: endX,
           duration: 700,
           useNativeDriver: true,
         }),
       ]).start();
     });
+    
+    // Reset emoji after 700ms with smooth transition back
+    setTimeout(() => {
+      // Smooth transition back from 💪 to thumbs up
+      Animated.parallel([
+        Animated.timing(anim.emojiOpacity, {
+          toValue: 0,
+          duration: 200,
+          useNativeDriver: true,
+        }),
+        Animated.timing(anim.thumbsOpacity, {
+          toValue: 1,
+          duration: 200,
+          useNativeDriver: true,
+        }),
+      ]).start(() => {
+        setAnimatingItems(prev => {
+          const next = {...prev};
+          delete next[itemId];
+          return next;
+        });
+      });
+    }, 700);
   };
 
   const toggleLike = (itemId: string) => {
@@ -222,7 +377,7 @@ const HomeScreen = () => {
       const existing = prev[itemId] ?? {liked: false, likes: 0};
       const nextLiked = !existing.liked;
       if (nextLiked) {
-        runHeartAnimation(itemId);
+        runBicepsAnimation(itemId);
       }
       return {
         ...prev,
@@ -281,10 +436,10 @@ const HomeScreen = () => {
             <View>
               <Text style={styles.activeTitle}>Venner i gym lige nu</Text>
               <Text style={styles.activeSubtitleText}>Tryk for at se flere detaljer</Text>
-            </View>
+          </View>
             <View style={styles.activeCountBadge}>
               <Text style={styles.activeCountText}>{activeCount}</Text>
-            </View>
+          </View>
           </View>
           <View style={styles.activeFriendPreviewRow}>
             {activeFriends.slice(0, 3).map(friend => (
@@ -305,14 +460,13 @@ const HomeScreen = () => {
                     activeJoinRequests.includes(friend.id) && styles.joinBadgeDisabled,
                   ]}
                   onPress={() => handleJoinActive(friend.name, friend.id)}
-                  activeOpacity={activeJoinRequests.includes(friend.id) ? 1 : 0.8}
-                  disabled={activeJoinRequests.includes(friend.id)}>
+                  activeOpacity={0.8}>
                   <Text
                     style={[
                       styles.joinBadgeText,
                       activeJoinRequests.includes(friend.id) && styles.joinBadgeTextDisabled,
                     ]}>
-                    {activeJoinRequests.includes(friend.id) ? 'Anmodet' : 'Join'}
+                    {activeJoinRequests.includes(friend.id) ? 'Anmodet' : 'Deltag'}
                   </Text>
                 </TouchableOpacity>
               </View>
@@ -323,13 +477,17 @@ const HomeScreen = () => {
         {/* Feed */}
         <View style={styles.feedSection}>
           {feedItems.map(item => {
-            const likeAnim = heartAnimations.current[item.id];
+            // Ensure animation is initialized
+            const likeAnim = ensureBicepsAnimation(item.id);
             const likeScaleStyle = likeAnim
               ? {transform: [{scale: likeAnim.scale}]}
               : undefined;
             const particles = likeAnim?.particles ?? [];
             const hasCommented = commentedItems.includes(item.id);
             const commentColor = hasCommented ? '#2563EB' : '#0F172A';
+            const isAnimating = animatingItems[item.id];
+            const thumbsOpacity = likeAnim.thumbsOpacity;
+            const emojiOpacity = likeAnim.emojiOpacity;
             return (
               <View key={item.id} style={styles.feedCard}>
               <View style={styles.feedCardHeader}>
@@ -342,11 +500,14 @@ const HomeScreen = () => {
                 </View>
                 <Icon name="ellipsis-horizontal" size={18} color="#94A3B8" />
               </View>
-              {item.type === 'photo' && (
-                <View style={styles.feedImagePlaceholder}>
-                  <Text style={styles.feedImageText}>Foto fra træning</Text>
-                </View>
-              )}
+              {item.type === 'photo' &&
+                (item.photoUri ? (
+                  <Image source={{uri: item.photoUri}} style={styles.feedPhoto} />
+                ) : (
+                  <View style={styles.feedImagePlaceholder}>
+                    <Text style={styles.feedImageText}>Foto fra træning</Text>
+                  </View>
+                ))}
               {item.type === 'pr' && (
                 <View style={styles.feedHighlight}>
                   <Icon name="trophy" size={18} color="#FACC15" />
@@ -362,41 +523,73 @@ const HomeScreen = () => {
               <Text style={styles.feedDescription}>{item.description}</Text>
               <View style={styles.feedActions}>
                 <TouchableOpacity
-                  style={styles.feedActionButton}
+                  style={[
+                    styles.feedLikeButton,
+                    feedReactions[item.id]?.liked && styles.feedLikeButtonActive,
+                  ]}
                   onPress={() => toggleLike(item.id)}
-                  activeOpacity={0.8}>
+                  activeOpacity={0.7}>
                   <View style={styles.likeButtonInner}>
                     <Animated.View style={likeScaleStyle}>
-                      <Icon
-                        name={feedReactions[item.id]?.liked ? 'heart' : 'heart-outline'}
-                        size={20}
-                        color={feedReactions[item.id]?.liked ? '#EF4444' : '#0F172A'}
-                      />
+                      <View style={styles.likeButtonContent}>
+                        {/* Thumbs up (fades out during animation) */}
+                        {(!isAnimating || feedReactions[item.id]?.liked) && (
+                          <Animated.View
+                            style={[
+                              styles.likeButtonOverlay,
+                              {opacity: isAnimating ? thumbsOpacity : 1},
+                            ]}>
+                            {feedReactions[item.id]?.liked ? (
+                              <Icon name="thumbs-up" size={20} color="#1877F2" />
+                            ) : (
+                              <Icon
+                                name="thumbs-up-outline"
+                                size={20}
+                                color="#65676B"
+                              />
+                            )}
+                          </Animated.View>
+                        )}
+                        {/* 💪 emoji (fades in during animation) */}
+                        {isAnimating && (
+                          <Animated.View
+                            style={[
+                              styles.likeButtonOverlay,
+                              {opacity: emojiOpacity},
+                            ]}>
+                            <Text style={styles.bicepsEmoji}>💪</Text>
+                          </Animated.View>
+                        )}
+                      </View>
                     </Animated.View>
                     {particles.map((particle, idx) => (
                       <Animated.View
                         key={`${item.id}_particle_${idx}`}
                         style={[
-                          styles.burstHeart,
+                          styles.burstBiceps,
                           {
                             opacity: particle.opacity,
                             transform: [
                               {translateX: particle.translateX},
                               {translateY: particle.translateY},
+                              {scale: particle.scale},
                             ],
                           },
                         ]}>
-                        <Icon name="heart" size={10} color="#EF4444" />
+                        <Text
+                          style={[
+                            styles.bicepsParticleEmoji,
+                            {
+                              textShadowColor: particle.color,
+                              textShadowOffset: {width: 0, height: 0},
+                              textShadowRadius: 25,
+                            },
+                          ]}>
+                          💪
+                        </Text>
                       </Animated.View>
                     ))}
-                  </View>
-                  <Text
-                    style={[
-                      styles.feedActionText,
-                      feedReactions[item.id]?.liked && styles.feedActionTextLiked,
-                    ]}>
-                    {feedReactions[item.id]?.likes ?? 0}
-                  </Text>
+          </View>
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={styles.feedActionButton}
@@ -409,12 +602,78 @@ const HomeScreen = () => {
                       hasCommented && styles.feedActionTextLiked,
                     ]}>
                     {commentsByFeedItem[item.id]?.length ?? 0}
-                  </Text>
+          </Text>
                 </TouchableOpacity>
-              </View>
-            </View>
+          </View>
+        </View>
             );
           })}
+
+          {/* Suggested Friends Section */}
+          <View style={styles.suggestedFriendsCard}>
+            <Text style={styles.suggestedFriendsTitle}>Forslåede venner</Text>
+            <FlatList
+              data={suggestedFriends}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              keyExtractor={item => item.id}
+              contentContainerStyle={styles.suggestedFriendsList}
+              renderItem={({item}) => {
+                const isAdded = addedFriends.includes(item.id);
+                return (
+                  <TouchableOpacity
+                    style={styles.suggestedFriendCard}
+                    activeOpacity={0.85}
+                    onPress={() => handleViewProfile(item.id, item.name, item.mutualFriends, item.gyms)}>
+                    <View style={styles.suggestedFriendAvatar}>
+                      {item.avatar ? (
+                        <Image source={{uri: item.avatar}} style={styles.suggestedFriendAvatarImage} />
+                      ) : (
+                        <Text style={styles.suggestedFriendAvatarText}>{item.name.charAt(0)}</Text>
+                      )}
+                    </View>
+                    <Text style={styles.suggestedFriendName} numberOfLines={1}>
+                      {item.name}
+          </Text>
+                    <Text style={styles.suggestedFriendMutual}>
+                      {item.mutualFriends} fælles venner
+                    </Text>
+                    <View style={styles.suggestedFriendGyms}>
+                      {item.gyms.slice(0, 2).map((gym, idx) => (
+                        <Text key={idx} style={styles.suggestedFriendGym} numberOfLines={1}>
+                          {gym}
+                        </Text>
+                      ))}
+                    </View>
+                    <TouchableOpacity
+                      style={[
+                        styles.suggestedFriendAddButton,
+                        isAdded && styles.suggestedFriendAddButtonAdded,
+                      ]}
+                      activeOpacity={0.8}
+                      onPress={e => {
+                        e.stopPropagation();
+                        handleAddFriend(item.id, item.name);
+                      }}
+                      disabled={isAdded}>
+                      <Icon
+                        name={isAdded ? 'checkmark' : 'person-add-outline'}
+                        size={16}
+                        color={isAdded ? '#22C55E' : '#007AFF'}
+                      />
+                      <Text
+                        style={[
+                          styles.suggestedFriendAddText,
+                          isAdded && styles.suggestedFriendAddTextAdded,
+                        ]}>
+                        {isAdded ? 'Tilføjet' : 'Tilføj'}
+          </Text>
+                    </TouchableOpacity>
+                  </TouchableOpacity>
+                );
+              }}
+            />
+          </View>
         </View>
 
         {/* Test Notification Button (for development) */}
@@ -515,14 +774,13 @@ const HomeScreen = () => {
                       activeJoinRequests.includes(friend.id) && styles.joinButtonDisabled,
                     ]}
                     onPress={() => handleJoinActive(friend.name, friend.id)}
-                    activeOpacity={activeJoinRequests.includes(friend.id) ? 1 : 0.85}
-                    disabled={activeJoinRequests.includes(friend.id)}>
+                    activeOpacity={0.85}>
                     <Text
                       style={[
                         styles.joinButtonText,
                         activeJoinRequests.includes(friend.id) && styles.joinButtonTextDisabled,
                       ]}>
-                      {activeJoinRequests.includes(friend.id) ? 'Anmodet' : 'Join'}
+                      {activeJoinRequests.includes(friend.id) ? 'Anmodet' : 'Deltag'}
                     </Text>
                   </TouchableOpacity>
                 </View>
@@ -543,14 +801,13 @@ const HomeScreen = () => {
                       upcomingJoinRequests.includes(session.id) && styles.joinButtonSecondaryDisabled,
                     ]}
                     onPress={() => handleJoinUpcoming(session.name, session.id)}
-                    activeOpacity={upcomingJoinRequests.includes(session.id) ? 1 : 0.85}
-                    disabled={upcomingJoinRequests.includes(session.id)}>
+                    activeOpacity={0.85}>
                     <Text
                       style={[
                         styles.joinButtonSecondaryText,
                         upcomingJoinRequests.includes(session.id) && styles.joinButtonSecondaryTextDisabled,
                       ]}>
-                      {upcomingJoinRequests.includes(session.id) ? 'Anmodet' : 'Join'}
+                      {upcomingJoinRequests.includes(session.id) ? 'Anmodet' : 'Deltag'}
                     </Text>
                   </TouchableOpacity>
                 </View>
@@ -794,6 +1051,12 @@ const styles = StyleSheet.create({
     color: '#475569',
     fontWeight: '600',
   },
+  feedPhoto: {
+    width: '100%',
+    height: 220,
+    borderRadius: 14,
+    marginBottom: 12,
+  },
   feedHighlight: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -832,7 +1095,23 @@ const styles = StyleSheet.create({
   },
   feedActions: {
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-between',
+  },
+  feedLikeButton: {
+    padding: 4,
+    backgroundColor: 'transparent',
+  },
+  feedLikeButtonActive: {
+    backgroundColor: 'transparent',
+  },
+  likeButtonCircle: {
+    width: 26,
+    height: 26,
+    borderRadius: 13,
+    backgroundColor: '#1877F2',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   feedActionButton: {
     flexDirection: 'row',
@@ -842,12 +1121,32 @@ const styles = StyleSheet.create({
   likeButtonInner: {
     position: 'relative',
   },
-  burstHeart: {
+  likeButtonContent: {
+    position: 'relative',
+    width: 26,
+    height: 26,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  likeButtonOverlay: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  bicepsEmoji: {
+    fontSize: 24,
+  },
+  burstBiceps: {
     position: 'absolute',
     left: 0,
     right: 0,
     alignItems: 'center',
     top: 0,
+  },
+  bicepsParticleEmoji: {
+    fontSize: 14,
   },
   feedActionText: {
     fontSize: 13,
@@ -1086,6 +1385,93 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     paddingVertical: 12,
     alignItems: 'center',
+  },
+  suggestedFriendsCard: {
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    padding: 16,
+    marginBottom: 16,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.05,
+    shadowRadius: 6,
+  },
+  suggestedFriendsTitle: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#0F172A',
+    marginBottom: 16,
+  },
+  suggestedFriendsList: {
+    paddingRight: 16,
+  },
+  suggestedFriendCard: {
+    width: 140,
+    marginRight: 12,
+    alignItems: 'center',
+  },
+  suggestedFriendAvatar: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    backgroundColor: '#E0E7FF',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  suggestedFriendAvatarImage: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+  },
+  suggestedFriendAvatarText: {
+    fontSize: 32,
+    fontWeight: '700',
+    color: '#4338CA',
+  },
+  suggestedFriendName: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#0F172A',
+    marginBottom: 4,
+    textAlign: 'center',
+  },
+  suggestedFriendMutual: {
+    fontSize: 12,
+    color: '#64748B',
+    marginBottom: 6,
+    textAlign: 'center',
+  },
+  suggestedFriendGyms: {
+    alignItems: 'center',
+    marginBottom: 10,
+    minHeight: 32,
+  },
+  suggestedFriendGym: {
+    fontSize: 11,
+    color: '#94A3B8',
+    textAlign: 'center',
+    marginBottom: 2,
+  },
+  suggestedFriendAddButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#E0F2FF',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 20,
+    gap: 6,
+  },
+  suggestedFriendAddText: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#007AFF',
+  },
+  suggestedFriendAddButtonAdded: {
+    backgroundColor: '#D1FAE5',
+  },
+  suggestedFriendAddTextAdded: {
+    color: '#22C55E',
   },
 });
 

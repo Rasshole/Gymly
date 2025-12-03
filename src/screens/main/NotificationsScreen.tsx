@@ -93,15 +93,21 @@ const NotificationsScreen = () => {
   );
 
   const handleJoinWorkout = (notification: Notification) => {
-    if (notification.type !== 'workout_invite' || notification.joined) {
+    if (notification.type !== 'workout_invite' && notification.type !== 'friend_checkin') {
       return;
     }
-
-    markInviteJoined(notification.id);
 
     const {user} = useAppStore.getState();
     const joinerName = user?.displayName || 'En ven';
 
+    if (notification.joined) {
+      // Remove join request - toggle back
+      markInviteJoined(notification.id);
+    } else {
+      // Add join request
+      markInviteJoined(notification.id);
+
+      if (notification.type === 'workout_invite') {
     if (notification.planId && user) {
       acceptPlanInvite(notification.planId, user.id);
     }
@@ -116,6 +122,11 @@ const NotificationsScreen = () => {
 
     if (notification.planId) {
       navigation.navigate('WorkoutSchedule', {initialTab: 'upcoming'});
+        }
+      } else if (notification.type === 'friend_checkin') {
+        // Handle joining friend's active workout
+        // In a real app, this would send a request to join the friend's session
+      }
     }
   };
 
@@ -151,15 +162,21 @@ const NotificationsScreen = () => {
           <Icon name={getIcon()} size={24} color={getIconColor()} />
         </View>
         <View style={styles.notificationContent}>
+          {item.type === 'friend_checkin' ? (
+            <Text style={[styles.notificationTitle, !item.read && styles.unreadTitle]}>
+              {item.friendName} er nu i{' '}
+              {item.gymName && <Text style={styles.gymNameText}>{item.gymName}</Text>}
+            </Text>
+          ) : (
+            <>
           <Text style={[styles.notificationTitle, !item.read && styles.unreadTitle]}>
             {item.title}
           </Text>
           <Text style={styles.notificationMessage}>
             {item.message}
-            {item.type === 'friend_checkin' && item.gymName && (
-              <Text style={styles.gymNameText}> • {item.gymName}</Text>
+              </Text>
+            </>
             )}
-          </Text>
           {item.type === 'friend_checkin' && item.checkInTime && item.isActive && (
             <View style={styles.durationContainer}>
               <Icon name="time-outline" size={12} color="#34C759" />
@@ -188,7 +205,7 @@ const NotificationsScreen = () => {
           )}
         </View>
         {!item.read && !item.joined && <View style={styles.unreadDot} />}
-        {item.type === 'workout_invite' ? (
+        {(item.type === 'workout_invite' || item.type === 'friend_checkin') ? (
           <View style={styles.actionButtons}>
             <TouchableOpacity
               onPress={() => handleJoinWorkout(item)}
@@ -196,14 +213,13 @@ const NotificationsScreen = () => {
                 styles.joinButton,
                 item.joined && styles.joinButtonJoined,
               ]}
-              activeOpacity={0.7}
-              disabled={item.joined}>
+              activeOpacity={0.7}>
               <Text
                 style={[
                   styles.joinButtonText,
                   item.joined && styles.joinButtonTextJoined,
                 ]}>
-                {item.joined ? 'Joined' : 'Join'}
+                {item.joined ? 'Anmodet' : 'Deltag'}
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
@@ -388,7 +404,7 @@ const styles = StyleSheet.create({
     color: '#8E8E93',
   },
   gymNameText: {
-    fontSize: 14,
+    fontSize: 16,
     color: '#007AFF',
     fontWeight: '600',
   },
