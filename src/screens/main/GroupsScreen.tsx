@@ -14,6 +14,10 @@ import {
   TextInput,
   Image,
   Alert,
+  ScrollView,
+  Switch,
+  Platform,
+  Linking,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
@@ -31,6 +35,10 @@ type Group = {
   id: string;
   name: string;
   description?: string;
+  biography?: string;
+  image?: string;
+  isPrivate: boolean;
+  adminId: string; // User ID of the group admin
   members: Friend[];
   totalWorkouts: number;
   totalTimeTogether: number; // in minutes
@@ -97,6 +105,9 @@ const mockGroups: Group[] = [
     id: '1',
     name: 'Weekend Warriors',
     description: 'Vi træner sammen hver weekend og holder hinanden motiveret!',
+    biography: 'En gruppe for dem der elsker weekend træning. Vi holder hinanden motiveret og deler tips.',
+    isPrivate: false,
+    adminId: '1', // Jeff is admin
     members: [mockFriends[0], mockFriends[2]],
     totalWorkouts: 12,
     totalTimeTogether: 1440, // 24 hours in minutes
@@ -106,6 +117,9 @@ const mockGroups: Group[] = [
     id: '2',
     name: 'Morgenmotionister',
     description: 'Træner hver morgen før arbejde. Kom og vær med!',
+    biography: 'Tidlig opstigning og træning før dagens første møde. Perfekt til dem der har travlt.',
+    isPrivate: true,
+    adminId: '5', // Jens is admin
     members: [mockFriends[4], mockFriends[5], mockFriends[7]],
     totalWorkouts: 25,
     totalTimeTogether: 3120, // 52 hours in minutes
@@ -115,6 +129,9 @@ const mockGroups: Group[] = [
     id: '3',
     name: 'Kraftstation',
     description: 'Fokus på styrketræning og progression',
+    biography: 'Vi fokuserer på styrketræning, progression og hjælper hinanden med teknik.',
+    isPrivate: false,
+    adminId: '2', // Marie is admin
     members: [mockFriends[1], mockFriends[6], mockFriends[9]],
     totalWorkouts: 8,
     totalTimeTogether: 960, // 16 hours in minutes
@@ -124,6 +141,9 @@ const mockGroups: Group[] = [
     id: '4',
     name: 'Crosstraining Crew',
     description: 'Blandet træning med fokus på funktionalitet',
+    biography: 'Blandet træning for at blive stærkere og mere funktionel i hverdagen.',
+    isPrivate: false,
+    adminId: '4', // Sofia is admin
     members: [mockFriends[3], mockFriends[8], mockFriends[9]],
     totalWorkouts: 15,
     totalTimeTogether: 1800, // 30 hours in minutes
@@ -133,6 +153,9 @@ const mockGroups: Group[] = [
     id: '5',
     name: 'Løbeklubben',
     description: 'Løbetræning og maratonforberedelse',
+    biography: 'For løbere af alle niveauer. Vi træner til maraton og korte løb.',
+    isPrivate: false,
+    adminId: '5', // Jens is admin
     members: [mockFriends[4], mockFriends[7]],
     totalWorkouts: 30,
     totalTimeTogether: 3600, // 60 hours in minutes
@@ -146,7 +169,11 @@ const GroupsScreen = () => {
   const [groups, setGroups] = useState<Group[]>(mockGroups);
   const [showCreateGroup, setShowCreateGroup] = useState(false);
   const [groupName, setGroupName] = useState('');
+  const [groupBiography, setGroupBiography] = useState('');
+  const [groupImage, setGroupImage] = useState<string | null>(null);
+  const [isPrivate, setIsPrivate] = useState(false);
   const [selectedFriends, setSelectedFriends] = useState<string[]>([]);
+  const [friendSearchQuery, setFriendSearchQuery] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
 
   const friends: Friend[] = mockFriends;
@@ -219,7 +246,11 @@ const GroupsScreen = () => {
     const newGroup: Group = {
       id: `group_${Date.now()}`,
       name: groupName.trim(),
-      description: '',
+      description: '', // Keep for backward compatibility
+      biography: groupBiography.trim() || undefined,
+      image: groupImage || undefined,
+      isPrivate: isPrivate,
+      adminId: user?.id || '', // Current user is admin
       members: currentUserAsFriend
         ? [currentUserAsFriend, ...selectedFriendMembers]
         : selectedFriendMembers,
@@ -230,9 +261,34 @@ const GroupsScreen = () => {
 
     setGroups([newGroup, ...groups]);
     setGroupName('');
+    setGroupBiography('');
+    setGroupImage(null);
+    setIsPrivate(false);
     setSelectedFriends([]);
+    setFriendSearchQuery('');
     setShowCreateGroup(false);
     Alert.alert('Gruppe oprettet', `Gruppen "${newGroup.name}" er blevet oprettet`);
+  };
+
+  const handleOpenCommunity = async () => {
+    // Show alert since website is not ready yet
+    Alert.alert(
+      'Community kommer snart',
+      'Vores Community forum med åbent forum kommer snart. Hold øje med opdateringer!',
+    );
+    
+    // When website is ready, uncomment below and use actual URL:
+    // const url = 'https://gymly.dk/forum';
+    // try {
+    //   const supported = await Linking.canOpenURL(url);
+    //   if (supported) {
+    //     await Linking.openURL(url);
+    //   } else {
+    //     Alert.alert('Fejl', 'Kunne ikke åbne hjemmesiden');
+    //   }
+    // } catch (error) {
+    //   Alert.alert('Fejl', 'Kunne ikke åbne hjemmesiden');
+    // }
   };
 
   const renderGroupItem = ({item}: {item: Group}) => {
@@ -253,9 +309,18 @@ const GroupsScreen = () => {
           navigation.navigate('GroupDetail', {group: serializableGroup});
         }}>
         <View style={styles.groupIconContainer}>
-          <Icon name="people" size={32} color="#007AFF" />
+          {item.image ? (
+            <Image source={{uri: item.image}} style={styles.groupIconImage} />
+          ) : (
+            <Icon name="people" size={32} color="#007AFF" />
+          )}
           {hasOnlineMembers && (
             <View style={styles.onlineGroupIndicator} />
+          )}
+          {item.isPrivate && (
+            <View style={styles.privateGroupBadge}>
+              <Icon name="lock-closed" size={12} color="#8E8E93" />
+            </View>
           )}
         </View>
         <View style={styles.groupInfo}>
@@ -305,6 +370,14 @@ const GroupsScreen = () => {
     );
   };
 
+  // Filter friends based on search query
+  const filteredFriends = useMemo(() => {
+    if (!friendSearchQuery.trim()) return friends;
+    return friends.filter(friend =>
+      friend.name.toLowerCase().includes(friendSearchQuery.toLowerCase()),
+    );
+  }, [friendSearchQuery, friends]);
+
   const renderFriendItem = ({item}: {item: Friend}) => {
     const isSelected = selectedFriends.includes(item.id);
     return (
@@ -345,7 +418,11 @@ const GroupsScreen = () => {
             onPress={() => {
               setShowCreateGroup(false);
               setGroupName('');
+              setGroupBiography('');
+              setGroupImage(null);
+              setIsPrivate(false);
               setSelectedFriends([]);
+              setFriendSearchQuery('');
             }}
             style={styles.backButton}
             activeOpacity={0.7}>
@@ -355,10 +432,35 @@ const GroupsScreen = () => {
           <View style={styles.headerSpacer} />
         </View>
 
-        <View style={styles.createGroupContent}>
+        <ScrollView
+          style={styles.createGroupContent}
+          contentContainerStyle={styles.createGroupScrollContent}
+          showsVerticalScrollIndicator={false}>
+          {/* Group Image */}
+          <View style={styles.imageSection}>
+            <TouchableOpacity
+              style={styles.imagePicker}
+              onPress={() => {
+                // TODO: Implement image picker
+                Alert.alert('Billede', 'Billede upload funktion kommer snart');
+              }}
+              activeOpacity={0.7}>
+              {groupImage ? (
+                <Image source={{uri: groupImage}} style={styles.groupImage} />
+              ) : (
+                <View style={styles.imagePlaceholder}>
+                  <Icon name="camera" size={32} color="#007AFF" />
+                  <Text style={styles.imagePlaceholderText}>
+                    Tilføj gruppebillede
+                  </Text>
+                </View>
+              )}
+            </TouchableOpacity>
+          </View>
+
           {/* Group Name Input */}
           <View style={styles.inputGroup}>
-            <Text style={styles.inputLabel}>Gruppenavn</Text>
+            <Text style={styles.inputLabel}>Gruppenavn *</Text>
             <TextInput
               style={styles.input}
               value={groupName}
@@ -368,16 +470,69 @@ const GroupsScreen = () => {
             />
           </View>
 
+          {/* Biography Input */}
+          <View style={styles.inputGroup}>
+            <Text style={styles.inputLabel}>Biografi</Text>
+            <TextInput
+              style={[styles.input, styles.biographyInput]}
+              value={groupBiography}
+              onChangeText={setGroupBiography}
+              placeholder="Beskriv din gruppe..."
+              placeholderTextColor="#8E8E93"
+              multiline
+              numberOfLines={4}
+              textAlignVertical="top"
+            />
+          </View>
+
+          {/* Privacy Toggle */}
+          <View style={styles.privacySection}>
+            <View style={styles.privacyInfo}>
+              <Text style={styles.inputLabel}>Gruppe synlighed</Text>
+              <Text style={styles.privacySubtext}>
+                {isPrivate
+                  ? 'Privat - Kun medlemmer kan se gruppen'
+                  : 'Offentlig - Alle kan se og søge efter gruppen'}
+              </Text>
+            </View>
+            <Switch
+              value={isPrivate}
+              onValueChange={setIsPrivate}
+              trackColor={{false: '#E5E5EA', true: '#007AFF'}}
+              thumbColor={Platform.OS === 'ios' ? '#fff' : '#fff'}
+            />
+          </View>
+
           {/* Friends Selection */}
           <View style={styles.friendsSection}>
             <Text style={styles.sectionTitle}>
               Vælg venner ({selectedFriends.length} valgt)
             </Text>
+            {/* Friend Search */}
+            <View style={styles.friendSearchContainer}>
+              <Icon name="search" size={20} color="#8E8E93" style={styles.searchIcon} />
+              <TextInput
+                style={styles.friendSearchInput}
+                placeholder="Søg efter venner..."
+                placeholderTextColor="#8E8E93"
+                value={friendSearchQuery}
+                onChangeText={setFriendSearchQuery}
+              />
+              {friendSearchQuery.length > 0 && (
+                <TouchableOpacity
+                  onPress={() => setFriendSearchQuery('')}
+                  style={styles.clearButton}>
+                  <Icon name="close-circle" size={20} color="#8E8E93" />
+                </TouchableOpacity>
+              )}
+            </View>
             <FlatList
-              data={friends}
+              data={filteredFriends}
               renderItem={renderFriendItem}
               keyExtractor={item => item.id}
               showsVerticalScrollIndicator={false}
+              scrollEnabled={false}
+              nestedScrollEnabled={false}
             />
           </View>
 
@@ -393,7 +548,7 @@ const GroupsScreen = () => {
             activeOpacity={0.8}>
             <Text style={styles.createButtonText}>Opret gruppe</Text>
           </TouchableOpacity>
-        </View>
+        </ScrollView>
       </View>
     );
   }
@@ -473,6 +628,18 @@ const GroupsScreen = () => {
           stickySectionHeadersEnabled={false}
         />
       )}
+
+      {/* Community Button - Bottom (above main tabs) */}
+      <View style={styles.communityButtonContainer}>
+        <TouchableOpacity
+          style={styles.communityButton}
+          onPress={handleOpenCommunity}
+          activeOpacity={0.8}>
+          <Icon name="people" size={24} color="#007AFF" style={{marginRight: 12}} />
+          <Text style={styles.communityButtonText}>Community</Text>
+          <Icon name="chevron-forward" size={20} color="#8E8E93" style={{marginLeft: 8}} />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -539,6 +706,7 @@ const styles = StyleSheet.create({
   },
   list: {
     padding: 16,
+    paddingBottom: 8,
   },
   sectionHeader: {
     paddingVertical: 8,
@@ -581,6 +749,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginRight: 12,
     position: 'relative',
+    overflow: 'hidden',
+  },
+  groupIconImage: {
+    width: '100%',
+    height: '100%',
+  },
+  privateGroupBadge: {
+    position: 'absolute',
+    top: 2,
+    left: 2,
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    borderRadius: 8,
+    padding: 2,
   },
   onlineGroupIndicator: {
     position: 'absolute',
@@ -722,7 +903,80 @@ const styles = StyleSheet.create({
   },
   createGroupContent: {
     flex: 1,
+  },
+  createGroupScrollContent: {
     padding: 16,
+    paddingBottom: 32,
+  },
+  imageSection: {
+    alignItems: 'center',
+    marginBottom: 24,
+  },
+  imagePicker: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    overflow: 'hidden',
+    borderWidth: 2,
+    borderColor: '#E5E5EA',
+    borderStyle: 'dashed',
+  },
+  groupImage: {
+    width: '100%',
+    height: '100%',
+  },
+  imagePlaceholder: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#F8F9FA',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  imagePlaceholderText: {
+    fontSize: 12,
+    color: '#007AFF',
+    marginTop: 4,
+    textAlign: 'center',
+  },
+  biographyInput: {
+    minHeight: 100,
+    paddingTop: 12,
+  },
+  privacySection: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#fff',
+    padding: 16,
+    borderRadius: 12,
+    marginBottom: 24,
+    borderWidth: 1,
+    borderColor: '#E5E5EA',
+  },
+  privacyInfo: {
+    flex: 1,
+    marginRight: 16,
+  },
+  privacySubtext: {
+    fontSize: 14,
+    color: '#8E8E93',
+    marginTop: 4,
+  },
+  friendSearchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: '#E5E5EA',
+    paddingHorizontal: 12,
+    marginBottom: 12,
+  },
+  friendSearchInput: {
+    flex: 1,
+    fontSize: 16,
+    color: '#000',
+    paddingVertical: 12,
   },
   inputGroup: {
     marginBottom: 24,
@@ -825,6 +1079,33 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     color: '#fff',
+  },
+  communityButtonContainer: {
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    paddingBottom: 8,
+    backgroundColor: '#F8F9FA',
+    borderTopWidth: 1,
+    borderTopColor: '#E5E5EA',
+  },
+  communityButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    paddingHorizontal: 16,
+    paddingVertical: 14,
+    borderRadius: 12,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 1},
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  communityButtonText: {
+    flex: 1,
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#000',
   },
 });
 
