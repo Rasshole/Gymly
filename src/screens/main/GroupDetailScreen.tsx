@@ -29,6 +29,10 @@ type Group = {
   id: string;
   name: string;
   description?: string;
+  biography?: string;
+  image?: string;
+  isPrivate: boolean;
+  adminId: string;
   members: Friend[];
   totalWorkouts: number;
   totalTimeTogether: number; // in minutes
@@ -90,6 +94,34 @@ const GroupDetailScreen = () => {
     ? new Date(group.createdAt) 
     : group.createdAt;
 
+  // Check if current user is a member
+  const isMember = user ? group.members.some(m => m.id === user.id) : false;
+  
+  // Check if current user is admin
+  const isAdmin = user ? group.adminId === user.id : false;
+
+  const handlePlanWorkout = () => {
+    // Navigate to workout planning screen for groups
+    navigation.navigate('WorkoutSchedule', {
+      groupId: group.id,
+      groupName: group.name,
+    });
+  };
+
+  const handleEditGroup = () => {
+    // Navigate to edit group screen
+    const serializableGroup = {
+      ...group,
+      createdAt: typeof group.createdAt === 'string' ? group.createdAt : group.createdAt.toISOString(),
+    };
+    navigation.navigate('EditGroup', {group: serializableGroup});
+  };
+
+  const handleMemberPress = (memberId: string) => {
+    // Navigate to member profile
+    navigation.navigate('FriendProfile', {userId: memberId});
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       {/* Header */}
@@ -100,7 +132,15 @@ const GroupDetailScreen = () => {
           <Icon name="arrow-back" size={24} color="#000" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Gruppe detaljer</Text>
-        <View style={styles.headerRight} />
+        {isAdmin && (
+          <TouchableOpacity
+            onPress={handleEditGroup}
+            style={styles.editButton}
+            activeOpacity={0.7}>
+            <Icon name="create-outline" size={24} color="#007AFF" />
+          </TouchableOpacity>
+        )}
+        {!isAdmin && <View style={styles.headerRight} />}
       </View>
 
       <ScrollView
@@ -109,16 +149,43 @@ const GroupDetailScreen = () => {
         {/* Group Header */}
         <View style={styles.groupHeader}>
           <View style={styles.groupIconContainer}>
-            <Icon name="people" size={48} color="#007AFF" />
+            {group.image ? (
+              <Image source={{uri: group.image}} style={styles.groupImage} />
+            ) : (
+              <Icon name="people" size={48} color="#007AFF" />
+            )}
+            {group.isPrivate && (
+              <View style={styles.privateBadge}>
+                <Icon name="lock-closed" size={16} color="#8E8E93" />
+              </View>
+            )}
           </View>
           <Text style={styles.groupName}>{group.name}</Text>
         </View>
 
-        {/* Group Description */}
-        {group.description && (
+        {/* Group Biography/Description */}
+        {group.biography && (
+          <View style={styles.descriptionSection}>
+            <Text style={styles.descriptionText}>{group.biography}</Text>
+          </View>
+        )}
+        {!group.biography && group.description && (
           <View style={styles.descriptionSection}>
             <Text style={styles.descriptionText}>{group.description}</Text>
           </View>
+        )}
+
+        {/* Plan Workout Button - Only show if user is a member */}
+        {isMember && (
+          <TouchableOpacity
+            style={styles.planWorkoutButton}
+            onPress={handlePlanWorkout}
+            activeOpacity={0.8}>
+            <Icon name="calendar-outline" size={24} color="#fff" />
+            <Text style={styles.planWorkoutButtonText}>
+              Planlæg træning til gruppe
+            </Text>
+          </TouchableOpacity>
         )}
 
         {/* Stats Cards */}
@@ -147,8 +214,13 @@ const GroupDetailScreen = () => {
           <View style={styles.membersList}>
             {group.members.map((member, index) => {
               const isCurrentUser = user && member.id === user.id;
+              const isGroupAdmin = member.id === group.adminId;
               return (
-                <View key={member.id} style={styles.memberItem}>
+                <TouchableOpacity
+                  key={member.id}
+                  style={styles.memberItem}
+                  onPress={() => handleMemberPress(member.id)}
+                  activeOpacity={0.7}>
                   <View style={styles.memberAvatarContainer}>
                     {member.avatar ? (
                       <Image
@@ -167,24 +239,25 @@ const GroupDetailScreen = () => {
                     )}
                   </View>
                   <View style={styles.memberInfo}>
-                    <Text style={styles.memberName}>
-                      {member.name}
-                      {isCurrentUser && (
-                        <Text style={styles.currentUserLabel}> (Dig)</Text>
-                      )}
-                    </Text>
+                    <View style={styles.memberNameRow}>
+                      <Text style={styles.memberName}>
+                        {member.name}
+                        {isCurrentUser && (
+                          <Text style={styles.currentUserLabel}> (Dig)</Text>
+                        )}
+                        {isGroupAdmin && (
+                          <Text style={styles.adminLabel}> • Admin</Text>
+                        )}
+                      </Text>
+                    </View>
                     {member.isOnline ? (
                       <Text style={styles.memberStatus}>Online</Text>
                     ) : (
                       <Text style={styles.memberStatusOffline}>Offline</Text>
                     )}
                   </View>
-                  {member.isOnline && (
-                    <View style={styles.onlineBadge}>
-                      <View style={styles.onlineDot} />
-                    </View>
-                  )}
-                </View>
+                  <Icon name="chevron-forward" size={20} color="#C7C7CC" />
+                </TouchableOpacity>
               );
             })}
           </View>
@@ -232,6 +305,40 @@ const styles = StyleSheet.create({
   headerRight: {
     width: 32,
   },
+  editButton: {
+    padding: 4,
+  },
+  planWorkoutButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#007AFF',
+    paddingVertical: 16,
+    paddingHorizontal: 24,
+    borderRadius: 12,
+    marginBottom: 24,
+    shadowColor: '#007AFF',
+    shadowOffset: {width: 0, height: 4},
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 4,
+    gap: 8,
+  },
+  planWorkoutButtonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#fff',
+  },
+  memberNameRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+  },
+  adminLabel: {
+    fontSize: 14,
+    fontWeight: '400',
+    color: '#FF9500',
+  },
   content: {
     flex: 1,
   },
@@ -260,6 +367,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 16,
+    position: 'relative',
+    overflow: 'hidden',
+  },
+  groupImage: {
+    width: '100%',
+    height: '100%',
+  },
+  privateBadge: {
+    position: 'absolute',
+    top: 4,
+    right: 4,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    borderRadius: 12,
+    padding: 4,
   },
   groupName: {
     fontSize: 24,

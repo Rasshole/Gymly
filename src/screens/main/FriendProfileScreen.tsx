@@ -1,177 +1,269 @@
 /**
  * Friend Profile Screen
- * Shows a friend's profile with mutual friends and gyms
+ * Shows another user's profile
  */
 
-import React from 'react';
-import {View, Text, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
-import {useNavigation, useRoute, RouteProp} from '@react-navigation/native';
+import React, {useMemo, useState} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+  SafeAreaView,
+} from 'react-native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {useAppStore} from '@/store/appStore';
 
-type FriendProfileRouteParams = {
-  friendId: string;
-  friendName: string;
-  mutualFriends: number;
-  gyms: string[];
+// Mock user data - in real app, this would come from API/store
+const getMockUserById = (userId: string) => {
+  const mockUsers: Record<string, any> = {
+    '1': {
+      id: '1',
+      displayName: 'Jeff',
+      username: 'jeff_fitness',
+      profileImageUrl: undefined,
+      favoriteGyms: [497381657],
+    },
+    '2': {
+      id: '2',
+      displayName: 'Marie',
+      username: 'marie_training',
+      profileImageUrl: undefined,
+      favoriteGyms: [1112453804],
+    },
+    '3': {
+      id: '3',
+      displayName: 'Lars',
+      username: 'lars_strength',
+      profileImageUrl: undefined,
+      favoriteGyms: [898936694],
+    },
+    '4': {
+      id: '4',
+      displayName: 'Sofia',
+      username: 'sofia_fit',
+      profileImageUrl: undefined,
+      favoriteGyms: [497381657],
+    },
+    '5': {
+      id: '5',
+      displayName: 'Jens',
+      username: 'jens_workout',
+      profileImageUrl: undefined,
+      favoriteGyms: [1112453804],
+    },
+  };
+  return mockUsers[userId] || null;
 };
 
-type FriendProfileRouteProp = RouteProp<{FriendProfile: FriendProfileRouteParams}, 'FriendProfile'>;
-type FriendProfileNavigationProp = StackNavigationProp<any>;
-
 const FriendProfileScreen = () => {
-  const navigation = useNavigation<FriendProfileNavigationProp>();
-  const route = useRoute<FriendProfileRouteProp>();
-  const {friendId, friendName, mutualFriends, gyms} = route.params;
+  const navigation = useNavigation<StackNavigationProp<any>>();
+  const route = useRoute();
+  const {userId} = (route.params as any) || {};
+  const {user: currentUser} = useAppStore();
+
+  const friendUser = useMemo(() => {
+    if (!userId) return null;
+    return getMockUserById(userId);
+  }, [userId]);
+
+  if (!friendUser) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.header}>
+          <TouchableOpacity
+            onPress={() => navigation.goBack()}
+            style={styles.backButton}>
+            <Icon name="arrow-back" size={24} color="#000" />
+          </TouchableOpacity>
+          <Text style={styles.headerTitle}>Profil</Text>
+          <View style={styles.headerRight} />
+        </View>
+        <View style={styles.errorContainer}>
+          <Text style={styles.errorText}>Bruger ikke fundet</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  const isCurrentUser = currentUser?.id === friendUser.id;
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity
-          style={styles.backButton}
           onPress={() => navigation.goBack()}
-          activeOpacity={0.7}>
-          <Icon name="arrow-back" size={24} color="#0F172A" />
+          style={styles.backButton}>
+          <Icon name="arrow-back" size={24} color="#000" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Profil</Text>
         <View style={styles.headerRight} />
       </View>
 
-      <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        style={styles.content}
+        contentContainerStyle={styles.contentContainer}>
+        {/* Profile Header */}
         <View style={styles.profileHeader}>
-          <View style={styles.avatar}>
-            <Text style={styles.avatarText}>{friendName.charAt(0)}</Text>
+          <View style={styles.avatarContainer}>
+            {friendUser.profileImageUrl ? (
+              <Image
+                source={{uri: friendUser.profileImageUrl}}
+                style={styles.avatar}
+              />
+            ) : (
+              <View style={styles.avatarPlaceholder}>
+                <Text style={styles.avatarPlaceholderText}>
+                  {friendUser.displayName.charAt(0).toUpperCase()}
+                </Text>
+              </View>
+            )}
           </View>
-          <Text style={styles.name}>{friendName}</Text>
+          <Text style={styles.displayName}>{friendUser.displayName}</Text>
+          <Text style={styles.username}>@{friendUser.username}</Text>
         </View>
 
-        <View style={styles.section}>
-          <View style={styles.sectionHeader}>
-            <Icon name="people-outline" size={20} color="#007AFF" />
-            <Text style={styles.sectionTitle}>Fælles venner</Text>
-          </View>
-          <Text style={styles.sectionContent}>
-            Du har {mutualFriends} {mutualFriends === 1 ? 'fælles ven' : 'fælles venner'} med {friendName}
+        {/* Action Buttons */}
+        <View style={styles.actionButtons}>
+          <TouchableOpacity
+            style={styles.messageButton}
+            onPress={() => {
+              navigation.navigate('Chat', {
+                friendId: friendUser.id,
+                friendName: friendUser.displayName,
+              });
+            }}
+            activeOpacity={0.8}>
+            <Icon name="chatbubble-outline" size={20} color="#007AFF" />
+            <Text style={styles.messageButtonText}>Beskeder</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Placeholder for stats and content */}
+        <View style={styles.statsPlaceholder}>
+          <Icon name="fitness-outline" size={48} color="#C7C7CC" />
+          <Text style={styles.placeholderText}>
+            Profilindhold kommer snart
           </Text>
         </View>
-
-        <View style={styles.section}>
-          <View style={styles.sectionHeader}>
-            <Icon name="fitness-outline" size={20} color="#007AFF" />
-            <Text style={styles.sectionTitle}>Træner i</Text>
-          </View>
-          {gyms.length > 0 ? (
-            <View style={styles.gymsList}>
-              {gyms.map((gym, index) => (
-                <View key={index} style={styles.gymItem}>
-                  <Icon name="location-outline" size={16} color="#64748B" />
-                  <Text style={styles.gymText}>{gym}</Text>
-                </View>
-              ))}
-            </View>
-          ) : (
-            <Text style={styles.sectionContent}>Ingen centre registreret</Text>
-          )}
-        </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8FAFC',
+    backgroundColor: '#F8F9FA',
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
-    paddingTop: 16,
-    paddingBottom: 12,
+    paddingVertical: 12,
     backgroundColor: '#fff',
     borderBottomWidth: 1,
-    borderBottomColor: '#E2E8F0',
+    borderBottomColor: '#E5E5EA',
   },
   backButton: {
-    padding: 8,
-    marginLeft: -8,
+    padding: 4,
   },
   headerTitle: {
     fontSize: 18,
-    fontWeight: '700',
-    color: '#0F172A',
+    fontWeight: '600',
+    color: '#000',
   },
   headerRight: {
-    width: 40,
+    width: 32,
   },
   content: {
     flex: 1,
   },
-  profileHeader: {
-    alignItems: 'center',
-    paddingVertical: 32,
-    backgroundColor: '#fff',
-    borderBottomWidth: 1,
-    borderBottomColor: '#E2E8F0',
+  contentContainer: {
+    padding: 16,
+    paddingBottom: 32,
   },
-  avatar: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    backgroundColor: '#E0E7FF',
+  errorContainer: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  errorText: {
+    fontSize: 16,
+    color: '#8E8E93',
+  },
+  profileHeader: {
+    alignItems: 'center',
+    marginBottom: 24,
+    paddingVertical: 24,
+  },
+  avatarContainer: {
     marginBottom: 16,
   },
-  avatarText: {
-    fontSize: 42,
-    fontWeight: '700',
-    color: '#4338CA',
+  avatar: {
+    width: 96,
+    height: 96,
+    borderRadius: 48,
   },
-  name: {
+  avatarPlaceholder: {
+    width: 96,
+    height: 96,
+    borderRadius: 48,
+    backgroundColor: '#C7C7CC',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  avatarPlaceholderText: {
+    fontSize: 36,
+    fontWeight: 'bold',
+    color: '#fff',
+  },
+  displayName: {
     fontSize: 24,
-    fontWeight: '700',
-    color: '#0F172A',
+    fontWeight: 'bold',
+    color: '#000',
+    marginBottom: 4,
   },
-  section: {
-    backgroundColor: '#fff',
-    padding: 20,
-    marginTop: 12,
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
-    borderColor: '#E2E8F0',
+  username: {
+    fontSize: 16,
+    color: '#8E8E93',
   },
-  sectionHeader: {
+  actionButtons: {
+    flexDirection: 'row',
+    gap: 12,
+    marginBottom: 24,
+  },
+  messageButton: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#E3F2FD',
+    paddingVertical: 12,
+    borderRadius: 12,
     gap: 8,
-    marginBottom: 12,
   },
-  sectionTitle: {
+  messageButtonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#0F172A',
+    color: '#007AFF',
   },
-  sectionContent: {
-    fontSize: 14,
-    color: '#64748B',
-    lineHeight: 20,
-  },
-  gymsList: {
-    gap: 12,
-  },
-  gymItem: {
-    flexDirection: 'row',
+  statsPlaceholder: {
     alignItems: 'center',
-    gap: 8,
+    justifyContent: 'center',
+    paddingVertical: 48,
   },
-  gymText: {
-    fontSize: 14,
-    color: '#0F172A',
+  placeholderText: {
+    fontSize: 16,
+    color: '#8E8E93',
+    marginTop: 16,
   },
 });
 
 export default FriendProfileScreen;
-
