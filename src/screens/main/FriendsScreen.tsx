@@ -3,7 +3,7 @@
  * Shows list of friends and who is currently online/active at gyms
  */
 
-import React, {useState} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import {
   View,
   Text,
@@ -13,10 +13,14 @@ import {
   TextInput,
   Image,
   Alert,
+  ScrollView,
+  Animated,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {useAppStore} from '@/store/appStore';
+import NotificationService from '@/services/notifications/NotificationService';
 
 type Friend = {
   id: string;
@@ -37,7 +41,7 @@ const mockFriends: Friend[] = [
     name: 'Jeff',
     isOnline: true,
     activeTime: '00:15:30',
-    gymName: 'PureGym',
+    gymName: 'PureGym Esromgade',
     muscleGroup: 'Bryst & Triceps',
     checkInTime: new Date(Date.now() - 15 * 60 * 1000), // 15 minutes ago
   },
@@ -52,7 +56,7 @@ const mockFriends: Friend[] = [
     name: 'Lars',
     isOnline: true,
     activeTime: '00:05:12',
-    gymName: 'SATS',
+    gymName: 'SATS KBH - Valby',
     muscleGroup: 'Ben & Ryg',
     checkInTime: new Date(Date.now() - 5 * 60 * 1000), // 5 minutes ago (newer check-in)
   },
@@ -65,8 +69,10 @@ const mockFriends: Friend[] = [
 ];
 
 const FriendsScreen = () => {
-  const navigation = useNavigation<StackNavigationProp<any>>();
+  const navigation = useNavigation<any>();
+  const {user} = useAppStore();
   const [searchQuery, setSearchQuery] = useState('');
+  const [pendingJoinRequests, setPendingJoinRequests] = useState<Set<string>>(new Set());
 
   // Use mock friends for now
   const friends: Friend[] = mockFriends;
@@ -153,26 +159,26 @@ const FriendsScreen = () => {
   };
 
   const handleRequestJoin = (friend: Friend) => {
-    Alert.alert(
-      'Spørg om deltagelse',
-      `Vil du spørge ${friend.name} om du må deltage i deres træning?`,
-      [
-        {
-          text: 'Annuller',
-          style: 'cancel',
-        },
-        {
-          text: 'Spørg om deltagelse',
-          onPress: () => {
-            // TODO: Implement actual API call to send join request
-            Alert.alert(
-              'Anmodning sendt',
-              `Du har spurgt ${friend.name} om du må deltage i deres træning`,
-            );
-          },
-        },
-      ],
-    );
+    if (pendingJoinRequests.has(friend.id)) {
+      // Cancel request
+      setPendingJoinRequests(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(friend.id);
+        return newSet;
+      });
+    } else {
+      // Send join request
+      if (user) {
+        NotificationService.sendJoinRequest(
+          user.firstName || 'En ven',
+          friend.id,
+          friend.name,
+          friend.gymName,
+        );
+        
+        setPendingJoinRequests(prev => new Set(prev).add(friend.id));
+      }
+    }
   };
 
   const renderEmptyState = () => (
@@ -186,6 +192,131 @@ const FriendsScreen = () => {
       </Text>
     </View>
   );
+
+  const AutoScrollingTextWrapper = ({
+    children,
+  }: {
+    children: (width: number) => React.ReactNode;
+  }) => {
+    const [containerWidth, setContainerWidth] = useState(250);
+
+    return (
+      <View
+        style={styles.activeTextWrapper}
+        onLayout={(event) => {
+          const {width} = event.nativeEvent.layout;
+          if (width > 0) {
+            setContainerWidth(width);
+          }
+        }}>
+        {children(containerWidth)}
+      </View>
+    );
+  };
+
+  const AutoScrollingText = ({
+    text,
+    containerWidth,
+  }: {
+    text: string;
+    containerWidth: number;
+  }) => {
+    const scrollViewRef = useRef<ScrollView>(null);
+    const textWidthRef = useRef<number>(0);
+    const intervalRef = useRef<NodeJS.Timeout | null>(null);
+    const isHoldingRef = useRef<boolean>(false);
+    const scrollPositionRef = useRef<number>(0);
+    const directionRef = useRef<'forward' | 'backward'>('forward');
+    const [canScroll, setCanScroll] = useState(false);
+
+    useEffect(() => {
+      return () => {
+        if (intervalRef.current) {
+          clearInterval(intervalRef.current);
+        }
+      };
+    }, []);
+
+    const handleTextLayout = (event: any) => {
+      const {width} = event.nativeEvent.layout;
+      textWidthRef.current = width;
+      if (width > containerWidth * 0.9) {
+        setCanScroll(true);
+      }
+    };
+
+    const startLoopScroll = () => {
+      if (!canScroll || textWidthRef.current <= containerWidth || isHoldingRef.current) {
+        return;
+      }
+
+      isHoldingRef.current = true;
+      const scrollDistance = textWidthRef.current - containerWidth;
+      const scrollStep = 2; // Pixels per interval
+      const scrollInterval = 16; // ~60fps
+
+      intervalRef.current = setInterval(() => {
+        if (!isHoldingRef.current) {
+          if (intervalRef.current) {
+            clearInterval(intervalRef.current);
+            intervalRef.current = null;
+          }
+          return;
+        }
+
+        scrollPositionRef.current += directionRef.current === 'forward' ? scrollStep : -scrollStep;
+
+        if (scrollPositionRef.current >= scrollDistance) {
+          scrollPositionRef.current = scrollDistance;
+          directionRef.current = 'backward';
+        } else if (scrollPositionRef.current <= 0) {
+          scrollPositionRef.current = 0;
+          directionRef.current = 'forward';
+        }
+
+        scrollViewRef.current?.scrollTo({
+          x: scrollPositionRef.current,
+          animated: false,
+        });
+      }, scrollInterval);
+    };
+
+    const stopLoopScroll = () => {
+      isHoldingRef.current = false;
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+      // Scroll back to start smoothly
+      scrollPositionRef.current = 0;
+      directionRef.current = 'forward';
+      scrollViewRef.current?.scrollTo({x: 0, animated: true});
+    };
+
+    return (
+      <TouchableOpacity
+        activeOpacity={1}
+        onPressIn={startLoopScroll}
+        onPressOut={stopLoopScroll}
+        style={styles.activeTextTouchContainer}>
+        <ScrollView
+          ref={scrollViewRef}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          style={[styles.activeTextContainer, {maxWidth: containerWidth}]}
+          contentContainerStyle={styles.activeTextContent}
+          nestedScrollEnabled
+          scrollEnabled={false}>
+          <Text
+            style={styles.activeText}
+            onLayout={handleTextLayout}
+            numberOfLines={1}>
+            {text}
+          </Text>
+        </ScrollView>
+      </TouchableOpacity>
+    );
+  };
 
   const renderFriendItem = ({item}: {item: Friend}) => (
     <View style={styles.friendItem}>
@@ -237,10 +368,14 @@ const FriendsScreen = () => {
             )}
           </View>
           {item.isOnline && item.activeTime && (
-            <Text style={styles.activeText} numberOfLines={1}>
-              {formatActiveTime(item.activeTime)}
-              {item.gymName && ` (${item.gymName})`}
-            </Text>
+            <AutoScrollingTextWrapper>
+              {(containerWidth) => (
+                <AutoScrollingText
+                  text={`${formatActiveTime(item.activeTime)}${item.gymName ? ` (${item.gymName})` : ''}`}
+                  containerWidth={containerWidth}
+                />
+              )}
+            </AutoScrollingTextWrapper>
           )}
           {!item.isOnline && (
             <Text style={styles.offlineText} numberOfLines={1}>
@@ -251,10 +386,19 @@ const FriendsScreen = () => {
       </TouchableOpacity>
       {item.isOnline && (
         <TouchableOpacity
-          style={styles.requestButton}
+          style={[
+            styles.requestButton,
+            pendingJoinRequests.has(item.id) && styles.requestButtonPending,
+          ]}
           onPress={() => handleRequestJoin(item)}
           activeOpacity={0.7}>
-          <Text style={styles.requestButtonText}>Deltag</Text>
+          <Text
+            style={[
+              styles.requestButtonText,
+              pendingJoinRequests.has(item.id) && styles.requestButtonTextPending,
+            ]}>
+            {pendingJoinRequests.has(item.id) ? 'Anmodet' : 'Deltag'}
+          </Text>
         </TouchableOpacity>
       )}
     </View>
@@ -392,6 +536,11 @@ const styles = StyleSheet.create({
   },
   friendInfo: {
     flex: 1,
+    minWidth: 0, // Allow text to shrink
+  },
+  activeTextWrapper: {
+    flex: 1,
+    minWidth: 0,
   },
   friendHeader: {
     flexDirection: 'row',
@@ -420,6 +569,16 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     backgroundColor: '#34C759',
   },
+  activeTextTouchContainer: {
+    flex: 1,
+    minWidth: 0,
+  },
+  activeTextContainer: {
+    maxWidth: '100%',
+  },
+  activeTextContent: {
+    paddingRight: 4,
+  },
   activeText: {
     fontSize: 14,
     color: '#8E8E93',
@@ -437,11 +596,17 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     marginLeft: 8,
   },
+  requestButtonPending: {
+    backgroundColor: '#F0F0F0',
+  },
   requestButtonText: {
     fontSize: 14,
     fontWeight: '600',
     color: '#007AFF',
     marginLeft: 4,
+  },
+  requestButtonTextPending: {
+    color: '#8E8E93',
   },
   emptyContainer: {
     flex: 1,
