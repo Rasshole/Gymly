@@ -18,6 +18,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {useAppStore} from '@/store/appStore';
 import {usePrivacyStore} from '@/store/privacyStore';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {colors} from '@/theme/colors';
 
 const SettingsScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
@@ -483,7 +484,7 @@ const SettingsScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
   },
   scrollView: {
     flex: 1,
@@ -493,11 +494,11 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
   section: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 16,
     marginBottom: 16,
     padding: 16,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 8,
@@ -506,7 +507,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 16,
   },
   settingItem: {
@@ -523,12 +524,12 @@ const styles = StyleSheet.create({
   settingTitle: {
     fontSize: 16,
     fontWeight: '500',
-    color: '#000',
+    color: colors.text,
     marginBottom: 2,
   },
   settingDescription: {
     fontSize: 14,
-    color: '#666',
+    color: colors.textSecondary,
   },
   connectAppItem: {
     flexDirection: 'row',
@@ -542,7 +543,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 8,
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -553,12 +554,12 @@ const styles = StyleSheet.create({
   connectAppTitle: {
     fontSize: 16,
     fontWeight: '500',
-    color: '#000',
+    color: colors.text,
     marginBottom: 4,
   },
   connectAppDescription: {
     fontSize: 14,
-    color: '#666',
+    color: colors.textSecondary,
     lineHeight: 20,
   },
   actionItem: {
@@ -575,7 +576,7 @@ const styles = StyleSheet.create({
   },
   valueText: {
     fontSize: 16,
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginRight: 4,
   },
   newBadge: {
@@ -598,12 +599,12 @@ const styles = StyleSheet.create({
   actionTitle: {
     fontSize: 16,
     fontWeight: '500',
-    color: '#000',
+    color: colors.text,
     marginBottom: 2,
   },
   actionDescription: {
     fontSize: 14,
-    color: '#666',
+    color: colors.textSecondary,
   },
   dangerItem: {},
   dangerText: {
@@ -616,16 +617,16 @@ const styles = StyleSheet.create({
   },
   infoLabel: {
     fontSize: 14,
-    color: '#666',
+    color: colors.textSecondary,
     marginBottom: 4,
   },
   infoValue: {
     fontSize: 16,
     fontWeight: '500',
-    color: '#000',
+    color: colors.text,
   },
   logoutButton: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     padding: 16,
     borderRadius: 12,
     alignItems: 'center',

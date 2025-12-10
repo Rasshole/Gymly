@@ -20,6 +20,7 @@ import {AuthStackParamList} from '@/navigation/AuthNavigator';
 import AuthService from '@/services/auth/AuthService';
 import Icon from 'react-native-vector-icons/Ionicons';
 import GymlyLogo from '@/components/GymlyLogo';
+import {colors} from '@/theme/colors';
 
 type ForgotPasswordScreenNavigationProp = StackNavigationProp<
   AuthStackParamList,
@@ -128,7 +129,7 @@ const ForgotPasswordScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
   },
   content: {
     flex: 1,
@@ -153,26 +154,26 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
     marginBottom: 8,
   },
   subtitle: {
     fontSize: 16,
-    color: '#666',
+    color: colors.textSecondary,
     lineHeight: 24,
   },
   form: {},
   input: {
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
     padding: 16,
     borderRadius: 12,
     fontSize: 16,
     marginBottom: 16,
     borderWidth: 1,
-    borderColor: '#E5E5EA',
+    borderColor: colors.border,
   },
   resetButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     padding: 18,
     borderRadius: 12,
     alignItems: 'center',
@@ -192,19 +193,19 @@ const styles = StyleSheet.create({
   successTitle: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
     textAlign: 'center',
     marginBottom: 12,
   },
   successText: {
     fontSize: 16,
-    color: '#666',
+    color: colors.textSecondary,
     textAlign: 'center',
     marginBottom: 32,
     lineHeight: 24,
   },
   backButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     padding: 18,
     borderRadius: 12,
     alignItems: 'center',

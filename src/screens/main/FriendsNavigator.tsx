@@ -10,6 +10,7 @@ import FriendsScreen from './FriendsScreen';
 import GroupsScreen from './GroupsScreen';
 import CentresScreen from './CentresScreen';
 import MapScreen from './MapScreen';
+import {colors} from '@/theme/colors';
 
 export type FriendsTabParamList = {
   Venner: undefined;
@@ -119,11 +120,11 @@ const FriendsNavigator = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
   },
   tabBarContainer: {
     flexDirection: 'row',
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderBottomWidth: 1,
     borderBottomColor: '#E5E5EA',
     paddingHorizontal: 16,
@@ -138,11 +139,11 @@ const styles = StyleSheet.create({
   tabLabel: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#8E8E93',
+    color: colors.textMuted,
     textTransform: 'none',
   },
   tabLabelActive: {
-    color: '#000',
+    color: colors.text,
   },
   tabIndicator: {
     position: 'absolute',

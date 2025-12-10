@@ -22,11 +22,13 @@ import {AuthStackParamList} from '@/navigation/AuthNavigator';
 import {useAppStore} from '@/store/appStore';
 import AuthService from '@/services/auth/AuthService';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import GymlyLogo from '@/components/GymlyLogo';
 import danishGyms, {DanishGym, DanishRegion} from '@/data/danishGyms';
+import {colors} from '@/theme/colors';
 
 type RegisterScreenNavigationProp = StackNavigationProp<AuthStackParamList, 'Register'>;
-type Step = 'method' | 'names' | 'email' | 'password' | 'location' | 'verification' | 'photo';
+type Step = 'method' | 'names' | 'email' | 'password' | 'location' | 'verification' | 'username' | 'photo';
 type RegistrationMethod = 'apple' | 'google' | 'email';
 
 type SocialButtonProps = {
@@ -72,6 +74,7 @@ const stepOrder: Step[] = [
   'password',
   'location',
   'verification',
+  'username',
   'photo',
 ];
 
@@ -93,8 +96,13 @@ const RegisterScreen = () => {
   const [showGymSuggestions, setShowGymSuggestions] = useState(false);
   const [allowLocation, setAllowLocation] = useState(false);
   const [verificationCode, setVerificationCode] = useState('');
+  const [username, setUsername] = useState('');
+  const [selectedBiceps, setSelectedBiceps] = useState<string>('💪🏻');
   const [photoSelected, setPhotoSelected] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [passwordErrors, setPasswordErrors] = useState<string[]>([]);
+  
+  const bicepsOptions = ['💪🏻', '💪🏼', '💪🏽', '💪🏾', '💪🏿', '🦾'];
 
   const fullName = `${firstName.trim()} ${lastName.trim()}`.trim();
 
@@ -111,11 +119,13 @@ const RegisterScreen = () => {
           ? 'Vi har fundet din Google mail – du kan redigere den her'
           : 'Tilføj den mail du vil bruge til Gymly';
       case 'password':
-        return 'Adgangskoden skal være mere end 6 tegn';
+        return 'Adgangskoden skal være mindst 8 tegn, indeholde store og små bogstaver samt tal';
       case 'location':
         return 'Vælg din beliggenhed og dit lokale træningscenter';
       case 'verification':
         return `Vi har sendt en kode til ${email || 'din mail'}`;
+      case 'username':
+        return 'Vælg et brugernavn, som andre kan se';
       case 'photo':
         return 'Læg et billede op, så folk kan genkende dig';
       default:
@@ -204,9 +214,37 @@ const RegisterScreen = () => {
     setStep('password');
   };
 
+  const validatePassword = (pwd: string): string[] => {
+    const errors: string[] = [];
+    if (pwd.length < 8) {
+      errors.push('Mindst 8 tegn');
+    }
+    if (!/[A-Z]/.test(pwd)) {
+      errors.push('Mindst ét stort bogstav');
+    }
+    if (!/[a-z]/.test(pwd)) {
+      errors.push('Mindst ét lille bogstav');
+    }
+    if (!/[0-9]/.test(pwd)) {
+      errors.push('Mindst ét tal');
+    }
+    return errors;
+  };
+
+  const handlePasswordChange = (text: string) => {
+    setPassword(text);
+    if (text.length > 0) {
+      const errors = validatePassword(text);
+      setPasswordErrors(errors);
+    } else {
+      setPasswordErrors([]);
+    }
+  };
+
   const handlePasswordContinue = () => {
-    if (password.length < 6) {
-      Alert.alert('For kort adgangskode', 'Adgangskoden skal være mindst 6 tegn.');
+    const errors = validatePassword(password);
+    if (errors.length > 0) {
+      Alert.alert('Adgangskoden opfylder ikke kravene', errors.join('\n'));
       return;
     }
 
@@ -245,12 +283,25 @@ const RegisterScreen = () => {
   };
 
   const handleSkipVerification = () => {
-    setStep('photo');
+    setStep('username');
   };
 
   const handleVerificationContinue = () => {
     if (verificationCode.length !== 6) {
       Alert.alert('Ugyldig kode', 'Indtast din 6-cifrede kode.');
+      return;
+    }
+
+    setStep('username');
+  };
+
+  const handleUsernameContinue = () => {
+    if (!username.trim()) {
+      Alert.alert('Manglende brugernavn', 'Indtast et brugernavn.');
+      return;
+    }
+    if (username.trim().length < 3) {
+      Alert.alert('For kort brugernavn', 'Brugernavnet skal være mindst 3 tegn.');
       return;
     }
 
@@ -275,6 +326,12 @@ const RegisterScreen = () => {
       return;
     }
 
+    if (!username.trim()) {
+      Alert.alert('Manglende brugernavn', 'Tilføj et brugernavn.');
+      setStep('username');
+      return;
+    }
+
     setIsLoading(true);
     try {
       // Get the selected gym ID if a gym was selected
@@ -296,9 +353,10 @@ const RegisterScreen = () => {
       if (method === 'email') {
         const {user, tokens} = await AuthService.register({
           email,
-          username: email.split('@')[0],
+          username: username.trim(),
           displayName: fullName || email,
           password,
+          bicepsEmoji: selectedBiceps,
           gdprConsent: {
             privacyPolicyAccepted: true,
             termsOfServiceAccepted: true,
@@ -316,6 +374,8 @@ const RegisterScreen = () => {
         firstName: firstName.trim(),
         lastName: lastName.trim(),
         email: email.trim(),
+        username: username.trim(),
+        bicepsEmoji: selectedBiceps,
         favoriteGyms: favoriteGymId ? [favoriteGymId] : undefined,
       });
 
@@ -410,14 +470,48 @@ const RegisterScreen = () => {
           <View style={styles.card}>
             <TextInput style={styles.input} value={email} editable={false} selectTextOnFocus={false} />
             <TextInput
-              style={styles.input}
+              style={[
+                styles.input,
+                password.length > 0 && passwordErrors.length > 0 && styles.inputError,
+                password.length > 0 && passwordErrors.length === 0 && styles.inputValid,
+              ]}
               placeholder="Password"
               value={password}
-              onChangeText={setPassword}
+              onChangeText={handlePasswordChange}
               secureTextEntry
             />
-            <Text style={styles.helperText}>Adgangskoden skal være mere end 6 tegn</Text>
-            <TouchableOpacity style={styles.primaryButton} onPress={handlePasswordContinue} activeOpacity={0.85}>
+            {password.length > 0 && (
+              <View style={styles.passwordRequirements}>
+                {passwordErrors.length > 0 ? (
+                  <View>
+                    {passwordErrors.map((error, index) => (
+                      <View key={index} style={styles.passwordErrorItem}>
+                        <Icon name="close-circle" size={16} color="#EF4444" />
+                        <Text style={styles.passwordErrorText}>{error}</Text>
+                      </View>
+                    ))}
+                  </View>
+                ) : (
+                  <View style={styles.passwordSuccessItem}>
+                    <Icon name="checkmark-circle" size={16} color="#10B981" />
+                    <Text style={styles.passwordSuccessText}>Adgangskoden opfylder alle krav</Text>
+                  </View>
+                )}
+              </View>
+            )}
+            {password.length === 0 && (
+              <Text style={styles.helperText}>
+                Adgangskoden skal være mindst 8 tegn, indeholde store og små bogstaver samt tal
+              </Text>
+            )}
+            <TouchableOpacity
+              style={[
+                styles.primaryButton,
+                passwordErrors.length > 0 && styles.primaryButtonDisabled,
+              ]}
+              onPress={handlePasswordContinue}
+              activeOpacity={0.85}
+              disabled={passwordErrors.length > 0}>
               <Text style={styles.primaryButtonText}>Fortsæt</Text>
             </TouchableOpacity>
           </View>
@@ -513,6 +607,43 @@ const RegisterScreen = () => {
             </TouchableOpacity>
           </View>
         );
+      case 'username':
+        return (
+          <View style={styles.card}>
+            <TextInput
+              style={styles.input}
+              placeholder="Brugernavn"
+              value={username}
+              onChangeText={setUsername}
+              autoCapitalize="none"
+              autoCorrect={false}
+              textContentType="username"
+              returnKeyType="done"
+              onSubmitEditing={handleUsernameContinue}
+            />
+            <Text style={styles.helperText}>Brugernavnet skal være mindst 3 tegn</Text>
+            
+            <Text style={styles.sectionLabel}>Vælg din biceps emoji</Text>
+            <View style={styles.bicepsGrid}>
+              {bicepsOptions.map((emoji) => (
+                <TouchableOpacity
+                  key={emoji}
+                  style={[
+                    styles.bicepsOption,
+                    selectedBiceps === emoji && styles.bicepsOptionSelected,
+                  ]}
+                  onPress={() => setSelectedBiceps(emoji)}
+                  activeOpacity={0.7}>
+                  <Text style={styles.bicepsEmojiOption}>{emoji}</Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+            
+            <TouchableOpacity style={styles.primaryButton} onPress={handleUsernameContinue} activeOpacity={0.85}>
+              <Text style={styles.primaryButtonText}>Fortsæt</Text>
+            </TouchableOpacity>
+          </View>
+        );
       case 'photo':
         return (
           <View style={styles.photoSection}>
@@ -573,6 +704,8 @@ const RegisterScreen = () => {
             ? 'Hvor træner du henne?'
             : step === 'verification'
             ? 'Indtast din verifikationskode'
+            : step === 'username'
+            ? 'Vælg brugernavn'
             : 'Tilføj et foto'
         }</Text>
         <Text style={styles.subtitle}>{subtitleCopy}</Text>
@@ -600,7 +733,7 @@ const RegisterScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
   },
   content: {
     padding: 24,
@@ -612,7 +745,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: '#EEF2FF',
+    backgroundColor: colors.surfaceLight,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 12,
@@ -623,19 +756,19 @@ const styles = StyleSheet.create({
   },
   stepCounter: {
     textAlign: 'center',
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 14,
     marginBottom: 4,
   },
   title: {
     fontSize: 28,
     fontWeight: '700',
-    color: '#0F172A',
+    color: colors.text,
     textAlign: 'center',
   },
   subtitle: {
     textAlign: 'center',
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 15,
     marginBottom: 16,
   },
@@ -650,7 +783,7 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     paddingHorizontal: 18,
     borderWidth: 1,
-    borderColor: '#E5E5EA',
+    borderColor: colors.border,
   },
   emailButton: {
     flexDirection: 'row',
@@ -692,12 +825,20 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   input: {
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
     padding: 16,
     borderRadius: 12,
     fontSize: 16,
     borderWidth: 1,
-    borderColor: '#E5E5EA',
+    borderColor: colors.border,
+  },
+  inputError: {
+    borderColor: '#EF4444',
+    borderWidth: 2,
+  },
+  inputValid: {
+    borderColor: '#10B981',
+    borderWidth: 2,
   },
   inputWrapper: {
     position: 'relative',
@@ -706,11 +847,15 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   primaryButton: {
-    backgroundColor: '#3B82F6',
+    backgroundColor: colors.secondary,
     paddingVertical: 16,
     borderRadius: 16,
     alignItems: 'center',
     marginTop: 4,
+  },
+  primaryButtonDisabled: {
+    backgroundColor: colors.textTertiary || '#9CA3AF',
+    opacity: 0.6,
   },
   finishButton: {
     width: '100%',
@@ -722,13 +867,37 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   helperText: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 13,
+  },
+  passwordRequirements: {
+    marginTop: 8,
+    marginBottom: 4,
+  },
+  passwordErrorItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginBottom: 6,
+  },
+  passwordErrorText: {
+    color: '#EF4444',
+    fontSize: 13,
+  },
+  passwordSuccessItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  passwordSuccessText: {
+    color: '#10B981',
+    fontSize: 13,
+    fontWeight: '600',
   },
   sectionLabel: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#0F172A',
+    color: colors.text,
     marginBottom: 8,
   },
   regionList: {
@@ -742,15 +911,15 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 999,
     borderWidth: 1,
-    borderColor: '#E5E7EB',
-    backgroundColor: '#fff',
+    borderColor: colors.border,
+    backgroundColor: colors.backgroundCard,
   },
   regionChipActive: {
     backgroundColor: '#DBEAFE',
     borderColor: '#3B82F6',
   },
   regionChipText: {
-    color: '#0F172A',
+    color: colors.text,
     fontSize: 15,
   },
   regionChipTextActive: {
@@ -764,12 +933,12 @@ const styles = StyleSheet.create({
     top: '100%',
     marginTop: 4,
     borderWidth: 1,
-    borderColor: '#E5E5EA',
+    borderColor: colors.border,
     borderRadius: 12,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     maxHeight: 200,
     zIndex: 10,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOpacity: 0.08,
     shadowRadius: 8,
     elevation: 3,
@@ -783,11 +952,11 @@ const styles = StyleSheet.create({
   suggestionTitle: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#0F172A',
+    color: colors.text,
   },
   suggestionSubtitle: {
     fontSize: 13,
-    color: '#6B7280',
+    color: colors.textSecondary,
   },
   toggleRow: {
     flexDirection: 'row',
@@ -796,7 +965,7 @@ const styles = StyleSheet.create({
   },
   toggleLabel: {
     fontSize: 15,
-    color: '#0F172A',
+    color: colors.text,
     flex: 1,
     marginRight: 12,
   },
@@ -812,7 +981,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   secondaryLinkText: {
-    color: '#2563EB',
+    color: colors.secondary,
     fontSize: 15,
     fontWeight: '600',
   },
@@ -824,24 +993,24 @@ const styles = StyleSheet.create({
     width: 160,
     height: 160,
     borderRadius: 80,
-    backgroundColor: '#E5E7EB',
+    backgroundColor: colors.surface,
     justifyContent: 'center',
     alignItems: 'center',
   },
   photoHelper: {
     marginTop: 12,
     fontSize: 14,
-    color: '#6B7280',
+    color: colors.textSecondary,
   },
   gdprText: {
     textAlign: 'center',
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 13,
     lineHeight: 18,
     marginTop: 8,
   },
   linkHighlight: {
-    color: '#2563EB',
+    color: colors.secondary,
     fontWeight: '600',
   },
   footer: {
@@ -851,13 +1020,36 @@ const styles = StyleSheet.create({
     marginTop: 24,
   },
   footerText: {
-    color: '#6B7280',
+    color: colors.textSecondary,
     fontSize: 15,
   },
   loginLink: {
-    color: '#007AFF',
+    color: colors.secondary,
     fontSize: 15,
     fontWeight: '600',
+  },
+  bicepsGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 12,
+    marginBottom: 16,
+  },
+  bicepsOption: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    backgroundColor: colors.background,
+    borderWidth: 2,
+    borderColor: colors.border,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  bicepsOptionSelected: {
+    borderColor: colors.secondary,
+    backgroundColor: colors.surfaceLight || '#E0E7FF',
+  },
+  bicepsEmojiOption: {
+    fontSize: 32,
   },
 });
 

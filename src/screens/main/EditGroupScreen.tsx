@@ -21,6 +21,7 @@ import {useNavigation, useRoute} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppStore} from '@/store/appStore';
+import {colors} from '@/theme/colors';
 
 type Friend = {
   id: string;
@@ -349,7 +350,7 @@ const EditGroupScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
   },
   header: {
     flexDirection: 'row',
@@ -357,7 +358,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingVertical: 12,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderBottomWidth: 1,
     borderBottomColor: '#E5E5EA',
   },
@@ -367,7 +368,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
   },
   headerRight: {
     width: 32,
@@ -378,7 +379,7 @@ const styles = StyleSheet.create({
   saveButtonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#007AFF',
+    color: colors.secondary,
   },
   content: {
     flex: 1,
@@ -394,7 +395,7 @@ const styles = StyleSheet.create({
   },
   errorText: {
     fontSize: 16,
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
   imageSection: {
     alignItems: 'center',
@@ -406,7 +407,7 @@ const styles = StyleSheet.create({
     borderRadius: 60,
     overflow: 'hidden',
     borderWidth: 2,
-    borderColor: '#E5E5EA',
+    borderColor: colors.border,
     borderStyle: 'dashed',
   },
   groupImage: {
@@ -416,13 +417,13 @@ const styles = StyleSheet.create({
   imagePlaceholder: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
     justifyContent: 'center',
     alignItems: 'center',
   },
   imagePlaceholderText: {
     fontSize: 12,
-    color: '#007AFF',
+    color: colors.secondary,
     marginTop: 4,
     textAlign: 'center',
   },
@@ -432,17 +433,17 @@ const styles = StyleSheet.create({
   inputLabel: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 8,
   },
   input: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 12,
     padding: 16,
     fontSize: 16,
-    color: '#000',
+    color: colors.text,
     borderWidth: 1,
-    borderColor: '#E5E5EA',
+    borderColor: colors.border,
   },
   biographyInput: {
     minHeight: 100,
@@ -452,12 +453,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     padding: 16,
     borderRadius: 12,
     marginBottom: 24,
     borderWidth: 1,
-    borderColor: '#E5E5EA',
+    borderColor: colors.border,
   },
   privacyInfo: {
     flex: 1,
@@ -465,7 +466,7 @@ const styles = StyleSheet.create({
   },
   privacySubtext: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginTop: 4,
   },
   membersSection: {
@@ -474,16 +475,16 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 12,
   },
   memberSearchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: '#E5E5EA',
+    borderColor: colors.border,
     paddingHorizontal: 12,
     marginBottom: 12,
   },
@@ -493,14 +494,14 @@ const styles = StyleSheet.create({
   memberSearchInput: {
     flex: 1,
     fontSize: 16,
-    color: '#000',
+    color: colors.text,
     paddingVertical: 12,
   },
   clearButton: {
     padding: 4,
   },
   membersList: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 12,
     overflow: 'hidden',
   },
@@ -555,7 +556,7 @@ const styles = StyleSheet.create({
   memberName: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
   },
   adminLabel: {
     fontSize: 14,

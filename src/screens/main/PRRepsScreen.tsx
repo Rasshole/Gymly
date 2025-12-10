@@ -20,6 +20,7 @@ import {usePRStore} from '@/store/prStore';
 import {ExerciseType} from '@/types/pr.types';
 import AddPRScreen from './AddPRScreen';
 import AddRepScreen from './AddRepScreen';
+import {colors} from '@/theme/colors';
 
 type PRRepsScreenNavigationProp = StackNavigationProp<any>;
 
@@ -212,11 +213,11 @@ const PRRepsScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
   },
   tabContainer: {
     flexDirection: 'row',
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderBottomWidth: 1,
@@ -232,16 +233,16 @@ const styles = StyleSheet.create({
     marginHorizontal: 4,
   },
   tabActive: {
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
   },
   tabText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginLeft: 8,
   },
   tabTextActive: {
-    color: '#007AFF',
+    color: colors.secondary,
   },
   scrollView: {
     flex: 1,
@@ -250,11 +251,11 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   exerciseCard: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 16,
     padding: 20,
     marginBottom: 16,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 8,
@@ -269,7 +270,7 @@ const styles = StyleSheet.create({
   exerciseName: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
   },
   editButton: {
     padding: 4,
@@ -285,12 +286,12 @@ const styles = StyleSheet.create({
   prValue: {
     fontSize: 48,
     fontWeight: 'bold',
-    color: '#007AFF',
+    color: colors.secondary,
   },
   prUnit: {
     fontSize: 24,
     fontWeight: '600',
-    color: '#007AFF',
+    color: colors.secondary,
     marginLeft: 8,
   },
   videoContainer: {
@@ -299,7 +300,7 @@ const styles = StyleSheet.create({
   },
   videoText: {
     fontSize: 14,
-    color: '#007AFF',
+    color: colors.secondary,
     marginTop: 8,
     fontWeight: '600',
   },
@@ -310,7 +311,7 @@ const styles = StyleSheet.create({
   },
   noVideoText: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginTop: 8,
   },
   repsContent: {
@@ -323,21 +324,21 @@ const styles = StyleSheet.create({
   repsValue: {
     fontSize: 48,
     fontWeight: 'bold',
-    color: '#007AFF',
+    color: colors.secondary,
   },
   repsUnit: {
     fontSize: 24,
     fontWeight: '600',
-    color: '#007AFF',
+    color: colors.secondary,
   },
   repsLabel: {
     fontSize: 16,
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginTop: 4,
   },
   dateText: {
     fontSize: 12,
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginTop: 8,
   },
   emptyState: {
@@ -346,12 +347,12 @@ const styles = StyleSheet.create({
   },
   emptyText: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginTop: 12,
     marginBottom: 16,
   },
   addButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 20,

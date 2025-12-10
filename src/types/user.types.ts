@@ -9,6 +9,7 @@ export interface User {
   username: string;
   displayName: string;
   profileImageUrl?: string;
+  bicepsEmoji?: string; // User's chosen biceps emoji for likes
   
   // Privacy settings
   privacySettings: PrivacySettings;
@@ -75,6 +76,7 @@ export interface UserRegistration {
   username: string;
   displayName: string;
   password: string;
+  bicepsEmoji?: string; // User's chosen biceps emoji for likes
   gdprConsent: {
     privacyPolicyAccepted: boolean;
     termsOfServiceAccepted: boolean;

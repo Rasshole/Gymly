@@ -8,6 +8,7 @@ import {View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Switch, Ale
 import {useAppStore} from '@/store/appStore';
 import {useWorkoutStore} from '@/store/workoutStore';
 import {usePRStore} from '@/store/prStore';
+import {useFeedStore} from '@/store/feedStore';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -15,6 +16,7 @@ import FavoriteGymsSelector from './FavoriteGymsSelector';
 import danishGyms, {DanishGym} from '@/data/danishGyms';
 import {getGymLogo, hasGymLogo} from '@/utils/gymLogos';
 import {PersonalRecord, RepRecord} from '@/types/pr.types';
+import {colors} from '@/theme/colors';
 
 // Component for rendering favorite gym with logo
 const FavoriteGymItem = ({gym, index}: {gym: DanishGym; index: number}) => {
@@ -112,6 +114,13 @@ const ProfileScreen = () => {
   const {getAllPRs, getAllRepRecords} = usePRStore();
   const allPRs = getAllPRs();
   const allRepRecords = getAllRepRecords();
+  const {feedItems, deleteFeedItem} = useFeedStore();
+  
+  // Filter feed items to only show current user's posts
+  const userFeedItems = useMemo(() => {
+    const currentUser = user?.displayName || user?.username || 'Du';
+    return feedItems.filter(item => item.user === currentUser || item.user === 'Du');
+  }, [feedItems, user]);
 
   const favoriteGyms = useMemo(() => {
     if (!user?.favoriteGyms) return [];
@@ -140,6 +149,26 @@ const ProfileScreen = () => {
     };
     setUser(updatedUser);
     setShowProfileVisibilityPicker(false);
+  };
+
+  const handleDeleteFeedItem = (itemId: string) => {
+    Alert.alert(
+      'Slet indlæg',
+      'Er du sikker på, at du vil slette dette indlæg?',
+      [
+        {
+          text: 'Annuller',
+          style: 'cancel',
+        },
+        {
+          text: 'Slet',
+          style: 'destructive',
+          onPress: () => {
+            deleteFeedItem(itemId);
+          },
+        },
+      ],
+    );
   };
 
   // Handle location sharing toggle
@@ -235,31 +264,44 @@ const ProfileScreen = () => {
         {/* Feed Tab Content */}
         {activeTab === 'feed' && (
           <View style={styles.feedContainer}>
-            {mockWorkoutMedia.length > 0 ? (
-              <View style={styles.mediaGrid}>
-                {mockWorkoutMedia.map(item => (
-                  <TouchableOpacity key={item.id} style={styles.mediaItem}>
-                    {item.type === 'video' ? (
-                      <View style={styles.videoContainer}>
-                        <Image
-                          source={{uri: item.thumbnailUrl || item.url}}
-                          style={styles.mediaImage}
-                          resizeMode="cover"
-                        />
-                        <View style={styles.videoPlayIcon}>
-                          <Icon name="play" size={24} color="#fff" />
-                        </View>
+            {userFeedItems.length > 0 ? (
+              <ScrollView>
+                {userFeedItems.map(item => (
+                  <View key={item.id} style={styles.profileFeedCard}>
+                    <View style={styles.profileFeedCardHeader}>
+                      <View style={styles.profileFeedAvatar}>
+                        <Text style={styles.profileFeedAvatarText}>{item.user.charAt(0)}</Text>
                       </View>
-                    ) : (
-                      <Image
-                        source={{uri: item.url}}
-                        style={styles.mediaImage}
-                        resizeMode="cover"
-                      />
+                      <View style={{flex: 1}}>
+                        <Text style={styles.profileFeedUser}>{item.user}</Text>
+                        <Text style={styles.profileFeedTimestamp}>{item.timestamp}</Text>
+                      </View>
+                      <TouchableOpacity
+                        onPress={() => handleDeleteFeedItem(item.id)}
+                        activeOpacity={0.7}>
+                        <Icon name="ellipsis-horizontal" size={18} color={colors.textTertiary} />
+                      </TouchableOpacity>
+                    </View>
+                    {item.type === 'photo' && item.photoUri && (
+                      <Image source={{uri: item.photoUri}} style={styles.profileFeedPhoto} />
                     )}
-                  </TouchableOpacity>
+                    {item.type === 'summary' && (
+                      <View style={styles.profileFeedSummaryRow}>
+                        <View style={styles.profileFeedHighlightSecondary}>
+                          <Icon name="flash" size={16} color="#38BDF8" />
+                          <Text style={styles.profileFeedHighlightSecondaryText}>Session delt</Text>
+                        </View>
+                        {item.workoutInfo && (
+                          <Text style={styles.profileFeedWorkoutInfo}>{item.workoutInfo}</Text>
+                        )}
+                      </View>
+                    )}
+                    {item.description && item.description.trim().length > 0 && (
+                      <Text style={styles.profileFeedDescription}>{item.description}</Text>
+                    )}
+                  </View>
                 ))}
-              </View>
+              </ScrollView>
             ) : (
               <View style={styles.emptyFeed}>
                 <Icon name="images-outline" size={48} color="#C7C7CC" />
@@ -807,7 +849,7 @@ const ThisWeekSection = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
   },
   scrollView: {
     flex: 1,
@@ -831,26 +873,26 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 50,
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
   },
   displayName: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
     marginBottom: 4,
   },
   username: {
     fontSize: 16,
-    color: '#666',
+    color: colors.textSecondary,
   },
   statsContainer: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     padding: 20,
     borderRadius: 16,
     marginBottom: 24,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 8,
@@ -874,12 +916,12 @@ const styles = StyleSheet.create({
     marginRight: 0,
   },
   statsPeriodButtonActive: {
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
   },
   statsPeriodButtonText: {
     fontSize: 12,
     fontWeight: '600',
-    color: '#666',
+    color: colors.textSecondary,
   },
   statsPeriodButtonTextActive: {
     color: '#fff',
@@ -895,23 +937,23 @@ const styles = StyleSheet.create({
   statValue: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
     marginBottom: 4,
   },
   statLabel: {
     fontSize: 14,
-    color: '#666',
+    color: colors.textSecondary,
   },
   statDivider: {
     width: 1,
     backgroundColor: '#E5E5EA',
   },
   additionalStatsContainer: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     padding: 20,
     borderRadius: 16,
     marginBottom: 24,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 8,
@@ -933,13 +975,13 @@ const styles = StyleSheet.create({
   },
   additionalStatLabel: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginBottom: 4,
   },
   additionalStatValue: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
   },
   periodButtonsContainer: {
     flexDirection: 'row',
@@ -960,22 +1002,22 @@ const styles = StyleSheet.create({
     marginRight: 0,
   },
   periodButtonActive: {
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
   },
   periodButtonText: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#666',
+    color: colors.textSecondary,
   },
   periodButtonTextActive: {
     color: '#fff',
   },
   section: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     padding: 20,
     borderRadius: 16,
     marginBottom: 16,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 8,
@@ -990,7 +1032,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
   },
   prRepsHeaderLeft: {
     flexDirection: 'row',
@@ -1002,14 +1044,14 @@ const styles = StyleSheet.create({
   },
   editButtonText: {
     fontSize: 16,
-    color: '#007AFF',
+    color: colors.secondary,
     fontWeight: '600',
     marginLeft: 4,
   },
   favoriteGymItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
     padding: 12,
     borderRadius: 12,
     marginBottom: 8,
@@ -1026,13 +1068,13 @@ const styles = StyleSheet.create({
   favoriteGymNumberText: {
     fontSize: 14,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
   },
   favoriteGymLogoContainer: {
     width: 48,
     height: 48,
     borderRadius: 24,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -1046,7 +1088,7 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 24,
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -1057,12 +1099,12 @@ const styles = StyleSheet.create({
   favoriteGymName: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 2,
   },
   favoriteGymLocation: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
   emptyFavorites: {
     alignItems: 'center',
@@ -1077,7 +1119,7 @@ const styles = StyleSheet.create({
   },
   emptyFavoritesSubtext: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
     textAlign: 'center',
   },
   addGoalButton: {
@@ -1086,7 +1128,7 @@ const styles = StyleSheet.create({
   },
   addGoalButtonText: {
     fontSize: 16,
-    color: '#007AFF',
+    color: colors.secondary,
     fontWeight: '600',
     marginLeft: 4,
   },
@@ -1103,7 +1145,7 @@ const styles = StyleSheet.create({
   },
   emptyGoalsSubtext: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
     textAlign: 'center',
   },
   privacyItem: {
@@ -1118,18 +1160,18 @@ const styles = StyleSheet.create({
   },
   privacyLabel: {
     fontSize: 16,
-    color: '#000',
+    color: colors.text,
     fontWeight: '500',
   },
   privacyValue: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginTop: 2,
   },
   visibilityOptions: {
     marginLeft: 32,
     marginBottom: 12,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
     borderRadius: 12,
     padding: 8,
   },
@@ -1143,22 +1185,22 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   visibilityOptionSelected: {
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
   },
   visibilityOptionText: {
     fontSize: 16,
-    color: '#000',
+    color: colors.text,
   },
   visibilityOptionTextSelected: {
-    color: '#007AFF',
+    color: colors.secondary,
     fontWeight: '600',
   },
   thisWeekSection: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     padding: 20,
     borderRadius: 16,
     marginBottom: 16,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 8,
@@ -1177,7 +1219,7 @@ const styles = StyleSheet.create({
   thisWeekTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginLeft: 8,
   },
   thisWeekStats: {
@@ -1194,12 +1236,12 @@ const styles = StyleSheet.create({
   thisWeekStatValue: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
     marginBottom: 4,
   },
   thisWeekStatLabel: {
     fontSize: 12,
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
   thisWeekGraph: {
     marginTop: 8,
@@ -1224,7 +1266,7 @@ const styles = StyleSheet.create({
   },
   graphBar: {
     width: 24,
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     borderRadius: 12,
     minHeight: 4,
     position: 'absolute',
@@ -1241,7 +1283,7 @@ const styles = StyleSheet.create({
   },
   graphDayLabel: {
     fontSize: 11,
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginTop: 8,
   },
   prRepsHeaderLeft: {
@@ -1250,11 +1292,11 @@ const styles = StyleSheet.create({
   },
   tabsContainer: {
     flexDirection: 'row',
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 16,
     marginBottom: 16,
     padding: 4,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 8,
@@ -1268,12 +1310,12 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   tabActive: {
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
   },
   tabText: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
   tabTextActive: {
     color: '#fff',
@@ -1315,14 +1357,92 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  profileFeedCard: {
+    backgroundColor: colors.backgroundCard,
+    borderRadius: 16,
+    padding: 16,
+    marginBottom: 12,
+    shadowColor: colors.primary,
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 2,
+  },
+  profileFeedCardHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  profileFeedAvatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 12,
+  },
+  profileFeedAvatarText: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: colors.white,
+  },
+  profileFeedUser: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: colors.text,
+  },
+  profileFeedTimestamp: {
+    fontSize: 12,
+    color: colors.textTertiary,
+    marginTop: 2,
+  },
+  profileFeedPhoto: {
+    width: '100%',
+    height: 300,
+    borderRadius: 12,
+    marginBottom: 12,
+    resizeMode: 'cover',
+  },
+  profileFeedSummaryRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginBottom: 8,
+    flexWrap: 'wrap',
+  },
+  profileFeedHighlightSecondary: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    backgroundColor: colors.secondary,
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+  },
+  profileFeedHighlightSecondaryText: {
+    color: colors.white,
+    fontWeight: '600',
+    fontSize: 13,
+  },
+  profileFeedWorkoutInfo: {
+    fontSize: 12,
+    fontWeight: '400',
+    color: colors.textSecondary,
+  },
+  profileFeedDescription: {
+    fontSize: 15,
+    color: colors.text,
+    lineHeight: 20,
+  },
   emptyFeed: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 16,
     padding: 48,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 16,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 8,
@@ -1331,13 +1451,13 @@ const styles = StyleSheet.create({
   emptyFeedText: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginTop: 16,
     marginBottom: 4,
   },
   emptyFeedSubtext: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
     textAlign: 'center',
   },
   prsContainer: {
@@ -1360,23 +1480,23 @@ const styles = StyleSheet.create({
     marginHorizontal: 2,
   },
   prsTabActive: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
   },
   prsTabText: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginLeft: 6,
   },
   prsTabTextActive: {
-    color: '#007AFF',
+    color: colors.secondary,
   },
   prsCard: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 16,
     padding: 20,
     marginBottom: 16,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 8,
@@ -1386,7 +1506,7 @@ const styles = StyleSheet.create({
   prsExerciseName: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
     marginBottom: 16,
   },
   prsWeightContainer: {
@@ -1397,12 +1517,12 @@ const styles = StyleSheet.create({
   prsWeightValue: {
     fontSize: 48,
     fontWeight: 'bold',
-    color: '#007AFF',
+    color: colors.secondary,
   },
   prsWeightUnit: {
     fontSize: 24,
     fontWeight: '600',
-    color: '#007AFF',
+    color: colors.secondary,
     marginLeft: 8,
   },
   prsVideoContainer: {
@@ -1419,7 +1539,7 @@ const styles = StyleSheet.create({
   },
   prsVideoText: {
     fontSize: 12,
-    color: '#007AFF',
+    color: colors.secondary,
     marginTop: 6,
     fontWeight: '600',
   },
@@ -1430,22 +1550,22 @@ const styles = StyleSheet.create({
   },
   prsNoVideoText: {
     fontSize: 12,
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginTop: 6,
   },
   prsDateText: {
     fontSize: 12,
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginTop: 4,
   },
   prsEmptyContainer: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 16,
     padding: 48,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 16,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 8,
@@ -1454,14 +1574,14 @@ const styles = StyleSheet.create({
   prsEmptyTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginTop: 16,
     marginBottom: 8,
     textAlign: 'center',
   },
   prsEmptyText: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
     textAlign: 'center',
     lineHeight: 20,
   },

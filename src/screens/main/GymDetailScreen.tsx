@@ -19,6 +19,7 @@ import {DanishGym} from '@/data/danishGyms';
 import {useGymStore} from '@/store/gymStore';
 import {useAppStore} from '@/store/appStore';
 import {getGymLogo, hasGymLogo} from '@/utils/gymLogos';
+import {colors} from '@/theme/colors';
 
 type GymDetailScreenProps = {
   route: {
@@ -253,7 +254,7 @@ const GymDetailScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
   },
   header: {
     flexDirection: 'row',
@@ -261,7 +262,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingVertical: 12,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderBottomWidth: 1,
     borderBottomColor: '#EFEFF4',
     paddingTop: 50,
@@ -272,7 +273,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
   },
   headerRight: {
     width: 32,
@@ -286,10 +287,10 @@ const styles = StyleSheet.create({
   gymHeader: {
     alignItems: 'center',
     paddingVertical: 24,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 16,
     marginBottom: 16,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 8,
@@ -304,7 +305,7 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 40,
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 16,
@@ -312,21 +313,21 @@ const styles = StyleSheet.create({
   gymHeaderName: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
     marginBottom: 4,
     textAlign: 'center',
   },
   gymHeaderBrand: {
     fontSize: 16,
-    color: '#007AFF',
+    color: colors.secondary,
     fontWeight: '600',
   },
   section: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     padding: 20,
     borderRadius: 16,
     marginBottom: 16,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 1},
     shadowOpacity: 0.05,
     shadowRadius: 4,
@@ -340,17 +341,17 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginLeft: 8,
   },
   addressText: {
     fontSize: 16,
-    color: '#000',
+    color: colors.text,
     marginBottom: 4,
   },
   cityText: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
   statRow: {
     flexDirection: 'row',
@@ -359,12 +360,12 @@ const styles = StyleSheet.create({
   statValue: {
     fontSize: 32,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
     marginRight: 8,
   },
   statLabel: {
     fontSize: 16,
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
   ratingContainer: {
     flexDirection: 'row',
@@ -378,16 +379,16 @@ const styles = StyleSheet.create({
   ratingValue: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
     marginRight: 8,
   },
   ratingCount: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
   noRatingsText: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
     fontStyle: 'italic',
   },
   statusContainer: {
@@ -432,14 +433,14 @@ const styles = StyleSheet.create({
   },
   hoursText: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginTop: 4,
   },
   rateButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     padding: 16,
     borderRadius: 12,
     marginTop: 8,

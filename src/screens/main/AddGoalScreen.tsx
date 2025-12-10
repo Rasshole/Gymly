@@ -19,6 +19,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useGoalStore} from '@/store/goalStore';
 import {GoalType, GoalPeriod} from '@/types/goal.types';
+import {colors} from '@/theme/colors';
 
 type AddGoalNavigationProp = StackNavigationProp<any>;
 
@@ -271,7 +272,7 @@ const AddGoalScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
   },
   header: {
     flexDirection: 'row',
@@ -279,7 +280,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingVertical: 12,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderBottomWidth: 1,
     borderBottomColor: '#E5E5EA',
   },
@@ -289,7 +290,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
   },
   headerSpacer: {
     width: 32,
@@ -301,11 +302,11 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   section: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     padding: 20,
     borderRadius: 16,
     marginBottom: 16,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 8,
@@ -314,7 +315,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 16,
   },
   goalTypeCard: {
@@ -323,14 +324,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     padding: 16,
     borderRadius: 12,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
     marginBottom: 12,
     borderWidth: 2,
     borderColor: 'transparent',
   },
   goalTypeCardActive: {
-    borderColor: '#007AFF',
-    backgroundColor: '#E3F2FD',
+    borderColor: colors.secondary,
+    backgroundColor: colors.primary,
   },
   goalTypeContent: {
     flex: 1,
@@ -338,12 +339,12 @@ const styles = StyleSheet.create({
   goalTypeTitle: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 4,
   },
   goalTypeDescription: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
   inputGroup: {
     marginBottom: 20,
@@ -351,17 +352,17 @@ const styles = StyleSheet.create({
   inputLabel: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 8,
   },
   input: {
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
     borderRadius: 12,
     padding: 16,
     fontSize: 16,
-    color: '#000',
+    color: colors.text,
     borderWidth: 1,
-    borderColor: '#E5E5EA',
+    borderColor: colors.border,
   },
   exerciseContainer: {
     flexDirection: 'row',
@@ -377,12 +378,12 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   exerciseButtonActive: {
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
   },
   exerciseButtonText: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#666',
+    color: colors.textSecondary,
   },
   exerciseButtonTextActive: {
     color: '#fff',
@@ -400,23 +401,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   periodButtonActive: {
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
   },
   periodButtonText: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#666',
+    color: colors.textSecondary,
   },
   periodButtonTextActive: {
     color: '#fff',
   },
   saveButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     borderRadius: 12,
     paddingVertical: 16,
     alignItems: 'center',
     marginTop: 8,
-    shadowColor: '#007AFF',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 4},
     shadowOpacity: 0.3,
     shadowRadius: 8,

@@ -21,6 +21,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {useChatStore} from '@/store/chatStore';
 import {useGroupStore, CURRENT_USER_PLACEHOLDER_ID, GymlyGroup} from '@/store/groupStore';
 import {useAppStore} from '@/store/appStore';
+import {colors} from '@/theme/colors';
 
 // Mock friends list - in a real app, this would come from the backend
 const mockFriends = [
@@ -448,10 +449,10 @@ const handleSearchFocus = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
   },
   header: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderBottomWidth: 1,
     borderBottomColor: '#EFEFF4',
     paddingTop: 50, // Space for status bar
@@ -473,13 +474,13 @@ const styles = StyleSheet.create({
   },
   backButtonText: {
     fontSize: 16,
-    color: '#000',
+    color: colors.text,
     marginLeft: 4,
   },
   headerTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
   },
   headerRight: {
     width: 80, // Balance the back button width
@@ -503,7 +504,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   section: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     padding: 16,
     marginTop: 8,
     borderTopWidth: 1,
@@ -516,14 +517,14 @@ const styles = StyleSheet.create({
   sectionLabel: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginBottom: 12,
     textTransform: 'uppercase',
   },
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
     borderRadius: 10,
     paddingHorizontal: 12,
     paddingVertical: 10,
@@ -535,7 +536,7 @@ const styles = StyleSheet.create({
   searchInput: {
     flex: 1,
     fontSize: 16,
-    color: '#000',
+    color: colors.text,
     padding: 0,
   },
   clearButton: {
@@ -553,7 +554,7 @@ const styles = StyleSheet.create({
   selectedFriend: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
     paddingHorizontal: 12,
     paddingVertical: 8,
     borderRadius: 16,
@@ -562,12 +563,12 @@ const styles = StyleSheet.create({
   selectedFriendName: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#007AFF',
+    color: colors.secondary,
   },
   selectedGroup: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
     paddingHorizontal: 12,
     paddingVertical: 8,
     borderRadius: 16,
@@ -582,7 +583,7 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
     borderRadius: 6,
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -594,7 +595,7 @@ const styles = StyleSheet.create({
   selectedGroupName: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#007AFF',
+    color: colors.secondary,
   },
   removeButton: {
     padding: 4,
@@ -608,7 +609,7 @@ const styles = StyleSheet.create({
   sectionSubtitle: {
     fontSize: 12,
     fontWeight: '600',
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginBottom: 8,
     textTransform: 'uppercase',
   },
@@ -628,7 +629,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 10,
-    backgroundColor: '#E0E7FF',
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -636,7 +637,7 @@ const styles = StyleSheet.create({
   groupItemPlaceholderText: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#4338CA',
+    color: colors.primary,
   },
   groupItemInfo: {
     flex: 1,
@@ -644,12 +645,12 @@ const styles = StyleSheet.create({
   groupItemName: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 2,
   },
   groupItemMembers: {
     fontSize: 13,
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
   friendsList: {
     marginTop: 8,
@@ -664,7 +665,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -677,7 +678,7 @@ const styles = StyleSheet.create({
   friendName: {
     flex: 1,
     fontSize: 16,
-    color: '#000',
+    color: colors.text,
   },
   emptyState: {
     alignItems: 'center',
@@ -685,26 +686,26 @@ const styles = StyleSheet.create({
   },
   emptyText: {
     fontSize: 16,
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginTop: 12,
   },
   messageInput: {
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
     borderRadius: 12,
     padding: 16,
     fontSize: 16,
-    color: '#000',
+    color: colors.text,
     minHeight: 150,
     maxHeight: 300,
   },
   characterCount: {
     fontSize: 12,
-    color: '#8E8E93',
+    color: colors.textMuted,
     textAlign: 'right',
     marginTop: 8,
   },
   messageInputBottom: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderTopWidth: 1,
     borderTopColor: '#EFEFF4',
     paddingHorizontal: 16,
@@ -714,7 +715,7 @@ const styles = StyleSheet.create({
   messageInputWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
     borderRadius: 20,
     paddingHorizontal: 12,
     paddingVertical: 8,
@@ -724,7 +725,7 @@ const styles = StyleSheet.create({
   messageInputBottomField: {
     flex: 1,
     fontSize: 16,
-    color: '#000',
+    color: colors.text,
     maxHeight: 84,
     padding: 0,
   },

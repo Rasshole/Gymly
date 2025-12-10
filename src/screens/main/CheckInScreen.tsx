@@ -3,6 +3,7 @@ import {
   ActivityIndicator,
   Alert,
   Animated,
+  Image,
   KeyboardAvoidingView,
   Modal,
   Platform,
@@ -26,9 +27,12 @@ import danishGyms, {DanishGym} from '@/data/danishGyms';
 import {MuscleGroup} from '@/types/workout.types';
 import {useAppStore} from '@/store/appStore';
 import NotificationService from '@/services/notifications/NotificationService';
-import {useWorkoutPlanStore} from '@/store/workoutPlanStore';
+import {useWorkoutPlanStore, WorkoutPlanEntry} from '@/store/workoutPlanStore';
 import {formatGymDisplayName, findGymById} from '@/utils/gymDisplay';
 import {useFeedStore} from '@/store/feedStore';
+import {useGroupStore, GymlyGroup} from '@/store/groupStore';
+import {usePRStore} from '@/store/prStore';
+import {colors} from '@/theme/colors';
 
 const SIMULATED_LOCATION = {
   latitude: 55.6875008,
@@ -119,16 +123,22 @@ const CheckInScreen = () => {
     completedWorkouts,
     addPlannedWorkout,
     addPlanInvites,
+    removePlanInvites,
+    removePlannedWorkout,
     addCompletedWorkout,
   } = useWorkoutPlanStore();
   const addFeedItem = useFeedStore(state => state.addFeedItem);
+  const addPR = usePRStore(state => state.addPR);
   const [detectionStatus, setDetectionStatus] = useState<DetectionStatus>('searching');
   const [detectedGym, setDetectedGym] = useState<DanishGym | null>(null);
   const [detectedDistance, setDetectedDistance] = useState<number | null>(null);
   const [selectedMuscles, setSelectedMuscles] = useState<MuscleGroup[]>([]);
   const [soloTraining, setSoloTraining] = useState(false);
   const [sliderWidth, setSliderWidth] = useState(0);
-  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [checkInToast, setCheckInToast] = useState<{visible: boolean; message: string}>({
+    visible: false,
+    message: '',
+  });
   const [gymPickerVisible, setGymPickerVisible] = useState(false);
   const [manualGymQuery, setManualGymQuery] = useState('');
   const [pendingSession, setPendingSession] = useState<PendingSession | null>(null);
@@ -156,6 +166,10 @@ const CheckInScreen = () => {
     visible: false,
     message: '',
   });
+  const [planInvitedFriends, setPlanInvitedFriends] = useState<string[]>([]);
+  const [planInviteSectionVisible, setPlanInviteSectionVisible] = useState(false);
+  const [planInviteSearchQuery, setPlanInviteSearchQuery] = useState('');
+  const {groups} = useGroupStore();
   const [prModalVisible, setPrModalVisible] = useState(false);
   const [prStep, setPrStep] = useState<'select' | 'details'>('select');
   const [selectedPr, setSelectedPr] = useState<PrOption | null>(null);
@@ -163,12 +177,26 @@ const CheckInScreen = () => {
   const [prVideoAttached, setPrVideoAttached] = useState(false);
   const [shareComposerVisible, setShareComposerVisible] = useState(false);
   const [shareMessage, setShareMessage] = useState('');
+  const [shareVisibility, setShareVisibility] = useState<'everyone' | 'friends' | 'private'>('everyone');
+  const [shareRating, setShareRating] = useState<number | null>(null);
+  const [sharePrivateNotes, setSharePrivateNotes] = useState('');
   const [shareContext, setShareContext] = useState<{
     session: ActiveSession;
     summary: string;
     durationMs: number;
     photoUri?: string | null;
   } | null>(null);
+
+  // Debug: log when shareComposerVisible changes
+  useEffect(() => {
+    console.log('shareComposerVisible changed to:', shareComposerVisible);
+    if (shareComposerVisible) {
+      console.log('Share composer should be visible now!');
+    }
+  }, [shareComposerVisible]);
+  const [mentionQuery, setMentionQuery] = useState('');
+  const [showMentions, setShowMentions] = useState(false);
+  const [mentionPosition, setMentionPosition] = useState(0);
 
   const sliderAnim = useRef(new Animated.Value(0)).current;
   const sliderValueRef = useRef(0);
@@ -229,6 +257,30 @@ const CheckInScreen = () => {
     }
     return days;
   }, [planCalendarMonth, planMarkers]);
+
+  // Filter friends and groups for invite popup
+  const filteredInviteFriends = useMemo(() => {
+    if (!planInviteSearchQuery.trim()) {
+      return FRIENDS;
+    }
+    const query = planInviteSearchQuery.trim().toLowerCase();
+    return FRIENDS.filter(friend =>
+      friend.name.toLowerCase().includes(query),
+    );
+  }, [planInviteSearchQuery]);
+
+  const filteredInviteGroups = useMemo(() => {
+    // Only show groups when search query matches a group name
+    if (!planInviteSearchQuery.trim()) {
+      return [];
+    }
+    const query = planInviteSearchQuery.trim().toLowerCase();
+    return groups.filter(
+      group =>
+        group.name.toLowerCase().includes(query) ||
+        group.members.some(member => member.name.toLowerCase().includes(query)),
+    );
+  }, [planInviteSearchQuery, groups]);
 
   useEffect(() => {
     const listenerId = sliderAnim.addListener(({value}) => {
@@ -400,8 +452,38 @@ const CheckInScreen = () => {
       Alert.alert('Tilføj video', 'Upload en video som bevis (maks 30 sek).');
       return;
     }
+    
+    // Save PR to profile
+    const weight = parseFloat(prWeight.trim());
+    if (isNaN(weight) || weight <= 0) {
+      Alert.alert('Ugyldig vægt', 'Indtast venligst en gyldig vægt.');
+      return;
+    }
+    
+    // Map PR option to ExerciseType
+    const exerciseMap: Record<PrOption, string> = {
+      'Bænk': 'Bænkpres',
+      'Bicepcurl': 'Bicepcurl',
+      'Benpres': 'Benpres',
+      'Dødløft': 'Dødløft',
+      'Squat': 'Squads',
+    };
+    
+    const exerciseType = exerciseMap[selectedPr] as any;
+    
+    addPR({
+      exercise: exerciseType,
+      weight: weight,
+      videoUrl: prVideoAttached ? 'video_placeholder_url' : undefined,
+      userId: 'current_user',
+    });
+    
     Alert.alert('Stærkt!', `${prWeight.trim()} kg i ${selectedPr} sat!`);
     setPrModalVisible(false);
+    setPrStep('select');
+    setSelectedPr(null);
+    setPrWeight('');
+    setPrVideoAttached(false);
   };
 
   const findGymByQuery = (query: string): DanishGym | null => {
@@ -461,6 +543,8 @@ const CheckInScreen = () => {
     calendarMonth.setDate(1);
     calendarMonth.setHours(0, 0, 0, 0);
     setPlanCalendarMonth(calendarMonth);
+    setPlanInvitedFriends([]); // Reset invited friends when opening modal
+    setPlanInviteSectionVisible(false); // Reset invite section visibility
     setPlanModalVisible(true);
   };
 
@@ -483,11 +567,33 @@ const CheckInScreen = () => {
       gym: resolvedGym,
       muscles: planMuscles,
       scheduledAt: planDateTime,
-      invitedFriends: [],
+      invitedFriends: planInvitedFriends,
+      acceptedFriends: [],
     });
 
+    // If friends were invited, send notifications
+    if (planInvitedFriends.length > 0) {
+      NotificationService.sendWorkoutInvite(
+        user?.displayName || 'Din ven',
+        resolvedGym,
+        formatMuscleSelection(planMuscles),
+        planInvitedFriends,
+        planId,
+        planDateTime,
+        planMuscles,
+      );
+      addPlanInvites(planId, planInvitedFriends);
+    }
+
+    // Remove temporary plan if it exists
+    const tempPlan = plannedWorkouts.find(p => p.id.startsWith('temp_plan_'));
+    if (tempPlan) {
+      removePlannedWorkout(tempPlan.id);
+    }
+
     setPlanModalVisible(false);
-    openInviteModal('plan', {planId});
+    setPlanInvitedFriends([]);
+    setPlanInviteSectionVisible(false);
     setTimeout(() => {
       showPlanToast(
         `Træning planlagt: ${planDateTime.toLocaleDateString('da-DK', {
@@ -549,7 +655,6 @@ const CheckInScreen = () => {
 
   const activateSession = useCallback(() => {
     if (!pendingSession) {
-      setShowConfirmation(false);
       return;
     }
     setActiveSession({
@@ -559,7 +664,6 @@ const CheckInScreen = () => {
     });
     setPendingSession(null);
     setPendingInviteIds([]);
-    setShowConfirmation(false);
     setInviteModalVisible(false);
     setInviteContext(null);
     setSessionPhotoUri(null);
@@ -581,7 +685,6 @@ const CheckInScreen = () => {
     }
     setInviteContext(context);
     setInviteModalVisible(true);
-    setShowConfirmation(false);
   };
 
   const getPlanForInvites = () => {
@@ -599,7 +702,12 @@ const CheckInScreen = () => {
       return activeSession?.invitedFriendIds ?? [];
     }
     if (inviteContext === 'plan') {
-      return getPlanForInvites()?.invitedFriends ?? [];
+      const plan = getPlanForInvites();
+      // If it's a temp plan (from plan modal), use planInvitedFriends state
+      if (plan && plan.id.startsWith('temp_plan_')) {
+        return planInvitedFriends;
+      }
+      return plan?.invitedFriends ?? [];
     }
     return [];
   };
@@ -646,6 +754,15 @@ const CheckInScreen = () => {
         Alert.alert('Plan ikke fundet', 'Kunne ikke finde den planlagte træning.');
         return;
       }
+      
+      // If it's a temp plan (from plan modal), update planInvitedFriends state
+      if (plan.id.startsWith('temp_plan_')) {
+        setPlanInvitedFriends(prev => [
+          ...prev,
+          ...friendIds.filter(id => !prev.includes(id)),
+        ]);
+      } else {
+        // Regular plan - send notifications and update store
       NotificationService.sendWorkoutInvite(
         user?.displayName || 'Din ven',
         plan.gym,
@@ -656,15 +773,50 @@ const CheckInScreen = () => {
         plan.muscles,
       );
       addPlanInvites(plan.id, friendIds);
+      }
+    }
+  };
+
+  const uninviteFriendsByIds = (friendIds: string[]) => {
+    if (friendIds.length === 0) {
+      return;
+    }
+    if (inviteContext === 'pending') {
+      setPendingInviteIds(prev => prev.filter(id => !friendIds.includes(id)));
+    } else if (inviteContext === 'active') {
+      setActiveSession(prev =>
+        prev
+          ? {
+              ...prev,
+              invitedFriendIds: prev.invitedFriendIds.filter(id => !friendIds.includes(id)),
+            }
+          : prev,
+      );
+    } else if (inviteContext === 'plan') {
+      const plan = getPlanForInvites();
+      if (!plan) {
+        return;
+      }
+      
+      // If it's a temp plan (from plan modal), update planInvitedFriends state
+      if (plan.id.startsWith('temp_plan_')) {
+        setPlanInvitedFriends(prev => prev.filter(id => !friendIds.includes(id)));
+      } else {
+        // Regular plan - update store
+        removePlanInvites(plan.id, friendIds);
+      }
     }
   };
 
   const handleInviteFriendPress = (friendId: string) => {
     const alreadyInvited = getCurrentInvitedIds();
     if (alreadyInvited.includes(friendId)) {
-      return;
-    }
+      // Remove invitation
+      uninviteFriendsByIds([friendId]);
+    } else {
+      // Add invitation
     inviteFriendsByIds([friendId]);
+    }
   };
 
   const handleInviteAll = () => {
@@ -739,12 +891,11 @@ const CheckInScreen = () => {
   };
 
   const resetAfterCompletion = () => {
-    setActiveSession(null);
-    setInviteModalVisible(false);
-    setInviteContext(null);
-    setPendingInviteIds([]);
-    setPendingSession(null);
-    setShowConfirmation(false);
+          setActiveSession(null);
+          setInviteModalVisible(false);
+          setInviteContext(null);
+          setPendingInviteIds([]);
+          setPendingSession(null);
     setSessionPhotoUri(null);
   };
 
@@ -754,27 +905,21 @@ const CheckInScreen = () => {
     durationMs: number,
     photoUri?: string | null,
   ) => {
-    Alert.alert('Godt gået!', summary, [
-      {
-        text: 'Tak!',
-        onPress: () => {
-          addCompletedWorkout({
-            id: `history_${Date.now()}`,
-            gym: session.gym,
-            muscles: session.muscles,
-            durationMs,
-            completedAt: new Date(),
-            invitedFriends: session.invitedFriendIds,
-            acceptedFriends: [],
-            photoUri: photoUri ?? undefined,
-          });
-          resetAfterCompletion();
-        },
-      },
-    ]);
+    addCompletedWorkout({
+      id: `history_${Date.now()}`,
+      gym: session.gym,
+      muscles: session.muscles,
+      durationMs,
+      completedAt: new Date(),
+      invitedFriends: session.invitedFriendIds,
+      acceptedFriends: [],
+      photoUri: photoUri ?? undefined,
+    });
+    setActiveSession(null);
+    resetAfterCompletion();
   };
 
-  const publishWorkoutToFeed = (summary: string, photoUri?: string | null) => {
+  const publishWorkoutToFeed = (summary: string, photoUri?: string | null, workoutInfo?: string) => {
     const feedUserName = user?.displayName || user?.username || 'Du';
     addFeedItem({
       id: `feed_${Date.now()}`,
@@ -783,6 +928,7 @@ const CheckInScreen = () => {
       description: summary,
       timestamp: 'Lige nu',
       photoUri: photoUri ?? undefined,
+      workoutInfo: workoutInfo,
     });
   };
 
@@ -792,86 +938,119 @@ const CheckInScreen = () => {
     durationMs: number,
     photoUri?: string | null,
   ) => {
-    const defaultMessage = `Trænede ${formatMuscleSelection(session.muscles)} i ${formatGymDisplayName(
-      session.gym,
-    )} i ${formatDuration(durationMs)} 💪`;
-    setShareMessage(defaultMessage);
-    setShareContext({session, summary, durationMs, photoUri});
+    console.log('openShareComposer called', {session, summary, durationMs, photoUri});
+    // Build default message with: Location, who participated, muscle groups & time
+    const location = formatGymDisplayName(session.gym);
+    const muscleGroups = formatMuscleSelection(session.muscles);
+    const time = formatDuration(durationMs);
+    
+    // Get names of friends who participated (invited friends)
+    const participantNames = session.invitedFriendIds
+      .map(id => FRIENDS.find(f => f.id === id)?.name)
+      .filter((name): name is string => name !== undefined);
+    
+    let participantsText = '';
+    if (participantNames.length > 0) {
+      if (participantNames.length === 1) {
+        participantsText = ` med ${participantNames[0]}`;
+      } else if (participantNames.length === 2) {
+        participantsText = ` med ${participantNames[0]} og ${participantNames[1]}`;
+      } else {
+        participantsText = ` med ${participantNames.slice(0, -1).join(', ')} og ${participantNames[participantNames.length - 1]}`;
+      }
+    }
+    
+    const defaultMessage = `${location}${participantsText} • ${muscleGroups} • ${time}`;
+    
+    // Set shareMessage to empty and use defaultMessage as fallback in submitShareComposer
+    setShareMessage('');
+    setShareContext({session, summary: defaultMessage, durationMs, photoUri});
+    console.log('Setting shareComposerVisible to true');
     setShareComposerVisible(true);
+    console.log('shareComposerVisible set to true');
   };
 
   const submitShareComposer = () => {
     if (!shareContext) {
       return;
     }
-    const message = shareMessage.trim().length > 0 ? shareMessage.trim() : shareContext.summary;
-    publishWorkoutToFeed(message, shareContext.photoUri);
+    // User's text goes in description, workout info goes separately
+    const userText = shareMessage.trim();
+    const feedMessage = userText.length > 0 ? userText : undefined; // Only include if user wrote something
+    
+    // Workout info (location, participants, muscle groups, time) goes in workoutInfo field
+    publishWorkoutToFeed(feedMessage || '', shareContext.photoUri, shareContext.summary);
     finalizeWorkout(shareContext.session, shareContext.summary, shareContext.durationMs, shareContext.photoUri);
     setShareComposerVisible(false);
     setShareContext(null);
     setShareMessage('');
+    setShareVisibility('everyone');
+    setShareRating(null);
+    setSharePrivateNotes('');
   };
 
   const cancelShareComposer = () => {
     setShareComposerVisible(false);
     setShareContext(null);
     setShareMessage('');
+    setShareVisibility('everyone');
+    setShareRating(null);
+    setSharePrivateNotes('');
   };
 
   const promptShareOptions = (session: ActiveSession, summary: string, durationMs: number) => {
-    const options: {text: string; onPress?: () => void; style?: 'default' | 'cancel' | 'destructive'}[] =
-      [];
-
-    if (sessionPhotoUri) {
-      options.push({
-        text: 'Brug billede fra træning',
-        onPress: () => openShareComposer(session, summary, durationMs, sessionPhotoUri),
-      });
-    }
-
-    options.push({
-      text: 'Tag nyt billede',
-      onPress: () =>
-        captureWorkoutPhoto({
-          silent: true,
-          onSuccess: uri => openShareComposer(session, summary, durationMs, uri),
-        }),
-    });
-
-    options.push({
-      text: 'Del uden billede',
-      onPress: () => openShareComposer(session, summary, durationMs),
-    });
-
-    options.push({
-      text: 'Annuller',
-      style: 'cancel',
-    });
-
-    Alert.alert('Del træning', 'Hvordan vil du dele din træning?', options, {cancelable: true});
+    // Open share composer directly with sessionPhotoUri if it exists
+    openShareComposer(session, summary, durationMs, sessionPhotoUri || undefined);
   };
 
   const handleFinishWorkout = () => {
+    console.log('handleFinishWorkout called', {activeSession, elapsedTime});
     if (!activeSession) {
+      Alert.alert('Fejl', 'Ingen aktiv session fundet');
       return;
     }
     const session = activeSession;
-    const durationMs = elapsedTime;
+    const durationMs = elapsedTime || (Date.now() - session.startTime);
     const summary = buildWorkoutSummary(session, durationMs);
-    Alert.alert('Afslut træning', summary, [
-      {
-        text: 'Del træning',
-        onPress: () => promptShareOptions(session, summary, durationMs),
-      },
-      {
-        text: 'Afslut uden deling',
-        onPress: () => finalizeWorkout(session, summary, durationMs, sessionPhotoUri),
-      },
-      {
-        text: 'Annuller',
-        style: 'cancel',
-      },
-    ]);
+    console.log('Opening share composer', {session, summary, durationMs, sessionPhotoUri});
+    
+    // Build context first - this MUST be set before showing modal
+    const location = formatGymDisplayName(session.gym);
+    const muscleGroups = formatMuscleSelection(session.muscles);
+    const time = formatDuration(durationMs);
+    
+    // Get names of friends who participated (invited friends)
+    const participantNames = session.invitedFriendIds
+      .map(id => FRIENDS.find(f => f.id === id)?.name)
+      .filter((name): name is string => name !== undefined);
+    
+    let participantsText = '';
+    if (participantNames.length > 0) {
+      if (participantNames.length === 1) {
+        participantsText = ` med ${participantNames[0]}`;
+      } else if (participantNames.length === 2) {
+        participantsText = ` med ${participantNames[0]} og ${participantNames[1]}`;
+      } else {
+        participantsText = ` med ${participantNames.slice(0, -1).join(', ')} og ${participantNames[participantNames.length - 1]}`;
+      }
+    }
+    
+    const defaultMessage = `${location}${participantsText} • ${muscleGroups} • ${time}`;
+    
+    // Set all state - MUST set shareContext BEFORE shareComposerVisible
+    setShareMessage('');
+    setShareContext({
+      session, 
+      summary: defaultMessage, 
+      durationMs, 
+      photoUri: sessionPhotoUri || undefined
+    });
+    
+    // Use requestAnimationFrame to ensure state is set before showing modal
+    requestAnimationFrame(() => {
+      setShareComposerVisible(true);
+      console.log('Modal should now be visible');
+    });
   };
 
   const attemptCheckIn = useCallback(() => {
@@ -888,14 +1067,40 @@ const CheckInScreen = () => {
       return false;
     }
 
-    setPendingSession({
+    // If already checking in or already active, don't do anything
+    if (pendingSession || activeSession) {
+      return true;
+    }
+
+    const newPendingSession = {
       gym: detectedGym,
       muscles: selectedMuscles,
-    });
+    };
+    
+    setPendingSession(newPendingSession);
     setPendingInviteIds([]);
-    setShowConfirmation(true);
+    
+    // Show toast message
+    setCheckInToast({visible: true, message: `Tjekket ind i ${formatGymDisplayName(detectedGym)}`});
+    
+    // Auto-activate session after 1 second
+    setTimeout(() => {
+      setCheckInToast({visible: false, message: ''});
+      // Use the latest pendingSession state
+      setActiveSession({
+        ...newPendingSession,
+        startTime: Date.now(),
+        invitedFriendIds: [],
+      });
+      setPendingSession(null);
+    setPendingInviteIds([]);
+      setInviteModalVisible(false);
+      setInviteContext(null);
+      setSessionPhotoUri(null);
+    }, 1000);
+    
     return true;
-  }, [detectedGym, selectedMuscles]);
+  }, [detectedGym, selectedMuscles, pendingSession, activeSession]);
 
   const panResponder = useMemo(
     () =>
@@ -958,13 +1163,6 @@ const CheckInScreen = () => {
     [attemptCheckIn, maxTranslate, sliderAnim],
   );
 
-  const handleLetsGo = () => {
-    activateSession();
-  };
-
-  const handleInviteFriends = () => {
-    openInviteModal('pending');
-  };
 
   const detectionMessage = () => {
     switch (detectionStatus) {
@@ -994,7 +1192,12 @@ const CheckInScreen = () => {
     <KeyboardAvoidingView
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
-      <View style={styles.content}>
+      <ScrollView 
+        style={styles.content}
+        contentContainerStyle={{paddingBottom: 120, flexGrow: 1}}
+        showsVerticalScrollIndicator={true}
+        keyboardShouldPersistTaps="handled"
+        nestedScrollEnabled={false}>
         {activeSession ? (
           <>
             <View style={styles.card}>
@@ -1039,12 +1242,6 @@ const CheckInScreen = () => {
             {sessionPhotoUri && (
               <Text style={styles.photoSavedHint}>Foto gemt – bliver foreslået når du deler.</Text>
             )}
-            <TouchableOpacity
-              style={styles.finishButton}
-              onPress={handleFinishWorkout}
-              activeOpacity={0.9}>
-              <Text style={styles.finishButtonText}>Afslut træning</Text>
-            </TouchableOpacity>
           </>
         ) : (
           <>
@@ -1143,7 +1340,27 @@ const CheckInScreen = () => {
             </View>
           </>
         )}
-      </View>
+      </ScrollView>
+
+      {/* Finish button absolutely positioned at bottom to avoid touch issues */}
+      {activeSession && (
+        <View style={styles.finishButtonContainer} pointerEvents="box-none">
+          <TouchableOpacity
+            style={styles.finishButton}
+            onPress={() => {
+              console.log('Finish button onPress triggered!');
+              if (!activeSession) {
+                Alert.alert('Debug', 'Ingen activeSession');
+                return;
+              }
+              handleFinishWorkout();
+            }}
+            activeOpacity={0.9}
+            hitSlop={{top: 15, bottom: 15, left: 15, right: 15}}>
+            <Text style={styles.finishButtonText}>Afslut træning</Text>
+          </TouchableOpacity>
+        </View>
+      )}
 
       <Modal visible={gymPickerVisible} transparent animationType="slide">
         <View style={styles.modalOverlay}>
@@ -1204,9 +1421,208 @@ const CheckInScreen = () => {
 
       <Modal visible={planModalVisible} transparent animationType="slide">
         <View style={styles.modalOverlay}>
-          <TouchableWithoutFeedback onPress={() => setPlanModalVisible(false)}>
+          <TouchableWithoutFeedback
+            onPress={() => {
+              // Remove temp plan if it exists
+              const tempPlan = plannedWorkouts.find(p => p.id.startsWith('temp_plan_'));
+              if (tempPlan) {
+                removePlannedWorkout(tempPlan.id);
+              }
+              setPlanInvitedFriends([]);
+              setPlanInviteSectionVisible(false);
+              setPlanModalVisible(false);
+            }}>
             <View style={styles.modalBackdrop} />
           </TouchableWithoutFeedback>
+
+          {/* Inviter venner popup - vises inde i plan modal */}
+          {planInviteSectionVisible && (
+            <TouchableWithoutFeedback
+              onPress={() => {
+                setPlanInviteSectionVisible(false);
+                setPlanInviteSearchQuery('');
+              }}>
+              <View style={styles.planInvitePopup}>
+                <TouchableWithoutFeedback onPress={(e) => e.stopPropagation()}>
+                  <View style={styles.planInvitePopupContent}>
+                        {/* Header */}
+                        <View style={styles.planInvitePopupHeader}>
+                          <Text style={styles.planInvitePopupTitle}>Inviter venner og grupper</Text>
+                          <TouchableOpacity
+                            onPress={() => {
+                              setPlanInviteSectionVisible(false);
+                              setPlanInviteSearchQuery('');
+                            }}
+                            style={styles.planInvitePopupClose}>
+                            <Ionicons name="close" size={24} color={colors.text} />
+                          </TouchableOpacity>
+                        </View>
+
+                        {/* Search Bar */}
+                        <View style={styles.planInviteSearchContainer}>
+                          <Ionicons name="search" size={20} color={colors.textTertiary} style={styles.planInviteSearchIcon} />
+                          <TextInput
+                            style={styles.planInviteSearchInput}
+                            placeholder="Søg efter venner eller grupper..."
+                            placeholderTextColor={colors.textTertiary}
+                            value={planInviteSearchQuery}
+                            onChangeText={setPlanInviteSearchQuery}
+                            autoFocus={true}
+                          />
+                          {planInviteSearchQuery.length > 0 && (
+                            <TouchableOpacity
+                              onPress={() => setPlanInviteSearchQuery('')}
+                              style={styles.planInviteSearchClear}>
+                              <Ionicons name="close-circle" size={20} color={colors.textTertiary} />
+                            </TouchableOpacity>
+                          )}
+                        </View>
+
+                        {/* Inviter alle knap */}
+                        <TouchableOpacity
+                          style={[
+                            styles.inviteAllButton,
+                            filteredInviteFriends.filter(f => !planInvitedFriends.includes(f.id)).length === 0 &&
+                              styles.inviteAllButtonDisabled,
+                          ]}
+                          onPress={() => {
+                            const notInvited = filteredInviteFriends.filter(f => !planInvitedFriends.includes(f.id));
+                            if (notInvited.length === 0) return;
+                            setPlanInvitedFriends(prev => [...prev, ...notInvited.map(f => f.id)]);
+                          }}
+                          disabled={filteredInviteFriends.filter(f => !planInvitedFriends.includes(f.id)).length === 0}>
+                          <Text
+                            style={[
+                              styles.inviteAllText,
+                              filteredInviteFriends.filter(f => !planInvitedFriends.includes(f.id)).length === 0 &&
+                                styles.inviteAllTextDisabled,
+                            ]}>
+                            Inviter alle venner
+                          </Text>
+                        </TouchableOpacity>
+
+                        {/* Scrollable content */}
+                        <ScrollView 
+                          style={styles.planInviteScrollContent}
+                          contentContainerStyle={styles.planInviteScrollContentContainer}
+                          showsVerticalScrollIndicator={true}
+                          nestedScrollEnabled={true}
+                          scrollEnabled={true}
+                          bounces={true}
+                          keyboardShouldPersistTaps="handled">
+                          {/* Friends List */}
+                          {filteredInviteFriends.length > 0 && (
+                            <View style={styles.planInviteSection}>
+                              <Text style={styles.planInviteSectionTitle}>Venner</Text>
+                              {filteredInviteFriends.map(friend => {
+                                const hasBeenInvited = planInvitedFriends.includes(friend.id);
+                                return (
+                                  <View key={friend.id} style={styles.friendRow}>
+                                    <View style={styles.friendInfoWrapper}>
+                                      <View style={styles.friendAvatar}>
+                                        <Text style={styles.friendAvatarText}>{friend.initials}</Text>
+                                      </View>
+                                      <View style={styles.friendDetails}>
+                                        <Text style={styles.friendName}>{friend.name}</Text>
+                                      </View>
+                                    </View>
+                                    <TouchableOpacity
+                                      style={[
+                                        styles.invitePill,
+                                        hasBeenInvited && styles.invitePillDisabled,
+                                      ]}
+                                      onPress={() => {
+                                        if (hasBeenInvited) {
+                                          setPlanInvitedFriends(prev => prev.filter(id => id !== friend.id));
+                                        } else {
+                                          setPlanInvitedFriends(prev => [...prev, friend.id]);
+                                        }
+                                      }}>
+                                      <Text
+                                        style={[
+                                          styles.invitePillText,
+                                          hasBeenInvited && styles.invitePillTextDisabled,
+                                        ]}>
+                                        {hasBeenInvited ? 'Inviteret' : 'Inviter'}
+                                      </Text>
+                                    </TouchableOpacity>
+                                  </View>
+                                );
+                              })}
+                            </View>
+                          )}
+
+                          {/* Groups List */}
+                          {filteredInviteGroups.length > 0 && (
+                            <View style={styles.planInviteSection}>
+                              <Text style={styles.planInviteSectionTitle}>Grupper</Text>
+                              {filteredInviteGroups.map(group => {
+                                const groupMemberIds = group.members
+                                  .filter(m => m.id !== 'current_user')
+                                  .map(m => m.id);
+                                const allInvited = groupMemberIds.every(id => planInvitedFriends.includes(id));
+                                const someInvited = groupMemberIds.some(id => planInvitedFriends.includes(id));
+                                
+                                return (
+                                  <View key={group.id} style={styles.friendRow}>
+                                    <View style={styles.friendInfoWrapper}>
+                                      {group.image ? (
+                                        <Image source={{uri: group.image}} style={styles.groupAvatar} />
+                                      ) : (
+                                        <View style={styles.groupAvatarPlaceholder}>
+                                          <Ionicons name="people" size={20} color={colors.textTertiary} />
+                                        </View>
+                                      )}
+                                      <View style={styles.friendDetails}>
+                                        <Text style={styles.friendName}>{group.name}</Text>
+                                        <Text style={styles.groupMembersText}>
+                                          {group.members.filter(m => m.id !== 'current_user').length} medlemmer
+                                        </Text>
+                                      </View>
+                                    </View>
+                                    <TouchableOpacity
+                                      style={[
+                                        styles.invitePill,
+                                        allInvited && styles.invitePillDisabled,
+                                      ]}
+                                      onPress={() => {
+                                        if (allInvited) {
+                                          // Remove all group members
+                                          setPlanInvitedFriends(prev => prev.filter(id => !groupMemberIds.includes(id)));
+                                        } else {
+                                          // Add all group members
+                                          setPlanInvitedFriends(prev => {
+                                            const newIds = groupMemberIds.filter(id => !prev.includes(id));
+                                            return [...prev, ...newIds];
+                                          });
+                                        }
+                                      }}>
+                                      <Text
+                                        style={[
+                                          styles.invitePillText,
+                                          allInvited && styles.invitePillTextDisabled,
+                                        ]}>
+                                        {allInvited ? 'Inviteret' : someInvited ? 'Delvist' : 'Inviter'}
+                                      </Text>
+                                    </TouchableOpacity>
+                                  </View>
+                                );
+                              })}
+                            </View>
+                          )}
+
+                          {/* Empty state */}
+                          {planInviteSearchQuery.trim().length > 0 && filteredInviteFriends.length === 0 && filteredInviteGroups.length === 0 && (
+                            <View style={styles.planInviteEmpty}>
+                              <Text style={styles.planInviteEmptyText}>Ingen resultater fundet</Text>
+                            </View>
+                          )}
+                        </ScrollView>
+                      </View>
+                    </TouchableWithoutFeedback>
+                  </View>
+                </TouchableWithoutFeedback>
+              )}
 
           <View style={[styles.modalCard, styles.planModal]}>
             <ScrollView
@@ -1286,9 +1702,35 @@ const CheckInScreen = () => {
                       />
                     </TouchableOpacity>
                   </View>
-                  <Text style={[styles.soloToggleHint, {marginBottom: 24}]}>
+                  <Text style={[styles.soloToggleHint, {marginBottom: 16}]}>
                     Planlæg som privat session.
                   </Text>
+
+              {/* Inviter venner knap */}
+              <TouchableOpacity
+                style={styles.planInviteButton}
+                onPress={() => {
+                  const resolvedGym = planSelectedGym || findGymByQuery(planCenterQuery);
+                  if (!resolvedGym) {
+                    Alert.alert('Vælg center', 'Vælg venligst hvilket center træningen skal foregå i først.');
+                    return;
+                  }
+                  if (planMuscles.length === 0) {
+                    Alert.alert('Vælg muskelgrupper', 'Vælg mindst én muskelgruppe først.');
+                    return;
+                  }
+                  setPlanInviteSectionVisible(!planInviteSectionVisible);
+                }}
+                activeOpacity={0.85}>
+                <Ionicons 
+                  name={planInviteSectionVisible ? "chevron-up" : "people-outline"} 
+                  size={18} 
+                  color={colors.secondary} 
+                />
+                <Text style={styles.planInviteButtonText}>
+                  Inviter venner{planInvitedFriends.length > 0 ? ` (${planInvitedFriends.length})` : ''}
+                </Text>
+              </TouchableOpacity>
 
               <Text style={[styles.sectionLabel, {marginTop: 8}]}>Dato</Text>
               <View style={styles.calendarContainer}>
@@ -1360,7 +1802,16 @@ const CheckInScreen = () => {
               </TouchableOpacity>
               <TouchableOpacity
                 style={[styles.modalClose, {marginTop: 12}]}
-                onPress={() => setPlanModalVisible(false)}>
+                onPress={() => {
+                  // Remove temp plan if it exists
+                  const tempPlan = plannedWorkouts.find(p => p.id.startsWith('temp_plan_'));
+                  if (tempPlan) {
+                    removePlannedWorkout(tempPlan.id);
+                  }
+                  setPlanInvitedFriends([]);
+                  setPlanInviteSectionVisible(false);
+                  setPlanModalVisible(false);
+                }}>
                 <Text style={styles.modalCloseText}>Luk</Text>
               </TouchableOpacity>
             </ScrollView>
@@ -1400,64 +1851,249 @@ const CheckInScreen = () => {
         />
       )}
 
-      <Modal visible={shareComposerVisible} transparent animationType="fade">
-        <TouchableWithoutFeedback onPress={cancelShareComposer}>
-          <View style={styles.modalOverlay}>
-            <TouchableWithoutFeedback>
-              <View style={[styles.modalCard, styles.shareModalCard]}>
+      <Modal 
+        visible={shareComposerVisible} 
+        transparent 
+        animationType="fade" 
+        onRequestClose={cancelShareComposer}
+        statusBarTranslucent
+        onShow={() => {
+          console.log('Modal onShow triggered!');
+        }}>
+        <View style={styles.modalOverlay}>
+          <TouchableWithoutFeedback onPress={cancelShareComposer}>
+            <View style={[StyleSheet.absoluteFill, {backgroundColor: 'rgba(0,0,0,0.5)'}]} />
+          </TouchableWithoutFeedback>
+          <View 
+            style={[styles.shareModalCard, {
+              backgroundColor: '#231B3D', 
+              width: '90%', 
+              minHeight: 400, 
+              maxWidth: 500, 
+              alignSelf: 'center',
+            }]} 
+            pointerEvents="box-none"
+            onStartShouldSetResponder={() => true}>
+            <ScrollView 
+                  style={{flex: 1, width: '100%'}}
+                  contentContainerStyle={[
+                    {
+                      padding: 24,
+                      alignItems: 'stretch',
+                      flexGrow: 1,
+                    },
+                    styles.shareModalContent,
+                  ]}
+                  keyboardShouldPersistTaps="handled"
+                  showsVerticalScrollIndicator={true}
+                  bounces={true}
+                  nestedScrollEnabled={true}
+                  scrollEnabled={true}
+                  alwaysBounceVertical={false}>
                 <Text style={styles.modalTitle}>Del træning</Text>
-                <Text style={styles.modalText}>Skriv en tekst til dit opslag</Text>
-                <TextInput
-                  style={styles.shareInput}
-                  multiline
-                  numberOfLines={4}
-                  value={shareMessage}
-                  onChangeText={setShareMessage}
-                  placeholder="Hvordan gik træningen?"
-                  textAlignVertical="top"
-                />
+                
+                {/* Description */}
+                <Text style={[styles.shareSectionLabel, {color: '#FFFFFF'}]}>Beskrivelse</Text>
+                <View style={styles.shareInputContainer}>
+                  <TextInput
+                    style={styles.shareInput}
+                    multiline
+                    numberOfLines={4}
+                    value={shareMessage}
+                    placeholderTextColor={colors.textTertiary}
+                    onChangeText={(text) => {
+                      setShareMessage(text);
+                      // Check for @ mentions
+                      const lastAtIndex = text.lastIndexOf('@');
+                      if (lastAtIndex !== -1) {
+                        const afterAt = text.substring(lastAtIndex + 1);
+                        const spaceIndex = afterAt.indexOf(' ');
+                        const newlineIndex = afterAt.indexOf('\n');
+                        const endIndex = spaceIndex !== -1 && newlineIndex !== -1 
+                          ? Math.min(spaceIndex, newlineIndex)
+                          : spaceIndex !== -1 
+                            ? spaceIndex 
+                            : newlineIndex !== -1 
+                              ? newlineIndex 
+                              : -1;
+                        if (endIndex === -1) {
+                          // Still typing the mention
+                          setMentionQuery(afterAt.toLowerCase());
+                          setShowMentions(true);
+                          setMentionPosition(lastAtIndex);
+                        } else {
+                          setShowMentions(false);
+                          setMentionQuery('');
+                        }
+                      } else {
+                        setShowMentions(false);
+                        setMentionQuery('');
+                      }
+                    }}
+                    placeholder="Hvordan gik træningen? Brug @ for at tagge dine træningsbuddies"
+                    placeholderTextColor={colors.textTertiary}
+                    textAlignVertical="top"
+                  />
+                  {showMentions && mentionQuery.length > 0 && (
+                    <View style={styles.mentionDropdown}>
+                      {FRIENDS.filter(friend => 
+                        friend.name.toLowerCase().includes(mentionQuery)
+                      )
+                      .slice(0, 3)
+                      .map(friend => (
+                        <TouchableOpacity
+                          key={friend.id}
+                          style={styles.mentionItem}
+                          onPress={() => {
+                            const beforeAt = shareMessage.substring(0, mentionPosition);
+                            const afterMention = shareMessage.substring(mentionPosition + 1 + mentionQuery.length);
+                            const newText = `${beforeAt}@${friend.name} ${afterMention}`;
+                            setShareMessage(newText);
+                            setShowMentions(false);
+                            setMentionQuery('');
+                          }}>
+                          <View style={styles.mentionAvatar}>
+                            <Text style={styles.mentionAvatarText}>{friend.initials}</Text>
+            </View>
+                          <Text style={styles.mentionName}>{friend.name}</Text>
+                        </TouchableOpacity>
+                      ))}
+                    </View>
+                  )}
+                </View>
+                
+                {/* Photo Section */}
+                <Text style={styles.shareSectionLabel}>Billeder</Text>
+                <View style={styles.sharePhotoSection}>
+                  {shareContext?.photoUri ? (
+                    <View style={styles.sharePhotoPreviewContainer}>
+                      <Image source={{uri: shareContext.photoUri}} style={styles.sharePhotoPreview} />
+                      <TouchableOpacity
+                        style={styles.sharePhotoRemoveButton}
+                        onPress={() => {
+                          if (shareContext) {
+                            setShareContext({...shareContext, photoUri: null});
+                          }
+                        }}>
+                        <Ionicons name="close-circle" size={24} color="#fff" />
+              </TouchableOpacity>
+                    </View>
+                  ) : (
+                    <TouchableOpacity
+                      style={styles.sharePhotoAddButton}
+                      onPress={() => {
+                        if (shareContext) {
+                          captureWorkoutPhoto({
+                            onSuccess: uri => {
+                              setShareContext({...shareContext, photoUri: uri});
+                            },
+                          });
+                        }
+                      }}>
+                      <Ionicons name="camera-outline" size={32} color={colors.secondary} />
+                      <Text style={styles.sharePhotoAddText}>Tilføj billede</Text>
+              </TouchableOpacity>
+                  )}
+                  {shareContext?.photoUri && (
+                    <TouchableOpacity
+                      style={styles.sharePhotoChangeButton}
+                      onPress={() => {
+                        if (shareContext) {
+                          captureWorkoutPhoto({
+                            onSuccess: uri => {
+                              setShareContext({...shareContext, photoUri: uri});
+                            },
+                          });
+                        }
+                      }}>
+                      <Ionicons name="camera-outline" size={20} color={colors.text} />
+                      <Text style={styles.sharePhotoChangeText}>Tag nyt billede</Text>
+                    </TouchableOpacity>
+                  )}
+            </View>
+                
+                {/* Visibility */}
+                <Text style={styles.shareSectionLabel}>Synlighed</Text>
+                <TouchableOpacity
+                  style={styles.shareVisibilityButton}
+                  onPress={() => {
+                    Alert.alert(
+                      'Vælg synlighed',
+                      '',
+                      [
+                        {text: 'Alle', onPress: () => setShareVisibility('everyone')},
+                        {text: 'Kun venner og følgere', onPress: () => setShareVisibility('friends')},
+                        {text: 'Privat', onPress: () => setShareVisibility('private')},
+                        {text: 'Annuller', style: 'cancel'},
+                      ],
+                    );
+                  }}>
+                  <Ionicons 
+                    name={shareVisibility === 'everyone' ? 'globe-outline' : shareVisibility === 'friends' ? 'people-outline' : 'lock-closed-outline'} 
+                    size={20} 
+                    color={colors.text} 
+                    style={{marginRight: 8}} 
+                  />
+                  <Text style={styles.shareVisibilityText}>
+                    {shareVisibility === 'everyone' ? 'Alle' : shareVisibility === 'friends' ? 'Kun venner og følgere' : 'Privat'}
+                  </Text>
+                  <Ionicons name="chevron-down" size={20} color={colors.textTertiary} style={{marginLeft: 'auto'}} />
+                </TouchableOpacity>
+                
+                {/* Rating */}
+                <Text style={styles.shareSectionLabel}>Hvordan var din træning?</Text>
+                <View style={styles.shareRatingContainer}>
+                  {[1, 2, 3, 4, 5].map((rating) => {
+                    const emojis = ['☹️', '🙁', '😐', '😁', '🤩'];
+                    return (
+                      <TouchableOpacity
+                        key={rating}
+                        style={[
+                          styles.shareRatingButton,
+                          shareRating === rating && styles.shareRatingButtonSelected,
+                        ]}
+                        onPress={() => setShareRating(shareRating === rating ? null : rating)}>
+                        <Text style={styles.shareRatingEmoji}>{emojis[rating - 1]}</Text>
+                      </TouchableOpacity>
+                    );
+                  })}
+          </View>
+                
+                {/* Private Notes */}
+                <Text style={styles.shareSectionLabel}>Private noter</Text>
+                <View style={styles.sharePrivateNotesContainer}>
+                  <Ionicons name="lock-closed-outline" size={18} color={colors.textTertiary} style={{marginRight: 8}} />
+                  <TextInput
+                    style={styles.sharePrivateNotesInput}
+                    multiline
+                    numberOfLines={3}
+                    value={sharePrivateNotes}
+                    onChangeText={setSharePrivateNotes}
+                    placeholder="Skriv private noter her. Kun du kan se disse."
+                    placeholderTextColor={colors.textTertiary}
+                    textAlignVertical="top"
+                  />
+                </View>
+                
                 <View style={styles.shareButtonRow}>
                   <TouchableOpacity style={styles.secondaryButton} onPress={cancelShareComposer}>
                     <Text style={styles.secondaryButtonText}>Annuller</Text>
                   </TouchableOpacity>
                   <TouchableOpacity style={styles.primaryButton} onPress={submitShareComposer}>
-                    <Text style={styles.primaryButtonText}>Del</Text>
+                    <Text style={styles.primaryButtonText}>Del træning</Text>
                   </TouchableOpacity>
                 </View>
-              </View>
-            </TouchableWithoutFeedback>
-          </View>
-        </TouchableWithoutFeedback>
-      </Modal>
-
-      <Modal visible={showConfirmation} transparent animationType="fade">
-        <View style={styles.modalOverlay}>
-          <View style={styles.modalCard}>
-            <View style={styles.modalIcon}>
-              <Ionicons name="checkmark-circle" size={48} color="#34C759" />
-            </View>
-            <Text style={styles.modalTitle}>Du er tjekket ind! 👏</Text>
-            {pendingSession && (
-              <>
-                <Text style={styles.modalText}>
-                  Du har tjekket ind i {formatGymDisplayName(pendingSession.gym)}
-                </Text>
-                <Text style={styles.modalText}>
-                  Træning: {formatMuscleSelection(pendingSession.muscles)}
-                </Text>
-              </>
-            )}
-            <View style={styles.modalButtons}>
-              <TouchableOpacity style={styles.primaryButton} onPress={handleLetsGo}>
-                <Text style={styles.primaryButtonText}>Let&apos;s go 💪</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.secondaryButton} onPress={handleInviteFriends}>
-                <Text style={styles.secondaryButtonText}>Inviter venner</Text>
-              </TouchableOpacity>
-            </View>
+              </ScrollView>
           </View>
         </View>
       </Modal>
+
+      {/* Check-in toast notification */}
+      {checkInToast.visible && (
+        <View style={styles.checkInToast}>
+          <Text style={styles.checkInToastText}>{checkInToast.message}</Text>
+        </View>
+      )}
 
       <Modal visible={inviteModalVisible} transparent animationType="fade">
         <View style={styles.modalOverlay}>
@@ -1507,8 +2143,7 @@ const CheckInScreen = () => {
                         styles.invitePill,
                         hasBeenInvited && styles.invitePillDisabled,
                       ]}
-                      onPress={() => handleInviteFriendPress(friend.id)}
-                      disabled={hasBeenInvited}>
+                      onPress={() => handleInviteFriendPress(friend.id)}>
                       <Text
                         style={[
                           styles.invitePillText,
@@ -1623,7 +2258,7 @@ const CheckInScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
   },
   content: {
     flex: 1,
@@ -1631,15 +2266,15 @@ const styles = StyleSheet.create({
     paddingBottom: 24,
   },
   card: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 20,
     padding: 20,
     marginBottom: 16,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 4},
-    shadowOpacity: 0.08,
-    shadowRadius: 12,
-    elevation: 3,
+    shadowOpacity: 0.3,
+    shadowRadius: 16,
+    elevation: 4,
   },
   smallerCard: {
     paddingVertical: 14,
@@ -1655,12 +2290,12 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 20,
     fontWeight: '700',
-    color: '#0F172A',
+    color: colors.text,
     marginBottom: 4,
   },
   sectionSubtitle: {
     fontSize: 14,
-    color: '#6B7280',
+    color: colors.textSecondary,
     marginBottom: 16,
   },
   detectionRow: {
@@ -1672,7 +2307,7 @@ const styles = StyleSheet.create({
     width: 56,
     height: 56,
     borderRadius: 16,
-    backgroundColor: '#E0F2FF',
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 16,
@@ -1683,16 +2318,16 @@ const styles = StyleSheet.create({
   detectionTitle: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#0F172A',
+    color: colors.text,
   },
   detectionHint: {
     fontSize: 12,
-    color: '#94A3B8',
+    color: colors.textTertiary,
     marginTop: 6,
   },
   detectionDistance: {
     fontSize: 14,
-    color: '#007AFF',
+    color: colors.secondary,
     marginTop: 4,
   },
   muscleGrid: {
@@ -1705,18 +2340,18 @@ const styles = StyleSheet.create({
     width: '46%',
     borderRadius: 14,
     borderWidth: 1,
-    borderColor: '#E5E7EB',
+    borderColor: colors.border,
     paddingVertical: 10,
     paddingHorizontal: 8,
     marginBottom: 8,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
   },
   muscleCardActive: {
-    backgroundColor: '#007AFF',
-    borderColor: '#007AFF',
-    shadowColor: '#007AFF',
+    backgroundColor: colors.secondary,
+    borderColor: colors.secondary,
+    shadowColor: colors.primary,
     shadowOpacity: 0.25,
     shadowRadius: 10,
     shadowOffset: {width: 0, height: 6},
@@ -1725,7 +2360,7 @@ const styles = StyleSheet.create({
     marginTop: 6,
     fontSize: 14,
     fontWeight: '600',
-    color: '#0F172A',
+    color: colors.text,
   },
   soloToggleRow: {
     marginTop: 8,
@@ -1736,33 +2371,33 @@ const styles = StyleSheet.create({
   soloToggleLabel: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#0F172A',
+    color: colors.text,
   },
   soloToggle: {
     width: 56,
     height: 30,
     borderRadius: 15,
-    backgroundColor: '#E2E8F0',
+    backgroundColor: colors.surface,
     padding: 4,
     justifyContent: 'center',
   },
   soloToggleActive: {
-    backgroundColor: '#007AFF33',
+    backgroundColor: colors.surfaceLight,
   },
   soloToggleThumb: {
     width: 22,
     height: 22,
     borderRadius: 11,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     alignSelf: 'flex-start',
   },
   soloToggleThumbActive: {
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     alignSelf: 'flex-end',
   },
   soloToggleHint: {
     fontSize: 12,
-    color: '#94A3B8',
+    color: colors.textTertiary,
     marginTop: 4,
   },
   soloSection: {
@@ -1786,10 +2421,10 @@ const styles = StyleSheet.create({
   cardSmallTitle: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#475467',
+    color: colors.textSecondary,
   },
   planButton: {
-    backgroundColor: '#EEF2FF',
+    backgroundColor: colors.surfaceLight,
     paddingHorizontal: 14,
     paddingVertical: 6,
     borderRadius: 999,
@@ -1797,10 +2432,10 @@ const styles = StyleSheet.create({
   planButtonText: {
     fontSize: 13,
     fontWeight: '600',
-    color: '#4338CA',
+    color: colors.primary,
   },
   sliderTrack: {
-    backgroundColor: '#EEF2FF',
+    backgroundColor: colors.surfaceLight,
     borderRadius: 30,
     paddingVertical: 12,
     position: 'relative',
@@ -1821,10 +2456,10 @@ const styles = StyleSheet.create({
     width: SLIDER_KNOB_SIZE,
     height: SLIDER_KNOB_SIZE,
     borderRadius: SLIDER_KNOB_SIZE / 2,
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '#007AFF',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 8},
     shadowOpacity: 0.3,
     shadowRadius: 12,
@@ -1834,13 +2469,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 24,
+    zIndex: 9999,
+    elevation: 9999,
   },
   modalBackdrop: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: 'rgba(0,0,0,0.35)',
   },
   modalCard: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 24,
     padding: 24,
     width: '100%',
@@ -1858,7 +2495,7 @@ const styles = StyleSheet.create({
   modalTitle: {
     fontSize: 22,
     fontWeight: '700',
-    color: '#0F172A',
+    color: colors.text,
     marginBottom: 8,
   },
   modalText: {
@@ -1880,7 +2517,7 @@ const styles = StyleSheet.create({
   manualList: {
     width: '100%',
     marginTop: 16,
-    backgroundColor: '#F8FAFC',
+    backgroundColor: colors.background,
     borderRadius: 16,
     paddingVertical: 4,
   },
@@ -1891,34 +2528,34 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     paddingHorizontal: 16,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderColor: '#E2E8F0',
+    borderColor: colors.border,
   },
   manualItemTitle: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#0F172A',
+    color: colors.text,
   },
   manualItemSubtitle: {
     fontSize: 13,
-    color: '#64748B',
+    color: colors.textTertiary,
     marginTop: 2,
   },
   emptyState: {
     padding: 16,
     fontSize: 14,
     textAlign: 'center',
-    color: '#94A3B8',
+    color: colors.textTertiary,
   },
   modalClose: {
     marginTop: 20,
-    backgroundColor: '#E2E8F0',
+    backgroundColor: colors.surface,
     borderRadius: 14,
     paddingVertical: 12,
     paddingHorizontal: 24,
   },
   modalCloseText: {
     fontSize: 15,
-    color: '#0F172A',
+    color: colors.text,
     fontWeight: '600',
   },
   prOptionButton: {
@@ -1926,7 +2563,7 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     paddingHorizontal: 18,
     borderRadius: 14,
-    backgroundColor: '#F8FAFC',
+    backgroundColor: colors.background,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -1935,16 +2572,16 @@ const styles = StyleSheet.create({
   prOptionText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#0F172A',
+    color: colors.text,
   },
   prInput: {
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: colors.border,
     borderRadius: 14,
     paddingHorizontal: 16,
     paddingVertical: 12,
     fontSize: 16,
-    color: '#0F172A',
+    color: colors.text,
     marginBottom: 16,
   },
   videoButton: {
@@ -1964,14 +2601,14 @@ const styles = StyleSheet.create({
   videoButtonText: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#0F172A',
+    color: colors.text,
   },
   videoButtonTextAttached: {
     color: '#15803D',
   },
   prSubmitButton: {
     width: '100%',
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     borderRadius: 16,
     paddingVertical: 16,
     alignItems: 'center',
@@ -1994,7 +2631,7 @@ const styles = StyleSheet.create({
   },
   primaryButton: {
     flex: 1,
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     paddingVertical: 14,
     borderRadius: 16,
     marginRight: 8,
@@ -2016,28 +2653,28 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     marginLeft: 8,
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
   },
   secondaryButtonText: {
-    color: '#007AFF',
+    color: colors.secondary,
     fontSize: 16,
     fontWeight: '600',
   },
   activeTitle: {
     fontSize: 22,
     fontWeight: '700',
-    color: '#0F172A',
+    color: colors.text,
     marginBottom: 4,
   },
   activeSubtitle: {
     fontSize: 15,
-    color: '#475467',
+    color: colors.textSecondary,
     marginBottom: 16,
   },
   activeInfo: {
     marginTop: 12,
     fontSize: 14,
-    color: '#2563EB',
+    color: colors.secondary,
     fontWeight: '600',
   },
   timerPill: {
@@ -2052,11 +2689,11 @@ const styles = StyleSheet.create({
   timerText: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#0F172A',
+    color: colors.text,
     marginLeft: 6,
   },
   inviteFriendsButton: {
-    backgroundColor: '#E0F2FF',
+    backgroundColor: colors.primary,
     borderRadius: 18,
     flexDirection: 'row',
     alignItems: 'center',
@@ -2066,7 +2703,7 @@ const styles = StyleSheet.create({
   },
   inviteFriendsText: {
     fontSize: 16,
-    color: '#007AFF',
+    color: colors.secondary,
     fontWeight: '600',
     marginLeft: 8,
   },
@@ -2098,22 +2735,45 @@ const styles = StyleSheet.create({
   },
   photoButtonText: {
     fontSize: 16,
-    color: '#0F172A',
+    color: colors.text,
     fontWeight: '600',
     marginLeft: 8,
   },
   photoSavedHint: {
     marginTop: 6,
     fontSize: 13,
-    color: '#64748B',
+    color: colors.textTertiary,
     textAlign: 'center',
   },
+  finishButtonContainer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    paddingHorizontal: 20,
+    paddingBottom: 20,
+    paddingTop: 12,
+    backgroundColor: colors.background,
+    zIndex: 9999,
+    elevation: 9999,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: -2},
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
   finishButton: {
-    marginTop: 12,
     backgroundColor: '#0F172A',
     borderRadius: 18,
     paddingVertical: 16,
     alignItems: 'center',
+    zIndex: 10000,
+    elevation: 10,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    minHeight: 50,
+    width: '100%',
   },
   finishButtonText: {
     color: '#fff',
@@ -2128,7 +2788,7 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
   },
   inviteAllButton: {
-    backgroundColor: '#E0E7FF',
+    backgroundColor: colors.primary,
     borderRadius: 12,
     paddingVertical: 10,
     alignItems: 'center',
@@ -2140,28 +2800,211 @@ const styles = StyleSheet.create({
   inviteAllText: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#3730A3',
+    color: colors.white,
   },
   inviteAllTextDisabled: {
-    color: '#94A3B8',
+    color: colors.textTertiary,
   },
   friendList: {
     flexGrow: 0,
     marginBottom: 12,
   },
   shareModalCard: {
+    maxHeight: '90%',
+    width: '90%',
+    backgroundColor: colors.backgroundCard,
+    borderRadius: 24,
+    overflow: 'hidden',
+    zIndex: 10000,
+    elevation: 10000,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 4},
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+  },
+  shareModalContent: {
+    paddingBottom: 24,
     alignItems: 'stretch',
+  },
+  shareSectionLabel: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: colors.text,
+    marginTop: 20,
+    marginBottom: 8,
+  },
+  sharePhotoSection: {
+    marginTop: 8,
+    marginBottom: 8,
+  },
+  sharePhotoPreviewContainer: {
+    position: 'relative',
+    borderRadius: 12,
+    overflow: 'hidden',
+    marginBottom: 8,
+  },
+  sharePhotoPreview: {
+    width: '100%',
+    height: 200,
+    resizeMode: 'cover',
+  },
+  sharePhotoRemoveButton: {
+    position: 'absolute',
+    top: 8,
+    right: 8,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    borderRadius: 12,
+  },
+  sharePhotoAddButton: {
+    borderWidth: 2,
+    borderColor: colors.border,
+    borderStyle: 'dashed',
+    borderRadius: 12,
+    padding: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.background,
+  },
+  sharePhotoAddText: {
+    marginTop: 8,
+    fontSize: 14,
+    color: colors.secondary,
+    fontWeight: '600',
+  },
+  sharePhotoChangeButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 8,
+    marginTop: 4,
+  },
+  sharePhotoChangeText: {
+    marginLeft: 6,
+    fontSize: 14,
+    color: colors.text,
+  },
+  shareVisibilityButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: 12,
+    padding: 16,
+    backgroundColor: colors.background,
+  },
+  shareVisibilityText: {
+    fontSize: 15,
+    color: colors.text,
+    flex: 1,
+  },
+  shareRatingContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 8,
+    marginBottom: 8,
+  },
+  shareRatingButton: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.background,
+    borderWidth: 2,
+    borderColor: colors.border,
+  },
+  shareRatingButtonSelected: {
+    borderColor: colors.secondary,
+    backgroundColor: colors.surfaceLight || '#E0E7FF',
+  },
+  shareRatingEmoji: {
+    fontSize: 28,
+  },
+  sharePrivateNotesContainer: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: 12,
+    padding: 16,
+    backgroundColor: colors.background,
+    marginTop: 8,
+  },
+  sharePrivateNotesInput: {
+    flex: 1,
+    fontSize: 15,
+    color: colors.text,
+    minHeight: 80,
+    textAlignVertical: 'top',
+  },
+  shareImagePreview: {
+    marginTop: 12,
+    marginBottom: 8,
+    borderRadius: 12,
+    overflow: 'hidden',
+  },
+  shareImagePreviewImage: {
+    width: '100%',
+    height: 200,
+    resizeMode: 'cover',
+  },
+  shareInputContainer: {
+    position: 'relative',
+    marginTop: 8,
   },
   shareInput: {
     borderWidth: 1,
-    borderColor: '#E5E7EB',
-    borderRadius: 16,
+    borderColor: colors.border,
+    borderRadius: 12,
     padding: 16,
-    marginTop: 12,
-    minHeight: 120,
+    minHeight: 100,
     fontSize: 15,
-    color: '#0F172A',
-    backgroundColor: '#F8FAFC',
+    color: colors.text,
+    backgroundColor: colors.background,
+  },
+  mentionDropdown: {
+    position: 'absolute',
+    top: '100%',
+    left: 0,
+    right: 0,
+    backgroundColor: colors.backgroundCard,
+    borderRadius: 12,
+    marginTop: 4,
+    maxHeight: 200,
+    borderWidth: 1,
+    borderColor: colors.border,
+    zIndex: 1000,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 4},
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 5,
+  },
+  mentionItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border,
+  },
+  mentionAvatar: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: colors.secondary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 12,
+  },
+  mentionAvatarText: {
+    color: colors.white,
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  mentionName: {
+    fontSize: 15,
+    color: colors.text,
+    fontWeight: '500',
   },
   shareButtonRow: {
     marginTop: 16,
@@ -2175,7 +3018,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingVertical: 12,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderColor: '#E2E8F0',
+    borderColor: colors.border,
   },
   friendInfoWrapper: {
     flexDirection: 'row',
@@ -2191,7 +3034,7 @@ const styles = StyleSheet.create({
     width: 44,
     height: 44,
     borderRadius: 22,
-    backgroundColor: '#CBD5F5',
+    backgroundColor: colors.surface,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -2202,39 +3045,39 @@ const styles = StyleSheet.create({
   friendAvatarText: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#0F172A',
+    color: colors.text,
   },
   friendName: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#0F172A',
+    color: colors.text,
   },
   friendStatus: {
     fontSize: 13,
   },
   friendStatusOnline: {
-    color: '#10B981',
+    color: colors.success,
   },
   friendStatusOffline: {
-    color: '#94A3B8',
+    color: colors.textTertiary,
   },
   invitePill: {
     borderRadius: 999,
     borderWidth: 1,
-    borderColor: '#007AFF',
+    borderColor: colors.secondary,
     paddingVertical: 8,
     paddingHorizontal: 16,
   },
   invitePillDisabled: {
     borderColor: '#94A3B8',
-    backgroundColor: '#F1F5F9',
+    backgroundColor: colors.surface,
   },
   invitePillText: {
-    color: '#007AFF',
+    color: colors.secondary,
     fontWeight: '600',
   },
   invitePillTextDisabled: {
-    color: '#94A3B8',
+    color: colors.textTertiary,
   },
   planModal: {
     alignItems: 'stretch',
@@ -2246,21 +3089,147 @@ const styles = StyleSheet.create({
   sectionLabel: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#475467',
+    color: colors.textSecondary,
     marginTop: 12,
     marginBottom: 6,
   },
+  planInviteButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.surface,
+    borderRadius: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    marginBottom: 20,
+    gap: 8,
+  },
+  planInviteButtonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: colors.secondary,
+  },
+  planInviteSection: {
+    marginBottom: 20,
+    padding: 16,
+    backgroundColor: colors.surface,
+    borderRadius: 16,
+  },
+  planInvitePopup: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 1000,
+    elevation: 1000,
+  },
+  planInvitePopupContent: {
+    backgroundColor: colors.backgroundCard,
+    borderRadius: 20,
+    width: '95%',
+    maxHeight: '75%',
+    padding: 20,
+    shadowColor: colors.primary,
+    shadowOpacity: 0.3,
+    shadowRadius: 20,
+    shadowOffset: {width: 0, height: 10},
+    elevation: 10,
+    flexDirection: 'column',
+  },
+  planInviteScrollContent: {
+    maxHeight: 400,
+  },
+  planInviteScrollContentContainer: {
+    paddingBottom: 8,
+  },
+  planInvitePopupHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  planInvitePopupTitle: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: colors.text,
+  },
+  planInvitePopupClose: {
+    padding: 4,
+  },
+  planInviteSearchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.surface,
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    marginBottom: 16,
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  planInviteSearchIcon: {
+    marginRight: 8,
+  },
+  planInviteSearchInput: {
+    flex: 1,
+    fontSize: 15,
+    color: colors.text,
+    paddingVertical: 12,
+  },
+  planInviteSearchClear: {
+    padding: 4,
+  },
+  planInviteSectionTitle: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: colors.textSecondary,
+    marginBottom: 8,
+    marginTop: 8,
+  },
+  planInviteEmpty: {
+    padding: 40,
+    alignItems: 'center',
+  },
+  planInviteEmptyText: {
+    fontSize: 15,
+    color: colors.textTertiary,
+  },
+  groupAvatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    marginRight: 12,
+  },
+  groupAvatarPlaceholder: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: colors.surface,
+    marginRight: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  groupMembersText: {
+    fontSize: 12,
+    color: colors.textTertiary,
+    marginTop: 2,
+  },
   planCenterInput: {
     borderWidth: 1,
-    borderColor: '#CBD5F5',
+    borderColor: colors.border,
     borderRadius: 14,
     paddingHorizontal: 16,
     paddingVertical: 12,
     fontSize: 15,
+    color: colors.text,
+    backgroundColor: colors.surface,
   },
   planSuggestionList: {
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: colors.border,
     borderRadius: 16,
     marginTop: 8,
   },
@@ -2271,16 +3240,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     paddingVertical: 12,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderColor: '#E2E8F0',
+    borderColor: colors.border,
   },
   planSuggestionTitle: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#0F172A',
+    color: colors.text,
   },
   planSuggestionSubtitle: {
     fontSize: 13,
-    color: '#64748B',
+    color: colors.textTertiary,
   },
   planPickerColumn: {
     width: '100%',
@@ -2301,7 +3270,7 @@ const styles = StyleSheet.create({
   timeButtonText: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#0F172A',
+    color: colors.text,
     marginLeft: 8,
   },
   iosTimePickerOverlay: {
@@ -2315,13 +3284,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.35)',
   },
   iosTimePickerCard: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 20,
     padding: 16,
     width: '100%',
     maxWidth: 360,
     alignItems: 'stretch',
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOpacity: 0.15,
     shadowRadius: 20,
     shadowOffset: {width: 0, height: 10},
@@ -2331,11 +3300,11 @@ const styles = StyleSheet.create({
   },
   calendarContainer: {
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: colors.border,
     borderRadius: 18,
     padding: 12,
     marginBottom: 8,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
   },
   calendarHeader: {
     flexDirection: 'row',
@@ -2349,7 +3318,7 @@ const styles = StyleSheet.create({
   calendarHeaderText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#0F172A',
+    color: colors.text,
     textTransform: 'capitalize',
   },
   calendarWeekRow: {
@@ -2361,7 +3330,7 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: 'center',
     fontSize: 12,
-    color: '#94A3B8',
+    color: colors.textTertiary,
     fontWeight: '600',
     textTransform: 'uppercase',
   },
@@ -2380,15 +3349,15 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
   calendarDaySelected: {
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
   },
   calendarDayText: {
     fontSize: 15,
-    color: '#0F172A',
+    color: colors.text,
     fontWeight: '600',
   },
   calendarDayTextFaded: {
-    color: '#94A3B8',
+    color: colors.textTertiary,
   },
   calendarDayTextSelected: {
     color: '#fff',
@@ -2415,7 +3384,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOpacity: 0.25,
     shadowRadius: 10,
     shadowOffset: {width: 0, height: 4},
@@ -2424,6 +3393,26 @@ const styles = StyleSheet.create({
   planToastText: {
     color: '#fff',
     fontSize: 14,
+    fontWeight: '600',
+  },
+  checkInToast: {
+    position: 'absolute',
+    top: 60,
+    alignSelf: 'center',
+    backgroundColor: '#0F172A',
+    borderRadius: 16,
+    paddingHorizontal: 18,
+    paddingVertical: 12,
+    shadowColor: colors.primary,
+    shadowOpacity: 0.25,
+    shadowRadius: 10,
+    shadowOffset: {width: 0, height: 4},
+    elevation: 5,
+    zIndex: 1000,
+  },
+  checkInToastText: {
+    color: '#fff',
+    fontSize: 15,
     fontWeight: '600',
   },
   toastOverlay: {

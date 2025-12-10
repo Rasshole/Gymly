@@ -20,6 +20,7 @@ import {SafeAreaView} from 'react-native';
 import {usePRStore} from '@/store/prStore';
 import {useAppStore} from '@/store/appStore';
 import {PersonalRecord, RepRecord, ExerciseType} from '@/types/pr.types';
+import {colors} from '@/theme/colors';
 
 const exercises: ExerciseType[] = [
   'Bænkpres',
@@ -191,7 +192,7 @@ const PersonalPRsRepsScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
   },
   header: {
     flexDirection: 'row',
@@ -199,7 +200,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingVertical: 12,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderBottomWidth: 1,
     borderBottomColor: '#E5E5EA',
   },
@@ -209,14 +210,14 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
   },
   headerRight: {
     width: 32,
   },
   tabContainer: {
     flexDirection: 'row',
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderBottomWidth: 1,
@@ -232,16 +233,16 @@ const styles = StyleSheet.create({
     marginHorizontal: 4,
   },
   tabActive: {
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
   },
   tabText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginLeft: 8,
   },
   tabTextActive: {
-    color: '#007AFF',
+    color: colors.secondary,
   },
   scrollView: {
     flex: 1,
@@ -250,11 +251,11 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   card: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 16,
     padding: 20,
     marginBottom: 16,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 8,
@@ -266,7 +267,7 @@ const styles = StyleSheet.create({
   exerciseName: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
   },
   prContent: {
     alignItems: 'center',
@@ -282,12 +283,12 @@ const styles = StyleSheet.create({
   weightValue: {
     fontSize: 48,
     fontWeight: 'bold',
-    color: '#007AFF',
+    color: colors.secondary,
   },
   weightUnit: {
     fontSize: 24,
     fontWeight: '600',
-    color: '#007AFF',
+    color: colors.secondary,
     marginLeft: 8,
   },
   videoContainer: {
@@ -304,7 +305,7 @@ const styles = StyleSheet.create({
   },
   videoText: {
     fontSize: 14,
-    color: '#007AFF',
+    color: colors.secondary,
     marginTop: 8,
     fontWeight: '600',
   },
@@ -315,12 +316,12 @@ const styles = StyleSheet.create({
   },
   noVideoText: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginTop: 8,
   },
   dateText: {
     fontSize: 12,
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginTop: 8,
   },
   emptyContainer: {
@@ -333,14 +334,14 @@ const styles = StyleSheet.create({
   emptyTitle: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
     marginTop: 24,
     marginBottom: 8,
     textAlign: 'center',
   },
   emptyText: {
     fontSize: 16,
-    color: '#8E8E93',
+    color: colors.textMuted,
     textAlign: 'center',
     lineHeight: 24,
   },

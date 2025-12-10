@@ -19,6 +19,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {usePRStore} from '@/store/prStore';
 import {ExerciseType, PersonalRecord} from '@/types/pr.types';
+import {colors} from '@/theme/colors';
 
 type AddPRRouteParams = {
   exercise: ExerciseType;
@@ -167,7 +168,7 @@ const AddPRScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
   },
   header: {
     flexDirection: 'row',
@@ -175,7 +176,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingVertical: 12,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderBottomWidth: 1,
     borderBottomColor: '#E5E5EA',
   },
@@ -185,7 +186,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
   },
   headerSpacer: {
     width: 32,
@@ -202,28 +203,28 @@ const styles = StyleSheet.create({
   exerciseName: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
     textAlign: 'center',
   },
   inputLabel: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 8,
   },
   inputHint: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginBottom: 12,
   },
   input: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 12,
     padding: 16,
     fontSize: 16,
-    color: '#000',
+    color: colors.text,
     borderWidth: 1,
-    borderColor: '#E5E5EA',
+    borderColor: colors.border,
   },
   textArea: {
     minHeight: 100,
@@ -232,17 +233,17 @@ const styles = StyleSheet.create({
   videoButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
     padding: 16,
     borderRadius: 12,
     borderWidth: 2,
-    borderColor: '#007AFF',
+    borderColor: colors.secondary,
     borderStyle: 'dashed',
   },
   videoButtonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#007AFF',
+    color: colors.secondary,
     marginLeft: 12,
   },
   removeVideoButton: {
@@ -258,12 +259,12 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   saveButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     borderRadius: 12,
     paddingVertical: 16,
     alignItems: 'center',
     marginTop: 8,
-    shadowColor: '#007AFF',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 4},
     shadowOpacity: 0.3,
     shadowRadius: 8,

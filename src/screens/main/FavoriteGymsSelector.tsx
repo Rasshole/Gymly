@@ -18,6 +18,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import danishGyms, {DanishGym} from '@/data/danishGyms';
 import {useAppStore} from '@/store/appStore';
 import {getGymLogo, hasGymLogo} from '@/utils/gymLogos';
+import {colors} from '@/theme/colors';
 
 interface FavoriteGymsSelectorProps {
   visible: boolean;
@@ -211,7 +212,7 @@ const FavoriteGymsSelector = ({visible, onClose}: FavoriteGymsSelectorProps) => 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
   },
   header: {
     flexDirection: 'row',
@@ -219,7 +220,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingVertical: 12,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderBottomWidth: 1,
     borderBottomColor: '#EFEFF4',
   },
@@ -229,7 +230,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
   },
   saveButton: {
     padding: 4,
@@ -237,15 +238,15 @@ const styles = StyleSheet.create({
   saveButtonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#007AFF',
+    color: colors.secondary,
   },
   saveButtonTextDisabled: {
-    color: '#C7C7CC',
+    color: colors.textMuted,
   },
   infoContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
     padding: 12,
     marginHorizontal: 16,
     marginTop: 8,
@@ -254,7 +255,7 @@ const styles = StyleSheet.create({
   infoText: {
     flex: 1,
     fontSize: 14,
-    color: '#007AFF',
+    color: colors.secondary,
     marginLeft: 8,
   },
   selectedContainer: {
@@ -269,14 +270,14 @@ const styles = StyleSheet.create({
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     marginHorizontal: 16,
     marginTop: 8,
     marginBottom: 8,
     paddingHorizontal: 12,
     paddingVertical: 10,
     borderRadius: 10,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 1},
     shadowOpacity: 0.05,
     shadowRadius: 4,
@@ -288,7 +289,7 @@ const styles = StyleSheet.create({
   searchInput: {
     flex: 1,
     fontSize: 16,
-    color: '#000',
+    color: colors.text,
     padding: 0,
   },
   clearButton: {
@@ -303,10 +304,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     padding: 16,
     borderRadius: 12,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 1},
     shadowOpacity: 0.05,
     shadowRadius: 4,
@@ -315,7 +316,7 @@ const styles = StyleSheet.create({
   gymItemSelected: {
     backgroundColor: '#F0F9FF',
     borderWidth: 2,
-    borderColor: '#007AFF',
+    borderColor: colors.secondary,
   },
   gymItemLeft: {
     flexDirection: 'row',
@@ -359,7 +360,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -367,7 +368,7 @@ const styles = StyleSheet.create({
   positionBadgeText: {
     fontSize: 12,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
   },
   gymInfo: {
     flex: 1,
@@ -375,7 +376,7 @@ const styles = StyleSheet.create({
   gymName: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 4,
   },
   gymDetails: {
@@ -385,16 +386,16 @@ const styles = StyleSheet.create({
   },
   gymBrand: {
     fontSize: 14,
-    color: '#007AFF',
+    color: colors.secondary,
     marginRight: 8,
   },
   gymLocation: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
   gymAddress: {
     fontSize: 12,
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
   separator: {
     height: 8,

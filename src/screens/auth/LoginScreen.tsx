@@ -21,6 +21,7 @@ import {useAppStore} from '@/store/appStore';
 import AuthService from '@/services/auth/AuthService';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import GymlyLogo from '@/components/GymlyLogo';
+import {colors} from '@/theme/colors';
 
 type LoginScreenNavigationProp = StackNavigationProp<AuthStackParamList, 'Login'>;
 
@@ -202,7 +203,7 @@ const LoginScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
   },
   content: {
     flex: 1,
@@ -226,7 +227,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
   },
   secondaryAction: {
     flexDirection: 'row',
@@ -236,12 +237,12 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 16,
-    color: '#6B7280',
+    color: colors.textSecondary,
     textAlign: 'center',
   },
   subtitleMuted: {
     fontSize: 15,
-    color: '#94A3B8',
+    color: colors.textTertiary,
     marginRight: 8,
   },
   signupButton: {
@@ -256,7 +257,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   linkText: {
-    color: '#007AFF',
+    color: colors.secondary,
     fontSize: 16,
     fontWeight: '600',
   },
@@ -272,7 +273,7 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     paddingHorizontal: 18,
     borderWidth: 1,
-    borderColor: '#E5E5EA',
+    borderColor: colors.border,
   },
   socialButtonDisabled: {
     opacity: 0.7,
@@ -298,34 +299,34 @@ const styles = StyleSheet.create({
   dividerLine: {
     flex: 1,
     height: 1,
-    backgroundColor: '#E5E7EB',
+    backgroundColor: colors.surface,
   },
   dividerText: {
-    color: '#9CA3AF',
+    color: colors.textMuted,
     fontSize: 14,
   },
   form: {
     marginBottom: 24,
   },
   input: {
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
     padding: 16,
     borderRadius: 12,
     fontSize: 16,
     marginBottom: 12,
     borderWidth: 1,
-    borderColor: '#E5E5EA',
+    borderColor: colors.border,
   },
   forgotPassword: {
     alignSelf: 'flex-end',
     marginBottom: 24,
   },
   forgotPasswordText: {
-    color: '#007AFF',
+    color: colors.secondary,
     fontSize: 14,
   },
   loginButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     padding: 18,
     borderRadius: 12,
     alignItems: 'center',
@@ -340,7 +341,7 @@ const styles = StyleSheet.create({
   },
   termsText: {
     textAlign: 'center',
-    color: '#9CA3AF',
+    color: colors.textMuted,
     fontSize: 13,
     lineHeight: 18,
   },

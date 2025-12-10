@@ -19,6 +19,7 @@ import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppStore} from '@/store/appStore';
+import {colors} from '@/theme/colors';
 
 const ChangeEmailScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
@@ -144,7 +145,7 @@ const ChangeEmailScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
   },
   keyboardView: {
     flex: 1,
@@ -155,7 +156,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingVertical: 16,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderBottomWidth: 1,
     borderBottomColor: '#E5E5EA',
   },
@@ -165,7 +166,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
   },
   headerRight: {
     width: 32,
@@ -180,31 +181,31 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 8,
   },
   currentEmailContainer: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     padding: 16,
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: '#E5E5EA',
+    borderColor: colors.border,
   },
   currentEmail: {
     fontSize: 16,
-    color: '#666',
+    color: colors.textSecondary,
   },
   input: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     padding: 16,
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: '#E5E5EA',
+    borderColor: colors.border,
     fontSize: 16,
-    color: '#000',
+    color: colors.text,
   },
   saveButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     padding: 16,
     borderRadius: 12,
     alignItems: 'center',

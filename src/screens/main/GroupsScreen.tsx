@@ -23,6 +23,7 @@ import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppStore} from '@/store/appStore';
+import {colors} from '@/theme/colors';
 
 type Friend = {
   id: string;
@@ -647,7 +648,7 @@ const GroupsScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
   },
   header: {
     flexDirection: 'row',
@@ -655,7 +656,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingVertical: 12,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderBottomWidth: 1,
     borderBottomColor: '#E5E5EA',
   },
@@ -665,7 +666,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
   },
   headerSpacer: {
     width: 32,
@@ -677,20 +678,20 @@ const styles = StyleSheet.create({
   createButtonHeaderText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#007AFF',
+    color: colors.secondary,
     marginLeft: 4,
   },
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     marginHorizontal: 16,
     marginTop: 8,
     marginBottom: 8,
     paddingHorizontal: 12,
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: '#E5E5EA',
+    borderColor: colors.border,
   },
   searchIcon: {
     marginRight: 8,
@@ -698,7 +699,7 @@ const styles = StyleSheet.create({
   searchInput: {
     flex: 1,
     fontSize: 16,
-    color: '#000',
+    color: colors.text,
     paddingVertical: 12,
   },
   clearButton: {
@@ -716,7 +717,7 @@ const styles = StyleSheet.create({
   sectionHeaderText: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#8E8E93',
+    color: colors.textMuted,
     textTransform: 'capitalize',
   },
   sectionSeparator: {
@@ -728,10 +729,10 @@ const styles = StyleSheet.create({
   groupItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     padding: 16,
     borderRadius: 12,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 1},
     shadowOpacity: 0.05,
     shadowRadius: 4,
@@ -744,7 +745,7 @@ const styles = StyleSheet.create({
     width: 56,
     height: 56,
     borderRadius: 28,
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -783,7 +784,7 @@ const styles = StyleSheet.create({
   groupName: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     flexShrink: 1,
   },
   onlineBadge: {
@@ -823,7 +824,7 @@ const styles = StyleSheet.create({
   },
   groupMembers: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginBottom: 8,
   },
   memberAvatars: {
@@ -851,12 +852,12 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   moreMembers: {
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
   },
   moreMembersText: {
     fontSize: 12,
     fontWeight: '600',
-    color: '#007AFF',
+    color: colors.secondary,
   },
   emptyContainer: {
     flex: 1,
@@ -876,13 +877,13 @@ const styles = StyleSheet.create({
   emptyTitle: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
     marginBottom: 8,
     textAlign: 'center',
   },
   emptyText: {
     fontSize: 16,
-    color: '#8E8E93',
+    color: colors.textMuted,
     textAlign: 'center',
     lineHeight: 24,
     marginBottom: 24,
@@ -890,7 +891,7 @@ const styles = StyleSheet.create({
   emptyButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
     paddingHorizontal: 20,
     paddingVertical: 12,
     borderRadius: 20,
@@ -898,7 +899,7 @@ const styles = StyleSheet.create({
   emptyButtonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#007AFF',
+    color: colors.secondary,
     marginLeft: 8,
   },
   createGroupContent: {
@@ -918,7 +919,7 @@ const styles = StyleSheet.create({
     borderRadius: 60,
     overflow: 'hidden',
     borderWidth: 2,
-    borderColor: '#E5E5EA',
+    borderColor: colors.border,
     borderStyle: 'dashed',
   },
   groupImage: {
@@ -928,13 +929,13 @@ const styles = StyleSheet.create({
   imagePlaceholder: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
     justifyContent: 'center',
     alignItems: 'center',
   },
   imagePlaceholderText: {
     fontSize: 12,
-    color: '#007AFF',
+    color: colors.secondary,
     marginTop: 4,
     textAlign: 'center',
   },
@@ -946,12 +947,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     padding: 16,
     borderRadius: 12,
     marginBottom: 24,
     borderWidth: 1,
-    borderColor: '#E5E5EA',
+    borderColor: colors.border,
   },
   privacyInfo: {
     flex: 1,
@@ -959,23 +960,23 @@ const styles = StyleSheet.create({
   },
   privacySubtext: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginTop: 4,
   },
   friendSearchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: '#E5E5EA',
+    borderColor: colors.border,
     paddingHorizontal: 12,
     marginBottom: 12,
   },
   friendSearchInput: {
     flex: 1,
     fontSize: 16,
-    color: '#000',
+    color: colors.text,
     paddingVertical: 12,
   },
   inputGroup: {
@@ -984,17 +985,17 @@ const styles = StyleSheet.create({
   inputLabel: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 8,
   },
   input: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 12,
     padding: 16,
     fontSize: 16,
-    color: '#000',
+    color: colors.text,
     borderWidth: 1,
-    borderColor: '#E5E5EA',
+    borderColor: colors.border,
   },
   friendsSection: {
     flex: 1,
@@ -1003,13 +1004,13 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 12,
   },
   friendItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     padding: 12,
     borderRadius: 12,
     marginBottom: 8,
@@ -1017,8 +1018,8 @@ const styles = StyleSheet.create({
     borderColor: 'transparent',
   },
   friendItemSelected: {
-    borderColor: '#007AFF',
-    backgroundColor: '#E3F2FD',
+    borderColor: colors.secondary,
+    backgroundColor: colors.primary,
   },
   avatarContainer: {
     position: 'relative',
@@ -1054,18 +1055,18 @@ const styles = StyleSheet.create({
   friendName: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
   },
   checkmarkContainer: {
     marginLeft: 8,
   },
   createButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     borderRadius: 12,
     paddingVertical: 16,
     alignItems: 'center',
     marginTop: 8,
-    shadowColor: '#007AFF',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 4},
     shadowOpacity: 0.3,
     shadowRadius: 8,
@@ -1084,18 +1085,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 12,
     paddingBottom: 8,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
     borderTopWidth: 1,
     borderTopColor: '#E5E5EA',
   },
   communityButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     paddingHorizontal: 16,
     paddingVertical: 14,
     borderRadius: 12,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 1},
     shadowOpacity: 0.05,
     shadowRadius: 4,
@@ -1105,7 +1106,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
   },
 });
 

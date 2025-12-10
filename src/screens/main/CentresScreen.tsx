@@ -23,6 +23,7 @@ import {useGymStore} from '@/store/gymStore';
 import {getGymLogo, hasGymLogo} from '@/utils/gymLogos';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
+import {colors} from '@/theme/colors';
 
 // Calculate distance between two coordinates using Haversine formula
 const calculateDistance = (
@@ -493,7 +494,7 @@ const CentresScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
   },
   scrollView: {
     flex: 1,
@@ -504,14 +505,14 @@ const styles = StyleSheet.create({
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     marginHorizontal: 16,
     marginTop: 8,
     marginBottom: 8,
     paddingHorizontal: 12,
     paddingVertical: 10,
     borderRadius: 10,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 1},
     shadowOpacity: 0.05,
     shadowRadius: 4,
@@ -523,7 +524,7 @@ const styles = StyleSheet.create({
   searchInput: {
     flex: 1,
     fontSize: 16,
-    color: '#000',
+    color: colors.text,
     padding: 0,
   },
   clearButton: {
@@ -536,7 +537,7 @@ const styles = StyleSheet.create({
   },
   statsText: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
   list: {
     paddingHorizontal: 16,
@@ -545,10 +546,10 @@ const styles = StyleSheet.create({
   gymItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     padding: 16,
     borderRadius: 12,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 1},
     shadowOpacity: 0.05,
     shadowRadius: 4,
@@ -563,7 +564,7 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 24,
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -590,10 +591,10 @@ const styles = StyleSheet.create({
   favoriteBadgeText: {
     fontSize: 10,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
   },
   favoriteSectionContainer: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     paddingHorizontal: 16,
     paddingTop: 16,
     paddingBottom: 16,
@@ -605,7 +606,7 @@ const styles = StyleSheet.create({
   favoriteSectionTitle: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 12,
   },
   favoriteGymsList: {
@@ -614,7 +615,7 @@ const styles = StyleSheet.create({
   favoriteGymItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
     padding: 16,
     borderRadius: 12,
   },
@@ -630,13 +631,13 @@ const styles = StyleSheet.create({
   favoriteGymNumberText: {
     fontSize: 14,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
   },
   favoriteGymLogoContainer: {
     width: 48,
     height: 48,
     borderRadius: 24,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -650,7 +651,7 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 24,
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -661,7 +662,7 @@ const styles = StyleSheet.create({
   gymName: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 4,
   },
   gymDetails: {
@@ -671,16 +672,16 @@ const styles = StyleSheet.create({
   },
   gymBrand: {
     fontSize: 14,
-    color: '#007AFF',
+    color: colors.secondary,
     marginRight: 8,
   },
   gymLocation: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
   gymAddress: {
     fontSize: 12,
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
   activeUsersContainer: {
     flexDirection: 'row',
@@ -701,7 +702,7 @@ const styles = StyleSheet.create({
   },
   activeUsersTextInactive: {
     fontSize: 12,
-    color: '#8E8E93',
+    color: colors.textMuted,
     fontWeight: '500',
   },
   gymMetaRow: {
@@ -713,7 +714,7 @@ const styles = StyleSheet.create({
   },
   distanceText: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
   statusRow: {
     marginTop: 4,
@@ -761,10 +762,10 @@ const styles = StyleSheet.create({
     width: 56,
     height: 56,
     borderRadius: 28,
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 4},
     shadowOpacity: 0.3,
     shadowRadius: 8,

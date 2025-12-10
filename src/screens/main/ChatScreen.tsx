@@ -28,6 +28,7 @@ import danishGyms, {DanishGym} from '@/data/danishGyms';
 import {MuscleGroup} from '@/types/workout.types';
 import {formatGymDisplayName} from '@/utils/gymDisplay';
 import {useChatStore, ChatPlan, ChatMessage} from '@/store/chatStore';
+import {colors} from '@/theme/colors';
 
 type ChatScreenProps = {
   route: {
@@ -773,10 +774,10 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
   },
   header: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderBottomWidth: 1,
     borderBottomColor: '#EFEFF4',
     paddingTop: 50, // Space for status bar
@@ -801,7 +802,7 @@ const styles = StyleSheet.create({
     width: 36,
     height: 36,
     borderRadius: 18,
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -814,7 +815,7 @@ const styles = StyleSheet.create({
   headerName: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
   },
   headerActions: {
     flexDirection: 'row',
@@ -831,7 +832,7 @@ const styles = StyleSheet.create({
     paddingBottom: 8,
   },
   planBanner: {
-    backgroundColor: '#16A34A',
+    backgroundColor: colors.success,
     marginHorizontal: 16,
     marginTop: 12,
     marginBottom: 4,
@@ -862,7 +863,7 @@ const styles = StyleSheet.create({
     color: '#BBF7D0',
   },
   planBannerJoin: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 999,
     paddingHorizontal: 16,
     paddingVertical: 8,
@@ -871,11 +872,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 0.5)',
   },
   planBannerJoinText: {
-    color: '#16A34A',
+    color: colors.successLight,
     fontWeight: '700',
   },
   planBannerJoinTextAnmodet: {
-    color: '#94A3B8',
+    color: colors.textTertiary,
     fontWeight: '600',
   },
   dateContainer: {
@@ -884,7 +885,7 @@ const styles = StyleSheet.create({
   },
   dateText: {
     fontSize: 12,
-    color: '#8E8E93',
+    color: colors.textMuted,
     backgroundColor: '#F0F0F0',
     paddingHorizontal: 12,
     paddingVertical: 4,
@@ -906,7 +907,7 @@ const styles = StyleSheet.create({
     borderRadius: 18,
   },
   messageBubbleMe: {
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     borderBottomRightRadius: 4,
   },
   messageBubbleOther: {
@@ -921,7 +922,7 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   messageTextOther: {
-    color: '#000',
+    color: colors.text,
   },
   messageTextWithImage: {
     marginTop: 8,
@@ -941,10 +942,10 @@ const styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.7)',
   },
   messageTimeOther: {
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
   inputContainer: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderTopWidth: 1,
     borderTopColor: '#EFEFF4',
     paddingHorizontal: 16,
@@ -954,7 +955,7 @@ const styles = StyleSheet.create({
   inputWrapper: {
     flexDirection: 'row',
     alignItems: 'flex-end',
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
     borderRadius: 20,
     paddingHorizontal: 12,
     paddingVertical: 8,
@@ -967,7 +968,7 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     fontSize: 16,
-    color: '#000',
+    color: colors.text,
     maxHeight: 100,
     padding: 0,
   },
@@ -1010,10 +1011,10 @@ const styles = StyleSheet.create({
     bottom: 50,
     left: 0,
     flexDirection: 'row',
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 16,
     padding: 8,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOpacity: 0.15,
     shadowRadius: 10,
     shadowOffset: {width: 0, height: 4},
@@ -1030,14 +1031,14 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 24,
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 6,
   },
   imagePickerLabel: {
     fontSize: 12,
-    color: '#0F172A',
+    color: colors.text,
     fontWeight: '600',
   },
   planModalOverlay: {
@@ -1053,7 +1054,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 0,
   },
   planModalCard: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 20,
     width: '100%',
     padding: 20,
@@ -1064,29 +1065,29 @@ const styles = StyleSheet.create({
   modalTitle: {
     fontSize: 24,
     fontWeight: '700',
-    color: '#0F172A',
+    color: colors.text,
     marginBottom: 8,
   },
   modalText: {
     fontSize: 15,
-    color: '#64748B',
+    color: colors.textTertiary,
     marginBottom: 20,
   },
   sectionLabel: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#475569',
+    color: colors.textSecondary,
     marginBottom: 8,
     textTransform: 'uppercase',
   },
   planCenterInput: {
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: colors.border,
     borderRadius: 12,
     paddingHorizontal: 14,
     paddingVertical: 12,
     fontSize: 16,
-    color: '#0F172A',
+    color: colors.text,
     marginBottom: 8,
   },
   planSuggestionList: {
@@ -1099,18 +1100,18 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingVertical: 12,
     paddingHorizontal: 12,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
     borderRadius: 10,
     marginBottom: 8,
   },
   planSuggestionTitle: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#0F172A',
+    color: colors.text,
   },
   planSuggestionSubtitle: {
     fontSize: 13,
-    color: '#64748B',
+    color: colors.textTertiary,
     marginTop: 2,
   },
   muscleGrid: {
@@ -1131,13 +1132,13 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   muscleCardActive: {
-    backgroundColor: '#007AFF',
-    borderColor: '#007AFF',
+    backgroundColor: colors.secondary,
+    borderColor: colors.secondary,
   },
   muscleLabel: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#007AFF',
+    color: colors.secondary,
   },
   muscleLabelActive: {
     color: '#fff',
@@ -1147,7 +1148,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 14,
     paddingVertical: 12,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
     borderRadius: 12,
     marginBottom: 12,
     gap: 8,
@@ -1155,10 +1156,10 @@ const styles = StyleSheet.create({
   timeButtonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#0F172A',
+    color: colors.text,
   },
   primaryButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     borderRadius: 12,
     paddingVertical: 14,
     alignItems: 'center',
@@ -1174,7 +1175,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modalCloseText: {
-    color: '#007AFF',
+    color: colors.secondary,
     fontSize: 16,
     fontWeight: '600',
   },
@@ -1184,10 +1185,10 @@ const styles = StyleSheet.create({
   },
   iosTimePickerBackdrop: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(0,0,0,0.4)',
+    backgroundColor: colors.overlay,
   },
   iosTimePickerCard: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     padding: 20,
@@ -1198,18 +1199,18 @@ const styles = StyleSheet.create({
   planModalTitle: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#0F172A',
+    color: colors.text,
     marginBottom: 16,
   },
   planInput: {
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: colors.border,
     borderRadius: 12,
     paddingHorizontal: 14,
     paddingVertical: 12,
     marginBottom: 12,
     fontSize: 16,
-    color: '#0F172A',
+    color: colors.text,
   },
   planNotesInput: {
     minHeight: 80,
@@ -1229,13 +1230,13 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   planModalCancel: {
-    backgroundColor: '#F1F5F9',
+    backgroundColor: colors.surface,
   },
   planModalConfirm: {
     backgroundColor: '#0F172A',
   },
   planModalCancelText: {
-    color: '#0F172A',
+    color: colors.text,
     fontWeight: '600',
   },
   planModalConfirmText: {
@@ -1244,13 +1245,13 @@ const styles = StyleSheet.create({
   },
   planDetailOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.4)',
+    backgroundColor: colors.overlay,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 24,
   },
   planDetailCard: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 20,
     padding: 20,
     width: '100%',
@@ -1258,23 +1259,23 @@ const styles = StyleSheet.create({
   planDetailTitle: {
     fontSize: 20,
     fontWeight: '700',
-    color: '#0F172A',
+    color: colors.text,
     marginTop: 8,
   },
   planDetailSubtitle: {
     fontSize: 15,
-    color: '#475569',
+    color: colors.textSecondary,
     marginBottom: 12,
     textTransform: 'capitalize',
   },
   planDetailNotes: {
     fontSize: 14,
-    color: '#0F172A',
+    color: colors.text,
     marginBottom: 12,
   },
   planDetailParticipants: {
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: colors.border,
     borderRadius: 16,
     padding: 12,
     marginTop: 8,
@@ -1287,27 +1288,27 @@ const styles = StyleSheet.create({
   },
   planParticipantName: {
     fontSize: 15,
-    color: '#0F172A',
+    color: colors.text,
   },
   planParticipantStatus: {
     fontSize: 13,
     fontWeight: '600',
   },
   planParticipantStatusJoined: {
-    color: '#16A34A',
+    color: colors.successLight,
   },
   planParticipantStatusPending: {
     color: '#F97316',
   },
   detailJoinButton: {
     marginTop: 16,
-    backgroundColor: '#16A34A',
+    backgroundColor: colors.success,
     borderRadius: 12,
     paddingVertical: 12,
     alignItems: 'center',
   },
   detailJoinButtonAnmodet: {
-    backgroundColor: '#E2E8F0',
+    backgroundColor: colors.surface,
   },
   detailJoinButtonText: {
     color: '#fff',
@@ -1315,7 +1316,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   detailJoinButtonTextAnmodet: {
-    color: '#94A3B8',
+    color: colors.textTertiary,
     fontWeight: '600',
   },
 });

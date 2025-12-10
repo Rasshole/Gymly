@@ -17,6 +17,7 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {colors} from '@/theme/colors';
 
 const HelpScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
@@ -136,7 +137,7 @@ const HelpScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
   },
   header: {
     flexDirection: 'row',
@@ -153,7 +154,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
   },
   headerRight: {
     width: 32,
@@ -178,7 +179,7 @@ const styles = StyleSheet.create({
   },
   helpItemText: {
     fontSize: 16,
-    color: '#000',
+    color: colors.text,
   },
   helpItemTextDestructive: {
     color: '#FF3B30',
@@ -192,11 +193,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 16,
     alignItems: 'center',
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
   },
   versionText: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
 });
 

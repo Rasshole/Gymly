@@ -3,6 +3,7 @@ import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {useWorkoutPlanStore} from '@/store/workoutPlanStore';
 import {MuscleGroup} from '@/types/workout.types';
 import {formatGymDisplayName} from '@/utils/gymDisplay';
+import {colors} from '@/theme/colors';
 
 const MUSCLE_LABELS: Record<MuscleGroup, string> = {
   bryst: 'Bryst',
@@ -84,17 +85,17 @@ const UpcomingWorkoutsScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
   },
   listContent: {
     padding: 16,
   },
   card: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 18,
     padding: 16,
     marginBottom: 16,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOpacity: 0.05,
     shadowRadius: 10,
     shadowOffset: {width: 0, height: 4},
@@ -107,11 +108,11 @@ const styles = StyleSheet.create({
   gymName: {
     fontSize: 17,
     fontWeight: '700',
-    color: '#0F172A',
+    color: colors.text,
   },
   timestamp: {
     fontSize: 14,
-    color: '#475467',
+    color: colors.textSecondary,
     marginTop: 2,
   },
   cancelButton: {
@@ -145,7 +146,7 @@ const styles = StyleSheet.create({
   friendText: {
     marginTop: 12,
     fontSize: 13,
-    color: '#2563EB',
+    color: colors.secondary,
     fontWeight: '600',
   },
   emptyState: {
@@ -160,12 +161,12 @@ const styles = StyleSheet.create({
   emptyTitle: {
     fontSize: 20,
     fontWeight: '700',
-    color: '#0F172A',
+    color: colors.text,
     marginBottom: 6,
   },
   emptySubtitle: {
     fontSize: 14,
-    color: '#64748B',
+    color: colors.textTertiary,
     textAlign: 'center',
   },
 });

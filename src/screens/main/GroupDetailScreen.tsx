@@ -17,6 +17,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useAppStore} from '@/store/appStore';
+import {colors} from '@/theme/colors';
 
 type Friend = {
   id: string;
@@ -282,7 +283,7 @@ const GroupDetailScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
   },
   header: {
     flexDirection: 'row',
@@ -290,7 +291,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingVertical: 12,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderBottomWidth: 1,
     borderBottomColor: '#E5E5EA',
   },
@@ -300,7 +301,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
   },
   headerRight: {
     width: 32,
@@ -312,12 +313,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     paddingVertical: 16,
     paddingHorizontal: 24,
     borderRadius: 12,
     marginBottom: 24,
-    shadowColor: '#007AFF',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 4},
     shadowOpacity: 0.3,
     shadowRadius: 8,
@@ -352,7 +353,7 @@ const styles = StyleSheet.create({
   },
   errorText: {
     fontSize: 16,
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
   groupHeader: {
     alignItems: 'center',
@@ -363,7 +364,7 @@ const styles = StyleSheet.create({
     width: 96,
     height: 96,
     borderRadius: 48,
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 16,
@@ -385,18 +386,18 @@ const styles = StyleSheet.create({
   groupName: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
     textAlign: 'center',
   },
   descriptionSection: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     padding: 16,
     borderRadius: 12,
     marginBottom: 16,
   },
   descriptionText: {
     fontSize: 16,
-    color: '#000',
+    color: colors.text,
     lineHeight: 24,
   },
   statsContainer: {
@@ -406,11 +407,11 @@ const styles = StyleSheet.create({
   },
   statCard: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     padding: 20,
     borderRadius: 12,
     alignItems: 'center',
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 1},
     shadowOpacity: 0.05,
     shadowRadius: 4,
@@ -419,7 +420,7 @@ const styles = StyleSheet.create({
   statValue: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
     marginTop: 8,
     marginBottom: 4,
     textAlign: 'center',
@@ -427,7 +428,7 @@ const styles = StyleSheet.create({
   },
   statLabel: {
     fontSize: 12,
-    color: '#8E8E93',
+    color: colors.textMuted,
     textAlign: 'center',
   },
   section: {
@@ -436,11 +437,11 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 12,
   },
   membersList: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 12,
     overflow: 'hidden',
   },
@@ -490,13 +491,13 @@ const styles = StyleSheet.create({
   memberName: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 4,
   },
   currentUserLabel: {
     fontSize: 14,
     fontWeight: '400',
-    color: '#007AFF',
+    color: colors.secondary,
   },
   memberStatus: {
     fontSize: 14,
@@ -504,7 +505,7 @@ const styles = StyleSheet.create({
   },
   memberStatusOffline: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
   onlineBadge: {
     marginLeft: 8,
@@ -524,7 +525,7 @@ const styles = StyleSheet.create({
   },
   metadataText: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
 });
 
