@@ -25,6 +25,7 @@ class AuthService {
         email: data.email,
         username: data.username,
         displayName: data.displayName,
+        bicepsEmoji: data.bicepsEmoji || '💪🏻',
         favoriteGyms: data.favoriteGyms, // Save favorite gyms from registration
         privacySettings: {
           profileVisibility: 'friends',
@@ -262,6 +263,8 @@ class AuthService {
       firstName?: string;
       lastName?: string;
       email?: string;
+      username?: string;
+      bicepsEmoji?: string;
       favoriteGyms?: number[];
     },
   ): Promise<AuthResponse> {
@@ -271,10 +274,11 @@ class AuthService {
       const mockUser: User = {
         id: Date.now().toString(),
         email: data?.email || `${provider}@example.com`,
-        username: data?.email?.split('@')[0] || `${provider}user`,
+        username: data?.username || data?.email?.split('@')[0] || `${provider}user`,
         displayName: data?.firstName && data?.lastName
           ? `${data.firstName} ${data.lastName}`
           : `${provider} User`,
+        bicepsEmoji: data?.bicepsEmoji || '💪',
         favoriteGyms: data?.favoriteGyms, // Save favorite gyms from registration
         privacySettings: {
           profileVisibility: 'friends',

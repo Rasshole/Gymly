@@ -19,6 +19,7 @@ import {useNavigation, useRoute} from '@react-navigation/native';
 import {useWorkoutInvitationStore} from '@/store/workoutInvitationStore';
 import {useAppStore} from '@/store/appStore';
 import {MuscleGroup} from '@/types/workout.types';
+import {colors} from '@/theme/colors';
 
 const MUSCLE_GROUPS: {key: MuscleGroup; label: string; icon: string}[] = [
   {key: 'bryst', label: 'Bryst', icon: 'body'},
@@ -351,7 +352,7 @@ const InviteToWorkoutScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
   },
   header: {
     flexDirection: 'row',
@@ -359,7 +360,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingVertical: 12,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderBottomWidth: 1,
     borderBottomColor: '#EFEFF4',
     paddingTop: 50,
@@ -370,7 +371,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
   },
   headerRight: {
     width: 32,
@@ -389,7 +390,7 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 40,
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 12,
@@ -402,14 +403,14 @@ const styles = StyleSheet.create({
   friendName: {
     fontSize: 20,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
   },
   section: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     padding: 20,
     borderRadius: 16,
     marginBottom: 16,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 1},
     shadowOpacity: 0.05,
     shadowRadius: 4,
@@ -418,18 +419,18 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 4,
   },
   sectionSubtitle: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginBottom: 16,
   },
   dateTimeButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
     padding: 16,
     borderRadius: 12,
     marginBottom: 12,
@@ -437,18 +438,18 @@ const styles = StyleSheet.create({
   dateTimeText: {
     flex: 1,
     fontSize: 16,
-    color: '#000',
+    color: colors.text,
     marginLeft: 12,
   },
   selectedDateTime: {
     marginTop: 8,
     padding: 12,
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
     borderRadius: 10,
   },
   selectedDateTimeText: {
     fontSize: 14,
-    color: '#007AFF',
+    color: colors.secondary,
     fontWeight: '600',
     textAlign: 'center',
   },
@@ -460,30 +461,30 @@ const styles = StyleSheet.create({
   muscleGroupButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
     paddingHorizontal: 16,
     paddingVertical: 12,
     borderRadius: 12,
     borderWidth: 2,
-    borderColor: '#E5E5EA',
+    borderColor: colors.border,
     minWidth: '45%',
   },
   muscleGroupButtonSelected: {
-    backgroundColor: '#007AFF',
-    borderColor: '#007AFF',
+    backgroundColor: colors.secondary,
+    borderColor: colors.secondary,
   },
   muscleGroupText: {
     flex: 1,
     fontSize: 16,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginLeft: 8,
   },
   muscleGroupTextSelected: {
     color: '#fff',
   },
   sendButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     padding: 16,
     borderRadius: 12,
     alignItems: 'center',
@@ -507,7 +508,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   pickerModalContent: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     paddingBottom: 20,
@@ -526,12 +527,12 @@ const styles = StyleSheet.create({
   },
   pickerModalCancelText: {
     fontSize: 16,
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
   pickerModalTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
   },
   pickerModalConfirmButton: {
     padding: 8,
@@ -539,7 +540,7 @@ const styles = StyleSheet.create({
   pickerModalConfirmText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#007AFF',
+    color: colors.secondary,
   },
   picker: {
     height: 200,

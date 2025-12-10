@@ -8,6 +8,7 @@ export type ExerciseType =
   | 'Dødløft'
   | 'Benpres'
   | 'Squads'
+  | 'Bicepcurl'
   | 'Incline Dumbell'
   | 'Pull-Down'
   | 'Shoulder Pres Dumbell';

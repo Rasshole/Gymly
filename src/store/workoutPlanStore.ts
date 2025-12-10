@@ -27,6 +27,7 @@ interface WorkoutPlanState {
   completedWorkouts: WorkoutHistoryEntry[];
   addPlannedWorkout: (plan: WorkoutPlanEntry) => void;
   addPlanInvites: (planId: string, friendIds: string[]) => void;
+  removePlanInvites: (planId: string, friendIds: string[]) => void;
   acceptPlanInvite: (planId: string, friendId: string) => void;
   removePlannedWorkout: (planId: string) => void;
   addCompletedWorkout: (entry: WorkoutHistoryEntry) => void;
@@ -94,6 +95,18 @@ export const useWorkoutPlanStore = create<WorkoutPlanState>(set => ({
                 ...plan.invitedFriends,
                 ...friendIds.filter(id => !plan.invitedFriends.includes(id)),
               ],
+            }
+          : plan,
+      ),
+    })),
+
+  removePlanInvites: (planId, friendIds) =>
+    set(state => ({
+      plannedWorkouts: state.plannedWorkouts.map(plan =>
+        plan.id === planId
+          ? {
+              ...plan,
+              invitedFriends: plan.invitedFriends.filter(id => !friendIds.includes(id)),
             }
           : plan,
       ),

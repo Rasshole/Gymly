@@ -17,6 +17,7 @@ import {useWorkoutInvitationStore} from '@/store/workoutInvitationStore';
 import {useAppStore} from '@/store/appStore';
 import {format} from 'date-fns';
 import {da} from 'date-fns/locale';
+import {colors} from '@/theme/colors';
 
 const MUSCLE_GROUP_LABELS: Record<string, string> = {
   bryst: 'Bryst',
@@ -173,7 +174,7 @@ const WorkoutInvitationsScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
   },
   list: {
     padding: 16,
@@ -190,21 +191,21 @@ const styles = StyleSheet.create({
   emptyTitle: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
     marginTop: 16,
     marginBottom: 8,
   },
   emptyText: {
     fontSize: 16,
-    color: '#8E8E93',
+    color: colors.textMuted,
     textAlign: 'center',
   },
   invitationCard: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 16,
     padding: 20,
     marginBottom: 16,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 8,
@@ -221,7 +222,7 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 24,
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -234,12 +235,12 @@ const styles = StyleSheet.create({
   inviterName: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 2,
   },
   invitationLabel: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
   invitationDetails: {
     marginBottom: 16,
@@ -255,7 +256,7 @@ const styles = StyleSheet.create({
   detailText: {
     flex: 1,
     fontSize: 16,
-    color: '#000',
+    color: colors.text,
     marginLeft: 12,
   },
   muscleGroupsContainer: {
@@ -266,14 +267,14 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   muscleGroupTag: {
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 16,
   },
   muscleGroupTagText: {
     fontSize: 14,
-    color: '#007AFF',
+    color: colors.secondary,
     fontWeight: '600',
   },
   invitationActions: {
@@ -290,11 +291,11 @@ const styles = StyleSheet.create({
   declineButtonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
   },
   acceptButton: {
     flex: 1,
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     padding: 14,
     borderRadius: 12,
     alignItems: 'center',

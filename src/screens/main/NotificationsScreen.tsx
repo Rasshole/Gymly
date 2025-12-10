@@ -22,6 +22,7 @@ import {useWorkoutPlanStore} from '@/store/workoutPlanStore';
 import NotificationService from '@/services/notifications/NotificationService';
 import {formatDistanceToNow} from 'date-fns';
 import {da} from 'date-fns/locale';
+import {colors} from '@/theme/colors';
 
 const NotificationsScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
@@ -291,13 +292,13 @@ const NotificationsScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
   },
   invitationsBanner: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
     paddingHorizontal: 16,
     paddingVertical: 12,
     marginHorizontal: 16,
@@ -312,7 +313,7 @@ const styles = StyleSheet.create({
   invitationsBannerText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#007AFF',
+    color: colors.secondary,
     marginLeft: 8,
   },
   invitationsBannerButton: {
@@ -322,7 +323,7 @@ const styles = StyleSheet.create({
   invitationsBannerButtonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#007AFF',
+    color: colors.secondary,
     marginRight: 4,
   },
   centerEmptyState: {
@@ -333,7 +334,7 @@ const styles = StyleSheet.create({
   headerActions: {
     paddingHorizontal: 16,
     paddingVertical: 12,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderBottomWidth: 1,
     borderBottomColor: '#EFEFF4',
   },
@@ -342,7 +343,7 @@ const styles = StyleSheet.create({
   },
   markAllReadText: {
     fontSize: 14,
-    color: '#007AFF',
+    color: colors.secondary,
     fontWeight: '600',
   },
   emptyContainer: {
@@ -358,7 +359,7 @@ const styles = StyleSheet.create({
   },
   emptyText: {
     fontSize: 16,
-    color: '#666',
+    color: colors.textSecondary,
     textAlign: 'center',
     lineHeight: 24,
   },
@@ -367,7 +368,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 16,
     paddingHorizontal: 16,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderBottomWidth: 1,
     borderBottomColor: '#EFEFF4',
   },
@@ -396,16 +397,16 @@ const styles = StyleSheet.create({
   },
   notificationMessage: {
     fontSize: 14,
-    color: '#666',
+    color: colors.textSecondary,
     marginBottom: 4,
   },
   notificationTime: {
     fontSize: 12,
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
   gymNameText: {
     fontSize: 16,
-    color: '#007AFF',
+    color: colors.secondary,
     fontWeight: '600',
   },
   durationContainer: {
@@ -421,7 +422,7 @@ const styles = StyleSheet.create({
   },
   checkOutText: {
     fontSize: 12,
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginTop: 4,
     fontStyle: 'italic',
   },
@@ -429,7 +430,7 @@ const styles = StyleSheet.create({
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     marginRight: 8,
   },
   deleteButton: {
@@ -441,13 +442,13 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   joinButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 8,
   },
   joinButtonJoined: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderWidth: 1,
     borderColor: '#CBD5F5',
   },
@@ -457,11 +458,11 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   joinButtonTextJoined: {
-    color: '#0F172A',
+    color: colors.text,
   },
   scheduledTime: {
     fontSize: 12,
-    color: '#007AFF',
+    color: colors.secondary,
     marginTop: 4,
     fontWeight: '600',
   },

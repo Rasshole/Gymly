@@ -19,6 +19,9 @@ import {useWorkoutPlanStore, WorkoutPlanEntry, WorkoutHistoryEntry} from '@/stor
 import {formatGymDisplayName, findGymById} from '@/utils/gymDisplay';
 import {MuscleGroup} from '@/types/workout.types';
 import danishGyms, {DanishGym} from '@/data/danishGyms';
+import {colors} from '@/theme/colors';
+import NotificationService from '@/services/notifications/NotificationService';
+import {useAppStore} from '@/store/appStore';
 
 const WEEKDAYS = ['Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør', 'Søn'];
 
@@ -59,10 +62,22 @@ const MOCK_FRIENDS: Array<{id: string; name: string}> = [
   {id: '5', name: 'Patti'},
 ];
 
+// Friends list for inviting
+const FRIENDS: Array<{id: string; name: string; initials: string}> = [
+  {id: '1', name: 'Jeff', initials: 'J'},
+  {id: '2', name: 'Marie', initials: 'M'},
+  {id: '3', name: 'Lars', initials: 'L'},
+  {id: '4', name: 'Sofia', initials: 'S'},
+  {id: '5', name: 'Patti', initials: 'P'},
+];
+
 const WorkoutScheduleScreen = () => {
+  const {user} = useAppStore();
   const plannedWorkouts = useWorkoutPlanStore(state => state.plannedWorkouts);
   const completedWorkouts = useWorkoutPlanStore(state => state.completedWorkouts);
   const addPlannedWorkout = useWorkoutPlanStore(state => state.addPlannedWorkout);
+  const addPlanInvites = useWorkoutPlanStore(state => state.addPlanInvites);
+  const removePlanInvites = useWorkoutPlanStore(state => state.removePlanInvites);
 
   const [currentMonth, setCurrentMonth] = useState(() => {
     const start = new Date();
@@ -97,6 +112,9 @@ const WorkoutScheduleScreen = () => {
     now.setHours(0, 0, 0, 0);
     return now;
   });
+
+  // Invite friends modal state
+  const [inviteModalVisible, setInviteModalVisible] = useState(false);
 
   const upcomingByDay = useMemo(() => {
     const map = new Map<string, WorkoutPlanEntry[]>();
@@ -313,6 +331,116 @@ const WorkoutScheduleScreen = () => {
     );
   };
 
+  const formatMuscleSelection = (muscles: MuscleGroup[]): string => {
+    if (muscles.length === 0) return '';
+    if (muscles.length === 1) return muscleLabels[muscles[0]];
+    if (muscles.length === 2) return `${muscleLabels[muscles[0]]} & ${muscleLabels[muscles[1]]}`;
+    return `${muscleLabels[muscles[0]]} + ${muscles.length - 1} flere`;
+  };
+
+  const getCurrentInvitedIds = () => {
+    if (!selectedWorkout || selectedWorkout.type !== 'planned') {
+      return [];
+    }
+    return selectedWorkout.data.invitedFriends || [];
+  };
+
+  const handleInviteFriends = () => {
+    if (!selectedWorkout || selectedWorkout.type !== 'planned') {
+      Alert.alert('Fejl', 'Ingen planlagt træning valgt');
+      return;
+    }
+    // Close detail modal first, then open invite modal
+    setDetailModalVisible(false);
+    // Small delay to ensure detail modal closes first
+    setTimeout(() => {
+      setInviteModalVisible(true);
+    }, 100);
+  };
+
+  const inviteFriendsByIds = (friendIds: string[]) => {
+    if (friendIds.length === 0 || !selectedWorkout || selectedWorkout.type !== 'planned') {
+      return;
+    }
+
+    const plan = selectedWorkout.data;
+    
+    // Send notifications
+    NotificationService.sendWorkoutInvite(
+      user?.displayName || 'Din ven',
+      plan.gym,
+      formatMuscleSelection(plan.muscles),
+      friendIds,
+      plan.id,
+      plan.scheduledAt,
+      plan.muscles,
+    );
+
+    // Add to invited friends
+    addPlanInvites(plan.id, friendIds);
+
+    // Update selected workout
+    setSelectedWorkout({
+      type: 'planned',
+      data: {
+        ...plan,
+        invitedFriends: [
+          ...plan.invitedFriends,
+          ...friendIds.filter(id => !plan.invitedFriends.includes(id)),
+        ],
+      },
+    });
+  };
+
+  const uninviteFriendsByIds = (friendIds: string[]) => {
+    if (friendIds.length === 0 || !selectedWorkout || selectedWorkout.type !== 'planned') {
+      return;
+    }
+
+    const plan = selectedWorkout.data;
+    
+    // Remove from invited friends
+    removePlanInvites(plan.id, friendIds);
+
+    // Update selected workout
+    setSelectedWorkout({
+      type: 'planned',
+      data: {
+        ...plan,
+        invitedFriends: plan.invitedFriends.filter(id => !friendIds.includes(id)),
+      },
+    });
+  };
+
+  const handleInviteFriendPress = (friendId: string) => {
+    const alreadyInvited = getCurrentInvitedIds();
+    if (alreadyInvited.includes(friendId)) {
+      // Remove invitation
+      uninviteFriendsByIds([friendId]);
+    } else {
+      // Add invitation
+      inviteFriendsByIds([friendId]);
+    }
+  };
+
+  const handleInviteAll = () => {
+    const currentInvited = getCurrentInvitedIds();
+    const notInvited = FRIENDS.filter(friend => !currentInvited.includes(friend.id));
+    if (notInvited.length === 0) {
+      return;
+    }
+    inviteFriendsByIds(notInvited.map(f => f.id));
+  };
+
+  const handleInviteModalDone = () => {
+    setInviteModalVisible(false);
+  };
+
+  const currentInvitedIds = inviteModalVisible ? getCurrentInvitedIds() : [];
+  const remainingInviteCount = inviteModalVisible
+    ? FRIENDS.filter(friend => !currentInvitedIds.includes(friend.id)).length
+    : 0;
+
   const handlePlanCenterInput = (value: string) => {
     setPlanCenterQuery(value);
     setPlanSelectedGym(null);
@@ -387,6 +515,7 @@ const WorkoutScheduleScreen = () => {
   };
 
   return (
+    <>
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       <View style={styles.calendarCard}>
         <View style={styles.calendarHeader}>
@@ -542,8 +671,7 @@ const WorkoutScheduleScreen = () => {
         onRequestClose={() => setDetailModalVisible(false)}>
         <TouchableWithoutFeedback onPress={() => setDetailModalVisible(false)}>
           <View style={styles.modalOverlay}>
-            <TouchableWithoutFeedback>
-              <View style={styles.modalContent}>
+            <View style={styles.modalContent}>
             <View style={styles.modalHeader}>
               <Text style={styles.modalTitle}>
                 {selectedWorkout?.type === 'planned' ? 'Kommende træning' : 'Tidligere træning'}
@@ -616,11 +744,19 @@ const WorkoutScheduleScreen = () => {
                   {selectedWorkout.type === 'planned' ? (
                     <>
                       {/* Invited Friends */}
-                      {selectedWorkout.data.invitedFriends.length > 0 && (
-                        <View style={styles.modalSection}>
+                      <View style={styles.modalSection}>
+                        <View style={styles.modalSectionHeader}>
                           <Text style={styles.modalSectionTitle}>
                             Inviterede venner ({selectedWorkout.data.invitedFriends.length})
                           </Text>
+                          <TouchableOpacity
+                            style={styles.inviteAddButton}
+                            onPress={handleInviteFriends}
+                            activeOpacity={0.7}>
+                            <Ionicons name="add-circle" size={24} color={colors.primary} />
+                          </TouchableOpacity>
+                        </View>
+                        {selectedWorkout.data.invitedFriends.length > 0 ? (
                           <View style={styles.modalFriendsList}>
                             {selectedWorkout.data.invitedFriends.map(friendId => {
                               const isAccepted = selectedWorkout.data.acceptedFriends?.includes(friendId);
@@ -634,12 +770,12 @@ const WorkoutScheduleScreen = () => {
                                   <Text style={styles.modalFriendName}>{getFriendName(friendId)}</Text>
                                   {isAccepted ? (
                                     <View style={styles.modalFriendStatusAccepted}>
-                                      <Ionicons name="checkmark-circle" size={16} color="#059669" />
+                                      <Ionicons name="checkmark-circle" size={16} color={colors.success} />
                                       <Text style={styles.modalFriendStatusTextAccepted}>Accepteret</Text>
                                     </View>
                                   ) : (
                                     <View style={styles.modalFriendStatusPending}>
-                                      <Ionicons name="time-outline" size={16} color="#F59E0B" />
+                                      <Ionicons name="time-outline" size={16} color={colors.warning} />
                                       <Text style={styles.modalFriendStatusTextPending}>Venter</Text>
                                     </View>
                                   )}
@@ -647,8 +783,12 @@ const WorkoutScheduleScreen = () => {
                               );
                             })}
                           </View>
-                        </View>
-                      )}
+                        ) : (
+                          <Text style={styles.emptyInvitesText}>
+                            Ingen venner inviteret endnu. Tryk på + for at invitere.
+                          </Text>
+                        )}
+                      </View>
 
                       {/* Accepted Friends Summary */}
                       {selectedWorkout.data.acceptedFriends &&
@@ -667,7 +807,7 @@ const WorkoutScheduleScreen = () => {
                                   </View>
                                   <Text style={styles.modalFriendName}>{getFriendName(friendId)}</Text>
                                   <View style={styles.modalFriendStatusAccepted}>
-                                    <Ionicons name="checkmark-circle" size={16} color="#059669" />
+                                    <Ionicons name="checkmark-circle" size={16} color={colors.success} />
                                     <Text style={styles.modalFriendStatusTextAccepted}>Accepteret</Text>
                                   </View>
                                 </View>
@@ -695,7 +835,7 @@ const WorkoutScheduleScreen = () => {
                                   </View>
                                   <Text style={styles.modalFriendName}>{getFriendName(friendId)}</Text>
                                   <View style={styles.modalFriendStatusCompleted}>
-                                    <Ionicons name="fitness" size={16} color="#E11D48" />
+                                    <Ionicons name="fitness" size={16} color={colors.error} />
                                     <Text style={styles.modalFriendStatusTextCompleted}>Trænede med</Text>
                                   </View>
                                 </View>
@@ -745,7 +885,6 @@ const WorkoutScheduleScreen = () => {
               )}
             </ScrollView>
               </View>
-            </TouchableWithoutFeedback>
           </View>
         </TouchableWithoutFeedback>
       </Modal>
@@ -932,6 +1071,70 @@ const WorkoutScheduleScreen = () => {
         />
       )}
     </ScrollView>
+
+    {/* Invite Friends Modal - Copied from CheckInScreen */}
+    <Modal 
+      visible={inviteModalVisible} 
+      transparent 
+      animationType="fade"
+      onRequestClose={() => setInviteModalVisible(false)}
+      presentationStyle="overFullScreen">
+      <View style={styles.inviteModalOverlay}>
+        <View style={[styles.modalCard, styles.friendModal]}>
+          <Text style={styles.modalTitle}>Inviter venner</Text>
+          <TouchableOpacity
+            style={[
+              styles.inviteAllButton,
+              remainingInviteCount === 0 && styles.inviteAllButtonDisabled,
+            ]}
+            onPress={handleInviteAll}
+            disabled={remainingInviteCount === 0}>
+            <Text
+              style={[
+                styles.inviteAllText,
+                remainingInviteCount === 0 && styles.inviteAllTextDisabled,
+              ]}>
+              Inviter alle
+            </Text>
+          </TouchableOpacity>
+          <ScrollView style={styles.friendList} showsVerticalScrollIndicator={false}>
+            {FRIENDS.map(friend => {
+              const hasBeenInvited = currentInvitedIds.includes(friend.id);
+              return (
+                <View key={friend.id} style={styles.friendRow}>
+                  <View style={styles.friendInfoWrapper}>
+                    <View style={styles.friendAvatar}>
+                      <Text style={styles.friendAvatarText}>{friend.initials}</Text>
+                    </View>
+                    <View style={styles.friendDetails}>
+                      <Text style={styles.friendName}>{friend.name}</Text>
+                    </View>
+                  </View>
+                  <TouchableOpacity
+                    style={[
+                      styles.invitePill,
+                      hasBeenInvited && styles.invitePillDisabled,
+                    ]}
+                    onPress={() => handleInviteFriendPress(friend.id)}>
+                    <Text
+                      style={[
+                        styles.invitePillText,
+                        hasBeenInvited && styles.invitePillTextDisabled,
+                      ]}>
+                      {hasBeenInvited ? 'Inviteret' : 'Inviter'}
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              );
+            })}
+          </ScrollView>
+          <TouchableOpacity style={styles.modalClose} onPress={handleInviteModalDone}>
+            <Text style={styles.modalCloseText}>Færdig</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </Modal>
+    </>
   );
 };
 
@@ -944,11 +1147,11 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   calendarCard: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 18,
     padding: 16,
     marginBottom: 16,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOpacity: 0.05,
     shadowRadius: 12,
     shadowOffset: {width: 0, height: 8},
@@ -968,10 +1171,10 @@ const styles = StyleSheet.create({
     width: 36,
     height: 36,
     borderRadius: 18,
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#007AFF',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.3,
     shadowRadius: 4,
@@ -981,14 +1184,14 @@ const styles = StyleSheet.create({
     width: 36,
     height: 36,
     borderRadius: 18,
-    backgroundColor: '#EEF2FF',
+    backgroundColor: colors.surfaceLight,
     alignItems: 'center',
     justifyContent: 'center',
   },
   calendarHeaderText: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#0F172A',
+    color: colors.text,
     textTransform: 'capitalize',
   },
   weekRow: {
@@ -1001,7 +1204,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 13,
     fontWeight: '600',
-    color: '#94A3B8',
+    color: colors.textTertiary,
   },
   daysGrid: {
     flexDirection: 'row',
@@ -1024,10 +1227,10 @@ const styles = StyleSheet.create({
   dayNumber: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#0F172A',
+    color: colors.text,
   },
   dayNumberMuted: {
-    color: '#94A3B8',
+    color: colors.textTertiary,
   },
   dayNumberSelected: {
     color: '#0369A1',
@@ -1049,14 +1252,14 @@ const styles = StyleSheet.create({
   detailTitle: {
     fontSize: 20,
     fontWeight: '700',
-    color: '#0F172A',
+    color: colors.text,
     textTransform: 'capitalize',
   },
   detailGroup: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 18,
     padding: 16,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOpacity: 0.04,
     shadowRadius: 10,
     shadowOffset: {width: 0, height: 6},
@@ -1064,16 +1267,16 @@ const styles = StyleSheet.create({
   detailGroupTitle: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#0F172A',
+    color: colors.text,
     marginBottom: 12,
   },
   emptyDetail: {
     fontSize: 14,
-    color: '#94A3B8',
+    color: colors.textTertiary,
   },
   detailCard: {
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: colors.border,
     borderRadius: 14,
     padding: 12,
     marginBottom: 12,
@@ -1086,7 +1289,7 @@ const styles = StyleSheet.create({
   detailGym: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#0F172A',
+    color: colors.text,
   },
   detailTime: {
     fontSize: 14,
@@ -1103,22 +1306,22 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: 999,
-    backgroundColor: '#ECFDF5',
+    backgroundColor: colors.surfaceLight,
   },
   muscleChipText: {
     fontSize: 12,
-    color: '#059669',
+    color: colors.success,
     fontWeight: '600',
   },
   muscleChipHistory: {
-    backgroundColor: '#FFF1F2',
+    backgroundColor: colors.surfaceLight,
   },
   muscleChipHistoryText: {
-    color: '#E11D48',
+    color: colors.error,
   },
   inviteStatus: {
     fontSize: 13,
-    color: '#64748B',
+    color: colors.textTertiary,
   },
   moreInfoHint: {
     flexDirection: 'row',
@@ -1128,16 +1331,24 @@ const styles = StyleSheet.create({
   },
   moreInfoText: {
     fontSize: 12,
-    color: '#94A3B8',
+    color: colors.textTertiary,
     fontStyle: 'italic',
   },
   modalOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: colors.overlay,
     justifyContent: 'flex-end',
   },
+  inviteModalOverlay: {
+    flex: 1,
+    backgroundColor: colors.overlay,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 24,
+    zIndex: 9999,
+  },
   modalContent: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
     height: '90%',
@@ -1149,17 +1360,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20,
     borderBottomWidth: 1,
-    borderBottomColor: '#E2E8F0',
+    borderBottomColor: colors.border,
   },
   modalTitle: {
     fontSize: 22,
     fontWeight: '700',
-    color: '#0F172A',
+    color: colors.text,
     marginBottom: 8,
   },
   modalText: {
     fontSize: 16,
-    color: '#4B5563',
+    color: colors.textSecondary,
     textAlign: 'center',
     marginBottom: 6,
   },
@@ -1175,22 +1386,22 @@ const styles = StyleSheet.create({
   modalSection: {
     padding: 20,
     borderBottomWidth: 1,
-    borderBottomColor: '#F1F5F9',
+    borderBottomColor: colors.border,
   },
   modalGymName: {
     fontSize: 22,
     fontWeight: '700',
-    color: '#0F172A',
+    color: colors.text,
     marginBottom: 4,
   },
   modalDateTime: {
     fontSize: 15,
-    color: '#64748B',
+    color: colors.textTertiary,
   },
   modalPhotoSection: {
     padding: 20,
     borderBottomWidth: 1,
-    borderBottomColor: '#F1F5F9',
+    borderBottomColor: colors.border,
   },
   modalPhoto: {
     width: '100%',
@@ -1200,8 +1411,101 @@ const styles = StyleSheet.create({
   modalSectionTitle: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#0F172A',
+    color: colors.text,
     marginBottom: 12,
+  },
+  modalSectionHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  inviteAddButton: {
+    padding: 4,
+  },
+  emptyInvitesText: {
+    fontSize: 14,
+    color: colors.textTertiary,
+    fontStyle: 'italic',
+    textAlign: 'center',
+    paddingVertical: 12,
+  },
+  friendModal: {
+    alignItems: 'stretch',
+    maxHeight: '80%',
+  },
+  inviteAllButton: {
+    backgroundColor: colors.primary,
+    borderRadius: 12,
+    paddingVertical: 10,
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  inviteAllButtonDisabled: {
+    opacity: 0.4,
+  },
+  inviteAllText: {
+    color: colors.white,
+    fontSize: 16,
+    fontWeight: '700',
+  },
+  inviteAllTextDisabled: {
+    color: colors.textTertiary,
+  },
+  friendList: {
+    flexGrow: 0,
+    marginBottom: 12,
+  },
+  friendRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: 12,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.border,
+  },
+  friendInfoWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  friendDetails: {
+    marginLeft: 12,
+  },
+  friendAvatar: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: colors.surface,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  friendAvatarText: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: colors.text,
+  },
+  friendName: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: colors.text,
+  },
+  invitePill: {
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: colors.secondary,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+  },
+  invitePillDisabled: {
+    borderColor: colors.textTertiary,
+    backgroundColor: colors.surface,
+  },
+  invitePillText: {
+    color: colors.secondary,
+    fontWeight: '600',
+  },
+  invitePillTextDisabled: {
+    color: colors.textTertiary,
   },
   modalMuscles: {
     flexDirection: 'row',
@@ -1212,18 +1516,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 999,
-    backgroundColor: '#ECFDF5',
+    backgroundColor: colors.surfaceLight,
   },
   modalMuscleChipText: {
     fontSize: 13,
-    color: '#059669',
+    color: colors.success,
     fontWeight: '600',
   },
   modalMuscleChipHistory: {
-    backgroundColor: '#FFF1F2',
+    backgroundColor: colors.surfaceLight,
   },
   modalMuscleChipHistoryText: {
-    color: '#E11D48',
+    color: colors.error,
   },
   modalFriendsList: {
     gap: 12,
@@ -1237,7 +1541,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -1250,7 +1554,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
     fontWeight: '600',
-    color: '#0F172A',
+    color: colors.text,
   },
   modalFriendStatusAccepted: {
     flexDirection: 'row',
@@ -1259,7 +1563,7 @@ const styles = StyleSheet.create({
   },
   modalFriendStatusTextAccepted: {
     fontSize: 13,
-    color: '#059669',
+    color: colors.success,
     fontWeight: '600',
   },
   modalFriendStatusPending: {
@@ -1269,7 +1573,7 @@ const styles = StyleSheet.create({
   },
   modalFriendStatusTextPending: {
     fontSize: 13,
-    color: '#F59E0B',
+    color: colors.warning,
     fontWeight: '600',
   },
   modalFriendStatusCompleted: {
@@ -1279,7 +1583,7 @@ const styles = StyleSheet.create({
   },
   modalFriendStatusTextCompleted: {
     fontSize: 13,
-    color: '#E11D48',
+    color: colors.error,
     fontWeight: '600',
   },
   modalFriendStatusDeclined: {
@@ -1289,7 +1593,7 @@ const styles = StyleSheet.create({
   },
   modalFriendStatusTextDeclined: {
     fontSize: 13,
-    color: '#94A3B8',
+    color: colors.textTertiary,
     fontWeight: '600',
   },
   modalBackdrop: {
@@ -1297,7 +1601,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.35)',
   },
   modalCard: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 24,
     padding: 24,
     width: '100%',
@@ -1313,7 +1617,7 @@ const styles = StyleSheet.create({
   sectionLabel: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#475467',
+    color: colors.textSecondary,
     marginTop: 12,
     marginBottom: 6,
   },
@@ -1327,7 +1631,7 @@ const styles = StyleSheet.create({
   },
   planSuggestionList: {
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: colors.border,
     borderRadius: 16,
     marginTop: 8,
   },
@@ -1338,16 +1642,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     paddingVertical: 12,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderColor: '#E2E8F0',
+    borderColor: colors.border,
   },
   planSuggestionTitle: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#0F172A',
+    color: colors.text,
   },
   planSuggestionSubtitle: {
     fontSize: 13,
-    color: '#64748B',
+    color: colors.textTertiary,
   },
   muscleGrid: {
     flexDirection: 'row',
@@ -1359,18 +1663,18 @@ const styles = StyleSheet.create({
     width: '46%',
     borderRadius: 14,
     borderWidth: 1,
-    borderColor: '#E5E7EB',
+    borderColor: colors.border,
     paddingVertical: 10,
     paddingHorizontal: 8,
     marginBottom: 8,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
   },
   muscleCardActive: {
-    backgroundColor: '#007AFF',
-    borderColor: '#007AFF',
-    shadowColor: '#007AFF',
+    backgroundColor: colors.secondary,
+    borderColor: colors.secondary,
+    shadowColor: colors.primary,
     shadowOpacity: 0.25,
     shadowRadius: 10,
     shadowOffset: {width: 0, height: 6},
@@ -1379,18 +1683,18 @@ const styles = StyleSheet.create({
     marginTop: 6,
     fontSize: 14,
     fontWeight: '600',
-    color: '#0F172A',
+    color: colors.text,
   },
   muscleLabelActive: {
     color: '#fff',
   },
   calendarContainer: {
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: colors.border,
     borderRadius: 18,
     padding: 12,
     marginBottom: 8,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
   },
   calendarHeader: {
     flexDirection: 'row',
@@ -1401,7 +1705,7 @@ const styles = StyleSheet.create({
   calendarHeaderText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#0F172A',
+    color: colors.text,
     textTransform: 'capitalize',
   },
   calendarWeekRow: {
@@ -1413,7 +1717,7 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: 'center',
     fontSize: 12,
-    color: '#94A3B8',
+    color: colors.textTertiary,
     fontWeight: '600',
     textTransform: 'uppercase',
   },
@@ -1432,15 +1736,15 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
   calendarDaySelected: {
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
   },
   calendarDayText: {
     fontSize: 15,
-    color: '#0F172A',
+    color: colors.text,
     fontWeight: '600',
   },
   calendarDayTextFaded: {
-    color: '#94A3B8',
+    color: colors.textTertiary,
   },
   calendarDayTextSelected: {
     color: '#fff',
@@ -1468,12 +1772,12 @@ const styles = StyleSheet.create({
   timeButtonText: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#0F172A',
+    color: colors.text,
     marginLeft: 8,
   },
   primaryButton: {
     flex: 1,
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     paddingVertical: 14,
     borderRadius: 16,
     marginRight: 8,
@@ -1487,7 +1791,7 @@ const styles = StyleSheet.create({
   },
   modalClose: {
     marginTop: 20,
-    backgroundColor: '#E2E8F0',
+    backgroundColor: colors.surface,
     borderRadius: 14,
     paddingVertical: 12,
     paddingHorizontal: 24,
@@ -1496,7 +1800,7 @@ const styles = StyleSheet.create({
   },
   modalCloseText: {
     fontSize: 15,
-    color: '#0F172A',
+    color: colors.text,
     fontWeight: '600',
   },
   iosTimePickerOverlay: {
@@ -1510,13 +1814,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.35)',
   },
   iosTimePickerCard: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 20,
     padding: 16,
     width: '100%',
     maxWidth: 360,
     alignItems: 'stretch',
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOpacity: 0.15,
     shadowRadius: 20,
     shadowOffset: {width: 0, height: 10},

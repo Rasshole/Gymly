@@ -15,6 +15,7 @@ import {
 } from 'react-native';
 import {usePrivacyStore} from '@/store/privacyStore';
 import PrivacyService from '@/services/privacy/PrivacyService';
+import {colors} from '@/theme/colors';
 
 const PrivacyConsentScreen = () => {
   const {saveConsent} = usePrivacyStore();
@@ -170,7 +171,7 @@ const PrivacyConsentScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
   },
   scrollView: {
     flex: 1,
@@ -191,12 +192,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
     marginBottom: 8,
   },
   subtitle: {
     fontSize: 16,
-    color: '#666',
+    color: colors.textSecondary,
     textAlign: 'center',
   },
   section: {
@@ -205,13 +206,13 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 12,
   },
   consentItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
     padding: 16,
     borderRadius: 12,
     marginBottom: 12,
@@ -223,12 +224,12 @@ const styles = StyleSheet.create({
   consentTitle: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 4,
   },
   consentDescription: {
     fontSize: 14,
-    color: '#666',
+    color: colors.textSecondary,
     lineHeight: 20,
   },
   checkbox: {
@@ -236,12 +237,12 @@ const styles = StyleSheet.create({
     height: 28,
     borderRadius: 6,
     borderWidth: 2,
-    borderColor: '#007AFF',
+    borderColor: colors.secondary,
     justifyContent: 'center',
     alignItems: 'center',
   },
   checkboxChecked: {
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
   },
   checkmark: {
     color: '#fff',
@@ -249,7 +250,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   infoBox: {
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
     padding: 16,
     borderRadius: 12,
     marginBottom: 24,
@@ -266,7 +267,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   acceptButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     padding: 18,
     borderRadius: 12,
     alignItems: 'center',

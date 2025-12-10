@@ -9,6 +9,7 @@ export type FeedItem = {
   description: string;
   timestamp: string;
   photoUri?: string;
+  workoutInfo?: string; // Location, participants, muscle groups, time
 };
 
 interface FeedState {
@@ -45,6 +46,10 @@ export const useFeedStore = create<FeedState>(set => ({
   addFeedItem: item =>
     set(state => ({
       feedItems: [item, ...state.feedItems],
+    })),
+  deleteFeedItem: (itemId: string) =>
+    set(state => ({
+      feedItems: state.feedItems.filter(item => item.id !== itemId),
     })),
 }));
 

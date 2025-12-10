@@ -44,6 +44,7 @@ import WorkoutScheduleScreen from '@/screens/main/WorkoutScheduleScreen';
 import FriendProfileScreen from '@/screens/main/FriendProfileScreen';
 import EditProfileScreen from '@/screens/main/EditProfileScreen';
 import {useNotificationStore} from '@/store/notificationStore';
+import {colors} from '@/theme/colors';
 
 export type MainTabParamList = {
   Home: undefined;
@@ -135,7 +136,7 @@ const SettingsButton = () => {
         navigation.navigate('Settings');
       }}
       style={{marginLeft: 16}}>
-      <Icon name="settings-outline" size={24} color="#000" />
+      <Icon name="settings-outline" size={24} color="#FFFFFF" />
     </TouchableOpacity>
   );
 };
@@ -149,7 +150,7 @@ const UpcomingButton = () => {
     <TouchableOpacity
       onPress={() => navigation.navigate('WorkoutSchedule', {initialTab: 'upcoming'})}
       style={{marginRight: 16}}>
-      <Icon name="calendar-outline" size={24} color="#000" />
+      <Icon name="calendar-outline" size={24} color="#FFFFFF" />
     </TouchableOpacity>
   );
 };
@@ -168,7 +169,7 @@ const NotificationsButton = () => {
         navigation.navigate('Notifications');
       }}
       style={{marginRight: 16, position: 'relative'}}>
-      <Icon name="notifications-outline" size={24} color="#000" />
+      <Icon name="notifications-outline" size={24} color="#FFFFFF" />
       {unreadCount > 0 && (
         <View
           style={{
@@ -220,8 +221,16 @@ const MainTabs = () => {
 
           return <Icon name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: '#007AFF',
-        tabBarInactiveTintColor: 'gray',
+        tabBarActiveTintColor: colors.primary,
+        tabBarInactiveTintColor: colors.textMuted,
+        tabBarStyle: {
+          backgroundColor: colors.backgroundCard,
+          borderTopColor: colors.border,
+        },
+        headerStyle: {
+          backgroundColor: colors.backgroundCard,
+        },
+        headerTintColor: colors.text,
         headerShown: true,
         headerLeft: () => <SettingsButton />,
         headerRight: () => (
@@ -262,7 +271,16 @@ const MainTabs = () => {
 
 const MainNavigator = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: colors.backgroundCard,
+        },
+        headerTintColor: colors.text,
+        headerTitleStyle: {
+          fontWeight: '600',
+        },
+      }}>
       <Stack.Screen
         name="MainTabs"
         component={MainTabs}

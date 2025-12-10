@@ -18,6 +18,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {useChatStore} from '@/store/chatStore';
 import {formatDistanceToNow} from 'date-fns';
 import {da} from 'date-fns/locale';
+import {colors} from '@/theme/colors';
 
 type Message = {
   id: string;
@@ -147,7 +148,7 @@ const MessagesScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
   },
   list: {
     padding: 16,
@@ -155,11 +156,11 @@ const styles = StyleSheet.create({
   messageItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     padding: 16,
     borderRadius: 12,
     marginBottom: 12,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 1},
     shadowOpacity: 0.05,
     shadowRadius: 4,
@@ -178,7 +179,7 @@ const styles = StyleSheet.create({
     width: 56,
     height: 56,
     borderRadius: 28,
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -219,20 +220,20 @@ const styles = StyleSheet.create({
   messageName: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     flex: 1,
   },
   messageTime: {
     fontSize: 12,
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginLeft: 8,
   },
   messagePreview: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
   unreadPreview: {
-    color: '#000',
+    color: colors.text,
     fontWeight: '500',
   },
   emptyContainer: {
@@ -256,13 +257,13 @@ const styles = StyleSheet.create({
   emptyTitle: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
     marginBottom: 8,
     textAlign: 'center',
   },
   emptyText: {
     fontSize: 16,
-    color: '#8E8E93',
+    color: colors.textMuted,
     textAlign: 'center',
     lineHeight: 24,
   },
@@ -276,7 +277,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFD700', // Yellow like Snapchat
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 4},
     shadowOpacity: 0.3,
     shadowRadius: 8,

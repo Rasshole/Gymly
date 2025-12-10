@@ -26,6 +26,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import danishGyms, {DanishGym} from '@/data/danishGyms';
 import {getGymLogo, hasGymLogo} from '@/utils/gymLogos';
 import {useGymStore} from '@/store/gymStore';
+import {colors} from '@/theme/colors';
 
 type OnlineUser = {
   id: string;
@@ -835,7 +836,7 @@ const styles = StyleSheet.create({
   loadingText: {
     marginTop: 12,
     fontSize: 16,
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
   map: {
     width: Dimensions.get('window').width,
@@ -848,11 +849,11 @@ const styles = StyleSheet.create({
     right: 16,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 12,
     paddingHorizontal: 12,
     paddingVertical: 10,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.2,
     shadowRadius: 4,
@@ -865,7 +866,7 @@ const styles = StyleSheet.create({
   searchInput: {
     flex: 1,
     fontSize: 16,
-    color: '#000',
+    color: colors.text,
     padding: 0,
   },
   clearButton: {
@@ -938,10 +939,10 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 24,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.2,
     shadowRadius: 4,
@@ -963,7 +964,7 @@ const styles = StyleSheet.create({
     borderColor: '#fff',
   },
   markerActive: {
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     width: 48,
     height: 48,
     borderRadius: 24,
@@ -997,10 +998,10 @@ const styles = StyleSheet.create({
     bottom: 20,
     left: 16,
     right: 16,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 16,
     padding: 16,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 4},
     shadowOpacity: 0.3,
     shadowRadius: 8,
@@ -1019,18 +1020,18 @@ const styles = StyleSheet.create({
   gymName: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
     marginBottom: 4,
     paddingRight: 32,
   },
   gymLocation: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginBottom: 2,
   },
   gymAddress: {
     fontSize: 12,
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginBottom: 8,
   },
   distanceInfo: {
@@ -1041,7 +1042,7 @@ const styles = StyleSheet.create({
   },
   distanceText: {
     fontSize: 14,
-    color: '#007AFF',
+    color: colors.secondary,
     marginLeft: 6,
     fontWeight: '500',
   },
@@ -1052,7 +1053,7 @@ const styles = StyleSheet.create({
   },
   userInfoText: {
     fontSize: 14,
-    color: '#007AFF',
+    color: colors.secondary,
     marginLeft: 6,
     fontWeight: '500',
   },
@@ -1062,12 +1063,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 12,
     paddingVertical: 10,
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
     borderRadius: 10,
   },
   viewDetailsText: {
     fontSize: 16,
-    color: '#007AFF',
+    color: colors.secondary,
     fontWeight: '600',
     marginRight: 4,
   },
@@ -1076,10 +1077,10 @@ const styles = StyleSheet.create({
     bottom: 20,
     left: 16,
     right: 16,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 12,
     padding: 12,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.2,
     shadowRadius: 4,
@@ -1089,17 +1090,17 @@ const styles = StyleSheet.create({
   },
   nearbyGymsText: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
     fontWeight: '500',
   },
   userLocationMarker: {
     width: 20,
     height: 20,
     borderRadius: 10,
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     borderWidth: 3,
     borderColor: '#fff',
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.3,
     shadowRadius: 4,
@@ -1109,7 +1110,7 @@ const styles = StyleSheet.create({
     width: 10,
     height: 10,
     borderRadius: 5,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     alignSelf: 'center',
     marginTop: 2,
   },
@@ -1119,7 +1120,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     zIndex: 55,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
   },
   centersBarDivider: {
     height: 0.5,
@@ -1139,11 +1140,11 @@ const styles = StyleSheet.create({
   centersBarText: {
     fontSize: 12,
     fontWeight: '400',
-    color: '#000',
+    color: colors.text,
   },
   sheetOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+    backgroundColor: colors.overlay,
     justifyContent: 'flex-end',
   },
   sheetBackdrop: {
@@ -1154,11 +1155,11 @@ const styles = StyleSheet.create({
     bottom: 0,
   },
   sheetContainer: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     height: Dimensions.get('window').height * 0.5,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: -2},
     shadowOpacity: 0.3,
     shadowRadius: 8,
@@ -1187,7 +1188,7 @@ const styles = StyleSheet.create({
   sheetTitle: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
     flex: 1,
   },
   sheetCloseButton: {
@@ -1206,7 +1207,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 12,
   },
   centerItem: {
@@ -1229,17 +1230,17 @@ const styles = StyleSheet.create({
   centerName: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 4,
   },
   centerCity: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginBottom: 2,
   },
   centerAddress: {
     fontSize: 12,
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
   centerDistance: {
     flexDirection: 'row',
@@ -1249,7 +1250,7 @@ const styles = StyleSheet.create({
   centerDistanceText: {
     fontSize: 14,
     fontWeight: '500',
-    color: '#007AFF',
+    color: colors.secondary,
     marginRight: 4,
   },
   centerActivityInfo: {
@@ -1262,7 +1263,7 @@ const styles = StyleSheet.create({
   },
   activityText: {
     fontSize: 12,
-    color: '#8E8E93',
+    color: colors.textMuted,
   },
   sliderContainer: {
     position: 'absolute',
@@ -1282,7 +1283,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginRight: 12,
     flexDirection: 'row',
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.2,
     shadowRadius: 4,

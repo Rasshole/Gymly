@@ -17,6 +17,7 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {colors} from '@/theme/colors';
 
 type Device = {
   id: string;
@@ -145,7 +146,7 @@ const ConnectDeviceScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
   },
   header: {
     flexDirection: 'row',
@@ -162,7 +163,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
   },
   closeButton: {
     padding: 4,
@@ -180,12 +181,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
     marginBottom: 12,
   },
   description: {
     fontSize: 16,
-    color: '#666',
+    color: colors.textSecondary,
     lineHeight: 24,
   },
   devicesGrid: {
@@ -197,10 +198,10 @@ const styles = StyleSheet.create({
   deviceButton: {
     width: '48%',
     aspectRatio: 1.5,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: '#E5E5EA',
+    borderColor: colors.border,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 16,
@@ -224,12 +225,12 @@ const styles = StyleSheet.create({
   deviceLogoText: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.text,
   },
   deviceName: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     textAlign: 'center',
   },
   differentDeviceButton: {
@@ -240,7 +241,7 @@ const styles = StyleSheet.create({
   differentDeviceText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#007AFF',
+    color: colors.secondary,
   },
 });
 

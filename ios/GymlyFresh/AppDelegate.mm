@@ -22,7 +22,13 @@
 - (NSURL *)bundleURL
 {
 #if DEBUG
-  return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"];
+  NSURL *bundleURL = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"];
+  // If bundle URL is nil, Metro bundler is not running
+  if (!bundleURL) {
+    // Fallback to localhost:8081 (default Metro port)
+    bundleURL = [NSURL URLWithString:@"http://localhost:8081/index.bundle?platform=ios&dev=true"];
+  }
+  return bundleURL;
 #else
   return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif

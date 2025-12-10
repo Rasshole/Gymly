@@ -19,6 +19,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {useGymStore} from '@/store/gymStore';
 import {useAppStore} from '@/store/appStore';
 import {DanishGym} from '@/data/danishGyms';
+import {colors} from '@/theme/colors';
 
 type RateGymScreenProps = {
   route: {
@@ -175,7 +176,7 @@ const RateGymScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
   },
   header: {
     flexDirection: 'row',
@@ -183,7 +184,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingVertical: 12,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderBottomWidth: 1,
     borderBottomColor: '#EFEFF4',
     paddingTop: 50,
@@ -194,7 +195,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
   },
   headerRight: {
     width: 32,
@@ -208,10 +209,10 @@ const styles = StyleSheet.create({
   gymInfo: {
     alignItems: 'center',
     paddingVertical: 20,
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 16,
     marginBottom: 16,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 1},
     shadowOpacity: 0.05,
     shadowRadius: 4,
@@ -220,20 +221,20 @@ const styles = StyleSheet.create({
   gymName: {
     fontSize: 20,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 4,
   },
   gymBrand: {
     fontSize: 16,
-    color: '#007AFF',
+    color: colors.secondary,
     fontWeight: '600',
   },
   section: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     padding: 20,
     borderRadius: 16,
     marginBottom: 16,
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 1},
     shadowOpacity: 0.05,
     shadowRadius: 4,
@@ -242,12 +243,12 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 4,
   },
   sectionSubtitle: {
     fontSize: 14,
-    color: '#8E8E93',
+    color: colors.textMuted,
     marginBottom: 20,
   },
   ratingContainer: {
@@ -260,50 +261,50 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 12,
     borderRadius: 12,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
     minWidth: 70,
   },
   bicepsButtonSelected: {
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
   },
   bicepsNumber: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#C7C7CC',
+    color: colors.textMuted,
     marginTop: 4,
   },
   bicepsNumberSelected: {
-    color: '#007AFF',
+    color: colors.secondary,
   },
   selectedRatingContainer: {
     marginTop: 12,
     padding: 12,
-    backgroundColor: '#E3F2FD',
+    backgroundColor: colors.primary,
     borderRadius: 10,
     alignItems: 'center',
   },
   selectedRatingText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#007AFF',
+    color: colors.secondary,
   },
   commentInput: {
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
     borderRadius: 12,
     padding: 16,
     fontSize: 16,
-    color: '#000',
+    color: colors.text,
     minHeight: 120,
     maxHeight: 200,
     marginBottom: 8,
   },
   characterCount: {
     fontSize: 12,
-    color: '#8E8E93',
+    color: colors.textMuted,
     textAlign: 'right',
   },
   submitButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.secondary,
     padding: 16,
     borderRadius: 12,
     alignItems: 'center',
