@@ -10,6 +10,12 @@ export interface User {
   displayName: string;
   profileImageUrl?: string;
   
+  // Profile information
+  weight?: number; // Weight in kg
+  gender?: 'male' | 'female' | 'other' | 'prefer_not_to_say';
+  dateOfBirth?: Date;
+  city?: string;
+  
   // Privacy settings
   privacySettings: PrivacySettings;
   

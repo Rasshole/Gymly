@@ -352,6 +352,11 @@ const FriendsScreen = () => {
             <Text style={styles.friendName} numberOfLines={1}>
               {item.name}
             </Text>
+            {item.isOnline && item.activeTime && (
+              <Text style={styles.activeTimeInline} numberOfLines={1}>
+                {formatActiveTime(item.activeTime)}
+              </Text>
+            )}
             {item.isOnline && item.muscleGroup && (
               <View style={styles.muscleGroupIconContainer}>
                 <Icon
@@ -367,11 +372,11 @@ const FriendsScreen = () => {
               </View>
             )}
           </View>
-          {item.isOnline && item.activeTime && (
+          {item.isOnline && item.gymName && (
             <AutoScrollingTextWrapper>
               {(containerWidth) => (
                 <AutoScrollingText
-                  text={`${formatActiveTime(item.activeTime)}${item.gymName ? ` (${item.gymName})` : ''}`}
+                  text={item.gymName}
                   containerWidth={containerWidth}
                 />
               )}
@@ -546,15 +551,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 4,
+    flexWrap: 'wrap',
   },
   friendName: {
     fontSize: 16,
     fontWeight: '600',
     color: '#000',
-    flex: 1,
+    marginRight: 8,
+  },
+  activeTimeInline: {
+    fontSize: 14,
+    color: '#8E8E93',
+    marginRight: 8,
   },
   muscleGroupIconContainer: {
-    marginLeft: 8,
+    marginLeft: 4,
     marginRight: 4,
     padding: 4,
   },
