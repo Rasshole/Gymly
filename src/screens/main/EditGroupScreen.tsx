@@ -57,6 +57,7 @@ const EditGroupScreen = () => {
   const [groupImage, setGroupImage] = useState<string | null>(
     initialGroup?.image || null,
   );
+  // Start with public (false = public, true = private)
   const [isPrivate, setIsPrivate] = useState(initialGroup?.isPrivate || false);
   // Initialize selected members with all current members
   const [selectedMembers, setSelectedMembers] = useState<string[]>(() => {
@@ -176,8 +177,13 @@ const EditGroupScreen = () => {
       <View key={member.id} style={styles.memberRow}>
         <TouchableOpacity
           style={styles.memberItem}
-          onPress={() => handleToggleMember(member.id)}
-          activeOpacity={0.7}>
+          onPress={() => {
+            if (!isCurrentMember) {
+              handleToggleMember(member.id);
+            }
+          }}
+          activeOpacity={!isCurrentMember ? 0.7 : 1}
+          disabled={isCurrentMember}>
           <View style={styles.avatarContainer}>
             {member.avatar ? (
               <Image source={{uri: member.avatar}} style={styles.avatar} />
@@ -193,32 +199,46 @@ const EditGroupScreen = () => {
           <View style={styles.memberInfo}>
             <Text style={styles.memberName}>{member.name}</Text>
             {isAdmin && <Text style={styles.adminLabel}>Admin</Text>}
+            {!isCurrentMember && isSelected && (
+              <Text style={styles.addedLabel}>Vil blive tilføjet</Text>
+            )}
+            {isCurrentMember && !isSelected && (
+              <Text style={styles.removedLabel}>Vil blive fjernet</Text>
+            )}
           </View>
           {isSelected && (
             <View style={styles.checkmarkContainer}>
               <Icon name="checkmark-circle" size={24} color="#007AFF" />
             </View>
           )}
+          {!isCurrentMember && !isSelected && (
+            <View style={styles.addIconContainer}>
+              <Icon name="add-circle-outline" size={24} color="#34C759" />
+            </View>
+          )}
         </TouchableOpacity>
+        {/* Action buttons for current members */}
         {isCurrentMember && (
-          <TouchableOpacity
-            style={styles.adminButton}
-            onPress={() => handleChangeAdmin(member.id)}
-            activeOpacity={0.7}>
-            <Icon
-              name={isAdmin ? 'star' : 'star-outline'}
-              size={20}
-              color={isAdmin ? '#FF9500' : '#8E8E93'}
-            />
-          </TouchableOpacity>
-        )}
-        {isCurrentMember && !isAdmin && (
-          <TouchableOpacity
-            style={styles.removeButton}
-            onPress={() => handleRemoveMember(member.id)}
-            activeOpacity={0.7}>
-            <Icon name="close-circle" size={24} color="#FF3B30" />
-          </TouchableOpacity>
+          <View style={styles.actionButtons}>
+            <TouchableOpacity
+              style={styles.adminButton}
+              onPress={() => handleChangeAdmin(member.id)}
+              activeOpacity={0.7}>
+              <Icon
+                name={isAdmin ? 'star' : 'star-outline'}
+                size={20}
+                color={isAdmin ? '#FF9500' : '#8E8E93'}
+              />
+            </TouchableOpacity>
+            {!isAdmin && (
+              <TouchableOpacity
+                style={styles.removeButton}
+                onPress={() => handleRemoveMember(member.id)}
+                activeOpacity={0.7}>
+                <Icon name="close-circle" size={24} color="#FF3B30" />
+              </TouchableOpacity>
+            )}
+          </View>
         )}
       </View>
     );
@@ -302,8 +322,8 @@ const EditGroupScreen = () => {
             </Text>
           </View>
           <Switch
-            value={isPrivate}
-            onValueChange={setIsPrivate}
+            value={!isPrivate}
+            onValueChange={(value) => setIsPrivate(!value)}
             trackColor={{false: '#E5E5EA', true: '#007AFF'}}
             thumbColor={Platform.OS === 'ios' ? '#fff' : '#fff'}
           />
@@ -517,6 +537,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 16,
   },
+  actionButtons: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingRight: 8,
+  },
   avatarContainer: {
     position: 'relative',
     marginRight: 12,
@@ -562,12 +587,29 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#FF9500',
     marginTop: 2,
+    fontWeight: '600',
+  },
+  addedLabel: {
+    fontSize: 12,
+    color: '#34C759',
+    marginTop: 2,
+    fontStyle: 'italic',
+  },
+  removedLabel: {
+    fontSize: 12,
+    color: '#FF3B30',
+    marginTop: 2,
+    fontStyle: 'italic',
   },
   checkmarkContainer: {
     marginLeft: 8,
   },
+  addIconContainer: {
+    marginLeft: 8,
+  },
   adminButton: {
     padding: 8,
+    marginRight: 4,
   },
   removeButton: {
     padding: 8,

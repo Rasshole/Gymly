@@ -11,6 +11,12 @@ export interface User {
   profileImageUrl?: string;
   bicepsEmoji?: string; // User's chosen biceps emoji for likes
   
+  // Profile information
+  weight?: number; // Weight in kg
+  gender?: 'male' | 'female' | 'other' | 'prefer_not_to_say';
+  dateOfBirth?: Date;
+  city?: string;
+  
   // Privacy settings
   privacySettings: PrivacySettings;
   

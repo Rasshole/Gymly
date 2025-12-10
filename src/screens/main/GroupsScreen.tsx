@@ -109,7 +109,15 @@ const mockGroups: Group[] = [
     biography: 'En gruppe for dem der elsker weekend træning. Vi holder hinanden motiveret og deler tips.',
     isPrivate: false,
     adminId: '1', // Jeff is admin
-    members: [mockFriends[0], mockFriends[2]],
+    members: [
+      mockFriends[0], // Jeff
+      mockFriends[2], // Lars
+      mockFriends[1], // Marie
+      mockFriends[3], // Sofia
+      mockFriends[4], // Jens
+      mockFriends[5], // Mette
+      mockFriends[6], // Thomas
+    ],
     totalWorkouts: 12,
     totalTimeTogether: 1440, // 24 hours in minutes
     createdAt: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000),
@@ -172,6 +180,7 @@ const GroupsScreen = () => {
   const [groupName, setGroupName] = useState('');
   const [groupBiography, setGroupBiography] = useState('');
   const [groupImage, setGroupImage] = useState<string | null>(null);
+  // Start with public (false = public, true = private)
   const [isPrivate, setIsPrivate] = useState(false);
   const [selectedFriends, setSelectedFriends] = useState<string[]>([]);
   const [friendSearchQuery, setFriendSearchQuery] = useState('');
@@ -497,8 +506,8 @@ const GroupsScreen = () => {
               </Text>
             </View>
             <Switch
-              value={isPrivate}
-              onValueChange={setIsPrivate}
+              value={!isPrivate}
+              onValueChange={(value) => setIsPrivate(!value)}
               trackColor={{false: '#E5E5EA', true: '#007AFF'}}
               thumbColor={Platform.OS === 'ios' ? '#fff' : '#fff'}
             />

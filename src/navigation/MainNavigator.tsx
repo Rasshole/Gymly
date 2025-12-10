@@ -30,6 +30,7 @@ import AddGoalScreen from '@/screens/main/AddGoalScreen';
 import AddPRScreen from '@/screens/main/AddPRScreen';
 import AddRepScreen from '@/screens/main/AddRepScreen';
 import GroupDetailScreen from '@/screens/main/GroupDetailScreen';
+import EditGroupScreen from '@/screens/main/EditGroupScreen';
 import PlannedWorkoutsScreen from '@/screens/main/PlannedWorkoutsScreen';
 import PersonalPRsRepsScreen from '@/screens/main/PersonalPRsRepsScreen';
 import ConnectDeviceScreen from '@/screens/main/ConnectDeviceScreen';
@@ -41,6 +42,7 @@ import WorkoutHistoryScreen from '@/screens/main/WorkoutHistoryScreen';
 import UpcomingWorkoutsScreen from '@/screens/main/UpcomingWorkoutsScreen';
 import WorkoutScheduleScreen from '@/screens/main/WorkoutScheduleScreen';
 import FriendProfileScreen from '@/screens/main/FriendProfileScreen';
+import EditProfileScreen from '@/screens/main/EditProfileScreen';
 import {useNotificationStore} from '@/store/notificationStore';
 import {colors} from '@/theme/colors';
 
@@ -95,6 +97,9 @@ export type MainStackParamList = {
   GroupDetail: {
     group: any;
   };
+  EditGroup: {
+    group: any;
+  };
   PlannedWorkouts: undefined;
   PersonalPRsReps: undefined;
   ConnectDevice: undefined;
@@ -113,6 +118,7 @@ export type MainStackParamList = {
     mutualFriends: number;
     gyms: string[];
   };
+  EditProfile: undefined;
 };
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
@@ -375,6 +381,13 @@ const MainNavigator = () => {
               }}
             />
             <Stack.Screen
+              name="EditGroup"
+              component={EditGroupScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
               name="PlannedWorkouts"
               component={PlannedWorkoutsScreen}
               options={{
@@ -450,6 +463,13 @@ const MainNavigator = () => {
       <Stack.Screen
         name="FriendProfile"
         component={FriendProfileScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="EditProfile"
+        component={EditProfileScreen}
         options={{
           headerShown: false,
         }}

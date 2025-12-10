@@ -16,6 +16,8 @@ import {
   Modal,
   ScrollView,
   FlatList,
+  PanResponder,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import MapView, {Marker, Region} from 'react-native-maps';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -85,6 +87,8 @@ const MapScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [region, setRegion] = useState<Region | null>(null);
   const [showCentersSheet, setShowCentersSheet] = useState(false);
+  const [mapType, setMapType] = useState<'standard' | 'satellite' | 'hybrid' | 'terrain'>('standard');
+  const [showMapTypePicker, setShowMapTypePicker] = useState(false);
   const {getActiveUsersCount} = useGymStore();
 
   // Always start with Copenhagen, Sjælland on mount
@@ -328,6 +332,31 @@ const MapScreen = () => {
     return `${distance.toFixed(1)} km`;
   };
 
+  // PanResponder for swipe-up gesture on "I Nærheden" bar
+  const centersBarPanResponder = useMemo(
+    () =>
+      PanResponder.create({
+        onStartShouldSetPanResponder: () => true,
+        onMoveShouldSetPanResponder: (_, gestureState) => {
+          // Only respond if the swipe is upward (negative dy) and has significant vertical movement
+          return Math.abs(gestureState.dy) > 10 && gestureState.dy < 0;
+        },
+        onPanResponderGrant: () => {
+          // Gesture started
+        },
+        onPanResponderMove: () => {
+          // User is swiping
+        },
+        onPanResponderRelease: (_, gestureState) => {
+          // Check if user swiped up enough (at least 30px upward)
+          if (gestureState.dy < -30) {
+            handleOpenCentersSheet();
+          }
+        },
+      }),
+    [handleOpenCentersSheet],
+  );
+
   return (
     <View style={styles.container}>
       <MapView
@@ -336,7 +365,7 @@ const MapScreen = () => {
         initialRegion={initialRegion}
         showsUserLocation={false}
         showsMyLocationButton={false}
-        mapType="standard"
+        mapType={mapType}
         scrollEnabled={true}
         zoomEnabled={true}
         pitchEnabled={true}
@@ -389,6 +418,105 @@ const MapScreen = () => {
           </TouchableOpacity>
         )}
       </View>
+
+      {/* Map Type Button */}
+      <TouchableOpacity
+        style={styles.mapTypeButton}
+        onPress={() => setShowMapTypePicker(!showMapTypePicker)}
+        activeOpacity={0.8}>
+        <Icon name="layers" size={24} color="#007AFF" />
+      </TouchableOpacity>
+
+      {/* Map Type Picker Modal */}
+      {showMapTypePicker && (
+        <>
+          <TouchableWithoutFeedback onPress={() => setShowMapTypePicker(false)}>
+            <View style={styles.mapTypePickerBackdrop} />
+          </TouchableWithoutFeedback>
+          <View style={styles.mapTypePickerContainer}>
+          <TouchableOpacity
+            style={[styles.mapTypeOption, mapType === 'standard' && styles.mapTypeOptionActive]}
+            onPress={() => {
+              setMapType('standard');
+              setShowMapTypePicker(false);
+            }}
+            activeOpacity={0.7}>
+            <Icon
+              name={mapType === 'standard' ? 'radio-button-on' : 'radio-button-off'}
+              size={20}
+              color={mapType === 'standard' ? '#007AFF' : '#8E8E93'}
+            />
+            <Text
+              style={[
+                styles.mapTypeOptionText,
+                mapType === 'standard' && styles.mapTypeOptionTextActive,
+              ]}>
+              Standard
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.mapTypeOption, mapType === 'satellite' && styles.mapTypeOptionActive]}
+            onPress={() => {
+              setMapType('satellite');
+              setShowMapTypePicker(false);
+            }}
+            activeOpacity={0.7}>
+            <Icon
+              name={mapType === 'satellite' ? 'radio-button-on' : 'radio-button-off'}
+              size={20}
+              color={mapType === 'satellite' ? '#007AFF' : '#8E8E93'}
+            />
+            <Text
+              style={[
+                styles.mapTypeOptionText,
+                mapType === 'satellite' && styles.mapTypeOptionTextActive,
+              ]}>
+              Satellit
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.mapTypeOption, mapType === 'hybrid' && styles.mapTypeOptionActive]}
+            onPress={() => {
+              setMapType('hybrid');
+              setShowMapTypePicker(false);
+            }}
+            activeOpacity={0.7}>
+            <Icon
+              name={mapType === 'hybrid' ? 'radio-button-on' : 'radio-button-off'}
+              size={20}
+              color={mapType === 'hybrid' ? '#007AFF' : '#8E8E93'}
+            />
+            <Text
+              style={[
+                styles.mapTypeOptionText,
+                mapType === 'hybrid' && styles.mapTypeOptionTextActive,
+              ]}>
+              Hybrid
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.mapTypeOption, mapType === 'terrain' && styles.mapTypeOptionActive]}
+            onPress={() => {
+              setMapType('terrain');
+              setShowMapTypePicker(false);
+            }}
+            activeOpacity={0.7}>
+            <Icon
+              name={mapType === 'terrain' ? 'radio-button-on' : 'radio-button-off'}
+              size={20}
+              color={mapType === 'terrain' ? '#007AFF' : '#8E8E93'}
+            />
+            <Text
+              style={[
+                styles.mapTypeOptionText,
+                mapType === 'terrain' && styles.mapTypeOptionTextActive,
+              ]}>
+              Terræn
+            </Text>
+          </TouchableOpacity>
+          </View>
+        </>
+      )}
 
       {/* Center on User Location Button */}
       <TouchableOpacity
@@ -474,7 +602,7 @@ const MapScreen = () => {
                       />
                     ) : (
                       <View style={styles.sliderImagePlaceholder}>
-                        <Icon name="fitness" size={40} color="#8E8E93" />
+                        <Icon name="fitness" size={32} color="#8E8E93" />
                       </View>
                     )}
                   </View>
@@ -521,17 +649,17 @@ const MapScreen = () => {
 
       {/* Centre tæt på dig Bar */}
       {!selectedGym && (
-        <TouchableOpacity
+        <View
           style={styles.centersBarWrapper}
-          onPress={handleOpenCentersSheet}
-          activeOpacity={0.8}>
+          {...centersBarPanResponder.panHandlers}>
           <View style={styles.centersBarDivider} />
           <View style={styles.centersBarContent}>
+            <Icon name="location" size={16} color="#007AFF" style={styles.centersBarIcon} />
             <Text style={styles.centersBarText}>
-              {categorizedGyms.within5km.length + categorizedGyms.beyond5km.length} fitness centre
+              I Nærheden
             </Text>
           </View>
-        </TouchableOpacity>
+        </View>
       )}
 
       {/* Centers Bottom Sheet */}
@@ -555,15 +683,14 @@ const MapScreen = () => {
             {/* Sheet Header */}
             <View style={styles.sheetHeader}>
               <Text style={styles.sheetTitle}>
-                {categorizedGyms.within5km.length + categorizedGyms.beyond5km.length}{' '}
-                fitness centre
+                I Nærheden
               </Text>
               <TouchableOpacity
                 style={styles.sheetCloseButton}
                 onPress={handleCloseCentersSheet}>
                 <Icon name="close" size={24} color="#000" />
               </TouchableOpacity>
-            </View>
+      </View>
 
             {/* Centers List */}
             <ScrollView
@@ -717,7 +844,7 @@ const styles = StyleSheet.create({
   },
   searchContainer: {
     position: 'absolute',
-    top: 50,
+    top: 30,
     left: 16,
     right: 16,
     flexDirection: 'row',
@@ -746,9 +873,68 @@ const styles = StyleSheet.create({
     padding: 4,
     marginLeft: 8,
   },
+  mapTypeButton: {
+    position: 'absolute',
+    top: 90, // Position below search bar
+    right: 16,
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 4,
+    zIndex: 100,
+  },
+  mapTypePickerBackdrop: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 100,
+  },
+  mapTypePickerContainer: {
+    position: 'absolute',
+    top: 144, // Position below map type button
+    right: 16,
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    paddingVertical: 8,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 4,
+    zIndex: 101,
+    minWidth: 150,
+  },
+  mapTypeOption: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+  },
+  mapTypeOptionActive: {
+    backgroundColor: '#E3F2FD',
+  },
+  mapTypeOptionText: {
+    fontSize: 16,
+    color: '#000',
+    marginLeft: 12,
+    fontWeight: '500',
+  },
+  mapTypeOptionTextActive: {
+    color: '#007AFF',
+    fontWeight: '600',
+  },
   centerLocationButton: {
     position: 'absolute',
-    bottom: 100,
+    bottom: 170, // Position above the 5 nearest centers slider (50 + 110 + 10 margin)
     right: 16,
     width: 48,
     height: 48,
@@ -792,7 +978,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: -4,
     right: -4,
-    backgroundColor: '#FF3B30',
+    backgroundColor: '#34C759',
     borderRadius: 10,
     minWidth: 20,
     height: 20,
@@ -930,7 +1116,7 @@ const styles = StyleSheet.create({
   },
   centersBarWrapper: {
     position: 'absolute',
-    bottom: 49, // Position directly above main tabs
+    bottom: 0, // Position at the very bottom, right above main tabs
     left: 0,
     right: 0,
     zIndex: 55,
@@ -942,10 +1128,14 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   centersBarContent: {
+    flexDirection: 'row',
     paddingVertical: 6,
     paddingHorizontal: 16,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  centersBarIcon: {
+    marginRight: 6,
   },
   centersBarText: {
     fontSize: 12,
@@ -1077,10 +1267,10 @@ const styles = StyleSheet.create({
   },
   sliderContainer: {
     position: 'absolute',
-    bottom: 90,
+    bottom: 50,
     left: 0,
     right: 0,
-    height: 140,
+    height: 110,
     zIndex: 60,
   },
   sliderContent: {
@@ -1088,8 +1278,8 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   sliderCard: {
-    width: Dimensions.get('window').width * 0.85,
-    backgroundColor: colors.backgroundCard,
+    width: Dimensions.get('window').width * 0.7,
+    backgroundColor: '#fff',
     borderRadius: 12,
     marginRight: 12,
     flexDirection: 'row',
@@ -1101,8 +1291,8 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   sliderImageContainer: {
-    width: 120,
-    height: 140,
+    width: 90,
+    height: 110,
   },
   sliderImage: {
     width: '100%',
@@ -1117,19 +1307,19 @@ const styles = StyleSheet.create({
   },
   sliderInfo: {
     flex: 1,
-    padding: 12,
+    padding: 10,
     justifyContent: 'space-between',
   },
   sliderGymName: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: '600',
-    color: colors.text,
-    marginBottom: 4,
+    color: '#000',
+    marginBottom: 2,
   },
   sliderAddress: {
-    fontSize: 12,
-    color: colors.textMuted,
-    marginBottom: 8,
+    fontSize: 11,
+    color: '#8E8E93',
+    marginBottom: 4,
   },
   sliderDetails: {
     marginTop: 4,
@@ -1140,8 +1330,8 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   sliderDetailText: {
-    fontSize: 11,
-    color: colors.textMuted,
+    fontSize: 10,
+    color: '#8E8E93',
     marginLeft: 4,
   },
 });

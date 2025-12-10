@@ -3,7 +3,7 @@
  * Shows detailed information about a specific group
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -12,6 +12,9 @@ import {
   TouchableOpacity,
   Image,
   SafeAreaView,
+  Switch,
+  Platform,
+  Alert,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation, useRoute} from '@react-navigation/native';
@@ -51,10 +54,13 @@ type GroupDetailScreenProps = {
 const GroupDetailScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
   const route = useRoute();
-  const {group} = (route.params as any) || {};
+  const {group: initialGroup} = (route.params as any) || {};
   const {user} = useAppStore();
+  
+  // Track privacy state
+  const [isPrivate, setIsPrivate] = useState(initialGroup?.isPrivate || false);
 
-  if (!group) {
+  if (!initialGroup) {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -91,36 +97,52 @@ const GroupDetailScreen = () => {
   };
 
   // Convert createdAt to Date if it's a string
-  const createdAtDate = typeof group.createdAt === 'string' 
-    ? new Date(group.createdAt) 
-    : group.createdAt;
+  const createdAtDate = typeof initialGroup.createdAt === 'string' 
+    ? new Date(initialGroup.createdAt) 
+    : initialGroup.createdAt;
 
   // Check if current user is a member
-  const isMember = user ? group.members.some(m => m.id === user.id) : false;
+  const isMember = user ? initialGroup.members.some(m => m.id === user.id) : false;
   
   // Check if current user is admin
-  const isAdmin = user ? group.adminId === user.id : false;
-
-  const handlePlanWorkout = () => {
-    // Navigate to workout planning screen for groups
-    navigation.navigate('WorkoutSchedule', {
-      groupId: group.id,
-      groupName: group.name,
-    });
-  };
+  const isAdmin = user ? initialGroup.adminId === user.id : false;
 
   const handleEditGroup = () => {
     // Navigate to edit group screen
     const serializableGroup = {
-      ...group,
-      createdAt: typeof group.createdAt === 'string' ? group.createdAt : group.createdAt.toISOString(),
+      ...initialGroup,
+      isPrivate,
+      createdAt: typeof initialGroup.createdAt === 'string' ? initialGroup.createdAt : initialGroup.createdAt.toISOString(),
     };
     navigation.navigate('EditGroup', {group: serializableGroup});
   };
 
   const handleMemberPress = (memberId: string) => {
     // Navigate to member profile
-    navigation.navigate('FriendProfile', {userId: memberId});
+    const member = initialGroup.members.find(m => m.id === memberId);
+    if (member) {
+      navigation.navigate('FriendProfile', {
+        friendId: memberId,
+        friendName: member.name,
+        mutualFriends: 0,
+        gyms: [],
+      });
+    }
+  };
+
+  const handleTogglePrivacy = (value: boolean) => {
+    // Reverse the logic: value is the switch state (true = public/blue, false = private/grey)
+    const newPrivacyState = !value;
+    setIsPrivate(newPrivacyState);
+    
+    // TODO: Save to backend
+    // For now, just show a confirmation
+    Alert.alert(
+      'Synlighed opdateret',
+      newPrivacyState
+        ? 'Gruppen er nu privat'
+        : 'Gruppen er nu offentlig'
+    );
   };
 
   return (
@@ -138,7 +160,7 @@ const GroupDetailScreen = () => {
             onPress={handleEditGroup}
             style={styles.editButton}
             activeOpacity={0.7}>
-            <Icon name="create-outline" size={24} color="#007AFF" />
+            <Icon name="brush-outline" size={24} color="#007AFF" />
           </TouchableOpacity>
         )}
         {!isAdmin && <View style={styles.headerRight} />}
@@ -150,58 +172,65 @@ const GroupDetailScreen = () => {
         {/* Group Header */}
         <View style={styles.groupHeader}>
           <View style={styles.groupIconContainer}>
-            {group.image ? (
-              <Image source={{uri: group.image}} style={styles.groupImage} />
+            {initialGroup.image ? (
+              <Image source={{uri: initialGroup.image}} style={styles.groupImage} />
             ) : (
               <Icon name="people" size={48} color="#007AFF" />
             )}
-            {group.isPrivate && (
+            {isPrivate && (
               <View style={styles.privateBadge}>
                 <Icon name="lock-closed" size={16} color="#8E8E93" />
               </View>
             )}
           </View>
-          <Text style={styles.groupName}>{group.name}</Text>
+          <Text style={styles.groupName}>{initialGroup.name}</Text>
         </View>
 
         {/* Group Biography/Description */}
-        {group.biography && (
+        {initialGroup.biography && (
           <View style={styles.descriptionSection}>
-            <Text style={styles.descriptionText}>{group.biography}</Text>
+            <Text style={styles.descriptionText}>{initialGroup.biography}</Text>
           </View>
         )}
-        {!group.biography && group.description && (
+        {!initialGroup.biography && initialGroup.description && (
           <View style={styles.descriptionSection}>
-            <Text style={styles.descriptionText}>{group.description}</Text>
+            <Text style={styles.descriptionText}>{initialGroup.description}</Text>
           </View>
         )}
 
-        {/* Plan Workout Button - Only show if user is a member */}
-        {isMember && (
-          <TouchableOpacity
-            style={styles.planWorkoutButton}
-            onPress={handlePlanWorkout}
-            activeOpacity={0.8}>
-            <Icon name="calendar-outline" size={24} color="#fff" />
-            <Text style={styles.planWorkoutButtonText}>
-              Planlæg træning til gruppe
-            </Text>
-          </TouchableOpacity>
+        {/* Privacy Toggle - Only for admin */}
+        {isAdmin && (
+          <View style={styles.privacySection}>
+            <View style={styles.privacyInfo}>
+              <Text style={styles.privacyLabel}>Gruppe synlighed</Text>
+              <Text style={styles.privacySubtext}>
+                {isPrivate
+                  ? 'Privat - Kun medlemmer kan se gruppen'
+                  : 'Offentlig - Alle kan se og søge efter gruppen'}
+              </Text>
+            </View>
+            <Switch
+              value={!isPrivate}
+              onValueChange={handleTogglePrivacy}
+              trackColor={{false: '#E5E5EA', true: '#007AFF'}}
+              thumbColor={Platform.OS === 'ios' ? '#fff' : '#fff'}
+            />
+          </View>
         )}
 
         {/* Stats Cards */}
         <View style={styles.statsContainer}>
           <View style={styles.statCard}>
             <Icon name="fitness" size={28} color="#007AFF" />
-            <Text style={styles.statValue}>{group.totalWorkouts}</Text>
+            <Text style={styles.statValue}>{initialGroup.totalWorkouts}</Text>
             <Text style={styles.statLabel}>
-              Træning{group.totalWorkouts !== 1 ? 'er' : ''} sammen
+              Træning{initialGroup.totalWorkouts !== 1 ? 'er' : ''} sammen
             </Text>
           </View>
           <View style={styles.statCard}>
             <Icon name="time-outline" size={28} color="#007AFF" />
             <Text style={styles.statValue} numberOfLines={2}>
-              {formatTime(group.totalTimeTogether)}
+              {formatTime(initialGroup.totalTimeTogether)}
             </Text>
             <Text style={styles.statLabel}>Samlet træningstid</Text>
           </View>
@@ -210,12 +239,12 @@ const GroupDetailScreen = () => {
         {/* Members Section */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>
-            Medlemmer ({group.members.length})
+            Medlemmer ({initialGroup.members.length})
           </Text>
           <View style={styles.membersList}>
-            {group.members.map((member, index) => {
+            {initialGroup.members.map((member, index) => {
               const isCurrentUser = user && member.id === user.id;
-              const isGroupAdmin = member.id === group.adminId;
+              const isGroupAdmin = member.id === initialGroup.adminId;
               return (
                 <TouchableOpacity
                   key={member.id}
@@ -308,27 +337,6 @@ const styles = StyleSheet.create({
   },
   editButton: {
     padding: 4,
-  },
-  planWorkoutButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.secondary,
-    paddingVertical: 16,
-    paddingHorizontal: 24,
-    borderRadius: 12,
-    marginBottom: 24,
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 4},
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 4,
-    gap: 8,
-  },
-  planWorkoutButtonText: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#fff',
   },
   memberNameRow: {
     flexDirection: 'row',
@@ -526,6 +534,31 @@ const styles = StyleSheet.create({
   metadataText: {
     fontSize: 14,
     color: colors.textMuted,
+  },
+  privacySection: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#fff',
+    padding: 16,
+    borderRadius: 12,
+    marginBottom: 16,
+    borderWidth: 1,
+    borderColor: '#E5E5EA',
+  },
+  privacyInfo: {
+    flex: 1,
+    marginRight: 16,
+  },
+  privacyLabel: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#000',
+    marginBottom: 4,
+  },
+  privacySubtext: {
+    fontSize: 14,
+    color: '#8E8E93',
   },
 });
 

@@ -4,7 +4,7 @@
  */
 
 import React, {useState, useMemo} from 'react';
-import {View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Switch, Alert, FlatList, Dimensions} from 'react-native';
+import {View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Switch, Alert, FlatList, Dimensions, Modal, TextInput} from 'react-native';
 import {useAppStore} from '@/store/appStore';
 import {useWorkoutStore} from '@/store/workoutStore';
 import {usePRStore} from '@/store/prStore';
@@ -55,11 +55,14 @@ const FavoriteGymItem = ({gym, index}: {gym: DanishGym; index: number}) => {
 };
 
 type TimePeriod = 'week' | 'month' | 'year' | 'all';
-type TabType = 'feed' | 'prs' | 'stats';
+type TabType = 'feed' | 'prs' | 'stats' | 'workouts';
 
 type ProfileScreenNavigationProp = StackNavigationProp<any>;
 
 type ProfileVisibility = 'everyone' | 'friends' | 'friends_and_gyms' | 'private';
+
+const PR_OPTIONS = ['Bænk', 'Bicepcurl', 'Benpres', 'Dødløft', 'Squat'] as const;
+type PrOption = (typeof PR_OPTIONS)[number];
 
 // Mock workout media data
 interface WorkoutMedia {
@@ -105,11 +108,15 @@ const ProfileScreen = () => {
     getWorkoutsWithFriends,
   } = useWorkoutStore();
   const [showGymSelector, setShowGymSelector] = useState(false);
-  const [selectedPeriod, setSelectedPeriod] = useState<TimePeriod>('all');
   const [selectedStatsPeriod, setSelectedStatsPeriod] = useState<TimePeriod>('all');
   const [showProfileVisibilityPicker, setShowProfileVisibilityPicker] = useState(false);
   const [activeTab, setActiveTab] = useState<TabType>('feed');
   const [activePRTab, setActivePRTab] = useState<'pr' | 'reps'>('pr');
+  const [prModalVisible, setPrModalVisible] = useState(false);
+  const [prStep, setPrStep] = useState<'select' | 'details'>('select');
+  const [selectedPr, setSelectedPr] = useState<PrOption | null>(null);
+  const [prWeight, setPrWeight] = useState('');
+  const [prVideoAttached, setPrVideoAttached] = useState(false);
   
   const {getAllPRs, getAllRepRecords} = usePRStore();
   const allPRs = getAllPRs();
@@ -130,10 +137,175 @@ const ProfileScreen = () => {
   }, [user?.favoriteGyms]);
 
   const weeklyStats = getWeeklyStats();
-  const workoutTimeForPeriod = getWorkoutTimeForPeriod(selectedPeriod);
+  const workoutTimeForPeriod = getWorkoutTimeForPeriod(selectedStatsPeriod);
   const checkInsForPeriod = getCheckInsForPeriod(selectedStatsPeriod);
   const workoutsWithFriendsForPeriod = getWorkoutsWithFriendsForPeriod(selectedStatsPeriod);
   const mostTrainedMuscleGroup = getMostTrainedMuscleGroup();
+  
+  // Calculate additional stats
+  const workoutTimeWithFriendsForPeriod = useMemo(() => {
+    // Mock: 30% of workout time is with friends
+    return Math.floor(workoutTimeForPeriod * 0.3);
+  }, [workoutTimeForPeriod]);
+  
+  const {workouts} = useWorkoutStore();
+  
+  const mostFrequentGym = useMemo(() => {
+    // Get most frequent gym from workouts for selected period
+    if (!workouts || workouts.length === 0) return null;
+    
+    const now = new Date();
+    let startDate: Date;
+    
+    switch (selectedStatsPeriod) {
+      case 'week': {
+        const weekStart = new Date(now);
+        const day = weekStart.getDay();
+        const diff = weekStart.getDate() - day + (day === 0 ? -6 : 1);
+        startDate = new Date(weekStart.setDate(diff));
+        startDate.setHours(0, 0, 0, 0);
+        break;
+      }
+      case 'month': {
+        startDate = new Date(now.getFullYear(), now.getMonth(), 1);
+        startDate.setHours(0, 0, 0, 0);
+        break;
+      }
+      case 'year': {
+        startDate = new Date(now.getFullYear(), 0, 1);
+        startDate.setHours(0, 0, 0, 0);
+        break;
+      }
+      case 'all':
+      default:
+        startDate = new Date(0);
+        break;
+    }
+    
+    const endDate = new Date(now);
+    endDate.setHours(23, 59, 59, 999);
+    
+    const filteredWorkouts = workouts.filter(w => 
+      w.startTime >= startDate && w.startTime <= endDate
+    );
+    
+    if (filteredWorkouts.length === 0) return null;
+    
+    const gymCounts: Record<number, {count: number; time: number; name?: string}> = {};
+    filteredWorkouts.forEach(workout => {
+      if (workout.gymId) {
+        if (!gymCounts[workout.gymId]) {
+          const gym = danishGyms.find(g => g.id === workout.gymId);
+          gymCounts[workout.gymId] = {
+            count: 0,
+            time: 0,
+            name: gym?.name || 'Ukendt center',
+          };
+        }
+        gymCounts[workout.gymId].count += 1;
+        gymCounts[workout.gymId].time += workout.duration;
+      }
+    });
+    
+    const entries = Object.entries(gymCounts);
+    if (entries.length === 0) return null;
+    
+    const mostFrequent = entries.reduce((a, b) => 
+      a[1].count > b[1].count ? a : b
+    );
+    
+    return {
+      name: mostFrequent[1].name || 'Ukendt center',
+      checkins: mostFrequent[1].count,
+      time: mostFrequent[1].time,
+    };
+  }, [workouts, selectedStatsPeriod]);
+  
+  const [showMuscleGroupModal, setShowMuscleGroupModal] = useState(false);
+  
+  // Calculate muscle group stats for modal
+  const muscleGroupStats = useMemo(() => {
+    if (!workouts || workouts.length === 0) return {};
+    
+    const counts: Record<string, number> = {};
+    workouts.forEach(workout => {
+      if (workout.muscleGroup) {
+        counts[workout.muscleGroup] = (counts[workout.muscleGroup] || 0) + 1;
+      }
+    });
+    
+    return counts;
+  }, [workouts]);
+  
+  const totalPRsSet = allPRs.length;
+
+  // Get filtered workouts for selected period
+  const filteredWorkouts = useMemo(() => {
+    const now = new Date();
+    let startDate: Date;
+    
+    switch (selectedStatsPeriod) {
+      case 'week': {
+        const weekStart = new Date(now);
+        const day = weekStart.getDay();
+        const diff = weekStart.getDate() - day + (day === 0 ? -6 : 1);
+        startDate = new Date(weekStart.setDate(diff));
+        startDate.setHours(0, 0, 0, 0);
+        break;
+      }
+      case 'month': {
+        startDate = new Date(now.getFullYear(), now.getMonth(), 1);
+        startDate.setHours(0, 0, 0, 0);
+        break;
+      }
+      case 'year': {
+        startDate = new Date(now.getFullYear(), 0, 1);
+        startDate.setHours(0, 0, 0, 0);
+        break;
+      }
+      case 'all':
+      default:
+        return workouts.sort((a, b) => b.startTime.getTime() - a.startTime.getTime());
+    }
+    
+    const endDate = new Date(now);
+    endDate.setHours(23, 59, 59, 999);
+    
+    return workouts
+      .filter(w => {
+        const wStartTime = w.startTime instanceof Date ? w.startTime : new Date(w.startTime);
+        return wStartTime >= startDate && wStartTime <= endDate;
+      })
+      .sort((a, b) => {
+        const aTime = a.startTime instanceof Date ? a.startTime.getTime() : new Date(a.startTime).getTime();
+        const bTime = b.startTime instanceof Date ? b.startTime.getTime() : new Date(b.startTime).getTime();
+        return bTime - aTime;
+      });
+  }, [workouts, selectedStatsPeriod]);
+
+  // Helper function to check if workout has PRs (check if any PR was set on the same day)
+  const getWorkoutPRs = useMemo(() => {
+    return (workoutDate: Date) => {
+      const workoutDateStr = workoutDate.toDateString();
+      return allPRs.filter(pr => {
+        const prDate = pr.date instanceof Date ? pr.date : new Date(pr.date);
+        return prDate.toDateString() === workoutDateStr;
+      });
+    };
+  }, [allPRs]);
+
+  // Helper function to get friends for workout (mock data)
+  const getWorkoutFriends = useMemo(() => {
+    // Mock: 30% of workouts have friends
+    return (workoutId: string) => {
+      // Simple hash to consistently determine if workout has friends
+      const hash = workoutId.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+      if (hash % 10 < 3) {
+        return ['Jeff', 'Marie'];
+      }
+      return [];
+    };
+  }, []);
 
   // Handle profile visibility change
   const handleProfileVisibilityChange = (visibility: ProfileVisibility) => {
@@ -215,6 +387,47 @@ const ProfileScreen = () => {
     return `${hours}t ${mins}m`;
   };
 
+  // PR Modal handlers
+  const handleOpenPrModal = () => {
+    setPrModalVisible(true);
+    setPrStep('select');
+    setSelectedPr(null);
+    setPrWeight('');
+    setPrVideoAttached(false);
+  };
+
+  const handleSelectPrOption = (option: PrOption) => {
+    setSelectedPr(option);
+    setPrStep('details');
+  };
+
+  const handlePrWeightChange = (value: string) => {
+    const numeric = value.replace(/[^0-9]/g, '');
+    setPrWeight(numeric);
+  };
+
+  const handleAttachPrVideo = () => {
+    setPrVideoAttached(true);
+    Alert.alert('Video tilføjet', 'Din video er markeret som uploadet (maks 30 sek).');
+  };
+
+  const handleSubmitPr = () => {
+    if (!selectedPr) {
+      return;
+    }
+    if (!prWeight.trim()) {
+      Alert.alert('Angiv vægt', 'Indtast vægten for din nye PR.');
+      return;
+    }
+    if (!prVideoAttached) {
+      Alert.alert('Tilføj video', 'Upload en video som bevis (maks 30 sek).');
+      return;
+    }
+    Alert.alert('Stærkt!', `${prWeight.trim()} kg i ${selectedPr} sat!`);
+    setPrModalVisible(false);
+    // TODO: Actually save PR to store
+  };
+
   return (
     <View style={styles.container}>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.content}>
@@ -229,8 +442,33 @@ const ProfileScreen = () => {
               </View>
             )}
           </View>
-          <Text style={styles.displayName}>{user?.displayName}</Text>
-          <Text style={styles.username}>@{user?.username}</Text>
+          <View style={styles.profileHeaderInfo}>
+            <View style={styles.profileHeaderTopRow}>
+              <Text style={styles.displayName}>{user?.displayName}</Text>
+              <TouchableOpacity
+                style={styles.editProfileButton}
+                onPress={() => navigation.navigate('EditProfile')}
+                activeOpacity={0.7}>
+                <Icon name="brush-outline" size={20} color="#007AFF" />
+              </TouchableOpacity>
+            </View>
+            <Text style={styles.username}>@{user?.username}</Text>
+            {/* Følgere/Følger/Venner Stats */}
+            <View style={styles.profileStatsRow}>
+              <TouchableOpacity style={styles.profileStatItem}>
+                <Text style={styles.profileStatNumber}>0</Text>
+                <Text style={styles.profileStatLabel}>Følgere</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.profileStatItem}>
+                <Text style={styles.profileStatNumber}>0</Text>
+                <Text style={styles.profileStatLabel}>Følger</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.profileStatItem}>
+                <Text style={styles.profileStatNumber}>0</Text>
+                <Text style={styles.profileStatLabel}>Venner</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
         </View>
 
         {/* Feed/PRs/Stats Tabs */}
@@ -257,6 +495,14 @@ const ProfileScreen = () => {
             activeOpacity={0.7}>
             <Text style={[styles.tabText, activeTab === 'stats' && styles.tabTextActive]}>
               Stats
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.tab, activeTab === 'workouts' && styles.tabActive]}
+            onPress={() => setActiveTab('workouts')}
+            activeOpacity={0.7}>
+            <Text style={[styles.tabText, activeTab === 'workouts' && styles.tabTextActive]}>
+              Træninger
             </Text>
           </TouchableOpacity>
         </View>
@@ -318,41 +564,51 @@ const ProfileScreen = () => {
         {activeTab === 'prs' && (
           <View style={styles.prsContainer}>
             {/* PR's & Reps Sub-tabs */}
-            <View style={styles.prsTabsContainer}>
-              <TouchableOpacity
-                style={[styles.prsTab, activePRTab === 'pr' && styles.prsTabActive]}
-                onPress={() => setActivePRTab('pr')}
-                activeOpacity={0.7}>
-                <Icon
-                  name="trophy"
-                  size={18}
-                  color={activePRTab === 'pr' ? '#007AFF' : '#8E8E93'}
-                />
-                <Text
-                  style={[
-                    styles.prsTabText,
-                    activePRTab === 'pr' && styles.prsTabTextActive,
-                  ]}>
-                  PR's
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={[styles.prsTab, activePRTab === 'reps' && styles.prsTabActive]}
-                onPress={() => setActivePRTab('reps')}
-                activeOpacity={0.7}>
-                <Icon
-                  name="barbell"
-                  size={18}
-                  color={activePRTab === 'reps' ? '#007AFF' : '#8E8E93'}
-                />
-                <Text
-                  style={[
-                    styles.prsTabText,
-                    activePRTab === 'reps' && styles.prsTabTextActive,
-                  ]}>
-                  Reps
-                </Text>
-              </TouchableOpacity>
+            <View style={styles.prsTabsHeader}>
+              <View style={styles.prsTabsContainer}>
+                <TouchableOpacity
+                  style={[styles.prsTab, activePRTab === 'pr' && styles.prsTabActive]}
+                  onPress={() => setActivePRTab('pr')}
+                  activeOpacity={0.7}>
+                  <Icon
+                    name="trophy"
+                    size={18}
+                    color={activePRTab === 'pr' ? '#007AFF' : '#8E8E93'}
+                  />
+                  <Text
+                    style={[
+                      styles.prsTabText,
+                      activePRTab === 'pr' && styles.prsTabTextActive,
+                    ]}>
+                    PR's
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={[styles.prsTab, activePRTab === 'reps' && styles.prsTabActive]}
+                  onPress={() => setActivePRTab('reps')}
+                  activeOpacity={0.7}>
+                  <Icon
+                    name="barbell"
+                    size={18}
+                    color={activePRTab === 'reps' ? '#007AFF' : '#8E8E93'}
+                  />
+                  <Text
+                    style={[
+                      styles.prsTabText,
+                      activePRTab === 'reps' && styles.prsTabTextActive,
+                    ]}>
+                    Reps
+                  </Text>
+                </TouchableOpacity>
+              </View>
+              {activePRTab === 'pr' && (
+                <TouchableOpacity
+                  style={styles.prAddButton}
+                  onPress={handleOpenPrModal}
+                  activeOpacity={0.7}>
+                  <Icon name="add-circle" size={28} color="#007AFF" />
+                </TouchableOpacity>
+              )}
             </View>
 
             {/* PR's Content */}
@@ -437,178 +693,158 @@ const ProfileScreen = () => {
         {/* Stats Tab Content */}
         {activeTab === 'stats' && (
           <View>
-            {/* Stats */}
+            {/* Stats Container */}
             <View style={styles.statsContainer}>
-          {/* Period Selection Buttons for Stats */}
-          <View style={styles.statsPeriodButtonsContainer}>
-            <TouchableOpacity
-              style={[
-                styles.statsPeriodButton,
-                selectedStatsPeriod === 'week' && styles.statsPeriodButtonActive,
-              ]}
-              onPress={() => setSelectedStatsPeriod('week')}
-              activeOpacity={0.7}>
-              <Text
-                style={[
-                  styles.statsPeriodButtonText,
-                  selectedStatsPeriod === 'week' && styles.statsPeriodButtonTextActive,
-                ]}>
-                Uge
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[
-                styles.statsPeriodButton,
-                selectedStatsPeriod === 'month' && styles.statsPeriodButtonActive,
-              ]}
-              onPress={() => setSelectedStatsPeriod('month')}
-              activeOpacity={0.7}>
-              <Text
-                style={[
-                  styles.statsPeriodButtonText,
-                  selectedStatsPeriod === 'month' && styles.statsPeriodButtonTextActive,
-                ]}>
-                Måned
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[
-                styles.statsPeriodButton,
-                selectedStatsPeriod === 'year' && styles.statsPeriodButtonActive,
-              ]}
-              onPress={() => setSelectedStatsPeriod('year')}
-              activeOpacity={0.7}>
-              <Text
-                style={[
-                  styles.statsPeriodButtonText,
-                  selectedStatsPeriod === 'year' && styles.statsPeriodButtonTextActive,
-                ]}>
-                År
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[
-                styles.statsPeriodButton,
-                styles.statsPeriodButtonLast,
-                selectedStatsPeriod === 'all' && styles.statsPeriodButtonActive,
-              ]}
-              onPress={() => setSelectedStatsPeriod('all')}
-              activeOpacity={0.7}>
-              <Text
-                style={[
-                  styles.statsPeriodButtonText,
-                  selectedStatsPeriod === 'all' && styles.statsPeriodButtonTextActive,
-                ]}>
-                I alt
-              </Text>
-            </TouchableOpacity>
-          </View>
+              {/* Period Selection Buttons */}
+              <View style={styles.statsPeriodButtonsContainer}>
+                <TouchableOpacity
+                  style={[
+                    styles.statsPeriodButton,
+                    selectedStatsPeriod === 'week' && styles.statsPeriodButtonActive,
+                  ]}
+                  onPress={() => setSelectedStatsPeriod('week')}
+                  activeOpacity={0.7}>
+                  <Text
+                    style={[
+                      styles.statsPeriodButtonText,
+                      selectedStatsPeriod === 'week' && styles.statsPeriodButtonTextActive,
+                    ]}>
+                    Uge
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={[
+                    styles.statsPeriodButton,
+                    selectedStatsPeriod === 'month' && styles.statsPeriodButtonActive,
+                  ]}
+                  onPress={() => setSelectedStatsPeriod('month')}
+                  activeOpacity={0.7}>
+                  <Text
+                    style={[
+                      styles.statsPeriodButtonText,
+                      selectedStatsPeriod === 'month' && styles.statsPeriodButtonTextActive,
+                    ]}>
+                    Måned
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={[
+                    styles.statsPeriodButton,
+                    selectedStatsPeriod === 'year' && styles.statsPeriodButtonActive,
+                  ]}
+                  onPress={() => setSelectedStatsPeriod('year')}
+                  activeOpacity={0.7}>
+                  <Text
+                    style={[
+                      styles.statsPeriodButtonText,
+                      selectedStatsPeriod === 'year' && styles.statsPeriodButtonTextActive,
+                    ]}>
+                    År
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={[
+                    styles.statsPeriodButton,
+                    styles.statsPeriodButtonLast,
+                    selectedStatsPeriod === 'all' && styles.statsPeriodButtonActive,
+                  ]}
+                  onPress={() => setSelectedStatsPeriod('all')}
+                  activeOpacity={0.7}>
+                  <Text
+                    style={[
+                      styles.statsPeriodButtonText,
+                      selectedStatsPeriod === 'all' && styles.statsPeriodButtonTextActive,
+                    ]}>
+                    I alt
+                  </Text>
+                </TouchableOpacity>
+              </View>
 
-          <View style={styles.statsRow}>
-            <View style={styles.statItem}>
-              <Text style={styles.statValue}>{checkInsForPeriod}</Text>
-              <Text style={styles.statLabel}>Check-ins</Text>
-            </View>
-            <View style={styles.statDivider} />
-            <View style={styles.statItem}>
-              <Text style={styles.statValue}>0</Text>
-              <Text style={styles.statLabel}>Venner</Text>
-            </View>
-            <View style={styles.statDivider} />
-            <View style={styles.statItem}>
-              <Text style={styles.statValue}>{workoutsWithFriendsForPeriod}</Text>
-              <Text style={styles.statLabel}>Workouts med venner</Text>
-            </View>
-          </View>
-        </View>
-
-        {/* Additional Stats */}
-        <View style={styles.additionalStatsContainer}>
-          {/* Period Selection Buttons */}
-          <View style={styles.periodButtonsContainer}>
-            <TouchableOpacity
-              style={[
-                styles.periodButton,
-                selectedPeriod === 'week' && styles.periodButtonActive,
-              ]}
-              onPress={() => setSelectedPeriod('week')}
-              activeOpacity={0.7}>
-              <Text
-                style={[
-                  styles.periodButtonText,
-                  selectedPeriod === 'week' && styles.periodButtonTextActive,
-                ]}>
-                Uge
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[
-                styles.periodButton,
-                selectedPeriod === 'month' && styles.periodButtonActive,
-              ]}
-              onPress={() => setSelectedPeriod('month')}
-              activeOpacity={0.7}>
-              <Text
-                style={[
-                  styles.periodButtonText,
-                  selectedPeriod === 'month' && styles.periodButtonTextActive,
-                ]}>
-                Måned
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[
-                styles.periodButton,
-                selectedPeriod === 'year' && styles.periodButtonActive,
-              ]}
-              onPress={() => setSelectedPeriod('year')}
-              activeOpacity={0.7}>
-              <Text
-                style={[
-                  styles.periodButtonText,
-                  selectedPeriod === 'year' && styles.periodButtonTextActive,
-                ]}>
-                År
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[
-                styles.periodButton,
-                styles.periodButtonLast,
-                selectedPeriod === 'all' && styles.periodButtonActive,
-              ]}
-              onPress={() => setSelectedPeriod('all')}
-              activeOpacity={0.7}>
-              <Text
-                style={[
-                  styles.periodButtonText,
-                  selectedPeriod === 'all' && styles.periodButtonTextActive,
-                ]}>
-                I alt
-              </Text>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.additionalStatItem}>
-            <Icon name="time-outline" size={20} color="#007AFF" style={styles.statIcon} />
-            <View style={styles.additionalStatContent}>
-              <Text style={styles.additionalStatLabel}>Tid trænet</Text>
-              <Text style={styles.additionalStatValue}>
-                {formatTotalTime(workoutTimeForPeriod)}
-              </Text>
-            </View>
-          </View>
-
-          {mostTrainedMuscleGroup && (
-            <View style={[styles.additionalStatItem, styles.additionalStatItemLast]}>
-              <Icon name="fitness-outline" size={20} color="#007AFF" style={styles.statIcon} />
-              <View style={styles.additionalStatContent}>
-                <Text style={styles.additionalStatLabel}>Oftest trænet</Text>
-                <Text style={styles.additionalStatValue}>{mostTrainedMuscleGroup}</Text>
+              {/* Check-ins Stats Row */}
+              <View style={styles.statsRow}>
+                <View style={styles.statItem}>
+                  <Text style={styles.statValue}>{checkInsForPeriod}</Text>
+                  <Text style={styles.statLabel}>Check-ins</Text>
+                </View>
+                <View style={styles.statDivider} />
+                <View style={styles.statItem}>
+                  <Text style={styles.statValue}>{workoutsWithFriendsForPeriod}</Text>
+                  <Text style={styles.statLabel}>Check-ins med venner</Text>
+                </View>
               </View>
             </View>
-          )}
-        </View>
+
+            {/* Additional Stats */}
+            <View style={styles.additionalStatsContainer}>
+              {/* Time Stats */}
+              <View style={styles.additionalStatItem}>
+                <Icon name="time-outline" size={20} color="#007AFF" style={styles.statIcon} />
+                <View style={styles.additionalStatContent}>
+                  <Text style={styles.additionalStatLabel}>Tid trænet</Text>
+                  <Text style={styles.additionalStatValue}>
+                    {formatTotalTime(workoutTimeForPeriod)}
+                  </Text>
+                </View>
+              </View>
+
+              <View style={styles.additionalStatItem}>
+                <Icon name="people-outline" size={20} color="#007AFF" style={styles.statIcon} />
+                <View style={styles.additionalStatContent}>
+                  <Text style={styles.additionalStatLabel}>Tid trænet med venner</Text>
+                  <Text style={styles.additionalStatValue}>
+                    {formatTotalTime(workoutTimeWithFriendsForPeriod)}
+                  </Text>
+                </View>
+              </View>
+
+              {/* Most Trained Muscle Group */}
+              {mostTrainedMuscleGroup && (
+                <View style={styles.additionalStatItem}>
+                  <Icon name="fitness-outline" size={20} color="#007AFF" style={styles.statIcon} />
+                  <View style={styles.additionalStatContent}>
+                    <Text style={styles.additionalStatLabel}>Oftest trænet</Text>
+                    <Text style={styles.additionalStatValue}>{mostTrainedMuscleGroup}</Text>
+                  </View>
+                </View>
+              )}
+
+              {/* Most Frequent Gym */}
+              {mostFrequentGym && (
+                <View style={styles.additionalStatItem}>
+                  <Icon name="location-outline" size={20} color="#007AFF" style={styles.statIcon} />
+                  <View style={styles.additionalStatContent}>
+                    <Text style={styles.additionalStatLabel}>Oftest center trænet i</Text>
+                    <Text style={styles.additionalStatValue}>{mostFrequentGym.name}</Text>
+                    <Text style={styles.additionalStatSubtext}>
+                      {mostFrequentGym.checkins} check-ins • {formatTotalTime(mostFrequentGym.time)} tid
+                    </Text>
+                  </View>
+                </View>
+              )}
+
+              {/* PR's Beaten */}
+              <View style={[styles.additionalStatItem, styles.additionalStatItemLast]}>
+                <Icon name="trophy-outline" size={20} color="#007AFF" style={styles.statIcon} />
+                <View style={styles.additionalStatContent}>
+                  <Text style={styles.additionalStatLabel}>PR's slået</Text>
+                  <Text style={styles.additionalStatValue}>{totalPRsSet}</Text>
+                </View>
+              </View>
+            </View>
+
+            {/* Workouts List Button */}
+            <View style={styles.workoutsListButtonContainer}>
+              <TouchableOpacity
+                style={styles.workoutsListButton}
+                onPress={() => setActiveTab('workouts')}
+                activeOpacity={0.7}>
+                <Icon name="chevron-forward" size={20} color="#007AFF" />
+                <Text style={styles.workoutsListButtonText}>Træninger</Text>
+                <Text style={styles.workoutsListButtonCount}>
+                  ({filteredWorkouts.length})
+                </Text>
+              </TouchableOpacity>
+            </View>
 
             {/* This Week Section */}
             <ThisWeekSection />
@@ -758,7 +994,253 @@ const ProfileScreen = () => {
             </View>
           </View>
         )}
+
+        {/* Workouts Tab Content */}
+        {activeTab === 'workouts' && (
+          <View>
+            {/* Period Selection for Workouts */}
+            <View style={styles.statsContainer}>
+              <View style={styles.statsPeriodButtonsContainer}>
+                <TouchableOpacity
+                  style={[
+                    styles.statsPeriodButton,
+                    selectedStatsPeriod === 'week' && styles.statsPeriodButtonActive,
+                  ]}
+                  onPress={() => setSelectedStatsPeriod('week')}
+                  activeOpacity={0.7}>
+                  <Text
+                    style={[
+                      styles.statsPeriodButtonText,
+                      selectedStatsPeriod === 'week' && styles.statsPeriodButtonTextActive,
+                    ]}>
+                    Uge
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={[
+                    styles.statsPeriodButton,
+                    selectedStatsPeriod === 'month' && styles.statsPeriodButtonActive,
+                  ]}
+                  onPress={() => setSelectedStatsPeriod('month')}
+                  activeOpacity={0.7}>
+                  <Text
+                    style={[
+                      styles.statsPeriodButtonText,
+                      selectedStatsPeriod === 'month' && styles.statsPeriodButtonTextActive,
+                    ]}>
+                    Måned
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={[
+                    styles.statsPeriodButton,
+                    selectedStatsPeriod === 'year' && styles.statsPeriodButtonActive,
+                  ]}
+                  onPress={() => setSelectedStatsPeriod('year')}
+                  activeOpacity={0.7}>
+                  <Text
+                    style={[
+                      styles.statsPeriodButtonText,
+                      selectedStatsPeriod === 'year' && styles.statsPeriodButtonTextActive,
+                    ]}>
+                    År
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={[
+                    styles.statsPeriodButton,
+                    styles.statsPeriodButtonLast,
+                    selectedStatsPeriod === 'all' && styles.statsPeriodButtonActive,
+                  ]}
+                  onPress={() => setSelectedStatsPeriod('all')}
+                  activeOpacity={0.7}>
+                  <Text
+                    style={[
+                      styles.statsPeriodButtonText,
+                      selectedStatsPeriod === 'all' && styles.statsPeriodButtonTextActive,
+                    ]}>
+                    I alt
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+
+            {/* Workouts List */}
+            <View style={styles.workoutsListContainer}>
+              {filteredWorkouts.length > 0 ? (
+                filteredWorkouts.map((workout) => {
+                    const workoutDate = workout.startTime instanceof Date
+                      ? workout.startTime
+                      : new Date(workout.startTime);
+                    const workoutPRs = getWorkoutPRs(workoutDate);
+                    const workoutFriends = getWorkoutFriends(workout.id);
+                    const gym = workout.gymId
+                      ? danishGyms.find(g => g.id === workout.gymId)
+                      : null;
+
+                    return (
+                      <View key={workout.id} style={styles.workoutCard}>
+                        <View style={styles.workoutCardHeader}>
+                          <View style={styles.workoutCardHeaderLeft}>
+                            <Text style={styles.workoutCardDate}>
+                              {workoutDate.toLocaleDateString('da-DK', {
+                                day: 'numeric',
+                                month: 'long',
+                                year: 'numeric',
+                              })}
+                            </Text>
+                            <Text style={styles.workoutCardTime}>
+                              {workoutDate.toLocaleTimeString('da-DK', {
+                                hour: '2-digit',
+                                minute: '2-digit',
+                              })}
+                            </Text>
+                          </View>
+                          {workoutPRs.length > 0 && (
+                            <View style={styles.workoutPRBadge}>
+                              <Icon name="trophy" size={16} color="#FFD700" />
+                              <Text style={styles.workoutPRBadgeText}>
+                                {workoutPRs.length} PR{workoutPRs.length > 1 ? "'er" : ''}
+                              </Text>
+                            </View>
+                          )}
+                        </View>
+
+                        {workout.muscleGroup && (
+                          <View style={styles.workoutCardInfo}>
+                            <Icon name="fitness-outline" size={16} color="#8E8E93" />
+                            <Text style={styles.workoutCardInfoText}>
+                              {workout.muscleGroup}
+                            </Text>
+                          </View>
+                        )}
+
+                        {workoutFriends.length > 0 && (
+                          <View style={styles.workoutCardInfo}>
+                            <Icon name="people-outline" size={16} color="#8E8E93" />
+                            <Text style={styles.workoutCardInfoText}>
+                              Med {workoutFriends.join(', ')}
+                            </Text>
+                          </View>
+                        )}
+
+                        <View style={styles.workoutCardInfo}>
+                          <Icon name="time-outline" size={16} color="#8E8E93" />
+                          <Text style={styles.workoutCardInfoText}>
+                            {formatTotalTime(workout.duration)}
+                          </Text>
+                        </View>
+
+                        <View style={styles.workoutCardInfo}>
+                          <Icon name="location-outline" size={16} color="#8E8E93" />
+                          <Text style={styles.workoutCardInfoText}>
+                            {gym ? `${gym.name}${gym.city ? `, ${gym.city}` : ''}` : 'Ukendt center'}
+                          </Text>
+                        </View>
+
+                        {workoutPRs.length > 0 && (
+                          <View style={styles.workoutPRsList}>
+                            {workoutPRs.map((pr) => (
+                              <View key={pr.id} style={styles.workoutPRItem}>
+                                <Icon name="trophy" size={14} color="#FFD700" />
+                                <Text style={styles.workoutPRItemText}>
+                                  {pr.exercise}: {pr.weight} kg
+                                </Text>
+                              </View>
+                            ))}
+                          </View>
+                        )}
+                      </View>
+                    );
+                  })
+                ) : (
+                  <View style={styles.workoutsEmptyContainer}>
+                    <Icon name="fitness-outline" size={48} color="#C7C7CC" />
+                    <Text style={styles.workoutsEmptyText}>Ingen træninger i denne periode</Text>
+                  </View>
+                )}
+            </View>
+          </View>
+        )}
       </ScrollView>
+
+      {/* PR Modal */}
+      <Modal visible={prModalVisible} transparent animationType="fade">
+        <View style={styles.prModalOverlay}>
+          <View style={styles.prModalCard}>
+            {prStep === 'select' && (
+              <>
+                <Text style={styles.prModalTitle}>Hvilken PR vil du sætte?</Text>
+                <Text style={styles.prModalText}>Vælg øvelsen herunder</Text>
+                {PR_OPTIONS.map(option => (
+                  <TouchableOpacity
+                    key={option}
+                    style={styles.prOptionButton}
+                    onPress={() => handleSelectPrOption(option)}
+                    activeOpacity={0.85}>
+                    <Text style={styles.prOptionText}>{option}</Text>
+                    <Icon name="chevron-forward" size={18} color="#94A3B8" />
+                  </TouchableOpacity>
+                ))}
+                <TouchableOpacity style={styles.prModalClose} onPress={() => setPrModalVisible(false)}>
+                  <Text style={styles.prModalCloseText}>Luk</Text>
+                </TouchableOpacity>
+              </>
+            )}
+            {prStep === 'details' && selectedPr && (
+              <>
+                <Text style={styles.prModalTitle}>{selectedPr}</Text>
+                <Text style={styles.prModalText}>Angiv vægt og upload en video (maks 30 sek)</Text>
+                <Text style={styles.prSectionLabel}>Vægt (kg)</Text>
+                <TextInput
+                  style={styles.prInput}
+                  keyboardType="numeric"
+                  placeholder="Fx 120"
+                  placeholderTextColor="#94A3B8"
+                  value={prWeight}
+                  onChangeText={handlePrWeightChange}
+                />
+                <Text style={styles.prSectionLabel}>Bevis</Text>
+                <TouchableOpacity
+                  style={[
+                    styles.prVideoButton,
+                    prVideoAttached && styles.prVideoButtonAttached,
+                  ]}
+                  onPress={handleAttachPrVideo}
+                  activeOpacity={0.85}>
+                  <Icon
+                    name={prVideoAttached ? 'checkmark-circle' : 'cloud-upload-outline'}
+                    size={20}
+                    color={prVideoAttached ? '#22C55E' : '#0F172A'}
+                    style={{marginRight: 8}}
+                  />
+                  <Text
+                    style={[
+                      styles.prVideoButtonText,
+                      prVideoAttached && styles.prVideoButtonTextAttached,
+                    ]}>
+                    {prVideoAttached ? 'Video tilføjet (maks 30 sek)' : 'Upload video'}
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={[
+                    styles.prSubmitButton,
+                    (!prWeight.trim() || !prVideoAttached) && styles.prSubmitButtonDisabled,
+                  ]}
+                  onPress={handleSubmitPr}
+                  disabled={!prWeight.trim() || !prVideoAttached}>
+                  <Text style={styles.prSubmitButtonText}>Del PR</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.prModalClose}
+                  onPress={() => setPrModalVisible(false)}>
+                  <Text style={styles.prModalCloseText}>Fortryd</Text>
+                </TouchableOpacity>
+              </>
+            )}
+          </View>
+        </View>
+      </Modal>
 
       {/* Favorite Gyms Selector Modal */}
       <FavoriteGymsSelector
@@ -877,15 +1359,50 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  profileHeaderInfo: {
+    width: '100%',
+    alignItems: 'center',
+  },
+  profileHeaderTopRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 4,
+  },
   displayName: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: colors.text,
-    marginBottom: 4,
+    color: '#000',
+  },
+  editProfileButton: {
+    marginLeft: 12,
+    padding: 4,
   },
   username: {
     fontSize: 16,
-    color: colors.textSecondary,
+    color: '#666',
+    marginBottom: 12,
+  },
+  profileStatsRow: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 8,
+    width: '100%',
+  },
+  profileStatItem: {
+    alignItems: 'center',
+    marginHorizontal: 16,
+  },
+  profileStatNumber: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#000',
+    marginBottom: 2,
+  },
+  profileStatLabel: {
+    fontSize: 14,
+    color: '#666',
   },
   statsContainer: {
     backgroundColor: colors.backgroundCard,
@@ -983,34 +1500,132 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: colors.text,
   },
-  periodButtonsContainer: {
+  additionalStatSubtext: {
+    fontSize: 12,
+    color: '#8E8E93',
+    marginTop: 2,
+  },
+  workoutsListButtonContainer: {
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    marginBottom: 16,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 3,
+    overflow: 'hidden',
+  },
+  workoutsListButton: {
     flexDirection: 'row',
-    marginTop: 16,
+    alignItems: 'center',
+    padding: 16,
+    justifyContent: 'center',
+  },
+  workoutsListButtonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#007AFF',
+    marginLeft: 8,
+  },
+  workoutsListButtonCount: {
+    fontSize: 14,
+    color: '#8E8E93',
+    marginLeft: 4,
+  },
+  workoutsListContainer: {
     marginBottom: 16,
   },
-  periodButton: {
+  workoutCard: {
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    padding: 16,
+    marginBottom: 12,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 3,
+  },
+  workoutCardHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    marginBottom: 12,
+  },
+  workoutCardHeaderLeft: {
     flex: 1,
-    paddingVertical: 10,
-    paddingHorizontal: 12,
-    borderRadius: 8,
-    backgroundColor: '#F0F0F0',
+  },
+  workoutCardDate: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#000',
+    marginBottom: 2,
+  },
+  workoutCardTime: {
+    fontSize: 14,
+    color: '#8E8E93',
+  },
+  workoutPRBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#FFF9E6',
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 12,
+    marginLeft: 8,
+  },
+  workoutPRBadgeText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: '#B8860B',
+    marginLeft: 4,
+  },
+  workoutCardInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  workoutCardInfoText: {
+    fontSize: 14,
+    color: '#333',
+    marginLeft: 8,
+  },
+  workoutPRsList: {
+    marginTop: 12,
+    paddingTop: 12,
+    borderTopWidth: 1,
+    borderTopColor: '#EFEFF4',
+  },
+  workoutPRItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 6,
+  },
+  workoutPRItemText: {
+    fontSize: 13,
+    color: '#666',
+    marginLeft: 6,
+    fontWeight: '500',
+  },
+  workoutsEmptyContainer: {
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    padding: 48,
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: 8,
+    marginBottom: 16,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 3,
   },
-  periodButtonLast: {
-    marginRight: 0,
-  },
-  periodButtonActive: {
-    backgroundColor: colors.secondary,
-  },
-  periodButtonText: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: colors.textSecondary,
-  },
-  periodButtonTextActive: {
-    color: '#fff',
+  workoutsEmptyText: {
+    fontSize: 16,
+    color: '#8E8E93',
+    marginTop: 12,
+    textAlign: 'center',
   },
   section: {
     backgroundColor: colors.backgroundCard,
@@ -1463,12 +2078,22 @@ const styles = StyleSheet.create({
   prsContainer: {
     marginBottom: 16,
   },
+  prsTabsHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 16,
+  },
   prsTabsContainer: {
     flexDirection: 'row',
     backgroundColor: '#F0F0F0',
     borderRadius: 12,
     padding: 4,
-    marginBottom: 16,
+    flex: 1,
+    marginRight: 12,
+  },
+  prAddButton: {
+    padding: 4,
   },
   prsTab: {
     flex: 1,
@@ -1584,6 +2209,119 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     textAlign: 'center',
     lineHeight: 20,
+  },
+  prModalOverlay: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    padding: 24,
+  },
+  prModalCard: {
+    backgroundColor: '#fff',
+    borderRadius: 24,
+    padding: 24,
+    width: '100%',
+    maxWidth: 400,
+    alignItems: 'stretch',
+  },
+  prModalTitle: {
+    fontSize: 22,
+    fontWeight: '700',
+    color: '#0F172A',
+    marginBottom: 8,
+    textAlign: 'center',
+  },
+  prModalText: {
+    fontSize: 16,
+    color: '#4B5563',
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  prOptionButton: {
+    width: '100%',
+    paddingVertical: 14,
+    paddingHorizontal: 18,
+    borderRadius: 14,
+    backgroundColor: '#F8FAFC',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 12,
+  },
+  prOptionText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#0F172A',
+  },
+  prSectionLabel: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#475467',
+    marginTop: 12,
+    marginBottom: 6,
+  },
+  prInput: {
+    borderWidth: 1,
+    borderColor: '#E2E8F0',
+    borderRadius: 14,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    fontSize: 16,
+    color: '#0F172A',
+    marginBottom: 16,
+  },
+  prVideoButton: {
+    borderWidth: 1,
+    borderColor: '#CBD5F5',
+    borderRadius: 14,
+    paddingVertical: 14,
+    paddingHorizontal: 18,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  prVideoButtonAttached: {
+    borderColor: '#22C55E',
+    backgroundColor: '#ECFDF5',
+  },
+  prVideoButtonText: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#0F172A',
+  },
+  prVideoButtonTextAttached: {
+    color: '#15803D',
+  },
+  prSubmitButton: {
+    width: '100%',
+    backgroundColor: '#007AFF',
+    borderRadius: 16,
+    paddingVertical: 16,
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  prSubmitButtonDisabled: {
+    backgroundColor: '#93C5FD',
+  },
+  prSubmitButtonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '700',
+    textAlign: 'center',
+  },
+  prModalClose: {
+    marginTop: 8,
+    backgroundColor: '#E2E8F0',
+    borderRadius: 14,
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    alignItems: 'center',
+  },
+  prModalCloseText: {
+    fontSize: 15,
+    color: '#0F172A',
+    fontWeight: '600',
   },
 });
 
