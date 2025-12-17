@@ -55,7 +55,7 @@ const FavoriteGymItem = ({gym, index}: {gym: DanishGym; index: number}) => {
 };
 
 type TimePeriod = 'week' | 'month' | 'year' | 'all';
-type TabType = 'feed' | 'prs' | 'stats' | 'workouts';
+type TabType = 'feed' | 'prs' | 'stats';
 
 type ProfileScreenNavigationProp = StackNavigationProp<any>;
 
@@ -174,6 +174,7 @@ const ProfileScreen = () => {
   const [showProfileVisibilityPicker, setShowProfileVisibilityPicker] = useState(false);
   const [activeTab, setActiveTab] = useState<TabType>('feed');
   const [activePRTab, setActivePRTab] = useState<'pr' | 'reps'>('pr');
+  const [showWorkoutsInStats, setShowWorkoutsInStats] = useState(false);
   const [prModalVisible, setPrModalVisible] = useState(false);
   const [prStep, setPrStep] = useState<'select' | 'details'>('select');
   const [selectedPr, setSelectedPr] = useState<PrOption | null>(null);
@@ -426,7 +427,7 @@ const ProfileScreen = () => {
       case 'friends':
         return 'Kun Venner';
       case 'friends_and_gyms':
-        return 'Kun Venner & Lokal Centre';
+        return 'Venner & Lokal Centre';
       case 'everyone':
         return 'Alle';
       case 'private':
@@ -557,14 +558,6 @@ const ProfileScreen = () => {
             activeOpacity={0.7}>
             <Text style={[styles.tabText, activeTab === 'stats' && styles.tabTextActive]}>
               Stats
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[styles.tab, activeTab === 'workouts' && styles.tabActive]}
-            onPress={() => setActiveTab('workouts')}
-            activeOpacity={0.7}>
-            <Text style={[styles.tabText, activeTab === 'workouts' && styles.tabTextActive]}>
-              Træninger
             </Text>
           </TouchableOpacity>
         </View>
@@ -767,6 +760,92 @@ const ProfileScreen = () => {
           <View>
             {/* Stats Container */}
             <View style={styles.statsContainer}>
+              {/* Workouts List Button - Moved to top */}
+              <View style={styles.workoutsListButtonContainer}>
+                <TouchableOpacity
+                  style={styles.workoutsListButton}
+                  onPress={() => setShowWorkoutsInStats(!showWorkoutsInStats)}
+                  activeOpacity={0.7}>
+                  <Text style={styles.bicepsEmojiIcon}>
+                    {user?.bicepsEmoji || '💪🏻'}
+                  </Text>
+                  <Text style={styles.workoutsListButtonText}>Seneste Træninger</Text>
+                  <Text style={styles.workoutsListButtonCount}>
+                    ({filteredWorkouts.length})
+                  </Text>
+                  <Icon 
+                    name={showWorkoutsInStats ? "chevron-up" : "chevron-down"} 
+                    size={20} 
+                    color="#007AFF" 
+                    style={{marginLeft: 'auto'}} 
+                  />
+                </TouchableOpacity>
+              </View>
+              
+              {/* Workouts List - Shown when button is clicked */}
+              {showWorkoutsInStats && (
+                <View style={styles.workoutsListContainer}>
+                  {filteredWorkouts.length > 0 ? (
+                    filteredWorkouts.map(workout => {
+                      const workoutPRs = getWorkoutPRs(workout.startTime instanceof Date ? workout.startTime : new Date(workout.startTime));
+                      const workoutFriends = getWorkoutFriends(workout.id);
+                      return (
+                        <View key={workout.id} style={styles.workoutCard}>
+                          <View style={styles.workoutCardHeader}>
+                            <View style={styles.workoutCardHeaderLeft}>
+                              <Icon name="fitness" size={24} color="#007AFF" />
+                              <View style={styles.workoutCardHeaderInfo}>
+                                <Text style={styles.workoutCardDate}>
+                                  {workout.startTime instanceof Date 
+                                    ? workout.startTime.toLocaleDateString('da-DK', { 
+                                        weekday: 'long', 
+                                        year: 'numeric', 
+                                        month: 'long', 
+                                        day: 'numeric' 
+                                      })
+                                    : new Date(workout.startTime).toLocaleDateString('da-DK', { 
+                                        weekday: 'long', 
+                                        year: 'numeric', 
+                                        month: 'long', 
+                                        day: 'numeric' 
+                                      })
+                                  }
+                                </Text>
+                                <Text style={styles.workoutCardTime}>
+                                  {formatTotalTime(workout.duration)}
+                                </Text>
+                              </View>
+                            </View>
+                            {workoutPRs.length > 0 && (
+                              <View style={styles.workoutPRBadge}>
+                                <Icon name="trophy" size={16} color="#FFD700" />
+                                <Text style={styles.workoutPRBadgeText}>{workoutPRs.length}</Text>
+                              </View>
+                            )}
+                          </View>
+                          {workout.muscleGroup && (
+                            <Text style={styles.workoutCardMuscleGroup}>{workout.muscleGroup}</Text>
+                          )}
+                          {workoutFriends.length > 0 && (
+                            <View style={styles.workoutCardFriends}>
+                              <Icon name="people" size={16} color="#34C759" />
+                              <Text style={styles.workoutCardFriendsText}>
+                                Trænet med {workoutFriends.join(', ')}
+                              </Text>
+                            </View>
+                          )}
+                        </View>
+                      );
+                    })
+                  ) : (
+                    <View style={styles.emptyWorkouts}>
+                      <Icon name="fitness-outline" size={48} color="#C7C7CC" />
+                      <Text style={styles.emptyWorkoutsText}>Ingen træninger endnu</Text>
+                    </View>
+                  )}
+                </View>
+              )}
+              
               {/* Period Selection Buttons */}
               <View style={styles.statsPeriodButtonsContainer}>
                 <TouchableOpacity
@@ -832,23 +911,23 @@ const ProfileScreen = () => {
                 </TouchableOpacity>
               </View>
 
-              {/* Check-ins Stats Row */}
-              <View style={styles.statsRow}>
-                <View style={styles.statItem}>
-                  <Text style={styles.statValue}>{checkInsForPeriod}</Text>
-                  <Text style={styles.statLabel}>Check-ins</Text>
-                </View>
-                <View style={styles.statDivider} />
-                <View style={styles.statItem}>
-                  <Text style={styles.statValue}>{workoutsWithFriendsForPeriod}</Text>
-                  <Text style={styles.statLabel}>Check-ins med venner</Text>
+              {/* Combined Stats - Check-ins and Time */}
+              <View style={styles.additionalStatItem}>
+                <Icon name="checkmark-circle-outline" size={20} color="#007AFF" style={styles.statIcon} />
+                <View style={styles.additionalStatContent}>
+                  <Text style={styles.additionalStatLabel}>Check-ins</Text>
+                  <Text style={styles.additionalStatValue}>{checkInsForPeriod}</Text>
                 </View>
               </View>
-            </View>
 
-            {/* Additional Stats */}
-            <View style={styles.additionalStatsContainer}>
-              {/* Time Stats */}
+              <View style={styles.additionalStatItem}>
+                <Icon name="people-outline" size={20} color="#007AFF" style={styles.statIcon} />
+                <View style={styles.additionalStatContent}>
+                  <Text style={styles.additionalStatLabel}>Check-ins med venner</Text>
+                  <Text style={styles.additionalStatValue}>{workoutsWithFriendsForPeriod}</Text>
+                </View>
+              </View>
+
               <View style={styles.additionalStatItem}>
                 <Icon name="time-outline" size={20} color="#007AFF" style={styles.statIcon} />
                 <View style={styles.additionalStatContent}>
@@ -902,20 +981,6 @@ const ProfileScreen = () => {
                   <Text style={styles.additionalStatValue}>{totalPRsSet}</Text>
                 </View>
               </View>
-            </View>
-
-            {/* Workouts List Button */}
-            <View style={styles.workoutsListButtonContainer}>
-              <TouchableOpacity
-                style={styles.workoutsListButton}
-                onPress={() => setActiveTab('workouts')}
-                activeOpacity={0.7}>
-                <Icon name="chevron-forward" size={20} color="#007AFF" />
-                <Text style={styles.workoutsListButtonText}>Træninger</Text>
-                <Text style={styles.workoutsListButtonCount}>
-                  ({filteredWorkouts.length})
-                </Text>
-              </TouchableOpacity>
             </View>
 
             {/* This Week Section */}
@@ -996,6 +1061,42 @@ const ProfileScreen = () => {
                   <TouchableOpacity
                     style={[
                       styles.visibilityOption,
+                      user?.privacySettings.profileVisibility === 'everyone' && styles.visibilityOptionSelected,
+                    ]}
+                    onPress={() => handleProfileVisibilityChange('everyone')}
+                    activeOpacity={0.7}>
+                    <Text
+                      style={[
+                        styles.visibilityOptionText,
+                        user?.privacySettings.profileVisibility === 'everyone' && styles.visibilityOptionTextSelected,
+                      ]}>
+                      Alle
+                    </Text>
+                    {user?.privacySettings.profileVisibility === 'everyone' && (
+                      <Icon name="checkmark" size={20} color="#007AFF" />
+                    )}
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={[
+                      styles.visibilityOption,
+                      user?.privacySettings.profileVisibility === 'friends_and_gyms' && styles.visibilityOptionSelected,
+                    ]}
+                    onPress={() => handleProfileVisibilityChange('friends_and_gyms')}
+                    activeOpacity={0.7}>
+                    <Text
+                      style={[
+                        styles.visibilityOptionText,
+                        user?.privacySettings.profileVisibility === 'friends_and_gyms' && styles.visibilityOptionTextSelected,
+                      ]}>
+                      Venner & Lokal Centre
+                    </Text>
+                    {user?.privacySettings.profileVisibility === 'friends_and_gyms' && (
+                      <Icon name="checkmark" size={20} color="#007AFF" />
+                    )}
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={[
+                      styles.visibilityOption,
                       user?.privacySettings.profileVisibility === 'friends' && styles.visibilityOptionSelected,
                     ]}
                     onPress={() => handleProfileVisibilityChange('friends')}
@@ -1014,36 +1115,18 @@ const ProfileScreen = () => {
                   <TouchableOpacity
                     style={[
                       styles.visibilityOption,
-                      user?.privacySettings.profileVisibility === 'friends_and_gyms' && styles.visibilityOptionSelected,
+                      user?.privacySettings.profileVisibility === 'private' && styles.visibilityOptionSelected,
                     ]}
-                    onPress={() => handleProfileVisibilityChange('friends_and_gyms')}
+                    onPress={() => handleProfileVisibilityChange('private')}
                     activeOpacity={0.7}>
                     <Text
                       style={[
                         styles.visibilityOptionText,
-                        user?.privacySettings.profileVisibility === 'friends_and_gyms' && styles.visibilityOptionTextSelected,
+                        user?.privacySettings.profileVisibility === 'private' && styles.visibilityOptionTextSelected,
                       ]}>
-                      Kun Venner & Lokal Centre
+                      Privat
                     </Text>
-                    {user?.privacySettings.profileVisibility === 'friends_and_gyms' && (
-                      <Icon name="checkmark" size={20} color="#007AFF" />
-                    )}
-                  </TouchableOpacity>
-                  <TouchableOpacity
-                    style={[
-                      styles.visibilityOption,
-                      user?.privacySettings.profileVisibility === 'everyone' && styles.visibilityOptionSelected,
-                    ]}
-                    onPress={() => handleProfileVisibilityChange('everyone')}
-                    activeOpacity={0.7}>
-                    <Text
-                      style={[
-                        styles.visibilityOptionText,
-                        user?.privacySettings.profileVisibility === 'everyone' && styles.visibilityOptionTextSelected,
-                      ]}>
-                      Alle
-                    </Text>
-                    {user?.privacySettings.profileVisibility === 'everyone' && (
+                    {user?.privacySettings.profileVisibility === 'private' && (
                       <Icon name="checkmark" size={20} color="#007AFF" />
                     )}
                   </TouchableOpacity>
@@ -1067,8 +1150,8 @@ const ProfileScreen = () => {
           </View>
         )}
 
-        {/* Workouts Tab Content */}
-        {activeTab === 'workouts' && (
+        {/* Workouts Tab Content - Removed, now shown in Stats tab */}
+        {false && activeTab === 'workouts' && (
           <View>
             {/* Period Selection for Workouts */}
             <View style={styles.statsContainer}>
@@ -1594,6 +1677,9 @@ const styles = StyleSheet.create({
     padding: 16,
     justifyContent: 'center',
   },
+  bicepsEmojiIcon: {
+    fontSize: 20,
+  },
   workoutsListButtonText: {
     fontSize: 16,
     fontWeight: '600',
@@ -1637,6 +1723,38 @@ const styles = StyleSheet.create({
   workoutCardTime: {
     fontSize: 14,
     color: '#8E8E93',
+  },
+  workoutCardMuscleGroup: {
+    fontSize: 14,
+    color: colors.text,
+    marginTop: 8,
+    marginBottom: 4,
+    fontWeight: '500',
+  },
+  workoutCardFriends: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 8,
+  },
+  workoutCardFriendsText: {
+    fontSize: 14,
+    color: '#34C759',
+    marginLeft: 6,
+    fontWeight: '500',
+  },
+  emptyWorkouts: {
+    backgroundColor: colors.backgroundCard,
+    borderRadius: 16,
+    padding: 48,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 16,
+  },
+  emptyWorkoutsText: {
+    fontSize: 16,
+    color: colors.textMuted,
+    marginTop: 12,
+    textAlign: 'center',
   },
   workoutPRBadge: {
     flexDirection: 'row',

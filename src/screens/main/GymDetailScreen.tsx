@@ -156,13 +156,80 @@ const GymDetailScreen = () => {
                 {gymStatus.isOpen ? 'Åbent nu' : 'Lukket nu'}
               </Text>
             </View>
-            {gymHours && gymStatus.currentHours && (
-              <Text style={styles.hoursText}>
-                I dag: {gymStatus.currentHours.open} - {gymStatus.currentHours.close}
-              </Text>
+            
+            {/* All Opening Hours */}
+            {gymHours && (
+              <View style={styles.hoursList}>
+                {gymHours.isOpen24Hours ? (
+                  <Text style={styles.hoursText}>Åbent 24 timer i døgnet</Text>
+                ) : (
+                  <>
+                    {gymHours.monday && (
+                      <View style={styles.hoursRow}>
+                        <Text style={styles.hoursDay}>Mandag:</Text>
+                        <Text style={styles.hoursTime}>
+                          {gymHours.monday.open} - {gymHours.monday.close}
+                        </Text>
+                      </View>
+                    )}
+                    {gymHours.tuesday && (
+                      <View style={styles.hoursRow}>
+                        <Text style={styles.hoursDay}>Tirsdag:</Text>
+                        <Text style={styles.hoursTime}>
+                          {gymHours.tuesday.open} - {gymHours.tuesday.close}
+                        </Text>
+                      </View>
+                    )}
+                    {gymHours.wednesday && (
+                      <View style={styles.hoursRow}>
+                        <Text style={styles.hoursDay}>Onsdag:</Text>
+                        <Text style={styles.hoursTime}>
+                          {gymHours.wednesday.open} - {gymHours.wednesday.close}
+                        </Text>
+                      </View>
+                    )}
+                    {gymHours.thursday && (
+                      <View style={styles.hoursRow}>
+                        <Text style={styles.hoursDay}>Torsdag:</Text>
+                        <Text style={styles.hoursTime}>
+                          {gymHours.thursday.open} - {gymHours.thursday.close}
+                        </Text>
+                      </View>
+                    )}
+                    {gymHours.friday && (
+                      <View style={styles.hoursRow}>
+                        <Text style={styles.hoursDay}>Fredag:</Text>
+                        <Text style={styles.hoursTime}>
+                          {gymHours.friday.open} - {gymHours.friday.close}
+                        </Text>
+                      </View>
+                    )}
+                    {gymHours.saturday && (
+                      <View style={styles.hoursRow}>
+                        <Text style={styles.hoursDay}>Lørdag:</Text>
+                        <Text style={styles.hoursTime}>
+                          {gymHours.saturday.open} - {gymHours.saturday.close}
+                        </Text>
+                      </View>
+                    )}
+                    {gymHours.sunday && (
+                      <View style={styles.hoursRow}>
+                        <Text style={styles.hoursDay}>Søndag:</Text>
+                        <Text style={styles.hoursTime}>
+                          {gymHours.sunday.open} - {gymHours.sunday.close}
+                        </Text>
+                      </View>
+                    )}
+                  </>
+                )}
+              </View>
             )}
-            {gymHours && gymHours.isOpen24Hours && (
-              <Text style={styles.hoursText}>Åbent 24 timer i døgnet</Text>
+            
+            {/* Fallback if no hours data */}
+            {!gymHours && (
+              <Text style={styles.hoursText}>
+                Åbningstider ikke tilgængelige
+              </Text>
             )}
           </View>
         </View>
@@ -435,6 +502,28 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: colors.textMuted,
     marginTop: 4,
+  },
+  hoursList: {
+    marginTop: 12,
+  },
+  hoursRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 6,
+    borderBottomWidth: 1,
+    borderBottomColor: '#F0F0F0',
+  },
+  hoursDay: {
+    fontSize: 14,
+    color: colors.text,
+    fontWeight: '500',
+    flex: 1,
+  },
+  hoursTime: {
+    fontSize: 14,
+    color: colors.textMuted,
+    fontWeight: '400',
   },
   rateButton: {
     flexDirection: 'row',

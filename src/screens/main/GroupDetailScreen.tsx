@@ -14,7 +14,6 @@ import {
   SafeAreaView,
   Switch,
   Platform,
-  Alert,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation, useRoute} from '@react-navigation/native';
@@ -136,13 +135,7 @@ const GroupDetailScreen = () => {
     setIsPrivate(newPrivacyState);
     
     // TODO: Save to backend
-    // For now, just show a confirmation
-    Alert.alert(
-      'Synlighed opdateret',
-      newPrivacyState
-        ? 'Gruppen er nu privat'
-        : 'Gruppen er nu offentlig'
-    );
+    // No popup - just toggle the switch directly
   };
 
   return (

@@ -127,7 +127,7 @@ const EditProfileScreen = () => {
       case 'friends':
         return 'Kun Venner';
       case 'friends_and_gyms':
-        return 'Kun Venner & Lokal Centre';
+        return 'Venner & Lokal Centre';
       case 'everyone':
         return 'Alle';
       case 'private':
@@ -385,7 +385,7 @@ const EditProfileScreen = () => {
           <View style={styles.visibilitySection}>
             <Text style={styles.settingLabel}>Profil synlighed</Text>
             <View style={styles.visibilityOptions}>
-              {(['everyone', 'friends', 'friends_and_gyms', 'private'] as ProfileVisibility[]).map(option => (
+              {(['everyone', 'friends_and_gyms', 'friends', 'private'] as ProfileVisibility[]).map(option => (
                 <TouchableOpacity
                   key={option}
                   style={[
