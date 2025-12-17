@@ -70,6 +70,8 @@ const EditGroupScreen = () => {
     initialGroup?.adminId || '',
   );
   const [memberSearchQuery, setMemberSearchQuery] = useState('');
+  // Track pending invitations
+  const [pendingInvitations, setPendingInvitations] = useState<string[]>([]);
 
   if (!initialGroup) {
     return (
@@ -104,20 +106,21 @@ const EditGroupScreen = () => {
     {id: '10', name: 'Emma', isOnline: true},
   ];
 
-  // Get all available friends (current members + others)
+  // Get all available friends (not current members)
   const availableFriends = useMemo(() => {
     const memberIds = new Set(initialGroup.members.map((m: Friend) => m.id));
     return mockFriends.filter(f => !memberIds.has(f.id));
   }, [initialGroup.members]);
 
-  // Filter members based on search
-  const filteredMembers = useMemo(() => {
-    const allMembers = [...initialGroup.members, ...availableFriends];
-    if (!memberSearchQuery.trim()) return allMembers;
-    return allMembers.filter(member =>
-      member.name.toLowerCase().includes(memberSearchQuery.toLowerCase()),
+  // Filter friends based on search - only show non-members when searching
+  const filteredFriends = useMemo(() => {
+    if (!memberSearchQuery.trim()) {
+      return []; // Don't show any suggestions when not searching
+    }
+    return availableFriends.filter(friend =>
+      friend.name.toLowerCase().includes(memberSearchQuery.toLowerCase()),
     );
-  }, [memberSearchQuery, initialGroup.members, availableFriends]);
+  }, [memberSearchQuery, availableFriends]);
 
   const handleSave = () => {
     if (!groupName.trim()) {
@@ -128,6 +131,21 @@ const EditGroupScreen = () => {
     // TODO: Save changes to backend
     Alert.alert('Gruppe opdateret', 'Ændringerne er blevet gemt');
     navigation.goBack();
+  };
+
+  const handleSendInvitation = (friendId: string) => {
+    // Send invitation instead of adding directly
+    if (!pendingInvitations.includes(friendId)) {
+      setPendingInvitations(prev => [...prev, friendId]);
+      Alert.alert(
+        'Invitation sendt',
+        'Venneren har modtaget en invitation og skal acceptere den før de bliver medlem.',
+      );
+    }
+  };
+
+  const handleCancelInvitation = (friendId: string) => {
+    setPendingInvitations(prev => prev.filter(id => id !== friendId));
   };
 
   const handleToggleMember = (memberId: string) => {
@@ -145,9 +163,6 @@ const EditGroupScreen = () => {
         return;
       }
       setSelectedMembers(prev => prev.filter(id => id !== memberId));
-    } else {
-      // Add member
-      setSelectedMembers(prev => [...prev, memberId]);
     }
   };
 
@@ -166,6 +181,19 @@ const EditGroupScreen = () => {
     setSelectedMembers(prev => prev.filter(id => id !== memberId));
   };
 
+  const handleMemberPress = (memberId: string) => {
+    // Navigate to member profile
+    const member = initialGroup.members.find((m: Friend) => m.id === memberId);
+    if (member) {
+      navigation.navigate('FriendProfile', {
+        friendId: memberId,
+        friendName: member.name,
+        mutualFriends: 0,
+        gyms: [],
+      });
+    }
+  };
+
   const renderMemberItem = (member: Friend) => {
     const isCurrentMember = initialGroup.members.some(
       (m: Friend) => m.id === member.id,
@@ -178,12 +206,13 @@ const EditGroupScreen = () => {
         <TouchableOpacity
           style={styles.memberItem}
           onPress={() => {
-            if (!isCurrentMember) {
+            if (isCurrentMember) {
+              handleMemberPress(member.id);
+            } else {
               handleToggleMember(member.id);
             }
           }}
-          activeOpacity={!isCurrentMember ? 0.7 : 1}
-          disabled={isCurrentMember}>
+          activeOpacity={0.7}>
           <View style={styles.avatarContainer}>
             {member.avatar ? (
               <Image source={{uri: member.avatar}} style={styles.avatar} />
@@ -199,9 +228,6 @@ const EditGroupScreen = () => {
           <View style={styles.memberInfo}>
             <Text style={styles.memberName}>{member.name}</Text>
             {isAdmin && <Text style={styles.adminLabel}>Admin</Text>}
-            {!isCurrentMember && isSelected && (
-              <Text style={styles.addedLabel}>Vil blive tilføjet</Text>
-            )}
             {isCurrentMember && !isSelected && (
               <Text style={styles.removedLabel}>Vil blive fjernet</Text>
             )}
@@ -209,11 +235,6 @@ const EditGroupScreen = () => {
           {isSelected && (
             <View style={styles.checkmarkContainer}>
               <Icon name="checkmark-circle" size={24} color="#007AFF" />
-            </View>
-          )}
-          {!isCurrentMember && !isSelected && (
-            <View style={styles.addIconContainer}>
-              <Icon name="add-circle-outline" size={24} color="#34C759" />
             </View>
           )}
         </TouchableOpacity>
@@ -240,6 +261,55 @@ const EditGroupScreen = () => {
             )}
           </View>
         )}
+      </View>
+    );
+  };
+
+  const renderFriendItem = (friend: Friend) => {
+    const hasPendingInvitation = pendingInvitations.includes(friend.id);
+
+    return (
+      <View key={friend.id} style={styles.memberRow}>
+        <TouchableOpacity
+          style={styles.memberItem}
+          onPress={() => {
+            if (!hasPendingInvitation) {
+              handleSendInvitation(friend.id);
+            }
+          }}
+          activeOpacity={0.7}
+          disabled={hasPendingInvitation}>
+          <View style={styles.avatarContainer}>
+            {friend.avatar ? (
+              <Image source={{uri: friend.avatar}} style={styles.avatar} />
+            ) : (
+              <View style={styles.avatarPlaceholder}>
+                <Text style={styles.avatarText}>
+                  {friend.name.charAt(0).toUpperCase()}
+                </Text>
+              </View>
+            )}
+            {friend.isOnline && <View style={styles.onlineIndicator} />}
+          </View>
+          <View style={styles.memberInfo}>
+            <Text style={styles.memberName}>{friend.name}</Text>
+            {hasPendingInvitation && (
+              <Text style={styles.invitationLabel}>Invitation sendt</Text>
+            )}
+          </View>
+          {hasPendingInvitation ? (
+            <TouchableOpacity
+              style={styles.cancelInvitationButton}
+              onPress={() => handleCancelInvitation(friend.id)}
+              activeOpacity={0.7}>
+              <Icon name="close-circle" size={24} color="#8E8E93" />
+            </TouchableOpacity>
+          ) : (
+            <View style={styles.addIconContainer}>
+              <Icon name="person-add-outline" size={24} color="#007AFF" />
+            </View>
+          )}
+        </TouchableOpacity>
       </View>
     );
   };
@@ -331,35 +401,53 @@ const EditGroupScreen = () => {
 
         {/* Members Section */}
         <View style={styles.membersSection}>
-          <Text style={styles.sectionTitle}>Gruppemedlemmer</Text>
+          {/* Friend Search */}
+          <View style={styles.friendSearchSection}>
+            <Text style={styles.sectionTitle}>Tilføj venner</Text>
+            <View style={styles.memberSearchContainer}>
+              <Icon
+                name="search"
+                size={20}
+                color="#8E8E93"
+                style={styles.searchIcon}
+              />
+              <TextInput
+                style={styles.memberSearchInput}
+                placeholder="Søg efter venner..."
+                placeholderTextColor="#8E8E93"
+                value={memberSearchQuery}
+                onChangeText={setMemberSearchQuery}
+              />
+              {memberSearchQuery.length > 0 && (
+                <TouchableOpacity
+                  onPress={() => setMemberSearchQuery('')}
+                  style={styles.clearButton}>
+                  <Icon name="close-circle" size={20} color="#8E8E93" />
+                </TouchableOpacity>
+              )}
+            </View>
 
-          {/* Member Search */}
-          <View style={styles.memberSearchContainer}>
-            <Icon
-              name="search"
-              size={20}
-              color="#8E8E93"
-              style={styles.searchIcon}
-            />
-            <TextInput
-              style={styles.memberSearchInput}
-              placeholder="Søg efter medlemmer..."
-              placeholderTextColor="#8E8E93"
-              value={memberSearchQuery}
-              onChangeText={setMemberSearchQuery}
-            />
-            {memberSearchQuery.length > 0 && (
-              <TouchableOpacity
-                onPress={() => setMemberSearchQuery('')}
-                style={styles.clearButton}>
-                <Icon name="close-circle" size={20} color="#8E8E93" />
-              </TouchableOpacity>
+            {/* Search Results - Friends List */}
+            {memberSearchQuery.trim().length > 0 && (
+              <View style={styles.membersList}>
+                {filteredFriends.length > 0 ? (
+                  filteredFriends.map(friend => renderFriendItem(friend))
+                ) : (
+                  <View style={styles.noResultsContainer}>
+                    <Text style={styles.noResultsText}>
+                      Ingen venner fundet
+                    </Text>
+                  </View>
+                )}
+              </View>
             )}
           </View>
 
-          {/* Members List */}
+          <Text style={styles.sectionTitle}>Gruppemedlemmer</Text>
+
+          {/* Current Members List */}
           <View style={styles.membersList}>
-            {filteredMembers.map(member => renderMemberItem(member))}
+            {initialGroup.members.map(member => renderMemberItem(member))}
           </View>
         </View>
       </ScrollView>
@@ -600,6 +688,26 @@ const styles = StyleSheet.create({
     color: '#FF3B30',
     marginTop: 2,
     fontStyle: 'italic',
+  },
+  invitationLabel: {
+    fontSize: 12,
+    color: '#007AFF',
+    marginTop: 2,
+    fontStyle: 'italic',
+  },
+  friendSearchSection: {
+    marginBottom: 24,
+  },
+  noResultsContainer: {
+    padding: 20,
+    alignItems: 'center',
+  },
+  noResultsText: {
+    fontSize: 14,
+    color: colors.textMuted,
+  },
+  cancelInvitationButton: {
+    padding: 4,
   },
   checkmarkContainer: {
     marginLeft: 8,

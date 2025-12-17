@@ -239,7 +239,7 @@ const CentresScreen = () => {
     gym => !favoriteGymIds.includes(gym.id),
   );
 
-  // Sort gyms: open first, then by distance (closest first)
+  // Sort gyms: open nearby first, then closed nearby (both sorted by distance)
   const sortedGyms = useMemo(() => {
     const allGyms = searchQuery.length > 0
       ? [...favoriteGymsFiltered, ...otherGymsFiltered]
@@ -266,11 +266,11 @@ const CentresScreen = () => {
         };
       })
       .sort((a, b) => {
-        // Open gyms first
+        // First: Open gyms before closed gyms
         if (a.isOpen && !b.isOpen) return -1;
         if (!a.isOpen && b.isOpen) return 1;
 
-        // If both open or both closed, sort by distance
+        // Second: Within same status (both open or both closed), sort by distance (closest first)
         return a.distance - b.distance;
       })
       .map(item => item.gym);
@@ -461,7 +461,7 @@ const CentresScreen = () => {
         {/* Stats */}
         <View style={styles.statsContainer}>
           <Text style={styles.statsText}>
-            {otherGymsSorted.length} centre fundet
+            Centre I Nærheden
           </Text>
         </View>
 

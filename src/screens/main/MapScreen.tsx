@@ -45,10 +45,18 @@ type Friend = {
 };
 
 const mockFriends: Friend[] = [
-  {id: '1', name: 'Jeff', isOnline: true, gymId: 1},
+  {id: '1', name: 'Jeff', isOnline: true, gymId: 497381657}, // SATS KBH - Valby
   {id: '2', name: 'Marie', isOnline: false},
-  {id: '3', name: 'Lars', isOnline: true, gymId: 2},
-  {id: '4', name: 'Sofia', isOnline: true, gymId: 1},
+  {id: '3', name: 'Lars', isOnline: true, gymId: 898936694}, // SATS KBH - Adelgade
+  {id: '4', name: 'Sofia', isOnline: true, gymId: 497381657}, // SATS KBH - Valby
+  {id: '5', name: 'Anders', isOnline: true, gymId: 1112453804}, // PureGym Lygten
+  {id: '6', name: 'Emma', isOnline: true, gymId: 898936694}, // SATS KBH - Adelgade
+  {id: '7', name: 'Mikkel', isOnline: true, gymId: 1141433639}, // PureGym Esromgade
+  {id: '8', name: 'Line', isOnline: true, gymId: 497381657}, // SATS KBH - Valby
+  {id: '9', name: 'Thomas', isOnline: true, gymId: 1112453804}, // PureGym Lygten
+  {id: '10', name: 'Anna', isOnline: true, gymId: 4878979931}, // SATS KBH - Vesterport
+  {id: '11', name: 'Jonas', isOnline: true, gymId: 4878979931}, // SATS KBH - Vesterport
+  {id: '12', name: 'Camilla', isOnline: true, gymId: 4878979931}, // SATS KBH - Vesterport
 ];
 
 // Calculate distance between two coordinates in kilometers (Haversine formula)
@@ -269,6 +277,12 @@ const MapScreen = () => {
     const hasActiveUsers = activeCount > 0;
     const logoUrl = getGymLogo(gym.brand);
     const hasLogo = hasGymLogo(gym.brand);
+    
+    // Count active friends at this gym
+    const activeFriendsCount = mockFriends.filter(
+      friend => friend.isOnline && friend.gymId === gym.id
+    ).length;
+    const hasActiveFriends = activeFriendsCount > 0;
 
     // Calculate distance if user location is available
     const distance = userLocation
@@ -303,7 +317,7 @@ const MapScreen = () => {
             ) : (
             <Icon
               name="fitness"
-                size={hasActiveUsers ? 24 : 20}
+                size={hasActiveUsers ? 18 : 16}
                 color={hasActiveUsers ? '#fff' : '#8E8E93'}
             />
             )}
@@ -311,6 +325,11 @@ const MapScreen = () => {
           {hasActiveUsers && (
             <View style={styles.userCountBadge}>
               <Text style={styles.userCountText}>{activeCount}</Text>
+            </View>
+          )}
+          {hasActiveFriends && (
+            <View style={styles.friendsCountBadge}>
+              <Text style={styles.friendsCountText}>{activeFriendsCount}</Text>
             </View>
           )}
         </View>
@@ -654,7 +673,8 @@ const MapScreen = () => {
           {...centersBarPanResponder.panHandlers}>
           <View style={styles.centersBarDivider} />
           <View style={styles.centersBarContent}>
-            <Icon name="location" size={16} color="#007AFF" style={styles.centersBarIcon} />
+            <View style={styles.centersBarHandle} />
+            <Icon name="location" size={18} color="#007AFF" style={styles.centersBarIcon} />
             <Text style={styles.centersBarText}>
               I Nærheden
             </Text>
@@ -954,9 +974,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   marker: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    width: 32,
+    height: 32,
+    borderRadius: 16,
     backgroundColor: '#E5E5EA',
     justifyContent: 'center',
     alignItems: 'center',
@@ -965,32 +985,51 @@ const styles = StyleSheet.create({
   },
   markerActive: {
     backgroundColor: colors.secondary,
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-  },
-  markerLogo: {
     width: 36,
     height: 36,
     borderRadius: 18,
   },
+  markerLogo: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+  },
   userCountBadge: {
     position: 'absolute',
-    top: -4,
-    right: -4,
+    top: -3,
+    right: -3,
     backgroundColor: '#34C759',
-    borderRadius: 10,
-    minWidth: 20,
-    height: 20,
+    borderRadius: 8,
+    minWidth: 16,
+    height: 16,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 4,
-    borderWidth: 2,
+    paddingHorizontal: 3,
+    borderWidth: 1.5,
     borderColor: '#fff',
   },
   userCountText: {
     color: '#fff',
-    fontSize: 10,
+    fontSize: 9,
+    fontWeight: 'bold',
+  },
+  friendsCountBadge: {
+    position: 'absolute',
+    top: 15,
+    right: -3,
+    backgroundColor: '#3B82F6',
+    borderRadius: 8,
+    minWidth: 16,
+    height: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 3,
+    borderWidth: 1.5,
+    borderColor: '#fff',
+  },
+  friendsCountText: {
+    color: '#fff',
+    fontSize: 9,
     fontWeight: 'bold',
   },
   infoPanel: {
@@ -1129,16 +1168,26 @@ const styles = StyleSheet.create({
   },
   centersBarContent: {
     flexDirection: 'row',
-    paddingVertical: 6,
+    paddingVertical: 10,
     paddingHorizontal: 16,
     alignItems: 'center',
     justifyContent: 'center',
+    paddingTop: 8,
+  },
+  centersBarHandle: {
+    position: 'absolute',
+    top: 4,
+    width: 36,
+    height: 4,
+    backgroundColor: '#C7C7CC',
+    borderRadius: 2,
+    alignSelf: 'center',
   },
   centersBarIcon: {
-    marginRight: 6,
+    marginRight: 8,
   },
   centersBarText: {
-    fontSize: 12,
+    fontSize: 14,
     fontWeight: '400',
     color: colors.text,
   },
