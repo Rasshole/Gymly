@@ -33,6 +33,8 @@ import {useFeedStore} from '@/store/feedStore';
 import {useGroupStore, GymlyGroup} from '@/store/groupStore';
 import {usePRStore} from '@/store/prStore';
 import {colors} from '@/theme/colors';
+import GymlyLogo from '@/components/GymlyLogo';
+import MuscleIcon from '@/components/MuscleIcon';
 
 const SIMULATED_LOCATION = {
   latitude: 55.6875008,
@@ -42,15 +44,15 @@ const SIMULATED_LOCATION = {
 const DETECTION_RADIUS_METERS = 100;
 const SLIDER_KNOB_SIZE = 60;
 
-const MUSCLE_GROUPS: {key: MuscleGroup; label: string; icon: string}[] = [
-  {key: 'bryst', label: 'Bryst', icon: 'body-outline'},
-  {key: 'triceps', label: 'Triceps', icon: 'pulse-outline'},
-  {key: 'skulder', label: 'Skulder', icon: 'accessibility-outline'},
-  {key: 'ben', label: 'Ben', icon: 'walk-outline'},
-  {key: 'biceps', label: 'Biceps', icon: 'barbell-outline'},
-  {key: 'mave', label: 'Mave', icon: 'fitness-outline'},
-  {key: 'ryg', label: 'Ryg', icon: 'body-outline'},
-  {key: 'hele_kroppen', label: 'Hele kroppen', icon: 'body'},
+const MUSCLE_GROUPS: {key: MuscleGroup; label: string}[] = [
+  {key: 'bryst', label: 'Bryst'},
+  {key: 'triceps', label: 'Triceps'},
+  {key: 'skulder', label: 'Skulder'},
+  {key: 'ben', label: 'Ben'},
+  {key: 'biceps', label: 'Biceps'},
+  {key: 'mave', label: 'Mave'},
+  {key: 'ryg', label: 'Ryg'},
+  {key: 'hele_kroppen', label: 'Hele kroppen'},
 ];
 const WEEKDAYS = ['Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør', 'Søn'];
 const PR_OPTIONS = ['Bænk', 'Bicepcurl', 'Benpres', 'Dødløft', 'Squat'] as const;
@@ -186,6 +188,12 @@ const CheckInScreen = () => {
     durationMs: number;
     photoUri?: string | null;
   } | null>(null);
+  const [gymlyPopupVisible, setGymlyPopupVisible] = useState(false);
+  const gymlyPopupScale = useRef(new Animated.Value(0)).current;
+  const gymlyPopupOpacity = useRef(new Animated.Value(0)).current;
+  const gymlyTextOpacity = useRef(new Animated.Value(0)).current;
+  const gymlyLogoScale = useRef(new Animated.Value(0)).current;
+  const gymlyLogoOpacity = useRef(new Animated.Value(0)).current;
 
   // Debug: log when shareComposerVisible changes
   useEffect(() => {
@@ -919,8 +927,25 @@ const CheckInScreen = () => {
     resetAfterCompletion();
   };
 
-  const publishWorkoutToFeed = (summary: string, photoUri?: string | null, workoutInfo?: string) => {
+  const publishWorkoutToFeed = (summary: string, photoUri?: string | null, workoutInfo?: string, rating?: number | null, mentionedUsers?: string[]) => {
     const feedUserName = user?.displayName || user?.username || 'Du';
+    const validRating = rating && rating >= 1 && rating <= 5 ? rating : undefined;
+    console.log('Adding feed item with rating:', validRating, 'mentionedUsers:', mentionedUsers);
+    
+    // Send notifications to mentioned users
+    if (mentionedUsers && mentionedUsers.length > 0) {
+      mentionedUsers.forEach(friendId => {
+        const friend = FRIENDS.find(f => f.id === friendId);
+        if (friend) {
+          NotificationService.sendMentionNotification(
+            feedUserName,
+            friend.name,
+            summary || workoutInfo || 'en træning'
+          );
+        }
+      });
+    }
+    
     addFeedItem({
       id: `feed_${Date.now()}`,
       type: photoUri ? 'photo' : 'summary',
@@ -929,6 +954,8 @@ const CheckInScreen = () => {
       timestamp: 'Lige nu',
       photoUri: photoUri ?? undefined,
       workoutInfo: workoutInfo,
+      rating: validRating,
+      mentionedUsers: mentionedUsers,
     });
   };
 
@@ -978,8 +1005,27 @@ const CheckInScreen = () => {
     const userText = shareMessage.trim();
     const feedMessage = userText.length > 0 ? userText : undefined; // Only include if user wrote something
     
+    // Extract mentioned users from shareMessage
+    const mentionedUserIds: string[] = [];
+    if (shareMessage) {
+      const mentionRegex = /@(\w+)/g;
+      let match;
+      const processedNames = new Set<string>();
+      while ((match = mentionRegex.exec(shareMessage)) !== null) {
+        const mentionedName = match[1];
+        if (!processedNames.has(mentionedName)) {
+          processedNames.add(mentionedName);
+          const friend = FRIENDS.find(f => f.name === mentionedName);
+          if (friend) {
+            mentionedUserIds.push(friend.id);
+          }
+        }
+      }
+    }
+    
     // Workout info (location, participants, muscle groups, time) goes in workoutInfo field
-    publishWorkoutToFeed(feedMessage || '', shareContext.photoUri, shareContext.summary);
+    console.log('Publishing workout with rating:', shareRating, 'mentionedUsers:', mentionedUserIds);
+    publishWorkoutToFeed(feedMessage || '', shareContext.photoUri, shareContext.summary, shareRating, mentionedUserIds);
     finalizeWorkout(shareContext.session, shareContext.summary, shareContext.durationMs, shareContext.photoUri);
     setShareComposerVisible(false);
     setShareContext(null);
@@ -987,6 +1033,62 @@ const CheckInScreen = () => {
     setShareVisibility('everyone');
     setShareRating(null);
     setSharePrivateNotes('');
+    
+    // Show Gymly popup with splash effect after modal is closed
+    setTimeout(() => {
+      setGymlyPopupVisible(true);
+      gymlyPopupOpacity.setValue(0);
+      gymlyTextOpacity.setValue(0);
+      gymlyLogoScale.setValue(0);
+      gymlyLogoOpacity.setValue(0);
+      
+      // Animate text first
+      Animated.timing(gymlyTextOpacity, {
+        toValue: 1,
+        duration: 400,
+        useNativeDriver: true,
+      }).start();
+      
+      // Animate logo after delay
+      setTimeout(() => {
+        Animated.parallel([
+          Animated.spring(gymlyLogoScale, {
+            toValue: 1,
+            tension: 40,
+            friction: 6,
+            useNativeDriver: true,
+          }),
+          Animated.timing(gymlyLogoOpacity, {
+            toValue: 1,
+            duration: 500,
+            useNativeDriver: true,
+          }),
+        ]).start();
+      }, 200);
+      
+      // Fade out after delay
+      setTimeout(() => {
+        Animated.parallel([
+          Animated.timing(gymlyTextOpacity, {
+            toValue: 0,
+            duration: 200,
+            useNativeDriver: true,
+          }),
+          Animated.timing(gymlyLogoOpacity, {
+            toValue: 0,
+            duration: 200,
+            useNativeDriver: true,
+          }),
+          Animated.timing(gymlyLogoScale, {
+            toValue: 0.8,
+            duration: 200,
+            useNativeDriver: true,
+          }),
+        ]).start(() => {
+          setGymlyPopupVisible(false);
+        });
+      }, 2000);
+    }, 300); // Small delay to ensure modal is fully closed
   };
 
   const cancelShareComposer = () => {
@@ -1009,6 +1111,7 @@ const CheckInScreen = () => {
       Alert.alert('Fejl', 'Ingen aktiv session fundet');
       return;
     }
+    
     const session = activeSession;
     const durationMs = elapsedTime || (Date.now() - session.startTime);
     const summary = buildWorkoutSummary(session, durationMs);
@@ -1072,6 +1175,60 @@ const CheckInScreen = () => {
       return true;
     }
 
+    // Show Gymly popup with splash effect
+    setGymlyPopupVisible(true);
+    gymlyPopupOpacity.setValue(0);
+    gymlyTextOpacity.setValue(0);
+    gymlyLogoScale.setValue(0);
+    gymlyLogoOpacity.setValue(0);
+    
+    // Animate text first
+    Animated.timing(gymlyTextOpacity, {
+      toValue: 1,
+      duration: 300,
+      useNativeDriver: true,
+    }).start();
+    
+    // Animate logo immediately after text starts (shorter delay)
+    setTimeout(() => {
+      Animated.parallel([
+        Animated.spring(gymlyLogoScale, {
+          toValue: 1,
+          tension: 50,
+          friction: 5,
+          useNativeDriver: true,
+        }),
+        Animated.timing(gymlyLogoOpacity, {
+          toValue: 1,
+          duration: 400,
+          useNativeDriver: true,
+        }),
+      ]).start();
+    }, 100);
+    
+    // Fade out after delay
+    setTimeout(() => {
+      Animated.parallel([
+        Animated.timing(gymlyTextOpacity, {
+          toValue: 0,
+          duration: 200,
+          useNativeDriver: true,
+        }),
+        Animated.timing(gymlyLogoOpacity, {
+          toValue: 0,
+          duration: 200,
+          useNativeDriver: true,
+        }),
+        Animated.timing(gymlyLogoScale, {
+          toValue: 0.8,
+          duration: 200,
+          useNativeDriver: true,
+        }),
+      ]).start(() => {
+        setGymlyPopupVisible(false);
+      });
+    }, 2000);
+
     const newPendingSession = {
       gym: detectedGym,
       muscles: selectedMuscles,
@@ -1081,11 +1238,8 @@ const CheckInScreen = () => {
     setPendingInviteIds([]);
     
     // Show toast message
-    setCheckInToast({visible: true, message: `Tjekket ind i ${formatGymDisplayName(detectedGym)}`});
-    
     // Auto-activate session after 1 second
     setTimeout(() => {
-      setCheckInToast({visible: false, message: ''});
       // Use the latest pendingSession state
       setActiveSession({
         ...newPendingSession,
@@ -1194,7 +1348,7 @@ const CheckInScreen = () => {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <ScrollView 
         style={styles.content}
-        contentContainerStyle={{paddingBottom: 120, flexGrow: 1}}
+        contentContainerStyle={{paddingBottom: 140, flexGrow: 1}}
         showsVerticalScrollIndicator={true}
         keyboardShouldPersistTaps="handled"
         nestedScrollEnabled={false}>
@@ -1290,9 +1444,9 @@ const CheckInScreen = () => {
                       style={[styles.muscleCard, isActive && styles.muscleCardActive]}
                       onPress={() => toggleMuscleGroup(item.key)}
                       activeOpacity={0.85}>
-                      <Ionicons
-                        name={item.icon as any}
-                        size={20}
+                      <MuscleIcon
+                        muscle={item.key}
+                        size={18}
                         color={isActive ? '#fff' : '#007AFF'}
                       />
                       <Text style={[styles.muscleLabel, isActive && styles.muscleLabelActive]}>
@@ -1361,6 +1515,24 @@ const CheckInScreen = () => {
           </TouchableOpacity>
         </View>
       )}
+
+      {/* Gymly Popup Modal */}
+      <Modal visible={gymlyPopupVisible} transparent animationType="fade">
+        <View style={styles.gymlyPopupOverlay}>
+          <View style={styles.gymlyPopupContent}>
+            <Animated.Text style={[styles.gymlyPopupText, {opacity: gymlyTextOpacity}]}>
+              Gymly
+            </Animated.Text>
+            <Animated.View
+              style={{
+                transform: [{scale: gymlyLogoScale}],
+                opacity: gymlyLogoOpacity,
+              }}>
+              <GymlyLogo size={300} />
+            </Animated.View>
+          </View>
+        </View>
+      </Modal>
 
       <Modal visible={gymPickerVisible} transparent animationType="slide">
         <View style={styles.modalOverlay}>
@@ -1676,9 +1848,9 @@ const CheckInScreen = () => {
                       style={[styles.muscleCard, isActive && styles.muscleCardActive]}
                       onPress={() => togglePlanMuscle(item.key)}
                       activeOpacity={0.85}>
-                      <Ionicons
-                        name={item.icon as any}
-                            size={20}
+                      <MuscleIcon
+                        muscle={item.key}
+                        size={20}
                         color={isActive ? '#fff' : '#007AFF'}
                       />
                       <Text style={[styles.muscleLabel, isActive && styles.muscleLabelActive]}>
@@ -2285,7 +2457,7 @@ const styles = StyleSheet.create({
     paddingBottom: 48,
   },
   muscleCardSection: {
-    marginBottom: 16,
+    marginBottom: 0,
   },
   sectionTitle: {
     fontSize: 20,
@@ -2403,11 +2575,10 @@ const styles = StyleSheet.create({
   soloSection: {
     marginTop: -4,
     paddingTop: 8,
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: '#E5E7EB',
   },
   sliderCardSpacing: {
-    marginTop: 64,
+    marginTop: 0,
+    marginBottom: 120,
   },
   muscleLabelActive: {
     color: '#fff',
@@ -2779,6 +2950,28 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: '600',
+  },
+  gymlyPopupOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  gymlyPopupContent: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  gymlyPopupText: {
+    marginBottom: 20,
+    fontSize: 52,
+    fontWeight: '800',
+    color: '#FFFFFF',
+    letterSpacing: 6,
+    fontFamily: Platform.OS === 'ios' ? 'System' : 'sans-serif-condensed',
+    textShadowColor: 'rgba(0, 0, 0, 0.6)',
+    textShadowOffset: {width: 0, height: 3},
+    textShadowRadius: 10,
+    textTransform: 'uppercase',
   },
   friendModal: {
     alignItems: 'stretch',

@@ -22,6 +22,7 @@ import danishGyms, {DanishGym} from '@/data/danishGyms';
 import {colors} from '@/theme/colors';
 import NotificationService from '@/services/notifications/NotificationService';
 import {useAppStore} from '@/store/appStore';
+import MuscleIcon from '@/components/MuscleIcon';
 
 const WEEKDAYS = ['Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør', 'Søn'];
 
@@ -42,15 +43,15 @@ const muscleLabels: Record<MuscleGroup, string> = {
   hele_kroppen: 'Hele kroppen',
 };
 
-const MUSCLE_GROUPS: {key: MuscleGroup; label: string; icon: string}[] = [
-  {key: 'bryst', label: 'Bryst', icon: 'body-outline'},
-  {key: 'triceps', label: 'Triceps', icon: 'pulse-outline'},
-  {key: 'skulder', label: 'Skulder', icon: 'accessibility-outline'},
-  {key: 'ben', label: 'Ben', icon: 'walk-outline'},
-  {key: 'biceps', label: 'Biceps', icon: 'barbell-outline'},
-  {key: 'mave', label: 'Mave', icon: 'fitness-outline'},
-  {key: 'ryg', label: 'Ryg', icon: 'body-outline'},
-  {key: 'hele_kroppen', label: 'Hele kroppen', icon: 'body'},
+const MUSCLE_GROUPS: {key: MuscleGroup; label: string}[] = [
+  {key: 'bryst', label: 'Bryst'},
+  {key: 'triceps', label: 'Triceps'},
+  {key: 'skulder', label: 'Skulder'},
+  {key: 'ben', label: 'Ben'},
+  {key: 'biceps', label: 'Biceps'},
+  {key: 'mave', label: 'Mave'},
+  {key: 'ryg', label: 'Ryg'},
+  {key: 'hele_kroppen', label: 'Hele kroppen'},
 ];
 
 // Mock friends list for displaying names
@@ -115,6 +116,12 @@ const WorkoutScheduleScreen = () => {
 
   // Invite friends modal state
   const [inviteModalVisible, setInviteModalVisible] = useState(false);
+  const [inviteSearchQuery, setInviteSearchQuery] = useState('');
+  
+  // Plan invite friends state
+  const [planInvitedFriends, setPlanInvitedFriends] = useState<string[]>([]);
+  const [planInviteSectionVisible, setPlanInviteSectionVisible] = useState(false);
+  const [planInviteSearchQuery, setPlanInviteSearchQuery] = useState('');
 
   const upcomingByDay = useMemo(() => {
     const map = new Map<string, WorkoutPlanEntry[]>();
@@ -309,14 +316,31 @@ const WorkoutScheduleScreen = () => {
       gym: resolvedGym,
       muscles: planMuscles,
       scheduledAt: planDateTime,
-      invitedFriends: [],
+      invitedFriends: planInvitedFriends,
       acceptedFriends: [],
     });
+
+    // Send notifications to invited friends
+    if (planInvitedFriends.length > 0) {
+      const musclesDescription = formatMuscleSelection(planMuscles);
+      NotificationService.sendWorkoutInvite(
+        user?.displayName || user?.username || 'Nogen',
+        resolvedGym,
+        musclesDescription,
+        planInvitedFriends,
+        planId,
+        planDateTime,
+        planMuscles,
+      );
+    }
 
     setPlanModalVisible(false);
     setPlanSelectedGym(null);
     setPlanCenterQuery('');
     setPlanMuscles([]);
+    setPlanInvitedFriends([]);
+    setPlanInviteSectionVisible(false);
+    setPlanInviteSearchQuery('');
     Alert.alert('Træning planlagt', 'Din træning er blevet planlagt!');
   };
 
@@ -425,7 +449,7 @@ const WorkoutScheduleScreen = () => {
 
   const handleInviteAll = () => {
     const currentInvited = getCurrentInvitedIds();
-    const notInvited = FRIENDS.filter(friend => !currentInvited.includes(friend.id));
+    const notInvited = filteredInviteFriends.filter(friend => !currentInvited.includes(friend.id));
     if (notInvited.length === 0) {
       return;
     }
@@ -434,11 +458,34 @@ const WorkoutScheduleScreen = () => {
 
   const handleInviteModalDone = () => {
     setInviteModalVisible(false);
+    setInviteSearchQuery('');
   };
+
+  // Filter friends based on search query
+  const filteredInviteFriends = useMemo(() => {
+    if (!inviteSearchQuery.trim()) {
+      return FRIENDS;
+    }
+    const query = inviteSearchQuery.trim().toLowerCase();
+    return FRIENDS.filter(friend =>
+      friend.name.toLowerCase().includes(query),
+    );
+  }, [inviteSearchQuery]);
+
+  // Filter friends for plan invite popup
+  const filteredPlanInviteFriends = useMemo(() => {
+    if (!planInviteSearchQuery.trim()) {
+      return FRIENDS;
+    }
+    const query = planInviteSearchQuery.trim().toLowerCase();
+    return FRIENDS.filter(friend =>
+      friend.name.toLowerCase().includes(query),
+    );
+  }, [planInviteSearchQuery]);
 
   const currentInvitedIds = inviteModalVisible ? getCurrentInvitedIds() : [];
   const remainingInviteCount = inviteModalVisible
-    ? FRIENDS.filter(friend => !currentInvitedIds.includes(friend.id)).length
+    ? filteredInviteFriends.filter(friend => !currentInvitedIds.includes(friend.id)).length
     : 0;
 
   const handlePlanCenterInput = (value: string) => {
@@ -948,8 +995,8 @@ const WorkoutScheduleScreen = () => {
                       style={[styles.muscleCard, isActive && styles.muscleCardActive]}
                       onPress={() => togglePlanMuscle(item.key)}
                       activeOpacity={0.85}>
-                      <Ionicons
-                        name={item.icon as any}
+                      <MuscleIcon
+                        muscle={item.key}
                         size={20}
                         color={isActive ? '#fff' : '#007AFF'}
                       />
@@ -960,6 +1007,32 @@ const WorkoutScheduleScreen = () => {
                   );
                 })}
               </View>
+
+              {/* Inviter venner knap */}
+              <TouchableOpacity
+                style={styles.planInviteButton}
+                onPress={() => {
+                  const resolvedGym = planSelectedGym || findGymByQuery(planCenterQuery);
+                  if (!resolvedGym) {
+                    Alert.alert('Vælg center', 'Vælg venligst hvilket center træningen skal foregå i først.');
+                    return;
+                  }
+                  if (planMuscles.length === 0) {
+                    Alert.alert('Vælg muskelgrupper', 'Vælg mindst én muskelgruppe først.');
+                    return;
+                  }
+                  setPlanInviteSectionVisible(!planInviteSectionVisible);
+                }}
+                activeOpacity={0.85}>
+                <Ionicons 
+                  name={planInviteSectionVisible ? "chevron-up" : "people-outline"} 
+                  size={18} 
+                  color={colors.secondary} 
+                />
+                <Text style={styles.planInviteButtonText}>
+                  Inviter venner{planInvitedFriends.length > 0 ? ` (${planInvitedFriends.length})` : ''}
+                </Text>
+              </TouchableOpacity>
 
               <Text style={[styles.sectionLabel, {marginTop: 8}]}>Dato</Text>
               <View style={styles.calendarContainer}>
@@ -1031,11 +1104,146 @@ const WorkoutScheduleScreen = () => {
               </TouchableOpacity>
               <TouchableOpacity
                 style={[styles.modalClose, {marginTop: 12}]}
-                onPress={() => setPlanModalVisible(false)}>
+                onPress={() => {
+                  setPlanModalVisible(false);
+                  setPlanInvitedFriends([]);
+                  setPlanInviteSectionVisible(false);
+                  setPlanInviteSearchQuery('');
+                }}>
                 <Text style={styles.modalCloseText}>Luk</Text>
               </TouchableOpacity>
             </ScrollView>
           </View>
+
+          {/* Inviter venner popup - vises inde i plan modal */}
+          {planInviteSectionVisible && (
+            <TouchableWithoutFeedback
+              onPress={() => {
+                setPlanInviteSectionVisible(false);
+                setPlanInviteSearchQuery('');
+              }}>
+              <View style={styles.planInvitePopup}>
+                <TouchableWithoutFeedback onPress={(e) => e.stopPropagation()}>
+                  <View style={styles.planInvitePopupContent}>
+                    {/* Header */}
+                    <View style={styles.planInvitePopupHeader}>
+                      <Text style={styles.planInvitePopupTitle}>Inviter venner og grupper</Text>
+                      <TouchableOpacity
+                        onPress={() => {
+                          setPlanInviteSectionVisible(false);
+                          setPlanInviteSearchQuery('');
+                        }}
+                        style={styles.planInvitePopupClose}>
+                        <Ionicons name="close" size={24} color={colors.text} />
+                      </TouchableOpacity>
+                    </View>
+
+                    {/* Search Bar */}
+                    <View style={styles.planInviteSearchContainer}>
+                      <Ionicons name="search" size={20} color={colors.textTertiary} style={styles.planInviteSearchIcon} />
+                      <TextInput
+                        style={styles.planInviteSearchInput}
+                        placeholder="Søg efter venner eller grupper..."
+                        placeholderTextColor={colors.textTertiary}
+                        value={planInviteSearchQuery}
+                        onChangeText={setPlanInviteSearchQuery}
+                        autoFocus={true}
+                      />
+                      {planInviteSearchQuery.length > 0 && (
+                        <TouchableOpacity
+                          onPress={() => setPlanInviteSearchQuery('')}
+                          style={styles.planInviteSearchClear}>
+                          <Ionicons name="close-circle" size={20} color={colors.textTertiary} />
+                        </TouchableOpacity>
+                      )}
+                    </View>
+
+                    {/* Inviter alle knap */}
+                    <TouchableOpacity
+                      style={[
+                        styles.inviteAllButton,
+                        filteredPlanInviteFriends.filter(f => !planInvitedFriends.includes(f.id)).length === 0 &&
+                          styles.inviteAllButtonDisabled,
+                      ]}
+                      onPress={() => {
+                        const notInvited = filteredPlanInviteFriends.filter(f => !planInvitedFriends.includes(f.id));
+                        if (notInvited.length === 0) return;
+                        setPlanInvitedFriends(prev => [...prev, ...notInvited.map(f => f.id)]);
+                      }}
+                      disabled={filteredPlanInviteFriends.filter(f => !planInvitedFriends.includes(f.id)).length === 0}>
+                      <Text
+                        style={[
+                          styles.inviteAllText,
+                          filteredPlanInviteFriends.filter(f => !planInvitedFriends.includes(f.id)).length === 0 &&
+                            styles.inviteAllTextDisabled,
+                        ]}>
+                        Inviter alle venner
+                      </Text>
+                    </TouchableOpacity>
+
+                    {/* Scrollable content */}
+                    <ScrollView 
+                      style={styles.planInviteScrollContent}
+                      contentContainerStyle={styles.planInviteScrollContentContainer}
+                      showsVerticalScrollIndicator={true}
+                      nestedScrollEnabled={true}
+                      scrollEnabled={true}
+                      bounces={true}
+                      keyboardShouldPersistTaps="handled">
+                      {/* Friends List */}
+                      {filteredPlanInviteFriends.length > 0 && (
+                        <View style={styles.planInviteSection}>
+                          <Text style={styles.planInviteSectionTitle}>Venner</Text>
+                          {filteredPlanInviteFriends.map(friend => {
+                            const hasBeenInvited = planInvitedFriends.includes(friend.id);
+                            return (
+                              <View key={friend.id} style={styles.friendRow}>
+                                <View style={styles.friendInfoWrapper}>
+                                  <View style={styles.friendAvatar}>
+                                    <Text style={styles.friendAvatarText}>{friend.initials}</Text>
+                                  </View>
+                                  <View style={styles.friendDetails}>
+                                    <Text style={styles.friendName}>{friend.name}</Text>
+                                  </View>
+                                </View>
+                                <TouchableOpacity
+                                  style={[
+                                    styles.invitePill,
+                                    hasBeenInvited && styles.invitePillDisabled,
+                                  ]}
+                                  onPress={() => {
+                                    if (hasBeenInvited) {
+                                      setPlanInvitedFriends(prev => prev.filter(id => id !== friend.id));
+                                    } else {
+                                      setPlanInvitedFriends(prev => [...prev, friend.id]);
+                                    }
+                                  }}>
+                                  <Text
+                                    style={[
+                                      styles.invitePillText,
+                                      hasBeenInvited && styles.invitePillTextDisabled,
+                                    ]}>
+                                    {hasBeenInvited ? 'Inviteret' : 'Inviter'}
+                                  </Text>
+                                </TouchableOpacity>
+                              </View>
+                            );
+                          })}
+                        </View>
+                      )}
+
+                      {/* Empty state */}
+                      {planInviteSearchQuery.trim().length > 0 && filteredPlanInviteFriends.length === 0 && (
+                        <View style={styles.planInviteEmpty}>
+                          <Text style={styles.planInviteEmptyText}>Ingen resultater fundet</Text>
+                        </View>
+                      )}
+                    </ScrollView>
+                  </View>
+                </TouchableWithoutFeedback>
+              </View>
+            </TouchableWithoutFeedback>
+          )}
 
           {Platform.OS === 'ios' && planTimePickerVisible && (
             <View style={styles.iosTimePickerOverlay} pointerEvents="box-none">
@@ -1077,11 +1285,35 @@ const WorkoutScheduleScreen = () => {
       visible={inviteModalVisible} 
       transparent 
       animationType="fade"
-      onRequestClose={() => setInviteModalVisible(false)}
+      onRequestClose={() => {
+        setInviteModalVisible(false);
+        setInviteSearchQuery('');
+      }}
       presentationStyle="overFullScreen">
       <View style={styles.inviteModalOverlay}>
         <View style={[styles.modalCard, styles.friendModal]}>
           <Text style={styles.modalTitle}>Inviter venner</Text>
+          
+          {/* Search Bar */}
+          <View style={styles.inviteSearchContainer}>
+            <Ionicons name="search" size={20} color={colors.textTertiary} style={styles.inviteSearchIcon} />
+            <TextInput
+              style={styles.inviteSearchInput}
+              placeholder="Søg efter venner..."
+              placeholderTextColor={colors.textTertiary}
+              value={inviteSearchQuery}
+              onChangeText={setInviteSearchQuery}
+              autoFocus={false}
+            />
+            {inviteSearchQuery.length > 0 && (
+              <TouchableOpacity
+                onPress={() => setInviteSearchQuery('')}
+                style={styles.inviteSearchClear}>
+                <Ionicons name="close-circle" size={20} color={colors.textTertiary} />
+              </TouchableOpacity>
+            )}
+          </View>
+
           <TouchableOpacity
             style={[
               styles.inviteAllButton,
@@ -1098,35 +1330,39 @@ const WorkoutScheduleScreen = () => {
             </Text>
           </TouchableOpacity>
           <ScrollView style={styles.friendList} showsVerticalScrollIndicator={false}>
-            {FRIENDS.map(friend => {
-              const hasBeenInvited = currentInvitedIds.includes(friend.id);
-              return (
-                <View key={friend.id} style={styles.friendRow}>
-                  <View style={styles.friendInfoWrapper}>
-                    <View style={styles.friendAvatar}>
-                      <Text style={styles.friendAvatarText}>{friend.initials}</Text>
+            {filteredInviteFriends.length === 0 ? (
+              <Text style={styles.emptySearchText}>Ingen venner fundet</Text>
+            ) : (
+              filteredInviteFriends.map(friend => {
+                const hasBeenInvited = currentInvitedIds.includes(friend.id);
+                return (
+                  <View key={friend.id} style={styles.friendRow}>
+                    <View style={styles.friendInfoWrapper}>
+                      <View style={styles.friendAvatar}>
+                        <Text style={styles.friendAvatarText}>{friend.initials}</Text>
+                      </View>
+                      <View style={styles.friendDetails}>
+                        <Text style={styles.friendName}>{friend.name}</Text>
+                      </View>
                     </View>
-                    <View style={styles.friendDetails}>
-                      <Text style={styles.friendName}>{friend.name}</Text>
-                    </View>
-                  </View>
-                  <TouchableOpacity
-                    style={[
-                      styles.invitePill,
-                      hasBeenInvited && styles.invitePillDisabled,
-                    ]}
-                    onPress={() => handleInviteFriendPress(friend.id)}>
-                    <Text
+                    <TouchableOpacity
                       style={[
-                        styles.invitePillText,
-                        hasBeenInvited && styles.invitePillTextDisabled,
-                      ]}>
-                      {hasBeenInvited ? 'Inviteret' : 'Inviter'}
-                    </Text>
-                  </TouchableOpacity>
-                </View>
-              );
-            })}
+                        styles.invitePill,
+                        hasBeenInvited && styles.invitePillDisabled,
+                      ]}
+                      onPress={() => handleInviteFriendPress(friend.id)}>
+                      <Text
+                        style={[
+                          styles.invitePillText,
+                          hasBeenInvited && styles.invitePillTextDisabled,
+                        ]}>
+                        {hasBeenInvited ? 'Inviteret' : 'Inviter'}
+                      </Text>
+                    </TouchableOpacity>
+                  </View>
+                );
+              })
+            )}
           </ScrollView>
           <TouchableOpacity style={styles.modalClose} onPress={handleInviteModalDone}>
             <Text style={styles.modalCloseText}>Færdig</Text>
@@ -1451,6 +1687,34 @@ const styles = StyleSheet.create({
   },
   inviteAllTextDisabled: {
     color: colors.textTertiary,
+  },
+  inviteSearchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.surface,
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    marginBottom: 16,
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  inviteSearchIcon: {
+    marginRight: 8,
+  },
+  inviteSearchInput: {
+    flex: 1,
+    fontSize: 15,
+    color: colors.text,
+    paddingVertical: 12,
+  },
+  inviteSearchClear: {
+    padding: 4,
+  },
+  emptySearchText: {
+    textAlign: 'center',
+    color: colors.textTertiary,
+    fontSize: 14,
+    paddingVertical: 20,
   },
   friendList: {
     flexGrow: 0,
@@ -1827,6 +2091,109 @@ const styles = StyleSheet.create({
   },
   iosTimePickerControl: {
     width: '100%',
+  },
+  planInviteButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.surface,
+    borderRadius: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    marginTop: 12,
+    marginBottom: 20,
+    gap: 8,
+  },
+  planInviteButtonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: colors.secondary,
+  },
+  planInvitePopup: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 1000,
+    elevation: 1000,
+  },
+  planInvitePopupContent: {
+    backgroundColor: colors.backgroundCard,
+    borderRadius: 20,
+    width: '95%',
+    maxWidth: 500,
+    maxHeight: '80%',
+    padding: 20,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 4},
+    shadowOpacity: 0.3,
+    shadowRadius: 12,
+    elevation: 10,
+  },
+  planInvitePopupHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  planInvitePopupTitle: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: colors.text,
+  },
+  planInvitePopupClose: {
+    padding: 4,
+  },
+  planInviteSearchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.surface,
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    marginBottom: 16,
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  planInviteSearchIcon: {
+    marginRight: 8,
+  },
+  planInviteSearchInput: {
+    flex: 1,
+    fontSize: 15,
+    color: colors.text,
+    paddingVertical: 12,
+  },
+  planInviteSearchClear: {
+    padding: 4,
+  },
+  planInviteScrollContent: {
+    maxHeight: 400,
+  },
+  planInviteScrollContentContainer: {
+    paddingBottom: 10,
+  },
+  planInviteSection: {
+    marginBottom: 20,
+  },
+  planInviteSectionTitle: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: colors.textSecondary,
+    marginBottom: 12,
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+  },
+  planInviteEmpty: {
+    paddingVertical: 40,
+    alignItems: 'center',
+  },
+  planInviteEmptyText: {
+    fontSize: 14,
+    color: colors.textTertiary,
   },
 });
 

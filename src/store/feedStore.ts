@@ -10,6 +10,8 @@ export type FeedItem = {
   timestamp: string;
   photoUri?: string;
   workoutInfo?: string; // Location, participants, muscle groups, time
+  rating?: number; // 1-5 rating with emojis
+  mentionedUsers?: string[]; // Array of user IDs that were mentioned/tagged
 };
 
 interface FeedState {

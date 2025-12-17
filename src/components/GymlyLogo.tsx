@@ -4,18 +4,22 @@
  */
 
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Image, StyleSheet, ImageSourcePropType} from 'react-native';
 
 type GymlyLogoProps = {
   size?: number;
 };
 
 const GymlyLogo: React.FC<GymlyLogoProps> = ({size = 64}) => {
+  const logoImage: ImageSourcePropType = require('@/assets/images/gymly-logo.png');
+  
   return (
     <View style={[styles.container, {width: size, height: size}]}>
-      <View style={[styles.logoCircle, {width: size, height: size, borderRadius: size / 2}]}>
-        <Text style={[styles.logoText, {fontSize: size * 0.4}]}>G</Text>
-      </View>
+      <Image
+        source={logoImage}
+        style={[styles.logoImage, {width: size, height: size}]}
+        resizeMode="contain"
+      />
     </View>
   );
 };
@@ -25,23 +29,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  logoCircle: {
-    backgroundColor: '#007AFF',
-    alignItems: 'center',
-    justifyContent: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  logoText: {
-    color: '#FFFFFF',
-    fontWeight: 'bold',
-    fontFamily: 'System',
+  logoImage: {
+    width: '100%',
+    height: '100%',
   },
 });
 

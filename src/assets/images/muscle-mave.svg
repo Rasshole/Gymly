@@ -1,0 +1,19 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="abs" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8EDF5"/>
+      <stop offset="100%" stop-color="#D6DEEC"/>
+    </linearGradient>
+  </defs>
+  <rect x="20" y="16" width="24" height="32" rx="10" fill="url(#abs)" stroke="#5B6B7A" stroke-width="2"/>
+  <path d="M20 24H44" stroke="#5B6B7A" stroke-width="2" stroke-linecap="round"/>
+  <path d="M20 32H44" stroke="#5B6B7A" stroke-width="2" stroke-linecap="round"/>
+  <path d="M20 40H44" stroke="#5B6B7A" stroke-width="2" stroke-linecap="round"/>
+  <path d="M32 16V48" stroke="#0EA5E9" stroke-width="3" stroke-linecap="round"/>
+  <rect x="24" y="22" width="8" height="6" rx="2" fill="#CBD5E1" opacity="0.8"/>
+  <rect x="32" y="22" width="8" height="6" rx="2" fill="#CBD5E1" opacity="0.8"/>
+  <rect x="24" y="30" width="8" height="6" rx="2" fill="#CBD5E1" opacity="0.8"/>
+  <rect x="32" y="30" width="8" height="6" rx="2" fill="#CBD5E1" opacity="0.8"/>
+  <rect x="28" y="38" width="8" height="6" rx="2" fill="#CBD5E1" opacity="0.8"/>
+</svg>
+

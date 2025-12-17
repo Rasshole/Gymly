@@ -1,0 +1,14 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bicep" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E9EEF6"/>
+      <stop offset="100%" stop-color="#D5DEEC"/>
+    </linearGradient>
+  </defs>
+  <path d="M18 36C20 26 28 18 36 18C42 18 46 22 46 28C46 32 44 36 40 38L34 42C30 44 28 48 28 52" stroke="#5B6B7A" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M26 52H34C37 52 40 50 42 48L48 42" stroke="#5B6B7A" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M30 30C32 26 38 26 40 30C41.5 32.5 40.5 36 38 38L32 42" fill="url(#bicep)" stroke="#0EA5E9" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="30" cy="24" r="3" fill="#CBD5E1" stroke="#5B6B7A" stroke-width="1.2"/>
+  <path d="M22 40L28 44" stroke="#5B6B7A" stroke-width="2" stroke-linecap="round"/>
+</svg>
+

@@ -29,6 +29,7 @@ import {MuscleGroup} from '@/types/workout.types';
 import {formatGymDisplayName} from '@/utils/gymDisplay';
 import {useChatStore, ChatPlan, ChatMessage} from '@/store/chatStore';
 import {colors} from '@/theme/colors';
+import MuscleIcon from '@/components/MuscleIcon';
 
 type ChatScreenProps = {
   route: {
@@ -43,15 +44,15 @@ type ChatScreenProps = {
   navigation: any;
 };
 
-const MUSCLE_GROUPS: {key: MuscleGroup; label: string; icon: string}[] = [
-  {key: 'bryst', label: 'Bryst', icon: 'body-outline'},
-  {key: 'triceps', label: 'Triceps', icon: 'pulse-outline'},
-  {key: 'skulder', label: 'Skulder', icon: 'accessibility-outline'},
-  {key: 'ben', label: 'Ben', icon: 'walk-outline'},
-  {key: 'biceps', label: 'Biceps', icon: 'barbell-outline'},
-  {key: 'mave', label: 'Mave', icon: 'fitness-outline'},
-  {key: 'ryg', label: 'Ryg', icon: 'body-outline'},
-  {key: 'hele_kroppen', label: 'Hele kroppen', icon: 'body'},
+const MUSCLE_GROUPS: {key: MuscleGroup; label: string}[] = [
+  {key: 'bryst', label: 'Bryst'},
+  {key: 'triceps', label: 'Triceps'},
+  {key: 'skulder', label: 'Skulder'},
+  {key: 'ben', label: 'Ben'},
+  {key: 'biceps', label: 'Biceps'},
+  {key: 'mave', label: 'Mave'},
+  {key: 'ryg', label: 'Ryg'},
+  {key: 'hele_kroppen', label: 'Hele kroppen'},
 ];
 
 const formatMuscleSelection = (groups: MuscleGroup[]) => {
@@ -562,8 +563,8 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                       style={[styles.muscleCard, isActive && styles.muscleCardActive]}
                       onPress={() => togglePlanMuscle(item.key)}
                       activeOpacity={0.85}>
-                      <Icon
-                        name={item.icon as any}
+                      <MuscleIcon
+                        muscle={item.key}
                         size={20}
                         color={isActive ? '#fff' : '#007AFF'}
                       />

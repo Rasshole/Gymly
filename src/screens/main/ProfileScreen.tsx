@@ -61,6 +61,68 @@ type ProfileScreenNavigationProp = StackNavigationProp<any>;
 
 type ProfileVisibility = 'everyone' | 'friends' | 'friends_and_gyms' | 'private';
 
+// Mock friends list for mentions
+const FRIENDS = [
+  {id: '1', name: 'Jeff'},
+  {id: '2', name: 'Marie'},
+  {id: '3', name: 'Lars'},
+  {id: '4', name: 'Sofia'},
+  {id: '5', name: 'Patti'},
+];
+
+// Component to render text with clickable mentions
+const RenderTextWithMentions = ({text, mentionedUsers, navigation}: {text: string; mentionedUsers?: string[]; navigation: any}) => {
+  const parts: Array<{text: string; isMention: boolean; userId?: string}> = [];
+  const mentionRegex = /@(\w+)/g;
+  let lastIndex = 0;
+  let match;
+
+  while ((match = mentionRegex.exec(text)) !== null) {
+    // Add text before mention
+    if (match.index > lastIndex) {
+      parts.push({text: text.substring(lastIndex, match.index), isMention: false});
+    }
+    
+    // Add mention
+    const mentionedName = match[1];
+    const friend = FRIENDS.find(f => f.name === mentionedName);
+    const userId = friend?.id || (mentionedUsers && mentionedUsers.length > 0 ? mentionedUsers[0] : undefined);
+    
+    parts.push({
+      text: `@${mentionedName}`,
+      isMention: true,
+      userId: userId,
+    });
+    
+    lastIndex = match.index + match[0].length;
+  }
+  
+  // Add remaining text
+  if (lastIndex < text.length) {
+    parts.push({text: text.substring(lastIndex), isMention: false});
+  }
+
+  return (
+    <Text style={styles.profileFeedDescription}>
+      {parts.map((part, index) => {
+        if (part.isMention && part.userId) {
+          return (
+            <Text
+              key={index}
+              style={styles.profileFeedMention}
+              onPress={() => {
+                navigation.navigate('FriendProfile', {friendId: part.userId});
+              }}>
+              {part.text}
+            </Text>
+          );
+        }
+        return <Text key={index}>{part.text}</Text>;
+      })}
+    </Text>
+  );
+};
+
 const PR_OPTIONS = ['Bænk', 'Bicepcurl', 'Benpres', 'Dødløft', 'Squat'] as const;
 type PrOption = (typeof PR_OPTIONS)[number];
 
@@ -534,7 +596,13 @@ const ProfileScreen = () => {
                     {item.type === 'summary' && (
                       <View style={styles.profileFeedSummaryRow}>
                         <View style={styles.profileFeedHighlightSecondary}>
-                          <Icon name="flash" size={16} color="#38BDF8" />
+                          {item.rating && item.rating >= 1 && item.rating <= 5 ? (
+                            <Text style={styles.profileFeedRatingEmoji}>
+                              {['☹️', '🙁', '😐', '😁', '🤩'][item.rating - 1]}
+                            </Text>
+                          ) : (
+                            <Icon name="flash" size={16} color="#38BDF8" />
+                          )}
                           <Text style={styles.profileFeedHighlightSecondaryText}>Session delt</Text>
                         </View>
                         {item.workoutInfo && (
@@ -543,7 +611,11 @@ const ProfileScreen = () => {
                       </View>
                     )}
                     {item.description && item.description.trim().length > 0 && (
-                      <Text style={styles.profileFeedDescription}>{item.description}</Text>
+                      <RenderTextWithMentions 
+                        text={item.description} 
+                        mentionedUsers={item.mentionedUsers}
+                        navigation={navigation}
+                      />
                     )}
                   </View>
                 ))}
@@ -2039,6 +2111,13 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontWeight: '600',
     fontSize: 13,
+  },
+  profileFeedRatingEmoji: {
+    fontSize: 16,
+  },
+  profileFeedMention: {
+    color: colors.primary,
+    fontWeight: '600',
   },
   profileFeedWorkoutInfo: {
     fontSize: 12,
