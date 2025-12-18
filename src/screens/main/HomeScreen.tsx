@@ -94,7 +94,11 @@ const HomeScreen = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
   const {user} = useAppStore();
   const {feedItems, deleteFeedItem} = useFeedStore();
-  const userBicepsEmoji = user?.bicepsEmoji || '💪🏻';
+  const rawBicepsEmoji = user?.bicepsEmoji;
+  const userBicepsEmoji =
+    (rawBicepsEmoji &&
+      ['💪🏻', '💪🏼', '💪🏽', '💪🏾', '💪🏿', '💪'].find(e => rawBicepsEmoji.includes(e))) ||
+    '💪';
   const [activityModalVisible, setActivityModalVisible] = useState(false);
   const [addedFriends, setAddedFriends] = useState<string[]>([]);
   const [now, setNow] = useState(Date.now());
@@ -584,7 +588,7 @@ const HomeScreen = () => {
                         {['☹️', '🙁', '😐', '😁', '🤩'][item.rating - 1]}
                       </Text>
                     ) : (
-                      <Icon name="flash" size={16} color="#3B82F6" />
+                      <Text style={styles.feedRatingEmoji}>{userBicepsEmoji}</Text>
                     )}
                     <Text style={styles.feedHighlightSecondaryText}>Session delt</Text>
                   </View>
@@ -753,17 +757,6 @@ const HomeScreen = () => {
             />
         </View>
 
-        {/* Test Notification Button (for development) */}
-        <TouchableOpacity
-          style={styles.testButton}
-          onPress={() => {
-            // Simulate a friend check-in for testing
-            NotificationService.simulateRandomCheckIn();
-          }}
-          activeOpacity={0.8}>
-          <Icon name="notifications" size={20} color="#007AFF" />
-          <Text style={styles.testButtonText}>Test notifikation</Text>
-        </TouchableOpacity>
       </ScrollView>
 
       <Modal visible={commentModalVisible} transparent animationType="slide">
@@ -1060,21 +1053,6 @@ const styles = StyleSheet.create({
   checkInSubtitle: {
     fontSize: 14,
     color: colors.textSecondary,
-  },
-  testButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.surface,
-    padding: 12,
-    borderRadius: 12,
-    marginTop: 16,
-  },
-  testButtonText: {
-    fontSize: 14,
-    color: colors.secondary,
-    fontWeight: '600',
-    marginLeft: 8,
   },
   feedSection: {
     marginTop: 8,

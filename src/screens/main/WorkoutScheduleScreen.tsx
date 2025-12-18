@@ -74,6 +74,10 @@ const FRIENDS: Array<{id: string; name: string; initials: string}> = [
 
 const WorkoutScheduleScreen = () => {
   const {user} = useAppStore();
+  // Brug brugerens valgte biceps; hvis ingen er valgt, brug samme hvide standard som i Profil (💪🏻)
+  const rawBicepsEmoji = user?.bicepsEmoji || '💪🏻';
+  // Fjern evt. ekstra symboler som hjerter, men bevar hudtone på selve biceps-emoji'en
+  const userBicepsEmoji = rawBicepsEmoji.replace(/💛|❤️|♥️/g, '');
   const plannedWorkouts = useWorkoutPlanStore(state => state.plannedWorkouts);
   const completedWorkouts = useWorkoutPlanStore(state => state.completedWorkouts);
   const addPlannedWorkout = useWorkoutPlanStore(state => state.addPlannedWorkout);
@@ -609,8 +613,10 @@ const WorkoutScheduleScreen = () => {
                   {day.date.getDate()}
                 </Text>
                 <View style={styles.dayMarkers}>
-                  {day.hasHistory && <Text style={styles.markerFire}>🔥</Text>}
-                  {day.hasUpcoming && <Text style={styles.markerStar}>⭐️</Text>}
+                  {day.hasHistory && (
+                    <Text style={styles.markerFire}>{userBicepsEmoji}</Text>
+                  )}
+                  {day.hasUpcoming && <Text style={styles.markerStar}>💪</Text>}
                 </View>
               </TouchableOpacity>
             );
@@ -1082,8 +1088,12 @@ const WorkoutScheduleScreen = () => {
                           {day.date.getDate()}
                         </Text>
                         <View style={styles.calendarDayMarkers}>
-                          {day.hasHistory && <Text style={styles.calendarMarkerFire}>🔥</Text>}
-                          {day.hasUpcoming && <Text style={styles.calendarMarkerStar}>⭐️</Text>}
+                          {day.hasHistory && (
+                            <Text style={styles.calendarMarkerFire}>{userBicepsEmoji}</Text>
+                          )}
+                          {day.hasUpcoming && (
+                            <Text style={styles.calendarMarkerStar}>💪</Text>
+                          )}
                         </View>
                       </TouchableOpacity>
                     );
@@ -1377,7 +1387,7 @@ const WorkoutScheduleScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F6FA',
+    backgroundColor: colors.background,
   },
   content: {
     padding: 16,

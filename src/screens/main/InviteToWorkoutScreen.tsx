@@ -20,6 +20,7 @@ import {useWorkoutInvitationStore} from '@/store/workoutInvitationStore';
 import {useAppStore} from '@/store/appStore';
 import {MuscleGroup} from '@/types/workout.types';
 import {colors} from '@/theme/colors';
+import MuscleIcon from '@/components/MuscleIcon';
 
 const MUSCLE_GROUPS: {key: MuscleGroup; label: string}[] = [
   {key: 'bryst', label: 'Bryst'},
@@ -179,7 +180,7 @@ const InviteToWorkoutScreen = () => {
         </View>
 
         {/* Date & Time Selection */}
-        <View style={styles.section}>
+          <View style={styles.section}>
           <Text style={styles.sectionTitle}>Tidspunkt</Text>
           
           <TouchableOpacity
@@ -217,7 +218,7 @@ const InviteToWorkoutScreen = () => {
         </View>
 
         {/* Muscle Groups Selection */}
-        <View style={styles.section}>
+          <View style={styles.section}>
           <Text style={styles.sectionTitle}>Muskelgrupper</Text>
           <Text style={styles.sectionSubtitle}>
             Vælg hvilke muskelgrupper I skal træne (flere valg muligt)
@@ -235,9 +236,9 @@ const InviteToWorkoutScreen = () => {
                   ]}
                   onPress={() => toggleMuscleGroup(group.key)}
                   activeOpacity={0.7}>
-                  <Icon
-                    name={group.icon}
-                    size={24}
+                  <MuscleIcon
+                    muscle={group.key}
+                    size={28}
                     color={isSelected ? '#fff' : '#007AFF'}
                   />
                   <Text

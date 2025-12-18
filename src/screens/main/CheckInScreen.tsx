@@ -120,6 +120,10 @@ const getDistanceMeters = (
 
 const CheckInScreen = () => {
   const {user} = useAppStore();
+  // Brug brugerens valgte biceps; hvis ingen er valgt, brug samme hvide standard som i Profil (💪🏻)
+  const rawBicepsEmoji = user?.bicepsEmoji || '💪🏻';
+  // Fjern evt. ekstra symboler som hjerter, men bevar hudtone på selve biceps-emoji'en
+  const userBicepsEmoji = rawBicepsEmoji.replace(/💛|❤️|♥️/g, '');
   const {
     plannedWorkouts,
     completedWorkouts,
@@ -1400,7 +1404,7 @@ const CheckInScreen = () => {
         ) : (
           <>
             <TouchableOpacity
-              style={[styles.card, styles.smallerCard]}
+              style={[styles.card, styles.smallerCard, styles.topCardSpacing]}
               activeOpacity={0.9}
               onPress={() => setGymPickerVisible(true)}>
               <View style={styles.cardHeaderRow}>
@@ -1446,7 +1450,7 @@ const CheckInScreen = () => {
                       activeOpacity={0.85}>
                       <MuscleIcon
                         muscle={item.key}
-                        size={18}
+                        size={20}
                         color={isActive ? '#fff' : '#007AFF'}
                       />
                       <Text style={[styles.muscleLabel, isActive && styles.muscleLabelActive]}>
@@ -1952,8 +1956,12 @@ const CheckInScreen = () => {
                           {day.date.getDate()}
                         </Text>
                         <View style={styles.calendarDayMarkers}>
-                          {day.hasHistory && <Text style={styles.calendarMarkerFire}>🔥</Text>}
-                          {day.hasUpcoming && <Text style={styles.calendarMarkerStar}>⭐️</Text>}
+                          {day.hasHistory && (
+                            <Text style={styles.calendarMarkerFire}>{userBicepsEmoji}</Text>
+                          )}
+                          {day.hasUpcoming && (
+                            <Text style={styles.calendarMarkerStar}>💪</Text>
+                          )}
                         </View>
                       </TouchableOpacity>
                     );
@@ -2449,15 +2457,19 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
   smallerCard: {
-    paddingVertical: 14,
+    paddingVertical: 12,
     paddingHorizontal: 16,
+  },
+  topCardSpacing: {
+    marginBottom: 6,
   },
   flexCard: {
     flex: 1,
-    paddingBottom: 48,
+    paddingBottom: 16,
   },
   muscleCardSection: {
-    marginBottom: 0,
+    // Lille mellemrum ned til "Tjek ind"-slideren
+    marginBottom: 6,
   },
   sectionTitle: {
     fontSize: 20,
@@ -2509,13 +2521,14 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   muscleCard: {
-    width: '46%',
-    borderRadius: 14,
+    // Lidt lavere og bredere knapper for bedre layout
+    width: '48%',
+    borderRadius: 10,
     borderWidth: 1,
     borderColor: colors.border,
-    paddingVertical: 10,
-    paddingHorizontal: 8,
-    marginBottom: 8,
+    paddingVertical: 1,
+    paddingHorizontal: 6,
+    marginBottom: 2,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.backgroundCard,
@@ -2587,7 +2600,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 12,
+    // Mindre mellemrum mellem "Dit center" og selve center-indholdet
+    marginBottom: 6,
   },
   cardSmallTitle: {
     fontSize: 15,
