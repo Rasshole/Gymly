@@ -37,20 +37,23 @@ const MuscleIcon: React.FC<MuscleIconProps> = ({
   };
 
   const iconSource = getIconSource();
-  
+
   if (!iconSource) {
     return null;
   }
 
+  // Scale icons ensartet så alle muskelgrupper har samme visuelle størrelse
+  const finalSize = size * 2.5;
+
   const imageStyle: ImageStyle = {
-    width: size,
-    height: size,
+    width: finalSize,
+    height: finalSize,
     tintColor: color !== '#007AFF' && color !== '#fff' ? color : undefined,
     resizeMode: 'contain',
   };
 
   return (
-    <View style={[styles.container, {width: size, height: size}]}>
+    <View style={[styles.container, {width: finalSize, height: finalSize}]}>
       <Image
         source={iconSource}
         style={imageStyle}
