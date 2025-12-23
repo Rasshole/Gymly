@@ -34,6 +34,8 @@ import {useGroupStore, GymlyGroup} from '@/store/groupStore';
 import {usePRStore} from '@/store/prStore';
 import {colors} from '@/theme/colors';
 import {getMuscleGroupImage} from '@/utils/muscleGroupImages';
+import GymlyLogo from '@/components/GymlyLogo';
+import {getGymLogo, hasGymLogo} from '@/utils/gymLogos';
 
 const SIMULATED_LOCATION = {
   latitude: 55.6875008,
@@ -337,7 +339,7 @@ const CheckInScreen = () => {
     }
     return danishGyms
       .filter(gym => {
-        const haystack = `${gym.name} ${gym.city ?? ''} ${gym.brand ?? ''} ${gym.postalCode ?? ''}`
+        const haystack = `${gym.name} ${gym.city ?? ''} ${gym.brand ?? ''} ${gym.address ?? ''}`
           .toLowerCase()
           .replace(/,/g, ' ');
         return query
@@ -354,7 +356,7 @@ const CheckInScreen = () => {
     }
     return danishGyms
       .filter(gym => {
-        const haystack = `${gym.name} ${gym.city ?? ''} ${gym.brand ?? ''} ${gym.postalCode ?? ''}`
+        const haystack = `${gym.name} ${gym.city ?? ''} ${gym.brand ?? ''} ${gym.address ?? ''}`
           .toLowerCase()
           .replace(/,/g, ' ');
         return query
@@ -930,7 +932,14 @@ const CheckInScreen = () => {
     resetAfterCompletion();
   };
 
-  const publishWorkoutToFeed = (summary: string, photoUri?: string | null, workoutInfo?: string, rating?: number | null, mentionedUsers?: string[]) => {
+  const publishWorkoutToFeed = (
+    summary: string,
+    photoUri?: string | null,
+    workoutInfo?: string,
+    rating?: number | null,
+    mentionedUsers?: string[],
+    muscles?: MuscleGroup[],
+  ) => {
     const feedUserName = user?.displayName || user?.username || 'Du';
     const validRating = rating && rating >= 1 && rating <= 5 ? rating : undefined;
     console.log('Adding feed item with rating:', validRating, 'mentionedUsers:', mentionedUsers);
@@ -959,6 +968,7 @@ const CheckInScreen = () => {
       workoutInfo: workoutInfo,
       rating: validRating,
       mentionedUsers: mentionedUsers,
+      muscles,
     });
   };
 
@@ -1028,7 +1038,14 @@ const CheckInScreen = () => {
     
     // Workout info (location, participants, muscle groups, time) goes in workoutInfo field
     console.log('Publishing workout with rating:', shareRating, 'mentionedUsers:', mentionedUserIds);
-    publishWorkoutToFeed(feedMessage || '', shareContext.photoUri, shareContext.summary, shareRating, mentionedUserIds);
+    publishWorkoutToFeed(
+      feedMessage || '',
+      shareContext.photoUri,
+      shareContext.summary,
+      shareRating,
+      mentionedUserIds,
+      shareContext.session.muscles,
+    );
     finalizeWorkout(shareContext.session, shareContext.summary, shareContext.durationMs, shareContext.photoUri);
     setShareComposerVisible(false);
     setShareContext(null);
@@ -1414,13 +1431,27 @@ const CheckInScreen = () => {
                 </TouchableOpacity>
               </View>
               <View style={styles.detectionRow}>
-                <View style={styles.detectionIcon}>
-                  <Ionicons name="location-outline" size={22} color="#007AFF" />
+                <View style={[
+                  styles.detectionIcon,
+                  ((detectedGym && hasGymLogo(detectedGym.brand)) || 
+                   (primaryGym && !detectedGym && hasGymLogo(primaryGym.brand))) && styles.detectionIconWithLogo
+                ]}>
+                  {(detectedGym && hasGymLogo(detectedGym.brand) && getGymLogo(detectedGym.brand)) ||
+                   (primaryGym && !detectedGym && hasGymLogo(primaryGym.brand) && getGymLogo(primaryGym.brand)) ? (
+                    <Image
+                      source={{uri: (detectedGym && getGymLogo(detectedGym.brand)) || 
+                                (primaryGym && getGymLogo(primaryGym.brand)) || ''}}
+                      style={styles.detectionGymLogo}
+                      resizeMode="contain"
+                    />
+                  ) : (
+                    <Ionicons name="location-outline" size={22} color={colors.primary} />
+                  )}
                 </View>
                 <View style={styles.detectionInfo}>
                   <Text style={styles.detectionTitle}>{detectionMessage()}</Text>
                   {detectionStatus === 'searching' && (
-                    <ActivityIndicator size="small" color="#007AFF" style={{marginTop: 6}} />
+                    <ActivityIndicator size="small" color={colors.primary} style={{marginTop: 6}} />
                   )}
                   {detectionStatus === 'found' && detectedDistance !== null && (
                     <Text style={styles.detectionDistance}>{`${Math.round(
@@ -1482,6 +1513,7 @@ const CheckInScreen = () => {
                 <Animated.View
                   style={[
                     styles.sliderKnob,
+                    soloTraining && styles.sliderKnobActive,
                     {
                       transform: [{translateX: sliderAnim}],
                     },
@@ -2106,7 +2138,6 @@ const CheckInScreen = () => {
                       }
                     }}
                     placeholder="Hvordan gik træningen? Brug @ for at tagge dine træningsbuddies"
-                    placeholderTextColor={colors.textTertiary}
                     textAlignVertical="top"
                   />
                   {showMentions && mentionQuery.length > 0 && (
@@ -2487,10 +2518,21 @@ const styles = StyleSheet.create({
     width: 44,
     height: 44,
     borderRadius: 12,
-    backgroundColor: colors.primary,
+    backgroundColor: colors.white,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  detectionIconWithLogo: {
+    backgroundColor: colors.white,
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  detectionGymLogo: {
+    width: 32,
+    height: 32,
   },
   detectionInfo: {
     flex: 1,
@@ -2514,40 +2556,43 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    gap: 6,
+    gap: 8,
   },
   muscleCard: {
-    width: '22%',
-    borderRadius: 10,
+    width: '46%',
+    borderRadius: 14,
     borderWidth: 1,
     borderColor: colors.border,
-    paddingVertical: 6,
-    paddingHorizontal: 4,
-    marginBottom: 6,
+    paddingVertical: 10,
+    paddingHorizontal: 8,
+    marginBottom: 8,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.backgroundCard,
   },
   muscleCardActive: {
-    backgroundColor: colors.secondary,
-    borderColor: colors.secondary,
+    backgroundColor: colors.primary,
+    borderColor: colors.primary,
     shadowColor: colors.primary,
     shadowOpacity: 0.25,
     shadowRadius: 10,
     shadowOffset: {width: 0, height: 6},
   },
   muscleImage: {
-    width: 28,
-    height: 28,
+    width: 40,
+    height: 40,
   },
   muscleImageActive: {
     tintColor: '#fff',
   },
   muscleLabel: {
-    marginTop: 4,
-    fontSize: 10,
+    marginTop: 6,
+    fontSize: 14,
     fontWeight: '600',
     color: colors.text,
+  },
+  muscleLabelActive: {
+    color: '#fff',
   },
   soloToggleRow: {
     marginTop: 4,
@@ -2569,7 +2614,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   soloToggleActive: {
-    backgroundColor: colors.surfaceLight,
+    backgroundColor: colors.primaryLight,
   },
   soloToggleThumb: {
     width: 20,
@@ -2579,7 +2624,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
   },
   soloToggleThumbActive: {
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.primary,
     alignSelf: 'flex-end',
   },
   soloToggleHint: {
@@ -2593,9 +2638,6 @@ const styles = StyleSheet.create({
   },
   sliderCardSpacing: {
     marginTop: 0,
-  },
-  muscleLabelActive: {
-    color: '#fff',
   },
   cardHeaderRow: {
     flexDirection: 'row',
@@ -2648,6 +2690,9 @@ const styles = StyleSheet.create({
     shadowOffset: {width: 0, height: 8},
     shadowOpacity: 0.3,
     shadowRadius: 12,
+  },
+  sliderKnobActive: {
+    backgroundColor: colors.primary,
   },
   modalOverlay: {
     flex: 1,
@@ -3230,9 +3275,6 @@ const styles = StyleSheet.create({
   friendInfoWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  friendDetails: {
-    marginLeft: 12,
   },
   friendDetails: {
     marginLeft: 12,

@@ -1,8 +1,3 @@
-/**
- * Gymly Color Theme
- * Purple/Green gradient theme inspired by modern fitness apps
- */
-
 export const colors = {
   // Primary Colors - Purple
   primary: '#8B5CF6',           // Vibrant purple
@@ -10,7 +5,7 @@ export const colors = {
   primaryDark: '#7C3AED',       // Dark purple
   primaryVeryDark: '#6D28D9',   // Very dark purple
   
-  // Secondary Colors - Green (changed from blue)
+  // Secondary Colors - Green (for online, tid, tjek ind osv.)
   secondary: '#10B981',         // Green (success color)
   secondaryLight: '#34D399',    // Light green
   secondaryDark: '#059669',     // Deep green
@@ -19,22 +14,22 @@ export const colors = {
   accent: '#EC4899',            // Pink accent
   accentLight: '#F472B6',       // Light pink
   
-  // Background Colors (15% darker than previous)
-  background: '#312451',        // Purple background
-  backgroundLight: '#3B295F',   // Dark purple
-  backgroundCard: '#38316A',    // Card background (purple with blue hint for contrast)
-  backgroundCardLight: '#443A7F', // Lighter card background (purple with blue hint)
+  // Background Colors - light UI with white base
+  background: '#F3F4F6',        // App background (light gray)
+  backgroundLight: '#FFFFFF',   // Pure white background
+  backgroundCard: '#FFFFFF',    // Card background (white)
+  backgroundCardLight: '#F9FAFB', // Slightly tinted card background
   
   // Surface Colors
-  surface: '#342656',           // Purple surface
-  surfaceLight: '#3F2E5C',      // Light purple surface
-  surfaceHover: '#4A3668',      // Hover state
+  surface: '#E5E7EB',           // Light surface (inputs, chips)
+  surfaceLight: '#F3F4F6',      // Very light surface
+  surfaceHover: '#E5E7EB',      // Hover / pressed state
   
   // Text Colors
-  text: '#FFFFFF',              // White text
-  textSecondary: '#C4B5FD',     // Light purple text
-  textTertiary: '#A78BFA',      // Medium purple text
-  textMuted: '#9CA3AF',         // Muted gray-purple text
+  text: '#111827',              // Primary text (near-black)
+  textSecondary: '#4B5563',     // Secondary gray text
+  textTertiary: '#6B7280',      // Tertiary gray
+  textMuted: '#9CA3AF',         // Muted gray
   
   // Status Colors
   success: '#10B981',           // Green
@@ -46,15 +41,15 @@ export const colors = {
   info: '#10B981',              // Green (changed from blue)
   
   // Border Colors
-  border: '#4A3668',            // Purple border
-  borderLight: '#5B4577',       // Light purple border
+  border: '#E5E7EB',            // Light gray border
+  borderLight: '#E5E7EB',       // Same light border
   
   // Special Colors
   transparent: 'transparent',
   white: '#FFFFFF',
   black: '#000000',
   blue: '#3B82F6',              // Blue for icons (Session delt, Tilføj)
-  overlay: 'rgba(49, 36, 81, 0.8)',  // Purple overlay
+  overlay: 'rgba(15, 23, 42, 0.4)',  // Subtle dark overlay
   
   // Gradient Colors
   gradientStart: '#8B5CF6',     // Purple

@@ -472,8 +472,8 @@ const styles = StyleSheet.create({
     minWidth: '45%',
   },
   muscleGroupButtonSelected: {
-    backgroundColor: colors.secondary,
-    borderColor: colors.secondary,
+    backgroundColor: colors.primary,
+    borderColor: colors.primary,
   },
   muscleGroupImage: {
     width: 32,

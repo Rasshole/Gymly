@@ -1946,8 +1946,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.backgroundCard,
   },
   muscleCardActive: {
-    backgroundColor: colors.secondary,
-    borderColor: colors.secondary,
+    backgroundColor: colors.primary,
+    borderColor: colors.primary,
     shadowColor: colors.primary,
     shadowOpacity: 0.25,
     shadowRadius: 10,

@@ -3,7 +3,7 @@
  * List of messages/conversations with friends
  */
 
-import React, {useMemo} from 'react';
+import React, {useMemo, useState} from 'react';
 import {
   View,
   Text,
@@ -11,6 +11,7 @@ import {
   FlatList,
   TouchableOpacity,
   Image,
+  TextInput,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
@@ -34,6 +35,7 @@ type Message = {
 const MessagesScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
   const {chats} = useChatStore();
+  const [searchQuery, setSearchQuery] = useState('');
   
   const messages = useMemo(() => {
     return chats.map(chat => ({
@@ -47,8 +49,14 @@ const MessagesScreen = () => {
       participantIds: chat.participantIds,
       participants: chat.participantNames,
       avatar: chat.avatar,
-    }));
-  }, [chats]);
+    }))
+    .filter(message => {
+      if (!searchQuery.trim()) return true;
+      const query = searchQuery.toLowerCase();
+      return message.name.toLowerCase().includes(query) ||
+             message.lastMessage.toLowerCase().includes(query);
+    });
+  }, [chats, searchQuery]);
 
   const renderEmptyState = () => (
     <View style={styles.emptyContainer}>
@@ -123,6 +131,26 @@ const MessagesScreen = () => {
 
   return (
     <View style={styles.container}>
+      {/* Search Bar */}
+      <View style={styles.searchContainer}>
+        <Icon name="search" size={20} color="#8E8E93" style={styles.searchIcon} />
+        <TextInput
+          style={styles.searchInput}
+          placeholder="Søg efter beskeder..."
+          placeholderTextColor="#8E8E93"
+          value={searchQuery}
+          onChangeText={setSearchQuery}
+        />
+        {searchQuery.length > 0 && (
+          <TouchableOpacity
+            onPress={() => setSearchQuery('')}
+            style={styles.clearButton}
+            activeOpacity={0.7}>
+            <Icon name="close-circle" size={20} color="#8E8E93" />
+          </TouchableOpacity>
+        )}
+      </View>
+      
       <FlatList
         data={messages}
         renderItem={renderMessageItem}
@@ -149,6 +177,35 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background,
+  },
+  searchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.backgroundCard,
+    marginHorizontal: 16,
+    marginTop: 16,
+    marginBottom: 8,
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    shadowColor: colors.primary,
+    shadowOffset: {width: 0, height: 1},
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  searchIcon: {
+    marginRight: 8,
+  },
+  searchInput: {
+    flex: 1,
+    fontSize: 16,
+    color: colors.text,
+    padding: 0,
+  },
+  clearButton: {
+    marginLeft: 8,
+    padding: 4,
   },
   list: {
     padding: 16,
@@ -274,7 +331,7 @@ const styles = StyleSheet.create({
     width: 56,
     height: 56,
     borderRadius: 28,
-    backgroundColor: '#FFD700', // Yellow like Snapchat
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: colors.primary,
