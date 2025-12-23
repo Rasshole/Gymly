@@ -248,7 +248,7 @@ const SettingsScreen = () => {
           <TouchableOpacity
             style={styles.actionItem}
             activeOpacity={0.7}
-            onPress={() => Alert.alert('Info', 'Feed sortering funktion kommer snart')}>
+            onPress={() => navigation.navigate('FeedSorting')}>
             <View style={styles.actionInfo}>
               <Text style={styles.actionTitle}>Feed sortering</Text>
               <Text style={styles.actionDescription}>
@@ -288,14 +288,6 @@ const SettingsScreen = () => {
           <TouchableOpacity
             style={styles.actionItem}
             activeOpacity={0.7}
-            onPress={() => Alert.alert('Info', 'Beacon funktion kommer snart')}>
-            <Text style={styles.actionTitle}>Beacon</Text>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.actionItem}
-            activeOpacity={0.7}
             onPress={() => Alert.alert('Info', 'Partner integrationer funktion kommer snart')}>
             <Text style={styles.actionTitle}>Partner integrationer</Text>
             <Icon name="chevron-forward" size={20} color="#C7C7CC" />
@@ -304,14 +296,6 @@ const SettingsScreen = () => {
 
         {/* Data & Services */}
         <View style={styles.section}>
-          <TouchableOpacity
-            style={styles.actionItem}
-            activeOpacity={0.7}
-            onPress={() => Alert.alert('Info', 'Vejr funktion kommer snart')}>
-            <Text style={styles.actionTitle}>Vejr</Text>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-          </TouchableOpacity>
-
           <TouchableOpacity
             style={styles.actionItem}
             activeOpacity={0.7}
@@ -334,29 +318,16 @@ const SettingsScreen = () => {
           <TouchableOpacity
             style={styles.actionItem}
             activeOpacity={0.7}
-            onPress={() => Alert.alert('Info', 'Push notifikationer funktion kommer snart')}>
+            onPress={() => navigation.navigate('PushNotifications')}>
             <Text style={styles.actionTitle}>Push notifikationer</Text>
             <Icon name="chevron-forward" size={20} color="#C7C7CC" />
           </TouchableOpacity>
 
-          <TouchableOpacity
-            style={styles.actionItem}
-            activeOpacity={0.7}
-            onPress={() => Alert.alert('Info', 'Email notifikationer funktion kommer snart')}>
-            <Text style={styles.actionTitle}>Email notifikationer</Text>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-          </TouchableOpacity>
-        </View>
-
-        {/* Privacy Settings */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Privacy & GDPR</Text>
-          
           <View style={styles.settingItem}>
             <View style={styles.settingInfo}>
-              <Text style={styles.settingTitle}>Marketing emails</Text>
+              <Text style={styles.settingTitle}>Email notifikationer</Text>
               <Text style={styles.settingDescription}>
-                Modtag nyheder og tilbud
+                Modtag nyheder og tilbud via email
               </Text>
             </View>
             <Switch
@@ -366,7 +337,12 @@ const SettingsScreen = () => {
               thumbColor="#fff"
             />
           </View>
+        </View>
 
+        {/* Privacy Settings */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Privacy & GDPR</Text>
+          
           <View style={styles.settingItem}>
             <View style={styles.settingInfo}>
               <Text style={styles.settingTitle}>Anonymiseret analyse</Text>
