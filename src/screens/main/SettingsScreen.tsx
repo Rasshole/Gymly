@@ -34,8 +34,6 @@ const SettingsScreen = () => {
   const [autoplayVideo, setAutoplayVideo] = useState(true);
   const [appearance, setAppearance] = useState('Lys tilstand');
   const [unitsOfMeasurement, setUnitsOfMeasurement] = useState('Kilometer');
-  const [temperature, setTemperature] = useState('Celsius');
-  const [defaultHighlightImage, setDefaultHighlightImage] = useState('Foto');
 
   const handleMarketingToggle = async (value: boolean) => {
     setMarketingEnabled(value);
@@ -72,40 +70,6 @@ const SettingsScreen = () => {
     );
   };
 
-  const handleExportData = () => {
-    Alert.alert(
-      'Eksporter data',
-      'Vi sender dine data til din email. Dette kan tage nogle minutter.',
-      [
-        {text: 'Annuller', style: 'cancel'},
-        {
-          text: 'Eksporter',
-          onPress: () => {
-            // TODO: Implement data export
-            Alert.alert('Info', 'Data eksport kommer snart');
-          },
-        },
-      ]
-    );
-  };
-
-  const handleDeleteAccount = () => {
-    Alert.alert(
-      'Slet konto',
-      'Er du sikker? Dette kan ikke fortrydes. Al din data vil blive permanent slettet.',
-      [
-        {text: 'Annuller', style: 'cancel'},
-        {
-          text: 'Slet',
-          style: 'destructive',
-          onPress: () => {
-            // TODO: Implement account deletion
-            Alert.alert('Info', 'Konto sletning kommer snart');
-          },
-        },
-      ]
-    );
-  };
 
   return (
     <View style={styles.container}>
@@ -192,32 +156,6 @@ const SettingsScreen = () => {
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity
-            style={styles.actionItem}
-            activeOpacity={0.7}
-            onPress={() => Alert.alert('Info', 'Temperatur funktion kommer snart')}>
-            <Text style={styles.actionTitle}>Temperatur</Text>
-            <View style={styles.valueContainer}>
-              <Text style={styles.valueText}>{temperature}</Text>
-              <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.actionItem}
-            activeOpacity={0.7}
-            onPress={() => Alert.alert('Info', 'Standard fremhævet billede funktion kommer snart')}>
-            <View style={styles.actionInfo}>
-              <Text style={styles.actionTitle}>Standard fremhævet billede</Text>
-              <Text style={styles.actionDescription}>
-                Fremhæv kortet eller et foto for at repræsentere dine uploadede aktiviteter i feedet.
-              </Text>
-            </View>
-            <View style={styles.valueContainer}>
-              <Text style={styles.valueText}>{defaultHighlightImage}</Text>
-              <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-            </View>
-          </TouchableOpacity>
         </View>
 
         {/* Video & Media */}
@@ -240,35 +178,11 @@ const SettingsScreen = () => {
           <TouchableOpacity
             style={styles.actionItem}
             activeOpacity={0.7}
-            onPress={() => Alert.alert('Info', 'Standard kort funktion kommer snart')}>
-            <Text style={styles.actionTitle}>Standard kort</Text>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.actionItem}
-            activeOpacity={0.7}
             onPress={() => navigation.navigate('FeedSorting')}>
             <View style={styles.actionInfo}>
               <Text style={styles.actionTitle}>Feed sortering</Text>
               <Text style={styles.actionDescription}>
                 Ændre hvordan aktiviteter sorteres i dit feed
-              </Text>
-            </View>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-          </TouchableOpacity>
-        </View>
-
-        {/* Training */}
-        <View style={styles.section}>
-          <TouchableOpacity
-            style={styles.actionItem}
-            activeOpacity={0.7}
-            onPress={() => Alert.alert('Info', 'Træningszoner funktion kommer snart')}>
-            <View style={styles.actionInfo}>
-              <Text style={styles.actionTitle}>Træningszoner</Text>
-              <Text style={styles.actionDescription}>
-                Tilpas dine træningszoner
               </Text>
             </View>
             <Icon name="chevron-forward" size={20} color="#C7C7CC" />
@@ -296,14 +210,6 @@ const SettingsScreen = () => {
 
         {/* Data & Services */}
         <View style={styles.section}>
-          <TouchableOpacity
-            style={styles.actionItem}
-            activeOpacity={0.7}
-            onPress={() => Alert.alert('Info', 'Sundhedsdata funktion kommer snart')}>
-            <Text style={styles.actionTitle}>Sundhedsdata</Text>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-          </TouchableOpacity>
-
           <TouchableOpacity
             style={styles.actionItem}
             activeOpacity={0.7}
@@ -359,51 +265,6 @@ const SettingsScreen = () => {
           </View>
         </View>
 
-        {/* GDPR Rights */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Dine rettigheder</Text>
-          
-          <TouchableOpacity
-            style={styles.actionItem}
-            onPress={handleExportData}
-            activeOpacity={0.7}>
-            <Icon name="download-outline" size={24} color="#007AFF" />
-            <View style={styles.actionInfo}>
-              <Text style={styles.actionTitle}>Eksporter mine data</Text>
-              <Text style={styles.actionDescription}>
-                Download alle dine data (GDPR Artikel 15)
-              </Text>
-            </View>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.actionItem}
-            activeOpacity={0.7}>
-            <Icon name="document-text-outline" size={24} color="#007AFF" />
-            <View style={styles.actionInfo}>
-              <Text style={styles.actionTitle}>Privatlivspolitik</Text>
-              <Text style={styles.actionDescription}>
-                Læs vores privatlivspolitik
-              </Text>
-            </View>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.actionItem}
-            activeOpacity={0.7}>
-            <Icon name="shield-checkmark-outline" size={24} color="#007AFF" />
-            <View style={styles.actionInfo}>
-              <Text style={styles.actionTitle}>Samtykke historik</Text>
-              <Text style={styles.actionDescription}>
-                Se din samtykke historik
-              </Text>
-            </View>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-          </TouchableOpacity>
-        </View>
-
         {/* Account */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Konto</Text>
@@ -419,27 +280,6 @@ const SettingsScreen = () => {
               {user?.createdAt ? new Date(user.createdAt).toLocaleDateString('da-DK') : '-'}
             </Text>
           </View>
-        </View>
-
-        {/* Danger Zone */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Farezone</Text>
-          
-          <TouchableOpacity
-            style={[styles.actionItem, styles.dangerItem]}
-            onPress={handleDeleteAccount}
-            activeOpacity={0.7}>
-            <Icon name="trash-outline" size={24} color="#FF3B30" />
-            <View style={styles.actionInfo}>
-              <Text style={[styles.actionTitle, styles.dangerText]}>
-                Slet konto
-              </Text>
-              <Text style={styles.actionDescription}>
-                Permanent sletning af al data
-              </Text>
-            </View>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-          </TouchableOpacity>
         </View>
 
         {/* Logout Button */}
@@ -581,10 +421,6 @@ const styles = StyleSheet.create({
   actionDescription: {
     fontSize: 14,
     color: colors.textSecondary,
-  },
-  dangerItem: {},
-  dangerText: {
-    color: '#FF3B30',
   },
   infoItem: {
     paddingVertical: 12,
