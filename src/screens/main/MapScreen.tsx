@@ -569,12 +569,21 @@ const MapScreen = () => {
             </View>
           )}
           <View style={styles.userInfo}>
-            <Icon name="people" size={16} color="#007AFF" />
-            <Text style={styles.userInfoText}>
+            <Icon name="people" size={16} color="#34C759" />
+            <Text style={[styles.userInfoText, {color: '#34C759'}]}>
               {getActiveUsersCount(selectedGym.id)}{' '}
               {getActiveUsersCount(selectedGym.id) === 1 ? 'person' : 'personer'} aktive
             </Text>
           </View>
+          {mockFriends.filter(f => f.isOnline && f.gymId === selectedGym.id).length > 0 && (
+            <View style={styles.userInfo}>
+              <Icon name="person" size={16} color="#3B82F6" />
+              <Text style={[styles.userInfoText, {color: '#3B82F6'}]}>
+                {mockFriends.filter(f => f.isOnline && f.gymId === selectedGym.id).length}{' '}
+                {mockFriends.filter(f => f.isOnline && f.gymId === selectedGym.id).length === 1 ? 'ven' : 'venner'}
+              </Text>
+            </View>
+          )}
           <TouchableOpacity
             style={styles.viewDetailsButton}
             onPress={() => {
@@ -644,16 +653,16 @@ const MapScreen = () => {
                         </Text>
                       </View>
                       <View style={styles.sliderDetailRow}>
-                        <Icon name="people" size={12} color="#007AFF" />
-                        <Text style={styles.sliderDetailText}>
+                        <Icon name="people" size={12} color="#34C759" />
+                        <Text style={[styles.sliderDetailText, {color: '#34C759'}]}>
                           {getActiveUsersCount(gym.id)} aktive
                         </Text>
                       </View>
                       {activeFriends > 0 && (
                         <View style={styles.sliderDetailRow}>
-                          <Icon name="person" size={12} color="#34C759" />
-                          <Text style={styles.sliderDetailText}>
-                            {activeFriends} {activeFriends === 1 ? 'ven' : 'venner'}
+                          <Icon name="person" size={12} color="#3B82F6" />
+                          <Text style={[styles.sliderDetailText, {color: '#3B82F6'}]}>
+                            {activeFriends} {activeFriends === 1 ? 'ven' : 'venner'} online
                           </Text>
                         </View>
                       )}
@@ -746,18 +755,18 @@ const MapScreen = () => {
                         )}
                         <View style={styles.centerActivityInfo}>
                           <View style={styles.activityRow}>
-                            <Icon name="people" size={14} color="#007AFF" />
-                            <Text style={styles.activityText}>
+                            <Icon name="people" size={14} color="#34C759" />
+                            <Text style={[styles.activityText, {color: '#34C759'}]}>
                               {getActiveUsersCount(gym.id)}{' '}
                               {getActiveUsersCount(gym.id) === 1 ? 'person' : 'personer'} aktive
                             </Text>
                           </View>
                           {mockFriends.filter(f => f.isOnline && f.gymId === gym.id).length > 0 && (
                             <View style={styles.activityRow}>
-                              <Icon name="person" size={14} color="#34C759" />
-                              <Text style={styles.activityText}>
+                              <Icon name="person" size={14} color="#3B82F6" />
+                              <Text style={[styles.activityText, {color: '#3B82F6'}]}>
                                 {mockFriends.filter(f => f.isOnline && f.gymId === gym.id).length}{' '}
-                                {mockFriends.filter(f => f.isOnline && f.gymId === gym.id).length === 1 ? 'ven' : 'venner'} aktive
+                                {mockFriends.filter(f => f.isOnline && f.gymId === gym.id).length === 1 ? 'ven' : 'venner'}
                               </Text>
                             </View>
                           )}
@@ -803,18 +812,18 @@ const MapScreen = () => {
                         )}
                         <View style={styles.centerActivityInfo}>
                           <View style={styles.activityRow}>
-                            <Icon name="people" size={14} color="#007AFF" />
-                            <Text style={styles.activityText}>
+                            <Icon name="people" size={14} color="#34C759" />
+                            <Text style={[styles.activityText, {color: '#34C759'}]}>
                               {getActiveUsersCount(gym.id)}{' '}
                               {getActiveUsersCount(gym.id) === 1 ? 'person' : 'personer'} aktive
                             </Text>
                           </View>
                           {mockFriends.filter(f => f.isOnline && f.gymId === gym.id).length > 0 && (
                             <View style={styles.activityRow}>
-                              <Icon name="person" size={14} color="#34C759" />
-                              <Text style={styles.activityText}>
+                              <Icon name="person" size={14} color="#3B82F6" />
+                              <Text style={[styles.activityText, {color: '#3B82F6'}]}>
                                 {mockFriends.filter(f => f.isOnline && f.gymId === gym.id).length}{' '}
-                                {mockFriends.filter(f => f.isOnline && f.gymId === gym.id).length === 1 ? 'ven' : 'venner'} aktive
+                                {mockFriends.filter(f => f.isOnline && f.gymId === gym.id).length === 1 ? 'ven' : 'venner'}
                               </Text>
                             </View>
                           )}

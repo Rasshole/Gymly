@@ -3,7 +3,7 @@
  * Create and manage groups with friends
  */
 
-import React, {useState, useMemo} from 'react';
+import React, {useState, useMemo, useEffect} from 'react';
 import {
   View,
   Text,
@@ -188,6 +188,40 @@ const GroupsScreen = () => {
 
   const friends: Friend[] = mockFriends;
 
+  // Add current user to some groups on mount
+  useEffect(() => {
+    if (user) {
+      const currentUserAsFriend: Friend = {
+        id: user.id,
+        name: user.displayName,
+        avatar: user.profileImageUrl,
+        isOnline: true,
+      };
+
+      setGroups(prevGroups => {
+        // Check if user is already in any groups
+        const userInGroups = prevGroups.some(group =>
+          group.members.some(member => member.id === user.id)
+        );
+
+        if (userInGroups) {
+          return prevGroups; // User already in groups
+        }
+
+        // Add user to first two groups
+        return prevGroups.map((group, index) => {
+          if (index < 2 && !group.members.some(m => m.id === user.id)) {
+            return {
+              ...group,
+              members: [...group.members, currentUserAsFriend],
+            };
+          }
+          return group;
+        });
+      });
+    }
+  }, [user]);
+
   // Filter and categorize groups
   const filteredAndCategorizedGroups = useMemo(() => {
     const filtered = groups.filter(group =>
@@ -213,11 +247,11 @@ const GroupsScreen = () => {
     const sections: Array<{title: string; data: Group[]}> = [];
 
     if (myGroups.length > 0) {
-      sections.push({title: 'mine grupper', data: myGroups});
+      sections.push({title: 'Mine Grupper', data: myGroups});
     }
 
     if (otherGroups.length > 0) {
-      sections.push({title: 'andre grupper', data: otherGroups});
+      sections.push({title: 'Andre Grupper', data: otherGroups});
     }
 
     return sections;
@@ -719,15 +753,15 @@ const styles = StyleSheet.create({
     paddingBottom: 8,
   },
   sectionHeader: {
-    paddingVertical: 8,
+    paddingVertical: 12,
     paddingHorizontal: 4,
-    marginTop: 8,
+    marginTop: 16,
+    marginBottom: 8,
   },
   sectionHeaderText: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: colors.textMuted,
-    textTransform: 'capitalize',
+    fontSize: 18,
+    fontWeight: '700',
+    color: colors.text,
   },
   sectionSeparator: {
     height: 16,

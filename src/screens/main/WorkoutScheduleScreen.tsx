@@ -22,6 +22,7 @@ import danishGyms, {DanishGym} from '@/data/danishGyms';
 import {colors} from '@/theme/colors';
 import NotificationService from '@/services/notifications/NotificationService';
 import {useAppStore} from '@/store/appStore';
+import {getMuscleGroupImage} from '@/utils/muscleGroupImages';
 
 const WEEKDAYS = ['Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør', 'Søn'];
 
@@ -948,10 +949,10 @@ const WorkoutScheduleScreen = () => {
                       style={[styles.muscleCard, isActive && styles.muscleCardActive]}
                       onPress={() => togglePlanMuscle(item.key)}
                       activeOpacity={0.85}>
-                      <Ionicons
-                        name={item.icon as any}
-                        size={20}
-                        color={isActive ? '#fff' : '#007AFF'}
+                      <Image
+                        source={getMuscleGroupImage(item.key)}
+                        style={[styles.muscleImage, isActive && styles.muscleImageActive]}
+                        resizeMode="contain"
                       />
                       <Text style={[styles.muscleLabel, isActive && styles.muscleLabelActive]}>
                         {item.label}
@@ -1678,6 +1679,13 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 10,
     shadowOffset: {width: 0, height: 6},
+  },
+  muscleImage: {
+    width: 40,
+    height: 40,
+  },
+  muscleImageActive: {
+    tintColor: '#fff',
   },
   muscleLabel: {
     marginTop: 6,

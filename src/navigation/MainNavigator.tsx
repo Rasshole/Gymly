@@ -38,6 +38,8 @@ import ChangeEmailScreen from '@/screens/main/ChangeEmailScreen';
 import HelpScreen from '@/screens/main/HelpScreen';
 import SupportScreen from '@/screens/main/SupportScreen';
 import AboutGymlyScreen from '@/screens/main/AboutGymlyScreen';
+import TermsScreen from '@/screens/main/TermsScreen';
+import PrivacyPolicyScreen from '@/screens/main/PrivacyPolicyScreen';
 import WorkoutHistoryScreen from '@/screens/main/WorkoutHistoryScreen';
 import UpcomingWorkoutsScreen from '@/screens/main/UpcomingWorkoutsScreen';
 import WorkoutScheduleScreen from '@/screens/main/WorkoutScheduleScreen';
@@ -107,6 +109,8 @@ export type MainStackParamList = {
   Help: undefined;
   Support: undefined;
   AboutGymly: undefined;
+  Terms: undefined;
+  PrivacyPolicy: undefined;
   WorkoutHistory: undefined;
   UpcomingWorkouts: undefined;
   WorkoutSchedule: {
@@ -432,6 +436,20 @@ const MainNavigator = () => {
             <Stack.Screen
               name="AboutGymly"
               component={AboutGymlyScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="Terms"
+              component={TermsScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="PrivacyPolicy"
+              component={PrivacyPolicyScreen}
               options={{
                 headerShown: false,
               }}

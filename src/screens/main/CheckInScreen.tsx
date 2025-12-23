@@ -33,6 +33,7 @@ import {useFeedStore} from '@/store/feedStore';
 import {useGroupStore, GymlyGroup} from '@/store/groupStore';
 import {usePRStore} from '@/store/prStore';
 import {colors} from '@/theme/colors';
+import {getMuscleGroupImage} from '@/utils/muscleGroupImages';
 
 const SIMULATED_LOCATION = {
   latitude: 55.6875008,
@@ -40,7 +41,7 @@ const SIMULATED_LOCATION = {
 };
 
 const DETECTION_RADIUS_METERS = 100;
-const SLIDER_KNOB_SIZE = 60;
+const SLIDER_KNOB_SIZE = 50;
 
 const MUSCLE_GROUPS: {key: MuscleGroup; label: string; icon: string}[] = [
   {key: 'bryst', label: 'Bryst', icon: 'body-outline'},
@@ -1192,12 +1193,8 @@ const CheckInScreen = () => {
     <KeyboardAvoidingView
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
-      <ScrollView 
-        style={styles.content}
-        contentContainerStyle={{paddingBottom: 120, flexGrow: 1}}
-        showsVerticalScrollIndicator={true}
-        keyboardShouldPersistTaps="handled"
-        nestedScrollEnabled={false}>
+      <View 
+        style={styles.content}>
         {activeSession ? (
           <>
             <View style={styles.card}>
@@ -1262,7 +1259,7 @@ const CheckInScreen = () => {
               </View>
               <View style={styles.detectionRow}>
                 <View style={styles.detectionIcon}>
-                  <Ionicons name="location-outline" size={28} color="#007AFF" />
+                  <Ionicons name="location-outline" size={22} color="#007AFF" />
                 </View>
                 <View style={styles.detectionInfo}>
                   <Text style={styles.detectionTitle}>{detectionMessage()}</Text>
@@ -1290,10 +1287,10 @@ const CheckInScreen = () => {
                       style={[styles.muscleCard, isActive && styles.muscleCardActive]}
                       onPress={() => toggleMuscleGroup(item.key)}
                       activeOpacity={0.85}>
-                      <Ionicons
-                        name={item.icon as any}
-                        size={20}
-                        color={isActive ? '#fff' : '#007AFF'}
+                      <Image
+                        source={getMuscleGroupImage(item.key)}
+                        style={[styles.muscleImage, isActive && styles.muscleImageActive]}
+                        resizeMode="contain"
                       />
                       <Text style={[styles.muscleLabel, isActive && styles.muscleLabelActive]}>
                         {item.label}
@@ -1334,13 +1331,13 @@ const CheckInScreen = () => {
                     },
                   ]}
                   {...panResponder.panHandlers}>
-                  <Ionicons name="arrow-forward" size={24} color="#fff" />
+                  <Ionicons name="arrow-forward" size={20} color="#fff" />
                 </Animated.View>
               </View>
             </View>
           </>
         )}
-      </ScrollView>
+      </View>
 
       {/* Finish button absolutely positioned at bottom to avoid touch issues */}
       {activeSession && (
@@ -1676,10 +1673,10 @@ const CheckInScreen = () => {
                       style={[styles.muscleCard, isActive && styles.muscleCardActive]}
                       onPress={() => togglePlanMuscle(item.key)}
                       activeOpacity={0.85}>
-                      <Ionicons
-                        name={item.icon as any}
-                            size={20}
-                        color={isActive ? '#fff' : '#007AFF'}
+                      <Image
+                        source={getMuscleGroupImage(item.key)}
+                        style={[styles.muscleImage, isActive && styles.muscleImageActive]}
+                        resizeMode="contain"
                       />
                       <Text style={[styles.muscleLabel, isActive && styles.muscleLabelActive]}>
                         {item.label}
@@ -2262,27 +2259,28 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    padding: 16,
-    paddingBottom: 24,
+    padding: 12,
+    paddingBottom: 12,
+    justifyContent: 'space-between',
   },
   card: {
     backgroundColor: colors.backgroundCard,
-    borderRadius: 20,
-    padding: 20,
-    marginBottom: 16,
+    borderRadius: 16,
+    padding: 12,
+    marginBottom: 8,
     shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 4},
-    shadowOpacity: 0.3,
-    shadowRadius: 16,
-    elevation: 4,
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    elevation: 2,
   },
   smallerCard: {
-    paddingVertical: 14,
-    paddingHorizontal: 16,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
   },
   flexCard: {
     flex: 1,
-    paddingBottom: 48,
+    paddingBottom: 12,
   },
   muscleCardSection: {
     marginBottom: 16,
@@ -2301,49 +2299,49 @@ const styles = StyleSheet.create({
   detectionRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 8,
+    marginTop: 4,
   },
   detectionIcon: {
-    width: 56,
-    height: 56,
-    borderRadius: 16,
+    width: 44,
+    height: 44,
+    borderRadius: 12,
     backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 16,
+    marginRight: 12,
   },
   detectionInfo: {
     flex: 1,
   },
   detectionTitle: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: '600',
     color: colors.text,
   },
   detectionHint: {
-    fontSize: 12,
+    fontSize: 11,
     color: colors.textTertiary,
-    marginTop: 6,
+    marginTop: 4,
   },
   detectionDistance: {
-    fontSize: 14,
+    fontSize: 12,
     color: colors.secondary,
-    marginTop: 4,
+    marginTop: 2,
   },
   muscleGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    gap: 8,
+    gap: 6,
   },
   muscleCard: {
-    width: '46%',
-    borderRadius: 14,
+    width: '22%',
+    borderRadius: 10,
     borderWidth: 1,
     borderColor: colors.border,
-    paddingVertical: 10,
-    paddingHorizontal: 8,
-    marginBottom: 8,
+    paddingVertical: 6,
+    paddingHorizontal: 4,
+    marginBottom: 6,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.backgroundCard,
@@ -2356,38 +2354,45 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     shadowOffset: {width: 0, height: 6},
   },
+  muscleImage: {
+    width: 28,
+    height: 28,
+  },
+  muscleImageActive: {
+    tintColor: '#fff',
+  },
   muscleLabel: {
-    marginTop: 6,
-    fontSize: 14,
+    marginTop: 4,
+    fontSize: 10,
     fontWeight: '600',
     color: colors.text,
   },
   soloToggleRow: {
-    marginTop: 8,
+    marginTop: 4,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
   },
   soloToggleLabel: {
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: '600',
     color: colors.text,
   },
   soloToggle: {
-    width: 56,
-    height: 30,
-    borderRadius: 15,
+    width: 48,
+    height: 26,
+    borderRadius: 13,
     backgroundColor: colors.surface,
-    padding: 4,
+    padding: 3,
     justifyContent: 'center',
   },
   soloToggleActive: {
     backgroundColor: colors.surfaceLight,
   },
   soloToggleThumb: {
-    width: 22,
-    height: 22,
-    borderRadius: 11,
+    width: 20,
+    height: 20,
+    borderRadius: 10,
     backgroundColor: colors.backgroundCard,
     alignSelf: 'flex-start',
   },
@@ -2396,18 +2401,18 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
   },
   soloToggleHint: {
-    fontSize: 12,
+    fontSize: 11,
     color: colors.textTertiary,
-    marginTop: 4,
+    marginTop: 2,
   },
   soloSection: {
-    marginTop: -4,
+    marginTop: 4,
     paddingTop: 8,
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: '#E5E7EB',
   },
   sliderCardSpacing: {
-    marginTop: 64,
+    marginTop: 0,
   },
   muscleLabelActive: {
     color: '#fff',
@@ -2416,39 +2421,39 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 12,
+    marginBottom: 8,
   },
   cardSmallTitle: {
-    fontSize: 15,
+    fontSize: 13,
     fontWeight: '600',
     color: colors.textSecondary,
   },
   planButton: {
     backgroundColor: colors.surfaceLight,
-    paddingHorizontal: 14,
-    paddingVertical: 6,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
     borderRadius: 999,
   },
   planButtonText: {
-    fontSize: 13,
+    fontSize: 11,
     fontWeight: '600',
     color: colors.primary,
   },
   sliderTrack: {
     backgroundColor: colors.surfaceLight,
     borderRadius: 30,
-    paddingVertical: 12,
+    paddingVertical: 10,
     position: 'relative',
     justifyContent: 'center',
     overflow: 'hidden',
   },
   sliderTrackCompact: {
-    paddingVertical: 8,
+    paddingVertical: 6,
   },
   sliderText: {
     position: 'absolute',
     alignSelf: 'center',
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: '600',
     color: '#4C4F6B',
   },

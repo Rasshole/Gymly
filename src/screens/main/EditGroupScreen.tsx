@@ -232,11 +232,6 @@ const EditGroupScreen = () => {
               <Text style={styles.removedLabel}>Vil blive fjernet</Text>
             )}
           </View>
-          {isSelected && (
-            <View style={styles.checkmarkContainer}>
-              <Icon name="checkmark-circle" size={24} color="#007AFF" />
-            </View>
-          )}
         </TouchableOpacity>
         {/* Action buttons for current members */}
         {isCurrentMember && (
@@ -404,28 +399,28 @@ const EditGroupScreen = () => {
           {/* Friend Search */}
           <View style={styles.friendSearchSection}>
             <Text style={styles.sectionTitle}>Tilføj venner</Text>
-            <View style={styles.memberSearchContainer}>
-              <Icon
-                name="search"
-                size={20}
-                color="#8E8E93"
-                style={styles.searchIcon}
-              />
-              <TextInput
-                style={styles.memberSearchInput}
+          <View style={styles.memberSearchContainer}>
+            <Icon
+              name="search"
+              size={20}
+              color="#8E8E93"
+              style={styles.searchIcon}
+            />
+            <TextInput
+              style={styles.memberSearchInput}
                 placeholder="Søg efter venner..."
-                placeholderTextColor="#8E8E93"
-                value={memberSearchQuery}
-                onChangeText={setMemberSearchQuery}
-              />
-              {memberSearchQuery.length > 0 && (
-                <TouchableOpacity
-                  onPress={() => setMemberSearchQuery('')}
-                  style={styles.clearButton}>
-                  <Icon name="close-circle" size={20} color="#8E8E93" />
-                </TouchableOpacity>
-              )}
-            </View>
+              placeholderTextColor="#8E8E93"
+              value={memberSearchQuery}
+              onChangeText={setMemberSearchQuery}
+            />
+            {memberSearchQuery.length > 0 && (
+              <TouchableOpacity
+                onPress={() => setMemberSearchQuery('')}
+                style={styles.clearButton}>
+                <Icon name="close-circle" size={20} color="#8E8E93" />
+              </TouchableOpacity>
+            )}
+          </View>
 
             {/* Search Results - Friends List */}
             {memberSearchQuery.trim().length > 0 && (
@@ -708,9 +703,6 @@ const styles = StyleSheet.create({
   },
   cancelInvitationButton: {
     padding: 4,
-  },
-  checkmarkContainer: {
-    marginLeft: 8,
   },
   addIconContainer: {
     marginLeft: 8,

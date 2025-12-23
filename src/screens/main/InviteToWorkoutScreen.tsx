@@ -12,6 +12,7 @@ import {
   ScrollView,
   Platform,
   Alert,
+  Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import DateTimePicker from '@react-native-community/datetimepicker';
@@ -20,6 +21,7 @@ import {useWorkoutInvitationStore} from '@/store/workoutInvitationStore';
 import {useAppStore} from '@/store/appStore';
 import {MuscleGroup} from '@/types/workout.types';
 import {colors} from '@/theme/colors';
+import {getMuscleGroupImage} from '@/utils/muscleGroupImages';
 
 const MUSCLE_GROUPS: {key: MuscleGroup; label: string; icon: string}[] = [
   {key: 'bryst', label: 'Bryst', icon: 'body'},
@@ -235,10 +237,10 @@ const InviteToWorkoutScreen = () => {
                   ]}
                   onPress={() => toggleMuscleGroup(group.key)}
                   activeOpacity={0.7}>
-                  <Icon
-                    name={group.icon}
-                    size={24}
-                    color={isSelected ? '#fff' : '#007AFF'}
+                  <Image
+                    source={getMuscleGroupImage(group.key)}
+                    style={[styles.muscleGroupImage, isSelected && styles.muscleGroupImageSelected]}
+                    resizeMode="contain"
                   />
                   <Text
                     style={[
@@ -472,6 +474,13 @@ const styles = StyleSheet.create({
   muscleGroupButtonSelected: {
     backgroundColor: colors.secondary,
     borderColor: colors.secondary,
+  },
+  muscleGroupImage: {
+    width: 32,
+    height: 32,
+  },
+  muscleGroupImageSelected: {
+    tintColor: '#fff',
   },
   muscleGroupText: {
     flex: 1,

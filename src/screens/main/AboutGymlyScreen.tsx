@@ -38,82 +38,48 @@ const AboutGymlyScreen = () => {
         style={styles.scrollView}
         contentContainerStyle={styles.scrollContent}>
         <View style={styles.logoContainer}>
-          <Icon name="fitness" size={64} color="#007AFF" />
+          <Text style={styles.logoText}>Gymly</Text>
         </View>
 
         <Text style={styles.title}>Velkommen til Gymly</Text>
 
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Hvem er vi?</Text>
           <Text style={styles.text}>
-            Gymly er en social fitness app designet til at forbinde træningsentusiaster
-            og hjælpe dig med at nå dine fitness mål. Vi tror på, at træning er bedre,
-            når man gør det sammen med andre.
+            💪 Gymly er en social fitness-app, der gør træning synlig.
           </Text>
         </View>
 
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Hvad kan appen?</Text>
           <Text style={styles.text}>
-            Med Gymly kan du:
+            📍 Check ind i dit center, se hvem der træner 👥, track din progression 📊 og bliv motiveret af dit netværk 🔥. Vi er en social fitness-app, der kombinerer træning, fællesskab og progression i én platform.
           </Text>
-          <View style={styles.featureList}>
-            <View style={styles.featureItem}>
-              <Icon name="checkmark-circle" size={20} color="#007AFF" />
-              <Text style={styles.featureText}>
-                Tjekke ind på dit favorit gym og se hvem der træner der
-              </Text>
+        </View>
+
+        <View style={styles.section}>
+          <Text style={styles.text}>
+            Med Gymly kan du ✅ checke ind i dit fitnesscenter, se hvem der træner samtidig med dig 👥, tracke dine personlige rekorder 🏆, og følge dig og dine venners udvikling 📈.
+          </Text>
+        </View>
+
+        <View style={styles.section}>
+          <Text style={styles.text}>
+            👀 Se hvem der er i centeret, 🗺️ find dit center, 🤝 find træningspartnere, og bliv en del af et fællesskab, hvor vi alle arbejder mod at blive bedre 💪.
+          </Text>
+        </View>
+
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Vores vision er at gøre træning:</Text>
+          <View style={styles.visionList}>
+            <View style={styles.visionItem}>
+              <Text style={styles.visionText}>👥 Mere social</Text>
             </View>
-            <View style={styles.featureItem}>
-              <Icon name="checkmark-circle" size={20} color="#007AFF" />
-              <Text style={styles.featureText}>
-                Tilføje venner og se deres træningsaktiviteter
-              </Text>
+            <View style={styles.visionItem}>
+              <Text style={styles.visionText}>⚡ Mere forpligtende</Text>
             </View>
-            <View style={styles.featureItem}>
-              <Icon name="checkmark-circle" size={20} color="#007AFF" />
-              <Text style={styles.featureText}>
-                Registrere dine personlige rekorder (PR's) og reps
-              </Text>
-            </View>
-            <View style={styles.featureItem}>
-              <Icon name="checkmark-circle" size={20} color="#007AFF" />
-              <Text style={styles.featureText}>
-                Oprette og deltage i træningsgrupper
-              </Text>
-            </View>
-            <View style={styles.featureItem}>
-              <Icon name="checkmark-circle" size={20} color="#007AFF" />
-              <Text style={styles.featureText}>
-                Sætte mål og tracke din fremgang
-              </Text>
-            </View>
-            <View style={styles.featureItem}>
-              <Icon name="checkmark-circle" size={20} color="#007AFF" />
-              <Text style={styles.featureText}>
-                Se kort over gyms og aktive brugere
-              </Text>
+            <View style={styles.visionItem}>
+              <Text style={styles.visionText}>🔥 Mere motiverende.</Text>
             </View>
           </View>
-        </View>
-
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Formålet med Gymly</Text>
-          <Text style={styles.text}>
-            Vores mission er at skabe et fællesskab, hvor træningsentusiaster kan
-            motivere hinanden, dele erfaringer og vokse sammen. Vi vil gøre det
-            nemmere at finde træningspartnere, holde dig motiveret og hjælpe dig med
-            at nå dine fitness mål gennem social interaktion og fællesskab.
-          </Text>
-        </View>
-
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Kontakt</Text>
-          <Text style={styles.text}>
-            Har du spørgsmål eller feedback? Brug vores support funktion i appen,
-            eller besøg vores Community Hub for at deltage i diskussioner med andre
-            brugere.
-          </Text>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -157,6 +123,11 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     marginTop: 16,
   },
+  logoText: {
+    fontSize: 48,
+    fontWeight: 'bold',
+    color: '#007AFF',
+  },
   title: {
     fontSize: 28,
     fontWeight: 'bold',
@@ -192,6 +163,17 @@ const styles = StyleSheet.create({
     color: colors.textSecondary,
     lineHeight: 24,
     marginLeft: 12,
+  },
+  visionList: {
+    marginTop: 12,
+  },
+  visionItem: {
+    marginBottom: 8,
+  },
+  visionText: {
+    fontSize: 16,
+    color: colors.textSecondary,
+    lineHeight: 24,
   },
 });
 

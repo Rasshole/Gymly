@@ -202,7 +202,7 @@ const checkGymStatus = (hours: GymHours | undefined, brand?: string): GymStatus 
     if (defaultHours) {
       hours = defaultHours;
     } else {
-      return {isOpen: false};
+    return {isOpen: false};
     }
   }
 

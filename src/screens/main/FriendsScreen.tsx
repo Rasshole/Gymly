@@ -22,6 +22,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppStore} from '@/store/appStore';
 import NotificationService from '@/services/notifications/NotificationService';
 import {colors} from '@/theme/colors';
+import {MuscleGroup} from '@/types/workout.types';
+import {getMuscleGroupImage} from '@/utils/muscleGroupImages';
 
 type Friend = {
   id: string;
@@ -136,27 +138,27 @@ const FriendsScreen = () => {
     }
   };
 
-  // Get muscle group icon based on muscle group name
-  const getMuscleGroupIcon = (muscleGroup?: string): string => {
-    if (!muscleGroup) return 'fitness-outline';
+  // Get muscle group key based on muscle group name
+  const getMuscleGroupKey = (muscleGroup?: string): MuscleGroup => {
+    if (!muscleGroup) return 'hele_kroppen';
     
     const lower = muscleGroup.toLowerCase();
     if (lower.includes('bryst') || lower.includes('chest')) {
-      return 'body-outline';
+      return 'bryst';
     } else if (lower.includes('triceps')) {
-      return 'fitness-outline';
+      return 'triceps';
     } else if (lower.includes('biceps')) {
-      return 'fitness-outline';
+      return 'biceps';
     } else if (lower.includes('ben') || lower.includes('legs')) {
-      return 'walk-outline';
+      return 'ben';
     } else if (lower.includes('ryg') || lower.includes('back')) {
-      return 'body-outline';
+      return 'ryg';
     } else if (lower.includes('skulder') || lower.includes('shoulder')) {
-      return 'body-outline';
+      return 'skulder';
     } else if (lower.includes('abs') || lower.includes('mave')) {
-      return 'body-outline';
+      return 'mave';
     }
-    return 'fitness-outline';
+    return 'hele_kroppen';
   };
 
   const handleRequestJoin = (friend: Friend) => {
@@ -360,10 +362,10 @@ const FriendsScreen = () => {
             )}
             {item.isOnline && item.muscleGroup && (
               <View style={styles.muscleGroupIconContainer}>
-                <Icon
-                  name={getMuscleGroupIcon(item.muscleGroup)}
-                  size={18}
-                  color="#007AFF"
+                <Image
+                  source={getMuscleGroupImage(getMuscleGroupKey(item.muscleGroup))}
+                  style={styles.muscleGroupImage}
+                  resizeMode="contain"
                 />
               </View>
             )}
@@ -569,6 +571,10 @@ const styles = StyleSheet.create({
     marginLeft: 4,
     marginRight: 4,
     padding: 4,
+  },
+  muscleGroupImage: {
+    width: 20,
+    height: 20,
   },
   onlineBadge: {
     marginLeft: 4,

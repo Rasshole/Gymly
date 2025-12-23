@@ -29,6 +29,7 @@ import {MuscleGroup} from '@/types/workout.types';
 import {formatGymDisplayName} from '@/utils/gymDisplay';
 import {useChatStore, ChatPlan, ChatMessage} from '@/store/chatStore';
 import {colors} from '@/theme/colors';
+import {getMuscleGroupImage} from '@/utils/muscleGroupImages';
 
 type ChatScreenProps = {
   route: {
@@ -562,10 +563,10 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                       style={[styles.muscleCard, isActive && styles.muscleCardActive]}
                       onPress={() => togglePlanMuscle(item.key)}
                       activeOpacity={0.85}>
-                      <Icon
-                        name={item.icon as any}
-                        size={20}
-                        color={isActive ? '#fff' : '#007AFF'}
+                      <Image
+                        source={getMuscleGroupImage(item.key)}
+                        style={[styles.muscleImage, isActive && styles.muscleImageActive]}
+                        resizeMode="contain"
                       />
                       <Text style={[styles.muscleLabel, isActive && styles.muscleLabelActive]}>
                         {item.label}
@@ -1134,6 +1135,13 @@ const styles = StyleSheet.create({
   muscleCardActive: {
     backgroundColor: colors.secondary,
     borderColor: colors.secondary,
+  },
+  muscleImage: {
+    width: 40,
+    height: 40,
+  },
+  muscleImageActive: {
+    tintColor: '#fff',
   },
   muscleLabel: {
     fontSize: 14,

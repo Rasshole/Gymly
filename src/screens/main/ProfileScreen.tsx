@@ -846,15 +846,15 @@ const ProfileScreen = () => {
                   <Text style={styles.additionalStatLabel}>Check-ins</Text>
                   <Text style={styles.additionalStatValue}>{checkInsForPeriod}</Text>
                 </View>
-              </View>
+                </View>
 
               <View style={styles.additionalStatItem}>
                 <Icon name="people-outline" size={20} color="#007AFF" style={styles.statIcon} />
                 <View style={styles.additionalStatContent}>
                   <Text style={styles.additionalStatLabel}>Check-ins med venner</Text>
                   <Text style={styles.additionalStatValue}>{workoutsWithFriendsForPeriod}</Text>
-                </View>
               </View>
+            </View>
 
               <View style={styles.additionalStatItem}>
                 <Icon name="time-outline" size={20} color="#007AFF" style={styles.statIcon} />

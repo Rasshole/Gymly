@@ -7,7 +7,8 @@
     "region": "København",
     "latitude": 55.6647686,
     "longitude": 12.5114021,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-valby/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-valby/",
+    "address": "Valby Torvegade, 2500 København"
   },
   {
     "id": 898936694,
@@ -17,14 +18,16 @@
     "region": "København",
     "latitude": 55.6826776,
     "longitude": 12.5823306,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-adelgade/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-adelgade/",
+    "address": "Adelgade, 1110 København"
   },
   {
     "id": 1027929994,
     "name": "Borupgård Fitness",
     "region": "Sjælland",
     "latitude": 56.0099718,
-    "longitude": 12.5842073
+    "longitude": 12.5842073,
+    "address": "Nørrevej, 3070 Snekkersten"
   },
   {
     "id": 1112453804,
@@ -33,7 +36,8 @@
     "city": "Lygten",
     "region": "København",
     "latitude": 55.7049892,
-    "longitude": 12.537483
+    "longitude": 12.537483,
+    "address": "Lygten, 2400 København"
   },
   {
     "id": 1141433639,
@@ -42,7 +46,8 @@
     "city": "Esromgade",
     "region": "København",
     "latitude": 55.6979378,
-    "longitude": 12.5405316
+    "longitude": 12.5405316,
+    "address": "Esromgade, 2200 København"
   },
   {
     "id": 1315775600,
@@ -51,7 +56,8 @@
     "region": "Jylland",
     "latitude": 57.4457413,
     "longitude": 10.5075895,
-    "website": "https://www.fitnessworld.com/dk/"
+    "website": "https://www.fitnessworld.com/dk/",
+    "address": "Grønlandsvej, 9900 Frederikshavn"
   },
   {
     "id": 1335815416,
@@ -61,7 +67,8 @@
     "region": "Jylland",
     "latitude": 55.5015032,
     "longitude": 8.455045,
-    "website": "https://www.puregym.dk/find-center/esbjerg-stormgade"
+    "website": "https://www.puregym.dk/find-center/esbjerg-stormgade",
+    "address": "Østervangsvej, 6715 Esbjerg"
   },
   {
     "id": 1489323572,
@@ -70,7 +77,8 @@
     "city": "Kolding",
     "region": "Fyn",
     "latitude": 55.4828566,
-    "longitude": 9.4757261
+    "longitude": 9.4757261,
+    "address": "Agtrupvej, 6000 Kolding"
   },
   {
     "id": 1513201140,
@@ -80,7 +88,8 @@
     "region": "Jylland",
     "latitude": 55.4787074,
     "longitude": 8.4372459,
-    "website": "https://www.puregym.dk/find-center/gl-vardevej"
+    "website": "https://www.puregym.dk/find-center/gl-vardevej",
+    "address": "Gammel Vardevej, 6700 Esbjerg"
   },
   {
     "id": 1568119114,
@@ -89,7 +98,8 @@
     "region": "Jylland",
     "latitude": 55.4681155,
     "longitude": 8.4399273,
-    "website": "https://www.fitnessx.dk/centre/esbjerg-strandbytorv"
+    "website": "https://www.fitnessx.dk/centre/esbjerg-strandbytorv",
+    "address": "Willemoesgade, 6700 Esbjerg"
   },
   {
     "id": 1589706561,
@@ -97,7 +107,8 @@
     "region": "Fyn",
     "latitude": 55.3940057,
     "longitude": 10.3489105,
-    "website": "https://www.orangefitness.dk/"
+    "website": "https://www.orangefitness.dk/",
+    "address": "Middelfartvej, 5200 Odense"
   },
   {
     "id": 1779005080,
@@ -106,7 +117,8 @@
     "city": "Søborg",
     "region": "København",
     "latitude": 55.730052,
-    "longitude": 12.5214682
+    "longitude": 12.5214682,
+    "address": "Søborg Hovedgade, 2870 Gentofte Kommune"
   },
   {
     "id": 1787256791,
@@ -115,7 +127,8 @@
     "region": "Sjælland",
     "latitude": 55.3102688,
     "longitude": 10.787789,
-    "website": "https://loopfitness.com/da/nyborg/"
+    "website": "https://loopfitness.com/da/nyborg/",
+    "address": "Dronningensvej, 5800 Nyborg"
   },
   {
     "id": 1945583586,
@@ -124,7 +137,8 @@
     "city": "Aalborg Dannebrogsgade",
     "region": "Jylland",
     "latitude": 57.0536357,
-    "longitude": 9.9052179
+    "longitude": 9.9052179,
+    "address": "Dannebrogsgade, 9000 Aalborg"
   },
   {
     "id": 1945583587,
@@ -134,7 +148,8 @@
     "region": "Jylland",
     "latitude": 57.0370026,
     "longitude": 9.93337,
-    "website": "http://www.fitnessworld.dk/center/fitness-world-eternitten"
+    "website": "http://www.fitnessworld.dk/center/fitness-world-eternitten",
+    "address": "Visionsvej, 9000 Aalborg"
   },
   {
     "id": 1945583588,
@@ -143,7 +158,8 @@
     "city": "Aalborg Citycenter Friis Nytorv",
     "region": "Jylland",
     "latitude": 57.047362,
-    "longitude": 9.9264298
+    "longitude": 9.9264298,
+    "address": "Nytorv, 9000 Aalborg"
   },
   {
     "id": 1945583589,
@@ -151,7 +167,8 @@
     "region": "Jylland",
     "latitude": 57.0203534,
     "longitude": 9.9255844,
-    "website": "http://www.fitnessworld.dk/center/fitness-world-gugvej"
+    "website": "http://www.fitnessworld.dk/center/fitness-world-gugvej",
+    "address": "Gugvej, 9210 Aalborg"
   },
   {
     "id": 1945583591,
@@ -160,7 +177,8 @@
     "city": "Aars",
     "region": "Jylland",
     "latitude": 56.8033466,
-    "longitude": 9.5106505
+    "longitude": 9.5106505,
+    "address": "Himmerlandsgade, 9600 Aars"
   },
   {
     "id": 1945583595,
@@ -170,7 +188,8 @@
     "region": "Jylland",
     "latitude": 55.5054103,
     "longitude": 8.4044619,
-    "website": "https://www.puregym.dk/find-center/esbjerg-v-aadalsparken"
+    "website": "https://www.puregym.dk/find-center/esbjerg-v-aadalsparken",
+    "address": "Tarphagevej, 6710 Esbjerg"
   },
   {
     "id": 1945583598,
@@ -179,7 +198,8 @@
     "city": "Haderslev",
     "region": "Fyn",
     "latitude": 55.2540978,
-    "longitude": 9.5033067
+    "longitude": 9.5033067,
+    "address": "Vinkelvej, 6100 Haderslev"
   },
   {
     "id": 1945583599,
@@ -188,7 +208,8 @@
     "city": "Herning Møllegade",
     "region": "Jylland",
     "latitude": 56.1370767,
-    "longitude": 8.9673993
+    "longitude": 8.9673993,
+    "address": "Møllegade, 7400 Herning"
   },
   {
     "id": 1945583602,
@@ -198,7 +219,8 @@
     "region": "Jylland",
     "latitude": 55.856709,
     "longitude": 9.852679,
-    "website": "http://www.fitnessworld.dk/center/fitness-world-hoeegh-guldbergs-gade"
+    "website": "http://www.fitnessworld.dk/center/fitness-world-hoeegh-guldbergs-gade",
+    "address": "Ove Jensens Alle, 8700 Horsens"
   },
   {
     "id": 1945583604,
@@ -208,7 +230,8 @@
     "region": "Fyn",
     "latitude": 55.4861706,
     "longitude": 9.4736619,
-    "website": "https://www.puregym.dk/find-center/kolding-sydbanegade"
+    "website": "https://www.puregym.dk/find-center/kolding-sydbanegade",
+    "address": "Sydbanegade, 6000 Kolding"
   },
   {
     "id": 1945583606,
@@ -216,7 +239,8 @@
     "region": "Sjælland",
     "latitude": 55.3174234,
     "longitude": 10.7892728,
-    "website": "http://www.fitnessworld.dk/center/fitness-world-nyborg"
+    "website": "http://www.fitnessworld.dk/center/fitness-world-nyborg",
+    "address": "Vestergade, 5800 Nyborg"
   },
   {
     "id": 1945583609,
@@ -226,7 +250,8 @@
     "region": "Fyn",
     "latitude": 55.3625614,
     "longitude": 10.3506944,
-    "website": "http://www.fitnessworld.dk/center/fitness-world-bondovej"
+    "website": "http://www.fitnessworld.dk/center/fitness-world-bondovej",
+    "address": "Bondovej, 5250 Odense"
   },
   {
     "id": 1945583610,
@@ -236,7 +261,8 @@
     "region": "Fyn",
     "latitude": 55.3948859,
     "longitude": 10.3664679,
-    "website": "https://www.fitnessworld.com/dk2/find-center/odense-c-groenloekkevej"
+    "website": "https://www.fitnessworld.com/dk2/find-center/odense-c-groenloekkevej",
+    "address": "Vesterbro, 5000 Odense"
   },
   {
     "id": 1945583611,
@@ -246,7 +272,8 @@
     "region": "Fyn",
     "latitude": 55.3681758,
     "longitude": 10.3932436,
-    "website": "https://www.fitnessworld.com/dk2/find-center/odense-s-odensevej"
+    "website": "https://www.fitnessworld.com/dk2/find-center/odense-s-odensevej",
+    "address": "Odensevej, 5230 Odense"
   },
   {
     "id": 1945583612,
@@ -255,7 +282,8 @@
     "city": "Odense Slotscenter",
     "region": "Fyn",
     "latitude": 55.3966041,
-    "longitude": 10.3831498
+    "longitude": 10.3831498,
+    "address": "Slotsgade, 5000 Odense"
   },
   {
     "id": 1945583613,
@@ -265,7 +293,8 @@
     "region": "Fyn",
     "latitude": 55.4144231,
     "longitude": 10.3407275,
-    "website": "http://www.fitnessworld.dk/center/fitness-world-tarupvej"
+    "website": "http://www.fitnessworld.dk/center/fitness-world-tarupvej",
+    "address": "Rismarksvej, 5200 Odense"
   },
   {
     "id": 1945583616,
@@ -274,7 +303,8 @@
     "region": "Jylland",
     "latitude": 55.3350349,
     "longitude": 8.7727465,
-    "website": "https://www.localfitness.dk/center/ribe"
+    "website": "https://www.localfitness.dk/center/ribe",
+    "address": "Moltkes Allé, 6760 Ribe"
   },
   {
     "id": 1945583617,
@@ -283,7 +313,8 @@
     "city": "Risskov",
     "region": "Jylland",
     "latitude": 56.2018084,
-    "longitude": 10.2447135
+    "longitude": 10.2447135,
+    "address": "Grenåvej, 8240 Aarhus"
   },
   {
     "id": 1945583618,
@@ -292,7 +323,8 @@
     "city": "Silkeborg Stagehøjvej",
     "region": "Jylland",
     "latitude": 56.1872046,
-    "longitude": 9.5593288
+    "longitude": 9.5593288,
+    "address": "Stagehøjvej, 8600 Silkeborg"
   },
   {
     "id": 1945583619,
@@ -301,7 +333,8 @@
     "city": "Silkeborg",
     "region": "Jylland",
     "latitude": 56.173027,
-    "longitude": 9.55794
+    "longitude": 9.55794,
+    "address": "Papirfabrikken, 8600 Silkeborg"
   },
   {
     "id": 1945583622,
@@ -310,7 +343,8 @@
     "city": "Sønderborg",
     "region": "Fyn",
     "latitude": 54.9200573,
-    "longitude": 9.8077353
+    "longitude": 9.8077353,
+    "address": "Centerpassagen, 6400 Sønderborg"
   },
   {
     "id": 1945583640,
@@ -319,7 +353,8 @@
     "city": "Viby",
     "region": "Jylland",
     "latitude": 56.131874,
-    "longitude": 10.1584109
+    "longitude": 10.1584109,
+    "address": "Lykkesholms Allé, 8260 Aarhus"
   },
   {
     "id": 1945583647,
@@ -327,7 +362,8 @@
     "region": "Fyn",
     "latitude": 55.2480177,
     "longitude": 9.3080748,
-    "website": "http://www.fitnessworld.dk/center/fitness-world-vojens"
+    "website": "http://www.fitnessworld.dk/center/fitness-world-vojens",
+    "address": "Østergade, 6500 Vojens"
   },
   {
     "id": 1945583653,
@@ -336,7 +372,8 @@
     "city": "Århus Jens Baggesens Vej",
     "region": "Jylland",
     "latitude": 56.1696619,
-    "longitude": 10.1937077
+    "longitude": 10.1937077,
+    "address": "Vestre Ringgade, 8000 Aarhus"
   },
   {
     "id": 1945583672,
@@ -345,7 +382,8 @@
     "city": "Viborgvej",
     "region": "Jylland",
     "latitude": 56.1680683,
-    "longitude": 10.161241
+    "longitude": 10.161241,
+    "address": "Kærtoften, 8210 Aarhus"
   },
   {
     "id": 1946625994,
@@ -355,7 +393,8 @@
     "region": "Sjælland",
     "latitude": 55.8710343,
     "longitude": 12.3577002,
-    "website": "https://www.puregym.dk/find-center/alleroed-banetorvet"
+    "website": "https://www.puregym.dk/find-center/alleroed-banetorvet",
+    "address": "Banetorvet, 3450 Lillerød"
   },
   {
     "id": 1946626003,
@@ -364,7 +403,8 @@
     "city": "Ballerup",
     "region": "København",
     "latitude": 55.7296181,
-    "longitude": 12.3579672
+    "longitude": 12.3579672,
+    "address": "Banetoften, 2750 Ballerup"
   },
   {
     "id": 1946626009,
@@ -374,7 +414,8 @@
     "region": "Sjælland",
     "latitude": 55.8413612,
     "longitude": 12.440047,
-    "website": "https://www.puregym.dk/find-center/birkeroed-kongevej"
+    "website": "https://www.puregym.dk/find-center/birkeroed-kongevej",
+    "address": "Birkerød Kongevej, 3460 Birkerød"
   },
   {
     "id": 1946626014,
@@ -383,7 +424,8 @@
     "city": "Brøndby",
     "region": "København",
     "latitude": 55.667303,
-    "longitude": 12.4383494
+    "longitude": 12.4383494,
+    "address": "Arkaderne, 2610 Glostrup"
   },
   {
     "id": 1946626035,
@@ -393,7 +435,8 @@
     "region": "København",
     "latitude": 55.6830906,
     "longitude": 12.5524718,
-    "website": "http://www.fitnessworld.dk/center/fitness-world-forum"
+    "website": "http://www.fitnessworld.dk/center/fitness-world-forum",
+    "address": "Worsaaesvej, 1972 Frederiksberg"
   },
   {
     "id": 1946626046,
@@ -401,7 +444,8 @@
     "region": "Sjælland",
     "latitude": 55.8395269,
     "longitude": 12.064328,
-    "website": "http://www.fitnessworld.dk/center/fitness-world-frederikssund"
+    "website": "http://www.fitnessworld.dk/center/fitness-world-frederikssund",
+    "address": "Møntstædet, 3600 Frederikssund"
   },
   {
     "id": 1946626056,
@@ -410,7 +454,8 @@
     "region": "København",
     "latitude": 55.738612,
     "longitude": 12.5378949,
-    "website": "http://www.fitnessworld.dk/center/fitness-world-gentofte"
+    "website": "http://www.fitnessworld.dk/center/fitness-world-gentofte",
+    "address": "Kongelysvej, 2870 Gentofte Kommune"
   },
   {
     "id": 1946626064,
@@ -419,7 +464,8 @@
     "city": "Gilleleje Fiskerbakken",
     "region": "Sjælland",
     "latitude": 56.111202,
-    "longitude": 12.3299312
+    "longitude": 12.3299312,
+    "address": "Fiskerbakken, 3250 Gilleleje"
   },
   {
     "id": 1946626067,
@@ -428,7 +474,8 @@
     "city": "Glostrup",
     "region": "København",
     "latitude": 55.6639723,
-    "longitude": 12.4016945
+    "longitude": 12.4016945,
+    "address": "Østbrovej, 2605 Glostrup"
   },
   {
     "id": 1946626072,
@@ -436,7 +483,8 @@
     "brand": "PureGym",
     "region": "København",
     "latitude": 55.5987709,
-    "longitude": 12.3274148
+    "longitude": 12.3274148,
+    "address": "Over Bølgen, 2635 Greve Strand"
   },
   {
     "id": 1946626078,
@@ -445,7 +493,8 @@
     "city": "Greve",
     "region": "København",
     "latitude": 55.5905648,
-    "longitude": 12.2984612
+    "longitude": 12.2984612,
+    "address": "Håndværkerbyen, 2670 Greve Strand"
   },
   {
     "id": 1946626088,
@@ -455,7 +504,8 @@
     "region": "Sjælland",
     "latitude": 56.0633108,
     "longitude": 12.2825654,
-    "website": "http://www.fitnessworld.dk/center/fitness-world-graested"
+    "website": "http://www.fitnessworld.dk/center/fitness-world-graested",
+    "address": "Centervejen, 3230 Græsted"
   },
   {
     "id": 1946626095,
@@ -464,7 +514,8 @@
     "city": "Herlev",
     "region": "København",
     "latitude": 55.7253403,
-    "longitude": 12.4160534
+    "longitude": 12.4160534,
+    "address": "Herlev Hovedgade, 2730 Herlev"
   },
   {
     "id": 1946626111,
@@ -474,7 +525,8 @@
     "region": "Sjælland",
     "latitude": 55.9329875,
     "longitude": 12.2853065,
-    "website": "https://www.puregym.dk/find-center/hilleroed-frejasvej"
+    "website": "https://www.puregym.dk/find-center/hilleroed-frejasvej",
+    "address": "Frejasvej, 3400 Hillerød"
   },
   {
     "id": 1946626112,
@@ -484,7 +536,8 @@
     "region": "København",
     "latitude": 55.7095419,
     "longitude": 12.4810239,
-    "website": "http://www.fitnessworld.dk/center/fitness-world-husum"
+    "website": "http://www.fitnessworld.dk/center/fitness-world-husum",
+    "address": "Frederikssundsvej, 2700 København"
   },
   {
     "id": 1946626115,
@@ -492,7 +545,8 @@
     "region": "Sjælland",
     "latitude": 55.8788434,
     "longitude": 12.4987013,
-    "website": "http://www.fitnessworld.dk/center/fitness-world-hoersholm"
+    "website": "http://www.fitnessworld.dk/center/fitness-world-hoersholm",
+    "address": "Hovedgaden, 2970 Hørsholm"
   },
   {
     "id": 1946626133,
@@ -500,7 +554,8 @@
     "brand": "PureGym",
     "region": "København",
     "latitude": 55.6507568,
-    "longitude": 12.5108247
+    "longitude": 12.5108247,
+    "address": "Ellebjergvej, 2500 København"
   },
   {
     "id": 1946626135,
@@ -510,7 +565,8 @@
     "region": "København",
     "latitude": 55.721874,
     "longitude": 12.5409464,
-    "website": "http://www.fitnessworld.dk/center/fitness-world-emdrup-station"
+    "website": "http://www.fitnessworld.dk/center/fitness-world-emdrup-station",
+    "address": "Emdrupvej, 2870 København"
   },
   {
     "id": 1946626137,
@@ -520,7 +576,8 @@
     "region": "København",
     "latitude": 55.656969,
     "longitude": 12.6043943,
-    "website": "https://www.fitnessworld.dk/center/fitness-world-englandsvej"
+    "website": "https://www.fitnessworld.dk/center/fitness-world-englandsvej",
+    "address": "Skotlands Plads, 2300 København"
   },
   {
     "id": 1946626140,
@@ -529,7 +586,8 @@
     "city": "Gasværksvej",
     "region": "København",
     "latitude": 55.6708078,
-    "longitude": 12.5570237
+    "longitude": 12.5570237,
+    "address": "Gasværksvej, 1656 København"
   },
   {
     "id": 1946626153,
@@ -538,7 +596,8 @@
     "city": "Jagtvej",
     "region": "København",
     "latitude": 55.6965287,
-    "longitude": 12.5510063
+    "longitude": 12.5510063,
+    "address": "Jagtvej, 2200 København"
   },
   {
     "id": 1946626168,
@@ -546,7 +605,8 @@
     "brand": "PureGym",
     "region": "København",
     "latitude": 55.6613686,
-    "longitude": 12.6099453
+    "longitude": 12.6099453,
+    "address": "Lyongade, 2300 København"
   },
   {
     "id": 1946626173,
@@ -554,7 +614,8 @@
     "region": "København",
     "latitude": 55.6985181,
     "longitude": 12.5364747,
-    "website": "http://www.fitnessworld.dk/center/fitness-world-ndr.-fasanvej"
+    "website": "http://www.fitnessworld.dk/center/fitness-world-ndr.-fasanvej",
+    "address": "Nordre Fasanvej, 2400 København"
   },
   {
     "id": 1946626178,
@@ -563,14 +624,16 @@
     "city": "Kbh Ø Strandvejen",
     "region": "København",
     "latitude": 55.7219293,
-    "longitude": 12.5777494
+    "longitude": 12.5777494,
+    "address": "Ved Eltham, 2100 Københavns Kommune"
   },
   {
     "id": 1946626184,
     "name": "Power House København",
     "region": "København",
     "latitude": 55.6782088,
-    "longitude": 12.5623173
+    "longitude": 12.5623173,
+    "address": "Vester Farimagsgade, 1607 København"
   },
   {
     "id": 1946626189,
@@ -580,7 +643,8 @@
     "region": "København",
     "latitude": 55.7067616,
     "longitude": 12.5873054,
-    "website": "https://www.puregym.dk/find-center/kbh-oe-aarhusgade"
+    "website": "https://www.puregym.dk/find-center/kbh-oe-aarhusgade",
+    "address": "Århusgade, 2150 København"
   },
   {
     "id": 1946626194,
@@ -589,7 +653,8 @@
     "city": "Køge",
     "region": "Sjælland",
     "latitude": 55.4750332,
-    "longitude": 12.1757291
+    "longitude": 12.1757291,
+    "address": "Tigervej, 4600 Ølby Lyng"
   },
   {
     "id": 1946626199,
@@ -598,7 +663,8 @@
     "city": "Lyngby",
     "region": "København",
     "latitude": 55.7688733,
-    "longitude": 12.5039159
+    "longitude": 12.5039159,
+    "address": "Likørstræde, 2800 Kongens Lyngby"
   },
   {
     "id": 1946626205,
@@ -607,7 +673,8 @@
     "city": "Måløv",
     "region": "København",
     "latitude": 55.7485909,
-    "longitude": 12.3187172
+    "longitude": 12.3187172,
+    "address": "Stationsvej, 2760 Måløv"
   },
   {
     "id": 1946626210,
@@ -616,7 +683,8 @@
     "region": "Sjælland",
     "latitude": 54.7683352,
     "longitude": 11.8677224,
-    "website": "https://mimogym.dk/"
+    "website": "https://mimogym.dk/",
+    "address": "Vestensborg Alle, 4800 Nykøbing Falster"
   },
   {
     "id": 1946626216,
@@ -625,7 +693,8 @@
     "city": "Næstved Dania",
     "region": "Sjælland",
     "latitude": 55.2330843,
-    "longitude": 11.7580451
+    "longitude": 11.7580451,
+    "address": "Dania Passagen, 4700 Næstved"
   },
   {
     "id": 1946626221,
@@ -634,7 +703,8 @@
     "city": "Næstved Grønvej",
     "region": "Sjælland",
     "latitude": 55.2304189,
-    "longitude": 11.7702488
+    "longitude": 11.7702488,
+    "address": "Grønvej, 4700 Næstved"
   },
   {
     "id": 1946626226,
@@ -643,7 +713,8 @@
     "city": "Ringsted",
     "region": "Sjælland",
     "latitude": 55.4469454,
-    "longitude": 11.7874122
+    "longitude": 11.7874122,
+    "address": "Parkstræde, 4100 Ringsted"
   },
   {
     "id": 1946626232,
@@ -653,7 +724,8 @@
     "region": "Sjælland",
     "latitude": 55.6406985,
     "longitude": 12.0890504,
-    "website": "http://www.fitnessworld.dk/center/fitness-world-roskilde"
+    "website": "http://www.fitnessworld.dk/center/fitness-world-roskilde",
+    "address": "Algade, 4000 Roskilde"
   },
   {
     "id": 1946626236,
@@ -663,7 +735,8 @@
     "region": "Sjælland",
     "latitude": 55.7472446,
     "longitude": 11.9558618,
-    "website": "https://fairfit.dk/skibby/"
+    "website": "https://fairfit.dk/skibby/",
+    "address": "Hovedgaden, 4050 Skibby"
   },
   {
     "id": 1946626241,
@@ -672,7 +745,8 @@
     "city": "Slagelse Bornholmsvej",
     "region": "Sjælland",
     "latitude": 55.3969854,
-    "longitude": 11.3402877
+    "longitude": 11.3402877,
+    "address": "Korsørvej, 4200 Slagelse"
   },
   {
     "id": 1946626246,
@@ -682,7 +756,8 @@
     "region": "Sjælland",
     "latitude": 55.7678671,
     "longitude": 12.1954275,
-    "website": "https://www.fitnessworld.com/dk2/find-center/stenloese-centertorvet"
+    "website": "https://www.fitnessworld.com/dk2/find-center/stenloese-centertorvet",
+    "address": "Centertorvet, 3660 Stenløse"
   },
   {
     "id": 1946626256,
@@ -691,7 +766,8 @@
     "city": "Søborg",
     "region": "København",
     "latitude": 55.7395909,
-    "longitude": 12.4932893
+    "longitude": 12.4932893,
+    "address": "Telefonvej, 2860 Gladsaxe Kommune"
   },
   {
     "id": 1946626257,
@@ -701,7 +777,8 @@
     "region": "København",
     "latitude": 55.6517607,
     "longitude": 12.3028001,
-    "website": "https://www.puregym.dk/find-center/taastrup-torv-taastrup"
+    "website": "https://www.puregym.dk/find-center/taastrup-torv-taastrup",
+    "address": "Vesterparken, 2630 Taastrup"
   },
   {
     "id": 1946626262,
@@ -709,7 +786,8 @@
     "region": "København",
     "latitude": 55.6674858,
     "longitude": 12.5134815,
-    "website": "http://www.fitnessworld.dk/center/fitness-world-valby"
+    "website": "http://www.fitnessworld.dk/center/fitness-world-valby",
+    "address": "Bymosevej, 2500 København"
   },
   {
     "id": 1946626266,
@@ -718,14 +796,16 @@
     "region": "København",
     "latitude": 55.7822148,
     "longitude": 12.3615574,
-    "website": "https://www.puregym.dk/"
+    "website": "https://www.puregym.dk/",
+    "address": "Kirke Værløsevej, 3500 Værløse"
   },
   {
     "id": 2306155131,
     "name": "Løfteriet",
     "region": "Fyn",
     "latitude": 55.4098422,
-    "longitude": 10.3854485
+    "longitude": 10.3854485,
+    "address": "Havnegade, 5000 Odense"
   },
   {
     "id": 2347031535,
@@ -735,7 +815,8 @@
     "region": "København",
     "latitude": 55.7249283,
     "longitude": 12.4393379,
-    "website": "https://www.sats.dk/fitnesscenter/sjaelland/sats-herlev/"
+    "website": "https://www.sats.dk/fitnesscenter/sjaelland/sats-herlev/",
+    "address": "Herlev Bygade, 2730 Herlev"
   },
   {
     "id": 2936449601,
@@ -745,7 +826,8 @@
     "region": "København",
     "latitude": 55.664278,
     "longitude": 12.625689,
-    "website": "https://www.puregym.dk/find-center/kbh-s-lergravsvej"
+    "website": "https://www.puregym.dk/find-center/kbh-s-lergravsvej",
+    "address": "Lergravsvej, 1441 København"
   },
   {
     "id": 3096058127,
@@ -754,7 +836,8 @@
     "city": "Århus S Skanderborgvej",
     "region": "Jylland",
     "latitude": 56.138726,
-    "longitude": 10.1789271
+    "longitude": 10.1789271,
+    "address": "Skanderborgvej, 8230 Aarhus"
   },
   {
     "id": 3359335823,
@@ -762,7 +845,8 @@
     "region": "Sjælland",
     "latitude": 55.845489,
     "longitude": 12.067743,
-    "website": "https://frederikssundmotioncenter.dk/"
+    "website": "https://frederikssundmotioncenter.dk/",
+    "address": "Frederiksværkvej, 3600 Frederikssund"
   },
   {
     "id": 3402665065,
@@ -770,14 +854,16 @@
     "region": "Fyn",
     "latitude": 54.9170798,
     "longitude": 9.8117425,
-    "website": "https://fitnesssyd.dk"
+    "website": "https://fitnesssyd.dk",
+    "address": "Mommarkbanestien, 6400 Sønderborg"
   },
   {
     "id": 3452508011,
     "name": "LOOP",
     "region": "Sjælland",
     "latitude": 55.3283231,
-    "longitude": 11.138787
+    "longitude": 11.138787,
+    "address": "Algade, 4220 Korsør"
   },
   {
     "id": 3811442572,
@@ -786,7 +872,8 @@
     "city": "Herlev BIG",
     "region": "København",
     "latitude": 55.7182795,
-    "longitude": 12.4485001
+    "longitude": 12.4485001,
+    "address": "Disavej, 2730 Herlev"
   },
   {
     "id": 3899245989,
@@ -794,7 +881,8 @@
     "region": "Jylland",
     "latitude": 55.9074561,
     "longitude": 8.5173794,
-    "website": "https://www.pureperformancefitness.dk/"
+    "website": "https://www.pureperformancefitness.dk/",
+    "address": "Engvej, 6880 Tarm"
   },
   {
     "id": 4204145897,
@@ -802,7 +890,8 @@
     "region": "København",
     "latitude": 55.6973814,
     "longitude": 12.5488728,
-    "website": "https://noerrebrofysioterapi.dk/"
+    "website": "https://noerrebrofysioterapi.dk/",
+    "address": "Thorsgade, 2200 København"
   },
   {
     "id": 4261811189,
@@ -810,28 +899,32 @@
     "region": "Fyn",
     "latitude": 54.9074413,
     "longitude": 9.7896688,
-    "website": "https://www.zielkes.dk/"
+    "website": "https://www.zielkes.dk/",
+    "address": "Misses Plads, 6400 Sønderborg"
   },
   {
     "id": 4329370009,
     "name": "Purple Fitness",
     "region": "Sjælland",
     "latitude": 55.7937046,
-    "longitude": 12.1575561
+    "longitude": 12.1575561,
+    "address": "Rådhus Alle, 3650 Ølstykke"
   },
   {
     "id": 4370169201,
     "name": "Svaneke Yoga",
     "region": "Jylland",
     "latitude": 55.1367985,
-    "longitude": 15.1451012
+    "longitude": 15.1451012,
+    "address": "Gruset, 3740 Svaneke"
   },
   {
     "id": 4382678703,
     "name": "Roager Foreningsfitness",
     "region": "Jylland",
     "latitude": 55.2510111,
-    "longitude": 8.8242468
+    "longitude": 8.8242468,
+    "address": "Lille Roagervej, Roager"
   },
   {
     "id": 4455806490,
@@ -840,14 +933,16 @@
     "region": "Jylland",
     "latitude": 56.1559111,
     "longitude": 10.1795971,
-    "website": "https://fitogsund.dk/c/huse/aarhus-c-karupvej"
+    "website": "https://fitogsund.dk/c/huse/aarhus-c-karupvej",
+    "address": "Silkeborgvej, 8230 Aarhus"
   },
   {
     "id": 4470427892,
     "name": "Fittnes",
     "region": "Jylland",
     "latitude": 55.8585488,
-    "longitude": 9.8535509
+    "longitude": 9.8535509,
+    "address": "Grønlandsvej, 8700 Horsens"
   },
   {
     "id": 4493239651,
@@ -855,14 +950,16 @@
     "region": "Fyn",
     "latitude": 55.375152,
     "longitude": 10.050455,
-    "website": "https://aarup.sportogfitness.dk/"
+    "website": "https://aarup.sportogfitness.dk/",
+    "address": "Ormehøjvej, 5560 Aarup"
   },
   {
     "id": 4622108122,
     "name": "TræningsHuset - Lind",
     "region": "Jylland",
     "latitude": 56.1106713,
-    "longitude": 8.9789935
+    "longitude": 8.9789935,
+    "address": "Lind Hovedgade, 7400 Herning Kommune"
   },
   {
     "id": 4671867545,
@@ -870,7 +967,8 @@
     "region": "København",
     "latitude": 55.700429,
     "longitude": 12.5305023,
-    "website": "https://inzhape.dk/"
+    "website": "https://inzhape.dk/",
+    "address": "Tranevej, 2400 København"
   },
   {
     "id": 4718005112,
@@ -878,7 +976,8 @@
     "region": "Jylland",
     "latitude": 55.4696488,
     "longitude": 8.6991557,
-    "website": "https://www.brammingfitness.dk/"
+    "website": "https://www.brammingfitness.dk/",
+    "address": "Idræts Alle 10, 6740 Esbjerg"
   },
   {
     "id": 4757850257,
@@ -887,7 +986,8 @@
     "city": "Nørresundby",
     "region": "Jylland",
     "latitude": 57.0722469,
-    "longitude": 9.9257494
+    "longitude": 9.9257494,
+    "address": "Strubjerg, 9400 Nørresundby"
   },
   {
     "id": 4792189701,
@@ -895,14 +995,16 @@
     "brand": "PureGym",
     "region": "Sjælland",
     "latitude": 55.906839,
-    "longitude": 12.4746175
+    "longitude": 12.4746175,
+    "address": "Fredensborg Kongevej, 2980 Kokkedal"
   },
   {
     "id": 4872509214,
     "name": "Fitness Studiet",
     "region": "Jylland",
     "latitude": 56.4574872,
-    "longitude": 10.0401306
+    "longitude": 10.0401306,
+    "address": "Havnegade, 8900 Randers"
   },
   {
     "id": 4878979931,
@@ -912,7 +1014,8 @@
     "region": "København",
     "latitude": 55.675245,
     "longitude": 12.5634595,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-vesterport/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-vesterport/",
+    "address": "Hammerichsgade, 1611 København"
   },
   {
     "id": 4883939640,
@@ -922,14 +1025,16 @@
     "region": "København",
     "latitude": 55.7017618,
     "longitude": 12.5722892,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-parken/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-parken/",
+    "address": "Øster Allé, 2100 København"
   },
   {
     "id": 4885880761,
     "name": "Urban Gym",
     "region": "Fyn",
     "latitude": 55.3928466,
-    "longitude": 10.3640946
+    "longitude": 10.3640946,
+    "address": "Havekolonien Haugstedsminde, 5000 Odense"
   },
   {
     "id": 4888246708,
@@ -939,35 +1044,40 @@
     "region": "København",
     "latitude": 55.6613013,
     "longitude": 12.6318655,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-amager-strand/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-amager-strand/",
+    "address": "Amager Strandvej, 1441 København"
   },
   {
     "id": 4888542837,
     "name": "Fysio",
     "region": "København",
     "latitude": 55.6327337,
-    "longitude": 12.6214683
+    "longitude": 12.6214683,
+    "address": "Amager Landevej, 2770 Kastrup"
   },
   {
     "id": 4890164605,
     "name": "Cross Cardio Fitness",
     "region": "Jylland",
     "latitude": 55.7040173,
-    "longitude": 9.5310755
+    "longitude": 9.5310755,
+    "address": "Damhaven, 7100 Vejle"
   },
   {
     "id": 4898355986,
     "name": "Silkeborg Sports Center",
     "region": "Jylland",
     "latitude": 56.1702757,
-    "longitude": 9.5680889
+    "longitude": 9.5680889,
+    "address": "Århusvej, 8600 Silkeborg"
   },
   {
     "id": 4976396376,
     "name": "Krop & Yoga",
     "region": "Jylland",
     "latitude": 56.6939508,
-    "longitude": 9.4938062
+    "longitude": 9.4938062,
+    "address": "Vestergade, 9620 Aalestrup"
   },
   {
     "id": 5044926325,
@@ -975,7 +1085,8 @@
     "region": "København",
     "latitude": 55.6684471,
     "longitude": 12.5620948,
-    "website": "https://butcherslab.dk/"
+    "website": "https://butcherslab.dk/",
+    "address": "Staldgade, 1699 København"
   },
   {
     "id": 5076070006,
@@ -985,7 +1096,8 @@
     "region": "København",
     "latitude": 55.6668967,
     "longitude": 12.5864751,
-    "website": "https://sportinghealthclub.dk/shc-scandinavia/"
+    "website": "https://sportinghealthclub.dk/shc-scandinavia/",
+    "address": "Ørestads Boulevard, 1421 København"
   },
   {
     "id": 5155164294,
@@ -995,7 +1107,8 @@
     "region": "Sjælland",
     "latitude": 55.8356818,
     "longitude": 12.0647288,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-frederikssund/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-frederikssund/",
+    "address": "Varehusvej, 3600 Frederikssund"
   },
   {
     "id": 5203118021,
@@ -1003,14 +1116,16 @@
     "region": "Jylland",
     "latitude": 55.0584557,
     "longitude": 15.1346096,
-    "website": "https://www.localfitness.dk/center/nexo"
+    "website": "https://www.localfitness.dk/center/nexo",
+    "address": "Søndre Hammer, 3730 Nexø"
   },
   {
     "id": 5270606025,
     "name": "Grenaa Fitness",
     "region": "Sjælland",
     "latitude": 56.4140123,
-    "longitude": 10.8929549
+    "longitude": 10.8929549,
+    "address": "Havnevej, 8500 Grenaa"
   },
   {
     "id": 5295777046,
@@ -1019,7 +1134,8 @@
     "region": "København",
     "latitude": 55.7048699,
     "longitude": 12.5443471,
-    "website": "https://www.puregym.dk/find-center/kbh-tagensvej"
+    "website": "https://www.puregym.dk/find-center/kbh-tagensvej",
+    "address": "Mjølnerparken, 2200 København"
   },
   {
     "id": 5310397129,
@@ -1028,7 +1144,8 @@
     "region": "Jylland",
     "latitude": 55.5185481,
     "longitude": 8.3682829,
-    "website": "https://fitogsund.dk/c/huse/hjerting-esbjerg"
+    "website": "https://fitogsund.dk/c/huse/hjerting-esbjerg",
+    "address": "Østervænget, 6710 Esbjerg"
   },
   {
     "id": 5338685722,
@@ -1037,7 +1154,8 @@
     "region": "Sjælland",
     "latitude": 55.4477982,
     "longitude": 12.1661557,
-    "website": "https://loopfitness.dk/centre/loop-fitness-koege/"
+    "website": "https://loopfitness.dk/centre/loop-fitness-koege/",
+    "address": "Boholtevej, 4600 Køge"
   },
   {
     "id": 5419140590,
@@ -1045,7 +1163,8 @@
     "region": "Jylland",
     "latitude": 55.718802,
     "longitude": 9.5625,
-    "website": "https://www.apollofitness.dk/"
+    "website": "https://www.apollofitness.dk/",
+    "address": "Horsensvej, 7100 Vejle"
   },
   {
     "id": 5628383088,
@@ -1054,14 +1173,16 @@
     "city": "Brøndby Strand",
     "region": "København",
     "latitude": 55.6223864,
-    "longitude": 12.4213181
+    "longitude": 12.4213181,
+    "address": "Brøndby Strand Centrum, 2660 København"
   },
   {
     "id": 5664554632,
     "name": "FitnessX",
     "region": "Jylland",
     "latitude": 56.1653463,
-    "longitude": 10.1333401
+    "longitude": 10.1333401,
+    "address": "Janesvej, 8220 Aarhus"
   },
   {
     "id": 5671442252,
@@ -1069,7 +1190,8 @@
     "region": "Jylland",
     "latitude": 56.1536948,
     "longitude": 10.2189596,
-    "website": "https://aarhuscrossfit.dk/"
+    "website": "https://aarhuscrossfit.dk/",
+    "address": "Libaugade, 8000 Aarhus"
   },
   {
     "id": 5676162578,
@@ -1078,7 +1200,8 @@
     "region": "Jylland",
     "latitude": 56.1559392,
     "longitude": 10.1831754,
-    "website": "https://fitnessx.dk/find-center/aarhus-frisko/"
+    "website": "https://fitnessx.dk/find-center/aarhus-frisko/",
+    "address": "Silkeborgvej, 8000 Aarhus"
   },
   {
     "id": 5681193814,
@@ -1087,7 +1210,8 @@
     "city": "Århus N Vejlby",
     "region": "Jylland",
     "latitude": 56.1871555,
-    "longitude": 10.2109242
+    "longitude": 10.2109242,
+    "address": "Børglumvej, 8200 Aarhus"
   },
   {
     "id": 5681193815,
@@ -1095,21 +1219,24 @@
     "region": "Jylland",
     "latitude": 56.1884305,
     "longitude": 10.2145259,
-    "website": "https://www.sats.com/fitnesscenter/jylland/sats-arhus-risskov/"
+    "website": "https://www.sats.com/fitnesscenter/jylland/sats-arhus-risskov/",
+    "address": "Frijsenborgvej, 8240 Aarhus"
   },
   {
     "id": 5686106272,
     "name": "Ultimate Gym",
     "region": "Jylland",
     "latitude": 56.1554964,
-    "longitude": 10.1797459
+    "longitude": 10.1797459,
+    "address": "Karupvej, 8230 Aarhus"
   },
   {
     "id": 5686106274,
     "name": "b:fit by Zeenta",
     "region": "Jylland",
     "latitude": 56.1547431,
-    "longitude": 10.1812666
+    "longitude": 10.1812666,
+    "address": "Finderupvej, 8230 Aarhus"
   },
   {
     "id": 5692297927,
@@ -1118,14 +1245,16 @@
     "city": "Århus C. Nørreport",
     "region": "Jylland",
     "latitude": 56.1622124,
-    "longitude": 10.2118332
+    "longitude": 10.2118332,
+    "address": "Knudrisgade, 8000 Aarhus"
   },
   {
     "id": 5719417683,
     "name": "Skrave Fitness",
     "region": "Fyn",
     "latitude": 55.4140873,
-    "longitude": 9.1027684
+    "longitude": 9.1027684,
+    "address": "Skravevej, 6630 Københoved"
   },
   {
     "id": 5734941904,
@@ -1133,7 +1262,8 @@
     "brand": "LOOP Fitness",
     "region": "København",
     "latitude": 55.7954536,
-    "longitude": 12.4741141
+    "longitude": 12.4741141,
+    "address": "Frederiksdalsvej, 2830 Kongens Lyngby"
   },
   {
     "id": 5738366913,
@@ -1142,7 +1272,8 @@
     "city": "Vallensbæk",
     "region": "København",
     "latitude": 55.6236832,
-    "longitude": 12.3883473
+    "longitude": 12.3883473,
+    "address": "Stationsstien, 2665 Vallensbæk Kommune"
   },
   {
     "id": 5764078960,
@@ -1150,7 +1281,8 @@
     "region": "Sjælland",
     "latitude": 55.875274,
     "longitude": 12.3525715,
-    "website": "https://www.undergroundyoga.dk/"
+    "website": "https://www.undergroundyoga.dk/",
+    "address": "Kastaniealle, 3450 Lillerød"
   },
   {
     "id": 5802005680,
@@ -1159,14 +1291,16 @@
     "city": "Farumgade",
     "region": "København",
     "latitude": 55.6979732,
-    "longitude": 12.5420376
+    "longitude": 12.5420376,
+    "address": "Farumgade, 2200 København"
   },
   {
     "id": 5809585765,
     "name": "Dóttir Yoga & Juice Bar",
     "region": "København",
     "latitude": 55.6499227,
-    "longitude": 12.5543485
+    "longitude": 12.5543485,
+    "address": "Byparken, 1561 København"
   },
   {
     "id": 5809585769,
@@ -1174,28 +1308,32 @@
     "region": "København",
     "latitude": 55.6477598,
     "longitude": 12.5522402,
-    "website": "https://www.yum.dk"
+    "website": "https://www.yum.dk",
+    "address": "Teglholmens Sydkaj, 2450 København"
   },
   {
     "id": 5832282557,
     "name": "Gold Gym",
     "region": "Sjælland",
     "latitude": 56.413689,
-    "longitude": 10.8868617
+    "longitude": 10.8868617,
+    "address": "N P Josiassens Vej, 8500 Grenaa"
   },
   {
     "id": 5916933729,
     "name": "MyHeart Fitness",
     "region": "Jylland",
     "latitude": 56.7180221,
-    "longitude": 10.1145931
+    "longitude": 10.1145931,
+    "address": "Jens-Erik Bechs Vej, Hadsund"
   },
   {
     "id": 5916933733,
     "name": "Loop",
     "region": "Jylland",
     "latitude": 56.7158389,
-    "longitude": 10.1149297
+    "longitude": 10.1149297,
+    "address": "Randersvej, Hadsund"
   },
   {
     "id": 5930807166,
@@ -1203,7 +1341,8 @@
     "region": "Sjælland",
     "latitude": 54.9855188,
     "longitude": 12.284587,
-    "website": "http://www.yoganamnam.dk"
+    "website": "http://www.yoganamnam.dk",
+    "address": "Dragestræde, 4780 Stege"
   },
   {
     "id": 5941086848,
@@ -1212,7 +1351,8 @@
     "city": "Randers Thors Bakke",
     "region": "Jylland",
     "latitude": 56.4628883,
-    "longitude": 10.0376562
+    "longitude": 10.0376562,
+    "address": "Biografgade, 8900 Randers"
   },
   {
     "id": 5955615123,
@@ -1220,7 +1360,8 @@
     "region": "København",
     "latitude": 55.6860225,
     "longitude": 12.5874245,
-    "website": "https://fitness-institute.dk"
+    "website": "https://fitness-institute.dk",
+    "address": "Hindegade, 1303 København"
   },
   {
     "id": 6150038217,
@@ -1228,14 +1369,16 @@
     "region": "Sjælland",
     "latitude": 55.8703759,
     "longitude": 12.3547486,
-    "website": "https://theclubfitness.dk/"
+    "website": "https://theclubfitness.dk/",
+    "address": "M D Madsensvej, 3450 Lillerød"
   },
   {
     "id": 6208565153,
     "name": "Form og Fitness",
     "region": "København",
     "latitude": 55.6629519,
-    "longitude": 12.6099829
+    "longitude": 12.6099829,
+    "address": "Frankrigsgade, 1440 København"
   },
   {
     "id": 6360263198,
@@ -1243,7 +1386,8 @@
     "brand": "PureGym",
     "region": "Jylland",
     "latitude": 56.1433687,
-    "longitude": 10.2006809
+    "longitude": 10.2006809,
+    "address": "Dalgas Avenue, 8000 Aarhus"
   },
   {
     "id": 6397292348,
@@ -1251,7 +1395,8 @@
     "brand": "PureGym",
     "region": "København",
     "latitude": 55.6867981,
-    "longitude": 12.5034442
+    "longitude": 12.5034442,
+    "address": "C.F. Richs Vej, 2000 Frederiksberg"
   },
   {
     "id": 6399647310,
@@ -1259,14 +1404,16 @@
     "region": "København",
     "latitude": 55.6720513,
     "longitude": 12.5908971,
-    "website": "https://www.yogaflat.com"
+    "website": "https://www.yogaflat.com",
+    "address": "Overgaden Oven Vandet, 1410 København"
   },
   {
     "id": 6402856988,
     "name": "Urban Gym",
     "region": "Fyn",
     "latitude": 55.4873016,
-    "longitude": 9.465567
+    "longitude": 9.465567,
+    "address": "Tøndervej, 6000 Kolding"
   },
   {
     "id": 6416538086,
@@ -1275,14 +1422,16 @@
     "region": "Jylland",
     "latitude": 55.6096053,
     "longitude": 8.4946641,
-    "website": "https://loopfitness.com/da/varde/"
+    "website": "https://loopfitness.com/da/varde/",
+    "address": "Ribevej, 6800 Varde"
   },
   {
     "id": 6418955188,
     "name": "Paul Bergsøe Kollegiet fitness centre",
     "region": "København",
     "latitude": 55.8108227,
-    "longitude": 12.5140746
+    "longitude": 12.5140746,
+    "address": "Bergsøekollegiet, 2850 Nærum"
   },
   {
     "id": 6431113886,
@@ -1292,14 +1441,16 @@
     "region": "København",
     "latitude": 55.6720147,
     "longitude": 12.5526861,
-    "website": "https://arca.dk/centralen/"
+    "website": "https://arca.dk/centralen/",
+    "address": "Dannebrogsgade, 1661 København"
   },
   {
     "id": 6434733048,
     "name": "LOOP Birkerød",
     "region": "Sjælland",
     "latitude": 55.8408201,
-    "longitude": 12.43122
+    "longitude": 12.43122,
+    "address": "Hovedgaden, 3460 Birkerød"
   },
   {
     "id": 6466655173,
@@ -1308,14 +1459,16 @@
     "city": "Kbh S. Bryggen",
     "region": "København",
     "latitude": 55.662733,
-    "longitude": 12.5773091
+    "longitude": 12.5773091,
+    "address": "Leifsgade, 1562 København"
   },
   {
     "id": 6499180324,
     "name": "Go2Fitness",
     "region": "Sjælland",
     "latitude": 55.5941251,
-    "longitude": 11.862119
+    "longitude": 11.862119,
+    "address": "Søvej, 4330 Kirke Hvalsø"
   },
   {
     "id": 6501523032,
@@ -1323,7 +1476,8 @@
     "region": "Sjælland",
     "latitude": 55.920271,
     "longitude": 12.314671,
-    "website": "https://yogamandala.dk/"
+    "website": "https://yogamandala.dk/",
+    "address": "Holmetorvet, 3400 Hillerød"
   },
   {
     "id": 6568393384,
@@ -1331,7 +1485,8 @@
     "brand": "CrossFit",
     "region": "København",
     "latitude": 55.6684003,
-    "longitude": 12.5621736
+    "longitude": 12.5621736,
+    "address": "Staldgade, 1699 København"
   },
   {
     "id": 6570661360,
@@ -1341,7 +1496,8 @@
     "region": "København",
     "latitude": 55.6717271,
     "longitude": 12.5793239,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-blox/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-blox/",
+    "address": "Christians Brygge, 1473 København"
   },
   {
     "id": 6790551952,
@@ -1351,7 +1507,8 @@
     "region": "København",
     "latitude": 55.708855,
     "longitude": 12.5748297,
-    "website": "https://arca.dk/klubben/"
+    "website": "https://arca.dk/klubben/",
+    "address": "Jagtvej, 2100 København"
   },
   {
     "id": 6797188068,
@@ -1361,42 +1518,48 @@
     "region": "København",
     "latitude": 55.7122748,
     "longitude": 12.5762602,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-nygardsvej/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-nygardsvej/",
+    "address": "Nygårdsvej, 2100 København"
   },
   {
     "id": 6833041639,
     "name": "Hotel Britannia Fitness",
     "region": "Jylland",
     "latitude": 55.46756,
-    "longitude": 8.4516736
+    "longitude": 8.4516736,
+    "address": "Danmarksgade, 6700 Esbjerg"
   },
   {
     "id": 6893808629,
     "name": "Skave Fitness",
     "region": "Jylland",
     "latitude": 56.3905367,
-    "longitude": 8.7977797
+    "longitude": 8.7977797,
+    "address": "Gammel Borbjergvej, Skave"
   },
   {
     "id": 6964820050,
     "name": "Loop",
     "region": "København",
     "latitude": 55.7083396,
-    "longitude": 12.558139
+    "longitude": 12.558139,
+    "address": "Haraldsgade, 2100 København"
   },
   {
     "id": 7115480809,
     "name": "Nem Fitness",
     "region": "Jylland",
     "latitude": 55.4661637,
-    "longitude": 8.6998678
+    "longitude": 8.6998678,
+    "address": "Nørregade, 6740 Bramming"
   },
   {
     "id": 7124791843,
     "name": "[jo:ga]",
     "region": "København",
     "latitude": 55.6637681,
-    "longitude": 12.6224008
+    "longitude": 12.6224008,
+    "address": "Lergravsvej, 1441 København"
   },
   {
     "id": 7156944316,
@@ -1404,7 +1567,8 @@
     "region": "Jylland",
     "latitude": 55.5057475,
     "longitude": 8.4565696,
-    "website": "https://crossfithalo.dk/"
+    "website": "https://crossfithalo.dk/",
+    "address": "Østre Gjesingvej, 6715 Esbjerg"
   },
   {
     "id": 7243417352,
@@ -1414,7 +1578,8 @@
     "region": "København",
     "latitude": 55.7027632,
     "longitude": 12.5484306,
-    "website": "https://loopfitness.dk"
+    "website": "https://loopfitness.dk",
+    "address": "Tagensvej, 2200 København"
   },
   {
     "id": 7294403568,
@@ -1422,14 +1587,16 @@
     "region": "Jylland",
     "latitude": 55.4658454,
     "longitude": 8.6993369,
-    "website": "https://www.goyogabramming.dk/"
+    "website": "https://www.goyogabramming.dk/",
+    "address": "Nørregade, 6740 Bramming"
   },
   {
     "id": 7362395522,
     "name": "Mariager motionscenter",
     "region": "Jylland",
     "latitude": 56.6454833,
-    "longitude": 9.9713305
+    "longitude": 9.9713305,
+    "address": "Gammel Hobrovej, 9550 Mariager"
   },
   {
     "id": 7376776162,
@@ -1437,7 +1604,8 @@
     "region": "Fyn",
     "latitude": 55.5673606,
     "longitude": 9.7575208,
-    "website": "https://www.facebook.com/PERFORMBYIRANI/"
+    "website": "https://www.facebook.com/PERFORMBYIRANI/",
+    "address": "Prinsessegade, 7000 Fredericia"
   },
   {
     "id": 7473224311,
@@ -1446,7 +1614,8 @@
     "region": "Jylland",
     "latitude": 55.6325393,
     "longitude": 8.4831076,
-    "website": "https://clubenergyfitness.dk/"
+    "website": "https://clubenergyfitness.dk/",
+    "address": "Nordre Boulevard, 6800 Varde"
   },
   {
     "id": 7527304493,
@@ -1454,14 +1623,16 @@
     "region": "Jylland",
     "latitude": 55.4685243,
     "longitude": 8.4398764,
-    "website": "https://loopfitness.dk/centre/loop-fitness-esbjerg/"
+    "website": "https://loopfitness.dk/centre/loop-fitness-esbjerg/",
+    "address": "Tordenskjoldsgade, 6700 Esbjerg"
   },
   {
     "id": 7537276964,
     "name": "Kongerslev Fitnesscenter",
     "region": "Jylland",
     "latitude": 56.8894,
-    "longitude": 10.1129
+    "longitude": 10.1129,
+    "address": "Lykkebjergstien, 9293 Kongerslev"
   },
   {
     "id": 7556419265,
@@ -1469,7 +1640,8 @@
     "region": "Fyn",
     "latitude": 55.3811904,
     "longitude": 10.4204078,
-    "website": "https://www.frankinstituteofsports.com/"
+    "website": "https://www.frankinstituteofsports.com/",
+    "address": "Rødegårdsvej, 5230 Odense"
   },
   {
     "id": 7685220548,
@@ -1478,14 +1650,16 @@
     "city": "Lundtoftegårdsvej",
     "region": "København",
     "latitude": 55.7787425,
-    "longitude": 12.5243171
+    "longitude": 12.5243171,
+    "address": "Lundtoftegårdsvej, 2800 Kongens Lyngby"
   },
   {
     "id": 7717864185,
     "name": "Thyborøn Motionscenter",
     "region": "Jylland",
     "latitude": 56.6953651,
-    "longitude": 8.2044171
+    "longitude": 8.2044171,
+    "address": "Kirkegaardsvej, 7680 Thyborøn"
   },
   {
     "id": 7740545895,
@@ -1494,7 +1668,8 @@
     "region": "København",
     "latitude": 55.7037698,
     "longitude": 12.5548778,
-    "website": "https://arca.dk/smedjen/"
+    "website": "https://arca.dk/smedjen/",
+    "address": "Sigurdsgade, 2200 København"
   },
   {
     "id": 7780381165,
@@ -1503,14 +1678,16 @@
     "region": "Fyn",
     "latitude": 55.5320946,
     "longitude": 9.7765154,
-    "website": "https://loopfitness.dk/centre/loop-fitness-strib/"
+    "website": "https://loopfitness.dk/centre/loop-fitness-strib/",
+    "address": "Strib Landevej, 5500 Strib"
   },
   {
     "id": 7800664320,
     "name": "Loop",
     "region": "Jylland",
     "latitude": 56.9563589,
-    "longitude": 8.6921328
+    "longitude": 8.6921328,
+    "address": "Nørretorv, Thisted"
   },
   {
     "id": 7803371335,
@@ -1519,42 +1696,48 @@
     "region": "Jylland",
     "latitude": 56.5627006,
     "longitude": 9.0288927,
-    "website": "https://fitogsund.dk/c/huse/skive"
+    "website": "https://fitogsund.dk/c/huse/skive",
+    "address": "Marius Jensens Vej, 7800 Skive"
   },
   {
     "id": 7803371341,
     "name": "LOOP Skive",
     "region": "Jylland",
     "latitude": 56.5656423,
-    "longitude": 9.0311097
+    "longitude": 9.0311097,
+    "address": "Ågade, 7800 Skive"
   },
   {
     "id": 7803371343,
     "name": "Fit&Sund Skive",
     "region": "Jylland",
     "latitude": 56.5656034,
-    "longitude": 9.0268884
+    "longitude": 9.0268884,
+    "address": "Slotsgade, 7800 Skive"
   },
   {
     "id": 7807117810,
     "name": "Multifitness",
     "region": "Sjælland",
     "latitude": 55.795452,
-    "longitude": 12.1588586
+    "longitude": 12.1588586,
+    "address": "Østervej, 3650 Ølstykke"
   },
   {
     "id": 7807117816,
     "name": "LOOP",
     "region": "Sjælland",
     "latitude": 55.7933825,
-    "longitude": 12.1569693
+    "longitude": 12.1569693,
+    "address": "Rådhus Alle, 3650 Ølstykke"
   },
   {
     "id": 7843844350,
     "name": "Stestrup Fritidsgård",
     "region": "Sjælland",
     "latitude": 55.5732188,
-    "longitude": 11.7844087
+    "longitude": 11.7844087,
+    "address": "Stestrupvej, 4360 Kirke Eskilstrup"
   },
   {
     "id": 7888218670,
@@ -1562,14 +1745,16 @@
     "region": "Jylland",
     "latitude": 55.7153971,
     "longitude": 10.0107128,
-    "website": "https://fitogsund.dk/c/huse/juelsminde"
+    "website": "https://fitogsund.dk/c/huse/juelsminde",
+    "address": "Strandvejen, 7130 Juelsminde"
   },
   {
     "id": 7994906335,
     "name": "Det Lille Træningscenter",
     "region": "Sjælland",
     "latitude": 55.6520387,
-    "longitude": 11.2916227
+    "longitude": 11.2916227,
+    "address": "Jernbanevej, 4470 Svebølle"
   },
   {
     "id": 8049679203,
@@ -1577,7 +1762,8 @@
     "brand": "LOOP Fitness",
     "region": "Jylland",
     "latitude": 56.2023401,
-    "longitude": 10.2469209
+    "longitude": 10.2469209,
+    "address": "McDrive, 8240 Aarhus"
   },
   {
     "id": 8074735923,
@@ -1585,7 +1771,8 @@
     "region": "København",
     "latitude": 55.6477571,
     "longitude": 12.269413,
-    "website": "https://www.fitnesstaastrup.dk/"
+    "website": "https://www.fitnesstaastrup.dk/",
+    "address": "Banestrøget, 2630 Taastrup"
   },
   {
     "id": 8098941843,
@@ -1593,14 +1780,16 @@
     "region": "København",
     "latitude": 55.672219,
     "longitude": 12.5589633,
-    "website": "https://tigersport.dk/"
+    "website": "https://tigersport.dk/",
+    "address": "Abel Cathrines Gade, 1654 København"
   },
   {
     "id": 8109952224,
     "name": "InZhape",
     "region": "København",
     "latitude": 55.700364,
-    "longitude": 12.530524
+    "longitude": 12.530524,
+    "address": "Tranevej, 2400 København"
   },
   {
     "id": 8121859565,
@@ -1608,7 +1797,8 @@
     "region": "Jylland",
     "latitude": 56.6378858,
     "longitude": 9.7966075,
-    "website": "http://helsesport.dk/"
+    "website": "http://helsesport.dk/",
+    "address": "H.I. Bies Plads, 9500 Hobro"
   },
   {
     "id": 8127622739,
@@ -1616,7 +1806,8 @@
     "region": "Sjælland",
     "latitude": 55.4331277,
     "longitude": 11.7913699,
-    "website": "https://fitnesslab.dk/"
+    "website": "https://fitnesslab.dk/",
+    "address": "Thorsvej, 4100 Ringsted"
   },
   {
     "id": 8211607338,
@@ -1624,7 +1815,8 @@
     "region": "København",
     "latitude": 55.671095,
     "longitude": 12.593604,
-    "website": "https://hotyogacph.dk/"
+    "website": "https://hotyogacph.dk/",
+    "address": "Amagergade, 1423 København"
   },
   {
     "id": 8229143754,
@@ -1632,7 +1824,8 @@
     "region": "Sjælland",
     "latitude": 56.124362,
     "longitude": 12.3084862,
-    "website": "https://www.dyrkyoga.dk/"
+    "website": "https://www.dyrkyoga.dk/",
+    "address": "Gilleleje Hovedgade, 3250 Gilleleje"
   },
   {
     "id": 8254386586,
@@ -1642,14 +1835,16 @@
     "region": "København",
     "latitude": 55.6921776,
     "longitude": 12.5367355,
-    "website": "https://sportinghealthclub.dk/shc-borups-alle/"
+    "website": "https://sportinghealthclub.dk/shc-borups-alle/",
+    "address": "Borups Allé, 1959 København"
   },
   {
     "id": 8384372801,
     "name": "Kaatsu Fitness",
     "region": "København",
     "latitude": 55.6845518,
-    "longitude": 12.5387296
+    "longitude": 12.5387296,
+    "address": "Hostrups Have, 1954 Frederiksberg"
   },
   {
     "id": 8401697108,
@@ -1657,14 +1852,16 @@
     "region": "Jylland",
     "latitude": 56.1685474,
     "longitude": 10.191661,
-    "website": "https://www.kravmagaaarhus.com/"
+    "website": "https://www.kravmagaaarhus.com/",
+    "address": "Vestre Ringgade, 8000 Aarhus"
   },
   {
     "id": 8564193726,
     "name": "Alex Beck",
     "region": "København",
     "latitude": 55.6677017,
-    "longitude": 12.5970063
+    "longitude": 12.5970063,
+    "address": "Amagerbrogade, 1426 København"
   },
   {
     "id": 8582555169,
@@ -1673,7 +1870,8 @@
     "city": "Brøndbyvester",
     "region": "København",
     "latitude": 55.6552087,
-    "longitude": 12.3949076
+    "longitude": 12.3949076,
+    "address": "Søndre Ringvej, 2605 Glostrup"
   },
   {
     "id": 8595596434,
@@ -1683,7 +1881,8 @@
     "region": "København",
     "latitude": 55.6440412,
     "longitude": 12.274762,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-taastrup/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-taastrup/",
+    "address": "Parkstrøget, 2630 Taastrup"
   },
   {
     "id": 8598925317,
@@ -1692,7 +1891,8 @@
     "city": "Hvidovre C",
     "region": "København",
     "latitude": 55.6636449,
-    "longitude": 12.4745684
+    "longitude": 12.4745684,
+    "address": "Laurits Olsens Vej, 2500 Hvidovre Kommune"
   },
   {
     "id": 8665305333,
@@ -1700,7 +1900,8 @@
     "region": "Jylland",
     "latitude": 56.1648253,
     "longitude": 9.5421575,
-    "website": "https://gomotion.nu/"
+    "website": "https://gomotion.nu/",
+    "address": "Drewsensvej, 8600 Silkeborg"
   },
   {
     "id": 8674392819,
@@ -1708,21 +1909,24 @@
     "region": "Jylland",
     "latitude": 56.4831294,
     "longitude": 8.7792353,
-    "website": "https://vinderup-fitness.dk/"
+    "website": "https://vinderup-fitness.dk/",
+    "address": "Møllevej, 7830 Vinderup"
   },
   {
     "id": 8676737921,
     "name": "Dansk fitness Randers",
     "region": "Jylland",
     "latitude": 56.4607048,
-    "longitude": 10.0275536
+    "longitude": 10.0275536,
+    "address": "Jernbanegade, 8900 Randers"
   },
   {
     "id": 8694104382,
     "name": "Fitness 8800",
     "region": "Jylland",
     "latitude": 56.4664193,
-    "longitude": 9.3973173
+    "longitude": 9.3973173,
+    "address": "Farvervej, 8800 Viborg"
   },
   {
     "id": 8695324537,
@@ -1731,7 +1935,8 @@
     "city": "Enigheden Kosttilskud",
     "region": "København",
     "latitude": 55.704951,
-    "longitude": 12.5375168
+    "longitude": 12.5375168,
+    "address": "Lygten, 2400 København"
   },
   {
     "id": 8716115822,
@@ -1740,7 +1945,8 @@
     "city": "Hvedemarken",
     "region": "København",
     "latitude": 55.818969,
-    "longitude": 12.372367
+    "longitude": 12.372367,
+    "address": "Hvedemarken, 3520 Farum"
   },
   {
     "id": 8718296334,
@@ -1750,7 +1956,8 @@
     "region": "København",
     "latitude": 55.7008248,
     "longitude": 12.5369024,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-norrebro/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-norrebro/",
+    "address": "Nordre Fasanvej, 2400 København"
   },
   {
     "id": 8756871274,
@@ -1759,7 +1966,8 @@
     "city": "Sct Jørgensbjerg",
     "region": "Sjælland",
     "latitude": 55.6817367,
-    "longitude": 11.1037531
+    "longitude": 11.1037531,
+    "address": "Blegdammen, 4400 Kalundborg"
   },
   {
     "id": 8786158405,
@@ -1767,7 +1975,8 @@
     "region": "Sjælland",
     "latitude": 55.6656531,
     "longitude": 11.1198683,
-    "website": "http://go-form.dk/"
+    "website": "http://go-form.dk/",
+    "address": "Hareskovvej, 4400 Kalundborg"
   },
   {
     "id": 8803282752,
@@ -1776,7 +1985,8 @@
     "city": "Karlslunde",
     "region": "København",
     "latitude": 55.5667858,
-    "longitude": 12.2677214
+    "longitude": 12.2677214,
+    "address": "Karlslunde Parkvej, 2690 Greve Strand"
   },
   {
     "id": 8812111383,
@@ -1784,7 +1994,8 @@
     "region": "København",
     "latitude": 55.7736415,
     "longitude": 12.4990297,
-    "website": "https://www.pilatesb.dk/"
+    "website": "https://www.pilatesb.dk/",
+    "address": "Lyngby Hovedgade, 2800 Kongens Lyngby"
   },
   {
     "id": 8899169245,
@@ -1793,7 +2004,8 @@
     "city": "Slotssøbadet",
     "region": "Fyn",
     "latitude": 55.4942378,
-    "longitude": 9.4705182
+    "longitude": 9.4705182,
+    "address": "Hospitalsgade, 6000 Kolding"
   },
   {
     "id": 8922511483,
@@ -1801,14 +2013,16 @@
     "region": "Fyn",
     "latitude": 54.9139875,
     "longitude": 9.8056631,
-    "website": "http://www.c-fitness.dk/"
+    "website": "http://www.c-fitness.dk/",
+    "address": "Linde Allé, 6400 Sønderborg"
   },
   {
     "id": 8990288638,
     "name": "Fitbarsel",
     "region": "København",
     "latitude": 55.6897772,
-    "longitude": 12.4887009
+    "longitude": 12.4887009,
+    "address": "Jernbane Allé, 2720 København"
   },
   {
     "id": 8998628117,
@@ -1816,7 +2030,8 @@
     "region": "Sjælland",
     "latitude": 55.474279,
     "longitude": 12.174755,
-    "website": "https://pmtgym.dk/"
+    "website": "https://pmtgym.dk/",
+    "address": "Tigervej, 4600 Ølby Lyng"
   },
   {
     "id": 8999781067,
@@ -1826,7 +2041,8 @@
     "region": "Sjælland",
     "latitude": 55.477597,
     "longitude": 12.1862598,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-koge-den-hvide-by/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-koge-den-hvide-by/",
+    "address": "Galoche Alle, 4600 Køge"
   },
   {
     "id": 9005329840,
@@ -1835,7 +2051,8 @@
     "city": "Klokkestøbervej",
     "region": "Fyn",
     "latitude": 55.3801745,
-    "longitude": 10.4175693
+    "longitude": 10.4175693,
+    "address": "Klokkestøbervej, 5230 Odense"
   },
   {
     "id": 9006944117,
@@ -1844,7 +2061,8 @@
     "city": "Odense Dannebrogsgade",
     "region": "Fyn",
     "latitude": 55.402164,
-    "longitude": 10.3903195
+    "longitude": 10.3903195,
+    "address": "Thomas B. Thriges Gade, 5000 Odense"
   },
   {
     "id": 9008890814,
@@ -1852,7 +2070,8 @@
     "region": "Sjælland",
     "latitude": 54.8889422,
     "longitude": 12.0529368,
-    "website": "https://ffstbk.dk/"
+    "website": "https://ffstbk.dk/",
+    "address": "Jernbanestien, 4850 Stubbekøbing"
   },
   {
     "id": 9015458453,
@@ -1862,7 +2081,8 @@
     "region": "København",
     "latitude": 55.6229582,
     "longitude": 12.3870789,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-vallensbaek/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-vallensbaek/",
+    "address": "Vallensbæk Stationstorv, 2665 Vallensbæk Kommune"
   },
   {
     "id": 9015458454,
@@ -1872,7 +2092,8 @@
     "region": "København",
     "latitude": 55.741202,
     "longitude": 12.484854,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-soborg/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-soborg/",
+    "address": "Tobaksvejen, 2860 Gladsaxe Kommune"
   },
   {
     "id": 9015458455,
@@ -1882,7 +2103,8 @@
     "region": "Sjælland",
     "latitude": 55.641418,
     "longitude": 12.100165,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-roskilde/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-roskilde/",
+    "address": "Københavnsvej, 4000 Roskilde"
   },
   {
     "id": 9015458456,
@@ -1892,7 +2114,8 @@
     "region": "København",
     "latitude": 55.8162474,
     "longitude": 12.5287191,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-naerum/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-naerum/",
+    "address": "Rundforbivej, 2850 Nærum"
   },
   {
     "id": 9015458457,
@@ -1902,7 +2125,8 @@
     "region": "København",
     "latitude": 55.773342,
     "longitude": 12.507291,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-lyngby--kanalvej/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-lyngby--kanalvej/",
+    "address": "Kanalvej, 2800 Kongens Lyngby"
   },
   {
     "id": 9015458459,
@@ -1912,7 +2136,8 @@
     "region": "Sjælland",
     "latitude": 55.4574,
     "longitude": 12.185097,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-koge-straedet/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-koge-straedet/",
+    "address": "Jernbanegade, 4600 Køge"
   },
   {
     "id": 9015458460,
@@ -1922,7 +2147,8 @@
     "region": "København",
     "latitude": 55.6529288,
     "longitude": 12.5423548,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-sydhavn/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-sydhavn/",
+    "address": "Den grønne kile, 2450 København"
   },
   {
     "id": 9015458461,
@@ -1932,7 +2158,8 @@
     "region": "København",
     "latitude": 55.6616517,
     "longitude": 12.5621303,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-fisketorvet/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-fisketorvet/",
+    "address": "Havneholmen, 1561 København"
   },
   {
     "id": 9015458462,
@@ -1942,7 +2169,8 @@
     "region": "København",
     "latitude": 55.6297415,
     "longitude": 12.5780829,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-fields/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-kbh-fields/",
+    "address": "Ørestads Boulevard, 2770 København"
   },
   {
     "id": 9015458463,
@@ -1952,7 +2180,8 @@
     "region": "Sjælland",
     "latitude": 55.8784948,
     "longitude": 12.497678,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-horsholm/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-horsholm/",
+    "address": "Rungstedvej, 2970 Hørsholm"
   },
   {
     "id": 9015458464,
@@ -1962,7 +2191,8 @@
     "region": "Sjælland",
     "latitude": 56.025207,
     "longitude": 12.58844,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-helsingor/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-helsingor/",
+    "address": "Rønnebær Alle, 3000 Helsingør"
   },
   {
     "id": 9015458465,
@@ -1972,7 +2202,8 @@
     "region": "København",
     "latitude": 55.747329,
     "longitude": 12.541266,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-gentofte/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-gentofte/",
+    "address": "Gentoftegade, 2820 Gentofte Kommune"
   },
   {
     "id": 9015458466,
@@ -1982,7 +2213,8 @@
     "region": "København",
     "latitude": 55.680361,
     "longitude": 12.53075,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-frb-falkoner/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-frb-falkoner/",
+    "address": "Sylows Allé, 1861 Frederiksberg"
   },
   {
     "id": 9015458467,
@@ -1992,7 +2224,8 @@
     "region": "København",
     "latitude": 55.674924,
     "longitude": 12.534195,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-frb-abc/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-frb-abc/",
+    "address": "Doktor Priemes Vej, 1854 Frederiksberg"
   },
   {
     "id": 9015458468,
@@ -2002,7 +2235,8 @@
     "region": "København",
     "latitude": 55.839106,
     "longitude": 12.434698,
-    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-birkerod/"
+    "website": "https://www.sats.com/fitnesscenter/sjaelland/sats-birkerod/",
+    "address": "Bistrupvej, 3460 Birkerød"
   },
   {
     "id": 9015628413,
@@ -2011,14 +2245,16 @@
     "city": "Solrød Strand Solrød center (C246)",
     "region": "Sjælland",
     "latitude": 55.532945,
-    "longitude": 12.2213672
+    "longitude": 12.2213672,
+    "address": "Solrød Center, 2680 Solrød Strand"
   },
   {
     "id": 9029868807,
     "name": "TarGet Gym",
     "region": "København",
     "latitude": 55.6335494,
-    "longitude": 12.6531338
+    "longitude": 12.6531338,
+    "address": "Amager Strandvej, 2770 Kastrup"
   },
   {
     "id": 9035036308,
@@ -2026,7 +2262,8 @@
     "region": "Sjælland",
     "latitude": 55.641945,
     "longitude": 12.107094,
-    "website": "https://www.anytimegym.dk"
+    "website": "https://www.anytimegym.dk",
+    "address": "Københavnsvej, 4000 Roskilde"
   },
   {
     "id": 9038229887,
@@ -2035,7 +2272,8 @@
     "city": "Ro's Torv",
     "region": "Sjælland",
     "latitude": 55.6416473,
-    "longitude": 12.1009771
+    "longitude": 12.1009771,
+    "address": "Københavnsvej, 4000 Roskilde"
   },
   {
     "id": 9038989660,
@@ -2044,7 +2282,8 @@
     "city": "Ishøj Bycenter",
     "region": "København",
     "latitude": 55.6140553,
-    "longitude": 12.3559716
+    "longitude": 12.3559716,
+    "address": "Ishøj Nørregade, 2635 Ishøj Kommune"
   },
   {
     "id": 9044078567,
@@ -2053,7 +2292,8 @@
     "city": "Frihedens Butikscenter",
     "region": "København",
     "latitude": 55.6264465,
-    "longitude": 12.4844243
+    "longitude": 12.4844243,
+    "address": "Strandmarksvej, 2650 Hvidovre Kommune"
   },
   {
     "id": 9044433488,
@@ -2061,7 +2301,8 @@
     "region": "København",
     "latitude": 55.6556362,
     "longitude": 12.3548722,
-    "website": "https://newfitness.dk/"
+    "website": "https://newfitness.dk/",
+    "address": "Nordmarks Alle, 2625 Albertslund Kommune"
   },
   {
     "id": 9051050441,
@@ -2070,7 +2311,8 @@
     "city": "Kbh SV Sjælør",
     "region": "København",
     "latitude": 55.65037,
-    "longitude": 12.52421
+    "longitude": 12.52421,
+    "address": "Ellebjergvej, 2450 København"
   },
   {
     "id": 9057397746,
@@ -2080,7 +2322,8 @@
     "region": "Fyn",
     "latitude": 55.394018,
     "longitude": 10.42103,
-    "website": "https://www.fitnessworld.com/dk2/find-center/odense-soe-ejbygade"
+    "website": "https://www.fitnessworld.com/dk2/find-center/odense-soe-ejbygade",
+    "address": "Ejbygade, 5230 Odense"
   },
   {
     "id": 9061629650,
@@ -2089,7 +2332,8 @@
     "region": "Jylland",
     "latitude": 55.7230438,
     "longitude": 9.5960696,
-    "website": "https://fitogsund.dk/c/huse/bredballe"
+    "website": "https://fitogsund.dk/c/huse/bredballe",
+    "address": "Hældagervej, 7120 Vejle"
   },
   {
     "id": 9061629661,
@@ -2098,7 +2342,8 @@
     "region": "Jylland",
     "latitude": 55.9711878,
     "longitude": 9.6116958,
-    "website": "https://fitogsund.dk/c/huse/braedstrup"
+    "website": "https://fitogsund.dk/c/huse/braedstrup",
+    "address": "Skovvejen, 8740 Brædstrup"
   },
   {
     "id": 9061629664,
@@ -2107,7 +2352,8 @@
     "region": "København",
     "latitude": 55.6651356,
     "longitude": 12.3632372,
-    "website": "https://fitogsund.dk/c/huse/albertslund"
+    "website": "https://fitogsund.dk/c/huse/albertslund",
+    "address": "Rørvang, 2620 Albertslund Kommune"
   },
   {
     "id": 9061629667,
@@ -2116,7 +2362,8 @@
     "region": "København",
     "latitude": 55.732323,
     "longitude": 12.3833158,
-    "website": "https://fitogsund.dk/c/huse/ballerup"
+    "website": "https://fitogsund.dk/c/huse/ballerup",
+    "address": "Borupvang, 2740 Ballerup"
   },
   {
     "id": 9063246466,
@@ -2124,7 +2371,8 @@
     "region": "København",
     "latitude": 55.6528234,
     "longitude": 12.5067763,
-    "website": "https://www.copenhagengym.dk/"
+    "website": "https://www.copenhagengym.dk/",
+    "address": "Værkstedvej, 2500 København"
   },
   {
     "id": 9067184649,
@@ -2133,7 +2381,8 @@
     "city": "Rued Langgaardsvej",
     "region": "København",
     "latitude": 55.6603426,
-    "longitude": 12.5926407
+    "longitude": 12.5926407,
+    "address": "Rued Langgaards Vej, 1424 København"
   },
   {
     "id": 9084325442,
@@ -2142,7 +2391,8 @@
     "region": "København",
     "latitude": 55.6777602,
     "longitude": 12.6032017,
-    "website": "https://www.puregym.dk/find-center/kbh-k-christianshavn"
+    "website": "https://www.puregym.dk/find-center/kbh-k-christianshavn",
+    "address": "Halvtolv, 1437 København"
   },
   {
     "id": 9084822557,
@@ -2150,14 +2400,16 @@
     "region": "København",
     "latitude": 55.6944788,
     "longitude": 12.4346096,
-    "website": "https://www.angergym.dk/"
+    "website": "https://www.angergym.dk/",
+    "address": "Islevdalvej, 2610 Rødovre Kommune"
   },
   {
     "id": 9084822565,
     "name": "PureGym - Rødovre Rødovre Centrum",
     "region": "København",
     "latitude": 55.6797356,
-    "longitude": 12.4564091
+    "longitude": 12.4564091,
+    "address": "Rødovre Parkvej, 2610 Rødovre Kommune"
   },
   {
     "id": 9091517113,
@@ -2165,7 +2417,8 @@
     "region": "København",
     "latitude": 55.6727768,
     "longitude": 12.55085,
-    "website": "https://vesterbronxgym.dk/"
+    "website": "https://vesterbronxgym.dk/",
+    "address": "Vesterbrogade, 1620 København"
   },
   {
     "id": 9095746149,
@@ -2183,14 +2436,16 @@
     "city": "Kbh K. Købmagergade",
     "region": "København",
     "latitude": 55.6810412,
-    "longitude": 12.576783
+    "longitude": 12.576783,
+    "address": "Købmagergade, 1150 København"
   },
   {
     "id": 9145322692,
     "name": "iGym",
     "region": "Jylland",
     "latitude": 56.4436391,
-    "longitude": 9.3946004
+    "longitude": 9.3946004,
+    "address": "Marsk Stigs Vej, 8800 Viborg"
   },
   {
     "id": 9150230345,
@@ -2199,7 +2454,8 @@
     "city": "Bredballe Center 24",
     "region": "Jylland",
     "latitude": 55.7187707,
-    "longitude": 9.6095736
+    "longitude": 9.6095736,
+    "address": "Bredballe Byvej, 7120 Vejle"
   },
   {
     "id": 9151013614,
@@ -2208,7 +2464,8 @@
     "city": "Kbh Ø Æbeløgade",
     "region": "København",
     "latitude": 55.7113018,
-    "longitude": 12.564646
+    "longitude": 12.564646,
+    "address": "Æbeløgade, 2100 København"
   },
   {
     "id": 9151044928,
@@ -2216,7 +2473,8 @@
     "region": "København",
     "latitude": 55.7260365,
     "longitude": 12.5801083,
-    "website": "https://www.well-come.dk/"
+    "website": "https://www.well-come.dk/",
+    "address": "Tuborg Havnevej, 2900 Gentofte Kommune"
   },
   {
     "id": 9153366895,
@@ -2224,7 +2482,8 @@
     "region": "Sjælland",
     "latitude": 55.634334,
     "longitude": 12.053148,
-    "website": "https://lifeclub.dk/"
+    "website": "https://lifeclub.dk/",
+    "address": "Hyrdehøj Stræde, 4000 Roskilde"
   },
   {
     "id": 9155650865,
@@ -2233,7 +2492,8 @@
     "city": "Hundige",
     "region": "København",
     "latitude": 55.5974013,
-    "longitude": 12.3301652
+    "longitude": 12.3301652,
+    "address": "Hundige Centervej, 2635 Greve Strand"
   },
   {
     "id": 9159362405,
@@ -2242,7 +2502,8 @@
     "city": "Slangerup",
     "region": "Sjælland",
     "latitude": 55.8508012,
-    "longitude": 12.1635951
+    "longitude": 12.1635951,
+    "address": "Idrætsvej, 3550 Slangerup"
   },
   {
     "id": 9163443033,
@@ -2252,7 +2513,8 @@
     "region": "Jylland",
     "latitude": 55.7039573,
     "longitude": 9.5313473,
-    "website": "https://www.fitnessworld.com/dk2/find-center/vejle-damhaven"
+    "website": "https://www.fitnessworld.com/dk2/find-center/vejle-damhaven",
+    "address": "Damhaven, 7100 Vejle"
   },
   {
     "id": 9180771129,
@@ -2260,7 +2522,8 @@
     "region": "København",
     "latitude": 55.648881,
     "longitude": 12.5544471,
-    "website": "https://www.fysiopuls.dk/"
+    "website": "https://www.fysiopuls.dk/",
+    "address": "Teglholmens Østkaj, 1561 København"
   },
   {
     "id": 9207580208,
@@ -2269,7 +2532,8 @@
     "city": "Nørre Voldgade Fredericia",
     "region": "Fyn",
     "latitude": 55.5684508,
-    "longitude": 9.7558482
+    "longitude": 9.7558482,
+    "address": "Nørre Voldgade, 7000 Fredericia"
   },
   {
     "id": 9212191791,
@@ -2278,7 +2542,8 @@
     "city": "Kokkedal",
     "region": "Sjælland",
     "latitude": 55.9058187,
-    "longitude": 12.4753961
+    "longitude": 12.4753961,
+    "address": "Egevangen, 2980 Kokkedal"
   },
   {
     "id": 9218279089,
@@ -2286,7 +2551,8 @@
     "region": "Sjælland",
     "latitude": 56.028983,
     "longitude": 12.566195,
-    "website": "https://www.managym.dk/"
+    "website": "https://www.managym.dk/",
+    "address": "Klostermosevej, 3070 Helsingør Kommune"
   },
   {
     "id": 9270832980,
@@ -2295,7 +2561,8 @@
     "city": "Aabenraa",
     "region": "Fyn",
     "latitude": 55.042962,
-    "longitude": 9.4162536
+    "longitude": 9.4162536,
+    "address": "Rådhusgang, 6200 Aabenraa"
   },
   {
     "id": 9273428330,
@@ -2303,7 +2570,8 @@
     "region": "Sjælland",
     "latitude": 54.9810141,
     "longitude": 12.2762372,
-    "website": "https://fitnessmoen.dk/"
+    "website": "https://fitnessmoen.dk/",
+    "address": "Kostervej, 4780 Lendemarke"
   },
   {
     "id": 9277977861,
@@ -2311,7 +2579,8 @@
     "region": "Sjælland",
     "latitude": 55.0055239,
     "longitude": 11.9654092,
-    "website": "https://yogaloft.dk/"
+    "website": "https://yogaloft.dk/",
+    "address": "Nyraad Hovedgade, Nyråd"
   },
   {
     "id": 9284378852,
@@ -2320,7 +2589,8 @@
     "city": "Randers Gudenåcentret",
     "region": "Jylland",
     "latitude": 56.454238,
-    "longitude": 10.041056
+    "longitude": 10.041056,
+    "address": "Gammel Stationsvej, 8900 Randers"
   },
   {
     "id": 9302703992,
@@ -2328,7 +2598,8 @@
     "brand": "LOOP Fitness",
     "region": "København",
     "latitude": 55.6867945,
-    "longitude": 12.4910668
+    "longitude": 12.4910668,
+    "address": "Jernbane Allé, 2720 København"
   },
   {
     "id": 9307585551,
@@ -2336,7 +2607,8 @@
     "region": "Sjælland",
     "latitude": 56.4049408,
     "longitude": 10.8866031,
-    "website": "https://fitogsund.dk/c/huse/grenaa"
+    "website": "https://fitogsund.dk/c/huse/grenaa",
+    "address": "Stadion Allé, 8500 Grenaa"
   },
   {
     "id": 9343161579,
@@ -2344,7 +2616,8 @@
     "region": "Sjælland",
     "latitude": 55.9606381,
     "longitude": 11.8525507,
-    "website": "https://gym53.dk"
+    "website": "https://gym53.dk",
+    "address": "Pilealle, 3390 Hundested"
   },
   {
     "id": 9386731166,
@@ -2352,7 +2625,8 @@
     "region": "Sjælland",
     "latitude": 55.0132631,
     "longitude": 11.9215398,
-    "website": "https://www.dgihusetvordingborg.dk/traening/fitness"
+    "website": "https://www.dgihusetvordingborg.dk/traening/fitness",
+    "address": "Københavnsvej, 4760 Vordingborg"
   },
   {
     "id": 9445282345,
@@ -2360,7 +2634,8 @@
     "region": "Jylland",
     "latitude": 56.3663369,
     "longitude": 8.6369544,
-    "website": "https://www.performancelageret.dk"
+    "website": "https://www.performancelageret.dk",
+    "address": "Lægårdvej, 7500 Holstebro"
   },
   {
     "id": 9514125953,
@@ -2368,7 +2643,8 @@
     "region": "Fyn",
     "latitude": 55.099397,
     "longitude": 10.2405688,
-    "website": "https://www.danskfitness.dk/faaborg"
+    "website": "https://www.danskfitness.dk/faaborg",
+    "address": "Lagonis Minde, 5600 Faaborg"
   },
   {
     "id": 9516551182,
@@ -2378,7 +2654,8 @@
     "region": "København",
     "latitude": 55.8113401,
     "longitude": 12.4716902,
-    "website": "https://www.fitnessworld.com/dk2/find-center/holte-midtpunkt"
+    "website": "https://www.fitnessworld.com/dk2/find-center/holte-midtpunkt",
+    "address": "Holte Midtpunkt, 2840 Rudersdal Kommune"
   },
   {
     "id": 9527413988,
@@ -2386,7 +2663,8 @@
     "region": "Fyn",
     "latitude": 55.4019765,
     "longitude": 10.3589809,
-    "website": "https://polerepublic.dk/"
+    "website": "https://polerepublic.dk/",
+    "address": "Pakhusgården, 5200 Odense"
   },
   {
     "id": 9528501199,
@@ -2394,14 +2672,16 @@
     "region": "København",
     "latitude": 55.6639865,
     "longitude": 12.3641543,
-    "website": "https://www.fitnessworld.com/dk2/find-center/albertslund"
+    "website": "https://www.fitnessworld.com/dk2/find-center/albertslund",
+    "address": "Roskildevej, 2620 Albertslund Kommune"
   },
   {
     "id": 9540286682,
     "name": "Shape Studio",
     "region": "Jylland",
     "latitude": 57.046465,
-    "longitude": 9.9277911
+    "longitude": 9.9277911,
+    "address": "Nørregade, 9000 Aalborg"
   },
   {
     "id": 9549613366,
@@ -2410,7 +2690,8 @@
     "city": "Skalbakken",
     "region": "København",
     "latitude": 55.6934343,
-    "longitude": 12.4848435
+    "longitude": 12.4848435,
+    "address": "Skalbakken, 2720 København"
   },
   {
     "id": 9556295819,
@@ -2420,7 +2701,8 @@
     "region": "Sjælland",
     "latitude": 56.0303747,
     "longitude": 12.6064615,
-    "website": "https://www.fitnessworld.com/dk2/find-center/helsingoer-soendre-strandvej"
+    "website": "https://www.fitnessworld.com/dk2/find-center/helsingoer-soendre-strandvej",
+    "address": "Skydebane Alle, 3000 Helsingør"
   },
   {
     "id": 9590509652,
@@ -2430,7 +2712,8 @@
     "region": "København",
     "latitude": 55.6819436,
     "longitude": 12.5806984,
-    "website": "https://www.barrys.com/studio/copenhagen/"
+    "website": "https://www.barrys.com/studio/copenhagen/",
+    "address": "Christian IX's Gade, 1111 København"
   },
   {
     "id": 9622556315,
@@ -2438,7 +2721,8 @@
     "region": "Sjælland",
     "latitude": 55.6800377,
     "longitude": 11.1033356,
-    "website": "https://shop.stormfitness.dk/"
+    "website": "https://shop.stormfitness.dk/",
+    "address": "Slagelsevej, 4400 Kalundborg"
   },
   {
     "id": 9631020516,
@@ -2447,14 +2731,16 @@
     "city": "Korsør Nordvangen",
     "region": "Sjælland",
     "latitude": 55.329671,
-    "longitude": 11.1468132
+    "longitude": 11.1468132,
+    "address": "Norvangen, 4220 Korsør"
   },
   {
     "id": 9633198608,
     "name": "Nordic Performance Training",
     "region": "København",
     "latitude": 55.6657333,
-    "longitude": 12.6262783
+    "longitude": 12.6262783,
+    "address": "Ved Amagerbanen, 1441 København"
   },
   {
     "id": 9643909591,
@@ -2464,7 +2750,8 @@
     "region": "København",
     "latitude": 55.7585998,
     "longitude": 12.4497929,
-    "website": "https://www.puregym.dk/find-center/bagsvaerd"
+    "website": "https://www.puregym.dk/find-center/bagsvaerd",
+    "address": "Grusgraven, 2880 Gladsaxe Kommune"
   },
   {
     "id": 9643924481,
@@ -2474,7 +2761,8 @@
     "region": "København",
     "latitude": 55.773619,
     "longitude": 12.506165,
-    "website": "https://www.sats.dk/fitnesscenter/sjaelland/sats-lyngby--kanalvej/"
+    "website": "https://www.sats.dk/fitnesscenter/sjaelland/sats-lyngby--kanalvej/",
+    "address": "Kanalvej, 2800 Kongens Lyngby"
   },
   {
     "id": 9645234918,
@@ -2483,7 +2771,8 @@
     "city": "Dalgas Avenue",
     "region": "Jylland",
     "latitude": 56.1440486,
-    "longitude": 10.1999615
+    "longitude": 10.1999615,
+    "address": "Dalgas Avenue, 8000 Aarhus"
   },
   {
     "id": 9645234942,
@@ -2492,7 +2781,8 @@
     "city": "Højbjerg Stenvej",
     "region": "Jylland",
     "latitude": 56.10662,
-    "longitude": 10.205834
+    "longitude": 10.205834,
+    "address": "Stenvej, 8270 Aarhus"
   },
   {
     "id": 9645439884,
@@ -2501,7 +2791,8 @@
     "city": "Tomsgårdsvej",
     "region": "København",
     "latitude": 55.7076132,
-    "longitude": 12.522359
+    "longitude": 12.522359,
+    "address": "Tomsgårdsvej, 2400 København"
   },
   {
     "id": 9645634605,
@@ -2510,7 +2801,8 @@
     "city": "Holbæk Ahlgade",
     "region": "Sjælland",
     "latitude": 55.7169674,
-    "longitude": 11.7155938
+    "longitude": 11.7155938,
+    "address": "Ahlgade, 4300 Holbæk"
   },
   {
     "id": 9646079284,
@@ -2520,7 +2812,8 @@
     "region": "Jylland",
     "latitude": 57.028614,
     "longitude": 9.975748,
-    "website": "https://www.puregym.dk/find-center/aalborg-langagervej"
+    "website": "https://www.puregym.dk/find-center/aalborg-langagervej",
+    "address": "Skjernvej, 9220 Aalborg"
   },
   {
     "id": 9647018019,
@@ -2529,7 +2822,8 @@
     "region": "Sjælland",
     "latitude": 55.97139,
     "longitude": 12.023252,
-    "website": "https://www.puregym.dk/find-center/frederiksvaerk"
+    "website": "https://www.puregym.dk/find-center/frederiksvaerk",
+    "address": "Egil Harders Gade, 3300 Frederiksværk"
   },
   {
     "id": 9650455592,
@@ -2538,7 +2832,8 @@
     "city": "Skanderborg Adelgade",
     "region": "Jylland",
     "latitude": 56.0336643,
-    "longitude": 9.9305334
+    "longitude": 9.9305334,
+    "address": "Dagmar Centret, 8660 Skanderborg"
   },
   {
     "id": 9651538166,
@@ -2547,7 +2842,8 @@
     "city": "Slagelse City 3",
     "region": "Sjælland",
     "latitude": 55.4053903,
-    "longitude": 11.3529047
+    "longitude": 11.3529047,
+    "address": "Jernbanegade, 4200 Slagelse"
   },
   {
     "id": 9652099007,
@@ -2556,7 +2852,8 @@
     "city": "Viborg Farvervej",
     "region": "Jylland",
     "latitude": 56.460362,
-    "longitude": 9.399015
+    "longitude": 9.399015,
+    "address": "Farvervej, 8800 Viborg"
   },
   {
     "id": 9652099010,
@@ -2565,7 +2862,8 @@
     "city": "Viborg Slagterivej",
     "region": "Jylland",
     "latitude": 56.4475742,
-    "longitude": 9.4030101
+    "longitude": 9.4030101,
+    "address": "Skansebakken, 8800 Viborg"
   },
   {
     "id": 9653443092,
@@ -2575,7 +2873,8 @@
     "region": "Jylland",
     "latitude": 55.4659429,
     "longitude": 8.4589934,
-    "website": "https://www.puregym.dk/find-center/esbjerg-broen"
+    "website": "https://www.puregym.dk/find-center/esbjerg-broen",
+    "address": "Exnersgade, 6700 Esbjerg"
   },
   {
     "id": 9653551931,
@@ -2584,7 +2883,8 @@
     "region": "København",
     "latitude": 55.7054473,
     "longitude": 12.5902709,
-    "website": "https://sportinghealthclub.dk/shc-oestbanegade/"
+    "website": "https://sportinghealthclub.dk/shc-oestbanegade/",
+    "address": "Østbanegade, 2150 København"
   },
   {
     "id": 9653551932,
@@ -2594,7 +2894,8 @@
     "region": "København",
     "latitude": 55.6852252,
     "longitude": 12.5508943,
-    "website": "https://sportinghealthclub.dk/shc-aaboulevarden/"
+    "website": "https://sportinghealthclub.dk/shc-aaboulevarden/",
+    "address": "Åboulevard, 1964 København"
   },
   {
     "id": 9653630259,
@@ -2602,7 +2903,8 @@
     "region": "Sjælland",
     "latitude": 55.9262406,
     "longitude": 12.3126801,
-    "website": "https://smileyfitness.dk/"
+    "website": "https://smileyfitness.dk/",
+    "address": "Carlsbergvej, 3400 Hillerød"
   },
   {
     "id": 9653673804,
@@ -2611,7 +2913,8 @@
     "city": "Oslo Plads",
     "region": "København",
     "latitude": 55.6921953,
-    "longitude": 12.5882884
+    "longitude": 12.5882884,
+    "address": "Folke Bernadottes Allé, 1328 København"
   },
   {
     "id": 9653673805,
@@ -2620,7 +2923,8 @@
     "city": "Himmelbyen",
     "region": "København",
     "latitude": 55.6196386,
-    "longitude": 12.5747216
+    "longitude": 12.5747216,
+    "address": "Asger Jorns Allé, 2770 København"
   },
   {
     "id": 9653673806,
@@ -2629,7 +2933,8 @@
     "city": "Kastrup Vestamagercentret",
     "region": "København",
     "latitude": 55.6032782,
-    "longitude": 12.5864716
+    "longitude": 12.5864716,
+    "address": "Ugandavej, 2770 Tårnby"
   },
   {
     "id": 9653673807,
@@ -2639,7 +2944,8 @@
     "region": "København",
     "latitude": 55.6413957,
     "longitude": 12.4691301,
-    "website": "https://www.puregym.dk/find-center/hvidovre-bibliotekvej"
+    "website": "https://www.puregym.dk/find-center/hvidovre-bibliotekvej",
+    "address": "Bibliotekvej, 2650 Hvidovre Kommune"
   },
   {
     "id": 9653711176,
@@ -2649,7 +2955,8 @@
     "region": "København",
     "latitude": 55.6820736,
     "longitude": 12.5839722,
-    "website": "https://sportinghealthclub.dk/shc-gothersgade/"
+    "website": "https://sportinghealthclub.dk/shc-gothersgade/",
+    "address": "Borgergade, 1301 København"
   },
   {
     "id": 9653711177,
@@ -2658,7 +2965,8 @@
     "region": "København",
     "latitude": 55.6803727,
     "longitude": 12.5613698,
-    "website": "https://sportinghealthclub.dk/shc-soerne/"
+    "website": "https://sportinghealthclub.dk/shc-soerne/",
+    "address": "Gyldenløvesgade, 1600 København"
   },
   {
     "id": 9654202647,
@@ -2667,7 +2975,8 @@
     "city": "Herning Vestergade",
     "region": "Jylland",
     "latitude": 56.136239,
-    "longitude": 8.962348
+    "longitude": 8.962348,
+    "address": "Vestergade, 7400 Herning"
   },
   {
     "id": 9654241978,
@@ -2676,7 +2985,8 @@
     "city": "City Vest",
     "region": "Jylland",
     "latitude": 56.1551217,
-    "longitude": 10.1347734
+    "longitude": 10.1347734,
+    "address": "Gudrunsvej, 8220 Aarhus"
   },
   {
     "id": 9655655353,
@@ -2685,7 +2995,8 @@
     "city": "Randers Gl. Hobrovej",
     "region": "Jylland",
     "latitude": 56.4721576,
-    "longitude": 10.0179231
+    "longitude": 10.0179231,
+    "address": "Gammel Hobrovej, 8900 Randers"
   },
   {
     "id": 9658642164,
@@ -2694,7 +3005,8 @@
     "city": "Hillerød Københavnsvej",
     "region": "Sjælland",
     "latitude": 55.9334045,
-    "longitude": 12.313747
+    "longitude": 12.313747,
+    "address": "Københavnsvej, 3400 Hillerød"
   },
   {
     "id": 9661884648,
@@ -2704,7 +3016,8 @@
     "region": "København",
     "latitude": 55.684509,
     "longitude": 12.532181,
-    "website": "https://www.puregym.dk/find-center/frb-frederiksberg-svoemmehal"
+    "website": "https://www.puregym.dk/find-center/frb-frederiksberg-svoemmehal",
+    "address": "Helgesvej, 1951 Frederiksberg"
   },
   {
     "id": 9690523887,
@@ -2712,7 +3025,8 @@
     "region": "Jylland",
     "latitude": 55.4661704,
     "longitude": 8.4527882,
-    "website": "https://nextgenfitness.dk/"
+    "website": "https://nextgenfitness.dk/",
+    "address": "Kongensgade, 6700 Esbjerg"
   },
   {
     "id": 9710167691,
@@ -2721,7 +3035,8 @@
     "city": "Vanløse torv",
     "region": "København",
     "latitude": 55.6875008,
-    "longitude": 12.4928911
+    "longitude": 12.4928911,
+    "address": "Vanløse Torv, 2720 København"
   },
   {
     "id": 9724474585,
@@ -2729,7 +3044,8 @@
     "region": "Jylland",
     "latitude": 56.9728296,
     "longitude": 9.8512988,
-    "website": "https://svenstrupfysioterapi.dk/"
+    "website": "https://svenstrupfysioterapi.dk/",
+    "address": "Godthåbsvej, 9230 Svenstrup"
   },
   {
     "id": 9804299873,
@@ -2738,7 +3054,8 @@
     "city": "Trøjborg",
     "region": "Jylland",
     "latitude": 56.1708182,
-    "longitude": 10.2120451
+    "longitude": 10.2120451,
+    "address": "Niels Juels Gade, 8000 Aarhus"
   },
   {
     "id": 9825810694,
@@ -2746,7 +3063,8 @@
     "region": "Jylland",
     "latitude": 56.1561909,
     "longitude": 10.2121206,
-    "website": "https://hotyogaaarhus.dk/"
+    "website": "https://hotyogaaarhus.dk/",
+    "address": "Skolegyde, 8000 Aarhus"
   },
   {
     "id": 9835395069,
@@ -2754,7 +3072,8 @@
     "region": "Jylland",
     "latitude": 56.1574207,
     "longitude": 10.2011841,
-    "website": "https://yogaskolen.dk/"
+    "website": "https://yogaskolen.dk/",
+    "address": "Vestergade, 8000 Aarhus"
   },
   {
     "id": 9864731859,
@@ -2763,7 +3082,8 @@
     "region": "Jylland",
     "latitude": 55.4800543,
     "longitude": 8.4790273,
-    "website": "https://fitnessx.dk/kampagne/aabning-af-jagtvej-esbjerg/"
+    "website": "https://fitnessx.dk/kampagne/aabning-af-jagtvej-esbjerg/",
+    "address": "Hermodsvej, 6705 Esbjerg"
   },
   {
     "id": 9939827634,
@@ -2772,14 +3092,16 @@
     "city": "Frederiksberg",
     "region": "København",
     "latitude": 55.6838417,
-    "longitude": 12.5240702
+    "longitude": 12.5240702,
+    "address": "Nordre Fasanvej, 2000 Frederiksberg"
   },
   {
     "id": 9939928568,
     "name": "Loop Fitness Peter Bangs Vej",
     "region": "København",
     "latitude": 55.6788113,
-    "longitude": 12.5134462
+    "longitude": 12.5134462,
+    "address": "Peter Bangs Vej, 2000 Frederiksberg"
   },
   {
     "id": 9941126649,
@@ -2787,7 +3109,8 @@
     "region": "København",
     "latitude": 55.6823472,
     "longitude": 12.5040391,
-    "website": "https://rawgym.dk/"
+    "website": "https://rawgym.dk/",
+    "address": "Finsensvej, 2000 Frederiksberg"
   },
   {
     "id": 9941126650,
@@ -2797,7 +3120,8 @@
     "region": "København",
     "latitude": 55.6820183,
     "longitude": 12.5225798,
-    "website": "https://fitnessx.dk/find-center/fasanvej/"
+    "website": "https://fitnessx.dk/find-center/fasanvej/",
+    "address": "Stæhr Johansens Vej, 2000 Frederiksberg"
   },
   {
     "id": 9941126651,
@@ -2807,7 +3131,8 @@
     "region": "København",
     "latitude": 55.6686001,
     "longitude": 12.5353628,
-    "website": "https://fitnessx.dk/find-center/koebenhavn-v-carlsberg-byen/"
+    "website": "https://fitnessx.dk/find-center/koebenhavn-v-carlsberg-byen/",
+    "address": "Thorvald Bindesbølls Plads, 1775 København"
   },
   {
     "id": 9941126652,
@@ -2817,7 +3142,8 @@
     "region": "København",
     "latitude": 55.654492,
     "longitude": 12.4885251,
-    "website": "https://fitnessx.dk/find-center/valby-vigerslevvej/"
+    "website": "https://fitnessx.dk/find-center/valby-vigerslevvej/",
+    "address": "Kulbanevej, 2500 København"
   },
   {
     "id": 9941126653,
@@ -2827,7 +3153,8 @@
     "region": "København",
     "latitude": 55.6459617,
     "longitude": 12.636087,
-    "website": "https://fitnessx.dk/find-center/koebenhavn-femoren/"
+    "website": "https://fitnessx.dk/find-center/koebenhavn-femoren/",
+    "address": "Engvej, 2300 København"
   },
   {
     "id": 9941126654,
@@ -2837,7 +3164,8 @@
     "region": "København",
     "latitude": 55.7887656,
     "longitude": 12.4667409,
-    "website": "https://fitnessx.dk/find-center/virum/"
+    "website": "https://fitnessx.dk/find-center/virum/",
+    "address": "Virumvej, 2830 Kongens Lyngby"
   },
   {
     "id": 9964852238,
@@ -2845,14 +3173,16 @@
     "region": "København",
     "latitude": 55.6708074,
     "longitude": 12.627365,
-    "website": "https://teamvici.dk/"
+    "website": "https://teamvici.dk/",
+    "address": "Oliehavnsbroen, 1441 København"
   },
   {
     "id": 10024156900,
     "name": "Loop",
     "region": "Sjælland",
     "latitude": 55.65935,
-    "longitude": 11.4015637
+    "longitude": 11.4015637,
+    "address": "Drivsåtvej, 4450 Jyderup"
   },
   {
     "id": 10024173852,
@@ -2860,7 +3190,8 @@
     "region": "Sjælland",
     "latitude": 55.659248,
     "longitude": 11.4001162,
-    "website": "https://multi-fitness.dk/jyderup/"
+    "website": "https://multi-fitness.dk/jyderup/",
+    "address": "Drivsåtvej, 4450 Jyderup"
   },
   {
     "id": 10076883318,
@@ -2868,7 +3199,8 @@
     "region": "Jylland",
     "latitude": 56.1480949,
     "longitude": 10.1899952,
-    "website": "https://fitnessx.dk/find-center/aarhus-c-ankersgade/"
+    "website": "https://fitnessx.dk/find-center/aarhus-c-ankersgade/",
+    "address": "Ankersgade, 8000 Aarhus"
   },
   {
     "id": 10076928119,
@@ -2876,7 +3208,8 @@
     "region": "Jylland",
     "latitude": 56.1575315,
     "longitude": 10.1926223,
-    "website": "https://fitnessx.dk/find-center/aarhus-c-prismet/"
+    "website": "https://fitnessx.dk/find-center/aarhus-c-prismet/",
+    "address": "Silkeborgvej, 8000 Aarhus"
   },
   {
     "id": 10092190242,
@@ -2884,7 +3217,8 @@
     "region": "Fyn",
     "latitude": 55.3932713,
     "longitude": 10.4493655,
-    "website": "https://ironhouse.dk/"
+    "website": "https://ironhouse.dk/",
+    "address": "Teglværksvej, 5220 Odense"
   },
   {
     "id": 10113355743,
@@ -2892,7 +3226,8 @@
     "region": "Fyn",
     "latitude": 55.0998324,
     "longitude": 10.2411002,
-    "website": "https://www.localfitness.dk/center/faaborg/"
+    "website": "https://www.localfitness.dk/center/faaborg/",
+    "address": "Markedspladsen, 5600 Faaborg"
   },
   {
     "id": 10148648830,
@@ -2900,7 +3235,8 @@
     "region": "Jylland",
     "latitude": 55.4641888,
     "longitude": 8.4357653,
-    "website": "https://vanestaerk.com/"
+    "website": "https://vanestaerk.com/",
+    "address": "Dagvej, 6700 Esbjerg"
   },
   {
     "id": 10200325804,
@@ -2908,14 +3244,16 @@
     "region": "Sjælland",
     "latitude": 55.4177642,
     "longitude": 11.3370604,
-    "website": "https://fysiodanmarkslagelse.dk/"
+    "website": "https://fysiodanmarkslagelse.dk/",
+    "address": "Elmedalsvej, 4200 Slagelse"
   },
   {
     "id": 10237714400,
     "name": "EasyFit",
     "region": "Jylland",
     "latitude": 56.3006895,
-    "longitude": 10.4766334
+    "longitude": 10.4766334,
+    "address": "Hovedgaden, 8410 Rønde"
   },
   {
     "id": 10237941359,
@@ -2923,7 +3261,8 @@
     "region": "Jylland",
     "latitude": 56.3009082,
     "longitude": 10.4786545,
-    "website": "https://ditfitness.dk/"
+    "website": "https://ditfitness.dk/",
+    "address": "Frederiks Alle, 8410 Rønde"
   },
   {
     "id": 10304995025,
@@ -2931,7 +3270,8 @@
     "region": "Jylland",
     "latitude": 56.17063,
     "longitude": 9.5506355,
-    "website": "https://yogamatha.dk/"
+    "website": "https://yogamatha.dk/",
+    "address": "Østergade, 8600 Silkeborg"
   },
   {
     "id": 10311650990,
@@ -2939,7 +3279,8 @@
     "region": "Jylland",
     "latitude": 56.1714296,
     "longitude": 9.5525506,
-    "website": "https://www.vfsilkeborg.dk/"
+    "website": "https://www.vfsilkeborg.dk/",
+    "address": "Christian 8.s Vej, 8600 Silkeborg"
   },
   {
     "id": 10555060795,
@@ -2947,14 +3288,16 @@
     "region": "Jylland",
     "latitude": 56.1677048,
     "longitude": 9.5454307,
-    "website": "https://anandayog.dk/"
+    "website": "https://anandayog.dk/",
+    "address": "Bios Gård, 8600 Silkeborg"
   },
   {
     "id": 10577186750,
     "name": "Stjerne Gym",
     "region": "København",
     "latitude": 55.7051573,
-    "longitude": 12.5798091
+    "longitude": 12.5798091,
+    "address": "Viborggade, 2100 København"
   },
   {
     "id": 10612236773,
@@ -2962,7 +3305,8 @@
     "region": "Jylland",
     "latitude": 56.1650704,
     "longitude": 10.2231457,
-    "website": "https://powerhouseaarhus.dk/"
+    "website": "https://powerhouseaarhus.dk/",
+    "address": "Kristine Nielsens Gade, 8000 Aarhus"
   },
   {
     "id": 10681170626,
@@ -2970,7 +3314,8 @@
     "region": "Sjælland",
     "latitude": 55.6614914,
     "longitude": 11.4051319,
-    "website": "http://www.damgaardboksning.dk/"
+    "website": "http://www.damgaardboksning.dk/",
+    "address": "Holbækvej, 4450 Jyderup"
   },
   {
     "id": 10728393709,
@@ -2978,14 +3323,16 @@
     "region": "Jylland",
     "latitude": 56.4387332,
     "longitude": 9.4037749,
-    "website": "https://www.bodyandmindstudio.dk/"
+    "website": "https://www.bodyandmindstudio.dk/",
+    "address": "Sønæsvej, 8800 Viborg"
   },
   {
     "id": 10733754330,
     "name": "PMT GYM Slagelse",
     "region": "Sjælland",
     "latitude": 55.4091299,
-    "longitude": 11.3698748
+    "longitude": 11.3698748,
+    "address": "Holbækvej, 4200 Slagelse"
   },
   {
     "id": 10738149731,
@@ -2994,7 +3341,8 @@
     "city": "Glostrup Banegårdsvej (C170)",
     "region": "København",
     "latitude": 55.6641785,
-    "longitude": 12.4012501
+    "longitude": 12.4012501,
+    "address": "Banegårdsvej, 2605 Glostrup"
   },
   {
     "id": 10741735530,
@@ -3004,7 +3352,8 @@
     "region": "Jylland",
     "latitude": 56.4396624,
     "longitude": 10.0508046,
-    "website": "https://www.fitnessworld.com/dk2/find-center/randers-aarhusvej"
+    "website": "https://www.fitnessworld.com/dk2/find-center/randers-aarhusvej",
+    "address": "Århusvej, 8940 Randers"
   },
   {
     "id": 10749233189,
@@ -3012,7 +3361,8 @@
     "city": "Viborg",
     "region": "Jylland",
     "latitude": 56.4550371,
-    "longitude": 9.4025534
+    "longitude": 9.4025534,
+    "address": "Tingvej, 8800 Viborg"
   },
   {
     "id": 10812271169,
@@ -3020,7 +3370,8 @@
     "region": "Jylland",
     "latitude": 57.1004755,
     "longitude": 9.5192778,
-    "website": "https://brovstmotionogfitness.dk/"
+    "website": "https://brovstmotionogfitness.dk/",
+    "address": "Rotfelds Vej, 9460 Brovst"
   },
   {
     "id": 10812600028,
@@ -3028,7 +3379,8 @@
     "city": "Thisted Storegade",
     "region": "Jylland",
     "latitude": 56.9546198,
-    "longitude": 8.6917258
+    "longitude": 8.6917258,
+    "address": "Storegade, Thisted"
   },
   {
     "id": 10911607242,
@@ -3036,7 +3388,8 @@
     "region": "Sjælland",
     "latitude": 55.2276042,
     "longitude": 11.751904,
-    "website": "https://fit4livetbootcamp.dk/fitnesscenter-naestved/"
+    "website": "https://fit4livetbootcamp.dk/fitnesscenter-naestved/",
+    "address": "Skellet, 4700 Næstved"
   },
   {
     "id": 10922736026,
@@ -3045,7 +3398,8 @@
     "city": "Tilst",
     "region": "Jylland",
     "latitude": 56.1820928,
-    "longitude": 10.123928
+    "longitude": 10.123928,
+    "address": "Havkærvej, 8381 Tilst"
   },
   {
     "id": 10923952308,
@@ -3055,14 +3409,16 @@
     "region": "Fyn",
     "latitude": 55.2626329,
     "longitude": 9.5016128,
-    "website": "https://www.puregym.dk/find-center/haderslev-christian-x-vej"
+    "website": "https://www.puregym.dk/find-center/haderslev-christian-x-vej",
+    "address": "H.C. Ørsteds Vej, 6100 Haderslev"
   },
   {
     "id": 10946834672,
     "name": "Form & Styrke",
     "region": "Jylland",
     "latitude": 56.1299737,
-    "longitude": 10.1619154
+    "longitude": 10.1619154,
+    "address": "Stenkildevej, 8260 Aarhus"
   },
   {
     "id": 10968676218,
@@ -3070,14 +3426,16 @@
     "region": "København",
     "latitude": 55.7130083,
     "longitude": 12.5696663,
-    "website": "https://fysiskform.dk/"
+    "website": "https://fysiskform.dk/",
+    "address": "Landskronagade, 2100 København"
   },
   {
     "id": 11008357036,
     "name": "Loop",
     "region": "København",
     "latitude": 55.7585709,
-    "longitude": 12.4486953
+    "longitude": 12.4486953,
+    "address": "Vadstrupvej, 2880 Gladsaxe Kommune"
   },
   {
     "id": 11079201390,
@@ -3085,28 +3443,32 @@
     "region": "Jylland",
     "latitude": 57.0001845,
     "longitude": 10.3071779,
-    "website": "https://halsmotionscenter.dk/"
+    "website": "https://halsmotionscenter.dk/",
+    "address": "Degnelodden, 9370 Hals"
   },
   {
     "id": 11116182445,
     "name": "Multifitness",
     "region": "Sjælland",
     "latitude": 55.3151626,
-    "longitude": 12.3898795
+    "longitude": 12.3898795,
+    "address": "Præstevænget, 4660 Store Heddinge"
   },
   {
     "id": 11116182446,
     "name": "Fit&Sund",
     "region": "Sjælland",
     "latitude": 55.3100206,
-    "longitude": 12.3893983
+    "longitude": 12.3893983,
+    "address": "Algade, 4660 Store Heddinge"
   },
   {
     "id": 11138798975,
     "name": "Stege Gym",
     "region": "Sjælland",
     "latitude": 54.9829839,
-    "longitude": 12.2835142
+    "longitude": 12.2835142,
+    "address": "Billedhuggerstræde, 4780 Stege"
   },
   {
     "id": 11152623795,
@@ -3114,7 +3476,8 @@
     "brand": "PureGym",
     "region": "Fyn",
     "latitude": 55.408838,
-    "longitude": 10.3908086
+    "longitude": 10.3908086,
+    "address": "Sankt Hans Gade, 5000 Odense"
   },
   {
     "id": 11155350407,
@@ -3122,7 +3485,8 @@
     "region": "København",
     "latitude": 55.7170948,
     "longitude": 12.6067692,
-    "website": "https://www.norce.dk/"
+    "website": "https://www.norce.dk/",
+    "address": "Oceanvej, 2150 København"
   },
   {
     "id": 11158384349,
@@ -3130,7 +3494,8 @@
     "region": "København",
     "latitude": 55.6714577,
     "longitude": 12.547235,
-    "website": "https://fysiskform.dk/form/vesterbro"
+    "website": "https://fysiskform.dk/form/vesterbro",
+    "address": "Vesterbrogade, 1621 København"
   },
   {
     "id": 11203275279,
@@ -3146,7 +3511,8 @@
     "region": "Jylland",
     "latitude": 55.4702362,
     "longitude": 8.4385167,
-    "website": "https://www.umayoga.dk/"
+    "website": "https://www.umayoga.dk/",
+    "address": "Cort Adelers Gade, 6700 Esbjerg"
   },
   {
     "id": 11248977186,
@@ -3155,7 +3521,8 @@
     "region": "Jylland",
     "latitude": 56.1526563,
     "longitude": 10.1967075,
-    "website": "https://www.puregym.dk/find-center/aarhus-c-scandinavian"
+    "website": "https://www.puregym.dk/find-center/aarhus-c-scandinavian",
+    "address": "Skovgaardsgade, 8000 Aarhus"
   },
   {
     "id": 11248977189,
@@ -3163,14 +3530,16 @@
     "region": "Jylland",
     "latitude": 56.1527869,
     "longitude": 10.1959066,
-    "website": "https://www.yostudios.dk"
+    "website": "https://www.yostudios.dk",
+    "address": "Skovgaardsgade, 8000 Aarhus"
   },
   {
     "id": 11251464670,
     "name": "Fitness X",
     "region": "Jylland",
     "latitude": 56.1530012,
-    "longitude": 10.2062335
+    "longitude": 10.2062335,
+    "address": "Sønder Allé, 8000 Aarhus"
   },
   {
     "id": 11251578936,
@@ -3178,7 +3547,8 @@
     "region": "Jylland",
     "latitude": 56.152668,
     "longitude": 10.196606,
-    "website": "https://rulesboxingclub.com"
+    "website": "https://rulesboxingclub.com",
+    "address": "Skovgaardsgade, 8000 Aarhus"
   },
   {
     "id": 11253347142,

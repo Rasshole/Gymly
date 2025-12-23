@@ -27,38 +27,16 @@ const HelpScreen = () => {
       case '1': // Support
         navigation.navigate('Support');
         break;
-      case '2': // Community Hub
-        Alert.alert(
-          'Community Hub',
-          'Community Hub vil være tilgængelig når vores hjemmeside er klar. Her kan du deltage i diskussioner om styrketræning, Gymly, kost og generelle spørgsmål.',
-        );
-        // TODO: Open website when ready
-        // Linking.openURL('https://gymly.dk/community');
-        break;
-      case '3': // Om Gymly
+      case '2': // Om Gymly
         navigation.navigate('AboutGymly');
         break;
-      case '4': // Kort på Gymly
-        // Wait with this one
-        Alert.alert('Info', 'Denne funktion kommer snart');
+      case '3': // Vilkår og betingelser
+        navigation.navigate('Terms');
         break;
-      case '5': // Vilkår og betingelser
-        Alert.alert(
-          'Vilkår og betingelser',
-          'Vilkår og betingelser vil være tilgængelig når vores hjemmeside er klar.',
-        );
-        // TODO: Open website when ready
-        // Linking.openURL('https://gymly.dk/terms');
+      case '4': // Privatlivspolitik
+        navigation.navigate('PrivacyPolicy');
         break;
-      case '6': // Privatlivspolitik
-        Alert.alert(
-          'Privatlivspolitik',
-          'Privatlivspolitik vil være tilgængelig når vores hjemmeside er klar.',
-        );
-        // TODO: Open website when ready
-        // Linking.openURL('https://gymly.dk/privacy');
-        break;
-      case '7': // Slet din konto
+      case '5': // Slet din konto
         Alert.alert(
           'Slet din konto',
           'For at slette din konto permanent, skal du besøge vores hjemmeside og logge ind. Denne funktion vil være tilgængelig når vores hjemmeside er klar.',
@@ -73,12 +51,10 @@ const HelpScreen = () => {
 
   const helpItems = [
     {id: '1', title: 'Support', icon: 'help-circle-outline'},
-    {id: '2', title: 'Community Hub', icon: 'people-outline'},
-    {id: '3', title: 'Om Gymly', icon: 'information-circle-outline'},
-    {id: '4', title: 'Kort på Gymly', icon: 'map-outline'},
-    {id: '5', title: 'Vilkår og betingelser', icon: 'document-text-outline'},
-    {id: '6', title: 'Privatlivspolitik', icon: 'shield-checkmark-outline'},
-    {id: '7', title: 'Slet din konto', icon: 'trash-outline', isDestructive: true},
+    {id: '2', title: 'Om Gymly', icon: 'information-circle-outline'},
+    {id: '3', title: 'Vilkår og betingelser', icon: 'document-text-outline'},
+    {id: '4', title: 'Privatlivspolitik', icon: 'shield-checkmark-outline'},
+    {id: '5', title: 'Slet din konto', icon: 'trash-outline', isDestructive: true},
   ];
 
   return (
