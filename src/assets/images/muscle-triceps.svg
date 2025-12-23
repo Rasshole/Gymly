@@ -1,0 +1,13 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="triFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E9EEF6"/>
+      <stop offset="100%" stop-color="#D5DEEC"/>
+    </linearGradient>
+  </defs>
+  <path d="M26 12C30 12 34 14 36 18L46 34C48.5 38.5 47 44 42.7 46.7L32 53L20 34L22 18C22.5 14.5 24.5 12 26 12Z" fill="url(#triFill)" stroke="#5B6B7A" stroke-width="2"/>
+  <path d="M38 30C35 26 30 26 28 30L24 38L30 48" stroke="#0EA5E9" stroke-width="3" stroke-linecap="round"/>
+  <path d="M42 36C40.5 33.5 37.5 32.5 35 34L31 36" stroke="#5B6B7A" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="28" cy="22" r="3" fill="#CBD5E1" stroke="#5B6B7A" stroke-width="1.2"/>
+</svg>
+

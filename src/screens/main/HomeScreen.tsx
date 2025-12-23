@@ -28,11 +28,77 @@ import {colors} from '@/theme/colors';
 
 type HomeScreenNavigationProp = StackNavigationProp<any>;
 
+// Mock friends list for mentions
+const FRIENDS = [
+  {id: '1', name: 'Jeff'},
+  {id: '2', name: 'Marie'},
+  {id: '3', name: 'Lars'},
+  {id: '4', name: 'Sofia'},
+  {id: '5', name: 'Patti'},
+];
+
+// Component to render text with clickable mentions
+const RenderTextWithMentions = ({text, mentionedUsers, navigation}: {text: string; mentionedUsers?: string[]; navigation: any}) => {
+  const parts: Array<{text: string; isMention: boolean; userId?: string}> = [];
+  const mentionRegex = /@(\w+)/g;
+  let lastIndex = 0;
+  let match;
+
+  while ((match = mentionRegex.exec(text)) !== null) {
+    // Add text before mention
+    if (match.index > lastIndex) {
+      parts.push({text: text.substring(lastIndex, match.index), isMention: false});
+    }
+    
+    // Add mention
+    const mentionedName = match[1];
+    const friend = FRIENDS.find(f => f.name === mentionedName);
+    const userId = friend?.id || (mentionedUsers && mentionedUsers.length > 0 ? mentionedUsers[0] : undefined);
+    
+    parts.push({
+      text: `@${mentionedName}`,
+      isMention: true,
+      userId: userId,
+    });
+    
+    lastIndex = match.index + match[0].length;
+  }
+  
+  // Add remaining text
+  if (lastIndex < text.length) {
+    parts.push({text: text.substring(lastIndex), isMention: false});
+  }
+
+  return (
+    <Text style={styles.feedDescription}>
+      {parts.map((part, index) => {
+        if (part.isMention && part.userId) {
+          return (
+            <Text
+              key={index}
+              style={styles.feedMention}
+              onPress={() => {
+                navigation.navigate('FriendProfile', {friendId: part.userId});
+              }}>
+              {part.text}
+            </Text>
+          );
+        }
+        return <Text key={index}>{part.text}</Text>;
+      })}
+    </Text>
+  );
+};
+
 const HomeScreen = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
   const {user} = useAppStore();
   const {feedItems, deleteFeedItem} = useFeedStore();
-  const userBicepsEmoji = user?.bicepsEmoji || '💪🏻';
+  const rawBicepsEmoji = user?.bicepsEmoji;
+  const userBicepsEmoji =
+    (rawBicepsEmoji &&
+      ['💪🏻', '💪🏼', '💪🏽', '💪🏾', '💪🏿', '💪'].find(e => rawBicepsEmoji.includes(e))) ||
+    '💪';
   const [activityModalVisible, setActivityModalVisible] = useState(false);
   const [addedFriends, setAddedFriends] = useState<string[]>([]);
   const [now, setNow] = useState(Date.now());
@@ -517,7 +583,13 @@ const HomeScreen = () => {
               {item.type === 'summary' && (
                 <View style={styles.feedSummaryRow}>
                   <View style={styles.feedHighlightSecondary}>
-                    <Icon name="flash" size={16} color="#3B82F6" />
+                    {item.rating && item.rating >= 1 && item.rating <= 5 ? (
+                      <Text style={styles.feedRatingEmoji}>
+                        {['☹️', '🙁', '😐', '😁', '🤩'][item.rating - 1]}
+                      </Text>
+                    ) : (
+                      <Text style={styles.feedRatingEmoji}>{userBicepsEmoji}</Text>
+                    )}
                     <Text style={styles.feedHighlightSecondaryText}>Session delt</Text>
                   </View>
                   {item.workoutInfo && (
@@ -526,7 +598,11 @@ const HomeScreen = () => {
                 </View>
               )}
               {item.description && item.description.trim().length > 0 && (
-                <Text style={styles.feedDescription}>{item.description}</Text>
+                <RenderTextWithMentions 
+                  text={item.description} 
+                  mentionedUsers={item.mentionedUsers}
+                  navigation={navigation}
+                />
               )}
               <View style={styles.feedActions}>
                 <View style={styles.feedActionGroup}>
@@ -681,17 +757,6 @@ const HomeScreen = () => {
             />
         </View>
 
-        {/* Test Notification Button (for development) */}
-        <TouchableOpacity
-          style={styles.testButton}
-          onPress={() => {
-            // Simulate a friend check-in for testing
-            NotificationService.simulateRandomCheckIn();
-          }}
-          activeOpacity={0.8}>
-          <Icon name="notifications" size={20} color="#007AFF" />
-          <Text style={styles.testButtonText}>Test notifikation</Text>
-        </TouchableOpacity>
       </ScrollView>
 
       <Modal visible={commentModalVisible} transparent animationType="slide">
@@ -989,21 +1054,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: colors.textSecondary,
   },
-  testButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.surface,
-    padding: 12,
-    borderRadius: 12,
-    marginTop: 16,
-  },
-  testButtonText: {
-    fontSize: 14,
-    color: colors.secondary,
-    fontWeight: '600',
-    marginLeft: 8,
-  },
   feedSection: {
     marginTop: 8,
   },
@@ -1095,6 +1145,13 @@ const styles = StyleSheet.create({
   },
   feedHighlightSecondaryText: {
     color: colors.white,
+    fontWeight: '600',
+  },
+  feedRatingEmoji: {
+    fontSize: 16,
+  },
+  feedMention: {
+    color: colors.primary,
     fontWeight: '600',
   },
   feedWorkoutInfo: {

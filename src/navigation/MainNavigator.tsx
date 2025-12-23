@@ -45,6 +45,8 @@ import UpcomingWorkoutsScreen from '@/screens/main/UpcomingWorkoutsScreen';
 import WorkoutScheduleScreen from '@/screens/main/WorkoutScheduleScreen';
 import FriendProfileScreen from '@/screens/main/FriendProfileScreen';
 import EditProfileScreen from '@/screens/main/EditProfileScreen';
+import PushNotificationsScreen from '@/screens/main/PushNotificationsScreen';
+import FeedSortingScreen from '@/screens/main/FeedSortingScreen';
 import {useNotificationStore} from '@/store/notificationStore';
 import {colors} from '@/theme/colors';
 
@@ -123,6 +125,8 @@ export type MainStackParamList = {
     gyms: string[];
   };
   EditProfile: undefined;
+  PushNotifications: undefined;
+  FeedSorting: undefined;
 };
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
@@ -490,6 +494,22 @@ const MainNavigator = () => {
         component={EditProfileScreen}
         options={{
           headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="PushNotifications"
+        component={PushNotificationsScreen}
+        options={{
+          title: 'Push Notifikationer',
+          headerBackTitle: 'Tilbage',
+        }}
+      />
+      <Stack.Screen
+        name="FeedSorting"
+        component={FeedSortingScreen}
+        options={{
+          title: 'Feed Sortering',
+          headerBackTitle: 'Tilbage',
         }}
       />
           </Stack.Navigator>

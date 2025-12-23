@@ -154,6 +154,20 @@ class NotificationService {
       isActive: false,
     });
   }
+
+  /**
+   * Send a mention notification when someone tags a user in a workout post
+   */
+  static sendMentionNotification(mentionerName: string, mentionedName: string, workoutText: string) {
+    const {addNotification} = useNotificationStore.getState();
+    addNotification({
+      type: 'friend_request', // Using existing type, could add 'mention' type later
+      title: `${mentionerName} har tagget dig`,
+      message: `${mentionerName} har tagget dig i ${workoutText}`,
+      friendName: mentionerName,
+      isActive: false,
+    });
+  }
 }
 
 export default NotificationService;

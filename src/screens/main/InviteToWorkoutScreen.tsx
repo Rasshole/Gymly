@@ -23,15 +23,15 @@ import {MuscleGroup} from '@/types/workout.types';
 import {colors} from '@/theme/colors';
 import {getMuscleGroupImage} from '@/utils/muscleGroupImages';
 
-const MUSCLE_GROUPS: {key: MuscleGroup; label: string; icon: string}[] = [
-  {key: 'bryst', label: 'Bryst', icon: 'body'},
-  {key: 'triceps', label: 'Triceps', icon: 'fitness'},
-  {key: 'skulder', label: 'Skulder', icon: 'body'},
-  {key: 'ben', label: 'Ben', icon: 'walk'},
-  {key: 'biceps', label: 'Biceps', icon: 'fitness'},
-  {key: 'mave', label: 'Mave', icon: 'body'},
-  {key: 'ryg', label: 'Ryg', icon: 'body'},
-  {key: 'hele_kroppen', label: 'Hele kroppen', icon: 'body'},
+const MUSCLE_GROUPS: {key: MuscleGroup; label: string}[] = [
+  {key: 'bryst', label: 'Bryst'},
+  {key: 'triceps', label: 'Triceps'},
+  {key: 'skulder', label: 'Skulder'},
+  {key: 'ben', label: 'Ben'},
+  {key: 'biceps', label: 'Biceps'},
+  {key: 'mave', label: 'Mave'},
+  {key: 'ryg', label: 'Ryg'},
+  {key: 'hele_kroppen', label: 'Hele kroppen'},
 ];
 
 type InviteToWorkoutScreenProps = {
@@ -181,7 +181,7 @@ const InviteToWorkoutScreen = () => {
         </View>
 
         {/* Date & Time Selection */}
-        <View style={styles.section}>
+          <View style={styles.section}>
           <Text style={styles.sectionTitle}>Tidspunkt</Text>
           
           <TouchableOpacity
@@ -219,7 +219,7 @@ const InviteToWorkoutScreen = () => {
         </View>
 
         {/* Muscle Groups Selection */}
-        <View style={styles.section}>
+          <View style={styles.section}>
           <Text style={styles.sectionTitle}>Muskelgrupper</Text>
           <Text style={styles.sectionSubtitle}>
             Vælg hvilke muskelgrupper I skal træne (flere valg muligt)
