@@ -620,7 +620,7 @@ const styles = StyleSheet.create({
   requestButtonText: {
     fontSize: 14,
     fontWeight: '600',
-    color: colors.secondary,
+    color: colors.white,
     marginLeft: 4,
   },
   requestButtonTextPending: {

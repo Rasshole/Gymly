@@ -606,7 +606,7 @@ const GroupsScreen = () => {
           style={styles.createButtonHeader}
           onPress={() => setShowCreateGroup(true)}
           activeOpacity={0.7}>
-          <Icon name="add-circle" size={24} color="#007AFF" />
+          <Icon name="add-circle" size={24} color={colors.primary} />
           <Text style={styles.createButtonHeaderText}>Opret</Text>
         </TouchableOpacity>
       </View>
@@ -650,7 +650,7 @@ const GroupsScreen = () => {
               style={styles.emptyButton}
               onPress={() => setShowCreateGroup(true)}
               activeOpacity={0.8}>
-              <Icon name="add-circle" size={20} color="#007AFF" />
+              <Icon name="add-circle" size={20} color={colors.primary} />
               <Text style={styles.emptyButtonText}>Opret første gruppe</Text>
             </TouchableOpacity>
           )}
@@ -721,7 +721,7 @@ const styles = StyleSheet.create({
   createButtonHeaderText: {
     fontSize: 16,
     fontWeight: '600',
-    color: colors.secondary,
+    color: colors.primary,
     marginLeft: 4,
   },
   searchContainer: {
@@ -1104,7 +1104,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   createButton: {
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.primary,
     borderRadius: 12,
     paddingVertical: 16,
     alignItems: 'center',

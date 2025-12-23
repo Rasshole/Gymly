@@ -1133,8 +1133,8 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   muscleCardActive: {
-    backgroundColor: colors.secondary,
-    borderColor: colors.secondary,
+    backgroundColor: colors.primary,
+    borderColor: colors.primary,
   },
   muscleImage: {
     width: 40,

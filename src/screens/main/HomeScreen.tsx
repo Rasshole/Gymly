@@ -24,6 +24,8 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import NotificationService from '@/services/notifications/NotificationService';
 import {useFeedStore} from '@/store/feedStore';
+import {getMuscleGroupImage} from '@/utils/muscleGroupImages';
+import {MuscleGroup} from '@/types/workout.types';
 import {colors} from '@/theme/colors';
 
 type HomeScreenNavigationProp = StackNavigationProp<any>;
@@ -186,6 +188,36 @@ const HomeScreen = () => {
     });
     const time = date.toLocaleTimeString('da-DK', {hour: '2-digit', minute: '2-digit'});
     return `${day} • kl. ${time}`;
+  };
+
+  // Parse muscle groups from focus string
+  const getMuscleGroupsFromFocus = (focus: string): MuscleGroup[] => {
+    const lower = focus.toLowerCase();
+    const groups: MuscleGroup[] = [];
+    
+    if (lower.includes('bryst') || lower.includes('chest')) {
+      groups.push('bryst');
+    }
+    if (lower.includes('triceps')) {
+      groups.push('triceps');
+    }
+    if (lower.includes('biceps')) {
+      groups.push('biceps');
+    }
+    if (lower.includes('ben') || lower.includes('legs')) {
+      groups.push('ben');
+    }
+    if (lower.includes('ryg') || lower.includes('back')) {
+      groups.push('ryg');
+    }
+    if (lower.includes('skulder') || lower.includes('shoulder')) {
+      groups.push('skulder');
+    }
+    if (lower.includes('abs') || lower.includes('mave') || lower.includes('core')) {
+      groups.push('mave');
+    }
+    
+    return groups.length > 0 ? groups : ['hele_kroppen'];
   };
 
   const handleJoinActive = (friendName: string, friendId: string) => {
@@ -514,7 +546,16 @@ const HomeScreen = () => {
                   <Text style={styles.activeFriendMeta}>
                     {friend.gym} • {formatActiveDuration(friend.startTimestamp)}
                   </Text>
-                  <Text style={styles.activeFriendFocus}>{friend.focus}</Text>
+                  <View style={styles.activeFriendMuscleGroups}>
+                    {getMuscleGroupsFromFocus(friend.focus).map((muscleGroup, idx) => (
+                      <Image
+                        key={idx}
+                        source={getMuscleGroupImage(muscleGroup)}
+                        style={styles.activeFriendMuscleIcon}
+                        resizeMode="contain"
+                      />
+                    ))}
+                  </View>
                 </View>
                 <TouchableOpacity
                   style={[
@@ -592,6 +633,18 @@ const HomeScreen = () => {
                     )}
                     <Text style={styles.feedHighlightSecondaryText}>Session delt</Text>
                   </View>
+                  {item.muscles && item.muscles.length > 0 && (
+                    <View style={styles.feedMuscleIconsRow}>
+                      {item.muscles.map(muscle => (
+                        <Image
+                          key={muscle}
+                          source={getMuscleGroupImage(muscle)}
+                          style={styles.feedMuscleIcon}
+                          resizeMode="contain"
+                        />
+                      ))}
+                    </View>
+                  )}
                   {item.workoutInfo && (
                     <Text style={styles.feedWorkoutInfo}>{item.workoutInfo}</Text>
                   )}
@@ -741,7 +794,7 @@ const HomeScreen = () => {
                       <Icon
                         name={isAdded ? 'checkmark' : 'person-add-outline'}
                         size={16}
-                        color={isAdded ? '#22C55E' : '#3B82F6'}
+                        color={isAdded ? '#22C55E' : colors.primary}
                       />
                       <Text
                         style={[
@@ -833,7 +886,16 @@ const HomeScreen = () => {
                   <View style={{flex: 1}}>
                     <Text style={styles.activityFriendName}>{friend.name}</Text>
                     <Text style={styles.activityFriendGym}>{friend.gym}</Text>
-                    <Text style={styles.activityFriendFocus}>{friend.focus}</Text>
+                    <View style={styles.activeFriendMuscleGroups}>
+                      {getMuscleGroupsFromFocus(friend.focus).map((muscleGroup, idx) => (
+                        <Image
+                          key={idx}
+                          source={getMuscleGroupImage(muscleGroup)}
+                          style={styles.activeFriendMuscleIcon}
+                          resizeMode="contain"
+                        />
+                      ))}
+                    </View>
                     <Text style={styles.activityFriendDuration}>
                       Aktiv i {formatActiveDuration(friend.startTimestamp)}
                     </Text>
@@ -862,7 +924,16 @@ const HomeScreen = () => {
                   <View style={{flex: 1}}>
                     <Text style={styles.upcomingName}>{session.name}</Text>
                     <Text style={styles.upcomingGym}>{session.gym}</Text>
-                    <Text style={styles.upcomingFocus}>{session.focus}</Text>
+                    <View style={styles.upcomingMuscleGroups}>
+                      {getMuscleGroupsFromFocus(session.focus).map((muscleGroup, idx) => (
+                        <Image
+                          key={idx}
+                          source={getMuscleGroupImage(muscleGroup)}
+                          style={styles.upcomingMuscleIcon}
+                          resizeMode="contain"
+                        />
+                      ))}
+                    </View>
                     <Text style={styles.upcomingTime}>{formatUpcomingDate(session.scheduledAt)}</Text>
                   </View>
                   <TouchableOpacity
@@ -998,10 +1069,14 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: colors.textTertiary,
   },
-  activeFriendFocus: {
-    fontSize: 13,
-    color: colors.successLight,
-    marginTop: 2,
+  activeFriendMuscleGroups: {
+    flexDirection: 'row',
+    marginTop: 4,
+    gap: 4,
+  },
+  activeFriendMuscleIcon: {
+    width: 20,
+    height: 20,
   },
   joinBadge: {
     backgroundColor: colors.primary,
@@ -1138,7 +1213,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 6,
-    backgroundColor: colors.blue, // Blue background for "Session delt"
+    backgroundColor: colors.primary, // Purple background for "Session delt"
     borderRadius: 12,
     paddingHorizontal: 12,
     paddingVertical: 6,
@@ -1158,6 +1233,16 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '400',
     color: colors.secondary, // Green color
+  },
+  feedMuscleIconsRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 4,
+    gap: 6,
+  },
+  feedMuscleIcon: {
+    width: 20,
+    height: 20,
   },
   feedDescription: {
     fontSize: 15,
@@ -1358,9 +1443,14 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: colors.textSecondary,
   },
-  upcomingFocus: {
-    fontSize: 13,
-    color: colors.textTertiary,
+  upcomingMuscleGroups: {
+    flexDirection: 'row',
+    marginTop: 4,
+    gap: 4,
+  },
+  upcomingMuscleIcon: {
+    width: 20,
+    height: 20,
   },
   upcomingTime: {
     fontSize: 13,
@@ -1559,7 +1649,7 @@ const styles = StyleSheet.create({
   suggestedFriendAddButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: colors.blue, // Blue background for "Tilføj" button
+    backgroundColor: colors.primary, // Purple background for "Tilføj" button
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 20,

@@ -1,4 +1,5 @@
 import {create} from 'zustand';
+import {MuscleGroup} from '@/types/workout.types';
 
 export type FeedItemType = 'photo' | 'pr' | 'summary';
 
@@ -12,6 +13,7 @@ export type FeedItem = {
   workoutInfo?: string; // Location, participants, muscle groups, time
   rating?: number; // 1-5 rating with emojis
   mentionedUsers?: string[]; // Array of user IDs that were mentioned/tagged
+  muscles?: MuscleGroup[]; // Muscle groups for this workout (for icons in feed)
 };
 
 interface FeedState {

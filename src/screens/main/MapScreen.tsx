@@ -443,7 +443,7 @@ const MapScreen = () => {
         style={styles.mapTypeButton}
         onPress={() => setShowMapTypePicker(!showMapTypePicker)}
         activeOpacity={0.8}>
-        <Icon name="layers" size={24} color="#007AFF" />
+        <Icon name="layers" size={24} color={colors.white} />
       </TouchableOpacity>
 
       {/* Map Type Picker Modal */}
@@ -542,7 +542,7 @@ const MapScreen = () => {
         style={styles.centerLocationButton}
         onPress={centerOnUserLocation}
         activeOpacity={0.8}>
-        <Icon name="locate" size={24} color="#007AFF" />
+        <Icon name="locate" size={24} color={colors.white} />
       </TouchableOpacity>
 
       {/* Info Panel */}
@@ -564,7 +564,7 @@ const MapScreen = () => {
           )}
           {userLocation && (
             <View style={styles.distanceInfo}>
-              <Icon name="location" size={16} color="#007AFF" />
+              <Icon name="location" size={16} color={colors.primary} />
               <Text style={styles.distanceText}>{getDistanceText(selectedGym)} væk</Text>
             </View>
           )}
@@ -577,8 +577,8 @@ const MapScreen = () => {
           </View>
           {mockFriends.filter(f => f.isOnline && f.gymId === selectedGym.id).length > 0 && (
             <View style={styles.userInfo}>
-              <Icon name="person" size={16} color="#3B82F6" />
-              <Text style={[styles.userInfoText, {color: '#3B82F6'}]}>
+              <Icon name="person" size={16} color={colors.primary} />
+              <Text style={[styles.userInfoText, {color: colors.primary}]}>
                 {mockFriends.filter(f => f.isOnline && f.gymId === selectedGym.id).length}{' '}
                 {mockFriends.filter(f => f.isOnline && f.gymId === selectedGym.id).length === 1 ? 'ven' : 'venner'}
               </Text>
@@ -660,8 +660,8 @@ const MapScreen = () => {
                       </View>
                       {activeFriends > 0 && (
                         <View style={styles.sliderDetailRow}>
-                          <Icon name="person" size={12} color="#3B82F6" />
-                          <Text style={[styles.sliderDetailText, {color: '#3B82F6'}]}>
+                          <Icon name="person" size={12} color={colors.primary} />
+                          <Text style={[styles.sliderDetailText, {color: colors.primary}]}>
                             {activeFriends} {activeFriends === 1 ? 'ven' : 'venner'} online
                           </Text>
                         </View>
@@ -683,7 +683,7 @@ const MapScreen = () => {
           <View style={styles.centersBarDivider} />
           <View style={styles.centersBarContent}>
             <View style={styles.centersBarHandle} />
-            <Icon name="location" size={18} color="#007AFF" style={styles.centersBarIcon} />
+            <Icon name="location" size={18} color={colors.primary} style={styles.centersBarIcon} />
             <Text style={styles.centersBarText}>
               I Nærheden
             </Text>
@@ -763,8 +763,8 @@ const MapScreen = () => {
                           </View>
                           {mockFriends.filter(f => f.isOnline && f.gymId === gym.id).length > 0 && (
                             <View style={styles.activityRow}>
-                              <Icon name="person" size={14} color="#3B82F6" />
-                              <Text style={[styles.activityText, {color: '#3B82F6'}]}>
+                              <Icon name="person" size={14} color={colors.primary} />
+                              <Text style={[styles.activityText, {color: colors.primary}]}>
                                 {mockFriends.filter(f => f.isOnline && f.gymId === gym.id).length}{' '}
                                 {mockFriends.filter(f => f.isOnline && f.gymId === gym.id).length === 1 ? 'ven' : 'venner'}
                               </Text>
@@ -820,8 +820,8 @@ const MapScreen = () => {
                           </View>
                           {mockFriends.filter(f => f.isOnline && f.gymId === gym.id).length > 0 && (
                             <View style={styles.activityRow}>
-                              <Icon name="person" size={14} color="#3B82F6" />
-                              <Text style={[styles.activityText, {color: '#3B82F6'}]}>
+                              <Icon name="person" size={14} color={colors.primary} />
+                              <Text style={[styles.activityText, {color: colors.primary}]}>
                                 {mockFriends.filter(f => f.isOnline && f.gymId === gym.id).length}{' '}
                                 {mockFriends.filter(f => f.isOnline && f.gymId === gym.id).length === 1 ? 'ven' : 'venner'}
                               </Text>
@@ -904,20 +904,20 @@ const styles = StyleSheet.create({
   },
   mapTypeButton: {
     position: 'absolute',
-    top: 90, // Position below search bar
+    bottom: 230, // Above center location button
     right: 16,
     width: 48,
     height: 48,
     borderRadius: 24,
-    backgroundColor: '#fff',
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '#000',
+    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.2,
     shadowRadius: 4,
-    elevation: 4,
-    zIndex: 100,
+    elevation: 100,
+    zIndex: 101,
   },
   mapTypePickerBackdrop: {
     position: 'absolute',
@@ -968,7 +968,7 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 24,
-    backgroundColor: colors.backgroundCard,
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: colors.primary,
@@ -1026,7 +1026,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 15,
     right: -3,
-    backgroundColor: '#3B82F6',
+    backgroundColor: colors.primary,
     borderRadius: 8,
     minWidth: 16,
     height: 16,
@@ -1104,6 +1104,8 @@ const styles = StyleSheet.create({
     color: colors.secondary,
     marginLeft: 6,
     fontWeight: '500',
+    flexShrink: 1,
+    flexWrap: 'wrap',
   },
   viewDetailsButton: {
     flexDirection: 'row',

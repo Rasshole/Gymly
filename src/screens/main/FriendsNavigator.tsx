@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     textTransform: 'none',
   },
   tabLabelActive: {
-    color: colors.text,
+    color: colors.primary,
   },
   tabIndicator: {
     position: 'absolute',
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     height: 2,
-    backgroundColor: '#000',
+    backgroundColor: colors.primary,
   },
 });
 

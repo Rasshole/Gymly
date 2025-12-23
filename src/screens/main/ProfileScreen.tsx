@@ -40,7 +40,7 @@ const FavoriteGymItem = ({gym, index}: {gym: DanishGym; index: number}) => {
         </View>
       ) : (
         <View style={styles.favoriteGymIconPlaceholder}>
-          <Icon name="fitness" size={24} color="#007AFF" />
+          <Icon name="fitness" size={24} color={colors.primary} />
         </View>
       )}
       <View style={styles.favoriteGymInfo}>
@@ -501,7 +501,7 @@ const ProfileScreen = () => {
               <Image source={{uri: user.profileImageUrl}} style={styles.avatar} />
             ) : (
               <View style={styles.avatarPlaceholder}>
-                <Icon name="person" size={48} color="#007AFF" />
+                <Icon name="person" size={48} color={colors.primary} />
               </View>
             )}
           </View>
@@ -512,7 +512,7 @@ const ProfileScreen = () => {
                 style={styles.editProfileButton}
                 onPress={() => navigation.navigate('EditProfile')}
                 activeOpacity={0.7}>
-                <Icon name="brush-outline" size={20} color="#007AFF" />
+                <Icon name="brush-outline" size={20} color={colors.primary} />
               </TouchableOpacity>
             </View>
             <Text style={styles.username}>@{user?.username}</Text>
@@ -594,7 +594,7 @@ const ProfileScreen = () => {
                               {['☹️', '🙁', '😐', '😁', '🤩'][item.rating - 1]}
                             </Text>
                           ) : (
-                            <Icon name="flash" size={16} color="#38BDF8" />
+                            <Icon name="flash" size={16} color={colors.white} />
                           )}
                           <Text style={styles.profileFeedHighlightSecondaryText}>Session delt</Text>
                         </View>
@@ -638,7 +638,7 @@ const ProfileScreen = () => {
                   <Icon
                     name="trophy"
                     size={18}
-                    color={activePRTab === 'pr' ? '#007AFF' : '#8E8E93'}
+                    color={activePRTab === 'pr' ? colors.primary : '#8E8E93'}
                   />
                   <Text
                     style={[
@@ -655,7 +655,7 @@ const ProfileScreen = () => {
                   <Icon
                     name="barbell"
                     size={18}
-                    color={activePRTab === 'reps' ? '#007AFF' : '#8E8E93'}
+                    color={activePRTab === 'reps' ? colors.primary : '#8E8E93'}
                   />
                   <Text
                     style={[
@@ -671,7 +671,7 @@ const ProfileScreen = () => {
                   style={styles.prAddButton}
                   onPress={handleOpenPrModal}
                   activeOpacity={0.7}>
-                  <Icon name="add-circle" size={28} color="#007AFF" />
+                  <Icon name="add-circle" size={28} color={colors.primary} />
                 </TouchableOpacity>
               )}
             </View>
@@ -695,7 +695,7 @@ const ProfileScreen = () => {
                           }}
                           activeOpacity={0.8}>
                           <View style={styles.prsVideoThumbnail}>
-                            <Icon name="play-circle" size={40} color="#007AFF" />
+                            <Icon name="play-circle" size={40} color={colors.primary} />
                             <Text style={styles.prsVideoText}>Se video</Text>
                           </View>
                         </TouchableOpacity>
@@ -776,7 +776,7 @@ const ProfileScreen = () => {
                   <Icon 
                     name={showWorkoutsInStats ? "chevron-up" : "chevron-down"} 
                     size={20} 
-                    color="#007AFF" 
+                    color={colors.primary} 
                     style={{marginLeft: 'auto'}} 
                   />
                 </TouchableOpacity>
@@ -793,7 +793,7 @@ const ProfileScreen = () => {
                         <View key={workout.id} style={styles.workoutCard}>
                           <View style={styles.workoutCardHeader}>
                             <View style={styles.workoutCardHeaderLeft}>
-                              <Icon name="fitness" size={24} color="#007AFF" />
+                              <Icon name="fitness" size={24} color={colors.primary} />
                               <View style={styles.workoutCardHeaderInfo}>
                                 <Text style={styles.workoutCardDate}>
                                   {workout.startTime instanceof Date 
@@ -913,7 +913,7 @@ const ProfileScreen = () => {
 
               {/* Combined Stats - Check-ins and Time */}
               <View style={styles.additionalStatItem}>
-                <Icon name="checkmark-circle-outline" size={20} color="#007AFF" style={styles.statIcon} />
+                <Icon name="checkmark-circle-outline" size={20} color={colors.primary} style={styles.statIcon} />
                 <View style={styles.additionalStatContent}>
                   <Text style={styles.additionalStatLabel}>Check-ins</Text>
                   <Text style={styles.additionalStatValue}>{checkInsForPeriod}</Text>
@@ -921,7 +921,7 @@ const ProfileScreen = () => {
                 </View>
 
               <View style={styles.additionalStatItem}>
-                <Icon name="people-outline" size={20} color="#007AFF" style={styles.statIcon} />
+                <Icon name="people-outline" size={20} color={colors.primary} style={styles.statIcon} />
                 <View style={styles.additionalStatContent}>
                   <Text style={styles.additionalStatLabel}>Check-ins med venner</Text>
                   <Text style={styles.additionalStatValue}>{workoutsWithFriendsForPeriod}</Text>
@@ -929,7 +929,7 @@ const ProfileScreen = () => {
             </View>
 
               <View style={styles.additionalStatItem}>
-                <Icon name="time-outline" size={20} color="#007AFF" style={styles.statIcon} />
+                <Icon name="time-outline" size={20} color={colors.primary} style={styles.statIcon} />
                 <View style={styles.additionalStatContent}>
                   <Text style={styles.additionalStatLabel}>Tid trænet</Text>
                   <Text style={styles.additionalStatValue}>
@@ -939,7 +939,7 @@ const ProfileScreen = () => {
               </View>
 
               <View style={styles.additionalStatItem}>
-                <Icon name="people-outline" size={20} color="#007AFF" style={styles.statIcon} />
+                <Icon name="people-outline" size={20} color={colors.primary} style={styles.statIcon} />
                 <View style={styles.additionalStatContent}>
                   <Text style={styles.additionalStatLabel}>Tid trænet med venner</Text>
                   <Text style={styles.additionalStatValue}>
@@ -951,7 +951,7 @@ const ProfileScreen = () => {
               {/* Most Trained Muscle Group */}
               {mostTrainedMuscleGroup && (
                 <View style={styles.additionalStatItem}>
-                  <Icon name="fitness-outline" size={20} color="#007AFF" style={styles.statIcon} />
+                  <Icon name="fitness-outline" size={20} color={colors.primary} style={styles.statIcon} />
                   <View style={styles.additionalStatContent}>
                     <Text style={styles.additionalStatLabel}>Oftest trænet</Text>
                     <Text style={styles.additionalStatValue}>{mostTrainedMuscleGroup}</Text>
@@ -962,7 +962,7 @@ const ProfileScreen = () => {
               {/* Most Frequent Gym */}
               {mostFrequentGym && (
                 <View style={styles.additionalStatItem}>
-                  <Icon name="location-outline" size={20} color="#007AFF" style={styles.statIcon} />
+                  <Icon name="location-outline" size={20} color={colors.primary} style={styles.statIcon} />
                   <View style={styles.additionalStatContent}>
                     <Text style={styles.additionalStatLabel}>Oftest center trænet i</Text>
                     <Text style={styles.additionalStatValue}>{mostFrequentGym.name}</Text>
@@ -975,7 +975,7 @@ const ProfileScreen = () => {
 
               {/* PR's Beaten */}
               <View style={[styles.additionalStatItem, styles.additionalStatItemLast]}>
-                <Icon name="trophy-outline" size={20} color="#007AFF" style={styles.statIcon} />
+                <Icon name="trophy-outline" size={20} color={colors.primary} style={styles.statIcon} />
                 <View style={styles.additionalStatContent}>
                   <Text style={styles.additionalStatLabel}>PR's slået</Text>
                   <Text style={styles.additionalStatValue}>{totalPRsSet}</Text>
@@ -994,7 +994,7 @@ const ProfileScreen = () => {
                   style={styles.addGoalButton}
                   onPress={() => navigation.navigate('AddGoal')}
                   activeOpacity={0.7}>
-                  <Icon name="add-circle" size={20} color="#007AFF" />
+                  <Icon name="add-circle" size={20} color={colors.primary} />
                   <Text style={styles.addGoalButtonText}>Tilføj Mål</Text>
                 </TouchableOpacity>
               </View>
@@ -1014,7 +1014,7 @@ const ProfileScreen = () => {
                 <TouchableOpacity
                   onPress={() => setShowGymSelector(true)}
                   style={styles.editButton}>
-                  <Icon name="create-outline" size={20} color="#007AFF" />
+                  <Icon name="create-outline" size={20} color={colors.primary} />
                   <Text style={styles.editButtonText}>
                     {favoriteGyms.length > 0 ? 'Rediger' : 'Vælg'}
                   </Text>
@@ -1046,7 +1046,7 @@ const ProfileScreen = () => {
                 style={styles.privacyItem}
                 onPress={() => setShowProfileVisibilityPicker(!showProfileVisibilityPicker)}
                 activeOpacity={0.7}>
-                <Icon name="eye" size={20} color="#007AFF" />
+                <Icon name="eye" size={20} color={colors.primary} />
                 <View style={styles.privacyItemContent}>
                   <Text style={styles.privacyLabel}>Profil synlighed</Text>
                   <Text style={styles.privacyValue}>
@@ -1073,7 +1073,7 @@ const ProfileScreen = () => {
                       Alle
                     </Text>
                     {user?.privacySettings.profileVisibility === 'everyone' && (
-                      <Icon name="checkmark" size={20} color="#007AFF" />
+                      <Icon name="checkmark" size={20} color={colors.primary} />
                     )}
                   </TouchableOpacity>
                   <TouchableOpacity
@@ -1091,7 +1091,7 @@ const ProfileScreen = () => {
                       Venner & Lokal Centre
                     </Text>
                     {user?.privacySettings.profileVisibility === 'friends_and_gyms' && (
-                      <Icon name="checkmark" size={20} color="#007AFF" />
+                      <Icon name="checkmark" size={20} color={colors.primary} />
                     )}
                   </TouchableOpacity>
                   <TouchableOpacity
@@ -1109,7 +1109,7 @@ const ProfileScreen = () => {
                       Kun Venner
                     </Text>
                     {user?.privacySettings.profileVisibility === 'friends' && (
-                      <Icon name="checkmark" size={20} color="#007AFF" />
+                      <Icon name="checkmark" size={20} color={colors.primary} />
                     )}
                   </TouchableOpacity>
                   <TouchableOpacity
@@ -1127,7 +1127,7 @@ const ProfileScreen = () => {
                       Privat
                     </Text>
                     {user?.privacySettings.profileVisibility === 'private' && (
-                      <Icon name="checkmark" size={20} color="#007AFF" />
+                      <Icon name="checkmark" size={20} color={colors.primary} />
                     )}
                   </TouchableOpacity>
                 </View>
@@ -1135,7 +1135,7 @@ const ProfileScreen = () => {
 
               {/* Location Sharing */}
               <View style={styles.privacyItem}>
-                <Icon name="location" size={20} color="#007AFF" />
+                <Icon name="location" size={20} color={colors.primary} />
                 <View style={styles.privacyItemContent}>
                   <Text style={styles.privacyLabel}>Lokationsdeling</Text>
                 </View>
@@ -1423,7 +1423,7 @@ const ThisWeekSection = () => {
     <View style={styles.thisWeekSection}>
       <View style={styles.thisWeekHeader}>
         <View style={styles.thisWeekHeaderLeft}>
-          <Icon name="fitness" size={20} color="#007AFF" />
+          <Icon name="fitness" size={20} color={colors.primary} />
           <Text style={styles.thisWeekTitle}>Denne uge</Text>
         </View>
       </View>
@@ -1552,7 +1552,7 @@ const styles = StyleSheet.create({
   profileStatNumber: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#000',
+    color: colors.primary,
     marginBottom: 2,
   },
   profileStatLabel: {
@@ -1588,7 +1588,7 @@ const styles = StyleSheet.create({
     marginRight: 0,
   },
   statsPeriodButtonActive: {
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.primary,
   },
   statsPeriodButtonText: {
     fontSize: 12,
@@ -1653,7 +1653,7 @@ const styles = StyleSheet.create({
   additionalStatValue: {
     fontSize: 18,
     fontWeight: '600',
-    color: colors.text,
+    color: colors.primary,
   },
   additionalStatSubtext: {
     fontSize: 12,
@@ -1683,7 +1683,7 @@ const styles = StyleSheet.create({
   workoutsListButtonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#007AFF',
+    color: colors.primary,
     marginLeft: 8,
   },
   workoutsListButtonCount: {
@@ -2115,7 +2115,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   tabActive: {
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.primary,
   },
   tabText: {
     fontSize: 14,
@@ -2220,7 +2220,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 6,
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.primary,
     borderRadius: 12,
     paddingHorizontal: 12,
     paddingVertical: 6,
@@ -2311,7 +2311,7 @@ const styles = StyleSheet.create({
     marginLeft: 6,
   },
   prsTabTextActive: {
-    color: colors.secondary,
+    color: colors.primary,
   },
   prsCard: {
     backgroundColor: colors.backgroundCard,
@@ -2492,7 +2492,7 @@ const styles = StyleSheet.create({
   },
   prSubmitButton: {
     width: '100%',
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.primary,
     borderRadius: 16,
     paddingVertical: 16,
     alignItems: 'center',
