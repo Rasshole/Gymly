@@ -1388,30 +1388,33 @@ const CheckInScreen = () => {
                   } inviteret (venter på svar)`}
                 </Text>
               )}
+              
+              <View style={styles.activeButtonsContainer}>
+                <TouchableOpacity
+                  style={styles.inviteFriendsButton}
+                  onPress={() => openInviteModal('active')}
+                  activeOpacity={0.9}>
+                  <Ionicons name="send-outline" size={20} color={colors.primary} style={{marginRight: 8}} />
+                  <Text style={styles.inviteFriendsText}>Inviter venner</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.prButton} onPress={handleOpenPrModal} activeOpacity={0.9}>
+                  <Ionicons name="trophy-outline" size={20} color={colors.white} style={{marginRight: 8}} />
+                  <Text style={styles.prButtonText}>Sæt PR</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.photoButton}
+                  onPress={handleCaptureWorkoutPhoto}
+                  activeOpacity={0.9}>
+                  <Ionicons name="camera-outline" size={20} color="#0F172A" style={{marginRight: 8}} />
+                  <Text style={styles.photoButtonText}>
+                    {sessionPhotoUri ? 'Tag nyt billede fra træning' : 'Tag billede fra træning'}
+                  </Text>
+                </TouchableOpacity>
+                {sessionPhotoUri && (
+                  <Text style={styles.photoSavedHint}>Foto gemt – bliver foreslået når du deler.</Text>
+                )}
+              </View>
             </View>
-            <TouchableOpacity
-              style={styles.inviteFriendsButton}
-              onPress={() => openInviteModal('active')}
-              activeOpacity={0.9}>
-              <Ionicons name="send-outline" size={20} color="#007AFF" style={{marginRight: 8}} />
-              <Text style={styles.inviteFriendsText}>Inviter venner</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.prButton} onPress={handleOpenPrModal} activeOpacity={0.9}>
-              <Ionicons name="trophy-outline" size={20} color="#C026D3" style={{marginRight: 8}} />
-              <Text style={styles.prButtonText}>Sæt PR</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.photoButton}
-              onPress={handleCaptureWorkoutPhoto}
-              activeOpacity={0.9}>
-              <Ionicons name="camera-outline" size={20} color="#0F172A" style={{marginRight: 8}} />
-              <Text style={styles.photoButtonText}>
-                {sessionPhotoUri ? 'Tag nyt billede fra træning' : 'Tag billede fra træning'}
-              </Text>
-            </TouchableOpacity>
-            {sessionPhotoUri && (
-              <Text style={styles.photoSavedHint}>Foto gemt – bliver foreslået når du deler.</Text>
-            )}
           </>
         ) : (
           <>
@@ -1513,7 +1516,6 @@ const CheckInScreen = () => {
                 <Animated.View
                   style={[
                     styles.sliderKnob,
-                    soloTraining && styles.sliderKnobActive,
                     {
                       transform: [{translateX: sliderAnim}],
                     },
@@ -2073,7 +2075,7 @@ const CheckInScreen = () => {
           </TouchableWithoutFeedback>
           <View 
             style={[styles.shareModalCard, {
-              backgroundColor: '#231B3D', 
+              backgroundColor: colors.white, 
               width: '90%', 
               minHeight: 400, 
               maxWidth: 500, 
@@ -2100,7 +2102,7 @@ const CheckInScreen = () => {
                 <Text style={styles.modalTitle}>Del træning</Text>
                 
                 {/* Description */}
-                <Text style={[styles.shareSectionLabel, {color: '#FFFFFF'}]}>Beskrivelse</Text>
+                <Text style={styles.shareSectionLabel}>Beskrivelse</Text>
                 <View style={styles.shareInputContainer}>
                   <TextInput
                     style={styles.shareInput}
@@ -2196,7 +2198,7 @@ const CheckInScreen = () => {
                           });
                         }
                       }}>
-                      <Ionicons name="camera-outline" size={32} color={colors.secondary} />
+                      <Ionicons name="camera-outline" size={32} color={colors.primary} />
                       <Text style={styles.sharePhotoAddText}>Tilføj billede</Text>
               </TouchableOpacity>
                   )}
@@ -2283,10 +2285,10 @@ const CheckInScreen = () => {
                 
                 <View style={styles.shareButtonRow}>
                   <TouchableOpacity style={styles.secondaryButton} onPress={cancelShareComposer}>
-                    <Text style={styles.secondaryButtonText}>Annuller</Text>
+                    <Text style={styles.shareSecondaryButtonText}>Annuller</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.primaryButton} onPress={submitShareComposer}>
-                    <Text style={styles.primaryButtonText}>Del træning</Text>
+                  <TouchableOpacity style={styles.sharePrimaryButton} onPress={submitShareComposer}>
+                    <Text style={styles.sharePrimaryButtonText}>Del træning</Text>
                   </TouchableOpacity>
                 </View>
               </ScrollView>
@@ -2303,7 +2305,13 @@ const CheckInScreen = () => {
 
       <Modal visible={inviteModalVisible} transparent animationType="fade">
         <View style={styles.modalOverlay}>
-          <View style={[styles.modalCard, styles.friendModal]}>
+          <TouchableWithoutFeedback onPress={handleInviteModalDone}>
+            <View style={[StyleSheet.absoluteFill, {backgroundColor: 'rgba(0,0,0,0.5)'}]} />
+          </TouchableWithoutFeedback>
+          <View 
+            style={[styles.modalCard, styles.friendModal]} 
+            pointerEvents="box-none"
+            onStartShouldSetResponder={() => true}>
             <Text style={styles.modalTitle}>Inviter venner</Text>
             <TouchableOpacity
               style={[
@@ -2563,7 +2571,7 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     borderWidth: 1,
     borderColor: colors.border,
-    paddingVertical: 10,
+    paddingVertical: 9,
     paddingHorizontal: 8,
     marginBottom: 8,
     alignItems: 'center',
@@ -2922,8 +2930,14 @@ const styles = StyleSheet.create({
     color: colors.text,
     marginLeft: 6,
   },
+  activeButtonsContainer: {
+    marginTop: 20,
+    gap: 12,
+  },
   inviteFriendsButton: {
-    backgroundColor: colors.primary,
+    backgroundColor: colors.white,
+    borderWidth: 1,
+    borderColor: colors.primary,
     borderRadius: 18,
     flexDirection: 'row',
     alignItems: 'center',
@@ -2933,13 +2947,12 @@ const styles = StyleSheet.create({
   },
   inviteFriendsText: {
     fontSize: 16,
-    color: colors.secondary,
+    color: colors.primary,
     fontWeight: '600',
     marginLeft: 8,
   },
   prButton: {
-    marginTop: 12,
-    backgroundColor: '#F5D0FE',
+    backgroundColor: '#F59E0B',
     borderRadius: 18,
     flexDirection: 'row',
     alignItems: 'center',
@@ -2949,12 +2962,11 @@ const styles = StyleSheet.create({
   },
   prButtonText: {
     fontSize: 16,
-    color: '#C026D3',
+    color: colors.white,
     fontWeight: '600',
     marginLeft: 8,
   },
   photoButton: {
-    marginTop: 12,
     backgroundColor: '#DBEAFE',
     borderRadius: 18,
     flexDirection: 'row',
@@ -3081,7 +3093,7 @@ const styles = StyleSheet.create({
   shareSectionLabel: {
     fontSize: 16,
     fontWeight: '600',
-    color: colors.text,
+    color: colors.primary,
     marginTop: 20,
     marginBottom: 8,
   },
@@ -3109,7 +3121,7 @@ const styles = StyleSheet.create({
   },
   sharePhotoAddButton: {
     borderWidth: 2,
-    borderColor: colors.border,
+    borderColor: colors.primary,
     borderStyle: 'dashed',
     borderRadius: 12,
     padding: 24,
@@ -3120,7 +3132,7 @@ const styles = StyleSheet.create({
   sharePhotoAddText: {
     marginTop: 8,
     fontSize: 14,
-    color: colors.secondary,
+    color: colors.primary,
     fontWeight: '600',
   },
   sharePhotoChangeButton: {
@@ -3139,10 +3151,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: colors.primary,
     borderRadius: 12,
     padding: 16,
-    backgroundColor: colors.background,
+    backgroundColor: 'rgba(139, 92, 246, 0.1)',
   },
   shareVisibilityText: {
     fontSize: 15,
@@ -3166,7 +3178,7 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
   },
   shareRatingButtonSelected: {
-    borderColor: colors.secondary,
+    borderColor: colors.primary,
     backgroundColor: colors.surfaceLight || '#E0E7FF',
   },
   shareRatingEmoji: {
@@ -3176,10 +3188,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-start',
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: colors.primary,
     borderRadius: 12,
     padding: 16,
-    backgroundColor: colors.background,
+    backgroundColor: 'rgba(139, 92, 246, 0.1)',
     marginTop: 8,
   },
   sharePrivateNotesInput: {
@@ -3206,13 +3218,13 @@ const styles = StyleSheet.create({
   },
   shareInput: {
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: colors.primary,
     borderRadius: 12,
     padding: 16,
     minHeight: 100,
     fontSize: 15,
     color: colors.text,
-    backgroundColor: colors.background,
+    backgroundColor: 'rgba(139, 92, 246, 0.1)',
   },
   mentionDropdown: {
     position: 'absolute',
@@ -3264,6 +3276,24 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     gap: 12,
   },
+  sharePrimaryButton: {
+    flex: 1,
+    backgroundColor: colors.primary,
+    paddingVertical: 14,
+    borderRadius: 16,
+    marginRight: 8,
+    alignItems: 'center',
+  },
+  sharePrimaryButtonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  shareSecondaryButtonText: {
+    color: colors.primary,
+    fontSize: 16,
+    fontWeight: '600',
+  },
   friendRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -3313,7 +3343,7 @@ const styles = StyleSheet.create({
   invitePill: {
     borderRadius: 999,
     borderWidth: 1,
-    borderColor: colors.secondary,
+    borderColor: colors.primary,
     paddingVertical: 8,
     paddingHorizontal: 16,
   },
@@ -3322,7 +3352,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surface,
   },
   invitePillText: {
-    color: colors.secondary,
+    color: colors.primary,
     fontWeight: '600',
   },
   invitePillTextDisabled: {
@@ -3589,10 +3619,13 @@ const styles = StyleSheet.create({
   },
   calendarDay: {
     width: `${100 / 7}%`,
-    paddingVertical: 10,
+    minHeight: 50,
+    paddingTop: 8,
+    paddingBottom: 10,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     borderRadius: 10,
+    position: 'relative',
   },
   calendarDayFaded: {
     opacity: 0.5,
@@ -3604,6 +3637,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: colors.text,
     fontWeight: '600',
+    marginBottom: 2,
   },
   calendarDayTextFaded: {
     color: colors.textTertiary,
@@ -3613,6 +3647,7 @@ const styles = StyleSheet.create({
   },
   calendarDayMarkers: {
     flexDirection: 'row',
+    justifyContent: 'center',
     gap: 2,
     marginTop: 2,
   },

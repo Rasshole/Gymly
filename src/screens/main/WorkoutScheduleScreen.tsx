@@ -1417,7 +1417,7 @@ const styles = StyleSheet.create({
     width: 36,
     height: 36,
     borderRadius: 18,
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.primary,
     alignItems: 'center',
     justifyContent: 'center',
     shadowColor: colors.primary,
@@ -1458,10 +1458,13 @@ const styles = StyleSheet.create({
   },
   dayCell: {
     width: `${100 / 7}%`,
+    minHeight: 50,
     aspectRatio: 1,
     alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 6,
+    justifyContent: 'flex-start',
+    paddingTop: 6,
+    paddingBottom: 8,
+    position: 'relative',
   },
   dayCellMuted: {
     opacity: 0.4,
@@ -1474,6 +1477,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     color: colors.text,
+    marginBottom: 2,
   },
   dayNumberMuted: {
     color: colors.textTertiary,
@@ -1483,8 +1487,9 @@ const styles = StyleSheet.create({
   },
   dayMarkers: {
     flexDirection: 'row',
-    marginTop: 2,
+    justifyContent: 'center',
     gap: 2,
+    marginTop: 2,
   },
   markerFire: {
     fontSize: 12,
@@ -2008,10 +2013,13 @@ const styles = StyleSheet.create({
   },
   calendarDay: {
     width: `${100 / 7}%`,
-    paddingVertical: 10,
+    minHeight: 50,
+    paddingTop: 8,
+    paddingBottom: 10,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     borderRadius: 10,
+    position: 'relative',
   },
   calendarDayFaded: {
     opacity: 0.5,
@@ -2023,6 +2031,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: colors.text,
     fontWeight: '600',
+    marginBottom: 2,
   },
   calendarDayTextFaded: {
     color: colors.textTertiary,
@@ -2032,6 +2041,7 @@ const styles = StyleSheet.create({
   },
   calendarDayMarkers: {
     flexDirection: 'row',
+    justifyContent: 'center',
     gap: 2,
     marginTop: 2,
   },
