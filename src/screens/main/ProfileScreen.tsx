@@ -12,6 +12,7 @@ import {useFeedStore} from '@/store/feedStore';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {launchCamera, launchImageLibrary, CameraOptions, ImagePickerResponse} from 'react-native-image-picker';
 import FavoriteGymsSelector from './FavoriteGymsSelector';
 import danishGyms, {DanishGym} from '@/data/danishGyms';
 import {getGymLogo, hasGymLogo} from '@/utils/gymLogos';
@@ -180,6 +181,7 @@ const ProfileScreen = () => {
   const [selectedPr, setSelectedPr] = useState<PrOption | null>(null);
   const [prWeight, setPrWeight] = useState('');
   const [prVideoAttached, setPrVideoAttached] = useState(false);
+  const [prVideoUri, setPrVideoUri] = useState<string | null>(null);
   
   const {getAllPRs, getAllRepRecords} = usePRStore();
   const allPRs = getAllPRs();
@@ -457,6 +459,7 @@ const ProfileScreen = () => {
     setSelectedPr(null);
     setPrWeight('');
     setPrVideoAttached(false);
+    setPrVideoUri(null);
   };
 
   const handleSelectPrOption = (option: PrOption) => {
@@ -469,9 +472,80 @@ const ProfileScreen = () => {
     setPrWeight(numeric);
   };
 
-  const handleAttachPrVideo = () => {
-    setPrVideoAttached(true);
-    Alert.alert('Video tilføjet', 'Din video er markeret som uploadet (maks 30 sek).');
+  const handleAttachPrVideo = async () => {
+    try {
+      Alert.alert(
+        'Vælg video',
+        'Hvordan vil du tilføje videoen?',
+        [
+          {
+            text: 'Optag video',
+            onPress: async () => {
+              const videoOptions: CameraOptions = {
+                mediaType: 'video',
+                cameraType: 'back',
+                videoQuality: 'high',
+                durationLimit: 30, // Max 30 seconds
+                saveToPhotos: true,
+              };
+              const response: ImagePickerResponse = await launchCamera(videoOptions);
+              if (response.didCancel) {
+                return;
+              }
+              if (response.errorCode) {
+                Alert.alert('Kamera fejl', response.errorMessage || 'Kunne ikke åbne kameraet.');
+                return;
+              }
+              const asset = response.assets && response.assets[0];
+              if (asset?.uri) {
+                // Check video duration if available
+                if (asset.duration && asset.duration > 30000) {
+                  Alert.alert('Video for lang', 'Videoen må maksimalt være 30 sekunder lang.');
+                  return;
+                }
+                setPrVideoUri(asset.uri);
+                setPrVideoAttached(true);
+                Alert.alert('Video tilføjet', 'Din video er blevet tilføjet (maks 30 sek).');
+              }
+            },
+          },
+          {
+            text: 'Vælg fra bibliotek',
+            onPress: async () => {
+              const libraryOptions: CameraOptions = {
+                mediaType: 'video',
+                videoQuality: 'high',
+              };
+              const response: ImagePickerResponse = await launchImageLibrary(libraryOptions);
+              if (response.didCancel) {
+                return;
+              }
+              if (response.errorCode) {
+                Alert.alert('Fejl', response.errorMessage || 'Kunne ikke åbne biblioteket.');
+                return;
+              }
+              const asset = response.assets && response.assets[0];
+              if (asset?.uri) {
+                // Check video duration if available
+                if (asset.duration && asset.duration > 30000) {
+                  Alert.alert('Video for lang', 'Videoen må maksimalt være 30 sekunder lang.');
+                  return;
+                }
+                setPrVideoUri(asset.uri);
+                setPrVideoAttached(true);
+                Alert.alert('Video tilføjet', 'Din video er blevet tilføjet (maks 30 sek).');
+              }
+            },
+          },
+          {
+            text: 'Annuller',
+            style: 'cancel',
+          },
+        ],
+      );
+    } catch (error) {
+      Alert.alert('Fejl', 'Kunne ikke åbne video picker. Tjek tilladelser og prøv igen.');
+    }
   };
 
   const handleSubmitPr = () => {
@@ -488,7 +562,9 @@ const ProfileScreen = () => {
     }
     Alert.alert('Stærkt!', `${prWeight.trim()} kg i ${selectedPr} sat!`);
     setPrModalVisible(false);
-    // TODO: Actually save PR to store
+    setPrVideoAttached(false);
+    setPrVideoUri(null);
+    // TODO: Actually save PR to store with prVideoUri
   };
 
   return (

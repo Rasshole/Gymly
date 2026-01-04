@@ -1049,6 +1049,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.backgroundCard,
     borderRadius: 16,
     padding: 16,
+    paddingBottom: 18,
     shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 4},
     shadowOpacity: 0.3,
@@ -1069,24 +1070,24 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     color: colors.text,
-    marginBottom: 4,
+    marginBottom: 2,
     paddingRight: 32,
   },
   gymLocation: {
     fontSize: 14,
     color: colors.textMuted,
-    marginBottom: 2,
+    marginBottom: 1,
   },
   gymAddress: {
     fontSize: 12,
     color: colors.textMuted,
-    marginBottom: 8,
+    marginBottom: 2,
   },
   distanceInfo: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 4,
-    marginBottom: 8,
+    marginTop: 1,
+    marginBottom: 2,
   },
   distanceText: {
     fontSize: 14,
@@ -1097,7 +1098,8 @@ const styles = StyleSheet.create({
   userInfo: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 8,
+    marginTop: 2,
+    marginBottom: 0,
   },
   userInfoText: {
     fontSize: 14,
@@ -1111,7 +1113,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 12,
+    marginTop: 8,
     paddingVertical: 10,
     backgroundColor: colors.primary,
     borderRadius: 10,
@@ -1352,7 +1354,7 @@ const styles = StyleSheet.create({
   },
   sliderImageContainer: {
     width: 90,
-    height: 110,
+    height: 125,
   },
   sliderImage: {
     width: '100%',
@@ -1367,27 +1369,29 @@ const styles = StyleSheet.create({
   },
   sliderInfo: {
     flex: 1,
-    padding: 10,
-    justifyContent: 'space-between',
+    padding: 8,
+    paddingTop: 6,
+    paddingBottom: 6,
+    justifyContent: 'flex-start',
   },
   sliderGymName: {
     fontSize: 14,
     fontWeight: '600',
     color: '#000',
-    marginBottom: 2,
+    marginBottom: 0,
   },
   sliderAddress: {
     fontSize: 11,
     color: '#8E8E93',
-    marginBottom: 4,
+    marginBottom: 1,
   },
   sliderDetails: {
-    marginTop: 4,
+    marginTop: 1,
   },
   sliderDetailRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 4,
+    marginTop: 1,
   },
   sliderDetailText: {
     fontSize: 10,
