@@ -504,7 +504,7 @@ const ProfileScreen = () => {
                   return;
                 }
                 setPrVideoUri(asset.uri);
-                setPrVideoAttached(true);
+    setPrVideoAttached(true);
                 Alert.alert('Video tilføjet', 'Din video er blevet tilføjet (maks 30 sek).');
               }
             },
