@@ -5,6 +5,7 @@
 
 import {create} from 'zustand';
 import {PersonalRecord, RepRecord, ExerciseType} from '@/types/pr.types';
+import {getCurrentUserId} from '@/utils/auth';
 
 interface PRState {
   personalRecords: PersonalRecord[];
@@ -14,14 +15,14 @@ interface PRState {
   addPR: (pr: Omit<PersonalRecord, 'id' | 'date'>) => void;
   updatePR: (prId: string, updates: Partial<PersonalRecord>) => void;
   deletePR: (prId: string) => void;
-  getPR: (exercise: ExerciseType) => PersonalRecord | undefined;
-  getAllPRs: () => PersonalRecord[];
+  getPR: (exercise: ExerciseType, userId?: string) => PersonalRecord | undefined;
+  getAllPRs: (userId?: string) => PersonalRecord[];
   
   addRepRecord: (rep: Omit<RepRecord, 'id' | 'date'>) => void;
   updateRepRecord: (repId: string, updates: Partial<RepRecord>) => void;
   deleteRepRecord: (repId: string) => void;
-  getRepRecord: (exercise: ExerciseType) => RepRecord | undefined;
-  getAllRepRecords: () => RepRecord[];
+  getRepRecord: (exercise: ExerciseType, userId?: string) => RepRecord | undefined;
+  getAllRepRecords: (userId?: string) => RepRecord[];
 }
 
 export const usePRStore = create<PRState>((set, get) => ({
@@ -72,19 +73,21 @@ export const usePRStore = create<PRState>((set, get) => ({
   /**
    * Get PR for a specific exercise
    */
-  getPR: (exercise) => {
+  getPR: (exercise, userId?: string) => {
     const state = get();
+    const targetUserId = userId || getCurrentUserId() || 'current_user';
     return state.personalRecords.find(
-      pr => pr.exercise === exercise && pr.userId === 'current_user'
+      pr => pr.exercise === exercise && pr.userId === targetUserId
     );
   },
 
   /**
    * Get all PRs
    */
-  getAllPRs: () => {
+  getAllPRs: (userId?: string) => {
     const state = get();
-    return state.personalRecords.filter(pr => pr.userId === 'current_user');
+    const targetUserId = userId || getCurrentUserId() || 'current_user';
+    return state.personalRecords.filter(pr => pr.userId === targetUserId);
   },
 
   /**
@@ -131,19 +134,21 @@ export const usePRStore = create<PRState>((set, get) => ({
   /**
    * Get rep record for a specific exercise
    */
-  getRepRecord: (exercise) => {
+  getRepRecord: (exercise, userId?: string) => {
     const state = get();
+    const targetUserId = userId || getCurrentUserId() || 'current_user';
     return state.repRecords.find(
-      rep => rep.exercise === exercise && rep.userId === 'current_user'
+      rep => rep.exercise === exercise && rep.userId === targetUserId
     );
   },
 
   /**
    * Get all rep records
    */
-  getAllRepRecords: () => {
+  getAllRepRecords: (userId?: string) => {
     const state = get();
-    return state.repRecords.filter(rep => rep.userId === 'current_user');
+    const targetUserId = userId || getCurrentUserId() || 'current_user';
+    return state.repRecords.filter(rep => rep.userId === targetUserId);
   },
 }));
 

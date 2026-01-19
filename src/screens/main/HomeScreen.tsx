@@ -27,70 +27,13 @@ import {useFeedStore} from '@/store/feedStore';
 import {getMuscleGroupImage} from '@/utils/muscleGroupImages';
 import {MuscleGroup} from '@/types/workout.types';
 import {colors} from '@/theme/colors';
+import {spacing} from '@/theme/spacing';
+import {typography} from '@/theme/typography';
+import RenderTextWithMentions from '@/components/RenderTextWithMentions';
+import {MOCK_FRIENDS} from '@/data/mockFriends';
+import {Card, EmptyState} from '@/components/ui';
 
 type HomeScreenNavigationProp = StackNavigationProp<any>;
-
-// Mock friends list for mentions
-const FRIENDS = [
-  {id: '1', name: 'Jeff'},
-  {id: '2', name: 'Marie'},
-  {id: '3', name: 'Lars'},
-  {id: '4', name: 'Sofia'},
-  {id: '5', name: 'Patti'},
-];
-
-// Component to render text with clickable mentions
-const RenderTextWithMentions = ({text, mentionedUsers, navigation}: {text: string; mentionedUsers?: string[]; navigation: any}) => {
-  const parts: Array<{text: string; isMention: boolean; userId?: string}> = [];
-  const mentionRegex = /@(\w+)/g;
-  let lastIndex = 0;
-  let match;
-
-  while ((match = mentionRegex.exec(text)) !== null) {
-    // Add text before mention
-    if (match.index > lastIndex) {
-      parts.push({text: text.substring(lastIndex, match.index), isMention: false});
-    }
-    
-    // Add mention
-    const mentionedName = match[1];
-    const friend = FRIENDS.find(f => f.name === mentionedName);
-    const userId = friend?.id || (mentionedUsers && mentionedUsers.length > 0 ? mentionedUsers[0] : undefined);
-    
-    parts.push({
-      text: `@${mentionedName}`,
-      isMention: true,
-      userId: userId,
-    });
-    
-    lastIndex = match.index + match[0].length;
-  }
-  
-  // Add remaining text
-  if (lastIndex < text.length) {
-    parts.push({text: text.substring(lastIndex), isMention: false});
-  }
-
-  return (
-    <Text style={styles.feedDescription}>
-      {parts.map((part, index) => {
-        if (part.isMention && part.userId) {
-          return (
-            <Text
-              key={index}
-              style={styles.feedMention}
-              onPress={() => {
-                navigation.navigate('FriendProfile', {friendId: part.userId});
-              }}>
-              {part.text}
-            </Text>
-          );
-        }
-        return <Text key={index}>{part.text}</Text>;
-      })}
-    </Text>
-  );
-};
 
 const HomeScreen = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
@@ -516,7 +459,7 @@ const HomeScreen = () => {
     <View style={styles.container}>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.content}>
         {/* Welcome Section */}
-        <View style={[styles.welcomeSection, {paddingHorizontal: 16}]}>
+        <View style={styles.welcomeSection}>
           <Text style={styles.welcomeText}>Hej, {user?.displayName}! 👋</Text>
           <Text style={styles.subtitle}>Klar til at træne i dag?</Text>
         </View>
@@ -579,7 +522,16 @@ const HomeScreen = () => {
 
         {/* Feed */}
         <React.Fragment>
-        {feedItems.map(item => {
+        {feedItems.length === 0 ? (
+          <EmptyState
+            icon="fitness-outline"
+            title="Ingen træninger endnu"
+            message="Dine venner har endnu ikke delt nogen træninger. Start med at tjekke ind på et gym!"
+            actionLabel="Tjek ind på gym"
+            onAction={() => navigation.navigate('CheckIn')}
+          />
+        ) : (
+          feedItems.map(item => {
             // Ensure animation is initialized
             const likeAnim = ensureBicepsAnimation(item.id);
             const likeScaleStyle = likeAnim
@@ -587,9 +539,9 @@ const HomeScreen = () => {
               : undefined;
             const particles = likeAnim?.particles ?? [];
             const hasCommented = commentedItems.includes(item.id);
-            const commentColor = hasCommented ? '#2563EB' : '#0F172A';
+            const commentColor = hasCommented ? colors.primary : colors.text;
             const isLiked = feedReactions[item.id]?.liked ?? false;
-            const likeColor = isLiked ? '#2563EB' : '#0F172A';
+            const likeColor = isLiked ? colors.primary : colors.text;
             const isAnimating = animatingItems[item.id];
             return (
               <View key={item.id} style={styles.feedCard}>
@@ -604,7 +556,7 @@ const HomeScreen = () => {
                 <TouchableOpacity
                   onPress={() => handleFeedItemMenu(item.id, item.user)}
                   activeOpacity={0.7}>
-                  <Icon name="ellipsis-horizontal" size={18} color="#94A3B8" />
+                  <Icon name="ellipsis-horizontal" size={18} color={colors.textMuted} />
                 </TouchableOpacity>
               </View>
               {item.type === 'photo' &&
@@ -617,7 +569,7 @@ const HomeScreen = () => {
                 ))}
               {item.type === 'pr' && (
                 <View style={styles.feedHighlight}>
-                  <Icon name="trophy" size={18} color="#FACC15" />
+                  <Icon name="trophy" size={18} color={colors.warning} />
                   <Text style={styles.feedHighlightText}>Ny PR</Text>
                 </View>
               )}
@@ -654,7 +606,7 @@ const HomeScreen = () => {
                 <RenderTextWithMentions 
                   text={item.description} 
                   mentionedUsers={item.mentionedUsers}
-                  navigation={navigation}
+                  friends={MOCK_FRIENDS}
                 />
               )}
               <View style={styles.feedActions}>
@@ -741,7 +693,8 @@ const HomeScreen = () => {
               </View>
               </View>
             );
-          })}
+          })
+        )}
         </React.Fragment>
 
         {/* Suggested Friends Section */}
@@ -821,7 +774,7 @@ const HomeScreen = () => {
                 <View style={styles.commentHeader}>
                   <Text style={styles.modalTitle}>Kommentarer</Text>
                   <TouchableOpacity onPress={closeComments} style={styles.commentCloseButton}>
-                    <Icon name="close" size={22} color="#0F172A" />
+                    <Icon name="close" size={22} color={colors.text} />
                   </TouchableOpacity>
                 </View>
                 <ScrollView style={styles.commentList}>
@@ -845,7 +798,7 @@ const HomeScreen = () => {
                   <TextInput
                     style={styles.commentInput}
                     placeholder="Skriv en kommentar..."
-                    placeholderTextColor="#94A3B8"
+                    placeholderTextColor={colors.textMuted}
                     value={commentInput}
                     onChangeText={setCommentInput}
                     multiline
@@ -860,7 +813,7 @@ const HomeScreen = () => {
                     <Icon
                       name="send"
                       size={20}
-                      color={commentInput.trim().length === 0 ? '#94A3B8' : '#fff'}
+                      color={commentInput.trim().length === 0 ? colors.textMuted : colors.white}
                     />
                   </TouchableOpacity>
                 </View>
@@ -978,31 +931,33 @@ const styles = StyleSheet.create({
   },
   content: {
     paddingHorizontal: 0, // No horizontal padding - feed fills edge to edge
-    paddingVertical: 16,
+    paddingVertical: spacing.md,
+    paddingBottom: spacing.xxl,
   },
   welcomeSection: {
-    marginBottom: 24,
-    paddingTop: 8,
+    marginBottom: spacing.lg,
+    paddingTop: spacing.sm,
+    paddingHorizontal: spacing.md,
   },
   welcomeText: {
-    fontSize: 28,
-    fontWeight: 'bold',
+    ...typography.h2,
     color: colors.text,
-    marginBottom: 4,
+    marginBottom: spacing.xs,
   },
   subtitle: {
-    fontSize: 16,
+    ...typography.body,
     color: colors.textSecondary,
   },
   activeFriendsCard: {
     backgroundColor: colors.backgroundCard,
     borderRadius: 16,
-    padding: 16,
-    marginBottom: 24,
+    padding: spacing.md,
+    marginBottom: spacing.lg,
+    marginHorizontal: spacing.md,
     shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 4},
-    shadowOpacity: 0.2,
-    shadowRadius: 12,
+    shadowOpacity: 0.12,
+    shadowRadius: 16,
     elevation: 4,
   },
   activeCardHeader: {
@@ -1012,14 +967,13 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   activeTitle: {
-    fontSize: 18,
-    fontWeight: '700',
+    ...typography.h4,
     color: colors.text,
   },
   activeSubtitleText: {
-    fontSize: 13,
+    ...typography.caption,
     color: colors.textTertiary,
-    marginTop: 2,
+    marginTop: spacing.xs / 2,
   },
   activeCountBadge: {
     backgroundColor: colors.surface,

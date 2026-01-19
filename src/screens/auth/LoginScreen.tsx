@@ -134,7 +134,7 @@ const LoginScreen = () => {
             icon="google"
             label="Fortsæt med Google"
             backgroundColor="#fff"
-            textColor="#0F172A"
+            textColor={colors.text}
             onPress={() => handleSocialLogin('google')}
             loading={socialLoading === 'google'}
           />
@@ -219,7 +219,7 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 36,
-    backgroundColor: '#E6F9FF',
+    backgroundColor: colors.primaryLight + '20', // 20% opacity
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 8,
@@ -246,7 +246,7 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   signupButton: {
-    backgroundColor: '#111827',
+    backgroundColor: colors.text,
     paddingHorizontal: 18,
     paddingVertical: 10,
     borderRadius: 999,
@@ -332,7 +332,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   loginButtonDisabled: {
-    backgroundColor: '#C7C7CC',
+    backgroundColor: colors.surface,
+    opacity: 0.6,
   },
   loginButtonText: {
     color: '#fff',

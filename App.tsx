@@ -4,12 +4,18 @@
  */
 
 import React, {useEffect} from 'react';
-import {StatusBar} from 'react-native';
+import {StatusBar, LogBox} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import RootNavigator from './src/navigation/RootNavigator';
 import {useAppStore} from './src/store/appStore';
 import {usePrivacyStore} from './src/store/privacyStore';
+
+// Ignore specific warnings related to react-native-screens
+LogBox.ignoreLogs([
+  'Unknown prop type for "onAppear"',
+  'Failed prop type: Invalid prop `onAppear`',
+]);
 
 const App = () => {
   const initializeApp = useAppStore(state => state.initialize);

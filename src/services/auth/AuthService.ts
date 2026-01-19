@@ -6,9 +6,10 @@
 import {AuthTokens, AuthResponse} from '@/types/auth.types';
 import {User, UserLogin, UserRegistration} from '@/types/user.types';
 import SecureStorage from '../security/SecureStorage';
+import {API_URL, USE_MOCK_API} from '@/config/environment';
 
 class AuthService {
-  private readonly API_URL = 'https://api.gymly.app'; // TODO: Replace with actual API URL
+  private readonly API_URL = API_URL;
 
   /**
    * Register new user
@@ -28,7 +29,7 @@ class AuthService {
         bicepsEmoji: data.bicepsEmoji || '💪🏻',
         favoriteGyms: data.favoriteGyms, // Save favorite gyms from registration
         privacySettings: {
-          profileVisibility: 'friends',
+          profileVisibility: 'everyone',
           locationSharingEnabled: true,
           showWorkoutHistory: true,
           allowFriendRequests: true,
@@ -90,7 +91,7 @@ class AuthService {
         username: 'testuser',
         displayName: 'Test Bruger',
         privacySettings: {
-          profileVisibility: 'friends',
+          profileVisibility: 'everyone',
           locationSharingEnabled: true,
           showWorkoutHistory: true,
           allowFriendRequests: true,
@@ -281,7 +282,7 @@ class AuthService {
         bicepsEmoji: data?.bicepsEmoji || '💪',
         favoriteGyms: data?.favoriteGyms, // Save favorite gyms from registration
         privacySettings: {
-          profileVisibility: 'friends',
+          profileVisibility: 'everyone',
           locationSharingEnabled: true,
           showWorkoutHistory: true,
           allowFriendRequests: true,

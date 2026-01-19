@@ -18,6 +18,9 @@ import danishGyms, {DanishGym} from '@/data/danishGyms';
 import {getGymLogo, hasGymLogo} from '@/utils/gymLogos';
 import {PersonalRecord, RepRecord} from '@/types/pr.types';
 import {colors} from '@/theme/colors';
+import {spacing} from '@/theme/spacing';
+import RenderTextWithMentions from '@/components/RenderTextWithMentions';
+import {MOCK_FRIENDS} from '@/data/mockFriends';
 
 // Component for rendering favorite gym with logo
 const FavoriteGymItem = ({gym, index}: {gym: DanishGym; index: number}) => {
@@ -61,68 +64,6 @@ type TabType = 'feed' | 'prs' | 'stats';
 type ProfileScreenNavigationProp = StackNavigationProp<any>;
 
 type ProfileVisibility = 'everyone' | 'friends' | 'friends_and_gyms' | 'private';
-
-// Mock friends list for mentions
-const FRIENDS = [
-  {id: '1', name: 'Jeff'},
-  {id: '2', name: 'Marie'},
-  {id: '3', name: 'Lars'},
-  {id: '4', name: 'Sofia'},
-  {id: '5', name: 'Patti'},
-];
-
-// Component to render text with clickable mentions
-const RenderTextWithMentions = ({text, mentionedUsers, navigation}: {text: string; mentionedUsers?: string[]; navigation: any}) => {
-  const parts: Array<{text: string; isMention: boolean; userId?: string}> = [];
-  const mentionRegex = /@(\w+)/g;
-  let lastIndex = 0;
-  let match;
-
-  while ((match = mentionRegex.exec(text)) !== null) {
-    // Add text before mention
-    if (match.index > lastIndex) {
-      parts.push({text: text.substring(lastIndex, match.index), isMention: false});
-    }
-    
-    // Add mention
-    const mentionedName = match[1];
-    const friend = FRIENDS.find(f => f.name === mentionedName);
-    const userId = friend?.id || (mentionedUsers && mentionedUsers.length > 0 ? mentionedUsers[0] : undefined);
-    
-    parts.push({
-      text: `@${mentionedName}`,
-      isMention: true,
-      userId: userId,
-    });
-    
-    lastIndex = match.index + match[0].length;
-  }
-  
-  // Add remaining text
-  if (lastIndex < text.length) {
-    parts.push({text: text.substring(lastIndex), isMention: false});
-  }
-
-  return (
-    <Text style={styles.profileFeedDescription}>
-      {parts.map((part, index) => {
-        if (part.isMention && part.userId) {
-          return (
-            <Text
-              key={index}
-              style={styles.profileFeedMention}
-              onPress={() => {
-                navigation.navigate('FriendProfile', {friendId: part.userId});
-              }}>
-              {part.text}
-            </Text>
-          );
-        }
-        return <Text key={index}>{part.text}</Text>;
-      })}
-    </Text>
-  );
-};
 
 const PR_OPTIONS = ['Bænk', 'Bicepcurl', 'Benpres', 'Dødløft', 'Squat'] as const;
 type PrOption = (typeof PR_OPTIONS)[number];
@@ -683,7 +624,7 @@ const ProfileScreen = () => {
                       <RenderTextWithMentions 
                         text={item.description} 
                         mentionedUsers={item.mentionedUsers}
-                        navigation={navigation}
+                        friends={MOCK_FRIENDS}
                       />
                     )}
                   </View>
@@ -691,7 +632,7 @@ const ProfileScreen = () => {
               </ScrollView>
             ) : (
               <View style={styles.emptyFeed}>
-                <Icon name="images-outline" size={48} color="#C7C7CC" />
+                <Icon name="images-outline" size={48} color={colors.textMuted} />
                 <Text style={styles.emptyFeedText}>Ingen indlæg endnu</Text>
                 <Text style={styles.emptyFeedSubtext}>
                   Del billeder og videoer fra dine træninger
@@ -714,7 +655,7 @@ const ProfileScreen = () => {
                   <Icon
                     name="trophy"
                     size={18}
-                    color={activePRTab === 'pr' ? colors.primary : '#8E8E93'}
+                    color={activePRTab === 'pr' ? colors.primary : colors.textMuted}
                   />
                   <Text
                     style={[
@@ -731,7 +672,7 @@ const ProfileScreen = () => {
                   <Icon
                     name="barbell"
                     size={18}
-                    color={activePRTab === 'reps' ? colors.primary : '#8E8E93'}
+                    color={activePRTab === 'reps' ? colors.primary : colors.textMuted}
                   />
                   <Text
                     style={[
@@ -777,7 +718,7 @@ const ProfileScreen = () => {
                         </TouchableOpacity>
                       ) : (
                         <View style={styles.prsNoVideoContainer}>
-                          <Icon name="videocam-off-outline" size={24} color="#8E8E93" />
+                          <Icon name="videocam-off-outline" size={24} color={colors.textMuted} />
                           <Text style={styles.prsNoVideoText}>Ingen video</Text>
                         </View>
                       )}
@@ -793,7 +734,7 @@ const ProfileScreen = () => {
                 </View>
               ) : (
                 <View style={styles.prsEmptyContainer}>
-                  <Icon name="trophy-outline" size={64} color="#C7C7CC" />
+                  <Icon name="trophy-outline" size={64} color={colors.textMuted} />
                   <Text style={styles.prsEmptyTitle}>Ingen PR's endnu</Text>
                   <Text style={styles.prsEmptyText}>
                     Du har ikke sat nogen personlige rekorder endnu.
@@ -821,7 +762,7 @@ const ProfileScreen = () => {
               </View>
             ) : (
               <View style={styles.prsEmptyContainer}>
-                <Icon name="barbell-outline" size={64} color="#C7C7CC" />
+                <Icon name="barbell-outline" size={64} color={colors.textMuted} />
                 <Text style={styles.prsEmptyTitle}>Ingen Reps registreret</Text>
                 <Text style={styles.prsEmptyText}>
                   Du har ikke registreret nogen rep records endnu.
@@ -915,7 +856,7 @@ const ProfileScreen = () => {
                     })
                   ) : (
                     <View style={styles.emptyWorkouts}>
-                      <Icon name="fitness-outline" size={48} color="#C7C7CC" />
+                      <Icon name="fitness-outline" size={48} color={colors.textMuted} />
                       <Text style={styles.emptyWorkoutsText}>Ingen træninger endnu</Text>
                     </View>
                   )}
@@ -1075,7 +1016,7 @@ const ProfileScreen = () => {
                 </TouchableOpacity>
               </View>
               <View style={styles.emptyGoals}>
-                <Icon name="flag-outline" size={48} color="#C7C7CC" />
+                <Icon name="flag-outline" size={48} color={colors.textMuted} />
                 <Text style={styles.emptyGoalsText}>Ingen mål endnu</Text>
                 <Text style={styles.emptyGoalsSubtext}>
                   Tilføj et mål for at holde dig motiveret
@@ -1102,7 +1043,7 @@ const ProfileScreen = () => {
                 ))
               ) : (
                 <View style={styles.emptyFavorites}>
-                  <Icon name="location-outline" size={32} color="#C7C7CC" />
+                  <Icon name="location-outline" size={32} color={colors.textMuted} />
                   <Text style={styles.emptyFavoritesText}>
                     Ingen lokale centre valgt
                   </Text>
@@ -1129,7 +1070,7 @@ const ProfileScreen = () => {
                     {getProfileVisibilityLabel(user?.privacySettings.profileVisibility || 'private')}
                   </Text>
                 </View>
-                <Icon name="chevron-down" size={20} color="#8E8E93" />
+                <Icon name="chevron-down" size={20} color={colors.textMuted} />
               </TouchableOpacity>
               
               {showProfileVisibilityPicker && (
@@ -1218,7 +1159,7 @@ const ProfileScreen = () => {
                 <Switch
                   value={user?.privacySettings.locationSharingEnabled || false}
                   onValueChange={handleLocationSharingToggle}
-                  trackColor={{false: '#E5E5EA', true: '#34C759'}}
+                  trackColor={{false: colors.surface, true: colors.secondary}}
                   thumbColor="#fff"
                 />
               </View>
@@ -1339,7 +1280,7 @@ const ProfileScreen = () => {
 
                         {workout.muscleGroup && (
                           <View style={styles.workoutCardInfo}>
-                            <Icon name="fitness-outline" size={16} color="#8E8E93" />
+                            <Icon name="fitness-outline" size={16} color={colors.textMuted} />
                             <Text style={styles.workoutCardInfoText}>
                               {workout.muscleGroup}
                             </Text>
@@ -1348,7 +1289,7 @@ const ProfileScreen = () => {
 
                         {workoutFriends.length > 0 && (
                           <View style={styles.workoutCardInfo}>
-                            <Icon name="people-outline" size={16} color="#8E8E93" />
+                            <Icon name="people-outline" size={16} color={colors.textMuted} />
                             <Text style={styles.workoutCardInfoText}>
                               Med {workoutFriends.join(', ')}
                             </Text>
@@ -1356,14 +1297,14 @@ const ProfileScreen = () => {
                         )}
 
                         <View style={styles.workoutCardInfo}>
-                          <Icon name="time-outline" size={16} color="#8E8E93" />
+                          <Icon name="time-outline" size={16} color={colors.textMuted} />
                           <Text style={styles.workoutCardInfoText}>
                             {formatTotalTime(workout.duration)}
                           </Text>
                         </View>
 
                         <View style={styles.workoutCardInfo}>
-                          <Icon name="location-outline" size={16} color="#8E8E93" />
+                          <Icon name="location-outline" size={16} color={colors.textMuted} />
                           <Text style={styles.workoutCardInfoText}>
                             {gym ? `${gym.name}${gym.city ? `, ${gym.city}` : ''}` : 'Ukendt center'}
                           </Text>
@@ -1410,7 +1351,7 @@ const ProfileScreen = () => {
                     onPress={() => handleSelectPrOption(option)}
                     activeOpacity={0.85}>
                     <Text style={styles.prOptionText}>{option}</Text>
-                    <Icon name="chevron-forward" size={18} color="#94A3B8" />
+                    <Icon name="chevron-forward" size={18} color={colors.textMuted} />
                   </TouchableOpacity>
                 ))}
                 <TouchableOpacity style={styles.prModalClose} onPress={() => setPrModalVisible(false)}>
@@ -1442,7 +1383,7 @@ const ProfileScreen = () => {
                   <Icon
                     name={prVideoAttached ? 'checkmark-circle' : 'cloud-upload-outline'}
                     size={20}
-                    color={prVideoAttached ? '#22C55E' : '#0F172A'}
+                    color={prVideoAttached ? colors.secondary : colors.text}
                     style={{marginRight: 8}}
                   />
                   <Text
@@ -1694,7 +1635,7 @@ const styles = StyleSheet.create({
   },
   statDivider: {
     width: 1,
-    backgroundColor: '#E5E5EA',
+    backgroundColor: colors.border,
   },
   additionalStatsContainer: {
     backgroundColor: colors.backgroundCard,
@@ -2575,17 +2516,18 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   prSubmitButtonDisabled: {
-    backgroundColor: '#93C5FD',
+    backgroundColor: colors.surface,
+    opacity: 0.6,
   },
   prSubmitButtonText: {
-    color: '#fff',
+    color: colors.white,
     fontSize: 16,
     fontWeight: '700',
     textAlign: 'center',
   },
   prModalClose: {
     marginTop: 8,
-    backgroundColor: '#E2E8F0',
+    backgroundColor: colors.surface,
     borderRadius: 14,
     paddingVertical: 12,
     paddingHorizontal: 24,
@@ -2593,7 +2535,7 @@ const styles = StyleSheet.create({
   },
   prModalCloseText: {
     fontSize: 15,
-    color: '#0F172A',
+    color: colors.text,
     fontWeight: '600',
   },
 });

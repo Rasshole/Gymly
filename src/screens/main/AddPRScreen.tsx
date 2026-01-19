@@ -20,6 +20,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {launchCamera, launchImageLibrary, CameraOptions, ImagePickerResponse} from 'react-native-image-picker';
 import {usePRStore} from '@/store/prStore';
 import {ExerciseType, PersonalRecord} from '@/types/pr.types';
+import {getCurrentUserId} from '@/utils/auth';
 import {colors} from '@/theme/colors';
 
 type AddPRRouteParams = {
@@ -56,7 +57,7 @@ const AddPRScreen = () => {
       ]);
     } else {
       addPR({
-        userId: 'current_user', // TODO: Get from auth store
+        userId: getCurrentUserId() || 'current_user',
         exercise: exercise!,
         weight: Number(weight),
         videoUrl: videoUrl.trim() || undefined,
@@ -173,7 +174,7 @@ const AddPRScreen = () => {
             onChangeText={setWeight}
             placeholder="F.eks. 100"
             keyboardType="numeric"
-            placeholderTextColor="#8E8E93"
+            placeholderTextColor={colors.textMuted}
           />
         </View>
 
@@ -197,7 +198,7 @@ const AddPRScreen = () => {
               style={styles.removeVideoButton}
               onPress={() => setVideoUrl('')}
               activeOpacity={0.7}>
-              <Icon name="close-circle" size={20} color="#FF3B30" />
+              <Icon name="close-circle" size={20} color={colors.error} />
               <Text style={styles.removeVideoText}>Fjern video</Text>
             </TouchableOpacity>
           )}
@@ -211,7 +212,7 @@ const AddPRScreen = () => {
             value={notes}
             onChangeText={setNotes}
             placeholder="Tilføj noter om din PR..."
-            placeholderTextColor="#8E8E93"
+            placeholderTextColor={colors.textMuted}
             multiline
             numberOfLines={4}
             textAlignVertical="top"
@@ -321,7 +322,7 @@ const styles = StyleSheet.create({
   },
   removeVideoText: {
     fontSize: 14,
-    color: '#FF3B30',
+    color: colors.error,
     marginLeft: 6,
     fontWeight: '600',
   },

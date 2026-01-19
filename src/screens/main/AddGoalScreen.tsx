@@ -19,6 +19,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useGoalStore} from '@/store/goalStore';
 import {GoalType, GoalPeriod} from '@/types/goal.types';
+import {getCurrentUserId} from '@/utils/auth';
 import {colors} from '@/theme/colors';
 
 type AddGoalNavigationProp = StackNavigationProp<any>;
@@ -100,7 +101,7 @@ const AddGoalScreen = () => {
     }
 
     addGoal({
-      userId: 'current_user', // TODO: Get from auth store
+      userId: getCurrentUserId() || 'current_user',
       type: selectedType,
       title,
       description,
@@ -282,7 +283,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     backgroundColor: colors.backgroundCard,
     borderBottomWidth: 1,
-    borderBottomColor: '#E5E5EA',
+    borderBottomColor: colors.border,
   },
   backButton: {
     padding: 4,
