@@ -71,7 +71,7 @@ const AddPRScreen = () => {
 
   const handleVideoPick = async () => {
     try {
-      Alert.alert(
+    Alert.alert(
         'Vælg video',
         'Hvordan vil du tilføje videoen?',
         [
@@ -137,7 +137,7 @@ const AddPRScreen = () => {
             style: 'cancel',
           },
         ],
-      );
+    );
     } catch (error) {
       Alert.alert('Fejl', 'Kunne ikke åbne video picker. Tjek tilladelser og prøv igen.');
     }
