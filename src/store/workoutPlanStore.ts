@@ -36,45 +36,9 @@ interface WorkoutPlanState {
 const findGymByName = (name: string): DanishGym =>
   danishGyms.find(gym => gym.name === name) || danishGyms[0];
 
-const initialPlanned: WorkoutPlanEntry[] = [
-  {
-    id: 'plan_seed_1',
-    gym: findGymByName('Repeat Fitness Frederiksberg'),
-    muscles: ['bryst', 'triceps'],
-    scheduledAt: new Date(Date.now() + 1000 * 60 * 60 * 5),
-    invitedFriends: ['2'],
-    acceptedFriends: [],
-  },
-  {
-    id: 'plan_seed_2',
-    gym: findGymByName('PureGym'),
-    muscles: ['ben', 'ryg'],
-    scheduledAt: new Date(Date.now() + 1000 * 60 * 60 * 24),
-    invitedFriends: [],
-    acceptedFriends: [],
-  },
-];
+const initialPlanned: WorkoutPlanEntry[] = [];
 
-const initialCompleted: WorkoutHistoryEntry[] = [
-  {
-    id: 'history_seed_1',
-    gym: findGymByName('PureGym'),
-    muscles: ['bryst', 'mave'],
-    durationMs: 52 * 60 * 1000,
-    completedAt: new Date(Date.now() - 1000 * 60 * 60 * 20),
-    invitedFriends: ['1', '3'],
-    acceptedFriends: ['1'], // Only friend 1 accepted
-  },
-  {
-    id: 'history_seed_2',
-    gym: findGymByName('Repeat Fitness Frederiksberg'),
-    muscles: ['ben'],
-    durationMs: 70 * 60 * 1000,
-    completedAt: new Date(Date.now() - 1000 * 60 * 60 * 48),
-    invitedFriends: [],
-    acceptedFriends: [],
-  },
-];
+const initialCompleted: WorkoutHistoryEntry[] = [];
 
 export const useWorkoutPlanStore = create<WorkoutPlanState>(set => ({
   plannedWorkouts: initialPlanned,

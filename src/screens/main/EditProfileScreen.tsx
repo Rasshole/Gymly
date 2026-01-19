@@ -23,6 +23,12 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppStore} from '@/store/appStore';
 import {ProfileVisibility} from '@/types/user.types';
+import {
+  launchCamera,
+  launchImageLibrary,
+  CameraOptions,
+  ImagePickerResponse,
+} from 'react-native-image-picker';
 
 type EditProfileNavigationProp = StackNavigationProp<any>;
 
@@ -43,10 +49,12 @@ const EditProfileScreen = () => {
   );
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [city, setCity] = useState(user?.city || '');
+  const [bicepsEmoji, setBicepsEmoji] = useState(user?.bicepsEmoji || '💪🏻');
   const [showGenderPicker, setShowGenderPicker] = useState(false);
   const [profileVisibility, setProfileVisibility] = useState<ProfileVisibility>(
     user?.privacySettings.profileVisibility || 'private'
   );
+  const bicepsOptions = ['💪🏻', '💪🏼', '💪🏽', '💪🏾', '💪🏿', '🦾'];
 
   // Track last changes for 14-day limit
   const [lastDisplayNameChange, setLastDisplayNameChange] = useState<Date | null>(null);
@@ -103,6 +111,7 @@ const EditProfileScreen = () => {
       gender: gender || undefined,
       dateOfBirth: dateOfBirth || undefined,
       city: city.trim() || undefined,
+      bicepsEmoji: bicepsEmoji,
       privacySettings: {
         ...user.privacySettings,
         profileVisibility,
@@ -160,6 +169,42 @@ const EditProfileScreen = () => {
     });
   };
 
+  const handleProfilePhotoPick = () => {
+    Alert.alert('Vælg profilbillede', 'Hvordan vil du tilføje et billede?', [
+      {
+        text: 'Tag billede',
+        onPress: async () => {
+          const cameraOptions: CameraOptions = {
+            mediaType: 'photo',
+            cameraType: 'front',
+            saveToPhotos: false,
+            quality: 0.8,
+          };
+          const response: ImagePickerResponse = await launchCamera(cameraOptions);
+          const asset = response.assets && response.assets[0];
+          if (asset?.uri) {
+            setProfileImageUrl(asset.uri);
+          }
+        },
+      },
+      {
+        text: 'Vælg fra bibliotek',
+        onPress: async () => {
+          const response: ImagePickerResponse = await launchImageLibrary({
+            mediaType: 'photo',
+            selectionLimit: 1,
+            quality: 0.8,
+          });
+          const asset = response.assets && response.assets[0];
+          if (asset?.uri) {
+            setProfileImageUrl(asset.uri);
+          }
+        },
+      },
+      {text: 'Annuller', style: 'cancel'},
+    ]);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -184,9 +229,7 @@ const EditProfileScreen = () => {
           <Text style={styles.sectionTitle}>Profilbillede</Text>
           <TouchableOpacity
             style={styles.imageContainer}
-            onPress={() => {
-              Alert.alert('Foto', 'Foto upload kommer snart');
-            }}
+            onPress={handleProfilePhotoPick}
             activeOpacity={0.8}>
             {profileImageUrl ? (
               <Image source={{uri: profileImageUrl}} style={styles.profileImage} />
@@ -248,6 +291,25 @@ const EditProfileScreen = () => {
             numberOfLines={4}
             textAlignVertical="top"
           />
+        </View>
+
+        {/* Default Biceps Emoji */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Standard biceps emoji</Text>
+          <View style={styles.bicepsGrid}>
+            {bicepsOptions.map(option => (
+              <TouchableOpacity
+                key={option}
+                style={[
+                  styles.bicepsOption,
+                  bicepsEmoji === option && styles.bicepsOptionSelected,
+                ]}
+                onPress={() => setBicepsEmoji(option)}
+                activeOpacity={0.8}>
+                <Text style={styles.bicepsEmoji}>{option}</Text>
+              </TouchableOpacity>
+            ))}
+          </View>
         </View>
 
         {/* Weight */}
@@ -626,6 +688,29 @@ const styles = StyleSheet.create({
   visibilityOptionTextSelected: {
     color: '#007AFF',
     fontWeight: '600',
+  },
+  bicepsGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 12,
+    marginTop: 8,
+  },
+  bicepsOption: {
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    backgroundColor: '#F8F9FA',
+    borderWidth: 1,
+    borderColor: '#E5E5EA',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  bicepsOptionSelected: {
+    borderColor: '#007AFF',
+    backgroundColor: '#E3F2FD',
+  },
+  bicepsEmoji: {
+    fontSize: 24,
   },
 });
 

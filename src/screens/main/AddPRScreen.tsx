@@ -18,6 +18,7 @@ import {useNavigation, useRoute, RouteProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {launchCamera, launchImageLibrary, CameraOptions, ImagePickerResponse} from 'react-native-image-picker';
+import {createThumbnail} from 'react-native-create-thumbnail';
 import {usePRStore} from '@/store/prStore';
 import {ExerciseType, PersonalRecord} from '@/types/pr.types';
 import {colors} from '@/theme/colors';
@@ -37,6 +38,7 @@ const AddPRScreen = () => {
 
   const [weight, setWeight] = useState(existingPR?.weight.toString() || '');
   const [videoUrl, setVideoUrl] = useState(existingPR?.videoUrl || '');
+  const [videoThumbnailUrl, setVideoThumbnailUrl] = useState(existingPR?.videoThumbnailUrl || '');
   const [notes, setNotes] = useState(existingPR?.notes || '');
 
   const handleSave = () => {
@@ -49,6 +51,7 @@ const AddPRScreen = () => {
       updatePR(existingPR.id, {
         weight: Number(weight),
         videoUrl: videoUrl.trim() || undefined,
+        videoThumbnailUrl: videoThumbnailUrl.trim() || undefined,
         notes: notes.trim() || undefined,
       });
       Alert.alert('PR opdateret', 'Din PR er blevet opdateret', [
@@ -60,6 +63,7 @@ const AddPRScreen = () => {
         exercise: exercise!,
         weight: Number(weight),
         videoUrl: videoUrl.trim() || undefined,
+        videoThumbnailUrl: videoThumbnailUrl.trim() || undefined,
         notes: notes.trim() || undefined,
       });
       Alert.alert('PR tilføjet', 'Din PR er blevet tilføjet', [
@@ -100,6 +104,14 @@ const AddPRScreen = () => {
                   return;
                 }
                 setVideoUrl(asset.uri);
+                try {
+                  const thumbnail = await createThumbnail({url: asset.uri, timeStamp: 1000});
+                  if (thumbnail?.path) {
+                    setVideoThumbnailUrl(thumbnail.path);
+                  }
+                } catch (error) {
+                  setVideoThumbnailUrl('');
+                }
                 Alert.alert('Video tilføjet', 'Din video er blevet tilføjet (maks 30 sek).');
               }
             },
@@ -127,6 +139,14 @@ const AddPRScreen = () => {
                   return;
                 }
                 setVideoUrl(asset.uri);
+                try {
+                  const thumbnail = await createThumbnail({url: asset.uri, timeStamp: 1000});
+                  if (thumbnail?.path) {
+                    setVideoThumbnailUrl(thumbnail.path);
+                  }
+                } catch (error) {
+                  setVideoThumbnailUrl('');
+                }
                 Alert.alert('Video tilføjet', 'Din video er blevet tilføjet (maks 30 sek).');
               }
             },
@@ -195,7 +215,10 @@ const AddPRScreen = () => {
           {videoUrl && (
             <TouchableOpacity
               style={styles.removeVideoButton}
-              onPress={() => setVideoUrl('')}
+              onPress={() => {
+                setVideoUrl('');
+                setVideoThumbnailUrl('');
+              }}
               activeOpacity={0.7}>
               <Icon name="close-circle" size={20} color="#FF3B30" />
               <Text style={styles.removeVideoText}>Fjern video</Text>

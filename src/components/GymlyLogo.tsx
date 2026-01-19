@@ -4,13 +4,14 @@
  */
 
 import React from 'react';
-import {View, Image, StyleSheet, ImageSourcePropType} from 'react-native';
+import {View, Image, StyleSheet, ImageSourcePropType, ImageResizeMode} from 'react-native';
 
 type GymlyLogoProps = {
   size?: number;
+  resizeMode?: ImageResizeMode;
 };
 
-const GymlyLogo: React.FC<GymlyLogoProps> = ({size = 64}) => {
+const GymlyLogo: React.FC<GymlyLogoProps> = ({size = 64, resizeMode = 'contain'}) => {
   const logoImage: ImageSourcePropType = require('@/assets/images/gymly-logo.png');
   
   return (
@@ -18,7 +19,7 @@ const GymlyLogo: React.FC<GymlyLogoProps> = ({size = 64}) => {
       <Image
         source={logoImage}
         style={[styles.logoImage, {width: size, height: size}]}
-        resizeMode="contain"
+        resizeMode={resizeMode}
       />
     </View>
   );

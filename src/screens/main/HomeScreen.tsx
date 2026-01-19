@@ -3,7 +3,7 @@
  * Main feed and workout check-ins
  */
 
-import React, {Fragment, useEffect, useMemo, useRef, useState} from 'react';
+import React, {Fragment, useEffect, useMemo, useRef, useState, useCallback, memo} from 'react';
 import {
   View,
   Text,
@@ -12,21 +12,27 @@ import {
   TouchableOpacity,
   Modal,
   Alert,
+  Keyboard,
+  Platform,
   TouchableWithoutFeedback,
   TextInput,
   Animated,
   FlatList,
   Image,
 } from 'react-native';
+import {Gesture, GestureDetector} from 'react-native-gesture-handler';
+import Reanimated, {useSharedValue, useAnimatedStyle, withTiming, withDelay, runOnJS} from 'react-native-reanimated';
+import Video from 'react-native-video';
 import {useAppStore} from '@/store/appStore';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import NotificationService from '@/services/notifications/NotificationService';
-import {useFeedStore} from '@/store/feedStore';
+import {useFeedStore, FeedItem} from '@/store/feedStore';
 import {getMuscleGroupImage} from '@/utils/muscleGroupImages';
 import {MuscleGroup} from '@/types/workout.types';
 import {colors} from '@/theme/colors';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 type HomeScreenNavigationProp = StackNavigationProp<any>;
 
@@ -92,80 +98,254 @@ const RenderTextWithMentions = ({text, mentionedUsers, navigation}: {text: strin
   );
 };
 
+const RenderCaptionWithMentions = ({
+  text,
+  mentionedUsers,
+  navigation,
+  username,
+  onPressUsername,
+}: {
+  text: string;
+  mentionedUsers?: string[];
+  navigation: any;
+  username: string;
+  onPressUsername: () => void;
+}) => {
+  const parts: Array<{text: string; isMention: boolean; userId?: string}> = [];
+  const mentionRegex = /@(\w+)/g;
+  let lastIndex = 0;
+  let match;
+
+  while ((match = mentionRegex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push({text: text.substring(lastIndex, match.index), isMention: false});
+    }
+    const mentionedName = match[1];
+    const friend = FRIENDS.find(f => f.name === mentionedName);
+    const userId = friend?.id || (mentionedUsers && mentionedUsers.length > 0 ? mentionedUsers[0] : undefined);
+    parts.push({
+      text: `@${mentionedName}`,
+      isMention: true,
+      userId,
+    });
+    lastIndex = match.index + match[0].length;
+  }
+
+  if (lastIndex < text.length) {
+    parts.push({text: text.substring(lastIndex), isMention: false});
+  }
+
+  return (
+    <Text style={styles.feedDescription}>
+      <Text style={styles.feedCaptionUser} onPress={onPressUsername}>
+        {username}
+      </Text>
+      <Text> </Text>
+      {parts.map((part, index) => {
+        if (part.isMention && part.userId) {
+          return (
+            <Text
+              key={index}
+              style={styles.feedMention}
+              onPress={() => {
+                navigation.navigate('FriendProfile', {friendId: part.userId});
+              }}>
+              {part.text}
+            </Text>
+          );
+        }
+        return <Text key={index}>{part.text}</Text>;
+      })}
+    </Text>
+  );
+};
+
+type FeedPhotoProps = {
+  item: FeedItem;
+  onDoubleTapLike: (itemId: string, x: number, y: number) => void;
+  onLayoutMeasured?: (itemId: string, layout: {x: number; y: number; width: number; height: number}) => void;
+  userBicepsEmoji: string;
+};
+
+const FeedPhoto = memo(
+  ({item, onDoubleTapLike, onLayoutMeasured, userBicepsEmoji}: FeedPhotoProps) => {
+    if (!item.photoUri) {
+      return (
+        <View style={styles.feedImagePlaceholder}>
+          <Text style={styles.feedImageText}>Foto fra træning</Text>
+        </View>
+      );
+    }
+
+    const [aspectRatio, setAspectRatio] = useState<number | null>(null);
+    const [photoLayout, setPhotoLayout] = useState({width: 0, height: 0});
+
+    useEffect(() => {
+      let isMounted = true;
+      Image.getSize(
+        item.photoUri,
+        (width, height) => {
+          if (isMounted && width > 0 && height > 0) {
+            setAspectRatio(width / height);
+          }
+        },
+        () => {
+          if (isMounted) {
+            setAspectRatio(null);
+          }
+        },
+      );
+      return () => {
+        isMounted = false;
+      };
+    }, [item.photoUri]);
+
+    const scale = useSharedValue(1);
+    const translateX = useSharedValue(0);
+    const translateY = useSharedValue(0);
+    const startX = useSharedValue(0);
+    const startY = useSharedValue(0);
+
+    const pinch = Gesture.Pinch()
+      .onUpdate(event => {
+        const nextScale = Math.min(3, Math.max(1, event.scale));
+        scale.value = nextScale;
+      })
+      .onEnd(() => {
+        scale.value = withTiming(1);
+        translateX.value = withTiming(0);
+        translateY.value = withTiming(0);
+      });
+
+    const pan = Gesture.Pan()
+      .minPointers(2)
+      .onStart(() => {
+        startX.value = translateX.value;
+        startY.value = translateY.value;
+      })
+      .onUpdate(event => {
+        if (scale.value > 1) {
+          translateX.value = startX.value + event.translationX;
+          translateY.value = startY.value + event.translationY;
+        }
+      })
+      .onEnd(() => {
+        if (scale.value <= 1) {
+          translateX.value = withTiming(0);
+          translateY.value = withTiming(0);
+        }
+      });
+
+    const doubleTap = Gesture.Tap()
+      .numberOfTaps(2)
+      .maxDelay(250)
+      .maxDistance(10)
+      .onEnd(event => {
+        runOnJS(onDoubleTapLike)(item.id, event.x, event.y);
+      });
+
+    const gesture = Gesture.Simultaneous(doubleTap, pinch, pan);
+
+    const animatedStyle = useAnimatedStyle(() => ({
+      transform: [
+        {translateX: translateX.value},
+        {translateY: translateY.value},
+        {scale: scale.value},
+      ],
+    }));
+
+
+    return (
+      <GestureDetector gesture={gesture}>
+        <View
+          style={[styles.feedPhotoContainer, aspectRatio ? {aspectRatio} : null]}
+          onLayout={event => {
+            const {width, height} = event.nativeEvent.layout;
+            onLayoutMeasured?.(item.id, event.nativeEvent.layout);
+            if (width !== photoLayout.width || height !== photoLayout.height) {
+              setPhotoLayout({width, height});
+            }
+          }}>
+          <View style={styles.feedPhotoMask}>
+            <Reanimated.View style={[styles.feedPhotoTransform, animatedStyle]}>
+              <Image
+                source={{uri: item.photoUri}}
+                style={styles.feedPhoto}
+                resizeMode="contain"
+              />
+            </Reanimated.View>
+          </View>
+          {item.rating && item.rating >= 1 && item.rating <= 5 && (
+            <View style={styles.feedPhotoRating}>
+              <Text style={styles.feedRatingEmoji}>
+                {['☹️', '🙁', '😐', '😁', '🤩'][item.rating - 1]}
+              </Text>
+            </View>
+          )}
+        </View>
+      </GestureDetector>
+    );
+  },
+  (prev, next) => {
+    return (
+      prev.item.id === next.item.id &&
+      prev.item.photoUri === next.item.photoUri &&
+      prev.item.rating === next.item.rating &&
+      prev.userBicepsEmoji === next.userBicepsEmoji
+    );
+  },
+);
+
+
 const HomeScreen = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
   const {user} = useAppStore();
+  const {bottom: safeAreaBottom} = useSafeAreaInsets();
   const {feedItems, deleteFeedItem} = useFeedStore();
-  const rawBicepsEmoji = user?.bicepsEmoji;
-  const userBicepsEmoji =
-    (rawBicepsEmoji &&
-      ['💪🏻', '💪🏼', '💪🏽', '💪🏾', '💪🏿', '💪'].find(e => rawBicepsEmoji.includes(e))) ||
-    '💪';
+  const userBicepsEmoji = user?.bicepsEmoji || '💪🏻';
   const [activityModalVisible, setActivityModalVisible] = useState(false);
   const [addedFriends, setAddedFriends] = useState<string[]>([]);
   const [now, setNow] = useState(Date.now());
   const [activeJoinRequests, setActiveJoinRequests] = useState<string[]>([]);
   const [upcomingJoinRequests, setUpcomingJoinRequests] = useState<string[]>([]);
-  const [feedReactions, setFeedReactions] = useState<Record<string, {liked: boolean; likes: number}>>({
-    feed_photo_1: {liked: false, likes: 42},
-    feed_pr_1: {liked: false, likes: 18},
-    feed_summary_1: {liked: false, likes: 9},
-  });
+  const [feedReactions, setFeedReactions] = useState<Record<string, {liked: boolean; likes: number}>>({});
   const [commentModalVisible, setCommentModalVisible] = useState(false);
   const [activeCommentItem, setActiveCommentItem] = useState<string | null>(null);
   const [commentInput, setCommentInput] = useState('');
-  const [commentsByFeedItem, setCommentsByFeedItem] = useState<Record<string, string[]>>({
-    feed_photo_1: ['Ser stærkt ud! 🔥', 'Sikke et team!'],
-    feed_pr_1: ['Vanvittig PR!', 'Hvordan var sidste rep?'],
-    feed_summary_1: ['Elsker Repeat Fitness!', 'God inspiration 💪'],
-  });
+  const [commentsByFeedItem, setCommentsByFeedItem] = useState<
+    Record<string, Array<{author: string; text: string}>>
+  >({});
   const [commentedItems, setCommentedItems] = useState<string[]>([]);
+  const [commentInputFocused, setCommentInputFocused] = useState(false);
   const [animatingItems, setAnimatingItems] = useState<Record<string, boolean>>({});
+  const [videoModalVisible, setVideoModalVisible] = useState(false);
+  const [selectedVideoUri, setSelectedVideoUri] = useState<string | null>(null);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const videoRef = useRef<any>(null);
+  const overlayAnimations = useRef<
+    Record<
+      string,
+      {
+        opacity: Animated.Value;
+        scale: Animated.Value;
+        translateX: Animated.Value;
+        translateY: Animated.Value;
+      }
+    >
+  >({});
+  const feedCardLayouts = useRef<Record<string, {width: number; height: number}>>({});
+  const feedActionsLayouts = useRef<Record<string, {x: number; y: number; width: number; height: number}>>({});
+  const likeButtonLayouts = useRef<Record<string, {x: number; y: number; width: number; height: number}>>({});
+  const feedPhotoLayouts = useRef<Record<string, {x: number; y: number; width: number; height: number}>>({});
 
   useEffect(() => {
     const timer = setInterval(() => setNow(Date.now()), 60000);
     return () => clearInterval(timer);
   }, []);
 
-  const activeFriends = useMemo(
-    () => [
-      {
-        id: 'friend_jeff',
-        name: 'Jeff',
-        gym: 'PureGym Fields',
-        focus: 'Bryst & triceps',
-        startTimestamp: Date.now() - 18 * 60000,
-      },
-      {
-        id: 'friend_marie',
-        name: 'Marie',
-        gym: 'Repeat Fitness Nørrebro',
-        focus: 'Ben & core',
-        startTimestamp: Date.now() - 42 * 60000,
-      },
-    ],
-    [],
-  );
+  const activeFriends = useMemo(() => [], []);
 
-  const upcomingSessions = useMemo(
-    () => [
-      {
-        id: 'upcoming_sofia',
-        name: 'Sofia',
-        gym: 'Repeat Fitness Frederiksberg',
-        focus: 'Ryg & biceps',
-        scheduledAt: Date.now() + 36 * 60 * 60 * 1000, // 1½ dag frem
-      },
-      {
-        id: 'upcoming_lars',
-        name: 'Lars',
-        gym: 'Urban Gym Christianshavn',
-        focus: 'Ben & skuldre',
-        scheduledAt: Date.now() + 60 * 60 * 60 * 1000, // ~2½ dag frem
-      },
-    ],
-    [],
-  );
+  const upcomingSessions = useMemo(() => [], []);
 
   const activeCount = activeFriends.length;
 
@@ -341,7 +521,7 @@ const HomeScreen = () => {
     if (!bicepsAnimations.current[itemId]) {
       bicepsAnimations.current[itemId] = {
         scale: new Animated.Value(1),
-        particles: Array.from({length: 5}).map(() => createParticle()),
+        particles: Array.from({length: 6}).map(() => createParticle()),
       };
     }
     return bicepsAnimations.current[itemId];
@@ -353,7 +533,7 @@ const HomeScreen = () => {
     });
   }, [feedItems]);
 
-  const runBicepsAnimation = (itemId: string) => {
+  const runBicepsAnimation = (itemId: string, showParticles = true) => {
     const anim = ensureBicepsAnimation(itemId);
     
     // Start emoji animation
@@ -383,6 +563,9 @@ const HomeScreen = () => {
     });
     
     // Particle animations - start from positions around the button
+    if (!showParticles) {
+      return;
+    }
     anim.particles.forEach((particle, index) => {
       const angle = (index / anim.particles.length) * Math.PI * 2;
       const startDistance = 20; // Start position around button
@@ -431,12 +614,12 @@ const HomeScreen = () => {
     });
   };
 
-  const toggleLike = (itemId: string) => {
+  const toggleLike = (itemId: string, skipParticles = false) => {
     setFeedReactions(prev => {
       const existing = prev[itemId] ?? {liked: false, likes: 0};
       const nextLiked = !existing.liked;
       if (nextLiked) {
-        runBicepsAnimation(itemId);
+        runBicepsAnimation(itemId, !skipParticles);
       }
       return {
         ...prev,
@@ -448,9 +631,127 @@ const HomeScreen = () => {
     });
   };
 
+  const feedReactionsRef = useRef(feedReactions);
+  useEffect(() => {
+    feedReactionsRef.current = feedReactions;
+  }, [feedReactions]);
+
+  const toggleLikeRef = useRef(toggleLike);
+  useEffect(() => {
+    toggleLikeRef.current = toggleLike;
+  }, [toggleLike]);
+
+  const likeOnly = useCallback((itemId: string, skipParticles = false) => {
+    const liked = feedReactionsRef.current[itemId]?.liked ?? false;
+    if (!liked) {
+      toggleLikeRef.current(itemId, skipParticles);
+    }
+  }, []);
+
+  const ensureOverlayAnimation = useCallback((itemId: string) => {
+    if (!overlayAnimations.current[itemId]) {
+      overlayAnimations.current[itemId] = {
+        opacity: new Animated.Value(0),
+        scale: new Animated.Value(1),
+        translateX: new Animated.Value(0),
+        translateY: new Animated.Value(0),
+      };
+    }
+    return overlayAnimations.current[itemId];
+  }, []);
+
+  const runOverlayAnimation = useCallback(
+    (itemId: string, startX?: number, startY?: number) => {
+      const anim = ensureOverlayAnimation(itemId);
+      const layout = feedCardLayouts.current[itemId];
+      const actions = feedActionsLayouts.current[itemId];
+      const like = likeButtonLayouts.current[itemId];
+      let targetX = -140;
+      let targetY = 170;
+      if (layout && actions && like) {
+        const centerX = actions.x + like.x + like.width / 2;
+        const centerY = actions.y + like.y + like.height / 2 - 6;
+        targetX = -layout.width / 2 + centerX;
+        targetY = -layout.height / 2 + centerY;
+      }
+
+      anim.opacity.setValue(1);
+      anim.scale.setValue(1);
+      if (layout && startX !== undefined && startY !== undefined) {
+        anim.translateX.setValue(-layout.width / 2 + startX);
+        anim.translateY.setValue(-layout.height / 2 + startY);
+      } else {
+        anim.translateX.setValue(0);
+        anim.translateY.setValue(0);
+      }
+
+      Animated.parallel([
+        Animated.timing(anim.translateX, {
+          toValue: targetX,
+          duration: 450,
+          useNativeDriver: true,
+        }),
+        Animated.timing(anim.translateY, {
+          toValue: targetY,
+          duration: 450,
+          useNativeDriver: true,
+        }),
+        Animated.sequence([
+          Animated.delay(80),
+          Animated.timing(anim.opacity, {
+            toValue: 0,
+            duration: 260,
+            useNativeDriver: true,
+          }),
+        ]),
+      ]).start(() => {
+        anim.opacity.setValue(0);
+      });
+    },
+    [ensureOverlayAnimation],
+  );
+
+  const handlePhotoDoubleTap = useCallback(
+    (itemId: string, tapX: number, tapY: number) => {
+      const wasLiked = feedReactionsRef.current[itemId]?.liked ?? false;
+      likeOnly(itemId, true);
+      const photoLayout = feedPhotoLayouts.current[itemId];
+      const startX = photoLayout ? photoLayout.x + tapX : undefined;
+      const startY = photoLayout ? photoLayout.y + tapY : undefined;
+      runOverlayAnimation(itemId, startX, startY);
+      if (!wasLiked) {
+        const likeAnim = ensureBicepsAnimation(itemId);
+        if (likeAnim) {
+          likeAnim.scale.setValue(1);
+          setTimeout(() => {
+            runBicepsAnimation(itemId, true);
+            Animated.sequence([
+              Animated.spring(likeAnim.scale, {
+                toValue: 1.2,
+                friction: 6,
+                useNativeDriver: true,
+              }),
+              Animated.spring(likeAnim.scale, {
+                toValue: 1,
+                friction: 6,
+                useNativeDriver: true,
+              }),
+            ]).start();
+          }, 450);
+        }
+      }
+    },
+    [likeOnly, runOverlayAnimation, ensureBicepsAnimation],
+  );
+
+  const openProfile = useCallback(() => {
+    navigation.navigate('Profile');
+  }, [navigation]);
+
   const openComments = (itemId: string) => {
     setActiveCommentItem(itemId);
     setCommentInput('');
+    setCommentInputFocused(false);
     setCommentModalVisible(true);
   };
 
@@ -458,7 +759,24 @@ const HomeScreen = () => {
     setCommentModalVisible(false);
     setActiveCommentItem(null);
     setCommentInput('');
+    setCommentInputFocused(false);
   };
+
+  useEffect(() => {
+    if (!commentModalVisible) {
+      return;
+    }
+    const showSub = Keyboard.addListener('keyboardWillShow', event => {
+      setCommentKeyboardHeight(event?.endCoordinates?.height ?? 0);
+    });
+    const hideSub = Keyboard.addListener('keyboardWillHide', () => {
+      setCommentKeyboardHeight(0);
+    });
+    return () => {
+      showSub.remove();
+      hideSub.remove();
+    };
+  }, [commentModalVisible]);
 
   const handleFeedItemMenu = (itemId: string, itemUser: string) => {
     const currentUser = user?.displayName || user?.username || 'Du';
@@ -500,9 +818,10 @@ const HomeScreen = () => {
     if (!trimmed || !activeCommentItem) {
       return;
     }
+    const authorName = user?.displayName || user?.username || 'Du';
     setCommentsByFeedItem(prev => ({
       ...prev,
-      [activeCommentItem]: [...(prev[activeCommentItem] ?? []), trimmed],
+      [activeCommentItem]: [...(prev[activeCommentItem] ?? []), {author: authorName, text: trimmed}],
     }));
     setCommentedItems(prev =>
       prev.includes(activeCommentItem) ? prev : [...prev, activeCommentItem],
@@ -511,6 +830,7 @@ const HomeScreen = () => {
   };
 
   const activeComments = activeCommentItem ? commentsByFeedItem[activeCommentItem] ?? [] : [];
+  const [commentKeyboardHeight, setCommentKeyboardHeight] = useState(0);
 
   return (
     <View style={styles.container}>
@@ -582,6 +902,7 @@ const HomeScreen = () => {
         {feedItems.map(item => {
             // Ensure animation is initialized
             const likeAnim = ensureBicepsAnimation(item.id);
+            const overlayAnim = ensureOverlayAnimation(item.id);
             const likeScaleStyle = likeAnim
               ? {transform: [{scale: likeAnim.scale}]}
               : undefined;
@@ -592,34 +913,71 @@ const HomeScreen = () => {
             const likeColor = isLiked ? '#2563EB' : '#0F172A';
             const isAnimating = animatingItems[item.id];
             return (
-              <View key={item.id} style={styles.feedCard}>
+              <View
+                key={item.id}
+                style={styles.feedCard}
+                onLayout={event => {
+                  const {width, height} = event.nativeEvent.layout;
+                  feedCardLayouts.current[item.id] = {width, height};
+                }}>
               <View style={styles.feedCardHeader}>
-                <View style={styles.feedAvatar}>
-                  <Text style={styles.feedAvatarText}>{item.user.charAt(0)}</Text>
-                </View>
-                <View style={{flex: 1}}>
-                  <Text style={styles.feedUser}>{item.user}</Text>
-                  <Text style={styles.feedTimestamp}>{item.timestamp}</Text>
-                </View>
+                <TouchableOpacity
+                  style={styles.feedHeaderProfile}
+                  onPress={openProfile}
+                  activeOpacity={0.8}>
+                  <View style={styles.feedAvatar}>
+                    <Text style={styles.feedAvatarText}>{item.user.charAt(0)}</Text>
+                  </View>
+                  <View style={{flex: 1}}>
+                    <Text style={styles.feedUser}>{item.user}</Text>
+                    <Text style={styles.feedTimestamp}>{item.timestamp}</Text>
+                  </View>
+                </TouchableOpacity>
                 <TouchableOpacity
                   onPress={() => handleFeedItemMenu(item.id, item.user)}
                   activeOpacity={0.7}>
                   <Icon name="ellipsis-horizontal" size={18} color="#94A3B8" />
                 </TouchableOpacity>
               </View>
-              {item.type === 'photo' &&
-                (item.photoUri ? (
-                  <Image source={{uri: item.photoUri}} style={styles.feedPhoto} />
-                ) : (
-                  <View style={styles.feedImagePlaceholder}>
-                    <Text style={styles.feedImageText}>Foto fra træning</Text>
-                  </View>
-                ))}
+              {item.workoutInfo && (
+                <Text style={styles.feedWorkoutInfoLine}>{item.workoutInfo}</Text>
+              )}
+              {item.type === 'photo' && (
+                <FeedPhoto
+                  item={item}
+                  onDoubleTapLike={handlePhotoDoubleTap}
+                  onLayoutMeasured={(id, layout) => {
+                    feedPhotoLayouts.current[id] = layout;
+                  }}
+                  userBicepsEmoji={userBicepsEmoji}
+                />
+              )}
               {item.type === 'pr' && (
-                <View style={styles.feedHighlight}>
-                  <Icon name="trophy" size={18} color="#FACC15" />
-                  <Text style={styles.feedHighlightText}>Ny PR</Text>
-                </View>
+                <>
+                  {item.videoUri && (
+                    <TouchableOpacity
+                      style={styles.feedVideoContainer}
+                      onPress={() => {
+                        setSelectedVideoUri(item.videoUri);
+                        setIsVideoPlaying(true);
+                        setVideoModalVisible(true);
+                      }}
+                      activeOpacity={0.9}>
+                      <Image
+                        source={{uri: item.videoThumbnailUri ?? item.videoUri}}
+                        style={styles.feedVideoThumbnail}
+                        resizeMode="cover"
+                      />
+                      <View style={styles.feedVideoPlayOverlay}>
+                        <Icon name="play-circle" size={50} color="#fff" />
+                      </View>
+                    </TouchableOpacity>
+                  )}
+                  <View style={styles.feedHighlight}>
+                    <Icon name="trophy" size={18} color="#FACC15" />
+                    <Text style={styles.feedHighlightText}>Ny PR</Text>
+                  </View>
+                </>
               )}
               {item.type === 'summary' && (
                 <View style={styles.feedSummaryRow}>
@@ -645,19 +1003,39 @@ const HomeScreen = () => {
                       ))}
                     </View>
                   )}
-                  {item.workoutInfo && (
-                    <Text style={styles.feedWorkoutInfo}>{item.workoutInfo}</Text>
-                  )}
                 </View>
               )}
-              {item.description && item.description.trim().length > 0 && (
-                <RenderTextWithMentions 
-                  text={item.description} 
+              {item.description &&
+                item.description.trim().length > 0 &&
+                item.description.trim() !== (item.workoutInfo ?? '').trim() && (
+                <RenderCaptionWithMentions
+                  text={item.description}
                   mentionedUsers={item.mentionedUsers}
                   navigation={navigation}
+                  username={item.user}
+                  onPressUsername={openProfile}
                 />
               )}
-              <View style={styles.feedActions}>
+              <Animated.View
+                pointerEvents="none"
+                style={[
+                  styles.feedCardBicepsOverlay,
+                  {
+                    opacity: overlayAnim.opacity,
+                    transform: [
+                      {translateX: overlayAnim.translateX},
+                      {translateY: overlayAnim.translateY},
+                      {scale: overlayAnim.scale},
+                    ],
+                  },
+                ]}>
+                <Text style={styles.feedCardBicepsEmoji}>{userBicepsEmoji}</Text>
+              </Animated.View>
+              <View
+                style={styles.feedActions}
+                onLayout={event => {
+                  feedActionsLayouts.current[item.id] = event.nativeEvent.layout;
+                }}>
                 <View style={styles.feedActionGroup}>
                   <TouchableOpacity
                     style={[
@@ -665,7 +1043,10 @@ const HomeScreen = () => {
                       isLiked && styles.feedLikeButtonActive,
                     ]}
                     onPress={() => toggleLike(item.id)}
-                    activeOpacity={0.7}>
+                    activeOpacity={0.7}
+                    onLayout={event => {
+                      likeButtonLayouts.current[item.id] = event.nativeEvent.layout;
+                    }}>
                     <View style={styles.likeButtonInner}>
                       <Animated.View 
                         style={likeScaleStyle}
@@ -816,54 +1197,86 @@ const HomeScreen = () => {
         <TouchableWithoutFeedback onPress={closeComments}>
           <View style={styles.bottomSheetOverlay}>
             <TouchableWithoutFeedback>
-              <View style={styles.commentSheet}>
-                <View style={styles.commentHandle} />
-                <View style={styles.commentHeader}>
-                  <Text style={styles.modalTitle}>Kommentarer</Text>
-                  <TouchableOpacity onPress={closeComments} style={styles.commentCloseButton}>
-                    <Icon name="close" size={22} color="#0F172A" />
-                  </TouchableOpacity>
-                </View>
-                <ScrollView style={styles.commentList}>
-                  {activeComments.length === 0 ? (
-                    <Text style={styles.commentEmpty}>Ingen kommentarer endnu</Text>
-                  ) : (
-                    activeComments.map((comment, index) => (
-                      <View key={`${activeCommentItem}_comment_${index}`} style={styles.commentRow}>
-                        <View style={styles.commentAvatar}>
-                          <Text style={styles.commentAvatarText}>F</Text>
+              <View
+                style={[
+                  styles.commentSheet,
+                  commentInputFocused ? styles.commentSheetExpanded : styles.commentSheetCollapsed,
+                ]}>
+                  <View style={styles.commentHandle} />
+                  <View style={styles.commentHeader}>
+                    <Text style={styles.modalTitle}>Kommentarer</Text>
+                    <TouchableOpacity onPress={closeComments} style={styles.commentCloseButton}>
+                      <Icon name="close" size={22} color="#0F172A" />
+                    </TouchableOpacity>
+                  </View>
+                  <ScrollView
+                    style={styles.commentList}
+                    contentContainerStyle={styles.commentListContent}>
+                    {activeComments.length === 0 ? (
+                      <Text style={styles.commentEmpty}>Ingen kommentarer endnu</Text>
+                    ) : (
+                      activeComments.map((comment, index) => (
+                        <View key={`${activeCommentItem}_comment_${index}`} style={styles.commentRow}>
+                          <View style={styles.commentAvatar}>
+                            <Text style={styles.commentAvatarText}>
+                              {comment.author.charAt(0)}
+                            </Text>
+                          </View>
+                          <View style={{flex: 1}}>
+                            <Text style={styles.commentAuthor}>{comment.author}</Text>
+                            <Text style={styles.commentBody}>{comment.text}</Text>
+                          </View>
                         </View>
-                        <View style={{flex: 1}}>
-                          <Text style={styles.commentAuthor}>Friend</Text>
-                          <Text style={styles.commentBody}>{comment}</Text>
-                        </View>
-                      </View>
-                    ))
-                  )}
-                </ScrollView>
-                <View style={styles.commentInputRow}>
-                  <TextInput
-                    style={styles.commentInput}
-                    placeholder="Skriv en kommentar..."
-                    placeholderTextColor="#94A3B8"
-                    value={commentInput}
-                    onChangeText={setCommentInput}
-                    multiline
-                  />
-                  <TouchableOpacity
+                      ))
+                    )}
+                  </ScrollView>
+                  <View
                     style={[
-                      styles.commentSendButton,
-                      commentInput.trim().length === 0 && styles.commentSendButtonDisabled,
-                    ]}
-                    onPress={handleSubmitComment}
-                    disabled={commentInput.trim().length === 0}>
-                    <Icon
-                      name="send"
-                      size={20}
-                      color={commentInput.trim().length === 0 ? '#94A3B8' : '#fff'}
-                    />
-                  </TouchableOpacity>
-                </View>
+                      styles.commentComposer,
+                      commentKeyboardHeight > 0
+                        ? {bottom: commentKeyboardHeight + safeAreaBottom}
+                        : null,
+                    ]}>
+                    <View style={styles.commentEmojiRow}>
+                      {['❤️', '🙌', '🔥', '💪', '🥲', '😍', '😮', '😂'].map(emoji => (
+                        <TouchableOpacity
+                          key={emoji}
+                          style={styles.commentEmojiButton}
+                          onPress={() => setCommentInput(prev => `${prev}${emoji}`)}>
+                          <Text style={styles.commentEmoji}>{emoji}</Text>
+                        </TouchableOpacity>
+                      ))}
+                    </View>
+                    <View style={styles.commentInputRow}>
+                      <TextInput
+                        style={styles.commentInput}
+                        placeholder="Tilføj en kommentar..."
+                        placeholderTextColor="#94A3B8"
+                        value={commentInput}
+                        onChangeText={setCommentInput}
+                        onFocus={() => setCommentInputFocused(true)}
+                        onBlur={() => setCommentInputFocused(false)}
+                        selectionColor={colors.primary}
+                        returnKeyType="done"
+                        blurOnSubmit={true}
+                        onSubmitEditing={() => Keyboard.dismiss()}
+                        multiline
+                      />
+                      <TouchableOpacity
+                        style={[
+                          styles.commentSendButton,
+                          commentInput.trim().length === 0 && styles.commentSendButtonDisabled,
+                        ]}
+                        onPress={handleSubmitComment}
+                        disabled={commentInput.trim().length === 0}>
+                        <Icon
+                          name="send"
+                          size={20}
+                          color={commentInput.trim().length === 0 ? '#94A3B8' : '#fff'}
+                        />
+                      </TouchableOpacity>
+                    </View>
+                  </View>
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -963,6 +1376,52 @@ const HomeScreen = () => {
             </TouchableWithoutFeedback>
           </View>
         </TouchableWithoutFeedback>
+      </Modal>
+
+      {/* Video Modal */}
+      <Modal
+        visible={videoModalVisible}
+        transparent
+        animationType="fade"
+        onRequestClose={() => {
+          setIsVideoPlaying(false);
+          setVideoModalVisible(false);
+        }}>
+        <View style={styles.videoModalOverlay}>
+          <TouchableWithoutFeedback onPress={() => {
+            setIsVideoPlaying(false);
+            setVideoModalVisible(false);
+          }}>
+            <View style={StyleSheet.absoluteFill} />
+          </TouchableWithoutFeedback>
+          <View style={styles.videoModalContent}>
+            <TouchableOpacity
+              style={styles.videoModalClose}
+              onPress={() => {
+                setIsVideoPlaying(false);
+                setVideoModalVisible(false);
+              }}>
+              <Icon name="close" size={28} color="#fff" />
+            </TouchableOpacity>
+            {selectedVideoUri && (
+              <View style={styles.videoPlayerContainer}>
+                <Video
+                  ref={videoRef}
+                  source={{uri: selectedVideoUri}}
+                  style={styles.videoPlayer}
+                  controls={true}
+                  paused={!isVideoPlaying}
+                  resizeMode="contain"
+                  onLoad={() => setIsVideoPlaying(true)}
+                  onError={(error) => {
+                    Alert.alert('Fejl', 'Kunne ikke afspille videoen.');
+                    console.error('Video error:', error);
+                  }}
+                />
+              </View>
+            )}
+          </View>
+        </View>
       </Modal>
     </View>
   );
@@ -1136,13 +1595,15 @@ const styles = StyleSheet.create({
     // No background, no border, no margin - continuous feed like Instagram
     marginBottom: 0,
     backgroundColor: 'transparent', // Transparent so it blends with background
+    overflow: 'visible',
+    position: 'relative',
   },
   feedCardHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 12,
+    marginBottom: 6,
     paddingHorizontal: 16,
-    paddingTop: 12,
+    paddingTop: 6,
   },
   feedAvatar: {
     width: 40,
@@ -1175,15 +1636,112 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: 0,
   },
+  feedVideoContainer: {
+    width: '100%',
+    marginBottom: 12,
+    borderRadius: 12,
+    overflow: 'hidden',
+    backgroundColor: '#000',
+  },
+  feedVideoThumbnail: {
+    width: '100%',
+    height: 200,
+    backgroundColor: '#000',
+  },
+  feedVideoPlayOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+  },
+  videoModalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.9)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  videoModalContent: {
+    width: '90%',
+    maxHeight: '80%',
+    backgroundColor: '#000',
+    borderRadius: 12,
+    padding: 20,
+    alignItems: 'center',
+  },
+  videoModalClose: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    zIndex: 1,
+    padding: 8,
+  },
+  videoPlayerContainer: {
+    width: '100%',
+    height: 300,
+    backgroundColor: '#000',
+    borderRadius: 8,
+    overflow: 'hidden',
+  },
+  videoPlayer: {
+    width: '100%',
+    height: '100%',
+  },
   feedImageText: {
     color: colors.textSecondary,
     fontWeight: '600',
   },
+  feedPhotoContainer: {
+    width: '100%',
+    backgroundColor: '#000',
+    position: 'relative',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 12,
+    overflow: 'visible',
+    zIndex: 10,
+    elevation: 10,
+  },
+  feedPhotoMask: {
+    width: '100%',
+    height: '100%',
+    overflow: 'hidden',
+    backgroundColor: '#000',
+  },
   feedPhoto: {
     width: '100%',
-    height: 220,
-    // No borderRadius - full edge to edge
-    marginBottom: 0,
+    height: '100%',
+  },
+  feedPhotoTransform: {
+    width: '100%',
+    height: '100%',
+  },
+  feedPhotoRating: {
+    position: 'absolute',
+    top: 12,
+    right: 12,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    borderRadius: 20,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+  },
+  feedCardBicepsOverlay: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    marginLeft: -18,
+    marginTop: -18,
+    alignItems: 'center',
+    justifyContent: 'center',
+    pointerEvents: 'none',
+    zIndex: 100,
+    elevation: 100,
+  },
+  feedCardBicepsEmoji: {
+    fontSize: 36,
   },
   feedHighlight: {
     flexDirection: 'row',
@@ -1234,6 +1792,13 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     color: colors.secondary, // Green color
   },
+  feedWorkoutInfoLine: {
+    fontSize: 12,
+    fontWeight: '500',
+    color: colors.secondary,
+    marginBottom: 10,
+    paddingHorizontal: 16,
+  },
   feedMuscleIconsRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -1251,12 +1816,23 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     paddingHorizontal: 16,
   },
+  feedCaptionUser: {
+    fontWeight: '700',
+    color: colors.text,
+  },
+  feedHeaderProfile: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+    gap: 6,
+  },
   feedActions: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingBottom: 12,
+    zIndex: 1,
   },
   feedActionGroup: {
     flexDirection: 'row',
@@ -1487,7 +2063,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 12,
     paddingBottom: 24,
-    maxHeight: '80%',
+    maxHeight: '90%',
+  },
+  commentSheetCollapsed: {
+    height: '55%',
+  },
+  commentSheetExpanded: {
+    flex: 1,
   },
   commentHandle: {
     alignSelf: 'center',
@@ -1507,7 +2089,11 @@ const styles = StyleSheet.create({
     padding: 4,
   },
   commentList: {
-    maxHeight: 250,
+    flex: 1,
+    marginBottom: 8,
+  },
+  commentListContent: {
+    paddingBottom: 120,
   },
   commentEmpty: {
     textAlign: 'center',
@@ -1542,10 +2128,30 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: colors.textSecondary,
   },
+  commentComposer: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: colors.backgroundCard,
+    paddingHorizontal: 20,
+    paddingBottom: 8,
+  },
+  commentEmojiRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: 10,
+  },
+  commentEmojiButton: {
+    paddingHorizontal: 2,
+  },
+  commentEmoji: {
+    fontSize: 22,
+  },
   commentInputRow: {
     flexDirection: 'row',
     alignItems: 'flex-end',
-    marginTop: 16,
+    marginTop: 8,
     gap: 12,
   },
   commentInput: {
@@ -1556,8 +2162,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     paddingVertical: 10,
     maxHeight: 100,
-    color: colors.text,
-    backgroundColor: colors.surface,
+    color: '#0F172A',
+    backgroundColor: '#fff',
   },
   commentSendButton: {
     backgroundColor: colors.secondary,

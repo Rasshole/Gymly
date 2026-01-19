@@ -6,9 +6,60 @@
 import {AuthTokens, AuthResponse} from '@/types/auth.types';
 import {User, UserLogin, UserRegistration} from '@/types/user.types';
 import SecureStorage from '../security/SecureStorage';
+import {supabase} from '@/services/supabase/supabaseClient';
+import {SUPABASE_ALLOW_UNVERIFIED_LOGIN, SUPABASE_EMAIL_REDIRECT} from '@/config/supabaseConfig';
+import {User as SupabaseUser} from '@supabase/supabase-js';
 
 class AuthService {
   private readonly API_URL = 'https://api.gymly.app'; // TODO: Replace with actual API URL
+
+  private mapSupabaseUser(user: SupabaseUser): User {
+    const metadata = user.user_metadata || {};
+    const now = new Date();
+    return {
+      id: user.id,
+      email: user.email || '',
+      username: metadata.username || user.email?.split('@')[0] || 'gymly_user',
+      displayName: metadata.displayName || metadata.display_name || user.email || 'Gymly User',
+      profileImageUrl: metadata.profileImageUrl,
+      bicepsEmoji: metadata.bicepsEmoji || '💪🏻',
+      favoriteGyms: metadata.favoriteGyms,
+      privacySettings: metadata.privacySettings || {
+        profileVisibility: 'friends',
+        locationSharingEnabled: true,
+        showWorkoutHistory: true,
+        allowFriendRequests: true,
+        showOnlineStatus: true,
+      },
+      gdprConsent: metadata.gdprConsent || {
+        privacyPolicyAccepted: true,
+        termsOfServiceAccepted: true,
+        dataRetentionConsent: true,
+        marketingConsent: false,
+        analyticsConsent: false,
+        locationTrackingConsent: false,
+        consentDate: now,
+        privacyPolicyVersion: '1.0.0',
+        termsOfServiceVersion: '1.0.0',
+        consentHistory: [],
+      },
+      createdAt: user.created_at ? new Date(user.created_at) : now,
+      updatedAt: now,
+      lastLoginAt: now,
+    };
+  }
+
+  private mapSessionTokens(session: {
+    access_token: string;
+    refresh_token: string;
+    expires_at?: number;
+  }): AuthTokens {
+    return {
+      accessToken: session.access_token,
+      refreshToken: session.refresh_token,
+      expiresAt: (session.expires_at ?? Math.floor(Date.now() / 1000) + 3600) * 1000,
+    };
+  }
 
   /**
    * Register new user
@@ -18,15 +69,49 @@ class AuthService {
       // Validate input
       this.validateRegistration(data);
 
-      // TODO: Implement actual API call
-      // For now, return mock data
-      const mockUser: User = {
+      const {data: signupData, error} = await supabase.auth.signUp({
+        email: data.email,
+        password: data.password,
+        options: {
+          emailRedirectTo: SUPABASE_EMAIL_REDIRECT || undefined,
+          data: {
+            username: data.username,
+            displayName: data.displayName,
+            bicepsEmoji: data.bicepsEmoji || '💪🏻',
+            favoriteGyms: data.favoriteGyms,
+            profileImageUrl: data.profileImageUrl,
+            gdprConsent: {
+              ...data.gdprConsent,
+              dataRetentionConsent: true,
+              locationTrackingConsent: false,
+              consentDate: new Date().toISOString(),
+              privacyPolicyVersion: '1.0.0',
+              termsOfServiceVersion: '1.0.0',
+              consentHistory: [],
+            },
+            privacySettings: {
+              profileVisibility: 'friends',
+              locationSharingEnabled: true,
+              showWorkoutHistory: true,
+              allowFriendRequests: true,
+              showOnlineStatus: true,
+            },
+          },
+        },
+      });
+
+      if (error) {
+        throw new Error(error.message);
+      }
+
+      const user = signupData.user ? this.mapSupabaseUser(signupData.user) : {
         id: Date.now().toString(),
         email: data.email,
         username: data.username,
         displayName: data.displayName,
+        profileImageUrl: data.profileImageUrl,
         bicepsEmoji: data.bicepsEmoji || '💪🏻',
-        favoriteGyms: data.favoriteGyms, // Save favorite gyms from registration
+        favoriteGyms: data.favoriteGyms,
         privacySettings: {
           profileVisibility: 'friends',
           locationSharingEnabled: true,
@@ -50,19 +135,22 @@ class AuthService {
         updatedAt: new Date(),
       };
 
-      const mockTokens: AuthTokens = {
-        accessToken: this.generateMockToken(),
-        refreshToken: this.generateMockToken(),
-        expiresAt: Date.now() + 3600000, // 1 hour
-      };
+      if (!signupData.session) {
+        await SecureStorage.saveUserData(user);
+        return {
+          user,
+          tokens: undefined,
+          needsEmailConfirmation: true,
+        };
+      }
 
-      // Save tokens securely
-      await SecureStorage.saveTokens(mockTokens);
-      await SecureStorage.saveUserData(mockUser);
+      const tokens = this.mapSessionTokens(signupData.session);
+      await SecureStorage.saveTokens(tokens);
+      await SecureStorage.saveUserData(user);
 
       return {
-        user: mockUser,
-        tokens: mockTokens,
+        user,
+        tokens,
       };
     } catch (error) {
       console.error('Registration error:', error);
@@ -82,50 +170,49 @@ class AuthService {
         throw new Error('Adgangskode er påkrævet');
       }
 
-      // TODO: Implement actual API call
-      // For now, return mock data
-      const mockUser: User = {
-        id: '1',
+      const {data, error} = await supabase.auth.signInWithPassword({
         email: credentials.email,
-        username: 'testuser',
-        displayName: 'Test Bruger',
-        privacySettings: {
-          profileVisibility: 'friends',
-          locationSharingEnabled: true,
-          showWorkoutHistory: true,
-          allowFriendRequests: true,
-          showOnlineStatus: true,
-        },
-        gdprConsent: {
-          privacyPolicyAccepted: true,
-          termsOfServiceAccepted: true,
-          dataRetentionConsent: true,
-          marketingConsent: false,
-          analyticsConsent: false,
-          locationTrackingConsent: false,
-          consentDate: new Date(),
-          privacyPolicyVersion: '1.0.0',
-          termsOfServiceVersion: '1.0.0',
-          consentHistory: [],
-        },
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        lastLoginAt: new Date(),
-      };
+        password: credentials.password,
+      });
 
-      const mockTokens: AuthTokens = {
-        accessToken: this.generateMockToken(),
-        refreshToken: this.generateMockToken(),
-        expiresAt: Date.now() + 3600000, // 1 hour
-      };
+      if (error) {
+        const errorMessage = error.message || 'Login fejlede. Prøv igen.';
+        const errorCode = (error as {code?: string}).code;
+        const isUnconfirmed =
+          errorCode === 'email_not_confirmed' ||
+          errorMessage.toLowerCase().includes('email not confirmed');
+        if (SUPABASE_ALLOW_UNVERIFIED_LOGIN && isUnconfirmed) {
+          const storedUser = await SecureStorage.getUserData();
+          if (storedUser && storedUser.email.toLowerCase() === credentials.email.toLowerCase()) {
+            const betaTokens: AuthTokens = {
+              accessToken: this.generateMockToken(),
+              refreshToken: this.generateMockToken(),
+              expiresAt: Date.now() + 3600000,
+            };
+            await SecureStorage.saveTokens(betaTokens);
+            await SecureStorage.saveUserData(storedUser);
+            return {
+              user: storedUser,
+              tokens: betaTokens,
+            };
+          }
+        }
+        throw new Error(errorMessage);
+      }
 
-      // Save tokens securely
-      await SecureStorage.saveTokens(mockTokens);
-      await SecureStorage.saveUserData(mockUser);
+      if (!data.session || !data.user) {
+        throw new Error('Login fejlede. Prøv igen.');
+      }
+
+      const user = this.mapSupabaseUser(data.user);
+      const tokens = this.mapSessionTokens(data.session);
+
+      await SecureStorage.saveTokens(tokens);
+      await SecureStorage.saveUserData(user);
 
       return {
-        user: mockUser,
-        tokens: mockTokens,
+        user,
+        tokens,
       };
     } catch (error) {
       console.error('Login error:', error);
@@ -138,7 +225,7 @@ class AuthService {
    */
   async logout(): Promise<void> {
     try {
-      // TODO: Implement API call to invalidate token on backend
+      await supabase.auth.signOut();
       await SecureStorage.clearAll();
     } catch (error) {
       console.error('Logout error:', error);
@@ -177,11 +264,28 @@ class AuthService {
   async requestPasswordReset(email: string): Promise<void> {
     try {
       this.validateEmail(email);
-      // TODO: Implement API call for password reset
-      console.log('Password reset requested for:', email);
+      const {error} = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: SUPABASE_EMAIL_REDIRECT || undefined,
+      });
+      if (error) {
+        throw new Error(error.message);
+      }
     } catch (error) {
       console.error('Password reset request error:', error);
       throw error;
+    }
+  }
+
+  async resendEmailConfirmation(email: string): Promise<void> {
+    const {error} = await supabase.auth.resend({
+      type: 'signup',
+      email,
+      options: {
+        emailRedirectTo: SUPABASE_EMAIL_REDIRECT || undefined,
+      },
+    });
+    if (error) {
+      throw new Error(error.message);
     }
   }
 

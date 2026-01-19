@@ -56,44 +56,7 @@ const formatDateKey = (date: Date): string => {
 };
 
 export const useWorkoutStore = create<WorkoutState>((set, get) => ({
-  // Initialize with some mock data for demonstration
-  workouts: (() => {
-    const now = new Date();
-    const mockWorkouts: Workout[] = [];
-    
-    // Generate some mock workouts for the past week
-    for (let i = 0; i < 7; i++) {
-      const date = new Date(now);
-      date.setDate(date.getDate() - i);
-      
-      // Randomly add workouts (60% chance per day)
-      if (Math.random() > 0.4) {
-        const duration = Math.floor(Math.random() * 90) + 30; // 30-120 minutes
-        const startTime = new Date(date);
-        startTime.setHours(8 + Math.floor(Math.random() * 12), Math.floor(Math.random() * 60), 0);
-        
-        const muscleGroups = [
-          'Bryst & Triceps',
-          'Ben & Ryg',
-          'Skulder & Biceps',
-          'Mave & Cardio',
-          'Hele kroppen',
-        ];
-        
-        mockWorkouts.push({
-          id: `workout_${Date.now()}_${i}`,
-          userId: 'current_user',
-          gymId: Math.floor(Math.random() * 478) + 1,
-          startTime,
-          duration,
-          workoutType: ['cardio', 'strength', 'mixed'][Math.floor(Math.random() * 3)],
-          muscleGroup: muscleGroups[Math.floor(Math.random() * muscleGroups.length)],
-        });
-      }
-    }
-    
-    return mockWorkouts;
-  })(),
+  workouts: [],
 
   /**
    * Add a new workout

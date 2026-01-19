@@ -106,8 +106,8 @@ const LoginScreen = () => {
       <View style={styles.content}>
         {/* Header */}
         <View style={styles.header}>
-          <View style={styles.logoBadge}>
-            <GymlyLogo size={64} />
+        <View style={styles.logoBadge}>
+          <GymlyLogo size={100} resizeMode="cover" />
           </View>
           <Text style={styles.title}>Log ind</Text>
           <Text style={styles.subtitle}>Velkommen tilbage!</Text>
@@ -223,6 +223,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 8,
+    overflow: 'hidden',
   },
   title: {
     fontSize: 32,

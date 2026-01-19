@@ -2,6 +2,7 @@
  * Gymly Theme Configuration
  */
 
+import {scale} from '@/utils/scale';
 import colors from './colors';
 
 export const theme = {
@@ -9,64 +10,64 @@ export const theme = {
   
   // Spacing
   spacing: {
-    xs: 4,
-    sm: 8,
-    md: 16,
-    lg: 24,
-    xl: 32,
-    xxl: 48,
+    xs: scale(4),
+    sm: scale(8),
+    md: scale(16),
+    lg: scale(24),
+    xl: scale(32),
+    xxl: scale(48),
   },
   
   // Border Radius
   borderRadius: {
-    sm: 8,
-    md: 12,
-    lg: 16,
-    xl: 24,
+    sm: scale(8),
+    md: scale(12),
+    lg: scale(16),
+    xl: scale(24),
     round: 9999,
   },
   
   // Typography
   typography: {
     h1: {
-      fontSize: 32,
+      fontSize: scale(32),
       fontWeight: '700' as const,
-      lineHeight: 40,
+      lineHeight: scale(40),
     },
     h2: {
-      fontSize: 24,
+      fontSize: scale(24),
       fontWeight: '700' as const,
-      lineHeight: 32,
+      lineHeight: scale(32),
     },
     h3: {
-      fontSize: 20,
+      fontSize: scale(20),
       fontWeight: '600' as const,
-      lineHeight: 28,
+      lineHeight: scale(28),
     },
     h4: {
-      fontSize: 18,
+      fontSize: scale(18),
       fontWeight: '600' as const,
-      lineHeight: 24,
+      lineHeight: scale(24),
     },
     body: {
-      fontSize: 16,
+      fontSize: scale(16),
       fontWeight: '400' as const,
-      lineHeight: 24,
+      lineHeight: scale(24),
     },
     bodyBold: {
-      fontSize: 16,
+      fontSize: scale(16),
       fontWeight: '600' as const,
-      lineHeight: 24,
+      lineHeight: scale(24),
     },
     small: {
-      fontSize: 14,
+      fontSize: scale(14),
       fontWeight: '400' as const,
-      lineHeight: 20,
+      lineHeight: scale(20),
     },
     caption: {
-      fontSize: 12,
+      fontSize: scale(12),
       fontWeight: '400' as const,
-      lineHeight: 16,
+      lineHeight: scale(16),
     },
   },
   

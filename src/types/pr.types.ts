@@ -19,6 +19,7 @@ export interface PersonalRecord {
   exercise: ExerciseType;
   weight: number; // Weight in kg
   videoUrl?: string; // Video URL (max 30 seconds)
+  videoThumbnailUrl?: string; // Thumbnail for video
   date: Date;
   notes?: string;
 }

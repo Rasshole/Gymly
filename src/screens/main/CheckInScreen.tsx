@@ -4,24 +4,31 @@ import {
   Alert,
   Animated,
   Image,
+  InputAccessoryView,
+  Keyboard,
   KeyboardAvoidingView,
   Modal,
   Platform,
   PanResponder,
   ScrollView,
   StyleSheet,
+  Switch,
   Text,
   TextInput,
   TouchableOpacity,
   TouchableWithoutFeedback,
   View,
   GestureResponderEvent,
+  useWindowDimensions,
 } from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {launchCamera, launchImageLibrary, CameraOptions, ImagePickerResponse} from 'react-native-image-picker';
+import {createThumbnail} from 'react-native-create-thumbnail';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import DateTimePicker, {
   DateTimePickerEvent,
 } from '@react-native-community/datetimepicker';
+import Geolocation from '@react-native-community/geolocation';
 
 import danishGyms, {DanishGym} from '@/data/danishGyms';
 import {MuscleGroup} from '@/types/workout.types';
@@ -121,6 +128,12 @@ const getDistanceMeters = (
 
 const CheckInScreen = () => {
   const {user} = useAppStore();
+  const {width: screenWidth} = useWindowDimensions();
+  const {bottom: safeAreaBottom} = useSafeAreaInsets();
+  const screenScale = useMemo(() => Math.min(Math.max(screenWidth / 390, 0.85), 1.2), [screenWidth]);
+  const muscleLabelFontSize = 14 * screenScale;
+  const muscleLabelMarginTop = 6 * screenScale;
+  const baseMuscleIconSize = 40 * screenScale;
   // Brug brugerens valgte biceps; hvis ingen er valgt, brug samme hvide standard som i Profil (💪🏻)
   const rawBicepsEmoji = user?.bicepsEmoji || '💪🏻';
   // Fjern evt. ekstra symboler som hjerter, men bevar hudtone på selve biceps-emoji'en
@@ -139,6 +152,8 @@ const CheckInScreen = () => {
   const [detectionStatus, setDetectionStatus] = useState<DetectionStatus>('searching');
   const [detectedGym, setDetectedGym] = useState<DanishGym | null>(null);
   const [detectedDistance, setDetectedDistance] = useState<number | null>(null);
+  const [currentLocation, setCurrentLocation] = useState<{latitude: number; longitude: number} | null>(null);
+  const [isRefreshingLocation, setIsRefreshingLocation] = useState(false);
   const [selectedMuscles, setSelectedMuscles] = useState<MuscleGroup[]>([]);
   const [soloTraining, setSoloTraining] = useState(false);
   const [sliderWidth, setSliderWidth] = useState(0);
@@ -182,6 +197,11 @@ const CheckInScreen = () => {
   const [selectedPr, setSelectedPr] = useState<PrOption | null>(null);
   const [prWeight, setPrWeight] = useState('');
   const [prVideoAttached, setPrVideoAttached] = useState(false);
+  const [prVideoUri, setPrVideoUri] = useState<string | null>(null);
+  const [prVideoThumbnailUri, setPrVideoThumbnailUri] = useState<string | null>(null);
+  const [prShareToFeed, setPrShareToFeed] = useState(true);
+  const [prMessage, setPrMessage] = useState('');
+  const [recentPRInfo, setRecentPRInfo] = useState<string | null>(null);
   const [shareComposerVisible, setShareComposerVisible] = useState(false);
   const [shareMessage, setShareMessage] = useState('');
   const [shareVisibility, setShareVisibility] = useState<'everyone' | 'friends' | 'private'>('everyone');
@@ -302,20 +322,18 @@ const CheckInScreen = () => {
     return () => sliderAnim.removeListener(listenerId);
   }, [sliderAnim]);
 
-  useEffect(() => {
-    setDetectionStatus('searching');
-    const finder = setTimeout(() => {
+  const findClosestGym = useCallback(
+    (coords: {latitude: number; longitude: number}) => {
       const closest = danishGyms
         .map(gym => {
           const distance = getDistanceMeters(
-            SIMULATED_LOCATION.latitude,
-            SIMULATED_LOCATION.longitude,
+            coords.latitude,
+            coords.longitude,
             gym.latitude,
             gym.longitude,
           );
           return {...gym, distance};
         })
-        .filter(gym => gym.distance <= DETECTION_RADIUS_METERS)
         .sort((a, b) => a.distance - b.distance)[0];
 
       if (closest) {
@@ -327,16 +345,54 @@ const CheckInScreen = () => {
         setDetectedDistance(null);
         setDetectionStatus('missing');
       }
-    }, 600);
+    },
+    [],
+  );
 
-    return () => clearTimeout(finder);
-  }, []);
+  const refreshLocation = useCallback(() => {
+    setIsRefreshingLocation(true);
+    setDetectionStatus('searching');
+    Geolocation.getCurrentPosition(
+      position => {
+        const coords = {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        };
+        setCurrentLocation(coords);
+        findClosestGym(coords);
+        setIsRefreshingLocation(false);
+      },
+      () => {
+        const fallback = SIMULATED_LOCATION;
+        setCurrentLocation(fallback);
+        findClosestGym(fallback);
+        setIsRefreshingLocation(false);
+      },
+      {enableHighAccuracy: true, timeout: 8000, maximumAge: 60000},
+    );
+  }, [findClosestGym]);
+
+  useEffect(() => {
+    refreshLocation();
+  }, [refreshLocation]);
+
+  const nearestGyms = useMemo(() => {
+    const base = currentLocation || SIMULATED_LOCATION;
+    return danishGyms
+      .map(gym => ({
+        ...gym,
+        distance: getDistanceMeters(base.latitude, base.longitude, gym.latitude, gym.longitude),
+      }))
+      .sort((a, b) => a.distance - b.distance)
+      .slice(0, 3);
+  }, [currentLocation]);
 
   const manualSuggestions = useMemo(() => {
     const query = manualGymQuery.trim().toLowerCase();
     if (!query) {
-      return [];
+      return nearestGyms;
     }
+    const base = currentLocation || SIMULATED_LOCATION;
     return danishGyms
       .filter(gym => {
         const haystack = `${gym.name} ${gym.city ?? ''} ${gym.brand ?? ''} ${gym.address ?? ''}`
@@ -346,14 +402,19 @@ const CheckInScreen = () => {
           .split(/\s+/)
           .every(token => haystack.includes(token));
       })
+      .map(gym => ({
+        ...gym,
+        distance: getDistanceMeters(base.latitude, base.longitude, gym.latitude, gym.longitude),
+      }))
       .slice(0, 6);
-  }, [manualGymQuery]);
+  }, [manualGymQuery, nearestGyms, currentLocation]);
 
   const planSuggestions = useMemo(() => {
     const query = planCenterQuery.trim().toLowerCase();
     if (!query) {
-      return [];
+      return nearestGyms;
     }
+    const base = currentLocation || SIMULATED_LOCATION;
     return danishGyms
       .filter(gym => {
         const haystack = `${gym.name} ${gym.city ?? ''} ${gym.brand ?? ''} ${gym.address ?? ''}`
@@ -363,8 +424,22 @@ const CheckInScreen = () => {
           .split(/\s+/)
           .every(token => haystack.includes(token));
       })
+      .map(gym => ({
+        ...gym,
+        distance: getDistanceMeters(base.latitude, base.longitude, gym.latitude, gym.longitude),
+      }))
       .slice(0, 6);
-  }, [planCenterQuery]);
+  }, [planCenterQuery, nearestGyms, currentLocation]);
+
+  const formatDistance = (distance?: number | null) => {
+    if (distance == null || Number.isNaN(distance)) {
+      return '';
+    }
+    if (distance >= 1000) {
+      return `${(distance / 1000).toFixed(1).replace('.', ',')} km væk`;
+    }
+    return `${Math.round(distance)} m væk`;
+  };
 
   useEffect(() => {
     let interval: NodeJS.Timeout | null = null;
@@ -383,6 +458,7 @@ const CheckInScreen = () => {
       }
     };
   }, [activeSession]);
+
 
   useEffect(() => {
     if (!planModalVisible) {
@@ -442,6 +518,9 @@ const CheckInScreen = () => {
     setPrWeight('');
     setPrVideoAttached(false);
     setPrVideoUri(null);
+    setPrVideoThumbnailUri(null);
+    setPrShareToFeed(true);
+    setPrMessage('');
   };
 
   const handleSelectPrOption = (option: PrOption) => {
@@ -449,15 +528,26 @@ const CheckInScreen = () => {
     setPrStep('details');
   };
 
-  const handleAttachPrVideo = async () => {
+  const createPrThumbnail = async (uri: string) => {
     try {
-      Alert.alert(
-        'Vælg video',
-        'Hvordan vil du tilføje videoen?',
-        [
-          {
-            text: 'Optag video',
-            onPress: async () => {
+      const thumbnail = await createThumbnail({url: uri, timeStamp: 1000});
+      if (thumbnail?.path) {
+        setPrVideoThumbnailUri(thumbnail.path);
+      }
+    } catch (error) {
+      setPrVideoThumbnailUri(null);
+    }
+  };
+
+  const handleAttachPrVideo = () => {
+    Alert.alert(
+      'Vælg video',
+      'Hvordan vil du tilføje videoen?',
+      [
+        {
+          text: 'Optag video',
+          onPress: () => {
+            try {
               const videoOptions: CameraOptions = {
                 mediaType: 'video',
                 cameraType: 'back',
@@ -465,64 +555,72 @@ const CheckInScreen = () => {
                 durationLimit: 30, // Max 30 seconds
                 saveToPhotos: true,
               };
-              const response: ImagePickerResponse = await launchCamera(videoOptions);
-              if (response.didCancel) {
-                return;
-              }
-              if (response.errorCode) {
-                Alert.alert('Kamera fejl', response.errorMessage || 'Kunne ikke åbne kameraet.');
-                return;
-              }
-              const asset = response.assets && response.assets[0];
-              if (asset?.uri) {
-                // Check video duration if available
-                if (asset.duration && asset.duration > 30000) {
-                  Alert.alert('Video for lang', 'Videoen må maksimalt være 30 sekunder lang.');
+              launchCamera(videoOptions, (response: ImagePickerResponse) => {
+                if (response.didCancel) {
                   return;
                 }
-                setPrVideoUri(asset.uri);
-    setPrVideoAttached(true);
-                Alert.alert('Video tilføjet', 'Din video er blevet tilføjet (maks 30 sek).');
-              }
-            },
+                if (response.errorCode) {
+                  Alert.alert('Kamera fejl', response.errorMessage || 'Kunne ikke åbne kameraet.');
+                  return;
+                }
+                const asset = response.assets && response.assets[0];
+                if (asset?.uri) {
+                  // Check video duration if available
+                  if (asset.duration && asset.duration > 30000) {
+                    Alert.alert('Video for lang', 'Videoen må maksimalt være 30 sekunder lang.');
+                    return;
+                  }
+                  setPrVideoUri(asset.uri);
+                  createPrThumbnail(asset.uri);
+                  setPrVideoAttached(true);
+                  Alert.alert('Video tilføjet', 'Din video er blevet tilføjet (maks 30 sek).');
+                }
+              });
+            } catch (error) {
+              Alert.alert('Fejl', 'Kunne ikke åbne kameraet. Tjek tilladelser og prøv igen.');
+            }
           },
-          {
-            text: 'Vælg fra bibliotek',
-            onPress: async () => {
+        },
+        {
+          text: 'Vælg fra bibliotek',
+          onPress: () => {
+            try {
               const libraryOptions: CameraOptions = {
                 mediaType: 'video',
                 videoQuality: 'high',
               };
-              const response: ImagePickerResponse = await launchImageLibrary(libraryOptions);
-              if (response.didCancel) {
-                return;
-              }
-              if (response.errorCode) {
-                Alert.alert('Fejl', response.errorMessage || 'Kunne ikke åbne biblioteket.');
-                return;
-              }
-              const asset = response.assets && response.assets[0];
-              if (asset?.uri) {
-                // Check video duration if available
-                if (asset.duration && asset.duration > 30000) {
-                  Alert.alert('Video for lang', 'Videoen må maksimalt være 30 sekunder lang.');
+              launchImageLibrary(libraryOptions, (response: ImagePickerResponse) => {
+                if (response.didCancel) {
                   return;
                 }
-                setPrVideoUri(asset.uri);
-                setPrVideoAttached(true);
-                Alert.alert('Video tilføjet', 'Din video er blevet tilføjet (maks 30 sek).');
-              }
-            },
+                if (response.errorCode) {
+                  Alert.alert('Fejl', response.errorMessage || 'Kunne ikke åbne biblioteket.');
+                  return;
+                }
+                const asset = response.assets && response.assets[0];
+                if (asset?.uri) {
+                  // Check video duration if available
+                  if (asset.duration && asset.duration > 30000) {
+                    Alert.alert('Video for lang', 'Videoen må maksimalt være 30 sekunder lang.');
+                    return;
+                  }
+                  setPrVideoUri(asset.uri);
+                  createPrThumbnail(asset.uri);
+                  setPrVideoAttached(true);
+                  Alert.alert('Video tilføjet', 'Din video er blevet tilføjet (maks 30 sek).');
+                }
+              });
+            } catch (error) {
+              Alert.alert('Fejl', 'Kunne ikke åbne biblioteket. Tjek tilladelser og prøv igen.');
+            }
           },
-          {
-            text: 'Annuller',
-            style: 'cancel',
-          },
-        ],
-      );
-    } catch (error) {
-      Alert.alert('Fejl', 'Kunne ikke åbne video picker. Tjek tilladelser og prøv igen.');
-    }
+        },
+        {
+          text: 'Annuller',
+          style: 'cancel',
+        },
+      ],
+    );
   };
 
   const handleSubmitPr = () => {
@@ -560,8 +658,31 @@ const CheckInScreen = () => {
       exercise: exerciseType,
       weight: weight,
       videoUrl: prVideoUri || undefined,
+      videoThumbnailUrl: prVideoThumbnailUri || undefined,
       userId: 'current_user',
     });
+    
+    // Add to feed if user wants to share
+    if (prShareToFeed && prVideoUri) {
+      const feedUserName = user?.displayName || user?.username || 'Dig';
+      const description = prMessage.trim() 
+        ? `${prMessage.trim()}\n\nNy PR i ${selectedPr}: ${prWeight.trim()} kg!`
+        : `Ny PR i ${selectedPr}: ${prWeight.trim()} kg!`;
+      addFeedItem({
+        id: `feed_pr_${Date.now()}`,
+        type: 'pr',
+        user: feedUserName,
+        description: description,
+        timestamp: 'Lige nu',
+        videoUri: prVideoUri,
+        videoThumbnailUri: prVideoThumbnailUri || undefined,
+        workoutInfo: `${selectedPr} - ${prWeight.trim()} kg`,
+      });
+    }
+    
+    // Store PR info for workout sharing
+    const prInfo = `${selectedPr} - ${prWeight.trim()} kg`;
+    setRecentPRInfo(prInfo);
     
     Alert.alert('Stærkt!', `${prWeight.trim()} kg i ${selectedPr} sat!`);
     setPrModalVisible(false);
@@ -570,6 +691,9 @@ const CheckInScreen = () => {
     setPrWeight('');
     setPrVideoAttached(false);
     setPrVideoUri(null);
+    setPrVideoThumbnailUri(null);
+    setPrShareToFeed(true);
+    setPrMessage('');
   };
 
   const findGymByQuery = (query: string): DanishGym | null => {
@@ -806,23 +930,11 @@ const CheckInScreen = () => {
       if (!pendingSession) {
         return;
       }
-      NotificationService.sendWorkoutInvite(
-        user?.displayName || 'Din ven',
-        pendingSession.gym,
-        formatMuscleSelection(pendingSession.muscles),
-        friendIds,
-      );
       setPendingInviteIds(prev => [...prev, ...friendIds.filter(id => !prev.includes(id))]);
     } else if (inviteContext === 'active') {
       if (!activeSession) {
         return;
       }
-      NotificationService.sendWorkoutInvite(
-        user?.displayName || 'Din ven',
-        activeSession.gym,
-        formatMuscleSelection(activeSession.muscles),
-        friendIds,
-      );
       setActiveSession(prev =>
         prev
           ? {
@@ -948,9 +1060,6 @@ const CheckInScreen = () => {
         const asset = response.assets && response.assets[0];
         if (asset?.uri) {
           setSessionPhotoUri(asset.uri);
-          if (!options?.silent) {
-            Alert.alert('Foto gemt', 'Billedet er gemt til denne træning.');
-          }
           options?.onSuccess?.(asset.uri);
         }
       } catch (error) {
@@ -983,6 +1092,7 @@ const CheckInScreen = () => {
           setPendingInviteIds([]);
           setPendingSession(null);
     setSessionPhotoUri(null);
+    setSelectedMuscles([]);
   };
 
   const finalizeWorkout = (
@@ -1012,6 +1122,7 @@ const CheckInScreen = () => {
     rating?: number | null,
     mentionedUsers?: string[],
     muscles?: MuscleGroup[],
+    prInfo?: string,
   ) => {
     const feedUserName = user?.displayName || user?.username || 'Du';
     const validRating = rating && rating >= 1 && rating <= 5 ? rating : undefined;
@@ -1031,18 +1142,30 @@ const CheckInScreen = () => {
       });
     }
     
+    // Add PR info to description if available
+    let finalDescription = summary;
+    if (prInfo) {
+      finalDescription = `${summary}\n\n🏆 Ny PR: ${prInfo}`;
+    }
+    
     addFeedItem({
       id: `feed_${Date.now()}`,
       type: photoUri ? 'photo' : 'summary',
       user: feedUserName,
-      description: summary,
+      description: finalDescription,
       timestamp: 'Lige nu',
       photoUri: photoUri ?? undefined,
       workoutInfo: workoutInfo,
       rating: validRating,
       mentionedUsers: mentionedUsers,
       muscles,
+      prInfo: prInfo,
     });
+    
+    // Clear recent PR info after sharing
+    if (prInfo) {
+      setRecentPRInfo(null);
+    }
   };
 
   const openShareComposer = (
@@ -1118,6 +1241,7 @@ const CheckInScreen = () => {
       shareRating,
       mentionedUserIds,
       shareContext.session.muscles,
+      recentPRInfo || undefined,
     );
     finalizeWorkout(shareContext.session, shareContext.summary, shareContext.durationMs, shareContext.photoUri);
     setShareComposerVisible(false);
@@ -1536,7 +1660,18 @@ const CheckInScreen = () => {
                   )}
                   <Text style={styles.detectionHint}>Tryk for at vælge et andet center</Text>
                 </View>
-                <Ionicons name="chevron-forward" size={20} color="#94A3B8" />
+                <TouchableOpacity
+                  style={styles.refreshLocationButton}
+                  onPress={(e: GestureResponderEvent) => {
+                    e.stopPropagation();
+                    refreshLocation();
+                  }}
+                  activeOpacity={0.8}>
+                  <Ionicons name="locate-outline" size={20} color={colors.primary} />
+                  <Text style={styles.refreshLocationText}>
+                    {isRefreshingLocation ? 'Opdaterer...' : 'Lokalitet'}
+                  </Text>
+                </TouchableOpacity>
               </View>
             </TouchableOpacity>
 
@@ -1544,6 +1679,7 @@ const CheckInScreen = () => {
               <View style={styles.muscleGrid}>
                 {MUSCLE_GROUPS.map(item => {
                   const isActive = selectedMuscles.includes(item.key);
+                  const isLargeIcon = item.key === 'hele_kroppen' || item.key === 'ben';
                   return (
                     <TouchableOpacity
                       key={item.key}
@@ -1552,10 +1688,24 @@ const CheckInScreen = () => {
                       activeOpacity={0.85}>
                       <Image
                         source={getMuscleGroupImage(item.key)}
-                        style={[styles.muscleImage, isActive && styles.muscleImageActive]}
+                        style={[
+                          styles.muscleImage,
+                          {
+                            width: baseMuscleIconSize,
+                            height: baseMuscleIconSize,
+                            zIndex: 0,
+                          },
+                          isLargeIcon && {transform: [{scale: 1.2}]},
+                          isActive && styles.muscleImageActive,
+                        ]}
                         resizeMode="contain"
                       />
-                      <Text style={[styles.muscleLabel, isActive && styles.muscleLabelActive]}>
+                      <Text
+                        style={[
+                          styles.muscleLabel,
+                          {fontSize: muscleLabelFontSize, marginTop: muscleLabelMarginTop, zIndex: 1},
+                          isActive && styles.muscleLabelActive,
+                        ]}>
                         {item.label}
                       </Text>
                     </TouchableOpacity>
@@ -1577,7 +1727,7 @@ const CheckInScreen = () => {
                     />
                   </TouchableOpacity>
                 </View>
-                <Text style={styles.soloToggleHint}>Skjul venneforslag for denne session.</Text>
+                <Text style={styles.soloToggleHint}>Skjul denne træning for venner</Text>
               </View>
             </View>
 
@@ -1656,6 +1806,10 @@ const CheckInScreen = () => {
               onChangeText={setManualGymQuery}
               autoCapitalize="words"
               autoCorrect={false}
+              returnKeyType="done"
+              blurOnSubmit={true}
+              onSubmitEditing={() => Keyboard.dismiss()}
+              inputAccessoryViewID="keyboardToolbar"
             />
             <View style={styles.manualList}>
               {manualSuggestions.length === 0 && manualGymQuery.trim().length > 0 ? (
@@ -1677,10 +1831,11 @@ const CheckInScreen = () => {
                         {formatGymDisplayName(option)}
                       </Text>
                       <Text style={styles.manualItemSubtitle}>
-                        {[option.city, option.region].filter(Boolean).join(' • ')}
+                        {[option.city, option.region, formatDistance(option.distance)]
+                          .filter(Boolean)
+                          .join(' • ')}
                       </Text>
                     </View>
-                    <Ionicons name="checkmark-circle" size={22} color="#007AFF" />
                   </TouchableOpacity>
                 ))
               )}
@@ -1920,10 +2075,14 @@ const CheckInScreen = () => {
                 onChangeText={handlePlanCenterInput}
                 autoCapitalize="words"
                 autoCorrect={false}
+                onFocus={() => {
+                  if (planSelectedGym) {
+                    setPlanSelectedGym(null);
+                    setPlanCenterQuery('');
+                  }
+                }}
               />
-                  {planCenterQuery.trim().length > 0 &&
-                    planSuggestions.length > 0 &&
-                    !planSelectedGym && (
+                  {planSuggestions.length > 0 && !planSelectedGym && (
                 <View style={styles.planSuggestionList}>
                   {planSuggestions.map(option => (
                     <TouchableOpacity
@@ -1935,7 +2094,9 @@ const CheckInScreen = () => {
                           {formatGymDisplayName(option)}
                         </Text>
                         <Text style={styles.planSuggestionSubtitle}>
-                          {[option.city, option.region].filter(Boolean).join(' • ')}
+                          {[option.city, option.region, formatDistance(option.distance)]
+                            .filter(Boolean)
+                            .join(' • ')}
                         </Text>
                       </View>
                       <Ionicons name="location-outline" size={18} color="#007AFF" />
@@ -1948,6 +2109,7 @@ const CheckInScreen = () => {
               <View style={styles.muscleGrid}>
                 {MUSCLE_GROUPS.map(item => {
                   const isActive = planMuscles.includes(item.key);
+                  const isLargeIcon = item.key === 'hele_kroppen' || item.key === 'ben';
                   return (
                     <TouchableOpacity
                       key={item.key}
@@ -1956,10 +2118,24 @@ const CheckInScreen = () => {
                       activeOpacity={0.85}>
                       <Image
                         source={getMuscleGroupImage(item.key)}
-                        style={[styles.muscleImage, isActive && styles.muscleImageActive]}
+                        style={[
+                          styles.muscleImage,
+                          {
+                            width: baseMuscleIconSize,
+                            height: baseMuscleIconSize,
+                            zIndex: 0,
+                          },
+                          isLargeIcon && {transform: [{scale: 1.2}]},
+                          isActive && styles.muscleImageActive,
+                        ]}
                         resizeMode="contain"
                       />
-                      <Text style={[styles.muscleLabel, isActive && styles.muscleLabelActive]}>
+                      <Text
+                        style={[
+                          styles.muscleLabel,
+                          {fontSize: muscleLabelFontSize, marginTop: muscleLabelMarginTop, zIndex: 1},
+                          isActive && styles.muscleLabelActive,
+                        ]}>
                         {item.label}
                       </Text>
                     </TouchableOpacity>
@@ -2153,9 +2329,7 @@ const CheckInScreen = () => {
               minHeight: 400, 
               maxWidth: 500, 
               alignSelf: 'center',
-            }]} 
-            pointerEvents="box-none"
-            onStartShouldSetResponder={() => true}>
+            }]}>
             <ScrollView 
                   style={{flex: 1, width: '100%'}}
                   contentContainerStyle={[
@@ -2171,7 +2345,9 @@ const CheckInScreen = () => {
                   bounces={true}
                   nestedScrollEnabled={true}
                   scrollEnabled={true}
-                  alwaysBounceVertical={false}>
+                  alwaysBounceVertical={false}
+                  onStartShouldSetResponderCapture={() => true}
+                  scrollEventThrottle={16}>
                 <Text style={styles.modalTitle}>Del træning</Text>
                 
                 {/* Description */}
@@ -2183,6 +2359,10 @@ const CheckInScreen = () => {
                     numberOfLines={4}
                     value={shareMessage}
                     placeholderTextColor={colors.textTertiary}
+                    returnKeyType="done"
+                    blurOnSubmit={true}
+                    onSubmitEditing={() => Keyboard.dismiss()}
+                    inputAccessoryViewID="keyboardToolbar"
                     onChangeText={(text) => {
                       setShareMessage(text);
                       // Check for @ mentions
@@ -2353,6 +2533,10 @@ const CheckInScreen = () => {
                     placeholder="Skriv private noter her. Kun du kan se disse."
                     placeholderTextColor={colors.textTertiary}
                     textAlignVertical="top"
+                    returnKeyType="done"
+                    blurOnSubmit={true}
+                    onSubmitEditing={() => Keyboard.dismiss()}
+                    inputAccessoryViewID="keyboardToolbar"
                   />
                 </View>
                 
@@ -2453,8 +2637,10 @@ const CheckInScreen = () => {
       </Modal>
 
       <Modal visible={prModalVisible} transparent animationType="fade">
-        <View style={styles.modalOverlay}>
-          <View style={[styles.modalCard, styles.prModalCard]}>
+        <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+          <View style={styles.modalOverlay}>
+            <TouchableWithoutFeedback>
+              <View style={[styles.modalCard, styles.prModalCard]}>
             {prStep === 'select' && (
               <>
                 <Text style={styles.modalTitle}>Hvilken PR vil du sætte?</Text>
@@ -2481,11 +2667,28 @@ const CheckInScreen = () => {
                 <Text style={styles.sectionLabel}>Vægt (kg)</Text>
                 <TextInput
                   style={styles.prInput}
-                  keyboardType="numeric"
+                  keyboardType="number-pad"
                   placeholder="Fx 120"
                   placeholderTextColor="#94A3B8"
                   value={prWeight}
                   onChangeText={handlePrWeightChange}
+                  returnKeyType="done"
+                  blurOnSubmit={true}
+                  onSubmitEditing={() => Keyboard.dismiss()}
+                />
+                <Text style={styles.sectionLabel}>Beskrivelse (valgfrit)</Text>
+                <TextInput
+                  style={[styles.prInput, styles.prMessageInput]}
+                  placeholder="Skriv dit opslag her..."
+                  placeholderTextColor="#94A3B8"
+                  value={prMessage}
+                  onChangeText={setPrMessage}
+                  multiline
+                  numberOfLines={3}
+                  textAlignVertical="top"
+                  returnKeyType="done"
+                  blurOnSubmit={true}
+                  onSubmitEditing={() => Keyboard.dismiss()}
                 />
                 <Text style={styles.sectionLabel}>Bevis</Text>
                 <TouchableOpacity
@@ -2509,6 +2712,18 @@ const CheckInScreen = () => {
                     {prVideoAttached ? 'Video tilføjet (maks 30 sek)' : 'Upload video'}
                   </Text>
                 </TouchableOpacity>
+                <View style={styles.shareToggleContainer}>
+                  <View style={styles.shareToggleInfo}>
+                    <Text style={styles.shareToggleLabel}>Del på feed</Text>
+                    <Text style={styles.shareToggleDescription}>Vis din PR på hjem-skærmen</Text>
+                  </View>
+                  <Switch
+                    value={prShareToFeed}
+                    onValueChange={setPrShareToFeed}
+                    trackColor={{false: '#E5E5EA', true: colors.primary}}
+                    thumbColor="#fff"
+                  />
+                </View>
                 <TouchableOpacity
                   style={[
                     styles.prSubmitButton,
@@ -2516,7 +2731,7 @@ const CheckInScreen = () => {
                   ]}
                   onPress={handleSubmitPr}
                   disabled={!prWeight.trim() || !prVideoAttached}>
-                  <Text style={styles.prSubmitButtonText}>Del PR</Text>
+                  <Text style={styles.prSubmitButtonText}>{prShareToFeed ? 'Del PR' : 'Gem PR'}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={styles.modalClose}
@@ -2525,9 +2740,27 @@ const CheckInScreen = () => {
                 </TouchableOpacity>
               </>
             )}
+              </View>
+            </TouchableWithoutFeedback>
           </View>
-        </View>
+        </TouchableWithoutFeedback>
       </Modal>
+      
+      {/* Keyboard Toolbar */}
+      {Platform.OS === 'ios' && (
+        <InputAccessoryView nativeID="keyboardToolbar">
+          <View style={styles.keyboardToolbar}>
+            <TouchableOpacity
+              style={styles.keyboardToolbarButton}
+              onPress={() => Keyboard.dismiss()}
+              activeOpacity={0.7}>
+              <Text style={styles.keyboardToolbarText}>Færdig</Text>
+            </TouchableOpacity>
+          </View>
+        </InputAccessoryView>
+      )}
+
+      
       {planToast.visible && (
         <Modal transparent animationType="fade">
           <View style={styles.toastOverlay} pointerEvents="none">
@@ -2633,20 +2866,35 @@ const styles = StyleSheet.create({
     color: colors.secondary,
     marginTop: 2,
   },
+  refreshLocationButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: 12,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    gap: 6,
+  },
+  refreshLocationText: {
+    fontSize: 12,
+    color: colors.textSecondary,
+    fontWeight: '600',
+  },
   muscleGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    gap: 8,
+    gap: 6,
   },
   muscleCard: {
-    width: '46%',
+    width: '48%',
     borderRadius: 14,
     borderWidth: 1,
     borderColor: colors.border,
-    paddingVertical: 9,
-    paddingHorizontal: 8,
-    marginBottom: 8,
+    paddingVertical: 8,
+    paddingHorizontal: 7,
+    marginBottom: 6,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.backgroundCard,
@@ -2885,6 +3133,10 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: colors.text,
   },
+  prMessageInput: {
+    minHeight: 80,
+    paddingTop: 12,
+  },
   prInput: {
     borderWidth: 1,
     borderColor: colors.border,
@@ -2916,6 +3168,31 @@ const styles = StyleSheet.create({
   },
   videoButtonTextAttached: {
     color: '#15803D',
+  },
+  shareToggleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    backgroundColor: colors.background,
+    borderRadius: 12,
+    marginTop: 8,
+    marginBottom: 16,
+  },
+  shareToggleInfo: {
+    flex: 1,
+    marginRight: 12,
+  },
+  shareToggleLabel: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: colors.text,
+    marginBottom: 4,
+  },
+  shareToggleDescription: {
+    fontSize: 13,
+    color: colors.textSecondary,
   },
   prSubmitButton: {
     width: '100%',
@@ -3437,6 +3714,44 @@ const styles = StyleSheet.create({
   },
   planModalContent: {
     paddingBottom: 12,
+  },
+  keyboardToolbar: {
+    backgroundColor: '#E5E7EB',
+    borderTopWidth: 1,
+    borderTopColor: '#D1D5DB',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    height: 44,
+  },
+  keyboardToolbarButton: {
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+  },
+  keyboardToolbarText: {
+    color: colors.primary,
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  keyboardFallbackBar: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    zIndex: 9999,
+    elevation: 9999,
+  },
+  keyboardFallbackInner: {
+    backgroundColor: '#E5E7EB',
+    borderTopWidth: 1,
+    borderTopColor: '#D1D5DB',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    height: 44,
   },
   sectionLabel: {
     fontSize: 14,

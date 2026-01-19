@@ -3,8 +3,9 @@
  * User profile and workout history
  */
 
-import React, {useState, useMemo} from 'react';
-import {View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Switch, Alert, FlatList, Dimensions, Modal, TextInput} from 'react-native';
+import React, {useState, useMemo, useRef} from 'react';
+import {View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Switch, Alert, FlatList, Dimensions, Modal, TextInput, Linking, TouchableWithoutFeedback} from 'react-native';
+import Video from 'react-native-video';
 import {useAppStore} from '@/store/appStore';
 import {useWorkoutStore} from '@/store/workoutStore';
 import {usePRStore} from '@/store/prStore';
@@ -182,6 +183,10 @@ const ProfileScreen = () => {
   const [prWeight, setPrWeight] = useState('');
   const [prVideoAttached, setPrVideoAttached] = useState(false);
   const [prVideoUri, setPrVideoUri] = useState<string | null>(null);
+  const [videoModalVisible, setVideoModalVisible] = useState(false);
+  const [selectedVideoUri, setSelectedVideoUri] = useState<string | null>(null);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const videoRef = useRef<any>(null);
   
   const {getAllPRs, getAllRepRecords} = usePRStore();
   const allPRs = getAllPRs();
@@ -767,13 +772,20 @@ const ProfileScreen = () => {
                         <TouchableOpacity
                           style={styles.prsVideoContainer}
                           onPress={() => {
-                            Alert.alert('Video', 'Video afspiller åbnes her');
+                            setSelectedVideoUri(pr.videoUrl);
+                            setIsVideoPlaying(true);
+                            setVideoModalVisible(true);
                           }}
                           activeOpacity={0.8}>
-                          <View style={styles.prsVideoThumbnail}>
-                            <Icon name="play-circle" size={40} color={colors.primary} />
-                            <Text style={styles.prsVideoText}>Se video</Text>
+                          <Image
+                            source={{uri: pr.videoThumbnailUrl ?? pr.videoUrl}}
+                            style={styles.prsVideoThumbnail}
+                            resizeMode="cover"
+                          />
+                          <View style={styles.prsVideoPlayOverlay}>
+                            <Icon name="play-circle" size={40} color="#fff" />
                           </View>
+                          <Text style={styles.prsVideoText}>Se video</Text>
                         </TouchableOpacity>
                       ) : (
                         <View style={styles.prsNoVideoContainer}>
@@ -1478,6 +1490,52 @@ const ProfileScreen = () => {
         visible={showGymSelector}
         onClose={() => setShowGymSelector(false)}
       />
+
+      {/* Video Modal */}
+      <Modal
+        visible={videoModalVisible}
+        transparent
+        animationType="fade"
+        onRequestClose={() => {
+          setIsVideoPlaying(false);
+          setVideoModalVisible(false);
+        }}>
+        <View style={styles.videoModalOverlay}>
+          <TouchableWithoutFeedback onPress={() => {
+            setIsVideoPlaying(false);
+            setVideoModalVisible(false);
+          }}>
+            <View style={StyleSheet.absoluteFill} />
+          </TouchableWithoutFeedback>
+          <View style={styles.videoModalContent}>
+            <TouchableOpacity
+              style={styles.videoModalClose}
+              onPress={() => {
+                setIsVideoPlaying(false);
+                setVideoModalVisible(false);
+              }}>
+              <Icon name="close" size={28} color="#fff" />
+            </TouchableOpacity>
+            {selectedVideoUri && (
+              <View style={styles.videoPlayerContainer}>
+                <Video
+                  ref={videoRef}
+                  source={{uri: selectedVideoUri}}
+                  style={styles.videoPlayer}
+                  controls={true}
+                  paused={!isVideoPlaying}
+                  resizeMode="contain"
+                  onLoad={() => setIsVideoPlaying(true)}
+                  onError={(error) => {
+                    Alert.alert('Fejl', 'Kunne ikke afspille videoen.');
+                    console.error('Video error:', error);
+                  }}
+                />
+              </View>
+            )}
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };
@@ -2428,12 +2486,21 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   prsVideoThumbnail: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 100,
-    height: 100,
+    width: 200,
+    height: 150,
     borderRadius: 12,
     backgroundColor: '#F0F0F0',
+  },
+  prsVideoPlayOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+    borderRadius: 12,
   },
   prsVideoText: {
     fontSize: 12,
@@ -2595,6 +2662,38 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: '#0F172A',
     fontWeight: '600',
+  },
+  videoModalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.9)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  videoModalContent: {
+    width: '90%',
+    maxHeight: '80%',
+    backgroundColor: '#000',
+    borderRadius: 12,
+    padding: 20,
+    alignItems: 'center',
+  },
+  videoModalClose: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    zIndex: 1,
+    padding: 8,
+  },
+  videoPlayerContainer: {
+    width: '100%',
+    height: 300,
+    backgroundColor: '#000',
+    borderRadius: 8,
+    overflow: 'hidden',
+  },
+  videoPlayer: {
+    width: '100%',
+    height: '100%',
   },
 });
 

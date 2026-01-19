@@ -83,6 +83,7 @@ export interface UserRegistration {
   displayName: string;
   password: string;
   bicepsEmoji?: string; // User's chosen biceps emoji for likes
+  profileImageUrl?: string;
   gdprConsent: {
     privacyPolicyAccepted: boolean;
     termsOfServiceAccepted: boolean;

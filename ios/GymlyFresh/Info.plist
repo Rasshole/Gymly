@@ -8,6 +8,8 @@
 	<string>GymlyFresh</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIconName</key>
+	<string>AppIcon</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -33,6 +35,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Gymly needs access to your camera to take photos and videos of your workouts and personal records.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Gymly needs access to your location to check in at fitness centers when you are within 50 meters. Location access is only used when the app is active.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Gymly needs access to your location to check in at fitness centers when you are within 50 meters.</string>
 	<key>NSMicrophoneUsageDescription</key>

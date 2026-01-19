@@ -2,7 +2,7 @@
  * Register Screen
  */
 
-import React, {useMemo, useState} from 'react';
+import React, {useMemo, useRef, useState} from 'react';
 import {
   View,
   Text,
@@ -15,6 +15,8 @@ import {
   Alert,
   ActivityIndicator,
   Switch,
+  Image,
+  Linking,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
@@ -26,9 +28,15 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import GymlyLogo from '@/components/GymlyLogo';
 import danishGyms, {DanishGym, DanishRegion} from '@/data/danishGyms';
 import {colors} from '@/theme/colors';
+import {
+  launchCamera,
+  launchImageLibrary,
+  CameraOptions,
+  ImagePickerResponse,
+} from 'react-native-image-picker';
 
 type RegisterScreenNavigationProp = StackNavigationProp<AuthStackParamList, 'Register'>;
-type Step = 'method' | 'names' | 'email' | 'password' | 'location' | 'verification' | 'username' | 'photo';
+type Step = 'method' | 'names' | 'email' | 'password' | 'location' | 'verification' | 'username' | 'photo' | 'privacy';
 type RegistrationMethod = 'apple' | 'google' | 'email';
 
 type SocialButtonProps = {
@@ -73,9 +81,10 @@ const stepOrder: Step[] = [
   'email',
   'password',
   'location',
-  'verification',
   'username',
   'photo',
+  'privacy',
+  'verification',
 ];
 
 const regionOptions: DanishRegion[] = ['København', 'Sjælland', 'Fyn', 'Jylland'];
@@ -83,6 +92,7 @@ const regionOptions: DanishRegion[] = ['København', 'Sjælland', 'Fyn', 'Jyllan
 const RegisterScreen = () => {
   const navigation = useNavigation<RegisterScreenNavigationProp>();
   const {login} = useAppStore();
+  const scrollRef = useRef<ScrollView>(null);
 
   const [step, setStep] = useState<Step>('method');
   const [method, setMethod] = useState<RegistrationMethod | null>(null);
@@ -91,16 +101,26 @@ const RegisterScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [location, setLocation] = useState<DanishRegion | ''>('');
-  const [localGym, setLocalGym] = useState('');
-  const [selectedGym, setSelectedGym] = useState<DanishGym | null>(null);
+  const [favoriteGyms, setFavoriteGyms] = useState<(DanishGym | null)[]>([
+    null,
+    null,
+    null,
+  ]);
+  const [favoriteGymLabels, setFavoriteGymLabels] = useState<string[]>(['', '', '']);
+  const [activeGymIndex, setActiveGymIndex] = useState<number | null>(null);
   const [showGymSuggestions, setShowGymSuggestions] = useState(false);
-  const [allowLocation, setAllowLocation] = useState(false);
-  const [verificationCode, setVerificationCode] = useState('');
+  const [allowLocation, setAllowLocation] = useState(true);
   const [username, setUsername] = useState('');
-  const [selectedBiceps, setSelectedBiceps] = useState<string>('💪🏻');
+  const [selectedBiceps, setSelectedBiceps] = useState<string | null>(null);
   const [photoSelected, setPhotoSelected] = useState(false);
+  const [profilePhotoUri, setProfilePhotoUri] = useState<string>('');
   const [isLoading, setIsLoading] = useState(false);
   const [passwordErrors, setPasswordErrors] = useState<string[]>([]);
+  const [showPassword, setShowPassword] = useState(false);
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  const [termsAccepted, setTermsAccepted] = useState(false);
+  const [marketingConsent, setMarketingConsent] = useState(false);
+  const [analyticsConsent, setAnalyticsConsent] = useState(false);
   
   const bicepsOptions = ['💪🏻', '💪🏼', '💪🏽', '💪🏾', '💪🏿', '🦾'];
 
@@ -123,7 +143,7 @@ const RegisterScreen = () => {
       case 'location':
         return 'Vælg din beliggenhed og dit lokale træningscenter';
       case 'verification':
-        return `Vi har sendt en kode til ${email || 'din mail'}`;
+        return `Vi har sendt et link til ${email || 'din mail'}`;
       case 'username':
         return 'Vælg et brugernavn, som andre kan se';
       case 'photo':
@@ -141,28 +161,28 @@ const RegisterScreen = () => {
       .toLowerCase();
 
   const gymSuggestions = useMemo(() => {
-    const trimmed = localGym.trim();
-    if (!showGymSuggestions || !location || trimmed.length === 0) {
+    const activeLabel =
+      activeGymIndex !== null ? favoriteGymLabels[activeGymIndex] : '';
+    const trimmed = activeLabel.trim();
+    if (!showGymSuggestions || activeGymIndex === null || trimmed.length === 0) {
       return [];
     }
 
     const normalizedQuery = normalizeSearchValue(trimmed);
     const tokens = normalizedQuery.split(/\s+/).filter(Boolean);
 
-    const filtered = danishGyms
-      .filter(option => option.region === location)
-      .filter(option => {
-        if (tokens.length === 0) {
-          return true;
-        }
-        const haystack = normalizeSearchValue(
-          `${option.name} ${option.city ?? ''} ${option.region} ${option.address ?? ''}`
-        );
-        return tokens.every(token => haystack.includes(token));
-      });
+    const filtered = danishGyms.filter(option => {
+      if (tokens.length === 0) {
+        return true;
+      }
+      const haystack = normalizeSearchValue(
+        `${option.name} ${option.city ?? ''} ${option.region} ${option.address ?? ''}`
+      );
+      return tokens.every(token => haystack.includes(token));
+    });
 
     return filtered.slice(0, 10);
-  }, [location, localGym, showGymSuggestions]);
+  }, [favoriteGymLabels, showGymSuggestions, activeGymIndex]);
 
   const setPrefilledEmail = (selectedMethod: RegistrationMethod | null) => {
     if (!selectedMethod || selectedMethod === 'email') {
@@ -183,8 +203,9 @@ const RegisterScreen = () => {
   const handleSelectMethod = (selected: RegistrationMethod) => {
     setMethod(selected);
     setLocation('');
-    setLocalGym('');
-    setSelectedGym(null);
+    setFavoriteGyms([null, null, null]);
+    setFavoriteGymLabels(['', '', '']);
+    setActiveGymIndex(null);
     setShowGymSuggestions(false);
     setStep('names');
   };
@@ -253,46 +274,73 @@ const RegisterScreen = () => {
 
   const handleSelectRegion = (region: DanishRegion) => {
     setLocation(region);
-    setLocalGym('');
-    setSelectedGym(null);
+    setFavoriteGyms([null, null, null]);
+    setFavoriteGymLabels(['', '', '']);
+    setActiveGymIndex(null);
     setShowGymSuggestions(false);
   };
 
   const handleSelectGymSuggestion = (gym: DanishGym) => {
     const displayLabel = [gym.name, gym.city].filter(Boolean).join(', ');
-    setSelectedGym(gym);
+    if (activeGymIndex !== null) {
+      setFavoriteGyms(prev => {
+        const next = [...prev];
+        next[activeGymIndex] = gym;
+        return next;
+      });
+      setFavoriteGymLabels(prev => {
+        const next = [...prev];
+        next[activeGymIndex] = displayLabel;
+        return next;
+      });
+    }
     setLocation(gym.region);
-    setLocalGym(displayLabel);
+    setActiveGymIndex(null);
     setShowGymSuggestions(false);
   };
 
   const handleLocationContinue = () => {
-    const chosenGym = (selectedGym
-      ? [selectedGym.name, selectedGym.city].filter(Boolean).join(', ')
-      : localGym
-    ).trim();
+    const firstGymLabel = favoriteGymLabels[0].trim();
 
-    if (!location || !chosenGym) {
+    if (!location || !firstGymLabel) {
       Alert.alert('Mangler info', 'Vælg både beliggenhed og center.');
       return;
     }
 
     setShowGymSuggestions(false);
-    setLocalGym(chosenGym);
-    setStep('verification');
-  };
-
-  const handleSkipVerification = () => {
+    setActiveGymIndex(null);
     setStep('username');
   };
 
   const handleVerificationContinue = () => {
-    if (verificationCode.length !== 6) {
-      Alert.alert('Ugyldig kode', 'Indtast din 6-cifrede kode.');
+    if (!email.trim() || !password) {
+      Alert.alert('Manglende info', 'Email og adgangskode mangler.');
       return;
     }
+    setIsLoading(true);
+    AuthService.login({email: email.trim(), password})
+      .then(({user, tokens}) => {
+        if (tokens) {
+          login(user, tokens);
+        } else {
+          Alert.alert('Login fejlede', 'Kunne ikke logge ind. Prøv igen.');
+        }
+      })
+      .catch(error => {
+        Alert.alert(
+          'Ikke bekræftet endnu',
+          error?.message || 'Bekræft din email og prøv igen.',
+        );
+      })
+      .finally(() => setIsLoading(false));
+  };
 
-    setStep('username');
+  const handleSkipVerification = () => {
+    Alert.alert(
+      'Bekræft senere',
+      'Du kan bekræfte din mail senere fra login.',
+      [{text: 'OK', onPress: () => navigation.navigate('Login')}],
+    );
   };
 
   const handleUsernameContinue = () => {
@@ -302,6 +350,10 @@ const RegisterScreen = () => {
     }
     if (username.trim().length < 3) {
       Alert.alert('For kort brugernavn', 'Brugernavnet skal være mindst 3 tegn.');
+      return;
+    }
+    if (!selectedBiceps) {
+      Alert.alert('Vælg biceps', 'Vælg din biceps emoji for at fortsætte.');
       return;
     }
 
@@ -331,41 +383,58 @@ const RegisterScreen = () => {
       setStep('username');
       return;
     }
+    if (!selectedBiceps) {
+      Alert.alert('Vælg biceps', 'Vælg din biceps emoji for at fortsætte.');
+      setStep('username');
+      return;
+    }
 
     setIsLoading(true);
     try {
       // Get the selected gym ID if a gym was selected
-      let favoriteGymId: number | undefined;
-      if (selectedGym) {
-        favoriteGymId = selectedGym.id;
-      } else if (localGym) {
-        // Try to find the gym by name/city if it wasn't selected from suggestions
-        const foundGym = danishGyms.find(
-          gym =>
-            gym.name.toLowerCase().includes(localGym.toLowerCase()) ||
-            (gym.city && gym.city.toLowerCase().includes(localGym.toLowerCase())),
-        );
-        if (foundGym) {
-          favoriteGymId = foundGym.id;
+      const favoriteGymIds: number[] = [];
+      favoriteGymLabels.forEach((label, index) => {
+        const trimmed = label.trim();
+        if (!trimmed) {
+          return;
         }
-      }
+        const selected = favoriteGyms[index];
+        const gymId =
+          selected?.id ??
+          danishGyms.find(
+            gym =>
+              gym.name.toLowerCase().includes(trimmed.toLowerCase()) ||
+              (gym.city && gym.city.toLowerCase().includes(trimmed.toLowerCase())),
+          )?.id;
+        if (gymId && !favoriteGymIds.includes(gymId)) {
+          favoriteGymIds.push(gymId);
+        }
+      });
 
       if (method === 'email') {
-        const {user, tokens} = await AuthService.register({
+        const {user, tokens, needsEmailConfirmation} = await AuthService.register({
           email,
           username: username.trim(),
           displayName: fullName || email,
           password,
-          bicepsEmoji: selectedBiceps,
+          bicepsEmoji: selectedBiceps ?? '💪🏻',
           gdprConsent: {
-            privacyPolicyAccepted: true,
-            termsOfServiceAccepted: true,
-            marketingConsent: false,
-            analyticsConsent: false,
+            privacyPolicyAccepted: privacyAccepted,
+            termsOfServiceAccepted: termsAccepted,
+            marketingConsent: marketingConsent,
+            analyticsConsent: analyticsConsent,
           },
-          favoriteGyms: favoriteGymId ? [favoriteGymId] : undefined,
+          favoriteGyms: favoriteGymIds.length > 0 ? favoriteGymIds : undefined,
+          profileImageUrl: profilePhotoUri || undefined,
         });
 
+        if (needsEmailConfirmation) {
+          setStep('verification');
+          return;
+        }
+        if (!tokens) {
+          throw new Error('Kunne ikke fuldføre registrering.');
+        }
         login(user, tokens);
         return;
       }
@@ -375,10 +444,13 @@ const RegisterScreen = () => {
         lastName: lastName.trim(),
         email: email.trim(),
         username: username.trim(),
-        bicepsEmoji: selectedBiceps,
-        favoriteGyms: favoriteGymId ? [favoriteGymId] : undefined,
+        bicepsEmoji: selectedBiceps ?? '💪🏻',
+        favoriteGyms: favoriteGymIds.length > 0 ? favoriteGymIds : undefined,
       });
 
+      if (!tokens) {
+        throw new Error('Kunne ikke fuldføre registrering.');
+      }
       login(user, tokens);
     } catch (error: any) {
       Alert.alert('Registrering fejlede', error.message || 'Prøv igen.');
@@ -388,8 +460,56 @@ const RegisterScreen = () => {
   };
 
   const handlePhotoPick = () => {
-    setPhotoSelected(true);
-    Alert.alert('Snart klar', 'Foto upload implementeres senere.');
+    Alert.alert('Vælg profilbillede', 'Hvordan vil du tilføje et billede?', [
+      {
+        text: 'Tag billede',
+        onPress: async () => {
+          const cameraOptions: CameraOptions = {
+            mediaType: 'photo',
+            cameraType: 'front',
+            saveToPhotos: false,
+            quality: 0.8,
+          };
+          const response: ImagePickerResponse = await launchCamera(cameraOptions);
+          const asset = response.assets && response.assets[0];
+          if (asset?.uri) {
+            setProfilePhotoUri(asset.uri);
+            setPhotoSelected(true);
+          }
+        },
+      },
+      {
+        text: 'Vælg fra bibliotek',
+        onPress: async () => {
+          const response: ImagePickerResponse = await launchImageLibrary({
+            mediaType: 'photo',
+            selectionLimit: 1,
+            quality: 0.8,
+          });
+          const asset = response.assets && response.assets[0];
+          if (asset?.uri) {
+            setProfilePhotoUri(asset.uri);
+            setPhotoSelected(true);
+          }
+        },
+      },
+      {text: 'Annuller', style: 'cancel'},
+    ]);
+  };
+
+  const handlePhotoContinue = () => {
+    setStep('privacy');
+  };
+
+  const handlePrivacyContinue = () => {
+    if (!privacyAccepted || !termsAccepted) {
+      Alert.alert(
+        'Påkrævet',
+        'Du skal acceptere privatlivspolitikken og servicevilkårene for at fortsætte.'
+      );
+      return;
+    }
+    handleCompleteRegistration();
   };
 
   const renderContent = () => {
@@ -469,17 +589,31 @@ const RegisterScreen = () => {
         return (
           <View style={styles.card}>
             <TextInput style={styles.input} value={email} editable={false} selectTextOnFocus={false} />
-            <TextInput
-              style={[
-                styles.input,
-                password.length > 0 && passwordErrors.length > 0 && styles.inputError,
-                password.length > 0 && passwordErrors.length === 0 && styles.inputValid,
-              ]}
-              placeholder="Password"
-              value={password}
-              onChangeText={handlePasswordChange}
-              secureTextEntry
-            />
+            <View style={styles.passwordField}>
+              <TextInput
+                style={[
+                  styles.input,
+                  styles.passwordInput,
+                  password.length > 0 && passwordErrors.length > 0 && styles.inputError,
+                  password.length > 0 && passwordErrors.length === 0 && styles.inputValid,
+                ]}
+                placeholder="Password"
+                value={password}
+                onChangeText={handlePasswordChange}
+                secureTextEntry={!showPassword}
+                onFocus={() => {
+                  setTimeout(() => {
+                    scrollRef.current?.scrollTo({y: 360, animated: true});
+                  }, 80);
+                }}
+              />
+              <TouchableOpacity
+                style={styles.passwordToggle}
+                onPress={() => setShowPassword(prev => !prev)}
+                activeOpacity={0.7}>
+                <Text style={styles.passwordToggleText}>{showPassword ? 'Skjul' : 'Se kode'}</Text>
+              </TouchableOpacity>
+            </View>
             {password.length > 0 && (
               <View style={styles.passwordRequirements}>
                 {passwordErrors.length > 0 ? (
@@ -537,45 +671,76 @@ const RegisterScreen = () => {
               ))}
             </View>
 
-            <Text style={styles.sectionLabel}>Vælg dit lokale træningscenter*</Text>
-            <View style={styles.inputWrapper}>
-              <TextInput
-                style={styles.input}
-                placeholder="Dit center (fx Fitness X)"
-                value={localGym}
-                onChangeText={value => {
-                  setLocalGym(value);
-                  setSelectedGym(null);
-                  setShowGymSuggestions(value.trim().length > 0);
-                }}
-                autoCapitalize="words"
-                autoCorrect={false}
-              />
+            <Text style={styles.sectionLabel}>Favoritcentre*</Text>
+            {favoriteGymLabels.map((label, index) => {
+              const isRequired = index === 0;
+              const isActive = activeGymIndex === index;
+              return (
+                <View key={`favorite_gym_${index}`} style={styles.inputWrapper}>
+                  <View style={styles.favoriteGymRow}>
+                    <View style={styles.favoriteGymIndex}>
+                      <Text style={styles.favoriteGymIndexText}>{index + 1}.</Text>
+                    </View>
+                    <TextInput
+                      style={[styles.input, styles.favoriteGymInput]}
+                      placeholder={isRequired ? 'Påkrævet' : 'Valgfri'}
+                      value={label}
+                      onFocus={() => {
+                        setActiveGymIndex(index);
+                        setShowGymSuggestions(true);
+                        setTimeout(() => {
+                          scrollRef.current?.scrollTo({y: 520, animated: true});
+                        }, 80);
+                      }}
+                      onChangeText={value => {
+                        setFavoriteGymLabels(prev => {
+                          const next = [...prev];
+                          next[index] = value;
+                          return next;
+                        });
+                        setFavoriteGyms(prev => {
+                          const next = [...prev];
+                          next[index] = null;
+                          return next;
+                        });
+                        setActiveGymIndex(index);
+                        setShowGymSuggestions(value.trim().length > 0);
+                        if (value.trim().length > 0) {
+                          setTimeout(() => {
+                            scrollRef.current?.scrollTo({y: 520, animated: true});
+                          }, 80);
+                        }
+                      }}
+                      autoCapitalize="words"
+                      autoCorrect={false}
+                    />
+                  </View>
 
-              {showGymSuggestions && gymSuggestions.length > 0 && (
-                <View style={styles.suggestionList}>
-                  {gymSuggestions.map(option => (
-                    <TouchableOpacity
-                      key={option.id}
-                      style={styles.suggestionItem}
-                      onPress={() => handleSelectGymSuggestion(option)}>
-                      <Text style={styles.suggestionTitle}>{option.name}</Text>
-                      <Text style={styles.suggestionSubtitle}>{option.city}</Text>
-                    </TouchableOpacity>
-                  ))}
+                  {isActive && showGymSuggestions && gymSuggestions.length > 0 && (
+                    <View style={styles.suggestionList}>
+                      {gymSuggestions.map(option => (
+                        <TouchableOpacity
+                          key={`${index}_${option.id}`}
+                          style={styles.suggestionItem}
+                          onPress={() => handleSelectGymSuggestion(option)}>
+                          <Text style={styles.suggestionTitle}>{option.name}</Text>
+                          <Text style={styles.suggestionSubtitle}>{option.city}</Text>
+                        </TouchableOpacity>
+                      ))}
+                    </View>
+                  )}
                 </View>
-              )}
-            </View>
+              );
+            })}
 
             <View style={styles.toggleRow}>
               <Text style={styles.toggleLabel}>Tillad Gymly at bruge din lokalitet</Text>
               <Switch
                 value={allowLocation}
                 onValueChange={setAllowLocation}
-                trackColor={{false: '#D1D5DB', true: '#93C5FD'}}
+                trackColor={{false: '#E5E5EA', true: '#34C759'}}
                 thumbColor="#fff"
-                ios_backgroundColor="#D1D5DB"
-                style={styles.switchControl}
+                ios_backgroundColor="#E5E5EA"
               />
             </View>
             <TouchableOpacity style={styles.primaryButton} onPress={handleLocationContinue} activeOpacity={0.85}>
@@ -588,22 +753,42 @@ const RegisterScreen = () => {
           <View style={styles.card}>
             <TextInput
               style={styles.input}
-              placeholder="6-cifret kode*"
-              value={verificationCode}
-              onChangeText={value => setVerificationCode(value.replace(/[^0-9]/g, ''))}
-              keyboardType="number-pad"
-              maxLength={6}
+              placeholder="Email adresse"
+              value={email}
+              editable={false}
             />
             <View style={styles.linkRow}>
-              <TouchableOpacity style={styles.secondaryLink} onPress={() => Alert.alert('Kode sendt', 'Vi sendte koden igen.')}>
-                <Text style={styles.secondaryLinkText}>Send koden igen</Text>
+              <TouchableOpacity
+                style={styles.secondaryLink}
+                onPress={async () => {
+                  try {
+                    await AuthService.resendEmailConfirmation(email.trim());
+                    Alert.alert('Link sendt', 'Vi har sendt linket igen.');
+                  } catch (error: any) {
+                    Alert.alert('Fejl', error?.message || 'Kunne ikke sende linket.');
+                  }
+                }}>
+                <Text style={styles.secondaryLinkText}>Send link igen</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.secondaryLink} onPress={handleSkipVerification}>
-                <Text style={styles.secondaryLinkText}>Spring over for nu</Text>
+              <TouchableOpacity
+                style={styles.secondaryLink}
+                onPress={() => Linking.openURL('mailto:')}>
+                <Text style={styles.secondaryLinkText}>Åbn mail</Text>
               </TouchableOpacity>
             </View>
-            <TouchableOpacity style={styles.primaryButton} onPress={handleVerificationContinue} activeOpacity={0.85}>
-              <Text style={styles.primaryButtonText}>Næste</Text>
+            <TouchableOpacity
+              style={[styles.primaryButton, isLoading && styles.primaryButtonDisabled]}
+              onPress={handleVerificationContinue}
+              activeOpacity={0.85}
+              disabled={isLoading}>
+              {isLoading ? (
+                <ActivityIndicator color="#fff" />
+              ) : (
+                <Text style={styles.primaryButtonText}>Jeg har bekræftet</Text>
+              )}
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.skipLink} onPress={handleSkipVerification} activeOpacity={0.7}>
+              <Text style={styles.skipLinkText}>Skip for nu (Kun i beta)</Text>
             </TouchableOpacity>
           </View>
         );
@@ -619,7 +804,13 @@ const RegisterScreen = () => {
               autoCorrect={false}
               textContentType="username"
               returnKeyType="done"
-              onSubmitEditing={handleUsernameContinue}
+              onSubmitEditing={() => {
+                if (selectedBiceps) {
+                  handleUsernameContinue();
+                } else {
+                  Alert.alert('Vælg biceps', 'Vælg din biceps emoji for at fortsætte.');
+                }
+              }}
             />
             <Text style={styles.helperText}>Brugernavnet skal være mindst 3 tegn</Text>
             
@@ -648,24 +839,121 @@ const RegisterScreen = () => {
         return (
           <View style={styles.photoSection}>
             <TouchableOpacity style={styles.photoPlaceholder} onPress={handlePhotoPick} activeOpacity={0.8}>
-              <MaterialIcon
-                name={photoSelected ? 'check-circle' : 'camera-plus'}
-                size={photoSelected ? 44 : 38}
-                color={photoSelected ? '#34C759' : '#94A3B8'}
-              />
-              <Text style={styles.photoHelper}>
-                {photoSelected ? 'Billede markeret' : 'Tilføj et foto'}
-              </Text>
+              {profilePhotoUri ? (
+                <Image source={{uri: profilePhotoUri}} style={styles.photoImage} />
+              ) : (
+                <>
+                  <MaterialIcon
+                    name={photoSelected ? 'check-circle' : 'camera-plus'}
+                    size={photoSelected ? 44 : 38}
+                    color={photoSelected ? '#34C759' : '#94A3B8'}
+                  />
+                  <Text style={styles.photoHelper}>
+                    {photoSelected ? 'Billede markeret' : 'Tilføj et foto'}
+                  </Text>
+                </>
+              )}
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.primaryButton, styles.finishButton]} onPress={handleCompleteRegistration} activeOpacity={0.85}>
+            <TouchableOpacity style={[styles.primaryButton, styles.finishButton]} onPress={handlePhotoContinue} activeOpacity={0.85}>
+              <Text style={styles.primaryButtonText}>Fortsæt</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handlePhotoContinue} disabled={isLoading}>
+              <Text style={styles.secondaryLinkText}>Spring over</Text>
+            </TouchableOpacity>
+          </View>
+        );
+      case 'privacy':
+        return (
+          <View style={styles.privacySection}>
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>Påkrævet (nødvendigt for app)</Text>
+              
+              <TouchableOpacity
+                style={styles.consentItem}
+                onPress={() => setPrivacyAccepted(!privacyAccepted)}
+                activeOpacity={0.7}>
+                <View style={styles.consentInfo}>
+                  <Text style={styles.consentTitle}>Privatlivspolitik</Text>
+                  <Text style={styles.consentDescription}>
+                    Vi gemmer kun nødvendige data og beskytter dine oplysninger
+                  </Text>
+                </View>
+                <View style={[styles.checkbox, privacyAccepted && styles.checkboxChecked]}>
+                  {privacyAccepted && <Text style={styles.checkmark}>✓</Text>}
+                </View>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={styles.consentItem}
+                onPress={() => setTermsAccepted(!termsAccepted)}
+                activeOpacity={0.7}>
+                <View style={styles.consentInfo}>
+                  <Text style={styles.consentTitle}>Servicevilkår</Text>
+                  <Text style={styles.consentDescription}>
+                    Vilkår for brug af Gymly
+                  </Text>
+                </View>
+                <View style={[styles.checkbox, termsAccepted && styles.checkboxChecked]}>
+                  {termsAccepted && <Text style={styles.checkmark}>✓</Text>}
+                </View>
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>Valgfrit</Text>
+              
+              <View style={styles.consentItem}>
+                <View style={styles.consentInfo}>
+                  <Text style={styles.consentTitle}>Marketing kommunikation</Text>
+                  <Text style={styles.consentDescription}>
+                    Modtag nyheder og tilbud (kan ændres senere)
+                  </Text>
+                </View>
+                <Switch
+                  value={marketingConsent}
+                  onValueChange={setMarketingConsent}
+                  trackColor={{false: '#E5E5EA', true: '#34C759'}}
+                  thumbColor="#fff"
+                />
+              </View>
+
+              <View style={styles.consentItem}>
+                <View style={styles.consentInfo}>
+                  <Text style={styles.consentTitle}>Anonymiseret analyse</Text>
+                  <Text style={styles.consentDescription}>
+                    Hjælp os med at forbedre appen (kan ændres senere)
+                  </Text>
+                </View>
+                <Switch
+                  value={analyticsConsent}
+                  onValueChange={setAnalyticsConsent}
+                  trackColor={{false: '#E5E5EA', true: '#34C759'}}
+                  thumbColor="#fff"
+                />
+              </View>
+            </View>
+
+            <View style={styles.infoBox}>
+              <Text style={styles.infoTitle}>Dine rettigheder under GDPR:</Text>
+              <Text style={styles.infoText}>• Ret til indsigt i dine data</Text>
+              <Text style={styles.infoText}>• Ret til at få dine data slettet</Text>
+              <Text style={styles.infoText}>• Ret til dataportabilitet</Text>
+              <Text style={styles.infoText}>• Ret til at trække samtykke tilbage</Text>
+            </View>
+
+            <TouchableOpacity
+              style={[
+                styles.primaryButton,
+                (!privacyAccepted || !termsAccepted || isLoading) && styles.primaryButtonDisabled,
+              ]}
+              onPress={handlePrivacyContinue}
+              disabled={!privacyAccepted || !termsAccepted || isLoading}
+              activeOpacity={0.85}>
               {isLoading ? (
                 <ActivityIndicator color="#fff" />
               ) : (
-                <Text style={styles.primaryButtonText}>Afslut</Text>
+                <Text style={styles.primaryButtonText}>Accepter og fortsæt</Text>
               )}
-            </TouchableOpacity>
-            <TouchableOpacity onPress={handleCompleteRegistration} disabled={isLoading}>
-              <Text style={styles.secondaryLinkText}>Spring over</Text>
             </TouchableOpacity>
           </View>
         );
@@ -681,7 +969,10 @@ const RegisterScreen = () => {
     <KeyboardAvoidingView
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-      <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
+      <ScrollView
+        ref={scrollRef}
+        contentContainerStyle={styles.content}
+        keyboardShouldPersistTaps="handled">
         {showBack && (
           <TouchableOpacity style={styles.backButton} onPress={() => setStep(stepOrder[Math.max(0, currentStepIndex - 2)])}>
             <MaterialIcon name="chevron-left" size={28} color="#007AFF" />
@@ -703,10 +994,12 @@ const RegisterScreen = () => {
             : step === 'location'
             ? 'Hvor træner du henne?'
             : step === 'verification'
-            ? 'Indtast din verifikationskode'
+            ? 'Bekræft din email'
             : step === 'username'
             ? 'Vælg brugernavn'
-            : 'Tilføj et foto'
+            : step === 'photo'
+            ? 'Tilføj et foto'
+            : 'Privatliv og samtykke'
         }</Text>
         <Text style={styles.subtitle}>{subtitleCopy}</Text>
 
@@ -832,6 +1125,24 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border,
   },
+  passwordField: {
+    position: 'relative',
+    justifyContent: 'center',
+  },
+  passwordInput: {
+    paddingRight: 92,
+  },
+  passwordToggle: {
+    position: 'absolute',
+    right: 12,
+    paddingVertical: 6,
+    paddingHorizontal: 8,
+  },
+  passwordToggleText: {
+    color: colors.secondary,
+    fontSize: 14,
+    fontWeight: '600',
+  },
   inputError: {
     borderColor: '#EF4444',
     borderWidth: 2,
@@ -842,6 +1153,23 @@ const styles = StyleSheet.create({
   },
   inputWrapper: {
     position: 'relative',
+  },
+  favoriteGymRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  favoriteGymIndex: {
+    width: 28,
+    alignItems: 'center',
+  },
+  favoriteGymIndexText: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: colors.textSecondary,
+  },
+  favoriteGymInput: {
+    flex: 1,
   },
   halfInput: {
     flex: 1,
@@ -969,9 +1297,6 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 12,
   },
-  switchControl: {
-    transform: [{scaleX: 0.9}, {scaleY: 0.9}],
-  },
   linkRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -985,6 +1310,15 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '600',
   },
+  skipLink: {
+    alignItems: 'center',
+    marginTop: 8,
+  },
+  skipLinkText: {
+    color: colors.textTertiary,
+    fontSize: 14,
+    fontWeight: '600',
+  },
   photoSection: {
     alignItems: 'center',
     gap: 16,
@@ -996,6 +1330,11 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surface,
     justifyContent: 'center',
     alignItems: 'center',
+    overflow: 'hidden',
+  },
+  photoImage: {
+    width: '100%',
+    height: '100%',
   },
   photoHelper: {
     marginTop: 12,
@@ -1050,6 +1389,75 @@ const styles = StyleSheet.create({
   },
   bicepsEmojiOption: {
     fontSize: 32,
+  },
+  privacySection: {
+    gap: 24,
+  },
+  section: {
+    marginBottom: 0,
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: colors.text,
+    marginBottom: 12,
+  },
+  consentItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.background,
+    padding: 16,
+    borderRadius: 12,
+    marginBottom: 12,
+  },
+  consentInfo: {
+    flex: 1,
+    marginRight: 12,
+  },
+  consentTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: colors.text,
+    marginBottom: 4,
+  },
+  consentDescription: {
+    fontSize: 14,
+    color: colors.textSecondary,
+    lineHeight: 20,
+  },
+  checkbox: {
+    width: 28,
+    height: 28,
+    borderRadius: 6,
+    borderWidth: 2,
+    borderColor: colors.secondary,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  checkboxChecked: {
+    backgroundColor: colors.secondary,
+  },
+  checkmark: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  infoBox: {
+    backgroundColor: colors.surface,
+    padding: 16,
+    borderRadius: 12,
+    marginBottom: 0,
+  },
+  infoTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: colors.text,
+    marginBottom: 8,
+  },
+  infoText: {
+    fontSize: 14,
+    color: colors.textSecondary,
+    marginBottom: 4,
   },
 });
 
