@@ -527,7 +527,7 @@ const RegisterScreen = () => {
               icon="google"
               label="Fortsæt med Google"
               backgroundColor="#fff"
-              textColor="#0F172A"
+              textColor={colors.text}
               onPress={() => handleSelectMethod('google')}
             />
             <TouchableOpacity
@@ -839,20 +839,14 @@ const RegisterScreen = () => {
         return (
           <View style={styles.photoSection}>
             <TouchableOpacity style={styles.photoPlaceholder} onPress={handlePhotoPick} activeOpacity={0.8}>
-              {profilePhotoUri ? (
-                <Image source={{uri: profilePhotoUri}} style={styles.photoImage} />
-              ) : (
-                <>
-                  <MaterialIcon
-                    name={photoSelected ? 'check-circle' : 'camera-plus'}
-                    size={photoSelected ? 44 : 38}
-                    color={photoSelected ? '#34C759' : '#94A3B8'}
-                  />
-                  <Text style={styles.photoHelper}>
-                    {photoSelected ? 'Billede markeret' : 'Tilføj et foto'}
-                  </Text>
-                </>
-              )}
+              <MaterialIcon
+                name={photoSelected ? 'check-circle' : 'camera-plus'}
+                size={photoSelected ? 44 : 38}
+                color={photoSelected ? colors.secondary : colors.textMuted}
+              />
+              <Text style={styles.photoHelper}>
+                {photoSelected ? 'Billede markeret' : 'Tilføj et foto'}
+              </Text>
             </TouchableOpacity>
             <TouchableOpacity style={[styles.primaryButton, styles.finishButton]} onPress={handlePhotoContinue} activeOpacity={0.85}>
               <Text style={styles.primaryButtonText}>Fortsæt</Text>
@@ -975,7 +969,7 @@ const RegisterScreen = () => {
         keyboardShouldPersistTaps="handled">
         {showBack && (
           <TouchableOpacity style={styles.backButton} onPress={() => setStep(stepOrder[Math.max(0, currentStepIndex - 2)])}>
-            <MaterialIcon name="chevron-left" size={28} color="#007AFF" />
+            <MaterialIcon name="chevron-left" size={28} color={colors.primary} />
           </TouchableOpacity>
         )}
         <View style={styles.logoBadge}>

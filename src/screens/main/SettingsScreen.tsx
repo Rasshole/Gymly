@@ -12,6 +12,8 @@ import {
   TouchableOpacity,
   Switch,
   Alert,
+  Linking,
+  Platform,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
@@ -19,6 +21,9 @@ import {useAppStore} from '@/store/appStore';
 import {usePrivacyStore} from '@/store/privacyStore';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {colors} from '@/theme/colors';
+import {spacing} from '@/theme/spacing';
+import {typography} from '@/theme/typography';
+import {Card, ConfirmDialog, LoadingSpinner} from '@/components/ui';
 
 const SettingsScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
@@ -34,40 +39,73 @@ const SettingsScreen = () => {
   const [autoplayVideo, setAutoplayVideo] = useState(true);
   const [appearance, setAppearance] = useState('Lys tilstand');
   const [unitsOfMeasurement, setUnitsOfMeasurement] = useState('Kilometer');
+  const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
+  const [isUpdatingMarketing, setIsUpdatingMarketing] = useState(false);
+  const [isUpdatingAnalytics, setIsUpdatingAnalytics] = useState(false);
 
   const handleMarketingToggle = async (value: boolean) => {
     setMarketingEnabled(value);
+    setIsUpdatingMarketing(true);
     try {
       await updateMarketingConsent(value);
     } catch (error) {
       Alert.alert('Fejl', 'Kunne ikke opdatere indstilling');
       setMarketingEnabled(!value);
+    } finally {
+      setIsUpdatingMarketing(false);
     }
   };
 
   const handleAnalyticsToggle = async (value: boolean) => {
     setAnalyticsEnabled(value);
+    setIsUpdatingAnalytics(true);
     try {
       await updateAnalyticsConsent(value);
     } catch (error) {
       Alert.alert('Fejl', 'Kunne ikke opdatere indstilling');
       setAnalyticsEnabled(!value);
+    } finally {
+      setIsUpdatingAnalytics(false);
     }
   };
 
   const handleLogout = () => {
-    Alert.alert(
-      'Log ud',
-      'Er du sikker på du vil logge ud?',
-      [
-        {text: 'Annuller', style: 'cancel'},
-        {
-          text: 'Log ud',
-          style: 'destructive',
-          onPress: () => logout(),
-        },
-      ]
-    );
+    setShowLogoutConfirm(true);
+  };
+
+  const confirmLogout = () => {
+    setShowLogoutConfirm(false);
+    logout();
+  };
+
+  const handleFeedback = async () => {
+    // App Store ID - skal opdateres med rigtig ID når appen er på App Store
+    // Find App Store ID i App Store Connect under "App Information" -> "General Information"
+    const APP_STORE_ID = '6739436505'; // Placeholder - skal opdateres når appen er live på App Store
+    
+    // Åbn App Store review side hvor brugeren kan skrive en anmeldelse
+    // Denne URL åbner direkte anmeldelses-formularen i App Store
+    const appStoreReviewUrl = `itms-apps://apps.apple.com/app/id${APP_STORE_ID}?action=write-review`;
+    
+    // Fallback URL hvis deep link ikke virker
+    const appStoreWebUrl = `https://apps.apple.com/app/id${APP_STORE_ID}?action=write-review`;
+    
+    try {
+      // Prøv først med App Store deep link (virker bedst på iOS)
+      const canOpenAppStore = await Linking.canOpenURL(appStoreReviewUrl);
+      
+      if (canOpenAppStore) {
+        await Linking.openURL(appStoreReviewUrl);
+      } else {
+        // Fallback til web URL hvis deep link ikke virker
+        await Linking.openURL(appStoreWebUrl);
+      }
+    } catch (error) {
+      Alert.alert(
+        'Kunne ikke åbne App Store',
+        'Prøv at åbne App Store manuelt og søg efter "GymlyFresh" for at skrive en anmeldelse.'
+      );
+    }
   };
 
 
@@ -81,7 +119,7 @@ const SettingsScreen = () => {
             activeOpacity={0.7}
             onPress={() => navigation.navigate('ConnectDevice')}>
             <View style={styles.connectAppIconContainer}>
-              <Icon name="phone-portrait-outline" size={24} color="#007AFF" />
+              <Icon name="phone-portrait-outline" size={24} color={colors.primary} />
             </View>
             <View style={styles.connectAppInfo}>
               <Text style={styles.connectAppTitle}>Forbind en app eller enhed</Text>
@@ -89,7 +127,7 @@ const SettingsScreen = () => {
                 Upload direkte til Gymly med næsten enhver fitness app eller enhed
               </Text>
             </View>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
+            <Icon name="chevron-forward" size={20} color={colors.textMuted} />
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -97,7 +135,7 @@ const SettingsScreen = () => {
             activeOpacity={0.7}
             onPress={() => Alert.alert('Info', 'Administrer apps funktion kommer snart')}>
             <Text style={styles.actionTitle}>Administrer apps og enheder</Text>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
+            <Icon name="chevron-forward" size={20} color={colors.textMuted} />
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -105,7 +143,7 @@ const SettingsScreen = () => {
             activeOpacity={0.7}
             onPress={() => navigation.navigate('ChangeEmail')}>
             <Text style={styles.actionTitle}>Skift Email</Text>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
+            <Icon name="chevron-forward" size={20} color={colors.textMuted} />
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -113,7 +151,7 @@ const SettingsScreen = () => {
             activeOpacity={0.7}
             onPress={() => navigation.navigate('Help')}>
             <Text style={styles.actionTitle}>Hjælp</Text>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
+            <Icon name="chevron-forward" size={20} color={colors.textMuted} />
           </TouchableOpacity>
         </View>
 
@@ -128,7 +166,7 @@ const SettingsScreen = () => {
             <Text style={styles.actionTitle}>Udseende</Text>
             <View style={styles.valueContainer}>
               <Text style={styles.valueText}>{appearance}</Text>
-              <Icon name="chevron-forward" size={20} color="#C7C7CC" />
+              <Icon name="chevron-forward" size={20} color={colors.textMuted} />
             </View>
           </TouchableOpacity>
 
@@ -142,7 +180,7 @@ const SettingsScreen = () => {
                 <Text style={styles.newBadgeText}>NY</Text>
               </View>
             </View>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
+            <Icon name="chevron-forward" size={20} color={colors.textMuted} />
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -152,7 +190,7 @@ const SettingsScreen = () => {
             <Text style={styles.actionTitle}>Måleenheder</Text>
             <View style={styles.valueContainer}>
               <Text style={styles.valueText}>{unitsOfMeasurement}</Text>
-              <Icon name="chevron-forward" size={20} color="#C7C7CC" />
+              <Icon name="chevron-forward" size={20} color={colors.textMuted} />
             </View>
           </TouchableOpacity>
 
@@ -167,7 +205,7 @@ const SettingsScreen = () => {
             <Switch
               value={autoplayVideo}
               onValueChange={setAutoplayVideo}
-              trackColor={{false: '#E5E5EA', true: '#FF9500'}}
+              trackColor={{false: colors.surface, true: colors.warning}}
               thumbColor="#fff"
             />
           </View>
@@ -185,7 +223,7 @@ const SettingsScreen = () => {
                 Ændre hvordan aktiviteter sorteres i dit feed
               </Text>
             </View>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
+            <Icon name="chevron-forward" size={20} color={colors.textMuted} />
           </TouchableOpacity>
         </View>
 
@@ -196,7 +234,7 @@ const SettingsScreen = () => {
             activeOpacity={0.7}
             onPress={() => Alert.alert('Info', 'Siri & Genveje funktion kommer snart')}>
             <Text style={styles.actionTitle}>Siri & Genveje</Text>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
+            <Icon name="chevron-forward" size={20} color={colors.textMuted} />
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -204,7 +242,7 @@ const SettingsScreen = () => {
             activeOpacity={0.7}
             onPress={() => Alert.alert('Info', 'Partner integrationer funktion kommer snart')}>
             <Text style={styles.actionTitle}>Partner integrationer</Text>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
+            <Icon name="chevron-forward" size={20} color={colors.textMuted} />
           </TouchableOpacity>
         </View>
 
@@ -215,7 +253,7 @@ const SettingsScreen = () => {
             activeOpacity={0.7}
             onPress={() => Alert.alert('Info', 'Kontakter funktion kommer snart')}>
             <Text style={styles.actionTitle}>Kontakter</Text>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
+            <Icon name="chevron-forward" size={20} color={colors.textMuted} />
           </TouchableOpacity>
         </View>
 
@@ -226,7 +264,7 @@ const SettingsScreen = () => {
             activeOpacity={0.7}
             onPress={() => navigation.navigate('PushNotifications')}>
             <Text style={styles.actionTitle}>Push notifikationer</Text>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
+            <Icon name="chevron-forward" size={20} color={colors.textMuted} />
           </TouchableOpacity>
 
           <View style={styles.settingItem}>
@@ -236,12 +274,17 @@ const SettingsScreen = () => {
                 Modtag nyheder og tilbud via email
               </Text>
             </View>
-            <Switch
-              value={marketingEnabled}
-              onValueChange={handleMarketingToggle}
-              trackColor={{false: '#E5E5EA', true: '#34C759'}}
-              thumbColor="#fff"
-            />
+            {isUpdatingMarketing ? (
+              <LoadingSpinner size="small" color={colors.primary} />
+            ) : (
+              <Switch
+                value={marketingEnabled}
+                onValueChange={handleMarketingToggle}
+                trackColor={{false: colors.surface, true: colors.secondary}}
+                thumbColor="#fff"
+                disabled={isUpdatingMarketing}
+              />
+            )}
           </View>
         </View>
 
@@ -256,13 +299,36 @@ const SettingsScreen = () => {
                 Hjælp os med at forbedre appen
               </Text>
             </View>
-            <Switch
-              value={analyticsEnabled}
-              onValueChange={handleAnalyticsToggle}
-              trackColor={{false: '#E5E5EA', true: '#34C759'}}
-              thumbColor="#fff"
-            />
+            {isUpdatingAnalytics ? (
+              <LoadingSpinner size="small" color={colors.primary} />
+            ) : (
+              <Switch
+                value={analyticsEnabled}
+                onValueChange={handleAnalyticsToggle}
+                trackColor={{false: colors.surface, true: colors.secondary}}
+                thumbColor="#fff"
+                disabled={isUpdatingAnalytics}
+              />
+            )}
           </View>
+        </View>
+
+        {/* Support & Feedback */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Support & Feedback</Text>
+          
+          <TouchableOpacity
+            style={styles.actionItem}
+            activeOpacity={0.7}
+            onPress={handleFeedback}>
+            <View style={styles.actionInfo}>
+              <Text style={styles.actionTitle}>Feedback</Text>
+              <Text style={styles.actionDescription}>
+                Skriv en anmeldelse i App Store
+              </Text>
+            </View>
+            <Icon name="chevron-forward" size={20} color={colors.textMuted} />
+          </TouchableOpacity>
         </View>
 
         {/* Account */}
@@ -293,6 +359,18 @@ const SettingsScreen = () => {
         {/* App Version */}
         <Text style={styles.versionText}>Version 1.0.0</Text>
       </ScrollView>
+
+      {/* Logout Confirmation Dialog */}
+      <ConfirmDialog
+        visible={showLogoutConfirm}
+        title="Log ud"
+        message="Er du sikker på at du vil logge ud?"
+        confirmLabel="Log ud"
+        cancelLabel="Annuller"
+        onConfirm={confirmLogout}
+        onCancel={() => setShowLogoutConfirm(false)}
+        destructive
+      />
     </View>
   );
 };
@@ -306,25 +384,24 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   content: {
-    padding: 16,
-    paddingBottom: 40,
+    padding: spacing.md,
+    paddingBottom: spacing.xxl,
   },
   section: {
     backgroundColor: colors.backgroundCard,
     borderRadius: 16,
-    marginBottom: 16,
-    padding: 16,
+    marginBottom: spacing.md,
+    padding: spacing.md,
     shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
     elevation: 3,
   },
   sectionTitle: {
-    fontSize: 18,
-    fontWeight: '600',
+    ...typography.h4,
     color: colors.text,
-    marginBottom: 16,
+    marginBottom: spacing.md,
   },
   settingItem: {
     flexDirection: 'row',
@@ -338,13 +415,13 @@ const styles = StyleSheet.create({
     marginRight: 12,
   },
   settingTitle: {
-    fontSize: 16,
+    ...typography.body,
     fontWeight: '500',
     color: colors.text,
-    marginBottom: 2,
+    marginBottom: spacing.xs / 2,
   },
   settingDescription: {
-    fontSize: 14,
+    ...typography.bodySmall,
     color: colors.textSecondary,
   },
   connectAppItem: {
@@ -396,7 +473,7 @@ const styles = StyleSheet.create({
     marginRight: 4,
   },
   newBadge: {
-    backgroundColor: '#FF9500',
+    backgroundColor: colors.warning,
     paddingHorizontal: 8,
     paddingVertical: 2,
     borderRadius: 4,
@@ -444,10 +521,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 16,
     borderWidth: 1,
-    borderColor: '#FF3B30',
+    borderColor: colors.error,
   },
   logoutButtonText: {
-    color: '#FF3B30',
+    color: colors.error,
     fontSize: 18,
     fontWeight: '600',
   },

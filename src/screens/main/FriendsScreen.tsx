@@ -20,7 +20,6 @@ import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppStore} from '@/store/appStore';
-import NotificationService from '@/services/notifications/NotificationService';
 import {colors} from '@/theme/colors';
 import {MuscleGroup} from '@/types/workout.types';
 import {getMuscleGroupImage} from '@/utils/muscleGroupImages';
@@ -171,16 +170,8 @@ const FriendsScreen = () => {
       });
     } else {
       // Send join request
-      if (user) {
-        NotificationService.sendJoinRequest(
-          user.firstName || 'En ven',
-          friend.id,
-          friend.name,
-          friend.gymName,
-        );
-        
-        setPendingJoinRequests(prev => new Set(prev).add(friend.id));
-      }
+      setPendingJoinRequests(prev => new Set(prev).add(friend.id));
+      // TODO: Implement join request notification when backend is ready
     }
   };
 

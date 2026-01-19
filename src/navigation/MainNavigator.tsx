@@ -145,7 +145,7 @@ const SettingsButton = () => {
         navigation.navigate('Settings');
       }}
       style={{marginLeft: 16}}>
-      <Icon name="settings-outline" size={29} color={colors.text} />
+      <Icon name="settings-outline" size={28} color={colors.text} />
     </TouchableOpacity>
   );
 };
@@ -159,7 +159,7 @@ const UpcomingButton = () => {
     <TouchableOpacity
       onPress={() => navigation.navigate('WorkoutSchedule', {initialTab: 'upcoming'})}
       style={{marginRight: 16}}>
-      <Icon name="calendar-outline" size={29} color={colors.text} />
+      <Icon name="calendar-outline" size={28} color={colors.text} />
     </TouchableOpacity>
   );
 };
@@ -178,7 +178,7 @@ const NotificationsButton = () => {
         navigation.navigate('Notifications');
       }}
       style={{marginRight: 16, position: 'relative'}}>
-      <Icon name="notifications-outline" size={29} color={colors.text} />
+      <Icon name="notifications-outline" size={28} color={colors.text} />
       {unreadCount > 0 && (
         <View
           style={{
@@ -238,6 +238,7 @@ const MainTabs = () => {
         },
         headerStyle: {
           backgroundColor: colors.backgroundCard,
+          height: 100,
         },
         headerTintColor: colors.text,
         headerShown: true,

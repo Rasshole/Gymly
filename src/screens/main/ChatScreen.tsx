@@ -28,6 +28,7 @@ import danishGyms, {DanishGym} from '@/data/danishGyms';
 import {MuscleGroup} from '@/types/workout.types';
 import {formatGymDisplayName} from '@/utils/gymDisplay';
 import {useChatStore, ChatPlan, ChatMessage} from '@/store/chatStore';
+import {useAppStore} from '@/store/appStore';
 import {colors} from '@/theme/colors';
 import {getMuscleGroupImage} from '@/utils/muscleGroupImages';
 
@@ -78,7 +79,8 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
   const activePlan: ChatPlan | null = useChatStore(
     useCallback(state => (chatId ? state.activePlansByChat[chatId] ?? null : null), [chatId]),
   );
-  const currentUserId = 'current_user'; // In a real app, this would come from auth
+  const currentUser = useAppStore(state => state.user);
+  const currentUserId = currentUser?.id || 'current_user'; // Fallback for backwards compatibility
   const chatParticipants =
     routeParticipants && routeParticipants.length > 0
       ? routeParticipants
@@ -547,7 +549,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                           {[option.city, option.region].filter(Boolean).join(' • ')}
                         </Text>
                       </View>
-                      <Icon name="location-outline" size={18} color="#007AFF" />
+                      <Icon name="location-outline" size={18} color={colors.primary} />
                     </TouchableOpacity>
                   ))}
                 </View>
@@ -711,7 +713,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                   onPress={handleCameraPress}
                   activeOpacity={0.7}>
                   <View style={styles.imagePickerIconContainer}>
-                    <Icon name="camera" size={24} color="#007AFF" />
+                    <Icon name="camera" size={24} color={colors.primary} />
                   </View>
                   <Text style={styles.imagePickerLabel}>Kamera</Text>
                 </TouchableOpacity>
@@ -720,7 +722,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                   onPress={handleGalleryPress}
                   activeOpacity={0.7}>
                   <View style={styles.imagePickerIconContainer}>
-                    <Icon name="images" size={24} color="#007AFF" />
+                    <Icon name="images" size={24} color={colors.primary} />
                   </View>
                   <Text style={styles.imagePickerLabel}>Galleri</Text>
                 </TouchableOpacity>
@@ -730,7 +732,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
             style={styles.inputIconButton}
               onPress={handleImagePickerToggle}
             activeOpacity={0.7}>
-            <Icon name="add-circle-outline" size={28} color="#007AFF" />
+            <Icon name="add-circle-outline" size={28} color={colors.primary} />
           </TouchableOpacity>
           </View>
           <TouchableOpacity
@@ -742,7 +744,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
           <TextInput
             style={styles.input}
             placeholder="Besked..."
-            placeholderTextColor="#8E8E93"
+            placeholderTextColor={colors.textMuted}
             value={message}
             onChangeText={setMessage}
             multiline
@@ -763,7 +765,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
               onPress={handleSend}
               style={styles.sendButton}
               activeOpacity={0.7}>
-              <Icon name="send" size={24} color="#007AFF" />
+              <Icon name="send" size={24} color={colors.primary} />
             </TouchableOpacity>
           )}
         </View>
@@ -912,7 +914,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 4,
   },
   messageBubbleOther: {
-    backgroundColor: '#E5E5EA',
+    backgroundColor: colors.surface,
     borderBottomLeftRadius: 4,
   },
   messageText: {
@@ -991,7 +993,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: -8,
     right: -8,
-    backgroundColor: '#FF3B30',
+    backgroundColor: colors.error,
     borderRadius: 10,
   },
   imagePickerBackdrop: {

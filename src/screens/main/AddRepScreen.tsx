@@ -19,6 +19,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {usePRStore} from '@/store/prStore';
 import {ExerciseType, RepRecord} from '@/types/pr.types';
+import {getCurrentUserId} from '@/utils/auth';
 import {colors} from '@/theme/colors';
 
 type AddRepRouteParams = {
@@ -53,7 +54,7 @@ const AddRepScreen = () => {
       ]);
     } else {
       addRepRecord({
-        userId: 'current_user', // TODO: Get from auth store
+        userId: getCurrentUserId() || 'current_user',
         exercise: exercise!,
         weight: Number(weight),
         notes: notes.trim() || undefined,

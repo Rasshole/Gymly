@@ -421,11 +421,11 @@ const MapScreen = () => {
 
       {/* Search Bar */}
       <View style={styles.searchContainer}>
-        <Icon name="search" size={20} color="#8E8E93" style={styles.searchIcon} />
+        <Icon name="search" size={20} color={colors.textMuted} style={styles.searchIcon} />
         <TextInput
           style={styles.searchInput}
           placeholder="Søg efter fitness centre..."
-          placeholderTextColor="#8E8E93"
+          placeholderTextColor={colors.textMuted}
           value={searchQuery}
           onChangeText={setSearchQuery}
         />
@@ -433,7 +433,7 @@ const MapScreen = () => {
           <TouchableOpacity
             onPress={() => setSearchQuery('')}
             style={styles.clearButton}>
-            <Icon name="close-circle" size={20} color="#8E8E93" />
+            <Icon name="close-circle" size={20} color={colors.textMuted} />
           </TouchableOpacity>
         )}
       </View>
@@ -463,7 +463,7 @@ const MapScreen = () => {
             <Icon
               name={mapType === 'standard' ? 'radio-button-on' : 'radio-button-off'}
               size={20}
-              color={mapType === 'standard' ? '#007AFF' : '#8E8E93'}
+              color={mapType === 'standard' ? colors.primary : colors.textMuted}
             />
             <Text
               style={[
@@ -577,10 +577,10 @@ const MapScreen = () => {
           </View>
           {mockFriends.filter(f => f.isOnline && f.gymId === selectedGym.id).length > 0 && (
             <View style={styles.userInfo}>
-              <Icon name="person" size={16} color={colors.primary} />
-              <Text style={[styles.userInfoText, {color: colors.primary}]}>
+              <Icon name="people" size={16} color={colors.primary} />
+              <Text style={[styles.userInfoText, styles.friendsOnlineText, {color: colors.primary}]} numberOfLines={1}>
                 {mockFriends.filter(f => f.isOnline && f.gymId === selectedGym.id).length}{' '}
-                {mockFriends.filter(f => f.isOnline && f.gymId === selectedGym.id).length === 1 ? 'ven' : 'venner'}
+                {mockFriends.filter(f => f.isOnline && f.gymId === selectedGym.id).length === 1 ? 'ven' : 'venner'} online
               </Text>
             </View>
           )}
@@ -595,7 +595,7 @@ const MapScreen = () => {
               }
             }}>
             <Text style={styles.viewDetailsText}>Se detaljer</Text>
-            <Icon name="chevron-forward" size={16} color="#007AFF" />
+            <Icon name="chevron-forward" size={16} color={colors.primary} />
           </TouchableOpacity>
         </View>
       )}
@@ -630,7 +630,7 @@ const MapScreen = () => {
                       />
                     ) : (
                       <View style={styles.sliderImagePlaceholder}>
-                        <Icon name="fitness" size={32} color="#8E8E93" />
+                        <Icon name="fitness" size={32} color={colors.textMuted} />
                       </View>
                     )}
                   </View>
@@ -647,7 +647,7 @@ const MapScreen = () => {
                     )}
                     <View style={styles.sliderDetails}>
                       <View style={styles.sliderDetailRow}>
-                        <Icon name="location" size={12} color="#007AFF" />
+                        <Icon name="location" size={12} color={colors.primary} />
                         <Text style={styles.sliderDetailText}>
                           {getDistanceText(gym)}
                         </Text>
@@ -958,7 +958,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   mapTypeOptionTextActive: {
-    color: '#007AFF',
+    color: colors.primary,
     fontWeight: '600',
   },
   centerLocationButton: {
@@ -986,7 +986,7 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: '#E5E5EA',
+    backgroundColor: colors.surface,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 2,
@@ -1098,8 +1098,9 @@ const styles = StyleSheet.create({
   userInfo: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 2,
-    marginBottom: 0,
+    marginTop: 8,
+    flex: 1,
+    minWidth: 0,
   },
   userInfoText: {
     fontSize: 14,
@@ -1107,7 +1108,10 @@ const styles = StyleSheet.create({
     marginLeft: 6,
     fontWeight: '500',
     flexShrink: 1,
-    flexWrap: 'wrap',
+  },
+  friendsOnlineText: {
+    flex: 1,
+    flexShrink: 1,
   },
   viewDetailsButton: {
     flexDirection: 'row',
@@ -1176,7 +1180,7 @@ const styles = StyleSheet.create({
   },
   centersBarDivider: {
     height: 0.5,
-    backgroundColor: '#E5E5EA',
+    backgroundColor: colors.surface,
     width: '100%',
   },
   centersBarContent: {
@@ -1192,7 +1196,7 @@ const styles = StyleSheet.create({
     top: 4,
     width: 36,
     height: 4,
-    backgroundColor: '#C7C7CC',
+    backgroundColor: colors.textMuted,
     borderRadius: 2,
     alignSelf: 'center',
   },
@@ -1235,14 +1239,14 @@ const styles = StyleSheet.create({
   sheetHandleBar: {
     width: 40,
     height: 4,
-    backgroundColor: '#E5E5EA',
+    backgroundColor: colors.surface,
     borderRadius: 2,
   },
   sheetHeader: {
     paddingHorizontal: 20,
     paddingBottom: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#E5E5EA',
+    borderBottomColor: colors.border,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -1363,7 +1367,7 @@ const styles = StyleSheet.create({
   sliderImagePlaceholder: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#E5E5EA',
+    backgroundColor: colors.surface,
     justifyContent: 'center',
     alignItems: 'center',
   },
