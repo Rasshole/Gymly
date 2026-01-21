@@ -19,6 +19,7 @@ import {
   Animated,
   FlatList,
   Image,
+  Dimensions,
 } from 'react-native';
 import {Gesture, GestureDetector} from 'react-native-gesture-handler';
 import Reanimated, {useSharedValue, useAnimatedStyle, withTiming, withDelay, runOnJS} from 'react-native-reanimated';
@@ -35,6 +36,13 @@ import {colors} from '@/theme/colors';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 type HomeScreenNavigationProp = StackNavigationProp<any>;
+type FeedComment = {
+  id: string;
+  author: string;
+  text: string;
+  likes: number;
+  likedByUser: boolean;
+};
 
 // Mock friends list for mentions
 const FRIENDS = [
@@ -312,16 +320,27 @@ const HomeScreen = () => {
   const [commentModalVisible, setCommentModalVisible] = useState(false);
   const [activeCommentItem, setActiveCommentItem] = useState<string | null>(null);
   const [commentInput, setCommentInput] = useState('');
-  const [commentsByFeedItem, setCommentsByFeedItem] = useState<
-    Record<string, Array<{author: string; text: string}>>
-  >({});
+  const [commentsByFeedItem, setCommentsByFeedItem] = useState<Record<string, FeedComment[]>>({});
   const [commentedItems, setCommentedItems] = useState<string[]>([]);
   const [commentInputFocused, setCommentInputFocused] = useState(false);
   const [animatingItems, setAnimatingItems] = useState<Record<string, boolean>>({});
-  const [videoModalVisible, setVideoModalVisible] = useState(false);
-  const [selectedVideoUri, setSelectedVideoUri] = useState<string | null>(null);
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const videoRef = useRef<any>(null);
+  const [videoAspectRatios, setVideoAspectRatios] = useState<Record<string, number>>({});
+  const [expandedReels, setExpandedReels] = useState<Record<string, boolean>>({});
+  const [shareModalVisible, setShareModalVisible] = useState(false);
+  const [shareSearch, setShareSearch] = useState('');
+  const [reelsModalVisible, setReelsModalVisible] = useState(false);
+  const [activeReelId, setActiveReelId] = useState<string | null>(null);
+  const [activeReelIndex, setActiveReelIndex] = useState(0);
+  const reelsListRef = useRef<FlatList<FeedItem>>(null);
+  const [activeFeedVideoId, setActiveFeedVideoId] = useState<string | null>(null);
+  const activeFeedVideoIdRef = useRef<string | null>(null);
+  const scrollYRef = useRef(0);
+  const videoLayouts = useRef<Record<string, {x: number; y: number; width: number; height: number}>>({});
+  const reelTranslateX = useSharedValue(0);
+  const reelsSwipeStyle = useAnimatedStyle(() => ({
+    transform: [{translateX: reelTranslateX.value}],
+  }));
+  const reelSwipeEnabled = !commentModalVisible && !shareModalVisible;
   const overlayAnimations = useRef<
     Record<
       string,
@@ -337,6 +356,9 @@ const HomeScreen = () => {
   const feedActionsLayouts = useRef<Record<string, {x: number; y: number; width: number; height: number}>>({});
   const likeButtonLayouts = useRef<Record<string, {x: number; y: number; width: number; height: number}>>({});
   const feedPhotoLayouts = useRef<Record<string, {x: number; y: number; width: number; height: number}>>({});
+  const videoFeedItems = useMemo(() => feedItems.filter(item => item.videoUri), [feedItems]);
+  const videoFeedIds = useMemo(() => videoFeedItems.map(item => item.id), [videoFeedItems]);
+  const windowHeight = Dimensions.get('window').height;
 
   useEffect(() => {
     const timer = setInterval(() => setNow(Date.now()), 60000);
@@ -368,6 +390,17 @@ const HomeScreen = () => {
     });
     const time = date.toLocaleTimeString('da-DK', {hour: '2-digit', minute: '2-digit'});
     return `${day} • kl. ${time}`;
+  };
+
+  const getReelDescription = (text?: string) => {
+    if (!text) {
+      return '';
+    }
+    return text
+      .split('\n')
+      .filter(line => !line.trim().toLowerCase().startsWith('ny pr i'))
+      .join('\n')
+      .trim();
   };
 
   // Parse muscle groups from focus string
@@ -641,6 +674,10 @@ const HomeScreen = () => {
     toggleLikeRef.current = toggleLike;
   }, [toggleLike]);
 
+  useEffect(() => {
+    activeFeedVideoIdRef.current = activeFeedVideoId;
+  }, [activeFeedVideoId]);
+
   const likeOnly = useCallback((itemId: string, skipParticles = false) => {
     const liked = feedReactionsRef.current[itemId]?.liked ?? false;
     if (!liked) {
@@ -744,6 +781,112 @@ const HomeScreen = () => {
     [likeOnly, runOverlayAnimation, ensureBicepsAnimation],
   );
 
+  const handleVideoDoubleTap = useCallback(
+    (itemId: string, tapX: number, tapY: number) => {
+      const wasLiked = feedReactionsRef.current[itemId]?.liked ?? false;
+      likeOnly(itemId, true);
+      const videoLayout = videoLayouts.current[itemId];
+      const startX = videoLayout ? videoLayout.x + tapX : undefined;
+      const startY = videoLayout ? videoLayout.y + tapY : undefined;
+      runOverlayAnimation(itemId, startX, startY);
+      if (!wasLiked) {
+        const likeAnim = ensureBicepsAnimation(itemId);
+        if (likeAnim) {
+          likeAnim.scale.setValue(1);
+          setTimeout(() => {
+            runBicepsAnimation(itemId, true);
+            Animated.sequence([
+              Animated.spring(likeAnim.scale, {
+                toValue: 1.2,
+                friction: 6,
+                useNativeDriver: true,
+              }),
+              Animated.spring(likeAnim.scale, {
+                toValue: 1,
+                friction: 6,
+                useNativeDriver: true,
+              }),
+            ]).start();
+          }, 250);
+        }
+      }
+    },
+    [likeOnly, runOverlayAnimation, ensureBicepsAnimation, runBicepsAnimation],
+  );
+
+  const updateActiveFeedVideo = useCallback(
+    (scrollY: number) => {
+      if (reelsModalVisible || videoFeedIds.length === 0) {
+        if (activeFeedVideoIdRef.current) {
+          setActiveFeedVideoId(null);
+        }
+        return;
+      }
+      let bestId: string | null = null;
+      let bestRatio = 0;
+      const viewportTop = scrollY;
+      const viewportBottom = scrollY + windowHeight;
+      videoFeedIds.forEach(id => {
+        const layout = videoLayouts.current[id];
+        if (!layout) {
+          return;
+        }
+        const itemTop = layout.y;
+        const itemBottom = layout.y + layout.height;
+        const visible = Math.min(viewportBottom, itemBottom) - Math.max(viewportTop, itemTop);
+        const ratio = visible > 0 ? visible / layout.height : 0;
+        if (ratio >= 0.3 && ratio > bestRatio) {
+          bestRatio = ratio;
+          bestId = id;
+        }
+      });
+      if (bestId !== activeFeedVideoIdRef.current) {
+        setActiveFeedVideoId(bestId);
+      }
+    },
+    [reelsModalVisible, videoFeedIds, windowHeight],
+  );
+
+  const handleFeedScroll = useCallback(
+    (event: any) => {
+      const currentY = event.nativeEvent.contentOffset.y;
+      scrollYRef.current = currentY;
+      updateActiveFeedVideo(currentY);
+    },
+    [updateActiveFeedVideo],
+  );
+
+  const openReels = useCallback(
+    (itemId: string) => {
+      if (videoFeedItems.length === 0) {
+        return;
+      }
+      const index = videoFeedItems.findIndex(item => item.id === itemId);
+      const safeIndex = index >= 0 ? index : 0;
+      setActiveReelIndex(safeIndex);
+      setActiveReelId(videoFeedItems[safeIndex]?.id ?? null);
+      setReelsModalVisible(true);
+      setActiveFeedVideoId(null);
+    },
+    [videoFeedItems],
+  );
+
+  const closeReels = useCallback(() => {
+    setReelsModalVisible(false);
+    setActiveReelId(null);
+    reelTranslateX.value = 0;
+  }, [reelTranslateX]);
+
+  const toggleReelDescription = (itemId: string) => {
+    setExpandedReels(prev => ({...prev, [itemId]: !prev[itemId]}));
+  };
+
+  const handleSendShare = (friendName: string) => {
+    setShareModalVisible(false);
+    setShareSearch('');
+    Alert.alert('Sendt', `Videoen er sendt til ${friendName}.`);
+  };
+
   const openProfile = useCallback(() => {
     navigation.navigate('Profile');
   }, [navigation]);
@@ -777,6 +920,27 @@ const HomeScreen = () => {
       hideSub.remove();
     };
   }, [commentModalVisible]);
+
+  useEffect(() => {
+    if (!reelsModalVisible) {
+      requestAnimationFrame(() => updateActiveFeedVideo(scrollYRef.current));
+      return;
+    }
+    if (videoFeedItems.length === 0) {
+      return;
+    }
+    const safeIndex = Math.min(activeReelIndex, videoFeedItems.length - 1);
+    requestAnimationFrame(() => {
+      reelsListRef.current?.scrollToIndex({index: safeIndex, animated: false});
+    });
+  }, [reelsModalVisible, activeReelIndex, videoFeedItems.length, updateActiveFeedVideo]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      updateActiveFeedVideo(scrollYRef.current);
+    }, 200);
+    return () => clearTimeout(timer);
+  }, [videoFeedIds.length, updateActiveFeedVideo]);
 
   const handleFeedItemMenu = (itemId: string, itemUser: string) => {
     const currentUser = user?.displayName || user?.username || 'Du';
@@ -821,7 +985,16 @@ const HomeScreen = () => {
     const authorName = user?.displayName || user?.username || 'Du';
     setCommentsByFeedItem(prev => ({
       ...prev,
-      [activeCommentItem]: [...(prev[activeCommentItem] ?? []), {author: authorName, text: trimmed}],
+      [activeCommentItem]: [
+        ...(prev[activeCommentItem] ?? []),
+        {
+          id: `comment_${Date.now()}`,
+          author: authorName,
+          text: trimmed,
+          likes: 0,
+          likedByUser: false,
+        },
+      ],
     }));
     setCommentedItems(prev =>
       prev.includes(activeCommentItem) ? prev : [...prev, activeCommentItem],
@@ -829,12 +1002,49 @@ const HomeScreen = () => {
     setCommentInput('');
   };
 
+  const toggleCommentLike = (feedItemId: string, commentId: string) => {
+    setCommentsByFeedItem(prev => {
+      const currentComments = prev[feedItemId] ?? [];
+      return {
+        ...prev,
+        [feedItemId]: currentComments.map(comment => {
+          if (comment.id !== commentId) {
+            return comment;
+          }
+          const nextLiked = !comment.likedByUser;
+          return {
+            ...comment,
+            likedByUser: nextLiked,
+            likes: Math.max(0, comment.likes + (nextLiked ? 1 : -1)),
+          };
+        }),
+      };
+    });
+  };
+
   const activeComments = activeCommentItem ? commentsByFeedItem[activeCommentItem] ?? [] : [];
   const [commentKeyboardHeight, setCommentKeyboardHeight] = useState(0);
+  const reelViewabilityConfig = useRef({itemVisiblePercentThreshold: 80}).current;
+  const onReelViewableItemsChanged = useRef(
+    ({viewableItems}: {viewableItems: Array<{item: FeedItem; index?: number}>}) => {
+      if (viewableItems.length > 0) {
+        const first = viewableItems[0];
+        setActiveReelId(first.item.id);
+        if (typeof first.index === 'number') {
+          setActiveReelIndex(first.index);
+        }
+      }
+    },
+  ).current;
 
   return (
     <View style={styles.container}>
-      <ScrollView style={styles.scrollView} contentContainerStyle={styles.content}>
+      <ScrollView
+        style={styles.scrollView}
+        contentContainerStyle={styles.content}
+        onScroll={handleFeedScroll}
+        onContentSizeChange={() => updateActiveFeedVideo(scrollYRef.current)}
+        scrollEventThrottle={16}>
         {/* Welcome Section */}
         <View style={[styles.welcomeSection, {paddingHorizontal: 16}]}>
           <Text style={styles.welcomeText}>Hej, {user?.displayName}! 👋</Text>
@@ -912,6 +1122,8 @@ const HomeScreen = () => {
             const isLiked = feedReactions[item.id]?.liked ?? false;
             const likeColor = isLiked ? '#2563EB' : '#0F172A';
             const isAnimating = animatingItems[item.id];
+            const hasVideo = Boolean(item.videoUri);
+            const isVideoActive = activeFeedVideoId === item.id;
             return (
               <View
                 key={item.id}
@@ -942,42 +1154,77 @@ const HomeScreen = () => {
               {item.workoutInfo && (
                 <Text style={styles.feedWorkoutInfoLine}>{item.workoutInfo}</Text>
               )}
-              {item.type === 'photo' && (
-                <FeedPhoto
-                  item={item}
-                  onDoubleTapLike={handlePhotoDoubleTap}
-                  onLayoutMeasured={(id, layout) => {
-                    feedPhotoLayouts.current[id] = layout;
-                  }}
-                  userBicepsEmoji={userBicepsEmoji}
-                />
+              {hasVideo ? (
+                <GestureDetector
+                  gesture={Gesture.Exclusive(
+                    Gesture.Tap()
+                      .numberOfTaps(2)
+                      .maxDelay(250)
+                      .onEnd(event => {
+                        runOnJS(handleVideoDoubleTap)(item.id, event.x, event.y);
+                      }),
+                    Gesture.Tap()
+                      .numberOfTaps(1)
+                      .onEnd(() => {
+                        runOnJS(openReels)(item.id);
+                      }),
+                  )}>
+                  <View
+                    style={[
+                      styles.feedVideoContainer,
+                      {aspectRatio: videoAspectRatios[item.id] ?? 1},
+                    ]}
+                    onLayout={event => {
+                      const {x, y, width, height} = event.nativeEvent.layout;
+                      videoLayouts.current[item.id] = {x, y, width, height};
+                      updateActiveFeedVideo(scrollYRef.current);
+                    }}>
+                    <Video
+                      source={{uri: item.videoUri!}}
+                      style={styles.feedVideo}
+                      resizeMode="cover"
+                      paused={!isVideoActive}
+                      muted
+                      repeat
+                      playInBackground={false}
+                      playWhenInactive={false}
+                      poster={item.videoThumbnailUri}
+                      posterResizeMode="cover"
+                      onLoad={({naturalSize}) => {
+                        if (!naturalSize?.width || !naturalSize?.height) {
+                          return;
+                        }
+                        const ratio = naturalSize.width / naturalSize.height;
+                        setVideoAspectRatios(prev =>
+                          prev[item.id] === ratio ? prev : {...prev, [item.id]: ratio},
+                        );
+                      }}
+                      onError={() => {
+                        Alert.alert('Fejl', 'Kunne ikke afspille videoen.');
+                      }}
+                    />
+                    <View style={styles.feedVideoTapHint}>
+                      <Icon name="play" size={22} color="#fff" />
+                    </View>
+                  </View>
+                </GestureDetector>
+              ) : (
+                item.type === 'photo' && (
+                  <FeedPhoto
+                    item={item}
+                    onDoubleTapLike={handlePhotoDoubleTap}
+                    onLayoutMeasured={(id, layout) => {
+                      feedPhotoLayouts.current[id] = layout;
+                    }}
+                    userBicepsEmoji={userBicepsEmoji}
+                  />
+                )
               )}
               {item.type === 'pr' && (
-                <>
-                  {item.videoUri && (
-                    <TouchableOpacity
-                      style={styles.feedVideoContainer}
-                      onPress={() => {
-                        setSelectedVideoUri(item.videoUri);
-                        setIsVideoPlaying(true);
-                        setVideoModalVisible(true);
-                      }}
-                      activeOpacity={0.9}>
-                      <Image
-                        source={{uri: item.videoThumbnailUri ?? item.videoUri}}
-                        style={styles.feedVideoThumbnail}
-                        resizeMode="cover"
-                      />
-                      <View style={styles.feedVideoPlayOverlay}>
-                        <Icon name="play-circle" size={50} color="#fff" />
-                      </View>
-                    </TouchableOpacity>
-                  )}
-                  <View style={styles.feedHighlight}>
-                    <Icon name="trophy" size={18} color="#FACC15" />
-                    <Text style={styles.feedHighlightText}>Ny PR</Text>
-                  </View>
-                </>
+                <View style={styles.feedHighlight}>
+                  <Icon name="trophy" size={18} color="#FACC15" />
+                  <Text style={styles.feedHighlightText}>Ny PR</Text>
+                </View>
               )}
               {item.type === 'summary' && (
                 <View style={styles.feedSummaryRow}>
@@ -1193,6 +1440,7 @@ const HomeScreen = () => {
 
       </ScrollView>
 
+      {!reelsModalVisible && (
       <Modal visible={commentModalVisible} transparent animationType="slide">
         <TouchableWithoutFeedback onPress={closeComments}>
           <View style={styles.bottomSheetOverlay}>
@@ -1215,16 +1463,35 @@ const HomeScreen = () => {
                     {activeComments.length === 0 ? (
                       <Text style={styles.commentEmpty}>Ingen kommentarer endnu</Text>
                     ) : (
-                      activeComments.map((comment, index) => (
-                        <View key={`${activeCommentItem}_comment_${index}`} style={styles.commentRow}>
+                      activeComments.map(comment => (
+                        <View key={comment.id} style={styles.commentRow}>
                           <View style={styles.commentAvatar}>
                             <Text style={styles.commentAvatarText}>
                               {comment.author.charAt(0)}
                             </Text>
                           </View>
-                          <View style={{flex: 1}}>
+                          <View style={styles.commentContent}>
                             <Text style={styles.commentAuthor}>{comment.author}</Text>
                             <Text style={styles.commentBody}>{comment.text}</Text>
+                          </View>
+                          <View style={styles.commentLikeColumn}>
+                            <TouchableOpacity
+                              style={styles.commentLikeButton}
+                              onPress={() => toggleCommentLike(activeCommentItem!, comment.id)}
+                              activeOpacity={0.8}>
+                              <Icon
+                                name={comment.likedByUser ? 'heart' : 'heart-outline'}
+                                size={16}
+                                color={comment.likedByUser ? colors.primary : '#94A3B8'}
+                              />
+                            </TouchableOpacity>
+                            <Text
+                              style={[
+                                styles.commentLikeCount,
+                                comment.likedByUser && styles.commentLikeCountActive,
+                              ]}>
+                              {comment.likes}
+                            </Text>
                           </View>
                         </View>
                       ))
@@ -1282,6 +1549,7 @@ const HomeScreen = () => {
           </View>
         </TouchableWithoutFeedback>
       </Modal>
+      )}
 
       <Modal visible={activityModalVisible} transparent animationType="slide">
         <TouchableWithoutFeedback onPress={() => setActivityModalVisible(false)}>
@@ -1378,51 +1646,382 @@ const HomeScreen = () => {
         </TouchableWithoutFeedback>
       </Modal>
 
-      {/* Video Modal */}
+      {/* Reels Modal */}
       <Modal
-        visible={videoModalVisible}
+        visible={reelsModalVisible}
         transparent
         animationType="fade"
-        onRequestClose={() => {
-          setIsVideoPlaying(false);
-          setVideoModalVisible(false);
-        }}>
-        <View style={styles.videoModalOverlay}>
-          <TouchableWithoutFeedback onPress={() => {
-            setIsVideoPlaying(false);
-            setVideoModalVisible(false);
-          }}>
-            <View style={StyleSheet.absoluteFill} />
-          </TouchableWithoutFeedback>
-          <View style={styles.videoModalContent}>
+        onRequestClose={closeReels}>
+        <GestureDetector
+          gesture={Gesture.Pan()
+            .activeOffsetX([-80, 80])
+            .failOffsetY([-20, 20])
+            .minDistance(60)
+            .enabled(reelSwipeEnabled)
+            .onUpdate(event => {
+              if (Math.abs(event.translationX) > 0) {
+                reelTranslateX.value = event.translationX;
+              }
+            })
+            .onEnd(event => {
+              if (event.translationX < -80 || event.translationX > 80) {
+                runOnJS(closeReels)();
+              } else {
+                reelTranslateX.value = withTiming(0);
+              }
+            })}>
+          <Reanimated.View style={[styles.reelsModalContainer, reelsSwipeStyle]}>
             <TouchableOpacity
-              style={styles.videoModalClose}
-              onPress={() => {
-                setIsVideoPlaying(false);
-                setVideoModalVisible(false);
-              }}>
+              style={styles.reelsCloseButton}
+              onPress={closeReels}>
               <Icon name="close" size={28} color="#fff" />
             </TouchableOpacity>
-            {selectedVideoUri && (
-              <View style={styles.videoPlayerContainer}>
-                <Video
-                  ref={videoRef}
-                  source={{uri: selectedVideoUri}}
-                  style={styles.videoPlayer}
-                  controls={true}
-                  paused={!isVideoPlaying}
-                  resizeMode="contain"
-                  onLoad={() => setIsVideoPlaying(true)}
-                  onError={(error) => {
-                    Alert.alert('Fejl', 'Kunne ikke afspille videoen.');
-                    console.error('Video error:', error);
-                  }}
-                />
+            <FlatList
+              ref={reelsListRef}
+              data={videoFeedItems}
+              keyExtractor={item => item.id}
+              pagingEnabled
+              showsVerticalScrollIndicator={false}
+              onViewableItemsChanged={onReelViewableItemsChanged}
+              viewabilityConfig={reelViewabilityConfig}
+              getItemLayout={(_, index) => ({
+                length: windowHeight,
+                offset: windowHeight * index,
+                index,
+              })}
+              onScrollToIndexFailed={({index}) => {
+                reelsListRef.current?.scrollToOffset({offset: windowHeight * index, animated: false});
+              }}
+              renderItem={({item}) => {
+                const likeAnim = ensureBicepsAnimation(item.id);
+                const isExpanded = expandedReels[item.id];
+                const reelDescription = getReelDescription(item.description);
+                const previewLimit = 18;
+                const shouldTruncate = reelDescription.length > previewLimit;
+                const displayDescription =
+                  isExpanded || !shouldTruncate
+                    ? reelDescription
+                    : reelDescription.slice(0, previewLimit).trimEnd();
+                const hasLiked = feedReactions[item.id]?.liked ?? false;
+                const hasReelComments = (commentsByFeedItem[item.id]?.length ?? 0) > 0;
+                const doubleTapReel = Gesture.Tap()
+                  .numberOfTaps(2)
+                  .maxDelay(250)
+                  .onEnd(() => {
+                    runOnJS(likeOnly)(item.id, true);
+                    runOnJS(runBicepsAnimation)(item.id, false);
+                  });
+                return (
+                  <View style={[styles.reelItem, {height: windowHeight}]}>
+                    <GestureDetector gesture={doubleTapReel}>
+                      <View style={StyleSheet.absoluteFill}>
+                        <Video
+                          source={{uri: item.videoUri!}}
+                          style={styles.reelVideo}
+                          resizeMode="cover"
+                          paused={activeReelId !== item.id}
+                          repeat
+                          muted={false}
+                          playInBackground={false}
+                          playWhenInactive={false}
+                          onError={() => Alert.alert('Fejl', 'Kunne ikke afspille videoen.')}
+                        />
+                      </View>
+                    </GestureDetector>
+                    <View style={styles.reelOverlay} pointerEvents="box-none">
+                      <View style={styles.reelLeft} pointerEvents="box-none">
+                        <Text style={styles.reelUsername}>{item.user}</Text>
+                        {item.workoutInfo ? (
+                          <Text style={styles.reelMeta}>{item.workoutInfo}</Text>
+                        ) : null}
+                        {displayDescription ? (
+                          <Text
+                            style={styles.reelDescription}
+                            numberOfLines={isExpanded ? 0 : 1}
+                            ellipsizeMode="clip">
+                            {displayDescription}
+                            {shouldTruncate ? (
+                              <Text
+                                style={styles.reelSeeMore}
+                                onPress={() => toggleReelDescription(item.id)}>
+                                {isExpanded ? ' Skjul' : ' Se mere'}
+                              </Text>
+                            ) : null}
+                          </Text>
+                        ) : null}
+                      </View>
+                      <View style={styles.reelRight} pointerEvents="box-none">
+                        <TouchableOpacity
+                          style={styles.reelActionButton}
+                          onPress={() => toggleLike(item.id)}
+                          activeOpacity={0.8}>
+                          <Animated.View style={{transform: [{scale: likeAnim.scale}]}}>
+                            <Text
+                              style={[
+                                styles.reelActionEmoji,
+                                hasLiked && styles.reelActionEmojiLiked,
+                              ]}>
+                              {hasLiked ? userBicepsEmoji : '💪'}
+                            </Text>
+                          </Animated.View>
+                        </TouchableOpacity>
+                        <Text
+                          style={[
+                            styles.reelActionCount,
+                            hasLiked && styles.reelActionCountActive,
+                          ]}>
+                          {feedReactions[item.id]?.likes ?? 0}
+                        </Text>
+                        <TouchableOpacity
+                          style={styles.reelActionButton}
+                          onPress={() => openComments(item.id)}
+                          activeOpacity={0.8}>
+                          <Icon name="chatbubble" size={24} color="#fff" />
+                        </TouchableOpacity>
+                        <Text
+                          style={[
+                            styles.reelActionCount,
+                            hasReelComments && styles.reelActionCountActive,
+                          ]}>
+                          {commentsByFeedItem[item.id]?.length ?? 0}
+                        </Text>
+                        <TouchableOpacity
+                          style={styles.reelActionButton}
+                          onPress={() => setShareModalVisible(true)}
+                          activeOpacity={0.8}>
+                          <Icon name="paper-plane" size={22} color="#fff" />
+                        </TouchableOpacity>
+                      </View>
+                    </View>
+                  </View>
+                );
+              }}
+            />
+            {commentModalVisible && (
+              <View style={styles.reelSheetOverlay}>
+                <TouchableWithoutFeedback onPress={closeComments}>
+                  <View style={styles.bottomSheetOverlay}>
+                    <TouchableWithoutFeedback>
+                      <View
+                        style={[
+                          styles.commentSheet,
+                          commentInputFocused
+                            ? styles.commentSheetExpanded
+                            : styles.commentSheetCollapsed,
+                        ]}>
+                        <View style={styles.commentHandle} />
+                        <View style={styles.commentHeader}>
+                          <Text style={styles.modalTitle}>Kommentarer</Text>
+                          <TouchableOpacity onPress={closeComments} style={styles.commentCloseButton}>
+                            <Icon name="close" size={22} color="#0F172A" />
+                          </TouchableOpacity>
+                        </View>
+                        <ScrollView
+                          style={styles.commentList}
+                          contentContainerStyle={styles.commentListContent}>
+                          {activeComments.length === 0 ? (
+                            <Text style={styles.commentEmpty}>Ingen kommentarer endnu</Text>
+                          ) : (
+                            activeComments.map(comment => (
+                              <View key={comment.id} style={styles.commentRow}>
+                                <View style={styles.commentAvatar}>
+                                  <Text style={styles.commentAvatarText}>
+                                    {comment.author.charAt(0)}
+                                  </Text>
+                                </View>
+                                <View style={styles.commentContent}>
+                                  <Text style={styles.commentAuthor}>{comment.author}</Text>
+                                  <Text style={styles.commentBody}>{comment.text}</Text>
+                                </View>
+                                <View style={styles.commentLikeColumn}>
+                                  <TouchableOpacity
+                                    style={styles.commentLikeButton}
+                                    onPress={() => toggleCommentLike(activeCommentItem!, comment.id)}
+                                    activeOpacity={0.8}>
+                                    <Icon
+                                      name={comment.likedByUser ? 'heart' : 'heart-outline'}
+                                      size={16}
+                                      color={comment.likedByUser ? colors.primary : '#94A3B8'}
+                                    />
+                                  </TouchableOpacity>
+                                  <Text
+                                    style={[
+                                      styles.commentLikeCount,
+                                      comment.likedByUser && styles.commentLikeCountActive,
+                                    ]}>
+                                    {comment.likes}
+                                  </Text>
+                                </View>
+                              </View>
+                            ))
+                          )}
+                        </ScrollView>
+                        <View
+                          style={[
+                            styles.commentComposer,
+                            commentKeyboardHeight > 0
+                              ? {bottom: commentKeyboardHeight + safeAreaBottom}
+                              : null,
+                          ]}>
+                          <View style={styles.commentEmojiRow}>
+                            {['❤️', '🙌', '🔥', '💪', '🥲', '😍', '😮', '😂'].map(emoji => (
+                              <TouchableOpacity
+                                key={emoji}
+                                style={styles.commentEmojiButton}
+                                onPress={() => setCommentInput(prev => `${prev}${emoji}`)}>
+                                <Text style={styles.commentEmoji}>{emoji}</Text>
+                              </TouchableOpacity>
+                            ))}
+                          </View>
+                          <View style={styles.commentInputRow}>
+                            <TextInput
+                              style={styles.commentInput}
+                              placeholder="Tilføj en kommentar..."
+                              placeholderTextColor="#94A3B8"
+                              value={commentInput}
+                              onChangeText={setCommentInput}
+                              onFocus={() => setCommentInputFocused(true)}
+                              onBlur={() => setCommentInputFocused(false)}
+                              selectionColor={colors.primary}
+                              returnKeyType="done"
+                              blurOnSubmit={true}
+                              onSubmitEditing={() => Keyboard.dismiss()}
+                              multiline
+                            />
+                            <TouchableOpacity
+                              style={[
+                                styles.commentSendButton,
+                                commentInput.trim().length === 0 && styles.commentSendButtonDisabled,
+                              ]}
+                              onPress={handleSubmitComment}
+                              disabled={commentInput.trim().length === 0}>
+                              <Icon
+                                name="send"
+                                size={20}
+                                color={commentInput.trim().length === 0 ? '#94A3B8' : '#fff'}
+                              />
+                            </TouchableOpacity>
+                          </View>
+                        </View>
+                      </View>
+                    </TouchableWithoutFeedback>
+                  </View>
+                </TouchableWithoutFeedback>
               </View>
             )}
-          </View>
-        </View>
+            {shareModalVisible && (
+              <View style={styles.reelSheetOverlay}>
+                <TouchableWithoutFeedback onPress={() => setShareModalVisible(false)}>
+                  <View style={styles.shareOverlay}>
+                    <TouchableWithoutFeedback>
+                      <View style={styles.shareSheet}>
+                        <View style={styles.shareHandle} />
+                        <View style={styles.shareSearchRow}>
+                          <Icon name="search" size={18} color="#94A3B8" />
+                          <TextInput
+                            value={shareSearch}
+                            onChangeText={setShareSearch}
+                            placeholder="Søg"
+                            placeholderTextColor="#94A3B8"
+                            style={styles.shareSearchInput}
+                          />
+                        </View>
+                        <ScrollView style={styles.shareFriendList}>
+                          {FRIENDS.filter(friend =>
+                            friend.name.toLowerCase().includes(shareSearch.trim().toLowerCase()),
+                          ).map(friend => (
+                            <TouchableOpacity
+                              key={friend.id}
+                              style={styles.shareFriendRow}
+                              onPress={() => handleSendShare(friend.name)}
+                              activeOpacity={0.85}>
+                              <View style={styles.shareFriendAvatar}>
+                                <Text style={styles.shareFriendAvatarText}>
+                                  {friend.name.charAt(0)}
+                                </Text>
+                              </View>
+                              <View style={{flex: 1}}>
+                                <Text style={styles.shareFriendName}>{friend.name}</Text>
+                              </View>
+                              <View style={styles.shareFriendButton}>
+                                <Text style={styles.shareFriendButtonText}>Send</Text>
+                              </View>
+                            </TouchableOpacity>
+                          ))}
+                        </ScrollView>
+                      </View>
+                    </TouchableWithoutFeedback>
+                  </View>
+                </TouchableWithoutFeedback>
+              </View>
+            )}
+          </Reanimated.View>
+        </GestureDetector>
       </Modal>
+
+      {/* Share Modal */}
+      {!reelsModalVisible && (
+      <Modal visible={shareModalVisible} transparent animationType="slide">
+        <TouchableWithoutFeedback onPress={() => setShareModalVisible(false)}>
+          <View style={styles.shareOverlay}>
+            <TouchableWithoutFeedback>
+              <View style={styles.shareSheet}>
+                <View style={styles.shareHandle} />
+                <View style={styles.shareSearchRow}>
+                  <Icon name="search" size={18} color="#94A3B8" />
+                  <TextInput
+                    value={shareSearch}
+                    onChangeText={setShareSearch}
+                    placeholder="Søg"
+                    placeholderTextColor="#94A3B8"
+                    style={styles.shareSearchInput}
+                  />
+                </View>
+                <ScrollView style={styles.shareFriendList}>
+                  {FRIENDS.filter(friend =>
+                    friend.name.toLowerCase().includes(shareSearch.trim().toLowerCase()),
+                  ).map(friend => {
+                    const selected = shareSelections[friend.id];
+                    return (
+                      <TouchableOpacity
+                        key={friend.id}
+                        style={styles.shareFriendRow}
+                        onPress={() => toggleShareSelection(friend.id)}
+                        activeOpacity={0.85}>
+                        <View style={styles.shareFriendAvatar}>
+                          <Text style={styles.shareFriendAvatarText}>
+                            {friend.name.charAt(0)}
+                          </Text>
+                        </View>
+                        <View style={{flex: 1}}>
+                          <Text style={styles.shareFriendName}>{friend.name}</Text>
+                        </View>
+                        <View
+                          style={[
+                            styles.shareFriendButton,
+                            selected && styles.shareFriendButtonSelected,
+                          ]}>
+                          <Text
+                            style={[
+                              styles.shareFriendButtonText,
+                              selected && styles.shareFriendButtonTextSelected,
+                            ]}>
+                            {selected ? 'Valgt' : 'Send'}
+                          </Text>
+                        </View>
+                      </TouchableOpacity>
+                    );
+                  })}
+                </ScrollView>
+                <TouchableOpacity style={styles.shareSendButton} onPress={handleSendShare}>
+                  <Text style={styles.shareSendButtonText}>Send</Text>
+                </TouchableOpacity>
+              </View>
+            </TouchableWithoutFeedback>
+          </View>
+        </TouchableWithoutFeedback>
+      </Modal>
+      )}
     </View>
   );
 };
@@ -1639,56 +2238,212 @@ const styles = StyleSheet.create({
   feedVideoContainer: {
     width: '100%',
     marginBottom: 12,
-    borderRadius: 12,
+    borderRadius: 0,
     overflow: 'hidden',
     backgroundColor: '#000',
   },
-  feedVideoThumbnail: {
+  feedVideo: {
     width: '100%',
-    height: 200,
+    height: '100%',
+  },
+  feedVideoTapHint: {
+    position: 'absolute',
+    right: 12,
+    bottom: 12,
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  reelsModalContainer: {
+    flex: 1,
     backgroundColor: '#000',
   },
-  feedVideoPlayOverlay: {
+  reelsCloseButton: {
     position: 'absolute',
-    top: 0,
+    top: 40,
+    right: 16,
+    zIndex: 10,
+    padding: 8,
+  },
+  reelItem: {
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#000',
+  },
+  reelVideo: {
+    width: '100%',
+    height: '100%',
+  },
+  reelOverlay: {
+    position: 'absolute',
     left: 0,
     right: 0,
     bottom: 0,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+    top: 0,
+    paddingHorizontal: 16,
+    paddingBottom: 24,
+    justifyContent: 'flex-end',
   },
-  videoModalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.9)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  videoModalContent: {
-    width: '90%',
-    maxHeight: '80%',
-    backgroundColor: '#000',
-    borderRadius: 12,
-    padding: 20,
-    alignItems: 'center',
-  },
-  videoModalClose: {
+  reelSheetOverlay: {
     position: 'absolute',
-    top: 10,
-    right: 10,
-    zIndex: 1,
-    padding: 8,
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    zIndex: 20,
   },
-  videoPlayerContainer: {
-    width: '100%',
-    height: 300,
-    backgroundColor: '#000',
-    borderRadius: 8,
-    overflow: 'hidden',
+  reelLeft: {
+    alignSelf: 'flex-start',
+    maxWidth: '70%',
   },
-  videoPlayer: {
-    width: '100%',
-    height: '100%',
+  reelUsername: {
+    color: '#fff',
+    fontWeight: '700',
+    fontSize: 16,
+    marginBottom: 6,
+    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowOffset: {width: 0, height: 1},
+    textShadowRadius: 3,
+  },
+  reelMeta: {
+    color: '#fff',
+    fontSize: 13,
+    marginBottom: 6,
+    opacity: 0.9,
+  },
+  reelDescription: {
+    color: '#fff',
+    fontSize: 14,
+    opacity: 0.9,
+  },
+  reelRight: {
+    position: 'absolute',
+    right: 12,
+    bottom: 120,
+    alignItems: 'center',
+    gap: 10,
+  },
+  reelActionButton: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: 'rgba(0, 0, 0, 0.35)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  reelActionEmoji: {
+    fontSize: 22,
+  },
+  reelActionEmojiLiked: {
+    opacity: 1,
+  },
+  reelActionCount: {
+    color: '#fff',
+    fontSize: 12,
+    marginTop: -6,
+  },
+  reelActionCountActive: {
+    color: colors.primary,
+    fontWeight: '600',
+  },
+  reelSeeMore: {
+    color: colors.primary,
+    fontWeight: '600',
+  },
+  shareOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'flex-end',
+  },
+  shareSheet: {
+    backgroundColor: '#1E1E1E',
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
+    paddingHorizontal: 20,
+    paddingTop: 12,
+    paddingBottom: 20,
+    maxHeight: '75%',
+  },
+  shareHandle: {
+    alignSelf: 'center',
+    width: 44,
+    height: 5,
+    borderRadius: 3,
+    backgroundColor: '#3A3A3A',
+    marginBottom: 12,
+  },
+  shareSearchRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#2A2A2A',
+    borderRadius: 14,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    gap: 8,
+  },
+  shareSearchInput: {
+    flex: 1,
+    color: '#fff',
+  },
+  shareFriendList: {
+    marginTop: 16,
+  },
+  shareFriendRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 12,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: '#2F2F2F',
+    gap: 12,
+  },
+  shareFriendAvatar: {
+    width: 42,
+    height: 42,
+    borderRadius: 21,
+    backgroundColor: colors.primary,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  shareFriendAvatarText: {
+    color: '#fff',
+    fontWeight: '700',
+  },
+  shareFriendName: {
+    color: '#fff',
+    fontSize: 15,
+    fontWeight: '600',
+  },
+  shareFriendButton: {
+    borderRadius: 14,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    backgroundColor: '#2A2A2A',
+  },
+  shareFriendButtonSelected: {
+    backgroundColor: colors.primary,
+  },
+  shareFriendButtonText: {
+    color: '#fff',
+    fontWeight: '600',
+  },
+  shareFriendButtonTextSelected: {
+    color: '#fff',
+  },
+  shareSendButton: {
+    marginTop: 16,
+    backgroundColor: colors.primary,
+    borderRadius: 16,
+    paddingVertical: 14,
+    alignItems: 'center',
+  },
+  shareSendButtonText: {
+    color: '#fff',
+    fontWeight: '700',
+    fontSize: 16,
   },
   feedImageText: {
     color: colors.textSecondary,
@@ -1912,7 +2667,7 @@ const styles = StyleSheet.create({
     color: colors.text,
   },
   feedActionTextLiked: {
-    color: colors.secondary,
+    color: colors.primary,
   },
   modalOverlay: {
     flex: 1,
@@ -2107,6 +2862,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: colors.border,
   },
+  commentContent: {
+    flex: 1,
+  },
   commentAvatar: {
     width: 36,
     height: 36,
@@ -2127,6 +2885,22 @@ const styles = StyleSheet.create({
   commentBody: {
     fontSize: 14,
     color: colors.textSecondary,
+  },
+  commentLikeColumn: {
+    alignItems: 'center',
+    width: 36,
+  },
+  commentLikeButton: {
+    padding: 4,
+  },
+  commentLikeCount: {
+    fontSize: 11,
+    color: '#94A3B8',
+    marginTop: 2,
+  },
+  commentLikeCountActive: {
+    color: colors.primary,
+    fontWeight: '600',
   },
   commentComposer: {
     position: 'absolute',

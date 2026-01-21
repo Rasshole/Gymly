@@ -104,6 +104,10 @@ class AuthService {
         throw new Error(error.message);
       }
 
+      if (signupData.user?.identities && signupData.user.identities.length === 0) {
+        throw new Error('email_already_registered');
+      }
+
       const user = signupData.user ? this.mapSupabaseUser(signupData.user) : {
         id: Date.now().toString(),
         email: data.email,

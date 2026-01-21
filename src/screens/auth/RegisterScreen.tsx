@@ -2,7 +2,7 @@
  * Register Screen
  */
 
-import React, {useMemo, useRef, useState} from 'react';
+import React, {useMemo, useRef, useState, useCallback} from 'react';
 import {
   View,
   Text,
@@ -18,6 +18,8 @@ import {
   Image,
   Linking,
 } from 'react-native';
+import {Gesture, GestureDetector} from 'react-native-gesture-handler';
+import {runOnJS} from 'react-native-reanimated';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {AuthStackParamList} from '@/navigation/AuthNavigator';
@@ -36,7 +38,7 @@ import {
 } from 'react-native-image-picker';
 
 type RegisterScreenNavigationProp = StackNavigationProp<AuthStackParamList, 'Register'>;
-type Step = 'method' | 'names' | 'email' | 'password' | 'location' | 'verification' | 'username' | 'photo' | 'privacy';
+type Step = 'method' | 'names' | 'email' | 'password' | 'location' | 'verification' | 'username' | 'photo';
 type RegistrationMethod = 'apple' | 'google' | 'email';
 
 type SocialButtonProps = {
@@ -83,7 +85,6 @@ const stepOrder: Step[] = [
   'location',
   'username',
   'photo',
-  'privacy',
   'verification',
 ];
 
@@ -229,6 +230,13 @@ const RegisterScreen = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email.trim())) {
       Alert.alert('Ugyldig email', 'Tjek venligst din email.');
+      return;
+    }
+    if (!privacyAccepted || !termsAccepted) {
+      Alert.alert(
+        'Påkrævet',
+        'Du skal acceptere privatlivspolitikken og servicevilkårene for at fortsætte.',
+      );
       return;
     }
 
@@ -430,6 +438,15 @@ const RegisterScreen = () => {
 
         if (needsEmailConfirmation) {
           setStep('verification');
+          try {
+            await AuthService.resendEmailConfirmation(email.trim());
+            Alert.alert('Link sendt', 'Vi har sendt en bekræftelsesmail. Tjek også spam.');
+          } catch (resendError: any) {
+            Alert.alert(
+              'Kunne ikke sende mail',
+              resendError?.message || 'Prøv igen via "Send link igen".',
+            );
+          }
           return;
         }
         if (!tokens) {
@@ -453,7 +470,39 @@ const RegisterScreen = () => {
       }
       login(user, tokens);
     } catch (error: any) {
-      Alert.alert('Registrering fejlede', error.message || 'Prøv igen.');
+      const message = error?.message || 'Prøv igen.';
+      const normalized = message.toLowerCase();
+      const alreadyRegistered =
+        normalized.includes('user already registered') ||
+        normalized.includes('already registered') ||
+        normalized.includes('email already') ||
+        normalized.includes('already in use') ||
+        normalized.includes('email_already_registered');
+      if (alreadyRegistered) {
+        try {
+          await AuthService.resendEmailConfirmation(email.trim());
+          Alert.alert('Link sendt', 'Vi har sendt en ny bekræftelsesmail.');
+          setStep('verification');
+          return;
+        } catch (resendError: any) {
+          const resendMessage = resendError?.message || '';
+          const resendNormalized = resendMessage.toLowerCase();
+          const alreadyConfirmed =
+            resendNormalized.includes('already confirmed') ||
+            resendNormalized.includes('email already confirmed');
+          if (alreadyConfirmed) {
+            Alert.alert('Email er allerede i brug', 'Log ind eller nulstil din adgangskode.', [
+              {text: 'Annuller', style: 'cancel'},
+              {text: 'Log ind', onPress: () => navigation.navigate('Login')},
+              {text: 'Glemt kode', onPress: () => navigation.navigate('ForgotPassword')},
+            ]);
+            return;
+          }
+          Alert.alert('Kunne ikke sende link', resendMessage || 'Prøv igen.');
+          return;
+        }
+      }
+      Alert.alert('Registrering fejlede', message);
     } finally {
       setIsLoading(false);
     }
@@ -498,14 +547,10 @@ const RegisterScreen = () => {
   };
 
   const handlePhotoContinue = () => {
-    setStep('privacy');
-  };
-
-  const handlePrivacyContinue = () => {
     if (!privacyAccepted || !termsAccepted) {
       Alert.alert(
         'Påkrævet',
-        'Du skal acceptere privatlivspolitikken og servicevilkårene for at fortsætte.'
+        'Du skal acceptere privatlivspolitikken og servicevilkårene for at fortsætte.',
       );
       return;
     }
@@ -545,7 +590,8 @@ const RegisterScreen = () => {
           <View style={styles.nameSection}>
             <TextInput
               style={[styles.input, styles.halfInput]}
-              placeholder="Navn"
+              placeholder="Fornavn"
+              placeholderTextColor={colors.textMuted}
               value={firstName}
               onChangeText={setFirstName}
               textContentType="givenName"
@@ -555,6 +601,7 @@ const RegisterScreen = () => {
             <TextInput
               style={[styles.input, styles.halfInput]}
               placeholder="Efternavn"
+              placeholderTextColor={colors.textMuted}
               value={lastName}
               onChangeText={setLastName}
               textContentType="familyName"
@@ -572,7 +619,8 @@ const RegisterScreen = () => {
           <View style={styles.card}>
             <TextInput
               style={styles.input}
-              placeholder="Email"
+              placeholder="E-mail"
+              placeholderTextColor={colors.textMuted}
               value={email}
               onChangeText={setEmail}
               keyboardType="email-address"
@@ -580,6 +628,61 @@ const RegisterScreen = () => {
               autoComplete="email"
               textContentType="emailAddress"
             />
+            <View style={styles.inlineConsentSection}>
+              <Text style={styles.inlineConsentLabel}>
+                Ved at fortsætte accepterer du vores{' '}
+                <Text
+                  style={styles.inlineConsentLink}
+                  onPress={() => Linking.openURL('https://gymlyapp.com/privacy')}>
+                  privatlivspolitik
+                </Text>{' '}
+                og{' '}
+                <Text
+                  style={styles.inlineConsentLink}
+                  onPress={() => Linking.openURL('https://gymlyapp.com/terms')}>
+                  servicevilkår
+                </Text>
+                .
+              </Text>
+              <TouchableOpacity
+                style={styles.inlineConsentItem}
+                onPress={() => {
+                  const next = !(privacyAccepted && termsAccepted);
+                  setPrivacyAccepted(next);
+                  setTermsAccepted(next);
+                }}
+                activeOpacity={0.7}>
+                <View
+                  style={[
+                    styles.inlineCheckbox,
+                    privacyAccepted && termsAccepted && styles.inlineCheckboxChecked,
+                  ]}>
+                  {privacyAccepted && termsAccepted && <Text style={styles.inlineCheckmark}>✓</Text>}
+                </View>
+                <Text style={styles.inlineConsentText}>
+                  Jeg accepterer privatlivspolitik & servicevilkår
+                </Text>
+              </TouchableOpacity>
+              <Text style={styles.inlineOptionalTitle}>Valgfrit</Text>
+              <View style={styles.inlineOptionalRow}>
+                <Text style={styles.inlineOptionalText}>Marketing kommunikation</Text>
+                <Switch
+                  value={marketingConsent}
+                  onValueChange={setMarketingConsent}
+                  trackColor={{false: '#E5E5EA', true: colors.primary}}
+                  thumbColor="#fff"
+                />
+              </View>
+              <View style={styles.inlineOptionalRow}>
+                <Text style={styles.inlineOptionalText}>Anonymiseret analyse</Text>
+                <Switch
+                  value={analyticsConsent}
+                  onValueChange={setAnalyticsConsent}
+                  trackColor={{false: '#E5E5EA', true: colors.primary}}
+                  thumbColor="#fff"
+                />
+              </View>
+            </View>
             <TouchableOpacity style={styles.primaryButton} onPress={handleEmailContinue} activeOpacity={0.85}>
               <Text style={styles.primaryButtonText}>Fortsæt</Text>
             </TouchableOpacity>
@@ -588,7 +691,6 @@ const RegisterScreen = () => {
       case 'password':
         return (
           <View style={styles.card}>
-            <TextInput style={styles.input} value={email} editable={false} selectTextOnFocus={false} />
             <View style={styles.passwordField}>
               <TextInput
                 style={[
@@ -597,7 +699,8 @@ const RegisterScreen = () => {
                   password.length > 0 && passwordErrors.length > 0 && styles.inputError,
                   password.length > 0 && passwordErrors.length === 0 && styles.inputValid,
                 ]}
-                placeholder="Password"
+                placeholder="Adgangskode"
+                placeholderTextColor={colors.textMuted}
                 value={password}
                 onChangeText={handlePasswordChange}
                 secureTextEntry={!showPassword}
@@ -684,6 +787,7 @@ const RegisterScreen = () => {
                     <TextInput
                       style={[styles.input, styles.favoriteGymInput]}
                       placeholder={isRequired ? 'Påkrævet' : 'Valgfri'}
+                      placeholderTextColor={colors.textMuted}
                       value={label}
                       onFocus={() => {
                         setActiveGymIndex(index);
@@ -753,7 +857,8 @@ const RegisterScreen = () => {
           <View style={styles.card}>
             <TextInput
               style={styles.input}
-              placeholder="Email adresse"
+              placeholder="E-mail"
+              placeholderTextColor={colors.textMuted}
               value={email}
               editable={false}
             />
@@ -798,6 +903,7 @@ const RegisterScreen = () => {
             <TextInput
               style={styles.input}
               placeholder="Brugernavn"
+              placeholderTextColor={colors.textMuted}
               value={username}
               onChangeText={setUsername}
               autoCapitalize="none"
@@ -862,101 +968,6 @@ const RegisterScreen = () => {
             </TouchableOpacity>
           </View>
         );
-      case 'privacy':
-        return (
-          <View style={styles.privacySection}>
-            <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Påkrævet (nødvendigt for app)</Text>
-              
-              <TouchableOpacity
-                style={styles.consentItem}
-                onPress={() => setPrivacyAccepted(!privacyAccepted)}
-                activeOpacity={0.7}>
-                <View style={styles.consentInfo}>
-                  <Text style={styles.consentTitle}>Privatlivspolitik</Text>
-                  <Text style={styles.consentDescription}>
-                    Vi gemmer kun nødvendige data og beskytter dine oplysninger
-                  </Text>
-                </View>
-                <View style={[styles.checkbox, privacyAccepted && styles.checkboxChecked]}>
-                  {privacyAccepted && <Text style={styles.checkmark}>✓</Text>}
-                </View>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                style={styles.consentItem}
-                onPress={() => setTermsAccepted(!termsAccepted)}
-                activeOpacity={0.7}>
-                <View style={styles.consentInfo}>
-                  <Text style={styles.consentTitle}>Servicevilkår</Text>
-                  <Text style={styles.consentDescription}>
-                    Vilkår for brug af Gymly
-                  </Text>
-                </View>
-                <View style={[styles.checkbox, termsAccepted && styles.checkboxChecked]}>
-                  {termsAccepted && <Text style={styles.checkmark}>✓</Text>}
-                </View>
-              </TouchableOpacity>
-            </View>
-
-            <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Valgfrit</Text>
-              
-              <View style={styles.consentItem}>
-                <View style={styles.consentInfo}>
-                  <Text style={styles.consentTitle}>Marketing kommunikation</Text>
-                  <Text style={styles.consentDescription}>
-                    Modtag nyheder og tilbud (kan ændres senere)
-                  </Text>
-                </View>
-                <Switch
-                  value={marketingConsent}
-                  onValueChange={setMarketingConsent}
-                  trackColor={{false: '#E5E5EA', true: '#34C759'}}
-                  thumbColor="#fff"
-                />
-              </View>
-
-              <View style={styles.consentItem}>
-                <View style={styles.consentInfo}>
-                  <Text style={styles.consentTitle}>Anonymiseret analyse</Text>
-                  <Text style={styles.consentDescription}>
-                    Hjælp os med at forbedre appen (kan ændres senere)
-                  </Text>
-                </View>
-                <Switch
-                  value={analyticsConsent}
-                  onValueChange={setAnalyticsConsent}
-                  trackColor={{false: '#E5E5EA', true: '#34C759'}}
-                  thumbColor="#fff"
-                />
-              </View>
-            </View>
-
-            <View style={styles.infoBox}>
-              <Text style={styles.infoTitle}>Dine rettigheder under GDPR:</Text>
-              <Text style={styles.infoText}>• Ret til indsigt i dine data</Text>
-              <Text style={styles.infoText}>• Ret til at få dine data slettet</Text>
-              <Text style={styles.infoText}>• Ret til dataportabilitet</Text>
-              <Text style={styles.infoText}>• Ret til at trække samtykke tilbage</Text>
-            </View>
-
-            <TouchableOpacity
-              style={[
-                styles.primaryButton,
-                (!privacyAccepted || !termsAccepted || isLoading) && styles.primaryButtonDisabled,
-              ]}
-              onPress={handlePrivacyContinue}
-              disabled={!privacyAccepted || !termsAccepted || isLoading}
-              activeOpacity={0.85}>
-              {isLoading ? (
-                <ActivityIndicator color="#fff" />
-              ) : (
-                <Text style={styles.primaryButtonText}>Accepter og fortsæt</Text>
-              )}
-            </TouchableOpacity>
-          </View>
-        );
       default:
         return null;
     }
@@ -964,20 +975,36 @@ const RegisterScreen = () => {
 
   const showBack = step !== 'method';
   const currentStepIndex = stepOrder.indexOf(step) + 1;
+  const goToPreviousStep = useCallback(() => {
+    if (step === 'method') {
+      return;
+    }
+    const previousIndex = Math.max(0, currentStepIndex - 2);
+    setStep(stepOrder[previousIndex]);
+  }, [step, currentStepIndex]);
 
   return (
-    <KeyboardAvoidingView
-      style={styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-      <ScrollView
-        ref={scrollRef}
-        contentContainerStyle={styles.content}
-        keyboardShouldPersistTaps="handled">
-        {showBack && (
-          <TouchableOpacity style={styles.backButton} onPress={() => setStep(stepOrder[Math.max(0, currentStepIndex - 2)])}>
-            <MaterialIcon name="chevron-left" size={28} color="#007AFF" />
-          </TouchableOpacity>
-        )}
+    <GestureDetector
+      gesture={Gesture.Pan()
+        .activeOffsetX([-60, 60])
+        .failOffsetY([-20, 20])
+        .onEnd(event => {
+          if (Math.abs(event.translationX) > 80) {
+            runOnJS(goToPreviousStep)();
+          }
+        })}>
+      <KeyboardAvoidingView
+        style={styles.container}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+        <ScrollView
+          ref={scrollRef}
+          contentContainerStyle={styles.content}
+          keyboardShouldPersistTaps="handled">
+          {showBack && (
+            <TouchableOpacity style={styles.backButton} onPress={goToPreviousStep}>
+              <MaterialIcon name="chevron-left" size={28} color="#007AFF" />
+            </TouchableOpacity>
+          )}
         <View style={styles.logoBadge}>
           <GymlyLogo size={64} />
         </View>
@@ -1018,8 +1045,9 @@ const RegisterScreen = () => {
             <Text style={styles.loginLink}>Log ind</Text>
           </TouchableOpacity>
         </View>
-      </ScrollView>
-    </KeyboardAvoidingView>
+        </ScrollView>
+      </KeyboardAvoidingView>
+    </GestureDetector>
   );
 };
 
@@ -1221,6 +1249,66 @@ const styles = StyleSheet.create({
     color: '#10B981',
     fontSize: 13,
     fontWeight: '600',
+  },
+  inlineConsentSection: {
+    marginTop: 12,
+    backgroundColor: colors.backgroundCard,
+    borderRadius: 12,
+    padding: 12,
+  },
+  inlineConsentLabel: {
+    fontSize: 12,
+    color: colors.textSecondary,
+    marginBottom: 8,
+  },
+  inlineConsentLink: {
+    color: colors.primary,
+    fontWeight: '600',
+  },
+  inlineConsentRow: {
+    gap: 8,
+  },
+  inlineConsentItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  inlineCheckbox: {
+    width: 18,
+    height: 18,
+    borderRadius: 4,
+    borderWidth: 1.5,
+    borderColor: colors.primary,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  inlineCheckboxChecked: {
+    backgroundColor: colors.primary,
+  },
+  inlineCheckmark: {
+    color: '#fff',
+    fontSize: 12,
+    fontWeight: '700',
+  },
+  inlineConsentText: {
+    fontSize: 12,
+    color: colors.textSecondary,
+  },
+  inlineOptionalTitle: {
+    marginTop: 12,
+    fontSize: 12,
+    fontWeight: '600',
+    color: colors.textMuted,
+  },
+  inlineOptionalRow: {
+    marginTop: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  inlineOptionalText: {
+    fontSize: 12,
+    color: colors.textSecondary,
   },
   sectionLabel: {
     fontSize: 15,
