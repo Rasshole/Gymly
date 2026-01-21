@@ -33,7 +33,11 @@ import {useFeedStore, FeedItem} from '@/store/feedStore';
 import {getMuscleGroupImage} from '@/utils/muscleGroupImages';
 import {MuscleGroup} from '@/types/workout.types';
 import {colors} from '@/theme/colors';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {spacing} from '@/theme/spacing';
+import {typography} from '@/theme/typography';
+import RenderTextWithMentions from '@/components/RenderTextWithMentions';
+import {MOCK_FRIENDS} from '@/data/mockFriends';
+import {Card, EmptyState} from '@/components/ui';
 
 type HomeScreenNavigationProp = StackNavigationProp<any>;
 type FeedComment = {
@@ -43,267 +47,6 @@ type FeedComment = {
   likes: number;
   likedByUser: boolean;
 };
-
-// Mock friends list for mentions
-const FRIENDS = [
-  {id: '1', name: 'Jeff'},
-  {id: '2', name: 'Marie'},
-  {id: '3', name: 'Lars'},
-  {id: '4', name: 'Sofia'},
-  {id: '5', name: 'Patti'},
-];
-
-// Component to render text with clickable mentions
-const RenderTextWithMentions = ({text, mentionedUsers, navigation}: {text: string; mentionedUsers?: string[]; navigation: any}) => {
-  const parts: Array<{text: string; isMention: boolean; userId?: string}> = [];
-  const mentionRegex = /@(\w+)/g;
-  let lastIndex = 0;
-  let match;
-
-  while ((match = mentionRegex.exec(text)) !== null) {
-    // Add text before mention
-    if (match.index > lastIndex) {
-      parts.push({text: text.substring(lastIndex, match.index), isMention: false});
-    }
-    
-    // Add mention
-    const mentionedName = match[1];
-    const friend = FRIENDS.find(f => f.name === mentionedName);
-    const userId = friend?.id || (mentionedUsers && mentionedUsers.length > 0 ? mentionedUsers[0] : undefined);
-    
-    parts.push({
-      text: `@${mentionedName}`,
-      isMention: true,
-      userId: userId,
-    });
-    
-    lastIndex = match.index + match[0].length;
-  }
-  
-  // Add remaining text
-  if (lastIndex < text.length) {
-    parts.push({text: text.substring(lastIndex), isMention: false});
-  }
-
-  return (
-    <Text style={styles.feedDescription}>
-      {parts.map((part, index) => {
-        if (part.isMention && part.userId) {
-          return (
-            <Text
-              key={index}
-              style={styles.feedMention}
-              onPress={() => {
-                navigation.navigate('FriendProfile', {friendId: part.userId});
-              }}>
-              {part.text}
-            </Text>
-          );
-        }
-        return <Text key={index}>{part.text}</Text>;
-      })}
-    </Text>
-  );
-};
-
-const RenderCaptionWithMentions = ({
-  text,
-  mentionedUsers,
-  navigation,
-  username,
-  onPressUsername,
-}: {
-  text: string;
-  mentionedUsers?: string[];
-  navigation: any;
-  username: string;
-  onPressUsername: () => void;
-}) => {
-  const parts: Array<{text: string; isMention: boolean; userId?: string}> = [];
-  const mentionRegex = /@(\w+)/g;
-  let lastIndex = 0;
-  let match;
-
-  while ((match = mentionRegex.exec(text)) !== null) {
-    if (match.index > lastIndex) {
-      parts.push({text: text.substring(lastIndex, match.index), isMention: false});
-    }
-    const mentionedName = match[1];
-    const friend = FRIENDS.find(f => f.name === mentionedName);
-    const userId = friend?.id || (mentionedUsers && mentionedUsers.length > 0 ? mentionedUsers[0] : undefined);
-    parts.push({
-      text: `@${mentionedName}`,
-      isMention: true,
-      userId,
-    });
-    lastIndex = match.index + match[0].length;
-  }
-
-  if (lastIndex < text.length) {
-    parts.push({text: text.substring(lastIndex), isMention: false});
-  }
-
-  return (
-    <Text style={styles.feedDescription}>
-      <Text style={styles.feedCaptionUser} onPress={onPressUsername}>
-        {username}
-      </Text>
-      <Text> </Text>
-      {parts.map((part, index) => {
-        if (part.isMention && part.userId) {
-          return (
-            <Text
-              key={index}
-              style={styles.feedMention}
-              onPress={() => {
-                navigation.navigate('FriendProfile', {friendId: part.userId});
-              }}>
-              {part.text}
-            </Text>
-          );
-        }
-        return <Text key={index}>{part.text}</Text>;
-      })}
-    </Text>
-  );
-};
-
-type FeedPhotoProps = {
-  item: FeedItem;
-  onDoubleTapLike: (itemId: string, x: number, y: number) => void;
-  onLayoutMeasured?: (itemId: string, layout: {x: number; y: number; width: number; height: number}) => void;
-  userBicepsEmoji: string;
-};
-
-const FeedPhoto = memo(
-  ({item, onDoubleTapLike, onLayoutMeasured, userBicepsEmoji}: FeedPhotoProps) => {
-    if (!item.photoUri) {
-      return (
-        <View style={styles.feedImagePlaceholder}>
-          <Text style={styles.feedImageText}>Foto fra træning</Text>
-        </View>
-      );
-    }
-
-    const [aspectRatio, setAspectRatio] = useState<number | null>(null);
-    const [photoLayout, setPhotoLayout] = useState({width: 0, height: 0});
-
-    useEffect(() => {
-      let isMounted = true;
-      Image.getSize(
-        item.photoUri,
-        (width, height) => {
-          if (isMounted && width > 0 && height > 0) {
-            setAspectRatio(width / height);
-          }
-        },
-        () => {
-          if (isMounted) {
-            setAspectRatio(null);
-          }
-        },
-      );
-      return () => {
-        isMounted = false;
-      };
-    }, [item.photoUri]);
-
-    const scale = useSharedValue(1);
-    const translateX = useSharedValue(0);
-    const translateY = useSharedValue(0);
-    const startX = useSharedValue(0);
-    const startY = useSharedValue(0);
-
-    const pinch = Gesture.Pinch()
-      .onUpdate(event => {
-        const nextScale = Math.min(3, Math.max(1, event.scale));
-        scale.value = nextScale;
-      })
-      .onEnd(() => {
-        scale.value = withTiming(1);
-        translateX.value = withTiming(0);
-        translateY.value = withTiming(0);
-      });
-
-    const pan = Gesture.Pan()
-      .minPointers(2)
-      .onStart(() => {
-        startX.value = translateX.value;
-        startY.value = translateY.value;
-      })
-      .onUpdate(event => {
-        if (scale.value > 1) {
-          translateX.value = startX.value + event.translationX;
-          translateY.value = startY.value + event.translationY;
-        }
-      })
-      .onEnd(() => {
-        if (scale.value <= 1) {
-          translateX.value = withTiming(0);
-          translateY.value = withTiming(0);
-        }
-      });
-
-    const doubleTap = Gesture.Tap()
-      .numberOfTaps(2)
-      .maxDelay(250)
-      .maxDistance(10)
-      .onEnd(event => {
-        runOnJS(onDoubleTapLike)(item.id, event.x, event.y);
-      });
-
-    const gesture = Gesture.Simultaneous(doubleTap, pinch, pan);
-
-    const animatedStyle = useAnimatedStyle(() => ({
-      transform: [
-        {translateX: translateX.value},
-        {translateY: translateY.value},
-        {scale: scale.value},
-      ],
-    }));
-
-
-    return (
-      <GestureDetector gesture={gesture}>
-        <View
-          style={[styles.feedPhotoContainer, aspectRatio ? {aspectRatio} : null]}
-          onLayout={event => {
-            const {width, height} = event.nativeEvent.layout;
-            onLayoutMeasured?.(item.id, event.nativeEvent.layout);
-            if (width !== photoLayout.width || height !== photoLayout.height) {
-              setPhotoLayout({width, height});
-            }
-          }}>
-          <View style={styles.feedPhotoMask}>
-            <Reanimated.View style={[styles.feedPhotoTransform, animatedStyle]}>
-              <Image
-                source={{uri: item.photoUri}}
-                style={styles.feedPhoto}
-                resizeMode="contain"
-              />
-            </Reanimated.View>
-          </View>
-          {item.rating && item.rating >= 1 && item.rating <= 5 && (
-            <View style={styles.feedPhotoRating}>
-              <Text style={styles.feedRatingEmoji}>
-                {['☹️', '🙁', '😐', '😁', '🤩'][item.rating - 1]}
-              </Text>
-            </View>
-          )}
-        </View>
-      </GestureDetector>
-    );
-  },
-  (prev, next) => {
-    return (
-      prev.item.id === next.item.id &&
-      prev.item.photoUri === next.item.photoUri &&
-      prev.item.rating === next.item.rating &&
-      prev.userBicepsEmoji === next.userBicepsEmoji
-    );
-  },
-);
-
 
 const HomeScreen = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
@@ -1046,7 +789,7 @@ const HomeScreen = () => {
         onContentSizeChange={() => updateActiveFeedVideo(scrollYRef.current)}
         scrollEventThrottle={16}>
         {/* Welcome Section */}
-        <View style={[styles.welcomeSection, {paddingHorizontal: 16}]}>
+        <View style={styles.welcomeSection}>
           <Text style={styles.welcomeText}>Hej, {user?.displayName}! 👋</Text>
           <Text style={styles.subtitle}>Klar til at træne i dag?</Text>
         </View>
@@ -1109,7 +852,16 @@ const HomeScreen = () => {
 
         {/* Feed */}
         <React.Fragment>
-        {feedItems.map(item => {
+        {feedItems.length === 0 ? (
+          <EmptyState
+            icon="fitness-outline"
+            title="Ingen træninger endnu"
+            message="Dine venner har endnu ikke delt nogen træninger. Start med at tjekke ind på et gym!"
+            actionLabel="Tjek ind på gym"
+            onAction={() => navigation.navigate('CheckIn')}
+          />
+        ) : (
+          feedItems.map(item => {
             // Ensure animation is initialized
             const likeAnim = ensureBicepsAnimation(item.id);
             const overlayAnim = ensureOverlayAnimation(item.id);
@@ -1118,9 +870,9 @@ const HomeScreen = () => {
               : undefined;
             const particles = likeAnim?.particles ?? [];
             const hasCommented = commentedItems.includes(item.id);
-            const commentColor = hasCommented ? '#2563EB' : '#0F172A';
+            const commentColor = hasCommented ? colors.primary : colors.text;
             const isLiked = feedReactions[item.id]?.liked ?? false;
-            const likeColor = isLiked ? '#2563EB' : '#0F172A';
+            const likeColor = isLiked ? colors.primary : colors.text;
             const isAnimating = animatingItems[item.id];
             const hasVideo = Boolean(item.videoUri);
             const isVideoActive = activeFeedVideoId === item.id;
@@ -1148,7 +900,7 @@ const HomeScreen = () => {
                 <TouchableOpacity
                   onPress={() => handleFeedItemMenu(item.id, item.user)}
                   activeOpacity={0.7}>
-                  <Icon name="ellipsis-horizontal" size={18} color="#94A3B8" />
+                  <Icon name="ellipsis-horizontal" size={18} color={colors.textMuted} />
                 </TouchableOpacity>
               </View>
               {item.workoutInfo && (
@@ -1222,7 +974,7 @@ const HomeScreen = () => {
               )}
               {item.type === 'pr' && (
                 <View style={styles.feedHighlight}>
-                  <Icon name="trophy" size={18} color="#FACC15" />
+                  <Icon name="trophy" size={18} color={colors.warning} />
                   <Text style={styles.feedHighlightText}>Ny PR</Text>
                 </View>
               )}
@@ -1258,9 +1010,7 @@ const HomeScreen = () => {
                 <RenderCaptionWithMentions
                   text={item.description}
                   mentionedUsers={item.mentionedUsers}
-                  navigation={navigation}
-                  username={item.user}
-                  onPressUsername={openProfile}
+                  friends={MOCK_FRIENDS}
                 />
               )}
               <Animated.View
@@ -1369,7 +1119,8 @@ const HomeScreen = () => {
               </View>
               </View>
             );
-          })}
+          })
+        )}
         </React.Fragment>
 
         {/* Suggested Friends Section */}
@@ -1441,15 +1192,15 @@ const HomeScreen = () => {
       </ScrollView>
 
       {!reelsModalVisible && (
-      <Modal visible={commentModalVisible} transparent animationType="slide">
-        <TouchableWithoutFeedback onPress={closeComments}>
-          <View style={styles.bottomSheetOverlay}>
-            <TouchableWithoutFeedback>
-              <View
-                style={[
-                  styles.commentSheet,
-                  commentInputFocused ? styles.commentSheetExpanded : styles.commentSheetCollapsed,
-                ]}>
+        <Modal visible={commentModalVisible} transparent animationType="slide">
+          <TouchableWithoutFeedback onPress={closeComments}>
+            <View style={styles.bottomSheetOverlay}>
+              <TouchableWithoutFeedback>
+                <View
+                  style={[
+                    styles.commentSheet,
+                    commentInputFocused ? styles.commentSheetExpanded : styles.commentSheetCollapsed,
+                  ]}>
                   <View style={styles.commentHandle} />
                   <View style={styles.commentHeader}>
                     <Text style={styles.modalTitle}>Kommentarer</Text>
@@ -1544,11 +1295,11 @@ const HomeScreen = () => {
                       </TouchableOpacity>
                     </View>
                   </View>
-              </View>
-            </TouchableWithoutFeedback>
-          </View>
-        </TouchableWithoutFeedback>
-      </Modal>
+                </View>
+              </TouchableWithoutFeedback>
+            </View>
+          </TouchableWithoutFeedback>
+        </Modal>
       )}
 
       <Modal visible={activityModalVisible} transparent animationType="slide">
@@ -1959,69 +1710,6 @@ const HomeScreen = () => {
         </GestureDetector>
       </Modal>
 
-      {/* Share Modal */}
-      {!reelsModalVisible && (
-      <Modal visible={shareModalVisible} transparent animationType="slide">
-        <TouchableWithoutFeedback onPress={() => setShareModalVisible(false)}>
-          <View style={styles.shareOverlay}>
-            <TouchableWithoutFeedback>
-              <View style={styles.shareSheet}>
-                <View style={styles.shareHandle} />
-                <View style={styles.shareSearchRow}>
-                  <Icon name="search" size={18} color="#94A3B8" />
-                  <TextInput
-                    value={shareSearch}
-                    onChangeText={setShareSearch}
-                    placeholder="Søg"
-                    placeholderTextColor="#94A3B8"
-                    style={styles.shareSearchInput}
-                  />
-                </View>
-                <ScrollView style={styles.shareFriendList}>
-                  {FRIENDS.filter(friend =>
-                    friend.name.toLowerCase().includes(shareSearch.trim().toLowerCase()),
-                  ).map(friend => {
-                    const selected = shareSelections[friend.id];
-                    return (
-                      <TouchableOpacity
-                        key={friend.id}
-                        style={styles.shareFriendRow}
-                        onPress={() => toggleShareSelection(friend.id)}
-                        activeOpacity={0.85}>
-                        <View style={styles.shareFriendAvatar}>
-                          <Text style={styles.shareFriendAvatarText}>
-                            {friend.name.charAt(0)}
-                          </Text>
-                        </View>
-                        <View style={{flex: 1}}>
-                          <Text style={styles.shareFriendName}>{friend.name}</Text>
-                        </View>
-                        <View
-                          style={[
-                            styles.shareFriendButton,
-                            selected && styles.shareFriendButtonSelected,
-                          ]}>
-                          <Text
-                            style={[
-                              styles.shareFriendButtonText,
-                              selected && styles.shareFriendButtonTextSelected,
-                            ]}>
-                            {selected ? 'Valgt' : 'Send'}
-                          </Text>
-                        </View>
-                      </TouchableOpacity>
-                    );
-                  })}
-                </ScrollView>
-                <TouchableOpacity style={styles.shareSendButton} onPress={handleSendShare}>
-                  <Text style={styles.shareSendButtonText}>Send</Text>
-                </TouchableOpacity>
-              </View>
-            </TouchableWithoutFeedback>
-          </View>
-        </TouchableWithoutFeedback>
-      </Modal>
-      )}
     </View>
   );
 };
@@ -2036,31 +1724,33 @@ const styles = StyleSheet.create({
   },
   content: {
     paddingHorizontal: 0, // No horizontal padding - feed fills edge to edge
-    paddingVertical: 16,
+    paddingVertical: spacing.md,
+    paddingBottom: spacing.xxl,
   },
   welcomeSection: {
-    marginBottom: 24,
-    paddingTop: 8,
+    marginBottom: spacing.lg,
+    paddingTop: spacing.sm,
+    paddingHorizontal: spacing.md,
   },
   welcomeText: {
-    fontSize: 28,
-    fontWeight: 'bold',
+    ...typography.h2,
     color: colors.text,
-    marginBottom: 4,
+    marginBottom: spacing.xs,
   },
   subtitle: {
-    fontSize: 16,
+    ...typography.body,
     color: colors.textSecondary,
   },
   activeFriendsCard: {
     backgroundColor: colors.backgroundCard,
     borderRadius: 16,
-    padding: 16,
-    marginBottom: 24,
+    padding: spacing.md,
+    marginBottom: spacing.lg,
+    marginHorizontal: spacing.md,
     shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 4},
-    shadowOpacity: 0.2,
-    shadowRadius: 12,
+    shadowOpacity: 0.12,
+    shadowRadius: 16,
     elevation: 4,
   },
   activeCardHeader: {
@@ -2070,14 +1760,13 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   activeTitle: {
-    fontSize: 18,
-    fontWeight: '700',
+    ...typography.h4,
     color: colors.text,
   },
   activeSubtitleText: {
-    fontSize: 13,
+    ...typography.caption,
     color: colors.textTertiary,
-    marginTop: 2,
+    marginTop: spacing.xs / 2,
   },
   activeCountBadge: {
     backgroundColor: colors.surface,

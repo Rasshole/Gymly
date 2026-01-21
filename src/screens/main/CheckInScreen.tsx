@@ -39,8 +39,11 @@ import {formatGymDisplayName, findGymById} from '@/utils/gymDisplay';
 import {useFeedStore} from '@/store/feedStore';
 import {useGroupStore, GymlyGroup} from '@/store/groupStore';
 import {usePRStore} from '@/store/prStore';
+import {getCurrentUserId} from '@/utils/auth';
 import {colors} from '@/theme/colors';
 import {getMuscleGroupImage} from '@/utils/muscleGroupImages';
+import {formatMuscleSelection, formatDuration} from '@/utils/workoutUtils';
+import MuscleGroupSelector from '@/components/MuscleGroupSelector';
 import GymlyLogo from '@/components/GymlyLogo';
 import {getGymLogo, hasGymLogo} from '@/utils/gymLogos';
 
@@ -88,26 +91,6 @@ type ActiveSession = PendingSession & {
   invitedFriendIds: string[];
 };
 
-const formatMuscleSelection = (groups: MuscleGroup[]) => {
-  if (groups.length === 0) {
-    return 'Fri træning';
-  }
-  return groups
-    .map(group => MUSCLE_GROUPS.find(item => item.key === group)?.label || group)
-    .join(', ');
-};
-
-const formatDuration = (milliseconds: number) => {
-  const totalSeconds = Math.max(0, Math.floor(milliseconds / 1000));
-  const hours = Math.floor(totalSeconds / 3600)
-    .toString()
-    .padStart(2, '0');
-  const minutes = Math.floor((totalSeconds % 3600) / 60)
-    .toString()
-    .padStart(2, '0');
-  const seconds = (totalSeconds % 60).toString().padStart(2, '0');
-  return `${hours}:${minutes}:${seconds}`;
-};
 
 const getDistanceMeters = (
   lat1: number,
@@ -198,10 +181,6 @@ const CheckInScreen = () => {
   const [prWeight, setPrWeight] = useState('');
   const [prVideoAttached, setPrVideoAttached] = useState(false);
   const [prVideoUri, setPrVideoUri] = useState<string | null>(null);
-  const [prVideoThumbnailUri, setPrVideoThumbnailUri] = useState<string | null>(null);
-  const [prShareToFeed, setPrShareToFeed] = useState(true);
-  const [prMessage, setPrMessage] = useState('');
-  const [recentPRInfo, setRecentPRInfo] = useState<string | null>(null);
   const [shareComposerVisible, setShareComposerVisible] = useState(false);
   const [shareMessage, setShareMessage] = useState('');
   const [shareVisibility, setShareVisibility] = useState<'everyone' | 'friends' | 'private'>('everyone');
@@ -658,8 +637,7 @@ const CheckInScreen = () => {
       exercise: exerciseType,
       weight: weight,
       videoUrl: prVideoUri || undefined,
-      videoThumbnailUrl: prVideoThumbnailUri || undefined,
-      userId: 'current_user',
+      userId: getCurrentUserId() || 'current_user',
     });
     
     // Add to feed if user wants to share
@@ -1676,42 +1654,10 @@ const CheckInScreen = () => {
             </TouchableOpacity>
 
             <View style={[styles.card, styles.flexCard, styles.muscleCardSection]}>
-              <View style={styles.muscleGrid}>
-                {MUSCLE_GROUPS.map(item => {
-                  const isActive = selectedMuscles.includes(item.key);
-                  const isLargeIcon = item.key === 'hele_kroppen' || item.key === 'ben';
-                  return (
-                    <TouchableOpacity
-                      key={item.key}
-                      style={[styles.muscleCard, isActive && styles.muscleCardActive]}
-                      onPress={() => toggleMuscleGroup(item.key)}
-                      activeOpacity={0.85}>
-                      <Image
-                        source={getMuscleGroupImage(item.key)}
-                        style={[
-                          styles.muscleImage,
-                          {
-                            width: baseMuscleIconSize,
-                            height: baseMuscleIconSize,
-                            zIndex: 0,
-                          },
-                          isLargeIcon && {transform: [{scale: 1.2}]},
-                          isActive && styles.muscleImageActive,
-                        ]}
-                        resizeMode="contain"
-                      />
-                      <Text
-                        style={[
-                          styles.muscleLabel,
-                          {fontSize: muscleLabelFontSize, marginTop: muscleLabelMarginTop, zIndex: 1},
-                          isActive && styles.muscleLabelActive,
-                        ]}>
-                        {item.label}
-                      </Text>
-                    </TouchableOpacity>
-                  );
-                })}
-              </View>
+              <MuscleGroupSelector
+                selectedMuscles={selectedMuscles}
+                onToggleMuscle={toggleMuscleGroup}
+              />
               <View style={styles.soloSection}>
                 <View style={styles.soloToggleRow}>
                   <Text style={styles.soloToggleLabel}>Solo træning</Text>
@@ -1836,6 +1782,7 @@ const CheckInScreen = () => {
                           .join(' • ')}
                       </Text>
                     </View>
+                    <Ionicons name="checkmark-circle" size={22} color={colors.primary} />
                   </TouchableOpacity>
                 ))
               )}
@@ -2099,49 +2046,17 @@ const CheckInScreen = () => {
                             .join(' • ')}
                         </Text>
                       </View>
-                      <Ionicons name="location-outline" size={18} color="#007AFF" />
+                      <Ionicons name="location-outline" size={18} color={colors.primary} />
                     </TouchableOpacity>
                   ))}
                 </View>
               )}
 
               <Text style={[styles.sectionLabel, {marginTop: 20}]}>Muskelgrupper</Text>
-              <View style={styles.muscleGrid}>
-                {MUSCLE_GROUPS.map(item => {
-                  const isActive = planMuscles.includes(item.key);
-                  const isLargeIcon = item.key === 'hele_kroppen' || item.key === 'ben';
-                  return (
-                    <TouchableOpacity
-                      key={item.key}
-                      style={[styles.muscleCard, isActive && styles.muscleCardActive]}
-                      onPress={() => togglePlanMuscle(item.key)}
-                      activeOpacity={0.85}>
-                      <Image
-                        source={getMuscleGroupImage(item.key)}
-                        style={[
-                          styles.muscleImage,
-                          {
-                            width: baseMuscleIconSize,
-                            height: baseMuscleIconSize,
-                            zIndex: 0,
-                          },
-                          isLargeIcon && {transform: [{scale: 1.2}]},
-                          isActive && styles.muscleImageActive,
-                        ]}
-                        resizeMode="contain"
-                      />
-                      <Text
-                        style={[
-                          styles.muscleLabel,
-                          {fontSize: muscleLabelFontSize, marginTop: muscleLabelMarginTop, zIndex: 1},
-                          isActive && styles.muscleLabelActive,
-                        ]}>
-                        {item.label}
-                      </Text>
-                    </TouchableOpacity>
-                  );
-                })}
-              </View>
+              <MuscleGroupSelector
+                selectedMuscles={planMuscles}
+                onToggleMuscle={togglePlanMuscle}
+              />
                   <View style={styles.soloToggleRow}>
                     <Text style={styles.soloToggleLabel}>Solo træning</Text>
                     <TouchableOpacity

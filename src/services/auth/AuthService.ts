@@ -6,12 +6,10 @@
 import {AuthTokens, AuthResponse} from '@/types/auth.types';
 import {User, UserLogin, UserRegistration} from '@/types/user.types';
 import SecureStorage from '../security/SecureStorage';
-import {supabase} from '@/services/supabase/supabaseClient';
-import {SUPABASE_ALLOW_UNVERIFIED_LOGIN, SUPABASE_EMAIL_REDIRECT} from '@/config/supabaseConfig';
-import {User as SupabaseUser} from '@supabase/supabase-js';
+import {API_URL, USE_MOCK_API} from '@/config/environment';
 
 class AuthService {
-  private readonly API_URL = 'https://api.gymly.app'; // TODO: Replace with actual API URL
+  private readonly API_URL = API_URL;
 
   private mapSupabaseUser(user: SupabaseUser): User {
     const metadata = user.user_metadata || {};
@@ -117,7 +115,7 @@ class AuthService {
         bicepsEmoji: data.bicepsEmoji || '💪🏻',
         favoriteGyms: data.favoriteGyms,
         privacySettings: {
-          profileVisibility: 'friends',
+          profileVisibility: 'everyone',
           locationSharingEnabled: true,
           showWorkoutHistory: true,
           allowFriendRequests: true,
@@ -176,33 +174,31 @@ class AuthService {
 
       const {data, error} = await supabase.auth.signInWithPassword({
         email: credentials.email,
-        password: credentials.password,
-      });
-
-      if (error) {
-        const errorMessage = error.message || 'Login fejlede. Prøv igen.';
-        const errorCode = (error as {code?: string}).code;
-        const isUnconfirmed =
-          errorCode === 'email_not_confirmed' ||
-          errorMessage.toLowerCase().includes('email not confirmed');
-        if (SUPABASE_ALLOW_UNVERIFIED_LOGIN && isUnconfirmed) {
-          const storedUser = await SecureStorage.getUserData();
-          if (storedUser && storedUser.email.toLowerCase() === credentials.email.toLowerCase()) {
-            const betaTokens: AuthTokens = {
-              accessToken: this.generateMockToken(),
-              refreshToken: this.generateMockToken(),
-              expiresAt: Date.now() + 3600000,
-            };
-            await SecureStorage.saveTokens(betaTokens);
-            await SecureStorage.saveUserData(storedUser);
-            return {
-              user: storedUser,
-              tokens: betaTokens,
-            };
-          }
-        }
-        throw new Error(errorMessage);
-      }
+        username: 'testuser',
+        displayName: 'Test Bruger',
+        privacySettings: {
+          profileVisibility: 'everyone',
+          locationSharingEnabled: true,
+          showWorkoutHistory: true,
+          allowFriendRequests: true,
+          showOnlineStatus: true,
+        },
+        gdprConsent: {
+          privacyPolicyAccepted: true,
+          termsOfServiceAccepted: true,
+          dataRetentionConsent: true,
+          marketingConsent: false,
+          analyticsConsent: false,
+          locationTrackingConsent: false,
+          consentDate: new Date(),
+          privacyPolicyVersion: '1.0.0',
+          termsOfServiceVersion: '1.0.0',
+          consentHistory: [],
+        },
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        lastLoginAt: new Date(),
+      };
 
       if (!data.session || !data.user) {
         throw new Error('Login fejlede. Prøv igen.');
@@ -389,7 +385,7 @@ class AuthService {
         bicepsEmoji: data?.bicepsEmoji || '💪',
         favoriteGyms: data?.favoriteGyms, // Save favorite gyms from registration
         privacySettings: {
-          profileVisibility: 'friends',
+          profileVisibility: 'everyone',
           locationSharingEnabled: true,
           showWorkoutHistory: true,
           allowFriendRequests: true,
