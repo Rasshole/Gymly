@@ -404,9 +404,22 @@ const HomeScreen = () => {
     };
   }, []);
 
-  const activeFriends = useMemo(() => [], []);
+  const activeFriends = useMemo(
+    () => [
+      {id: '1', name: 'Patrick', gym: 'SATS KBH Valby', startTimestamp: now - 23 * 60000, focus: 'Bryst & Triceps'},
+      {id: '2', name: 'Marie', gym: 'PureGym Lygten', startTimestamp: now - 45 * 60000, focus: 'Ben & Ryg'},
+      {id: '3', name: 'Lars', gym: 'SATS KBH Adelgade', startTimestamp: now - 12 * 60000, focus: 'Skulder'},
+    ],
+    [now],
+  );
 
-  const upcomingSessions = useMemo(() => [], []);
+  const upcomingSessions = useMemo(
+    () => [
+      {id: 'u1', name: 'Sofia', gym: 'SATS KBH Vesterport', focus: 'Bryst & Biceps', scheduledAt: now + 2 * 3600 * 1000},
+      {id: 'u2', name: 'Thomas', gym: 'PureGym Esromgade', focus: 'Hele kroppen', scheduledAt: now + 5 * 3600 * 1000},
+    ],
+    [now],
+  );
 
   const activeCount = activeFriends.length;
 
@@ -1762,10 +1775,9 @@ const HomeScreen = () => {
         </View>
       </Modal>
 
-      {/* Reels Modal */}
-      {!commentModalVisible && (
-        <Modal
-          visible={reelsModalVisible}
+      {/* Reels Modal - Always mounted so hooks run; hidden when comment modal is open */}
+      <Modal
+        visible={reelsModalVisible && !commentModalVisible}
           transparent
           animationType="fade"
           onRequestClose={closeReels}>
@@ -2293,7 +2305,6 @@ const HomeScreen = () => {
           </Modal>
         )}
         </Modal>
-      )}
     </View>
   );
 };

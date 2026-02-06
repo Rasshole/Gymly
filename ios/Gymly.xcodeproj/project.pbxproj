@@ -446,7 +446,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.testlocal.Gymly;
-				PRODUCT_NAME = GymlyFresh;
+				PRODUCT_NAME = Gymly;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -477,7 +477,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.testlocal.Gymly;
-				PRODUCT_NAME = GymlyFresh;
+				PRODUCT_NAME = Gymly;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

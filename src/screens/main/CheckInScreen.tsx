@@ -29,6 +29,7 @@ import DateTimePicker, {
   DateTimePickerEvent,
 } from '@react-native-community/datetimepicker';
 import Geolocation from '@react-native-community/geolocation';
+import {useNavigation} from '@react-navigation/native';
 
 import danishGyms, {DanishGym} from '@/data/danishGyms';
 import {MuscleGroup} from '@/types/workout.types';
@@ -81,6 +82,21 @@ const FRIENDS: Friend[] = [
   {id: '5', name: 'Patti', initials: 'P', isOnline: false},
 ];
 
+type ActiveCenterUser = {
+  id: string;
+  name: string;
+  durationMinutes: number;
+  muscles: MuscleGroup[];
+};
+
+const ACTIVE_CENTER_USERS_PLACEHOLDER: ActiveCenterUser[] = [
+  {id: '1', name: 'Patrick', durationMinutes: 45, muscles: ['bryst', 'triceps']},
+  {id: '2', name: 'Marie', durationMinutes: 32, muscles: ['ben', 'ryg']},
+  {id: '3', name: 'Lars', durationMinutes: 18, muscles: ['skulder', 'mave']},
+  {id: '4', name: 'Sofia', durationMinutes: 55, muscles: ['biceps', 'ryg']},
+  {id: '5', name: 'Thomas', durationMinutes: 28, muscles: ['hele_kroppen']},
+];
+
 type DetectionStatus = 'searching' | 'found' | 'missing';
 type PendingSession = {gym: DanishGym; muscles: MuscleGroup[]};
 type ActiveSession = PendingSession & {
@@ -127,6 +143,7 @@ const getDistanceMeters = (
 };
 
 const CheckInScreen = () => {
+  const navigation = useNavigation<any>();
   const {user} = useAppStore();
   const {width: screenWidth} = useWindowDimensions();
   const {bottom: safeAreaBottom} = useSafeAreaInsets();
@@ -1585,7 +1602,7 @@ const CheckInScreen = () => {
                   } inviteret (venter på svar)`}
                 </Text>
               )}
-              
+
               <View style={styles.activeButtonsContainer}>
                 <TouchableOpacity
                   style={styles.inviteFriendsButton}
@@ -1594,22 +1611,62 @@ const CheckInScreen = () => {
                   <Ionicons name="send-outline" size={20} color={colors.primary} style={{marginRight: 8}} />
                   <Text style={styles.inviteFriendsText}>Inviter venner</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.prButton} onPress={handleOpenPrModal} activeOpacity={0.9}>
-                  <Ionicons name="trophy-outline" size={20} color={colors.white} style={{marginRight: 8}} />
-                  <Text style={styles.prButtonText}>Sæt PR</Text>
+                <TouchableOpacity style={styles.inviteFriendsButton} onPress={handleOpenPrModal} activeOpacity={0.9}>
+                  <Text style={{fontSize: 20, marginRight: 8}}>🏆</Text>
+                  <Text style={styles.inviteFriendsText}>Sæt PR</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  style={styles.photoButton}
+                  style={styles.inviteFriendsButton}
                   onPress={handleCaptureWorkoutPhoto}
                   activeOpacity={0.9}>
-                  <Ionicons name="camera-outline" size={20} color="#0F172A" style={{marginRight: 8}} />
-                  <Text style={styles.photoButtonText}>
+                  <Ionicons name="camera-outline" size={20} color={colors.primary} style={{marginRight: 8}} />
+                  <Text style={styles.inviteFriendsText}>
                     {sessionPhotoUri ? 'Tag nyt billede fra træning' : 'Tag billede fra træning'}
                   </Text>
                 </TouchableOpacity>
                 {sessionPhotoUri && (
                   <Text style={styles.photoSavedHint}>Foto gemt – bliver foreslået når du deler.</Text>
                 )}
+              </View>
+
+              <View style={styles.activeUsersSection}>
+                <Text style={styles.activeUsersTitle}>Aktive i centret</Text>
+                <ScrollView
+                  style={styles.activeUsersScrollView}
+                  contentContainerStyle={styles.activeUsersScrollContent}
+                  showsVerticalScrollIndicator={true}>
+                  {ACTIVE_CENTER_USERS_PLACEHOLDER.map(activeUser => (
+                    <TouchableOpacity
+                      key={activeUser.id}
+                      style={styles.activeUserRow}
+                      onPress={() =>
+                        navigation.navigate('FriendProfile', {
+                          friendId: activeUser.id,
+                          userId: activeUser.id,
+                          friendName: activeUser.name,
+                        })
+                      }
+                      activeOpacity={0.7}>
+                      <View style={styles.activeUserAvatar}>
+                        <Text style={styles.activeUserAvatarText}>{activeUser.name.charAt(0)}</Text>
+                      </View>
+                      <View style={styles.activeUserInfo}>
+                        <Text style={styles.activeUserName}>{activeUser.name}</Text>
+                        <Text style={styles.activeUserDuration}>{activeUser.durationMinutes} min</Text>
+                      </View>
+                      <View style={styles.activeUserMuscles}>
+                        {activeUser.muscles.map(muscle => (
+                          <Image
+                            key={muscle}
+                            source={getMuscleGroupImage(muscle)}
+                            style={styles.activeUserMuscleIcon}
+                            resizeMode="contain"
+                          />
+                        ))}
+                      </View>
+                    </TouchableOpacity>
+                  ))}
+                </ScrollView>
               </View>
             </View>
           </>
@@ -3012,7 +3069,7 @@ const styles = StyleSheet.create({
     width: SLIDER_KNOB_SIZE,
     height: SLIDER_KNOB_SIZE,
     borderRadius: SLIDER_KNOB_SIZE / 2,
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: colors.primary,
@@ -3264,6 +3321,68 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: colors.secondary,
     fontWeight: '600',
+  },
+  activeUsersSection: {
+    marginTop: 20,
+    marginBottom: 8,
+  },
+  activeUsersScrollView: {
+    flexGrow: 0,
+    maxHeight: 220,
+  },
+  activeUsersScrollContent: {
+    paddingBottom: 8,
+  },
+  activeUsersTitle: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: colors.text,
+    marginBottom: 12,
+  },
+  activeUserRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    backgroundColor: colors.surface,
+    borderRadius: 12,
+    marginBottom: 8,
+    gap: 12,
+  },
+  activeUserAvatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  activeUserAvatarText: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: colors.white,
+  },
+  activeUserInfo: {
+    flex: 1,
+  },
+  activeUserName: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: colors.text,
+  },
+  activeUserDuration: {
+    fontSize: 13,
+    color: colors.textSecondary,
+    marginTop: 2,
+  },
+  activeUserMuscles: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  activeUserMuscleIcon: {
+    width: 32,
+    height: 32,
   },
   timerPill: {
     flexDirection: 'row',

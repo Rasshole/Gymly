@@ -86,7 +86,7 @@ const FavoriteGymItemWithLogo = ({
         </View>
       ) : (
         <View style={styles.favoriteGymIconPlaceholder}>
-          <Icon name="fitness" size={24} color="#007AFF" />
+          <Icon name="heart" size={24} color="#fff" />
         </View>
       )}
       <View style={styles.gymInfo}>
@@ -295,7 +295,7 @@ const CentresScreen = () => {
             onError={() => setLogoError(true)}
           />
         ) : (
-          <Icon name="fitness" size={24} color="#007AFF" />
+          <Icon name="heart" size={24} color="#fff" />
         )}
       </View>
     );

@@ -316,9 +316,9 @@ const MapScreen = () => {
               />
             ) : (
             <Icon
-              name="fitness"
+              name="heart"
                 size={hasActiveUsers ? 18 : 16}
-                color={hasActiveUsers ? '#fff' : '#8E8E93'}
+                color="#fff"
             />
             )}
           </View>
@@ -630,7 +630,7 @@ const MapScreen = () => {
                       />
                     ) : (
                       <View style={styles.sliderImagePlaceholder}>
-                        <Icon name="fitness" size={32} color="#8E8E93" />
+                        <Icon name="heart" size={32} color="#fff" />
                       </View>
                     )}
                   </View>
@@ -738,12 +738,16 @@ const MapScreen = () => {
                         handleMarkerPress(gym);
                         handleCloseCentersSheet();
                       }}>
-                      {hasGymLogo(gym.brand) && getGymLogo(gym.brand) && (
+                      {hasGymLogo(gym.brand) && getGymLogo(gym.brand) ? (
                         <Image
                           source={{uri: getGymLogo(gym.brand)!}}
                           style={styles.centerLogo}
                           resizeMode="contain"
                         />
+                      ) : (
+                        <View style={styles.centerLogoPlaceholder}>
+                          <Icon name="heart" size={24} color="#fff" />
+                        </View>
                       )}
                       <View style={styles.centerInfo}>
                         <Text style={styles.centerName}>{gym.name}</Text>
@@ -795,12 +799,16 @@ const MapScreen = () => {
                         handleMarkerPress(gym);
                         handleCloseCentersSheet();
                       }}>
-                      {hasGymLogo(gym.brand) && getGymLogo(gym.brand) && (
+                      {hasGymLogo(gym.brand) && getGymLogo(gym.brand) ? (
                         <Image
                           source={{uri: getGymLogo(gym.brand)!}}
                           style={styles.centerLogo}
                           resizeMode="contain"
                         />
+                      ) : (
+                        <View style={styles.centerLogoPlaceholder}>
+                          <Icon name="heart" size={24} color="#fff" />
+                        </View>
                       )}
                       <View style={styles.centerInfo}>
                         <Text style={styles.centerName}>{gym.name}</Text>
@@ -986,14 +994,14 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: '#E5E5EA',
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 2,
     borderColor: '#fff',
   },
   markerActive: {
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.primary,
     width: 36,
     height: 36,
     borderRadius: 18,
@@ -1286,6 +1294,15 @@ const styles = StyleSheet.create({
     marginRight: 12,
     backgroundColor: '#F2F2F7',
   },
+  centerLogoPlaceholder: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    marginRight: 12,
+    backgroundColor: colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   centerInfo: {
     flex: 1,
   },
@@ -1363,7 +1380,7 @@ const styles = StyleSheet.create({
   sliderImagePlaceholder: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#E5E5EA',
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
   },

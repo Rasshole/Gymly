@@ -24,8 +24,8 @@ const getMockUserById = (userId: string) => {
   const mockUsers: Record<string, any> = {
     '1': {
       id: '1',
-      displayName: 'Jeff',
-      username: 'jeff_fitness',
+      displayName: 'Patrick',
+      username: 'patrick_fitness',
       profileImageUrl: undefined,
       favoriteGyms: [497381657],
     },
@@ -52,13 +52,57 @@ const getMockUserById = (userId: string) => {
     },
     '5': {
       id: '5',
-      displayName: 'Jens',
-      username: 'jens_workout',
+      displayName: 'Thomas',
+      username: 'thomas_workout',
       profileImageUrl: undefined,
       favoriteGyms: [1112453804],
     },
   };
   return mockUsers[userId] || null;
+};
+
+const FriendProfileTabs = ({friendUser}: {friendUser: any}) => {
+  const [activeTab, setActiveTab] = useState<'feed' | 'prs'>('feed');
+  return (
+    <View style={styles.tabsSection}>
+      <View style={styles.tabsContainer}>
+        <TouchableOpacity
+          style={[styles.tab, activeTab === 'feed' && styles.tabActive]}
+          onPress={() => setActiveTab('feed')}
+          activeOpacity={0.7}>
+          <Text style={[styles.tabText, activeTab === 'feed' && styles.tabTextActive]}>
+            Opslag
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.tab, activeTab === 'prs' && styles.tabActive]}
+          onPress={() => setActiveTab('prs')}
+          activeOpacity={0.7}>
+          <Text style={[styles.tabText, activeTab === 'prs' && styles.tabTextActive]}>
+            PR's
+          </Text>
+        </TouchableOpacity>
+      </View>
+      {activeTab === 'feed' && (
+        <View style={styles.emptyFeed}>
+          <Icon name="images-outline" size={48} color="#C7C7CC" />
+          <Text style={styles.emptyFeedText}>Ingen indlæg endnu</Text>
+          <Text style={styles.emptyFeedSubtext}>
+            {friendUser.displayName} har ikke delt noget endnu
+          </Text>
+        </View>
+      )}
+      {activeTab === 'prs' && (
+        <View style={styles.emptyFeed}>
+          <Icon name="trophy-outline" size={48} color="#C7C7CC" />
+          <Text style={styles.emptyFeedText}>Ingen PR's endnu</Text>
+          <Text style={styles.emptyFeedSubtext}>
+            {friendUser.displayName} har ikke registreret nogen personlige rekorder
+          </Text>
+        </View>
+      )}
+    </View>
+  );
 };
 
 const FriendProfileScreen = () => {
@@ -129,6 +173,22 @@ const FriendProfileScreen = () => {
           <Text style={styles.username}>@{friendUser.username}</Text>
         </View>
 
+        {/* Følgere/Følger/Venner Stats */}
+        <View style={styles.profileStatsRow}>
+          <TouchableOpacity style={styles.profileStatItem}>
+            <Text style={styles.profileStatNumber}>0</Text>
+            <Text style={styles.profileStatLabel}>Følgere</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.profileStatItem}>
+            <Text style={styles.profileStatNumber}>0</Text>
+            <Text style={styles.profileStatLabel}>Følger</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.profileStatItem}>
+            <Text style={styles.profileStatNumber}>0</Text>
+            <Text style={styles.profileStatLabel}>Venner</Text>
+          </TouchableOpacity>
+        </View>
+
         {/* Action Buttons */}
         <View style={styles.actionButtons}>
           <TouchableOpacity
@@ -140,18 +200,13 @@ const FriendProfileScreen = () => {
               });
             }}
             activeOpacity={0.8}>
-            <Icon name="chatbubble-outline" size={20} color="#007AFF" />
+            <Icon name="chatbubble-outline" size={20} color="#fff" />
             <Text style={styles.messageButtonText}>Beskeder</Text>
           </TouchableOpacity>
         </View>
 
-        {/* Placeholder for stats and content */}
-        <View style={styles.statsPlaceholder}>
-          <Icon name="fitness-outline" size={48} color="#C7C7CC" />
-          <Text style={styles.placeholderText}>
-            Profilindhold kommer snart
-          </Text>
-        </View>
+        {/* Feed/PRs Tabs */}
+        <FriendProfileTabs friendUser={friendUser} />
       </ScrollView>
     </SafeAreaView>
   );
@@ -216,7 +271,7 @@ const styles = StyleSheet.create({
     width: 96,
     height: 96,
     borderRadius: 48,
-    backgroundColor: '#C7C7CC',
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -253,17 +308,71 @@ const styles = StyleSheet.create({
   messageButtonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: colors.secondary,
+    color: colors.white,
   },
-  statsPlaceholder: {
+  profileStatsRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingVertical: 16,
+    marginBottom: 16,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderColor: '#E5E5EA',
+  },
+  profileStatItem: {
+    alignItems: 'center',
+  },
+  profileStatNumber: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: colors.text,
+  },
+  profileStatLabel: {
+    fontSize: 14,
+    color: colors.textMuted,
+    marginTop: 4,
+  },
+  tabsSection: {
+    marginTop: 8,
+  },
+  tabsContainer: {
+    flexDirection: 'row',
+    borderBottomWidth: 1,
+    borderBottomColor: '#E5E5EA',
+    marginBottom: 16,
+  },
+  tab: {
+    flex: 1,
+    paddingVertical: 12,
+    alignItems: 'center',
+  },
+  tabActive: {
+    borderBottomWidth: 2,
+    borderBottomColor: colors.primary,
+  },
+  tabText: {
+    fontSize: 15,
+    fontWeight: '500',
+    color: colors.textMuted,
+  },
+  tabTextActive: {
+    color: colors.primary,
+    fontWeight: '600',
+  },
+  emptyFeed: {
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 48,
   },
-  placeholderText: {
+  emptyFeedText: {
     fontSize: 16,
     color: colors.textMuted,
     marginTop: 16,
+  },
+  emptyFeedSubtext: {
+    fontSize: 14,
+    color: colors.textTertiary,
+    marginTop: 8,
   },
 });
 

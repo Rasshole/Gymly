@@ -356,15 +356,12 @@ const GroupsScreen = () => {
           {item.image ? (
             <Image source={{uri: item.image}} style={styles.groupIconImage} />
           ) : (
-            <Icon name="people" size={32} color="#007AFF" />
+            <View style={styles.groupIconPlaceholder}>
+              <Text style={styles.groupIconPlaceholderText}>{item.name.charAt(0).toUpperCase()}</Text>
+            </View>
           )}
           {hasOnlineMembers && (
             <View style={styles.onlineGroupIndicator} />
-          )}
-          {item.isPrivate && (
-            <View style={styles.privateGroupBadge}>
-              <Icon name="lock-closed" size={12} color="#8E8E93" />
-            </View>
           )}
         </View>
         <View style={styles.groupInfo}>
@@ -799,6 +796,17 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
+  groupIconPlaceholder: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  groupIconPlaceholderText: {
+    fontSize: 24,
+    fontWeight: '700',
+    color: colors.white,
+  },
   privateGroupBadge: {
     position: 'absolute',
     top: 2,
@@ -878,7 +886,7 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: '#C7C7CC',
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 2,
@@ -1077,7 +1085,7 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 24,
-    backgroundColor: '#C7C7CC',
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
   },
