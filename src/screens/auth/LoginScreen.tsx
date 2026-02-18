@@ -13,6 +13,7 @@ import {
   Platform,
   Alert,
   ActivityIndicator,
+  Image,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
@@ -20,8 +21,10 @@ import {AuthStackParamList} from '@/navigation/AuthNavigator';
 import {useAppStore} from '@/store/appStore';
 import AuthService from '@/services/auth/AuthService';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
-import GymlyLogo from '@/components/GymlyLogo';
 import {colors} from '@/theme/colors';
+
+// Logo lige over "Log ind" – lilla kettlebell med smiley
+const loginLogo = require('../../assets/images/logo-above-logind.png');
 
 type LoginScreenNavigationProp = StackNavigationProp<AuthStackParamList, 'Login'>;
 
@@ -104,12 +107,22 @@ const LoginScreen = () => {
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
       <View style={styles.content}>
-        {/* Header */}
+        {/* Logo only */}
         <View style={styles.header}>
-        <View style={styles.logoBadge}>
-          <GymlyLogo size={100} resizeMode="cover" />
+          <View style={styles.logoBadge}>
+            <Image
+              source={loginLogo}
+              style={styles.loginLogo}
+              resizeMode="contain"
+            />
           </View>
-          <Text style={styles.title}>Log ind</Text>
+        </View>
+
+        {/* Alt under logoet – rykket tæt op på logo */}
+        <View style={styles.segmentBlock}>
+          <View style={styles.titleWrap}>
+            <Text style={styles.title}>Log ind</Text>
+          </View>
           <Text style={styles.subtitle}>Velkommen tilbage!</Text>
           <View style={styles.secondaryAction}>
             <Text style={styles.subtitleMuted}>Ny hos Gymly?</Text>
@@ -119,7 +132,6 @@ const LoginScreen = () => {
               <Text style={styles.signupButtonText}>Tilmeld dig Gymly</Text>
             </TouchableOpacity>
           </View>
-        </View>
 
         {/* Social */}
         <View style={styles.socialSection}>
@@ -195,6 +207,7 @@ const LoginScreen = () => {
           <Text style={styles.linkText}>Privat Politik</Text> &{' '}
           <Text style={styles.linkText}>Cookie Politik</Text>
         </Text>
+        </View>
       </View>
     </KeyboardAvoidingView>
   );
@@ -208,33 +221,51 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     padding: 24,
+    paddingTop: 0,
+    paddingBottom: 40,
     justifyContent: 'center',
   },
   header: {
     alignItems: 'center',
-    marginBottom: 32,
-    gap: 12,
+    marginBottom: 0,
+    marginTop: 24,
+  },
+  segmentBlock: {
+    marginTop: 28,
+    alignItems: 'center',
+  },
+  titleWrap: {
+    width: '100%',
+    alignItems: 'center',
+    marginBottom: 2,
   },
   logoBadge: {
-    width: 100,
-    height: 100,
-    borderRadius: 36,
-    backgroundColor: '#E6F9FF',
+    width: 168,
+    height: 168,
+    borderRadius: 44,
+    backgroundColor: 'transparent',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 8,
+    marginBottom: 0,
     overflow: 'hidden',
+  },
+  loginLogo: {
+    width: 168,
+    height: 168,
   },
   title: {
     fontSize: 32,
     fontWeight: 'bold',
     color: colors.text,
+    textAlign: 'center',
+    width: '100%',
   },
   secondaryAction: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
-    marginTop: 4,
+    marginTop: 0,
+    alignSelf: 'stretch',
   },
   subtitle: {
     fontSize: 16,
@@ -258,13 +289,14 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   linkText: {
-    color: colors.secondary,
+    color: '#8B5CF6',
     fontSize: 16,
     fontWeight: '600',
   },
   socialSection: {
     gap: 12,
-    marginBottom: 24,
+    marginBottom: 12,
+    alignSelf: 'stretch',
   },
   socialButton: {
     flexDirection: 'row',
@@ -294,8 +326,9 @@ const styles = StyleSheet.create({
   divider: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 24,
+    marginBottom: 12,
     gap: 8,
+    alignSelf: 'stretch',
   },
   dividerLine: {
     flex: 1,
@@ -307,27 +340,28 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   form: {
-    marginBottom: 24,
+    marginBottom: 12,
+    alignSelf: 'stretch',
   },
   input: {
     backgroundColor: colors.background,
     padding: 16,
     borderRadius: 12,
     fontSize: 16,
-    marginBottom: 12,
+    marginBottom: 10,
     borderWidth: 1,
     borderColor: colors.border,
   },
   forgotPassword: {
     alignSelf: 'flex-end',
-    marginBottom: 24,
+    marginBottom: 12,
   },
   forgotPasswordText: {
-    color: colors.secondary,
+    color: '#8B5CF6',
     fontSize: 14,
   },
   loginButton: {
-    backgroundColor: colors.secondary,
+    backgroundColor: '#8B5CF6',
     padding: 18,
     borderRadius: 12,
     alignItems: 'center',
@@ -345,6 +379,8 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 13,
     lineHeight: 18,
+    marginTop: 16,
+    marginBottom: 24,
   },
 });
 

@@ -42,8 +42,10 @@ import {useGroupStore, GymlyGroup} from '@/store/groupStore';
 import {usePRStore} from '@/store/prStore';
 import {colors} from '@/theme/colors';
 import {getMuscleGroupImage} from '@/utils/muscleGroupImages';
-import GymlyLogo from '@/components/GymlyLogo';
 import {getGymLogo, hasGymLogo} from '@/utils/gymLogos';
+
+const sliderKettlebellLogo = require('@/assets/images/slider-kettlebell.png');
+const checkinSplashLogo = require('@/assets/images/checkin-splash-logo.png');
 
 const SIMULATED_LOCATION = {
   latitude: 55.6875008,
@@ -51,7 +53,9 @@ const SIMULATED_LOCATION = {
 };
 
 const DETECTION_RADIUS_METERS = 100;
-const SLIDER_KNOB_SIZE = 50;
+const SLIDER_KNOB_SIZE = 72;
+const KETTLEBELL_LOGO_SIZE = 72;
+
 
 const MUSCLE_GROUPS: {key: MuscleGroup; label: string}[] = [
   {key: 'bryst', label: 'Bryst'},
@@ -1801,7 +1805,11 @@ const CheckInScreen = () => {
                     },
                   ]}
                   {...panResponder.panHandlers}>
-                  <Ionicons name="arrow-forward" size={20} color="#fff" />
+                  <Image
+                    source={sliderKettlebellLogo}
+                    style={[styles.sliderKnobLogo, {width: KETTLEBELL_LOGO_SIZE, height: KETTLEBELL_LOGO_SIZE}]}
+                    resizeMode="contain"
+                  />
                 </Animated.View>
               </View>
             </View>
@@ -1833,15 +1841,16 @@ const CheckInScreen = () => {
       <Modal visible={gymlyPopupVisible} transparent animationType="fade">
         <View style={styles.gymlyPopupOverlay}>
           <View style={styles.gymlyPopupContent}>
-            <Animated.Text style={[styles.gymlyPopupText, {opacity: gymlyTextOpacity}]}>
-              Gymly
-            </Animated.Text>
             <Animated.View
               style={{
                 transform: [{scale: gymlyLogoScale}],
                 opacity: gymlyLogoOpacity,
               }}>
-              <GymlyLogo size={300} />
+              <Image
+                source={checkinSplashLogo}
+                style={{width: 300, height: 300}}
+                resizeMode="contain"
+              />
             </Animated.View>
           </View>
         </View>
@@ -3056,7 +3065,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   sliderTrackCompact: {
-    paddingVertical: 6,
+    paddingVertical: 2,
   },
   sliderText: {
     position: 'absolute',
@@ -3068,14 +3077,18 @@ const styles = StyleSheet.create({
   sliderKnob: {
     width: SLIDER_KNOB_SIZE,
     height: SLIDER_KNOB_SIZE,
-    borderRadius: SLIDER_KNOB_SIZE / 2,
-    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 8},
-    shadowOpacity: 0.3,
-    shadowRadius: 12,
+    backgroundColor: 'transparent',
+    overflow: 'visible',
+    elevation: 0,
+    shadowOpacity: 0,
+  },
+  sliderKnobLogo: {
+    width: KETTLEBELL_LOGO_SIZE,
+    height: KETTLEBELL_LOGO_SIZE,
+    borderRadius: 0,
+    backgroundColor: 'transparent',
   },
   sliderKnobActive: {
     backgroundColor: colors.primary,

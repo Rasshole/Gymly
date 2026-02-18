@@ -4,13 +4,21 @@
  */
 
 import React from 'react';
-import {TouchableOpacity, View, Text} from 'react-native';
+import {TouchableOpacity, View, Text, Image} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import {useNavigation, CompositeNavigationProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
+
+const tabIcons = {
+  Home: require('@/assets/images/tab-home.png'),
+  Friends: require('@/assets/images/tab-online.png'),
+  CheckIn: require('@/assets/images/tab-checkin.png'),
+  Messages: require('@/assets/images/tab-messages.png'),
+  Profile: require('@/assets/images/tab-profile.png'),
+};
 
 import HomeScreen from '@/screens/main/HomeScreen';
 import ProfileScreen from '@/screens/main/ProfileScreen';
@@ -211,24 +219,23 @@ const MainTabs = () => {
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
-        tabBarIcon: ({focused, color, size}) => {
-          let iconName: string;
-
-          if (route.name === 'Home') {
-            iconName = focused ? 'home' : 'home-outline';
-          } else if (route.name === 'Friends') {
-            iconName = focused ? 'radio' : 'radio-outline';
-          } else if (route.name === 'Messages') {
-            iconName = focused ? 'chatbubbles' : 'chatbubbles-outline';
-          } else if (route.name === 'CheckIn') {
-            iconName = focused ? 'checkmark-circle' : 'checkmark-circle-outline';
-          } else if (route.name === 'Profile') {
-            iconName = focused ? 'person' : 'person-outline';
-          } else {
-            iconName = 'help-outline';
+        tabBarIcon: ({focused}) => {
+          const source = tabIcons[route.name as keyof typeof tabIcons];
+          const iconSize = 42;
+          if (source) {
+            return (
+              <Image
+                source={source}
+                style={{
+                  width: iconSize,
+                  height: iconSize,
+                  opacity: focused ? 1 : 0.55,
+                }}
+                resizeMode="contain"
+              />
+            );
           }
-
-          return <Icon name={iconName} size={size} color={color} />;
+          return <Icon name="help-outline" size={iconSize} color={colors.textMuted} />;
         },
         tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: colors.textMuted,

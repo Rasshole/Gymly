@@ -12,7 +12,7 @@ type GymlyLogoProps = {
 };
 
 const GymlyLogo: React.FC<GymlyLogoProps> = ({size = 64, resizeMode = 'contain'}) => {
-  const logoImage: ImageSourcePropType = require('@/assets/images/gymly-logo.png');
+  const logoImage: ImageSourcePropType = require('@/assets/images/gymly-kettlebell.png');
   
   return (
     <View style={[styles.container, {width: size, height: size}]}>
