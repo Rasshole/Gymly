@@ -221,7 +221,7 @@ const MainTabs = () => {
       screenOptions={({route}) => ({
         tabBarIcon: ({focused}) => {
           const source = tabIcons[route.name as keyof typeof tabIcons];
-          const iconSize = 42;
+          const iconSize = 64;
           if (source) {
             return (
               <Image
