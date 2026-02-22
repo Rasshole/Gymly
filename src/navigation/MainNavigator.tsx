@@ -12,12 +12,20 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const tabIcons = {
+const tabIconImages = {
   Home: require('@/assets/images/tab-home.png'),
   Friends: require('@/assets/images/tab-online.png'),
   CheckIn: require('@/assets/images/tab-checkin.png'),
   Messages: require('@/assets/images/tab-messages.png'),
   Profile: require('@/assets/images/tab-profile.png'),
+};
+
+const tabLabels: Record<keyof typeof tabIconImages, string> = {
+  Home: 'Hjem',
+  Friends: 'Online',
+  CheckIn: 'Tjek ind',
+  Messages: 'Beskeder',
+  Profile: 'Profil',
 };
 
 import HomeScreen from '@/screens/main/HomeScreen';
@@ -58,7 +66,6 @@ import FeedSortingScreen from '@/screens/main/FeedSortingScreen';
 import {useNotificationStore} from '@/store/notificationStore';
 import {colors} from '@/theme/colors';
 import {scale} from '@/utils/scale';
-
 export type MainTabParamList = {
   Home: undefined;
   Friends: undefined;
@@ -215,33 +222,59 @@ const NotificationsButton = () => {
   );
 };
 
+const TabBarItem = ({
+  routeName,
+  focused,
+}: {
+  routeName: keyof typeof tabIconImages;
+  focused: boolean;
+}) => {
+  const source = tabIconImages[routeName];
+  const label = tabLabels[routeName];
+  if (!source) return null;
+  return (
+    <View style={{alignItems: 'center', justifyContent: 'center'}}>
+      <Image
+        source={source}
+        style={{
+          width: 46,
+          height: 46,
+          opacity: focused ? 1 : 0.55,
+          marginBottom: 6,
+        }}
+        resizeMode="contain"
+      />
+      <Text
+        style={{
+          fontSize: 13,
+          fontWeight: '500',
+          color: focused ? colors.primary : colors.textMuted,
+        }}
+        numberOfLines={1}>
+        {label}
+      </Text>
+    </View>
+  );
+};
+
 const MainTabs = () => {
   return (
     <Tab.Navigator
-      screenOptions={({route}) => ({
-        tabBarIcon: ({focused}) => {
-          const source = tabIcons[route.name as keyof typeof tabIcons];
-          const iconSize = 64;
-          if (source) {
-            return (
-              <Image
-                source={source}
-                style={{
-                  width: iconSize,
-                  height: iconSize,
-                  opacity: focused ? 1 : 0.55,
-                }}
-                resizeMode="contain"
-              />
-            );
-          }
-          return <Icon name="help-outline" size={iconSize} color={colors.textMuted} />;
-        },
+      screenOptions={{
+        tabBarHideOnKeyboard: true,
+        tabBarShowLabel: false,
         tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: colors.textMuted,
         tabBarStyle: {
-          backgroundColor: colors.backgroundCard,
-          borderTopColor: colors.border,
+          backgroundColor: '#FFFFFF',
+          borderTopLeftRadius: 20,
+          borderTopRightRadius: 20,
+          overflow: 'hidden',
+          shadowColor: colors.primary,
+          shadowOffset: {width: 0, height: -2},
+          shadowOpacity: 0.08,
+          shadowRadius: 8,
+          elevation: 8,
         },
         headerStyle: {
           backgroundColor: colors.backgroundCard,
@@ -255,31 +288,46 @@ const MainTabs = () => {
             <NotificationsButton />
           </View>
         ),
-      })}>
+      }}>
       <Tab.Screen
         name="Home"
         component={HomeScreen}
-        options={{title: 'Hjem'}}
+        options={{
+          title: 'Hjem',
+          tabBarIcon: ({focused}) => <TabBarItem routeName="Home" focused={focused} />,
+        }}
       />
       <Tab.Screen
         name="Friends"
         component={FriendsNavigator}
-        options={{title: 'Online'}}
+        options={{
+          title: 'Online',
+          tabBarIcon: ({focused}) => <TabBarItem routeName="Friends" focused={focused} />,
+        }}
       />
       <Tab.Screen
         name="CheckIn"
         component={CheckInScreen}
-        options={{title: 'Tjek ind'}}
+        options={{
+          title: 'Tjek ind',
+          tabBarIcon: ({focused}) => <TabBarItem routeName="CheckIn" focused={focused} />,
+        }}
       />
       <Tab.Screen
         name="Messages"
         component={MessagesScreen}
-        options={{title: 'Beskeder'}}
+        options={{
+          title: 'Beskeder',
+          tabBarIcon: ({focused}) => <TabBarItem routeName="Messages" focused={focused} />,
+        }}
       />
       <Tab.Screen
         name="Profile"
         component={ProfileScreen}
-        options={{title: 'Profil'}}
+        options={{
+          title: 'Profil',
+          tabBarIcon: ({focused}) => <TabBarItem routeName="Profile" focused={focused} />,
+        }}
       />
     </Tab.Navigator>
   );

@@ -19,6 +19,7 @@ import {
   Linking,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {AuthStackParamList} from '@/navigation/AuthNavigator';
 import {useAppStore} from '@/store/appStore';
@@ -91,6 +92,7 @@ const regionOptions: DanishRegion[] = ['København', 'Sjælland', 'Fyn', 'Jyllan
 
 const RegisterScreen = () => {
   const navigation = useNavigation<RegisterScreenNavigationProp>();
+  const {top: safeTop} = useSafeAreaInsets();
   const {login} = useAppStore();
   const scrollRef = useRef<ScrollView>(null);
 
@@ -962,25 +964,41 @@ const RegisterScreen = () => {
     }
   };
 
-  const showBack = step !== 'method';
   const currentStepIndex = stepOrder.indexOf(step) + 1;
 
+  const handleBackPress = () => {
+    if (step === 'method') {
+      navigation.goBack();
+    } else {
+      setStep(stepOrder[Math.max(0, currentStepIndex - 2)]);
+    }
+  };
+
   return (
-    <KeyboardAvoidingView
-      style={styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-      <ScrollView
+    <View style={styles.container}>
+      {step !== 'method' && (
+        <TouchableOpacity
+          style={[styles.backButton, {top: safeTop + 8}]}
+          onPress={handleBackPress}
+          activeOpacity={0.7}
+          hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}>
+          <MaterialIcon name="arrow-left" size={24} color={colors.text} />
+        </TouchableOpacity>
+      )}
+      <KeyboardAvoidingView
+        style={styles.keyboardView}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+        <ScrollView
         ref={scrollRef}
         contentContainerStyle={styles.content}
         keyboardShouldPersistTaps="handled">
-        {showBack && (
-          <TouchableOpacity style={styles.backButton} onPress={() => setStep(stepOrder[Math.max(0, currentStepIndex - 2)])}>
-            <MaterialIcon name="chevron-left" size={28} color="#007AFF" />
-          </TouchableOpacity>
-        )}
-        <View style={styles.logoBadge}>
+        <TouchableOpacity
+          style={styles.logoBadge}
+          onPress={step === 'method' ? handleBackPress : undefined}
+          activeOpacity={step === 'method' ? 0.7 : 1}
+          disabled={step !== 'method'}>
           <GymlyLogo size={64} />
-        </View>
+        </TouchableOpacity>
         <Text style={styles.stepCounter}>Trin {currentStepIndex} af {stepOrder.length}</Text>
         <Text style={styles.title}>{
           step === 'method'
@@ -1020,6 +1038,7 @@ const RegisterScreen = () => {
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
+    </View>
   );
 };
 
@@ -1028,6 +1047,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.backgroundCard,
   },
+  keyboardView: {
+    flex: 1,
+  },
   content: {
     padding: 24,
     paddingTop: 80,
@@ -1035,13 +1057,17 @@ const styles = StyleSheet.create({
     gap: 24,
   },
   backButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    position: 'absolute',
+    left: 16,
+    width: 44,
+    height: 44,
+    borderRadius: 22,
     backgroundColor: colors.surfaceLight,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 12,
+    zIndex: 100,
+    borderWidth: 1,
+    borderColor: colors.border,
   },
   logoBadge: {
     alignSelf: 'center',
