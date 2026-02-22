@@ -233,12 +233,18 @@ const TabBarItem = ({
   const label = tabLabels[routeName];
   if (!source) return null;
   return (
-    <View style={{alignItems: 'center', justifyContent: 'center'}}>
+    <View
+      style={{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        minWidth: 0,
+      }}>
       <Image
         source={source}
         style={{
-          width: 46,
-          height: 46,
+          width: 64,
+          height: 64,
           opacity: focused ? 1 : 0.55,
           marginBottom: 6,
         }}
@@ -246,9 +252,11 @@ const TabBarItem = ({
       />
       <Text
         style={{
-          fontSize: 13,
+          fontSize: 15,
           fontWeight: '500',
           color: focused ? colors.primary : colors.textMuted,
+          textAlign: 'center',
+          width: '100%',
         }}
         numberOfLines={1}>
         {label}

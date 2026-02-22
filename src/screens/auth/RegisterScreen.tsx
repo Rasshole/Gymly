@@ -976,15 +976,13 @@ const RegisterScreen = () => {
 
   return (
     <View style={styles.container}>
-      {step !== 'method' && (
-        <TouchableOpacity
-          style={[styles.backButton, {top: safeTop + 8}]}
-          onPress={handleBackPress}
-          activeOpacity={0.7}
-          hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}>
-          <MaterialIcon name="arrow-left" size={24} color={colors.text} />
-        </TouchableOpacity>
-      )}
+      <TouchableOpacity
+        style={[styles.backButton, {top: safeTop + 8}]}
+        onPress={handleBackPress}
+        activeOpacity={0.7}
+        hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}>
+        <MaterialIcon name="arrow-left" size={24} color={colors.text} />
+      </TouchableOpacity>
       <KeyboardAvoidingView
         style={styles.keyboardView}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
@@ -1058,16 +1056,13 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: 'absolute',
-    left: 16,
+    left: 8,
     width: 44,
     height: 44,
-    borderRadius: 22,
-    backgroundColor: colors.surfaceLight,
     justifyContent: 'center',
     alignItems: 'center',
-    zIndex: 100,
-    borderWidth: 1,
-    borderColor: colors.border,
+    zIndex: 999,
+    elevation: 999,
   },
   logoBadge: {
     alignSelf: 'center',
@@ -1389,7 +1384,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   loginLink: {
-    color: colors.secondary,
+    color: colors.primary,
     fontSize: 15,
     fontWeight: '600',
   },
