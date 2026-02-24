@@ -22,6 +22,12 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppStore} from '@/store/appStore';
 import {colors} from '@/theme/colors';
+import {
+  launchCamera,
+  launchImageLibrary,
+  CameraOptions,
+  ImagePickerResponse,
+} from 'react-native-image-picker';
 
 type Friend = {
   id: string;
@@ -131,6 +137,42 @@ const EditGroupScreen = () => {
     // TODO: Save changes to backend
     Alert.alert('Gruppe opdateret', 'Ændringerne er blevet gemt');
     navigation.goBack();
+  };
+
+  const handleGroupImagePick = () => {
+    Alert.alert('Vælg gruppebillede', 'Hvordan vil du tilføje et billede?', [
+      {
+        text: 'Tag billede',
+        onPress: async () => {
+          const cameraOptions: CameraOptions = {
+            mediaType: 'photo',
+            cameraType: 'back',
+            saveToPhotos: false,
+            quality: 0.8,
+          };
+          const response: ImagePickerResponse = await launchCamera(cameraOptions);
+          const asset = response.assets && response.assets[0];
+          if (asset?.uri) {
+            setGroupImage(asset.uri);
+          }
+        },
+      },
+      {
+        text: 'Vælg fra bibliotek',
+        onPress: async () => {
+          const response: ImagePickerResponse = await launchImageLibrary({
+            mediaType: 'photo',
+            selectionLimit: 1,
+            quality: 0.8,
+          });
+          const asset = response.assets && response.assets[0];
+          if (asset?.uri) {
+            setGroupImage(asset.uri);
+          }
+        },
+      },
+      {text: 'Annuller', style: 'cancel'},
+    ]);
   };
 
   const handleSendInvitation = (friendId: string) => {
@@ -330,23 +372,30 @@ const EditGroupScreen = () => {
         showsVerticalScrollIndicator={false}>
         {/* Group Image */}
         <View style={styles.imageSection}>
-          <TouchableOpacity
-            style={styles.imagePicker}
-            onPress={() => {
-              Alert.alert('Billede', 'Billede upload funktion kommer snart');
-            }}
-            activeOpacity={0.7}>
-            {groupImage ? (
-              <Image source={{uri: groupImage}} style={styles.groupImage} />
-            ) : (
-              <View style={styles.imagePlaceholder}>
-                <Icon name="camera" size={32} color="#007AFF" />
-                <Text style={styles.imagePlaceholderText}>
-                  Tilføj gruppebillede
-                </Text>
-              </View>
-            )}
-          </TouchableOpacity>
+          <View style={styles.imagePickerWrapper}>
+            <TouchableOpacity
+              style={styles.imagePicker}
+              onPress={handleGroupImagePick}
+              activeOpacity={0.7}>
+              {groupImage ? (
+                <Image source={{uri: groupImage}} style={styles.groupImage} />
+              ) : (
+                <View style={styles.imagePlaceholder}>
+                  <Image
+                    source={require('@/assets/images/gymly-kettlebell.png')}
+                    style={{width: 56, height: 56}}
+                    resizeMode="contain"
+                  />
+                </View>
+              )}
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.imagePlusBadge}
+              onPress={handleGroupImagePick}
+              activeOpacity={0.8}>
+              <Icon name="add" size={18} color="#fff" />
+            </TouchableOpacity>
+          </View>
         </View>
 
         {/* Group Name */}
@@ -504,6 +553,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 24,
   },
+  imagePickerWrapper: {
+    width: 120,
+    height: 120,
+    position: 'relative',
+  },
   imagePicker: {
     width: 120,
     height: 120,
@@ -524,11 +578,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  imagePlaceholderText: {
-    fontSize: 12,
-    color: colors.secondary,
-    marginTop: 4,
-    textAlign: 'center',
+  imagePlusBadge: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   inputGroup: {
     marginBottom: 24,

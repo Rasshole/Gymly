@@ -3,14 +3,17 @@
  * Shows detailed information about a specific gym
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
   StyleSheet,
   ScrollView,
   TouchableOpacity,
+  Pressable,
   Image,
+  Modal,
+  FlatList,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation, useRoute} from '@react-navigation/native';
@@ -20,6 +23,45 @@ import {useGymStore} from '@/store/gymStore';
 import {useAppStore} from '@/store/appStore';
 import {getGymLogo, hasGymLogo} from '@/utils/gymLogos';
 import {colors} from '@/theme/colors';
+
+// Mock data for active users modal (matches CentresScreen)
+const MOCK_ACTIVE_NAMES = [
+  'Jeff', 'Marie', 'Lars', 'Sofia', 'Anders', 'Emma', 'Mikkel', 'Line',
+  'Thomas', 'Anna', 'Jonas', 'Camilla', 'Henrik', 'Nina', 'Peter', 'Sarah',
+];
+const MOCK_DURATIONS = [12, 45, 8, 67, 23, 90, 15, 34, 52, 19, 78, 5, 41, 28, 95, 11];
+
+// Friends at specific gyms (for "ven" badge)
+const MOCK_FRIENDS_AT_GYMS: {gymId: number; name: string}[] = [
+  {gymId: 497381657, name: 'Jeff'}, {gymId: 497381657, name: 'Sofia'}, {gymId: 497381657, name: 'Line'},
+  {gymId: 898936694, name: 'Lars'}, {gymId: 898936694, name: 'Emma'},
+  {gymId: 1112453804, name: 'Anders'}, {gymId: 1112453804, name: 'Thomas'},
+  {gymId: 1141433639, name: 'Mikkel'},
+  {gymId: 4878979931, name: 'Anna'}, {gymId: 4878979931, name: 'Jonas'}, {gymId: 4878979931, name: 'Camilla'},
+  {gymId: 12914892503, name: 'Lars'}, {gymId: 12914892503, name: 'Sofia'}, // Destination Skagen Gym
+  {gymId: 7717864185, name: 'Marie'}, {gymId: 7717864185, name: 'Thomas'}, // Thyborøn Motionscenter
+  {gymId: 7800664320, name: 'Jeff'}, {gymId: 7800664320, name: 'Emma'}, // Loop Thisted
+  {gymId: 10812600028, name: 'Jeff'}, {gymId: 10812600028, name: 'Lars'}, // Gym & Fit 4 u Thisted
+];
+
+const formatDuration = (minutes: number): string => {
+  if (minutes < 60) return `${minutes} min`;
+  const h = Math.floor(minutes / 60);
+  const m = minutes % 60;
+  return m > 0 ? `${h}t ${m} min` : `${h}t`;
+};
+
+const getMockActiveUsers = (count: number, gymId: number) => {
+  const friendNames = new Set(
+    MOCK_FRIENDS_AT_GYMS.filter(f => f.gymId === gymId).map(f => f.name)
+  );
+  return Array.from({length: count}, (_, i) => ({
+    id: `active-${i}`,
+    name: MOCK_ACTIVE_NAMES[i % MOCK_ACTIVE_NAMES.length],
+    durationMinutes: MOCK_DURATIONS[i % MOCK_DURATIONS.length],
+    isFriend: friendNames.has(MOCK_ACTIVE_NAMES[i % MOCK_ACTIVE_NAMES.length]),
+  }));
+};
 
 type GymDetailScreenProps = {
   route: {
@@ -36,6 +78,7 @@ const GymDetailScreen = () => {
   const {gymId, gym} = (route.params as any) || {};
   const {user} = useAppStore();
   const {getGymStats, getActiveUsersCount, getGymStatus, getGymHours} = useGymStore();
+  const [activeUsersModalVisible, setActiveUsersModalVisible] = useState(false);
 
   if (!gym) {
     return (
@@ -52,33 +95,6 @@ const GymDetailScreen = () => {
   const logoUrl = getGymLogo(gym.brand);
   const hasLogo = hasGymLogo(gym.brand);
 
-  const renderStars = (rating: number) => {
-    const stars = [];
-    const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 >= 0.5;
-
-    for (let i = 0; i < fullStars; i++) {
-      stars.push(
-        <Icon key={i} name="star" size={20} color="#FFD700" />
-      );
-    }
-
-    if (hasHalfStar) {
-      stars.push(
-        <Icon key="half" name="star-half" size={20} color="#FFD700" />
-      );
-    }
-
-    const emptyStars = 5 - Math.ceil(rating);
-    for (let i = 0; i < emptyStars; i++) {
-      stars.push(
-        <Icon key={`empty-${i}`} name="star-outline" size={20} color="#C7C7CC" />
-      );
-    }
-
-    return stars;
-  };
-
   return (
     <View style={styles.container}>
       {/* Header */}
@@ -92,7 +108,10 @@ const GymDetailScreen = () => {
         <View style={styles.headerRight} />
       </View>
 
-      <ScrollView style={styles.content} contentContainerStyle={styles.contentContainer}>
+      <ScrollView
+        style={styles.content}
+        contentContainerStyle={styles.contentContainer}
+        keyboardShouldPersistTaps="always">
         {/* Gym Header */}
         <View style={styles.gymHeader}>
           {hasLogo && logoUrl ? (
@@ -234,20 +253,6 @@ const GymDetailScreen = () => {
           </View>
         </View>
 
-        {/* Active Users Section */}
-        <View style={styles.section}>
-          <View style={styles.sectionHeader}>
-            <Icon name="people" size={20} color="#34C759" />
-            <Text style={styles.sectionTitle}>Aktive brugere</Text>
-          </View>
-          <View style={styles.statRow}>
-            <Text style={styles.statValue}>{activeUsers}</Text>
-            <Text style={styles.statLabel}>
-              {activeUsers === 1 ? 'aktiv bruger' : 'aktive brugere'} lige nu
-            </Text>
-          </View>
-        </View>
-
         {/* User Check-ins Section */}
         {stats && (
           <View style={styles.section}>
@@ -264,56 +269,77 @@ const GymDetailScreen = () => {
           </View>
         )}
 
-        {/* Rating Section */}
-        {stats && stats.totalRatings > 0 && (
-          <View style={styles.section}>
-            <View style={styles.sectionHeader}>
-              <Icon name="star" size={20} color="#FFD700" />
-              <Text style={styles.sectionTitle}>Vurdering</Text>
-            </View>
-            <View style={styles.ratingContainer}>
-              <View style={styles.ratingStars}>
-                {renderStars(stats.averageRating)}
-              </View>
-              <Text style={styles.ratingValue}>
-                {stats.averageRating.toFixed(1)}
-              </Text>
-              <Text style={styles.ratingCount}>
-                ({stats.totalRatings} {stats.totalRatings === 1 ? 'vurdering' : 'vurderinger'})
-              </Text>
-            </View>
-          </View>
-        )}
-
-        {/* No Ratings Yet */}
-        {stats && stats.totalRatings === 0 && (
-          <View style={styles.section}>
-            <View style={styles.sectionHeader}>
-              <Icon name="star-outline" size={20} color="#8E8E93" />
-              <Text style={styles.sectionTitle}>Vurdering</Text>
-            </View>
-            <Text style={styles.noRatingsText}>
-              Ingen vurderinger endnu. Vær den første til at vurdere dette center!
-            </Text>
-          </View>
-        )}
-
-        {/* Give Rating Button */}
-        {user && (
-          <TouchableOpacity
-            style={styles.rateButton}
-            onPress={() => {
-              navigation.navigate('RateGym', {
-                gymId: gymId,
-                gym: gym,
-              });
-            }}
-            activeOpacity={0.7}>
-            <Icon name="fitness" size={20} color="#fff" />
-            <Text style={styles.rateButtonText}>Giv en vurdering</Text>
-          </TouchableOpacity>
-        )}
       </ScrollView>
+
+      {/* Active Users Section - outside ScrollView so tap works reliably */}
+      <TouchableOpacity
+        style={styles.activeUsersStickySection}
+        onPress={() => setActiveUsersModalVisible(true)}
+        activeOpacity={0.8}>
+        <View style={styles.sectionHeader}>
+          <Icon name="people" size={20} color="#34C759" />
+          <Text style={styles.sectionTitle}>Aktive brugere</Text>
+          <Icon name="chevron-forward" size={18} color={colors.textMuted} style={styles.sectionChevron} />
+        </View>
+        <View style={styles.statRow}>
+          <Text style={styles.statValue}>{activeUsers}</Text>
+          <Text style={styles.statLabel}>
+            {activeUsers === 1 ? 'aktiv bruger' : 'aktive brugere'} lige nu
+          </Text>
+        </View>
+      </TouchableOpacity>
+
+      {/* Active Users Modal */}
+      <Modal
+        visible={activeUsersModalVisible}
+        transparent
+        animationType="fade">
+        <TouchableOpacity
+          style={styles.modalOverlay}
+          activeOpacity={1}
+          onPress={() => setActiveUsersModalVisible(false)}>
+          <View style={styles.modalContent} onStartShouldSetResponder={() => true}>
+            <View style={styles.modalHeader}>
+              <Text style={styles.modalTitle}>
+                {activeUsers} aktive – {gym.name}
+              </Text>
+              <TouchableOpacity
+                onPress={() => setActiveUsersModalVisible(false)}
+                hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}>
+                <Icon name="close" size={24} color={colors.textMuted} />
+              </TouchableOpacity>
+            </View>
+            <FlatList
+              data={getMockActiveUsers(activeUsers, gymId)}
+              keyExtractor={(item) => item.id}
+              style={styles.modalList}
+              renderItem={({item}) => (
+                <View style={styles.modalUserItem}>
+                  <View style={styles.modalAvatar}>
+                    <Text style={styles.modalAvatarText}>
+                      {item.name.charAt(0)}
+                    </Text>
+                  </View>
+                  <View style={styles.modalUserInfo}>
+                    <View style={styles.modalUserNameRow}>
+                      <Text style={styles.modalUserName}>{item.name}</Text>
+                      {item.isFriend && (
+                        <View style={styles.friendBadge}>
+                          <Icon name="person" size={12} color="#fff" />
+                          <Text style={styles.friendBadgeText}>Ven</Text>
+                        </View>
+                      )}
+                    </View>
+                    <Text style={styles.modalUserDuration}>
+                      I gang i {formatDuration(item.durationMinutes)}
+                    </Text>
+                  </View>
+                </View>
+              )}
+            />
+          </View>
+        </TouchableOpacity>
+      </Modal>
     </View>
   );
 };
@@ -350,6 +376,19 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     padding: 16,
+    paddingBottom: 8,
+  },
+  activeUsersStickySection: {
+    backgroundColor: colors.backgroundCard,
+    padding: 20,
+    marginHorizontal: 16,
+    marginBottom: 16,
+    borderRadius: 16,
+    shadowColor: colors.primary,
+    shadowOffset: {width: 0, height: 1},
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 2,
   },
   gymHeader: {
     alignItems: 'center',
@@ -410,6 +449,10 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: colors.text,
     marginLeft: 8,
+    flex: 1,
+  },
+  sectionChevron: {
+    marginLeft: 4,
   },
   addressText: {
     fontSize: 16,
@@ -433,30 +476,6 @@ const styles = StyleSheet.create({
   statLabel: {
     fontSize: 16,
     color: colors.textMuted,
-  },
-  ratingContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flexWrap: 'wrap',
-  },
-  ratingStars: {
-    flexDirection: 'row',
-    marginRight: 8,
-  },
-  ratingValue: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: colors.text,
-    marginRight: 8,
-  },
-  ratingCount: {
-    fontSize: 14,
-    color: colors.textMuted,
-  },
-  noRatingsText: {
-    fontSize: 14,
-    color: colors.textMuted,
-    fontStyle: 'italic',
   },
   statusContainer: {
     marginTop: 4,
@@ -525,20 +544,89 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontWeight: '400',
   },
-  rateButton: {
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 24,
+  },
+  modalContent: {
+    backgroundColor: colors.backgroundCard,
+    borderRadius: 16,
+    width: '100%',
+    maxHeight: '80%',
+    overflow: 'hidden',
+  },
+  modalHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.secondary,
+    justifyContent: 'space-between',
     padding: 16,
-    borderRadius: 12,
-    marginTop: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: '#EFEFF4',
   },
-  rateButtonText: {
+  modalTitle: {
     fontSize: 18,
     fontWeight: '600',
+    color: colors.text,
+    flex: 1,
+  },
+  modalList: {
+    maxHeight: 300,
+    paddingVertical: 8,
+  },
+  modalUserItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+  },
+  modalAvatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 12,
+  },
+  modalAvatarText: {
+    fontSize: 16,
+    fontWeight: '600',
     color: '#fff',
-    marginLeft: 8,
+  },
+  modalUserInfo: {
+    flex: 1,
+  },
+  modalUserNameRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  modalUserName: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: colors.text,
+  },
+  modalUserDuration: {
+    fontSize: 13,
+    color: colors.textMuted,
+    marginTop: 2,
+  },
+  friendBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.primary,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: 10,
+    gap: 4,
+  },
+  friendBadgeText: {
+    fontSize: 11,
+    fontWeight: '600',
+    color: '#fff',
   },
 });
 

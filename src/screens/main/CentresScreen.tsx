@@ -10,10 +10,13 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
+  Pressable,
   TextInput,
   Image,
   Platform,
   PermissionsAndroid,
+  Modal,
+  FlatList,
 } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -24,6 +27,30 @@ import {getGymLogo, hasGymLogo} from '@/utils/gymLogos';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {colors} from '@/theme/colors';
+
+// Mock names for active users (matches app style)
+const MOCK_ACTIVE_NAMES = [
+  'Jeff', 'Marie', 'Lars', 'Sofia', 'Anders', 'Emma', 'Mikkel', 'Line',
+  'Thomas', 'Anna', 'Jonas', 'Camilla', 'Henrik', 'Nina', 'Peter', 'Sarah',
+  'Morten', 'Kirsten', 'Rasmus', 'Louise', 'Christian', 'Julie', 'Martin', 'Stine',
+];
+
+// Mock duration in minutes (5-120 min) - consistent per user index
+const MOCK_DURATIONS = [12, 45, 8, 67, 23, 90, 15, 34, 52, 19, 78, 5, 41, 28, 95, 11];
+
+const formatDuration = (minutes: number): string => {
+  if (minutes < 60) return `${minutes} min`;
+  const h = Math.floor(minutes / 60);
+  const m = minutes % 60;
+  return m > 0 ? `${h}t ${m} min` : `${h}t`;
+};
+
+const getMockActiveUsers = (count: number) =>
+  Array.from({length: count}, (_, i) => ({
+    id: `active-${i}`,
+    name: MOCK_ACTIVE_NAMES[i % MOCK_ACTIVE_NAMES.length],
+    durationMinutes: MOCK_DURATIONS[i % MOCK_DURATIONS.length],
+  }));
 
 // Calculate distance between two coordinates using Haversine formula
 const calculateDistance = (
@@ -50,9 +77,11 @@ const calculateDistance = (
 const FavoriteGymItemWithLogo = ({
   gym,
   index,
+  onActiveUsersPress,
 }: {
   gym: DanishGym;
   index: number;
+  onActiveUsersPress?: (gym: DanishGym, count: number) => void;
 }) => {
   const navigation = useNavigation<StackNavigationProp<any>>();
   const {getActiveUsersCount, getGymStatus} = useGymStore();
@@ -63,92 +92,106 @@ const FavoriteGymItemWithLogo = ({
   const gymStatus = getGymStatus(gym.id);
 
   return (
-    <TouchableOpacity
-      style={styles.favoriteGymItem}
-      activeOpacity={0.7}
-      onPress={() => {
-        navigation.navigate('GymDetail', {
-          gymId: gym.id,
-          gym: gym,
-        });
-      }}>
-      <View style={styles.favoriteGymNumber}>
-        <Text style={styles.favoriteGymNumberText}>{index + 1}</Text>
-      </View>
-      {hasLogo && logoUrl && !logoError ? (
-        <View style={styles.favoriteGymLogoContainer}>
-          <Image
-            source={{uri: logoUrl}}
-            style={styles.favoriteGymLogo}
-            resizeMode="contain"
-            onError={() => setLogoError(true)}
-          />
+    <View style={styles.favoriteGymItem} collapsable={false}>
+      <TouchableOpacity
+        style={styles.favoriteGymItemTouchable}
+        activeOpacity={0.7}
+        onPress={() => {
+          navigation.navigate('GymDetail', {
+            gymId: gym.id,
+            gym: gym,
+          });
+        }}>
+        <View style={styles.favoriteGymNumber}>
+          <Text style={styles.favoriteGymNumberText}>{index + 1}</Text>
         </View>
-      ) : (
-        <View style={styles.favoriteGymIconPlaceholder}>
-          <Icon name="heart" size={24} color="#fff" />
-        </View>
-      )}
-      <View style={styles.gymInfo}>
-        <View style={styles.gymNameRow}>
-          <Text style={styles.gymName} numberOfLines={1}>
-            {gym.name}
-          </Text>
-        </View>
-        <View style={styles.gymDetails}>
-          {gym.brand && (
-            <Text style={styles.gymBrand} numberOfLines={1}>
-              {gym.brand}
-            </Text>
-          )}
-          {gym.city && (
-            <Text style={styles.gymLocation} numberOfLines={1}>
-              {gym.city}
-            </Text>
-          )}
-        </View>
-        {gym.address && (
-          <Text style={styles.gymAddress} numberOfLines={1}>
-            {gym.address}
-          </Text>
-        )}
-        {/* Open/Closed Status */}
-        <View style={styles.statusRow}>
-          <View
-            style={[
-              styles.statusBadge,
-              gymStatus.isOpen ? styles.statusBadgeOpen : styles.statusBadgeClosed,
-            ]}>
-            <View
-              style={[
-                styles.statusDot,
-                gymStatus.isOpen ? styles.statusDotOpen : styles.statusDotClosed,
-              ]}
+        {hasLogo && logoUrl && !logoError ? (
+          <View style={styles.favoriteGymLogoContainer}>
+            <Image
+              source={{uri: logoUrl}}
+              style={styles.favoriteGymLogo}
+              resizeMode="contain"
+              onError={() => setLogoError(true)}
             />
-            <Text
-              style={[
-                styles.statusText,
-                gymStatus.isOpen ? styles.statusTextOpen : styles.statusTextClosed,
-              ]}>
-              {gymStatus.isOpen ? 'Åbent nu' : 'Lukket nu'}
+          </View>
+        ) : (
+          <View style={styles.favoriteGymIconPlaceholder}>
+            <Icon name="heart" size={24} color="#fff" />
+          </View>
+        )}
+        <View style={styles.gymInfo}>
+          <View style={styles.gymNameRow}>
+            <Text style={styles.gymName} numberOfLines={1}>
+              {gym.name}
             </Text>
           </View>
-          <View style={styles.activeUsersContainer}>
-            {activeUsers > 0 ? (
-              <>
-                <View style={styles.activeUsersDot} />
-                <Text style={styles.activeUsersText}>
-                  {activeUsers} aktiv{activeUsers > 1 ? 'e' : ''}
-                </Text>
-              </>
-            ) : (
-              <Text style={styles.activeUsersTextInactive}>0 aktive</Text>
+          <View style={styles.gymDetails}>
+            {gym.brand && (
+              <Text style={styles.gymBrand} numberOfLines={1}>
+                {gym.brand}
+              </Text>
+            )}
+            {gym.city && (
+              <Text style={styles.gymLocation} numberOfLines={1}>
+                {gym.city}
+              </Text>
             )}
           </View>
+          {gym.address && (
+            <Text style={styles.gymAddress} numberOfLines={1}>
+              {gym.address}
+            </Text>
+          )}
+          <View style={styles.statusRow}>
+            <View
+              style={[
+                styles.statusBadge,
+                gymStatus.isOpen ? styles.statusBadgeOpen : styles.statusBadgeClosed,
+              ]}>
+              <View
+                style={[
+                  styles.statusDot,
+                  gymStatus.isOpen ? styles.statusDotOpen : styles.statusDotClosed,
+                ]}
+              />
+              <Text
+                style={[
+                  styles.statusText,
+                  gymStatus.isOpen ? styles.statusTextOpen : styles.statusTextClosed,
+                ]}>
+                {gymStatus.isOpen ? 'Åbent nu' : 'Lukket nu'}
+              </Text>
+            </View>
+            <View style={styles.activeUsersContainer}>
+              {activeUsers > 0 ? (
+                <View style={styles.activeUsersTouchable}>
+                  <View style={styles.activeUsersDot} />
+                  <Text style={styles.activeUsersText}>
+                    {activeUsers} aktiv{activeUsers > 1 ? 'e' : ''}
+                  </Text>
+                </View>
+              ) : (
+                <Text style={styles.activeUsersTextInactive}>0 aktive</Text>
+              )}
+            </View>
+          </View>
         </View>
-      </View>
-      <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-    </TouchableOpacity>
+        <Icon name="chevron-forward" size={20} color="#C7C7CC" />
+      </TouchableOpacity>
+      {activeUsers > 0 && (
+        <Pressable
+          style={styles.favoriteActiveUsersOverlay}
+          onPress={() => onActiveUsersPress?.(gym, activeUsers)}
+          hitSlop={{top: 12, bottom: 12, left: 12, right: 12}}>
+          <View style={styles.activeUsersTouchable}>
+            <View style={styles.activeUsersDot} />
+            <Text style={styles.activeUsersText}>
+              {activeUsers} aktiv{activeUsers > 1 ? 'e' : ''}
+            </Text>
+          </View>
+        </Pressable>
+      )}
+    </View>
   );
 };
 
@@ -157,6 +200,10 @@ const CentresScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const {user} = useAppStore();
   const {getActiveUsersCount, getGymStatus} = useGymStore();
+  const [activeUsersModal, setActiveUsersModal] = useState<{
+    gym: DanishGym;
+    count: number;
+  } | null>(null);
   const [userLocation, setUserLocation] = useState<{
     latitude: number;
     longitude: number;
@@ -323,89 +370,102 @@ const CentresScreen = () => {
     }
     
     return (
-      <TouchableOpacity
-        key={item.id}
-        style={styles.gymItem}
-        activeOpacity={0.7}
-        onPress={() => {
-          navigation.navigate('GymDetail', {
-            gymId: item.id,
-            gym: item,
-          });
-        }}>
-        <GymIcon gym={item} favorite={favorite} />
-        <View style={styles.gymInfo}>
-          <View style={styles.gymNameRow}>
-            <Text style={styles.gymName} numberOfLines={1}>
-              {item.name}
-            </Text>
-            {favorite && (
-              <View style={styles.favoriteBadge}>
-                <Text style={styles.favoriteBadgeText}>
-                  #{favoriteGymIds.indexOf(item.id) + 1}
-                </Text>
-              </View>
-            )}
-          </View>
-          <View style={styles.gymDetails}>
-            {item.brand && (
-              <Text style={styles.gymBrand} numberOfLines={1}>
-                {item.brand}
+      <View key={item.id} style={styles.gymItem} collapsable={false}>
+        <TouchableOpacity
+          style={styles.gymItemTouchable}
+          activeOpacity={0.7}
+          onPress={() => {
+            navigation.navigate('GymDetail', {
+              gymId: item.id,
+              gym: item,
+            });
+          }}>
+          <GymIcon gym={item} favorite={favorite} />
+          <View style={styles.gymInfo}>
+            <View style={styles.gymNameRow}>
+              <Text style={styles.gymName} numberOfLines={1}>
+                {item.name}
               </Text>
-            )}
-            {item.city && (
-              <Text style={styles.gymLocation} numberOfLines={1}>
-                {item.city}
-              </Text>
-            )}
-            {distanceText && (
-              <Text style={styles.distanceText} numberOfLines={1}>
-                • {distanceText}
-              </Text>
-            )}
-          </View>
-          {item.address && (
-            <Text style={styles.gymAddress} numberOfLines={1}>
-              {item.address}
-            </Text>
-          )}
-          <View style={styles.gymMetaRow}>
-            {/* Open/Closed Status */}
-            <View
-              style={[
-                styles.statusBadge,
-                gymStatus.isOpen ? styles.statusBadgeOpen : styles.statusBadgeClosed,
-              ]}>
-              <View
-                style={[
-                  styles.statusDot,
-                  gymStatus.isOpen ? styles.statusDotOpen : styles.statusDotClosed,
-                ]}
-              />
-              <Text
-                style={[
-                  styles.statusText,
-                  gymStatus.isOpen ? styles.statusTextOpen : styles.statusTextClosed,
-                ]}>
-                {gymStatus.isOpen ? 'Åbent' : 'Lukket'}
-              </Text>
-            </View>
-            <View style={styles.activeUsersContainer}>
-              {activeUsers > 0 ? (
-                <>
-                  <View style={styles.activeUsersDot} />
-                  <Text style={styles.activeUsersText}>
-                    {activeUsers} aktiv{activeUsers > 1 ? 'e' : ''}
+              {favorite && (
+                <View style={styles.favoriteBadge}>
+                  <Text style={styles.favoriteBadgeText}>
+                    #{favoriteGymIds.indexOf(item.id) + 1}
                   </Text>
-                </>
-              ) : (
-                <Text style={styles.activeUsersTextInactive}>0 aktive</Text>
+                </View>
               )}
             </View>
+            <View style={styles.gymDetails}>
+              {item.brand && (
+                <Text style={styles.gymBrand} numberOfLines={1}>
+                  {item.brand}
+                </Text>
+              )}
+              {item.city && (
+                <Text style={styles.gymLocation} numberOfLines={1}>
+                  {item.city}
+                </Text>
+              )}
+              {distanceText && (
+                <Text style={styles.distanceText} numberOfLines={1}>
+                  • {distanceText}
+                </Text>
+              )}
+            </View>
+            {item.address && (
+              <Text style={styles.gymAddress} numberOfLines={1}>
+                {item.address}
+              </Text>
+            )}
+            <View style={styles.gymMetaRow}>
+              <View
+                style={[
+                  styles.statusBadge,
+                  gymStatus.isOpen ? styles.statusBadgeOpen : styles.statusBadgeClosed,
+                ]}>
+                <View
+                  style={[
+                    styles.statusDot,
+                    gymStatus.isOpen ? styles.statusDotOpen : styles.statusDotClosed,
+                  ]}
+                />
+                <Text
+                  style={[
+                    styles.statusText,
+                    gymStatus.isOpen ? styles.statusTextOpen : styles.statusTextClosed,
+                  ]}>
+                  {gymStatus.isOpen ? 'Åbent' : 'Lukket'}
+                </Text>
+              </View>
+              <View style={styles.activeUsersContainer}>
+                {activeUsers > 0 ? (
+                  <View style={styles.activeUsersTouchable}>
+                    <View style={styles.activeUsersDot} />
+                    <Text style={styles.activeUsersText}>
+                      {activeUsers} aktiv{activeUsers > 1 ? 'e' : ''}
+                    </Text>
+                  </View>
+                ) : (
+                  <Text style={styles.activeUsersTextInactive}>0 aktive</Text>
+                )}
+              </View>
+            </View>
           </View>
-        </View>
-        <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-      </TouchableOpacity>
+          <Icon name="chevron-forward" size={20} color="#C7C7CC" />
+        </TouchableOpacity>
+        {activeUsers > 0 && (
+          <Pressable
+            style={styles.activeUsersOverlay}
+            onPress={() => setActiveUsersModal({gym: item, count: activeUsers})}
+            hitSlop={{top: 12, bottom: 12, left: 12, right: 12}}>
+            <View style={styles.activeUsersTouchable}>
+              <View style={styles.activeUsersDot} />
+              <Text style={styles.activeUsersText}>
+                {activeUsers} aktiv{activeUsers > 1 ? 'e' : ''}
+              </Text>
+            </View>
+          </Pressable>
+        )}
+      </View>
     );
   };
 
@@ -452,7 +512,12 @@ const CentresScreen = () => {
             <Text style={styles.favoriteSectionTitle}>Mine lokale centre</Text>
             <View style={styles.favoriteGymsList}>
               {favoriteGymsSorted.map((gym, index) => (
-                <FavoriteGymItemWithLogo key={gym.id} gym={gym} index={index} />
+                <FavoriteGymItemWithLogo
+                  key={gym.id}
+                  gym={gym}
+                  index={index}
+                  onActiveUsersPress={(g, count) => setActiveUsersModal({gym: g, count})}
+                />
               ))}
             </View>
           </View>
@@ -487,6 +552,53 @@ const CentresScreen = () => {
           <Icon name="arrow-up" size={28} color="#fff" />
         </TouchableOpacity>
       )}
+
+      {/* Active Users Modal */}
+      <Modal
+        visible={activeUsersModal !== null}
+        transparent
+        animationType="fade">
+        <TouchableOpacity
+          style={styles.modalOverlay}
+          activeOpacity={1}
+          onPress={() => setActiveUsersModal(null)}>
+          <View
+            style={styles.modalContent}
+            onStartShouldSetResponder={() => true}>
+            <View style={styles.modalHeader}>
+              <Text style={styles.modalTitle}>
+                {activeUsersModal?.count} aktive
+                {activeUsersModal?.gym ? ` – ${activeUsersModal.gym.name}` : ''}
+              </Text>
+              <TouchableOpacity
+                onPress={() => setActiveUsersModal(null)}
+                hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}>
+                <Icon name="close" size={24} color={colors.textMuted} />
+              </TouchableOpacity>
+            </View>
+            <FlatList
+              data={activeUsersModal ? getMockActiveUsers(activeUsersModal.count) : []}
+              keyExtractor={(item) => item.id}
+              renderItem={({item}) => (
+                <View style={styles.modalUserItem}>
+                  <View style={styles.modalAvatar}>
+                    <Text style={styles.modalAvatarText}>
+                      {item.name.charAt(0)}
+                    </Text>
+                  </View>
+                  <View style={styles.modalUserInfo}>
+                    <Text style={styles.modalUserName}>{item.name}</Text>
+                    <Text style={styles.modalUserDuration}>
+                      I gang i {formatDuration(item.durationMinutes)}
+                    </Text>
+                  </View>
+                </View>
+              )}
+              style={styles.modalList}
+            />
+          </View>
+        </TouchableOpacity>
+      </Modal>
     </View>
   );
 };
@@ -554,6 +666,18 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.05,
     shadowRadius: 4,
     elevation: 2,
+    position: 'relative',
+  },
+  gymItemTouchable: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  activeUsersOverlay: {
+    position: 'absolute',
+    right: 44,
+    bottom: 16,
+    zIndex: 10,
   },
   separator: {
     height: 1,
@@ -618,6 +742,20 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
     padding: 16,
     borderRadius: 12,
+    position: 'relative',
+  },
+  favoriteGymItemTouchable: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  favoriteActiveUsersOverlay: {
+    position: 'absolute',
+    right: 40,
+    bottom: 12,
+    zIndex: 10,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
   },
   favoriteGymNumber: {
     width: 32,
@@ -688,6 +826,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 4,
   },
+  activeUsersTouchable: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   activeUsersDot: {
     width: 8,
     height: 8,
@@ -754,6 +896,71 @@ const styles = StyleSheet.create({
   },
   statusTextClosed: {
     color: '#FF3B30',
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 24,
+  },
+  modalContent: {
+    backgroundColor: colors.backgroundCard,
+    borderRadius: 16,
+    width: '100%',
+    maxHeight: '70%',
+    overflow: 'hidden',
+  },
+  modalHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border,
+  },
+  modalTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: colors.text,
+    flex: 1,
+  },
+  modalList: {
+    maxHeight: 300,
+    paddingVertical: 8,
+  },
+  modalUserItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+  },
+  modalAvatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 12,
+  },
+  modalAvatarText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#fff',
+  },
+  modalUserInfo: {
+    flex: 1,
+  },
+  modalUserName: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: colors.text,
+  },
+  modalUserDuration: {
+    fontSize: 13,
+    color: colors.textMuted,
+    marginTop: 2,
   },
   scrollToTopButton: {
     position: 'absolute',

@@ -243,16 +243,16 @@ const TabBarItem = ({
       <Image
         source={source}
         style={{
-          width: 64,
-          height: 64,
+          width: 36,
+          height: 36,
           opacity: focused ? 1 : 0.55,
-          marginBottom: 6,
+          marginBottom: 4,
         }}
         resizeMode="contain"
       />
       <Text
         style={{
-          fontSize: 15,
+          fontSize: 10,
           fontWeight: '500',
           color: focused ? colors.primary : colors.textMuted,
           textAlign: 'center',

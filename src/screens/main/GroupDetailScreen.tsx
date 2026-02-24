@@ -17,6 +17,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation, useRoute} from '@react-navigation/native';
+import MuscleIcon from '@/components/MuscleIcon';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useAppStore} from '@/store/appStore';
 import {colors} from '@/theme/colors';
@@ -214,14 +215,14 @@ const GroupDetailScreen = () => {
         {/* Stats Cards */}
         <View style={styles.statsContainer}>
           <View style={styles.statCard}>
-            <Icon name="fitness" size={28} color="#007AFF" />
+            <MuscleIcon muscle="biceps" size={11} color={colors.primary} />
             <Text style={styles.statValue}>{initialGroup.totalWorkouts}</Text>
             <Text style={styles.statLabel}>
               Træning{initialGroup.totalWorkouts !== 1 ? 'er' : ''} sammen
             </Text>
           </View>
           <View style={styles.statCard}>
-            <Icon name="time-outline" size={28} color="#007AFF" />
+            <Icon name="time-outline" size={28} color={colors.primary} />
             <Text style={styles.statValue} numberOfLines={2}>
               {formatTime(initialGroup.totalTimeTogether)}
             </Text>
