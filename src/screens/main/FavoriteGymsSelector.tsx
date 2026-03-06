@@ -80,9 +80,10 @@ const FavoriteGymsSelector = ({visible, onClose}: FavoriteGymsSelectorProps) => 
       );
     }
 
+    const initial = gym.name.charAt(0).toUpperCase();
     return (
       <View style={styles.gymIconPlaceholder}>
-        <Icon name="fitness" size={20} color="#007AFF" />
+        <Text style={styles.gymIconLetter}>{initial}</Text>
       </View>
     );
   };
@@ -161,7 +162,7 @@ const FavoriteGymsSelector = ({visible, onClose}: FavoriteGymsSelectorProps) => 
 
         {/* Info */}
         <View style={styles.infoContainer}>
-          <Icon name="information-circle" size={20} color="#007AFF" />
+          <Icon name="information-circle" size={20} color="#fff" />
           <Text style={styles.infoText}>
             Vælg op til 3 lokale træningscentre. Disse vil vises først i listen.
           </Text>
@@ -255,7 +256,7 @@ const styles = StyleSheet.create({
   infoText: {
     flex: 1,
     fontSize: 14,
-    color: colors.secondary,
+    color: '#fff',
     marginLeft: 8,
   },
   selectedContainer: {
@@ -364,6 +365,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
+  },
+  gymIconLetter: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#fff',
   },
   positionBadgeText: {
     fontSize: 12,

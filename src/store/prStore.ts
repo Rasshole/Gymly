@@ -5,6 +5,7 @@
 
 import {create} from 'zustand';
 import {PersonalRecord, RepRecord, ExerciseType} from '@/types/pr.types';
+import {onPRSet} from '@/services/leaderboard/leaderboardStatsUpdater';
 
 interface PRState {
   personalRecords: PersonalRecord[];
@@ -39,7 +40,6 @@ export const usePRStore = create<PRState>((set, get) => ({
     };
     
     set((state) => {
-      // Remove existing PR for this exercise if it exists
       const filtered = state.personalRecords.filter(
         p => p.exercise !== pr.exercise || p.userId !== pr.userId
       );
@@ -47,6 +47,8 @@ export const usePRStore = create<PRState>((set, get) => ({
         personalRecords: [pr, ...filtered],
       };
     });
+
+    onPRSet(prData.userId, prData.exercise, prData.weight);
   },
 
   /**

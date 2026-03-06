@@ -6,6 +6,7 @@
 import {create} from 'zustand';
 import {GymActivity, GymCheckIn, GymRating, GymStats, GymHours, GymStatus} from '@/types/gym.types';
 import danishGyms from '@/data/danishGyms';
+import {onCheckIn as onLeaderboardCheckIn} from '@/services/leaderboard/leaderboardStatsUpdater';
 
 interface GymState {
   activities: GymActivity[];
@@ -329,6 +330,8 @@ export const useGymStore = create<GymState>((set, get) => ({
     set((state) => ({
       checkIns: [checkIn, ...state.checkIns],
     }));
+
+    onLeaderboardCheckIn(checkInData.userId, checkInData.gymId);
   },
 
   /**

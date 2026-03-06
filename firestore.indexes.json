@@ -1,0 +1,69 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "leaderboardStats",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "checkIns.allTime", "order": "DESCENDING" },
+        { "fieldPath": "updatedAt", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "leaderboardStats",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "checkIns.weekly", "order": "DESCENDING" },
+        { "fieldPath": "updatedAt", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "leaderboardStats",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "checkIns.monthly", "order": "DESCENDING" },
+        { "fieldPath": "updatedAt", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "leaderboardStats",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "prs.allTime", "order": "DESCENDING" },
+        { "fieldPath": "updatedAt", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "leaderboardStats",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "trainingMinutes.allTime", "order": "DESCENDING" },
+        { "fieldPath": "updatedAt", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "leaderboardStats",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "activityScore.allTime", "order": "DESCENDING" },
+        { "fieldPath": "updatedAt", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "leaderboardStats",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "activityScore.weekly", "order": "DESCENDING" },
+        { "fieldPath": "updatedAt", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "entries",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "score", "order": "DESCENDING" },
+        { "fieldPath": "updatedAt", "order": "DESCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

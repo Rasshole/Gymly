@@ -20,6 +20,7 @@ import {useNavigation, useRoute} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {DanishGym} from '@/data/danishGyms';
 import {useGymStore} from '@/store/gymStore';
+import {useLeaderboardStore} from '@/store/leaderboardStore';
 import {useAppStore} from '@/store/appStore';
 import {getGymLogo, hasGymLogo} from '@/utils/gymLogos';
 import {colors} from '@/theme/colors';
@@ -78,6 +79,7 @@ const GymDetailScreen = () => {
   const {gymId, gym} = (route.params as any) || {};
   const {user} = useAppStore();
   const {getGymStats, getActiveUsersCount, getGymStatus, getGymHours} = useGymStore();
+  const {getWeeklyChampion} = useLeaderboardStore();
   const [activeUsersModalVisible, setActiveUsersModalVisible] = useState(false);
 
   if (!gym) {
@@ -92,6 +94,7 @@ const GymDetailScreen = () => {
   const activeUsers = getActiveUsersCount(gymId);
   const gymStatus = getGymStatus(gymId);
   const gymHours = getGymHours(gymId);
+  const weeklyChampion = getWeeklyChampion(gymId);
   const logoUrl = getGymLogo(gym.brand);
   const hasLogo = hasGymLogo(gym.brand);
 
@@ -268,6 +271,32 @@ const GymDetailScreen = () => {
             </View>
           </View>
         )}
+
+        {/* Weekly Champion Banner */}
+        {weeklyChampion && (
+          <View style={styles.weeklyChampionSection}>
+            <Text style={styles.weeklyChampionEmoji}>🏆</Text>
+            <Text style={styles.weeklyChampionLabel}>Ugens mester</Text>
+            <Text style={styles.weeklyChampionName}>{weeklyChampion.displayName}</Text>
+          </View>
+        )}
+
+        {/* Gym Leaderboard Section */}
+        <TouchableOpacity
+          style={styles.section}
+          onPress={() =>
+            navigation.navigate('GymLeaderboard', {gymId, gym})
+          }
+          activeOpacity={0.8}>
+          <View style={styles.sectionHeader}>
+            <Icon name="trophy" size={20} color="#FFD700" />
+            <Text style={styles.sectionTitle}>Rangliste</Text>
+            <Icon name="chevron-forward" size={18} color={colors.textMuted} style={styles.sectionChevron} />
+          </View>
+          <Text style={styles.leaderboardSubtitle}>
+            Se hvem der har flest besøg her
+          </Text>
+        </TouchableOpacity>
 
       </ScrollView>
 
@@ -476,6 +505,33 @@ const styles = StyleSheet.create({
   statLabel: {
     fontSize: 16,
     color: colors.textMuted,
+  },
+  leaderboardSubtitle: {
+    fontSize: 14,
+    color: colors.textMuted,
+    marginTop: 4,
+  },
+  weeklyChampionSection: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#FFD70020',
+    padding: 16,
+    borderRadius: 16,
+    marginBottom: 16,
+    gap: 8,
+  },
+  weeklyChampionEmoji: {
+    fontSize: 24,
+  },
+  weeklyChampionLabel: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#B8860B',
+  },
+  weeklyChampionName: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: colors.text,
   },
   statusContainer: {
     marginTop: 4,

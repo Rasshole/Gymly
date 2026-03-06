@@ -15,6 +15,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {launchCamera, launchImageLibrary, CameraOptions, ImagePickerResponse} from 'react-native-image-picker';
 import FavoriteGymsSelector from './FavoriteGymsSelector';
+import {useLeaderboardStore} from '@/store/leaderboardStore';
 import danishGyms, {DanishGym} from '@/data/danishGyms';
 import {getGymLogo, hasGymLogo} from '@/utils/gymLogos';
 import {PersonalRecord, RepRecord} from '@/types/pr.types';
@@ -42,7 +43,9 @@ const FavoriteGymItem = ({gym, index}: {gym: DanishGym; index: number}) => {
         </View>
       ) : (
         <View style={styles.favoriteGymIconPlaceholder}>
-          <Icon name="fitness" size={24} color={colors.primary} />
+          <Text style={styles.favoriteGymIconLetter}>
+            {gym.name.charAt(0).toUpperCase()}
+          </Text>
         </View>
       )}
       <View style={styles.favoriteGymInfo}>
@@ -189,6 +192,7 @@ const ProfileScreen = () => {
   const videoRef = useRef<any>(null);
   
   const {getAllPRs, getAllRepRecords} = usePRStore();
+  const {getWeeklyChampions} = useLeaderboardStore();
   const allPRs = getAllPRs();
   const allRepRecords = getAllRepRecords();
   const {feedItems, deleteFeedItem} = useFeedStore();
@@ -308,6 +312,12 @@ const ProfileScreen = () => {
   }, [workouts]);
   
   const totalPRsSet = allPRs.length;
+  const weeklyChampionsForUser = useMemo(() => {
+    const champions = getWeeklyChampions();
+    return champions.filter(
+      c => c.userId === user?.id || c.userId === 'current_user'
+    );
+  }, [user?.id]);
 
   // Get filtered workouts for selected period
   const filteredWorkouts = useMemo(() => {
@@ -582,7 +592,9 @@ const ProfileScreen = () => {
               <Image source={{uri: user.profileImageUrl}} style={styles.avatar} />
             ) : (
               <View style={styles.avatarPlaceholder}>
-                <Icon name="person" size={48} color={colors.primary} />
+                <Text style={styles.avatarPlaceholderText}>
+                  {(user?.displayName || user?.username || '?').charAt(0).toUpperCase()}
+                </Text>
               </View>
             )}
           </View>
@@ -597,6 +609,14 @@ const ProfileScreen = () => {
               </TouchableOpacity>
             </View>
             <Text style={styles.username}>@{user?.username}</Text>
+            {weeklyChampionsForUser.length > 0 && (
+              <View style={styles.weeklyChampionBadge}>
+                <Text style={styles.weeklyChampionBadgeEmoji}>🏆</Text>
+                <Text style={styles.weeklyChampionBadgeText}>
+                  Ugens mester – {weeklyChampionsForUser.map(c => c.gymName).join(', ')}
+                </Text>
+              </View>
+            )}
             {/* Følgere/Følger/Venner Stats */}
             <View style={styles.profileStatsRow}>
               <TouchableOpacity style={styles.profileStatItem}>
@@ -846,6 +866,25 @@ const ProfileScreen = () => {
         {/* Stats Tab Content */}
         {activeTab === 'stats' && (
           <View>
+            {/* Leaderboard Card */}
+            <TouchableOpacity
+              style={styles.leaderboardCard}
+              onPress={() => navigation.navigate('Leaderboard')}
+              activeOpacity={0.8}>
+              <View style={styles.leaderboardCardContent}>
+                <View style={styles.leaderboardCardIcon}>
+                  <Icon name="trophy" size={28} color="#FFD700" />
+                </View>
+                <View style={styles.leaderboardCardText}>
+                  <Text style={styles.leaderboardCardTitle}>Rangliste</Text>
+                  <Text style={styles.leaderboardCardSubtitle}>
+                    Se hvem der er mest aktiv – check-ins, træningstid & workouts
+                  </Text>
+                </View>
+                <Icon name="chevron-forward" size={22} color={colors.textMuted} />
+              </View>
+            </TouchableOpacity>
+
             {/* Stats Container */}
             <View style={styles.statsContainer}>
               {/* Workouts List Button - Moved to top */}
@@ -1648,6 +1687,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  avatarPlaceholderText: {
+    fontSize: 44,
+    fontWeight: '600',
+    color: '#fff',
+  },
   profileHeaderInfo: {
     width: '100%',
     alignItems: 'center',
@@ -1671,6 +1715,25 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#666',
     marginBottom: 12,
+  },
+  weeklyChampionBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#FFD70025',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 12,
+    marginBottom: 12,
+    gap: 6,
+    alignSelf: 'flex-start',
+  },
+  weeklyChampionBadgeEmoji: {
+    fontSize: 16,
+  },
+  weeklyChampionBadgeText: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#B8860B',
   },
   profileStatsRow: {
     flexDirection: 'row',
@@ -1793,6 +1856,44 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#8E8E93',
     marginTop: 2,
+  },
+  leaderboardCard: {
+    backgroundColor: colors.backgroundCard,
+    borderRadius: 16,
+    marginBottom: 16,
+    shadowColor: colors.primary,
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 3,
+    overflow: 'hidden',
+  },
+  leaderboardCardContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 16,
+  },
+  leaderboardCardIcon: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: '#FFD70020',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 14,
+  },
+  leaderboardCardText: {
+    flex: 1,
+  },
+  leaderboardCardTitle: {
+    fontSize: 17,
+    fontWeight: '700',
+    color: colors.text,
+  },
+  leaderboardCardSubtitle: {
+    fontSize: 13,
+    color: colors.textMuted,
+    marginTop: 4,
   },
   workoutsListButtonContainer: {
     backgroundColor: '#fff',
@@ -1983,7 +2084,7 @@ const styles = StyleSheet.create({
   },
   editButtonText: {
     fontSize: 16,
-    color: colors.secondary,
+    color: colors.primary,
     fontWeight: '600',
     marginLeft: 4,
   },
@@ -2032,6 +2133,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginRight: 12,
   },
+  favoriteGymIconLetter: {
+    fontSize: 20,
+    fontWeight: '600',
+    color: '#fff',
+  },
   favoriteGymInfo: {
     flex: 1,
   },
@@ -2067,7 +2173,7 @@ const styles = StyleSheet.create({
   },
   addGoalButtonText: {
     fontSize: 16,
-    color: colors.secondary,
+    color: colors.primary,
     fontWeight: '600',
     marginLeft: 4,
   },
@@ -2131,7 +2237,7 @@ const styles = StyleSheet.create({
     color: colors.text,
   },
   visibilityOptionTextSelected: {
-    color: colors.secondary,
+    color: '#fff',
     fontWeight: '600',
   },
   thisWeekSection: {

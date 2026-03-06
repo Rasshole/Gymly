@@ -630,7 +630,9 @@ const MapScreen = () => {
                       />
                     ) : (
                       <View style={styles.sliderImagePlaceholder}>
-                        <Icon name="heart" size={32} color="#fff" />
+                        <Text style={styles.sliderImagePlaceholderLetter}>
+                          {gym.name.charAt(0).toUpperCase()}
+                        </Text>
                       </View>
                     )}
                   </View>
@@ -746,7 +748,9 @@ const MapScreen = () => {
                         />
                       ) : (
                         <View style={styles.centerLogoPlaceholder}>
-                          <Icon name="heart" size={24} color="#fff" />
+                          <Text style={styles.centerLogoPlaceholderLetter}>
+                            {gym.name.charAt(0).toUpperCase()}
+                          </Text>
                         </View>
                       )}
                       <View style={styles.centerInfo}>
@@ -807,7 +811,9 @@ const MapScreen = () => {
                         />
                       ) : (
                         <View style={styles.centerLogoPlaceholder}>
-                          <Icon name="heart" size={24} color="#fff" />
+                          <Text style={styles.centerLogoPlaceholderLetter}>
+                            {gym.name.charAt(0).toUpperCase()}
+                          </Text>
                         </View>
                       )}
                       <View style={styles.centerInfo}>
@@ -1303,6 +1309,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  centerLogoPlaceholderLetter: {
+    fontSize: 20,
+    fontWeight: '600',
+    color: '#fff',
+  },
   centerInfo: {
     flex: 1,
   },
@@ -1383,6 +1394,11 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  sliderImagePlaceholderLetter: {
+    fontSize: 28,
+    fontWeight: '600',
+    color: '#fff',
   },
   sliderInfo: {
     flex: 1,

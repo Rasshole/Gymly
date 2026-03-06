@@ -40,6 +40,8 @@ import ChatScreen from '@/screens/main/ChatScreen';
 import InviteToWorkoutScreen from '@/screens/main/InviteToWorkoutScreen';
 import WorkoutInvitationsScreen from '@/screens/main/WorkoutInvitationsScreen';
 import GymDetailScreen from '@/screens/main/GymDetailScreen';
+import GymLeaderboardScreen from '@/screens/main/GymLeaderboardScreen';
+import LeaderboardScreen from '@/screens/main/LeaderboardScreen';
 import RateGymScreen from '@/screens/main/RateGymScreen';
 import FriendWorkoutDetailScreen from '@/screens/main/FriendWorkoutDetailScreen';
 import AddGoalScreen from '@/screens/main/AddGoalScreen';
@@ -94,6 +96,11 @@ export type MainStackParamList = {
     gymId: number;
     gym: any;
   };
+  GymLeaderboard: {
+    gymId: number;
+    gym: any;
+  };
+  Leaderboard: undefined;
   RateGym: {
     gymId: number;
     gym: any;
@@ -175,6 +182,20 @@ const UpcomingButton = () => {
       onPress={() => navigation.navigate('WorkoutSchedule', {initialTab: 'upcoming'})}
       style={{marginRight: 16}}>
       <Icon name="calendar-outline" size={29} color={colors.text} />
+    </TouchableOpacity>
+  );
+};
+
+const LeaderboardButton = () => {
+  const navigation = useNavigation<CompositeNavigationProp<
+    BottomTabNavigationProp<MainTabParamList>,
+    StackNavigationProp<MainStackParamList>
+  >>();
+  return (
+    <TouchableOpacity
+      onPress={() => navigation.navigate('Leaderboard')}
+      style={{marginRight: 16}}>
+      <Icon name="trophy" size={29} color={colors.text} />
     </TouchableOpacity>
   );
 };
@@ -292,6 +313,7 @@ const MainTabs = () => {
         headerLeft: () => <SettingsButton />,
         headerRight: () => (
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <LeaderboardButton />
             <UpcomingButton />
             <NotificationsButton />
           </View>
@@ -406,6 +428,20 @@ const MainNavigator = () => {
             <Stack.Screen
               name="GymDetail"
               component={GymDetailScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="GymLeaderboard"
+              component={GymLeaderboardScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="Leaderboard"
+              component={LeaderboardScreen}
               options={{
                 headerShown: false,
               }}

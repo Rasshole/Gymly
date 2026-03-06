@@ -116,7 +116,9 @@ const FavoriteGymItemWithLogo = ({
           </View>
         ) : (
           <View style={styles.favoriteGymIconPlaceholder}>
-            <Icon name="heart" size={24} color="#fff" />
+            <Text style={styles.favoriteGymIconLetter}>
+              {gym.name.charAt(0).toUpperCase()}
+            </Text>
           </View>
         )}
         <View style={styles.gymInfo}>
@@ -793,6 +795,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
+  },
+  favoriteGymIconLetter: {
+    fontSize: 20,
+    fontWeight: '600',
+    color: '#fff',
   },
   gymInfo: {
     flex: 1,

@@ -1,6 +1,6 @@
 /**
  * Settings Screen
- * App settings, privacy controls, and account management
+ * Comprehensive app settings - account, privacy, notifications, preferences, support
  */
 
 import React, {useState} from 'react';
@@ -22,24 +22,25 @@ import {colors} from '@/theme/colors';
 
 const SettingsScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
-  const {user, logout, setUser} = useAppStore();
+  const {user, logout} = useAppStore();
   const {consent, updateMarketingConsent, updateAnalyticsConsent} = usePrivacyStore();
 
   const [marketingEnabled, setMarketingEnabled] = useState(
-    consent?.marketingConsent || false
+    consent?.marketingConsent ?? false
   );
   const [analyticsEnabled, setAnalyticsEnabled] = useState(
-    consent?.analyticsConsent || false
+    consent?.analyticsConsent ?? false
   );
   const [autoplayVideo, setAutoplayVideo] = useState(true);
-  const [appearance, setAppearance] = useState('Lys tilstand');
-  const [unitsOfMeasurement, setUnitsOfMeasurement] = useState('Kilometer');
+  const [appearance, setAppearance] = useState<'system' | 'light' | 'dark'>('system');
+  const [units, setUnits] = useState<'metric' | 'imperial'>('metric');
+  const [language, setLanguage] = useState<'da' | 'en'>('da');
 
   const handleMarketingToggle = async (value: boolean) => {
     setMarketingEnabled(value);
     try {
       await updateMarketingConsent(value);
-    } catch (error) {
+    } catch {
       Alert.alert('Fejl', 'Kunne ikke opdatere indstilling');
       setMarketingEnabled(!value);
     }
@@ -49,7 +50,7 @@ const SettingsScreen = () => {
     setAnalyticsEnabled(value);
     try {
       await updateAnalyticsConsent(value);
-    } catch (error) {
+    } catch {
       Alert.alert('Fejl', 'Kunne ikke opdatere indstilling');
       setAnalyticsEnabled(!value);
     }
@@ -61,237 +62,334 @@ const SettingsScreen = () => {
       'Er du sikker på du vil logge ud?',
       [
         {text: 'Annuller', style: 'cancel'},
+        {text: 'Log ud', style: 'destructive', onPress: () => logout()},
+      ]
+    );
+  };
+
+  const handleDeleteAccount = () => {
+    Alert.alert(
+      'Slet konto',
+      'Er du sikker på du vil slette din konto? Denne handling kan ikke fortrydes. Alle dine data vil blive slettet permanent.',
+      [
+        {text: 'Annuller', style: 'cancel'},
         {
-          text: 'Log ud',
+          text: 'Slet konto',
           style: 'destructive',
-          onPress: () => logout(),
+          onPress: () => {
+            Alert.alert(
+              'Bekræft sletning',
+              'For at slette din konto, kontakt venligst vores support på support@gymly.dk. Vi sletter din konto inden for 30 dage i henhold til GDPR.',
+              [{text: 'OK'}]
+            );
+          },
         },
       ]
     );
   };
 
+  const handleExportData = () => {
+    Alert.alert(
+      'Hent data',
+      'Du kan anmode om en kopi af dine data ved at kontakte support@gymly.dk. Vi sender dig en eksport inden for 30 dage (GDPR artikel 20).',
+      [{text: 'OK'}]
+    );
+  };
+
+  const SettingRow = ({
+    icon,
+    iconColor,
+    title,
+    subtitle,
+    onPress,
+    rightElement,
+    showChevron = true,
+  }: {
+    icon: string;
+    iconColor?: string;
+    title: string;
+    subtitle?: string;
+    onPress?: () => void;
+    rightElement?: React.ReactNode;
+    showChevron?: boolean;
+  }) => (
+    <TouchableOpacity
+      style={styles.row}
+      onPress={onPress}
+      disabled={!onPress}
+      activeOpacity={onPress ? 0.7 : 1}>
+      <View style={[styles.rowIcon, iconColor && {backgroundColor: iconColor + '20'}]}>
+        <Icon name={icon as any} size={22} color={iconColor || colors.primary} />
+      </View>
+      <View style={styles.rowContent}>
+        <Text style={styles.rowTitle}>{title}</Text>
+        {subtitle && <Text style={styles.rowSubtitle}>{subtitle}</Text>}
+      </View>
+      {rightElement || (showChevron && onPress && (
+        <Icon name="chevron-forward" size={20} color={colors.textMuted} />
+      ))}
+    </TouchableOpacity>
+  );
+
+  const SettingSwitch = ({
+    icon,
+    iconColor,
+    title,
+    subtitle,
+    value,
+    onValueChange,
+  }: {
+    icon: string;
+    iconColor?: string;
+    title: string;
+    subtitle?: string;
+    value: boolean;
+    onValueChange: (v: boolean) => void;
+  }) => (
+    <View style={styles.row}>
+      <View style={[styles.rowIcon, iconColor && {backgroundColor: iconColor + '20'}]}>
+        <Icon name={icon as any} size={22} color={iconColor || colors.primary} />
+      </View>
+      <View style={styles.rowContent}>
+        <Text style={styles.rowTitle}>{title}</Text>
+        {subtitle && <Text style={styles.rowSubtitle}>{subtitle}</Text>}
+      </View>
+      <Switch
+        value={value}
+        onValueChange={onValueChange}
+        trackColor={{false: '#E5E5EA', true: colors.primary}}
+        thumbColor="#fff"
+      />
+    </View>
+  );
+
+  const Section = ({title, children}: {title: string; children: React.ReactNode}) => (
+    <View style={styles.section}>
+      <Text style={styles.sectionTitle}>{title}</Text>
+      {children}
+    </View>
+  );
+
+  const appearanceLabel = appearance === 'system' ? 'System' : appearance === 'light' ? 'Lys' : 'Mørk';
+  const unitsLabel = units === 'metric' ? 'kg, km' : 'lbs, miles';
+  const languageLabel = language === 'da' ? 'Dansk' : 'English';
 
   return (
     <View style={styles.container}>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.content}>
-        {/* Connect App or Device */}
-        <View style={styles.section}>
-          <TouchableOpacity
-            style={styles.connectAppItem}
-            activeOpacity={0.7}
-            onPress={() => navigation.navigate('ConnectDevice')}>
-            <View style={styles.connectAppIconContainer}>
-              <Icon name="phone-portrait-outline" size={24} color="#007AFF" />
-            </View>
-            <View style={styles.connectAppInfo}>
-              <Text style={styles.connectAppTitle}>Forbind en app eller enhed</Text>
-              <Text style={styles.connectAppDescription}>
-                Upload direkte til Gymly med næsten enhver fitness app eller enhed
-              </Text>
-            </View>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-          </TouchableOpacity>
+        {/* Konto */}
+        <Section title="KONTO">
+          <SettingRow
+            icon="person-outline"
+            title="Rediger profil"
+            subtitle="Navn, billede, bio"
+            onPress={() => navigation.navigate('EditProfile')}
+          />
+          <SettingRow
+            icon="mail-outline"
+            title="Skift email"
+            onPress={() => navigation.navigate('ChangeEmail')}
+          />
+          <SettingRow
+            icon="lock-closed-outline"
+            title="Skift adgangskode"
+            onPress={() =>
+              Alert.alert('Kommer snart', 'Funktionen til at skifte adgangskode kommer snart.')
+            }
+          />
+          <SettingRow
+            icon="download-outline"
+            title="Hent mine data"
+            subtitle="GDPR – eksport af dine data"
+            onPress={handleExportData}
+          />
+        </Section>
 
-          <TouchableOpacity
-            style={styles.actionItem}
-            activeOpacity={0.7}
-            onPress={() => Alert.alert('Info', 'Administrer apps funktion kommer snart')}>
-            <Text style={styles.actionTitle}>Administrer apps og enheder</Text>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-          </TouchableOpacity>
+        {/* Privatliv */}
+        <Section title="PRIVATLIV">
+          <SettingRow
+            icon="shield-checkmark-outline"
+            title="Privatlivsindstillinger"
+            subtitle="Profil synlighed, placering, deling"
+            onPress={() => navigation.navigate('EditProfile')}
+          />
+          <SettingRow
+            icon="ban-outline"
+            title="Blokeret brugere"
+            onPress={() =>
+              Alert.alert('Kommer snart', 'Administration af blokerede brugere kommer snart.')
+            }
+          />
+        </Section>
 
-          <TouchableOpacity
-            style={styles.actionItem}
-            activeOpacity={0.7}
-            onPress={() => navigation.navigate('ChangeEmail')}>
-            <Text style={styles.actionTitle}>Skift Email</Text>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-          </TouchableOpacity>
+        {/* Notifikationer */}
+        <Section title="NOTIFIKATIONER">
+          <SettingRow
+            icon="notifications-outline"
+            title="Push notifikationer"
+            subtitle="Træningsinvitationer, venner, grupper"
+            onPress={() => navigation.navigate('PushNotifications')}
+          />
+          <SettingSwitch
+            icon="mail-outline"
+            title="Email notifikationer"
+            subtitle="Nyheder og tilbud via email"
+            value={marketingEnabled}
+            onValueChange={handleMarketingToggle}
+          />
+        </Section>
 
-          <TouchableOpacity
-            style={styles.actionItem}
-            activeOpacity={0.7}
-            onPress={() => navigation.navigate('Help')}>
-            <Text style={styles.actionTitle}>Hjælp</Text>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-          </TouchableOpacity>
-        </View>
-
-        {/* Preferences */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>PRÆFERENCER</Text>
-          
-          <TouchableOpacity
-            style={styles.actionItem}
-            activeOpacity={0.7}
-            onPress={() => Alert.alert('Info', 'Udseende funktion kommer snart')}>
-            <Text style={styles.actionTitle}>Udseende</Text>
-            <View style={styles.valueContainer}>
-              <Text style={styles.valueText}>{appearance}</Text>
-              <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.actionItem}
-            activeOpacity={0.7}
-            onPress={() => Alert.alert('Info', 'Privatlivskontroller funktion kommer snart')}>
-            <View style={styles.valueContainer}>
-              <Text style={styles.actionTitle}>Privatlivskontroller</Text>
-              <View style={styles.newBadge}>
-                <Text style={styles.newBadgeText}>NY</Text>
+        {/* App & Præferencer */}
+        <Section title="APP & PRÆFERENCER">
+          <SettingRow
+            icon="phone-portrait-outline"
+            title="Forbind app eller enhed"
+            subtitle="Apple Health, Garmin, etc."
+            onPress={() => navigation.navigate('ConnectDevice')}
+          />
+          <SettingRow
+            icon="options-outline"
+            title="Udseende"
+            rightElement={
+              <View style={styles.rowValueContainer}>
+                <Text style={styles.rowValue}>{appearanceLabel}</Text>
+                <Icon name="chevron-forward" size={20} color={colors.textMuted} />
               </View>
-            </View>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-          </TouchableOpacity>
+            }
+            onPress={() =>
+              Alert.alert(
+                'Udseende',
+                'Vælg tema',
+                [
+                  {text: 'System', onPress: () => setAppearance('system')},
+                  {text: 'Lys', onPress: () => setAppearance('light')},
+                  {text: 'Mørk', onPress: () => setAppearance('dark')},
+                  {text: 'Annuller', style: 'cancel'},
+                ]
+              )
+            }
+          />
+          <SettingRow
+            icon="resize-outline"
+            title="Måleenheder"
+            rightElement={
+              <View style={styles.rowValueContainer}>
+                <Text style={styles.rowValue}>{unitsLabel}</Text>
+                <Icon name="chevron-forward" size={20} color={colors.textMuted} />
+              </View>
+            }
+            onPress={() =>
+              Alert.alert(
+                'Måleenheder',
+                'Vælg måleenheder',
+                [
+                  {text: 'kg, km', onPress: () => setUnits('metric')},
+                  {text: 'lbs, miles', onPress: () => setUnits('imperial')},
+                  {text: 'Annuller', style: 'cancel'},
+                ]
+              )
+            }
+          />
+          <SettingRow
+            icon="language-outline"
+            title="Sprog"
+            rightElement={
+              <View style={styles.rowValueContainer}>
+                <Text style={styles.rowValue}>{languageLabel}</Text>
+                <Icon name="chevron-forward" size={20} color={colors.textMuted} />
+              </View>
+            }
+            onPress={() =>
+              Alert.alert(
+                'Sprog',
+                'Vælg sprog',
+                [
+                  {text: 'Dansk', onPress: () => setLanguage('da')},
+                  {text: 'English', onPress: () => setLanguage('en')},
+                  {text: 'Annuller', style: 'cancel'},
+                ]
+              )
+            }
+          />
+          <SettingRow
+            icon="swap-vertical-outline"
+            title="Feed sortering"
+            subtitle="Sorter aktiviteter i feed"
+            onPress={() => navigation.navigate('FeedSorting')}
+          />
+          <SettingSwitch
+            icon="play-circle-outline"
+            title="Automatisk afspilning af video"
+            value={autoplayVideo}
+            onValueChange={setAutoplayVideo}
+          />
+        </Section>
 
-          <TouchableOpacity
-            style={styles.actionItem}
-            activeOpacity={0.7}
-            onPress={() => Alert.alert('Info', 'Måleenheder funktion kommer snart')}>
-            <Text style={styles.actionTitle}>Måleenheder</Text>
-            <View style={styles.valueContainer}>
-              <Text style={styles.valueText}>{unitsOfMeasurement}</Text>
-              <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-            </View>
-          </TouchableOpacity>
+        {/* GDPR & Privatliv */}
+        <Section title="PRIVATLIV & GDPR">
+          <SettingSwitch
+            icon="analytics-outline"
+            title="Anonymiseret analyse"
+            subtitle="Hjælp os med at forbedre appen"
+            value={analyticsEnabled}
+            onValueChange={handleAnalyticsToggle}
+          />
+          <SettingRow
+            icon="document-text-outline"
+            title="Privatlivspolitik"
+            onPress={() => navigation.navigate('PrivacyPolicy')}
+          />
+          <SettingRow
+            icon="document-outline"
+            title="Brugervilkår"
+            onPress={() => navigation.navigate('Terms')}
+          />
+        </Section>
 
-        </View>
+        {/* Support */}
+        <Section title="SUPPORT">
+          <SettingRow
+            icon="help-circle-outline"
+            title="Hjælp & FAQ"
+            onPress={() => navigation.navigate('Help')}
+          />
+          <SettingRow
+            icon="chatbubble-outline"
+            title="Kontakt support"
+            onPress={() => navigation.navigate('Support')}
+          />
+          <SettingRow
+            icon="information-circle-outline"
+            title="Om Gymly"
+            onPress={() => navigation.navigate('AboutGymly')}
+          />
+        </Section>
 
-        {/* Video & Media */}
-        <View style={styles.section}>
-          <View style={styles.settingItem}>
-            <View style={styles.settingInfo}>
-              <Text style={styles.settingTitle}>Automatisk afspilning af video</Text>
-            </View>
-            <Switch
-              value={autoplayVideo}
-              onValueChange={setAutoplayVideo}
-              trackColor={{false: '#E5E5EA', true: '#FF9500'}}
-              thumbColor="#fff"
-            />
-          </View>
-        </View>
-
-        {/* Maps & Feed */}
-        <View style={styles.section}>
-          <TouchableOpacity
-            style={styles.actionItem}
-            activeOpacity={0.7}
-            onPress={() => navigation.navigate('FeedSorting')}>
-            <View style={styles.actionInfo}>
-              <Text style={styles.actionTitle}>Feed sortering</Text>
-              <Text style={styles.actionDescription}>
-                Ændre hvordan aktiviteter sorteres i dit feed
-              </Text>
-            </View>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-          </TouchableOpacity>
-        </View>
-
-        {/* Integrations */}
-        <View style={styles.section}>
-          <TouchableOpacity
-            style={styles.actionItem}
-            activeOpacity={0.7}
-            onPress={() => Alert.alert('Info', 'Siri & Genveje funktion kommer snart')}>
-            <Text style={styles.actionTitle}>Siri & Genveje</Text>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.actionItem}
-            activeOpacity={0.7}
-            onPress={() => Alert.alert('Info', 'Partner integrationer funktion kommer snart')}>
-            <Text style={styles.actionTitle}>Partner integrationer</Text>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-          </TouchableOpacity>
-        </View>
-
-        {/* Data & Services */}
-        <View style={styles.section}>
-          <TouchableOpacity
-            style={styles.actionItem}
-            activeOpacity={0.7}
-            onPress={() => Alert.alert('Info', 'Kontakter funktion kommer snart')}>
-            <Text style={styles.actionTitle}>Kontakter</Text>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-          </TouchableOpacity>
-        </View>
-
-        {/* Notifications */}
-        <View style={styles.section}>
-          <TouchableOpacity
-            style={styles.actionItem}
-            activeOpacity={0.7}
-            onPress={() => navigation.navigate('PushNotifications')}>
-            <Text style={styles.actionTitle}>Push notifikationer</Text>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-          </TouchableOpacity>
-
-          <View style={styles.settingItem}>
-            <View style={styles.settingInfo}>
-              <Text style={styles.settingTitle}>Email notifikationer</Text>
-              <Text style={styles.settingDescription}>
-                Modtag nyheder og tilbud via email
-              </Text>
-            </View>
-            <Switch
-              value={marketingEnabled}
-              onValueChange={handleMarketingToggle}
-              trackColor={{false: '#E5E5EA', true: '#34C759'}}
-              thumbColor="#fff"
-            />
-          </View>
-        </View>
-
-        {/* Privacy Settings */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Privacy & GDPR</Text>
-          
-          <View style={styles.settingItem}>
-            <View style={styles.settingInfo}>
-              <Text style={styles.settingTitle}>Anonymiseret analyse</Text>
-              <Text style={styles.settingDescription}>
-                Hjælp os med at forbedre appen
-              </Text>
-            </View>
-            <Switch
-              value={analyticsEnabled}
-              onValueChange={handleAnalyticsToggle}
-              trackColor={{false: '#E5E5EA', true: '#34C759'}}
-              thumbColor="#fff"
-            />
-          </View>
-        </View>
-
-        {/* Account */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Konto</Text>
-          
-          <View style={styles.infoItem}>
-            <Text style={styles.infoLabel}>Email</Text>
-            <Text style={styles.infoValue}>{user?.email}</Text>
+        {/* Konto info */}
+        <View style={styles.accountInfo}>
+          <Text style={styles.accountInfoLabel}>Email</Text>
+          <Text style={styles.accountInfoValue}>{user?.email}</Text>
           </View>
 
-          <View style={styles.infoItem}>
-            <Text style={styles.infoLabel}>Bruger siden</Text>
-            <Text style={styles.infoValue}>
-              {user?.createdAt ? new Date(user.createdAt).toLocaleDateString('da-DK') : '-'}
-            </Text>
-          </View>
-        </View>
-
-        {/* Logout Button */}
+        {/* Log ud */}
         <TouchableOpacity
           style={styles.logoutButton}
           onPress={handleLogout}
           activeOpacity={0.8}>
+          <Icon name="log-out-outline" size={22} color={colors.error} />
           <Text style={styles.logoutButtonText}>Log ud</Text>
         </TouchableOpacity>
 
-        {/* App Version */}
-        <Text style={styles.versionText}>Version 1.0.0</Text>
+        {/* Slet konto */}
+        <TouchableOpacity
+          style={styles.deleteButton}
+          onPress={handleDeleteAccount}
+          activeOpacity={0.8}>
+          <Text style={styles.deleteButtonText}>Slet konto</Text>
+        </TouchableOpacity>
+
+        {/* Version */}
+        <Text style={styles.versionText}>Gymly version 1.0.0</Text>
       </ScrollView>
     </View>
   );
@@ -310,153 +408,107 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
   section: {
-    backgroundColor: colors.backgroundCard,
-    borderRadius: 16,
-    marginBottom: 16,
-    padding: 16,
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 3,
+    marginBottom: 24,
   },
   sectionTitle: {
-    fontSize: 18,
+    fontSize: 13,
     fontWeight: '600',
-    color: colors.text,
-    marginBottom: 16,
-  },
-  settingItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: '#F8F9FA',
-  },
-  settingInfo: {
-    flex: 1,
-    marginRight: 12,
-  },
-  settingTitle: {
-    fontSize: 16,
-    fontWeight: '500',
-    color: colors.text,
-    marginBottom: 2,
-  },
-  settingDescription: {
-    fontSize: 14,
-    color: colors.textSecondary,
-  },
-  connectAppItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: '#F8F9FA',
+    color: colors.textMuted,
     marginBottom: 8,
+    marginLeft: 4,
   },
-  connectAppIconContainer: {
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.backgroundCard,
+    padding: 16,
+    borderRadius: 12,
+    marginBottom: 8,
+    shadowColor: colors.primary,
+    shadowOffset: {width: 0, height: 1},
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  rowIcon: {
     width: 40,
     height: 40,
-    borderRadius: 8,
-    backgroundColor: colors.primary,
+    borderRadius: 10,
+    backgroundColor: colors.primary + '20',
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 12,
+    marginRight: 14,
   },
-  connectAppInfo: {
+  rowContent: {
     flex: 1,
   },
-  connectAppTitle: {
+  rowTitle: {
     fontSize: 16,
     fontWeight: '500',
     color: colors.text,
-    marginBottom: 4,
   },
-  connectAppDescription: {
-    fontSize: 14,
-    color: colors.textSecondary,
-    lineHeight: 20,
-  },
-  actionItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: '#F8F9FA',
-  },
-  valueContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginLeft: 8,
-  },
-  valueText: {
-    fontSize: 16,
+  rowSubtitle: {
+    fontSize: 13,
     color: colors.textMuted,
-    marginRight: 4,
+    marginTop: 2,
   },
-  newBadge: {
-    backgroundColor: '#FF9500',
-    paddingHorizontal: 8,
-    paddingVertical: 2,
-    borderRadius: 4,
-    marginLeft: 8,
+  rowValueContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
   },
-  newBadgeText: {
-    fontSize: 11,
-    fontWeight: '600',
-    color: '#fff',
+  rowValue: {
+    fontSize: 15,
+    color: colors.textMuted,
   },
-  actionInfo: {
-    flex: 1,
-    marginLeft: 12,
-    marginRight: 12,
+  accountInfo: {
+    backgroundColor: colors.backgroundCard,
+    padding: 16,
+    borderRadius: 12,
+    marginBottom: 16,
   },
-  actionTitle: {
-    fontSize: 16,
-    fontWeight: '500',
-    color: colors.text,
-    marginBottom: 2,
-  },
-  actionDescription: {
-    fontSize: 14,
-    color: colors.textSecondary,
-  },
-  infoItem: {
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: '#F8F9FA',
-  },
-  infoLabel: {
-    fontSize: 14,
-    color: colors.textSecondary,
+  accountInfoLabel: {
+    fontSize: 13,
+    color: colors.textMuted,
     marginBottom: 4,
   },
-  infoValue: {
+  accountInfoValue: {
     fontSize: 16,
     fontWeight: '500',
     color: colors.text,
   },
   logoutButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: colors.backgroundCard,
     padding: 16,
     borderRadius: 12,
-    alignItems: 'center',
-    marginBottom: 16,
+    marginBottom: 8,
     borderWidth: 1,
-    borderColor: '#FF3B30',
+    borderColor: colors.error,
+    gap: 8,
   },
   logoutButtonText: {
-    color: '#FF3B30',
-    fontSize: 18,
+    color: colors.error,
+    fontSize: 16,
     fontWeight: '600',
+  },
+  deleteButton: {
+    padding: 16,
+    borderRadius: 12,
+    alignItems: 'center',
+    marginBottom: 24,
+  },
+  deleteButtonText: {
+    color: colors.textMuted,
+    fontSize: 14,
   },
   versionText: {
     textAlign: 'center',
-    fontSize: 14,
-    color: '#999',
+    fontSize: 13,
+    color: colors.textMuted,
   },
 });
 
 export default SettingsScreen;
-

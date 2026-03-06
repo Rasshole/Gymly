@@ -442,6 +442,16 @@ const FriendsScreen = () => {
           filteredFriends.length === 0 ? styles.emptyList : styles.list
         }
         ListEmptyComponent={renderEmptyState}
+        ListHeaderComponent={
+          <TouchableOpacity
+            style={styles.leaderboardBanner}
+            onPress={() => navigation.navigate('Leaderboard')}
+            activeOpacity={0.8}>
+            <Icon name="trophy" size={20} color="#FFD700" />
+            <Text style={styles.leaderboardBannerText}>Se ranglisten</Text>
+            <Icon name="chevron-forward" size={18} color={colors.textMuted} />
+          </TouchableOpacity>
+        }
         showsVerticalScrollIndicator={false}
         ItemSeparatorComponent={() => <View style={styles.separator} />}
       />
@@ -482,6 +492,26 @@ const styles = StyleSheet.create({
   clearButton: {
     marginLeft: 8,
     padding: 4,
+  },
+  leaderboardBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.backgroundCard,
+    padding: 12,
+    borderRadius: 12,
+    marginBottom: 12,
+    shadowColor: colors.primary,
+    shadowOffset: {width: 0, height: 1},
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 2,
+    gap: 8,
+  },
+  leaderboardBannerText: {
+    flex: 1,
+    fontSize: 15,
+    fontWeight: '600',
+    color: colors.text,
   },
   list: {
     paddingHorizontal: 16,

@@ -40,6 +40,7 @@ import {formatGymDisplayName, findGymById} from '@/utils/gymDisplay';
 import {useFeedStore} from '@/store/feedStore';
 import {useGroupStore, GymlyGroup} from '@/store/groupStore';
 import {usePRStore} from '@/store/prStore';
+import {onWorkoutComplete} from '@/services/leaderboard/leaderboardStatsUpdater';
 import {colors} from '@/theme/colors';
 import {getMuscleGroupImage} from '@/utils/muscleGroupImages';
 import {getGymLogo, hasGymLogo} from '@/utils/gymLogos';
@@ -1132,6 +1133,15 @@ const CheckInScreen = () => {
       acceptedFriends: [],
       photoUri: photoUri ?? undefined,
     });
+
+    const durationMinutes = Math.round(durationMs / 60000);
+    const muscleGroup = session.muscles?.[0]; // Første muskelgruppe
+    onWorkoutComplete(user?.id || 'current_user', durationMinutes, {
+      gymId: session.gym?.id,
+      muscleGroup: muscleGroup,
+      friendIds: session.invitedFriendIds?.length ? session.invitedFriendIds : undefined,
+    });
+
     setActiveSession(null);
     resetAfterCompletion();
   };
