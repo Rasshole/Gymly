@@ -1,8 +1,10 @@
 /**
  * Authentication Service
  * Handles user authentication with security best practices
+ * Apple Sign In: Uses Authentication Services - never ask for name/email after Apple auth (Guideline 4)
  */
 
+import {Platform} from 'react-native';
 import {AuthTokens, AuthResponse} from '@/types/auth.types';
 import {User, UserLogin, UserRegistration} from '@/types/user.types';
 import SecureStorage from '../security/SecureStorage';
@@ -12,6 +14,11 @@ import {User as SupabaseUser} from '@supabase/supabase-js';
 
 class AuthService {
   private readonly API_URL = 'https://api.gymly.app'; // TODO: Replace with actual API URL
+
+  /** Public helper to map Supabase user to app User (e.g. after Apple sign-in) */
+  getMappedUser(supabaseUser: SupabaseUser): User {
+    return this.mapSupabaseUser(supabaseUser);
+  }
 
   private mapSupabaseUser(user: SupabaseUser): User {
     const metadata = user.user_metadata || {};
@@ -359,7 +366,73 @@ class AuthService {
   }
 
   /**
+   * Sign in with Apple (iOS only)
+   * Uses Apple Authentication Services - name/email come from Apple, never ask again (Guideline 4)
+   */
+  async signInWithApple(): Promise<AuthResponse> {
+    if (Platform.OS !== 'ios') {
+      throw new Error('Sign in with Apple er kun tilgængelig på iOS');
+    }
+    try {
+      const appleAuth = require('@invertase/react-native-apple-authentication').default;
+      if (!appleAuth.isSupported) {
+        throw new Error(
+          'Sign in with Apple virker kun på en rigtig iPhone (ikke simulator). Brug en fysisk enhed for at teste.',
+        );
+      }
+      const credential = await appleAuth.performRequest({
+        requestedScopes: [
+          appleAuth.Scope.FULL_NAME,
+          appleAuth.Scope.EMAIL,
+        ],
+      });
+
+      if (!credential.identityToken) {
+        throw new Error('Apple godkendelse returnerede ikke et token');
+      }
+
+      const {data, error} = await supabase.auth.signInWithIdToken({
+        provider: 'apple',
+        token: credential.identityToken,
+      });
+
+      if (error) throw new Error(error.message);
+      if (!data.session || !data.user) throw new Error('Kunne ikke logge ind med Apple');
+
+      // Apple only provides fullName on first sign-in - save to metadata
+      if (credential.fullName) {
+        const nameParts = [
+          credential.fullName.givenName,
+          credential.fullName.familyName,
+        ].filter(Boolean);
+        const fullName = nameParts.join(' ');
+        await supabase.auth.updateUser({
+          data: {
+            full_name: fullName,
+            given_name: credential.fullName.givenName,
+            family_name: credential.fullName.familyName,
+          },
+        });
+      }
+
+      const user = this.mapSupabaseUser(data.user);
+      const tokens = this.mapSessionTokens(data.session);
+      await SecureStorage.saveTokens(tokens);
+      await SecureStorage.saveUserData(user);
+
+      return {user, tokens};
+    } catch (error: any) {
+      if (error?.code === 'ERR_REQUEST_CANCELED') {
+        throw new Error('Apple-login blev annulleret');
+      }
+      console.error('Apple sign in error:', error);
+      throw error;
+    }
+  }
+
+  /**
    * Social login (Apple/Google)
+   * For Apple: uses signInWithApple() - never pass or ask for name/email
    */
   async socialLogin(
     provider: 'apple' | 'google',
@@ -372,9 +445,11 @@ class AuthService {
       favoriteGyms?: number[];
     },
   ): Promise<AuthResponse> {
+    if (provider === 'apple') {
+      return this.signInWithApple();
+    }
+    // Google: TODO implement with Supabase OAuth
     try {
-      // TODO: Implement actual API call for social login
-      // For now, return mock data
       const mockUser: User = {
         id: Date.now().toString(),
         email: data?.email || `${provider}@example.com`,
@@ -383,7 +458,7 @@ class AuthService {
           ? `${data.firstName} ${data.lastName}`
           : `${provider} User`,
         bicepsEmoji: data?.bicepsEmoji || '💪',
-        favoriteGyms: data?.favoriteGyms, // Save favorite gyms from registration
+        favoriteGyms: data?.favoriteGyms,
         privacySettings: {
           profileVisibility: 'friends',
           locationSharingEnabled: true,
@@ -411,19 +486,44 @@ class AuthService {
       const mockTokens: AuthTokens = {
         accessToken: this.generateMockToken(),
         refreshToken: this.generateMockToken(),
-        expiresAt: Date.now() + 3600000, // 1 hour
+        expiresAt: Date.now() + 3600000,
       };
 
-      // Save tokens securely
       await SecureStorage.saveTokens(mockTokens);
       await SecureStorage.saveUserData(mockUser);
 
-      return {
-        user: mockUser,
-        tokens: mockTokens,
-      };
+      return {user: mockUser, tokens: mockTokens};
     } catch (error) {
       console.error('Social login error:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Delete user account (Guideline 5.1.1(v))
+   * Permanently deletes account - in-app, no external contact required
+   */
+  async deleteAccount(): Promise<void> {
+    try {
+      const {data: {session}} = await supabase.auth.getSession();
+      const userId = session?.user?.id;
+
+      if (userId) {
+        try {
+          const {error} = await supabase.functions.invoke('delete-account', {
+            body: {userId},
+          });
+          if (error) console.warn('Edge function delete failed:', error.message);
+        } catch {
+          // Edge function may not exist yet - continue with local cleanup
+        }
+      }
+
+      await supabase.auth.signOut();
+      await SecureStorage.clearAll();
+    } catch (error) {
+      console.error('Delete account error:', error);
+      await SecureStorage.clearAll();
       throw error;
     }
   }

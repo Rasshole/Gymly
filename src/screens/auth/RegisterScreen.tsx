@@ -202,13 +202,37 @@ const RegisterScreen = () => {
     setEmail(`${slug}@${domain}`);
   };
 
-  const handleSelectMethod = (selected: RegistrationMethod) => {
+  const handleSelectMethod = async (selected: RegistrationMethod) => {
     setMethod(selected);
     setLocation('');
     setFavoriteGyms([null, null, null]);
     setFavoriteGymLabels(['', '', '']);
     setActiveGymIndex(null);
     setShowGymSuggestions(false);
+
+    // Apple: Trigger auth FIRST - never ask for name/email (Guideline 4)
+    if (selected === 'apple') {
+      setIsLoading(true);
+      try {
+        const {user, tokens} = await AuthService.signInWithApple();
+        if (user) {
+          if (user.username && user.username.length >= 3) {
+            login(user, tokens!);
+            return;
+          }
+          setFirstName(user.displayName?.split(' ')[0] || '');
+          setLastName(user.displayName?.split(' ').slice(1).join(' ') || '');
+          setEmail(user.email || '');
+          setStep('location');
+        }
+      } catch (err: any) {
+        Alert.alert('Apple-login fejlede', err?.message || 'Prøv igen');
+      } finally {
+        setIsLoading(false);
+      }
+      return;
+    }
+
     setStep('names');
   };
 
@@ -303,8 +327,9 @@ const RegisterScreen = () => {
 
   const handleLocationContinue = () => {
     const firstGymLabel = favoriteGymLabels[0].trim();
+    const hasLocation = location && firstGymLabel;
 
-    if (!location || !firstGymLabel) {
+    if (!hasLocation && method !== 'apple') {
       Alert.alert('Mangler info', 'Vælg både beliggenhed og center.');
       return;
     }
@@ -368,16 +393,17 @@ const RegisterScreen = () => {
       return;
     }
 
-    if (!firstName.trim() || !lastName.trim()) {
-      Alert.alert('Mangler navn', 'Udfyld dine navne.');
-      setStep('names');
-      return;
-    }
-
-    if (!email.trim()) {
-      Alert.alert('Mangler email', 'Tilføj din email.');
-      setStep('email');
-      return;
+    if (method !== 'apple') {
+      if (!firstName.trim() || !lastName.trim()) {
+        Alert.alert('Mangler navn', 'Udfyld dine navne.');
+        setStep('names');
+        return;
+      }
+      if (!email.trim()) {
+        Alert.alert('Mangler email', 'Tilføj din email.');
+        setStep('email');
+        return;
+      }
     }
 
     if (!username.trim()) {
@@ -393,13 +419,10 @@ const RegisterScreen = () => {
 
     setIsLoading(true);
     try {
-      // Get the selected gym ID if a gym was selected
       const favoriteGymIds: number[] = [];
       favoriteGymLabels.forEach((label, index) => {
         const trimmed = label.trim();
-        if (!trimmed) {
-          return;
-        }
+        if (!trimmed) return;
         const selected = favoriteGyms[index];
         const gymId =
           selected?.id ??
@@ -434,10 +457,36 @@ const RegisterScreen = () => {
           setStep('verification');
           return;
         }
-        if (!tokens) {
-          throw new Error('Kunne ikke fuldføre registrering.');
-        }
+        if (!tokens) throw new Error('Kunne ikke fuldføre registrering.');
         login(user, tokens);
+        return;
+      }
+
+      if (method === 'apple') {
+        const {supabase} = await import('@/services/supabase/supabaseClient');
+        await supabase.auth.updateUser({
+          data: {
+            username: username.trim(),
+            displayName: fullName || username.trim(),
+            bicepsEmoji: selectedBiceps ?? '💪🏻',
+            favoriteGyms: favoriteGymIds.length > 0 ? favoriteGymIds : undefined,
+            profileImageUrl: profilePhotoUri || undefined,
+          },
+        });
+        const {data: {user: supabaseUser}} = await supabase.auth.getUser();
+        const {data: {session}} = await supabase.auth.getSession();
+        if (supabaseUser && session) {
+          const user = AuthService.getMappedUser(supabaseUser);
+          const tokens = {
+            accessToken: session.access_token,
+            refreshToken: session.refresh_token,
+            expiresAt: (session.expires_at ?? Math.floor(Date.now() / 1000) + 3600) * 1000,
+          };
+          const SecureStorage = (await import('@/services/security/SecureStorage')).default;
+          await SecureStorage.saveUserData(user);
+          await SecureStorage.saveTokens(tokens);
+          login(user, tokens);
+        }
         return;
       }
 
@@ -450,9 +499,7 @@ const RegisterScreen = () => {
         favoriteGyms: favoriteGymIds.length > 0 ? favoriteGymIds : undefined,
       });
 
-      if (!tokens) {
-        throw new Error('Kunne ikke fuldføre registrering.');
-      }
+      if (!tokens) throw new Error('Kunne ikke fuldføre registrering.');
       login(user, tokens);
     } catch (error: any) {
       Alert.alert('Registrering fejlede', error.message || 'Prøv igen.');

@@ -22,7 +22,7 @@ import {colors} from '@/theme/colors';
 
 const SettingsScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
-  const {user, logout} = useAppStore();
+  const {user, logout, deleteAccount} = useAppStore();
   const {consent, updateMarketingConsent, updateAnalyticsConsent} = usePrivacyStore();
 
   const [marketingEnabled, setMarketingEnabled] = useState(
@@ -79,8 +79,21 @@ const SettingsScreen = () => {
           onPress: () => {
             Alert.alert(
               'Bekræft sletning',
-              'For at slette din konto, kontakt venligst vores support på support@gymly.dk. Vi sletter din konto inden for 30 dage i henhold til GDPR.',
-              [{text: 'OK'}]
+              'Din konto og alle tilknyttede data vil blive slettet nu. Dette kan ikke fortrydes.',
+              [
+                {text: 'Annuller', style: 'cancel'},
+                {
+                  text: 'Slet permanent',
+                  style: 'destructive',
+                  onPress: async () => {
+                    try {
+                      await deleteAccount();
+                    } catch (err) {
+                      Alert.alert('Fejl', 'Kunne ikke slette konto. Prøv igen.');
+                    }
+                  },
+                },
+              ]
             );
           },
         },

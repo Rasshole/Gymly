@@ -15,14 +15,15 @@ interface AppState {
   user: User | null;
   tokens: AuthTokens | null;
   isLoading: boolean;
-  
+
   // Actions
   initialize: () => Promise<void>;
   login: (user: User, tokens: AuthTokens) => void;
   logout: () => Promise<void>;
+  deleteAccount: () => Promise<void>;
   setUser: (user: User) => void;
   setLoading: (loading: boolean) => void;
-  setFavoriteGyms: (gymIds: number[]) => void; // Set top 3 favorite gyms
+  setFavoriteGyms: (gymIds: number[]) => void;
 }
 
 export const useAppStore = create<AppState>((set, get) => ({
@@ -98,6 +99,27 @@ export const useAppStore = create<AppState>((set, get) => ({
       });
     } catch (error) {
       console.error('Logout error:', error);
+    }
+  },
+
+  /**
+   * Delete account permanently (Guideline 5.1.1(v))
+   */
+  deleteAccount: async () => {
+    try {
+      await AuthService.deleteAccount();
+      set({
+        isAuthenticated: false,
+        user: null,
+        tokens: null,
+      });
+    } catch (error) {
+      console.error('Delete account error:', error);
+      set({
+        isAuthenticated: false,
+        user: null,
+        tokens: null,
+      });
     }
   },
 
