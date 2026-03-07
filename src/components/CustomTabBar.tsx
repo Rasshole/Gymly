@@ -26,7 +26,7 @@ const tabLabels: Record<string, string> = {
 
 const CustomTabBar: React.FC<BottomTabBarProps> = ({state, descriptors, navigation}) => {
   const insets = useSafeAreaInsets();
-  const iconSize = 24;
+  const iconSize = 32;
 
   return (
     <View style={[styles.wrapper, {paddingBottom: Math.max(insets.bottom, 8)}]}>
@@ -58,21 +58,23 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({state, descriptors, navigati
               onPress={onPress}
               style={styles.tab}
               activeOpacity={0.7}>
-              {source && (
-                <Image
-                  source={source}
-                  style={[
-                    styles.icon,
-                    {width: iconSize, height: iconSize, opacity: isFocused ? 1 : 0.55},
-                  ]}
-                  resizeMode="contain"
-                />
-              )}
-              <Text
-                style={[styles.label, {color: isFocused ? colors.primary : colors.textMuted}]}
-                numberOfLines={1}>
-                {label}
-              </Text>
+              <View style={styles.tabContent}>
+                {source && (
+                  <Image
+                    source={source}
+                    style={[
+                      styles.icon,
+                      {width: iconSize, height: iconSize, opacity: isFocused ? 1 : 0.55},
+                    ]}
+                    resizeMode="contain"
+                  />
+                )}
+                <Text
+                  style={[styles.label, {color: isFocused ? colors.primary : colors.textMuted}]}
+                  numberOfLines={1}>
+                  {label}
+                </Text>
+              </View>
             </TouchableOpacity>
           );
         })}
@@ -103,12 +105,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  tabContent: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   icon: {
-    marginBottom: 4,
+    marginBottom: 2,
   },
   label: {
     fontSize: 10,
     fontWeight: '500',
+    textAlign: 'center',
   },
 });
 

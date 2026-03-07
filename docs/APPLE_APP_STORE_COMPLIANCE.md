@@ -12,7 +12,7 @@
 - **Registrering:** Bruger vælger Apple → Apple-auth kører → kun location, brugernavn, foto og privatliv vises
 - **Login:** Bruger trykker Apple → Apple-auth → direkte login
 
-**Supabase:** Tilføj dit App Bundle ID (fx `com.testlocal.Gymly`) til Client IDs under [Supabase Dashboard → Auth → Apple](https://supabase.com/dashboard/project/_/auth/providers).
+**Supabase:** Tilføj dit App Bundle ID (`com.testlocal.Gymly`) til Client IDs under [Supabase Dashboard → Auth → Apple](https://supabase.com/dashboard/project/_/auth/providers).
 
 ## Guideline 5.1.1(v) – Sletning af konto
 

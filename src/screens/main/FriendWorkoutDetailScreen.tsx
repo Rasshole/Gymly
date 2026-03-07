@@ -34,10 +34,9 @@ const FriendWorkoutDetailScreen = () => {
     useRoute<RouteProp<{params: FriendWorkoutDetailRouteParams}, 'params'>>();
   const {friendName, activeTime, gymName, muscleGroup} = route.params || {};
 
-  // Mock data - in real app, this would come from API
-  const workoutDuration = activeTime || '00:15:30';
-  const currentMuscleGroup = muscleGroup || 'Bryst & Triceps';
-  const currentGym = gymName || 'PureGym';
+  const workoutDuration = activeTime || '';
+  const currentMuscleGroup = muscleGroup || '';
+  const currentGym = gymName || '';
 
   return (
     <SafeAreaView style={styles.container}>

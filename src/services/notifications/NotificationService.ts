@@ -7,14 +7,7 @@
 import {useNotificationStore} from '@/store/notificationStore';
 import {DanishGym} from '@/data/danishGyms';
 
-// Mock friends list - in a real app, this would come from the backend
-const mockFriends = [
-  {id: '1', name: 'Jeff'},
-  {id: '2', name: 'Marie'},
-  {id: '3', name: 'Lars'},
-  {id: '4', name: 'Sofia'},
-  {id: '5', name: 'Patti'},
-];
+const friends: Array<{id: string; name: string}> = [];
 
 class NotificationService {
   private static simulationInterval: NodeJS.Timeout | null = null;
@@ -39,8 +32,8 @@ class NotificationService {
     const workoutText = musclesDescription || 'en træning';
     const recipients =
       friendIds && friendIds.length > 0
-        ? mockFriends.filter(friend => friendIds.includes(friend.id))
-        : mockFriends;
+        ? friends.filter(friend => friendIds.includes(friend.id))
+        : friends;
 
     recipients.forEach(friend => {
       addNotification({
@@ -103,7 +96,8 @@ class NotificationService {
    * This would normally be handled by the backend
    */
   static simulateRandomCheckIn() {
-    const randomFriend = mockFriends[Math.floor(Math.random() * mockFriends.length)];
+    if (friends.length === 0) return;
+    const randomFriend = friends[Math.floor(Math.random() * friends.length)];
     // Import dynamically to avoid circular dependencies
     import('@/data/danishGyms').then(module => {
       const danishGyms = module.default;

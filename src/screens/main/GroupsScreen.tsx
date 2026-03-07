@@ -52,136 +52,10 @@ type Group = {
   createdAt: Date;
 };
 
-// Mock friends for testing
-const mockFriends: Friend[] = [
-  {
-    id: '1',
-    name: 'Jeff',
-    isOnline: true,
-  },
-  {
-    id: '2',
-    name: 'Marie',
-    isOnline: false,
-  },
-  {
-    id: '3',
-    name: 'Lars',
-    isOnline: true,
-  },
-  {
-    id: '4',
-    name: 'Sofia',
-    isOnline: false,
-  },
-  {
-    id: '5',
-    name: 'Jens',
-    isOnline: true,
-  },
-  {
-    id: '6',
-    name: 'Mette',
-    isOnline: true,
-  },
-  {
-    id: '7',
-    name: 'Thomas',
-    isOnline: false,
-  },
-  {
-    id: '8',
-    name: 'Anne',
-    isOnline: true,
-  },
-  {
-    id: '9',
-    name: 'Peter',
-    isOnline: false,
-  },
-  {
-    id: '10',
-    name: 'Emma',
-    isOnline: true,
-  },
-];
-
-// Mock groups
-const mockGroups: Group[] = [
-  {
-    id: '1',
-    name: 'Weekend Warriors',
-    description: 'Vi træner sammen hver weekend og holder hinanden motiveret!',
-    biography: 'En gruppe for dem der elsker weekend træning. Vi holder hinanden motiveret og deler tips.',
-    isPrivate: false,
-    adminId: '1', // Jeff is admin
-    members: [
-      mockFriends[0], // Jeff
-      mockFriends[2], // Lars
-      mockFriends[1], // Marie
-      mockFriends[3], // Sofia
-      mockFriends[4], // Jens
-      mockFriends[5], // Mette
-      mockFriends[6], // Thomas
-    ],
-    totalWorkouts: 12,
-    totalTimeTogether: 1440, // 24 hours in minutes
-    createdAt: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000),
-  },
-  {
-    id: '2',
-    name: 'Morgenmotionister',
-    description: 'Træner hver morgen før arbejde. Kom og vær med!',
-    biography: 'Tidlig opstigning og træning før dagens første møde. Perfekt til dem der har travlt.',
-    isPrivate: true,
-    adminId: '5', // Jens is admin
-    members: [mockFriends[4], mockFriends[5], mockFriends[7]],
-    totalWorkouts: 25,
-    totalTimeTogether: 3120, // 52 hours in minutes
-    createdAt: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000),
-  },
-  {
-    id: '3',
-    name: 'Kraftstation',
-    description: 'Fokus på styrketræning og progression',
-    biography: 'Vi fokuserer på styrketræning, progression og hjælper hinanden med teknik.',
-    isPrivate: false,
-    adminId: '2', // Marie is admin
-    members: [mockFriends[1], mockFriends[6], mockFriends[9]],
-    totalWorkouts: 8,
-    totalTimeTogether: 960, // 16 hours in minutes
-    createdAt: new Date(Date.now() - 14 * 24 * 60 * 60 * 1000),
-  },
-  {
-    id: '4',
-    name: 'Crosstraining Crew',
-    description: 'Blandet træning med fokus på funktionalitet',
-    biography: 'Blandet træning for at blive stærkere og mere funktionel i hverdagen.',
-    isPrivate: false,
-    adminId: '4', // Sofia is admin
-    members: [mockFriends[3], mockFriends[8], mockFriends[9]],
-    totalWorkouts: 15,
-    totalTimeTogether: 1800, // 30 hours in minutes
-    createdAt: new Date(Date.now() - 21 * 24 * 60 * 60 * 1000),
-  },
-  {
-    id: '5',
-    name: 'Løbeklubben',
-    description: 'Løbetræning og maratonforberedelse',
-    biography: 'For løbere af alle niveauer. Vi træner til maraton og korte løb.',
-    isPrivate: false,
-    adminId: '5', // Jens is admin
-    members: [mockFriends[4], mockFriends[7]],
-    totalWorkouts: 30,
-    totalTimeTogether: 3600, // 60 hours in minutes
-    createdAt: new Date(Date.now() - 45 * 24 * 60 * 60 * 1000),
-  },
-];
-
 const GroupsScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
   const {user} = useAppStore();
-  const [groups, setGroups] = useState<Group[]>(mockGroups);
+  const [groups, setGroups] = useState<Group[]>([]);
   const [showCreateGroup, setShowCreateGroup] = useState(false);
   const [groupName, setGroupName] = useState('');
   const [groupBiography, setGroupBiography] = useState('');
@@ -192,40 +66,10 @@ const GroupsScreen = () => {
   const [friendSearchQuery, setFriendSearchQuery] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const friends: Friend[] = mockFriends;
+  const friends: Friend[] = [];
 
-  // Add current user to some groups on mount
   useEffect(() => {
-    if (user) {
-      const currentUserAsFriend: Friend = {
-        id: user.id,
-        name: user.displayName,
-        avatar: user.profileImageUrl,
-        isOnline: true,
-      };
-
-      setGroups(prevGroups => {
-        // Check if user is already in any groups
-        const userInGroups = prevGroups.some(group =>
-          group.members.some(member => member.id === user.id)
-        );
-
-        if (userInGroups) {
-          return prevGroups; // User already in groups
-        }
-
-        // Add user to first two groups
-        return prevGroups.map((group, index) => {
-          if (index < 2 && !group.members.some(m => m.id === user.id)) {
-            return {
-              ...group,
-              members: [...group.members, currentUserAsFriend],
-            };
-          }
-          return group;
-        });
-      });
-    }
+    // Groups hentes fra store/API
   }, [user]);
 
   // Filter and categorize groups
@@ -527,15 +371,13 @@ const GroupsScreen = () => {
                 onPress={handleGroupImagePick}
                 activeOpacity={0.7}>
                 {groupImage ? (
-                  <Image source={{uri: groupImage}} style={styles.groupImage} />
+                  <Image source={{uri: groupImage}} style={styles.groupImage} resizeMode="cover" />
                 ) : (
-                  <View style={styles.imagePlaceholder}>
-                    <Image
-                      source={require('@/assets/images/gymly-kettlebell.png')}
-                      style={{width: 56, height: 56}}
-                      resizeMode="contain"
-                    />
-                  </View>
+                  <Image
+                    source={require('@/assets/images/gymly-kettlebell.png')}
+                    style={styles.groupImageLogo}
+                    resizeMode="cover"
+                  />
                 )}
               </TouchableOpacity>
               <TouchableOpacity
@@ -695,7 +537,7 @@ const GroupsScreen = () => {
               style={styles.emptyButton}
               onPress={() => setShowCreateGroup(true)}
               activeOpacity={0.8}>
-              <Icon name="add-circle" size={20} color={colors.primary} />
+              <Icon name="add-circle" size={20} color="#fff" />
               <Text style={styles.emptyButtonText}>Opret første gruppe</Text>
             </TouchableOpacity>
           )}
@@ -998,7 +840,7 @@ const styles = StyleSheet.create({
   emptyButtonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: colors.secondary,
+    color: '#fff',
     marginLeft: 8,
   },
   createGroupContent: {
@@ -1013,20 +855,24 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   imagePickerWrapper: {
-    width: 120,
-    height: 120,
+    width: 140,
+    height: 140,
     position: 'relative',
   },
   imagePicker: {
-    width: 120,
-    height: 120,
-    borderRadius: 60,
+    width: 140,
+    height: 140,
+    borderRadius: 70,
     overflow: 'hidden',
     borderWidth: 2,
     borderColor: colors.border,
     borderStyle: 'dashed',
   },
   groupImage: {
+    width: '100%',
+    height: '100%',
+  },
+  groupImageLogo: {
     width: '100%',
     height: '100%',
   },
@@ -1039,11 +885,11 @@ const styles = StyleSheet.create({
   },
   imagePlusBadge: {
     position: 'absolute',
-    bottom: 0,
-    right: 0,
-    width: 32,
-    height: 32,
-    borderRadius: 16,
+    bottom: 4,
+    right: 4,
+    width: 36,
+    height: 36,
+    borderRadius: 18,
     backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',

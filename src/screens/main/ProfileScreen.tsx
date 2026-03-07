@@ -66,14 +66,7 @@ type ProfileScreenNavigationProp = StackNavigationProp<any>;
 
 type ProfileVisibility = 'everyone' | 'friends' | 'friends_and_gyms' | 'private';
 
-// Mock friends list for mentions
-const FRIENDS = [
-  {id: '1', name: 'Jeff'},
-  {id: '2', name: 'Marie'},
-  {id: '3', name: 'Lars'},
-  {id: '4', name: 'Sofia'},
-  {id: '5', name: 'Patti'},
-];
+const FRIENDS: Array<{id: string; name: string}> = [];
 
 // Component to render text with clickable mentions
 const RenderTextWithMentions = ({text, mentionedUsers, navigation}: {text: string; mentionedUsers?: string[]; navigation: any}) => {
@@ -140,27 +133,7 @@ interface WorkoutMedia {
   thumbnailUrl?: string;
 }
 
-const mockWorkoutMedia: WorkoutMedia[] = [
-  {
-    id: 'media_1',
-    type: 'photo',
-    url: 'https://via.placeholder.com/400x400?text=Workout+Photo+1',
-    workoutDate: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000),
-  },
-  {
-    id: 'media_2',
-    type: 'video',
-    url: 'https://via.placeholder.com/400x400?text=Workout+Video+1',
-    workoutDate: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000),
-    thumbnailUrl: 'https://via.placeholder.com/400x400?text=Video+Thumbnail',
-  },
-  {
-    id: 'media_3',
-    type: 'photo',
-    url: 'https://via.placeholder.com/400x400?text=Workout+Photo+2',
-    workoutDate: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000),
-  },
-];
+const mockWorkoutMedia: WorkoutMedia[] = [];
 
 const ProfileScreen = () => {
   const navigation = useNavigation<ProfileScreenNavigationProp>();
@@ -178,7 +151,7 @@ const ProfileScreen = () => {
   const [selectedStatsPeriod, setSelectedStatsPeriod] = useState<TimePeriod>('all');
   const [showProfileVisibilityPicker, setShowProfileVisibilityPicker] = useState(false);
   const [activeTab, setActiveTab] = useState<TabType>('feed');
-  const [activePRTab, setActivePRTab] = useState<'pr' | 'reps'>('pr');
+  const activePRTab = 'pr' as const;
   const [showWorkoutsInStats, setShowWorkoutsInStats] = useState(false);
   const [prModalVisible, setPrModalVisible] = useState(false);
   const [prStep, setPrStep] = useState<'select' | 'details'>('select');
@@ -217,10 +190,7 @@ const ProfileScreen = () => {
   const mostTrainedMuscleGroup = getMostTrainedMuscleGroup();
   
   // Calculate additional stats
-  const workoutTimeWithFriendsForPeriod = useMemo(() => {
-    // Mock: 30% of workout time is with friends
-    return Math.floor(workoutTimeForPeriod * 0.3);
-  }, [workoutTimeForPeriod]);
+  const workoutTimeWithFriendsForPeriod = useMemo(() => 0, []);
   
   const {workouts} = useWorkoutStore();
   
@@ -374,18 +344,7 @@ const ProfileScreen = () => {
     };
   }, [allPRs]);
 
-  // Helper function to get friends for workout (mock data)
-  const getWorkoutFriends = useMemo(() => {
-    // Mock: 30% of workouts have friends
-    return (workoutId: string) => {
-      // Simple hash to consistently determine if workout has friends
-      const hash = workoutId.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-      if (hash % 10 < 3) {
-        return ['Jeff', 'Marie'];
-      }
-      return [];
-    };
-  }, []);
+  const getWorkoutFriends = useMemo(() => () => [] as string[], []);
 
   // Handle profile visibility change
   const handleProfileVisibilityChange = (visibility: ProfileVisibility) => {
@@ -650,7 +609,7 @@ const ProfileScreen = () => {
             onPress={() => setActiveTab('prs')}
             activeOpacity={0.7}>
             <Text style={[styles.tabText, activeTab === 'prs' && styles.tabTextActive]}>
-              PR's & Reps
+              PR's
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -726,60 +685,26 @@ const ProfileScreen = () => {
           </View>
         )}
 
-        {/* PR's & Reps Tab Content */}
+        {/* PR's Tab Content */}
         {activeTab === 'prs' && (
           <View style={styles.prsContainer}>
-            {/* PR's & Reps Sub-tabs */}
             <View style={styles.prsTabsHeader}>
               <View style={styles.prsTabsContainer}>
-                <TouchableOpacity
-                  style={[styles.prsTab, activePRTab === 'pr' && styles.prsTabActive]}
-                  onPress={() => setActivePRTab('pr')}
-                  activeOpacity={0.7}>
-                  <Icon
-                    name="trophy"
-                    size={18}
-                    color={activePRTab === 'pr' ? colors.primary : '#8E8E93'}
-                  />
-                  <Text
-                    style={[
-                      styles.prsTabText,
-                      activePRTab === 'pr' && styles.prsTabTextActive,
-                    ]}>
-                    PR's
-                  </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={[styles.prsTab, activePRTab === 'reps' && styles.prsTabActive]}
-                  onPress={() => setActivePRTab('reps')}
-                  activeOpacity={0.7}>
-                  <Icon
-                    name="barbell"
-                    size={18}
-                    color={activePRTab === 'reps' ? colors.primary : '#8E8E93'}
-                  />
-                  <Text
-                    style={[
-                      styles.prsTabText,
-                      activePRTab === 'reps' && styles.prsTabTextActive,
-                    ]}>
-                    Reps
-                  </Text>
-                </TouchableOpacity>
+                <View style={[styles.prsTab, styles.prsTabActive]}>
+                  <Icon name="trophy" size={18} color={colors.primary} />
+                  <Text style={[styles.prsTabText, styles.prsTabTextActive]}>PR's</Text>
+                </View>
               </View>
-              {activePRTab === 'pr' && (
-                <TouchableOpacity
-                  style={styles.prAddButton}
-                  onPress={handleOpenPrModal}
-                  activeOpacity={0.7}>
-                  <Icon name="add-circle" size={28} color={colors.primary} />
-                </TouchableOpacity>
-              )}
+              <TouchableOpacity
+                style={styles.prAddButton}
+                onPress={handleOpenPrModal}
+                activeOpacity={0.7}>
+                <Icon name="add-circle" size={28} color={colors.primary} />
+              </TouchableOpacity>
             </View>
 
             {/* PR's Content */}
-            {activePRTab === 'pr' ? (
-              allPRs.length > 0 ? (
+            {allPRs.length > 0 ? (
                 <View>
                   {allPRs.map((pr: PersonalRecord) => (
                     <View key={pr.id} style={styles.prsCard}>
@@ -831,35 +756,7 @@ const ProfileScreen = () => {
                     Du har ikke sat nogen personlige rekorder endnu.
                   </Text>
                 </View>
-              )
-            ) : allRepRecords.length > 0 ? (
-              <View>
-                {allRepRecords.map((rep: RepRecord) => (
-                  <View key={rep.id} style={styles.prsCard}>
-                    <Text style={styles.prsExerciseName}>{rep.exercise}</Text>
-                    <View style={styles.prsWeightContainer}>
-                      <Text style={styles.prsWeightValue}>{rep.weight}</Text>
-                      <Text style={styles.prsWeightUnit}>kg</Text>
-                    </View>
-                    <Text style={styles.prsDateText}>
-                      Opdateret {new Date(rep.date instanceof Date ? rep.date : new Date(rep.date)).toLocaleDateString('da-DK', {
-                        day: 'numeric',
-                        month: 'long',
-                        year: 'numeric',
-                      })}
-                    </Text>
-                  </View>
-                ))}
-              </View>
-            ) : (
-              <View style={styles.prsEmptyContainer}>
-                <Icon name="barbell-outline" size={64} color="#C7C7CC" />
-                <Text style={styles.prsEmptyTitle}>Ingen Reps registreret</Text>
-                <Text style={styles.prsEmptyText}>
-                  Du har ikke registreret nogen rep records endnu.
-                </Text>
-              </View>
-            )}
+              )}
           </View>
         )}
 

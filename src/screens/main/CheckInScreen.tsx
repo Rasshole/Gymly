@@ -79,13 +79,7 @@ type Friend = {
   isOnline: boolean;
 };
 
-const FRIENDS: Friend[] = [
-  {id: '1', name: 'Jeff', initials: 'J', isOnline: true},
-  {id: '2', name: 'Marie', initials: 'M', isOnline: false},
-  {id: '3', name: 'Lars', initials: 'L', isOnline: true},
-  {id: '4', name: 'Sofia', initials: 'S', isOnline: true},
-  {id: '5', name: 'Patti', initials: 'P', isOnline: false},
-];
+const FRIENDS: Friend[] = [];
 
 type ActiveCenterUser = {
   id: string;
@@ -94,13 +88,7 @@ type ActiveCenterUser = {
   muscles: MuscleGroup[];
 };
 
-const ACTIVE_CENTER_USERS_PLACEHOLDER: ActiveCenterUser[] = [
-  {id: '1', name: 'Patrick', durationMinutes: 45, muscles: ['bryst', 'triceps']},
-  {id: '2', name: 'Marie', durationMinutes: 32, muscles: ['ben', 'ryg']},
-  {id: '3', name: 'Lars', durationMinutes: 18, muscles: ['skulder', 'mave']},
-  {id: '4', name: 'Sofia', durationMinutes: 55, muscles: ['biceps', 'ryg']},
-  {id: '5', name: 'Thomas', durationMinutes: 28, muscles: ['hele_kroppen']},
-];
+const ACTIVE_CENTER_USERS_PLACEHOLDER: ActiveCenterUser[] = [];
 
 type DetectionStatus = 'searching' | 'found' | 'missing';
 type PendingSession = {gym: DanishGym; muscles: MuscleGroup[]};

@@ -25,43 +25,10 @@ interface GymState {
   addRating: (rating: Omit<GymRating, 'createdAt'>) => void;
 }
 
-// Mock data for demonstration
-// Generate random active users for many gyms to make it visible
-// We'll generate for first 200 gyms with varying activity levels
-const mockActivities: GymActivity[] = Array.from({length: 200}, (_, i) => {
-  // Some gyms have no active users, some have many
-  const hasActivity = Math.random() > 0.3; // 70% chance of having active users
-  return {
-    gymId: i + 1,
-    activeUsers: hasActivity ? Math.floor(Math.random() * 25) + 1 : 0, // Random between 1-25 or 0
-    activeUserIds: [],
-  };
-});
-
-const mockCheckIns: GymCheckIn[] = [
-  {
-    id: '1',
-    userId: 'current_user',
-    gymId: 1,
-    checkInTime: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000), // 7 days ago
-    checkOutTime: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000 + 60 * 60 * 1000),
-  },
-  {
-    id: '2',
-    userId: 'current_user',
-    gymId: 1,
-    checkInTime: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000), // 3 days ago
-    checkOutTime: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000 + 90 * 60 * 1000),
-  },
-];
-
-const mockRatings: GymRating[] = [
-  {gymId: 1, userId: 'user1', rating: 5, comment: 'Fantastisk center!', createdAt: new Date()},
-  {gymId: 1, userId: 'user2', rating: 4, comment: 'Godt udstyr', createdAt: new Date()},
-  {gymId: 1, userId: 'user3', rating: 5, createdAt: new Date()},
-  {gymId: 1, userId: 'user4', rating: 4, createdAt: new Date()},
-  {gymId: 1, userId: 'user5', rating: 5, createdAt: new Date()},
-];
+// Ingen mock data – tomme arrays indtil rigtige data hentes
+const mockActivities: GymActivity[] = [];
+const mockCheckIns: GymCheckIn[] = [];
+const mockRatings: GymRating[] = [];
 
 // Mock gym hours - most gyms are open 6:00-22:00 on weekdays, 8:00-20:00 on weekends
 const mockHours: GymHours[] = [
@@ -276,13 +243,7 @@ export const useGymStore = create<GymState>((set, get) => ({
   getActiveUsersCount: (gymId) => {
     const state = get();
     const activity = state.activities.find((activity) => activity.gymId === gymId);
-    // If no activity found in mock data, return a random number for demonstration
-    if (!activity) {
-      // Generate a consistent random number based on gymId for demo purposes
-      const seed = gymId * 12345;
-      return (seed % 20) + (seed % 3 === 0 ? 0 : 1); // Some gyms have 0, most have 1-20
-    }
-    return activity.activeUsers;
+    return activity?.activeUsers ?? 0;
   },
 
   /**

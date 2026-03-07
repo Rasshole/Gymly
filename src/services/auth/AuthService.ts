@@ -385,6 +385,7 @@ class AuthService {
           appleAuth.Scope.FULL_NAME,
           appleAuth.Scope.EMAIL,
         ],
+        nonceEnabled: false, // Supabase nonce mismatch: id_token must not contain nonce when we don't pass one
       });
 
       if (!credential.identityToken) {

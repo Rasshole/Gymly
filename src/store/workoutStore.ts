@@ -249,14 +249,9 @@ export const useWorkoutStore = create<WorkoutState>((set, get) => ({
     return mostTrained[0];
   },
 
-  /**
-   * Get number of workouts done with friends
-   * For now, we'll use a mock calculation - in real app this would check for group workouts
-   */
   getWorkoutsWithFriends: () => {
     const state = get();
-    // Mock: Assume 30% of workouts are with friends
-    return Math.floor(state.workouts.length * 0.3);
+    return 0; // Hentes fra rigtige gruppetræningsdata
   },
 
   /**
@@ -322,7 +317,7 @@ export const useWorkoutStore = create<WorkoutState>((set, get) => ({
       }
       case 'all':
       default:
-        return Math.floor(state.workouts.length * 0.3);
+        return 0;
     }
     
     const endDate = new Date(now);
@@ -332,8 +327,7 @@ export const useWorkoutStore = create<WorkoutState>((set, get) => ({
       w => w.startTime >= startDate && w.startTime <= endDate
     );
     
-    // Mock: Assume 30% of workouts are with friends
-    return Math.floor(periodWorkouts.length * 0.3);
+    return 0; // Hentes fra rigtige gruppetræningsdata
   },
 }));
 

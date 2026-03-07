@@ -25,26 +25,6 @@ import {useAppStore} from '@/store/appStore';
 import {getGymLogo, hasGymLogo} from '@/utils/gymLogos';
 import {colors} from '@/theme/colors';
 
-// Mock data for active users modal (matches CentresScreen)
-const MOCK_ACTIVE_NAMES = [
-  'Jeff', 'Marie', 'Lars', 'Sofia', 'Anders', 'Emma', 'Mikkel', 'Line',
-  'Thomas', 'Anna', 'Jonas', 'Camilla', 'Henrik', 'Nina', 'Peter', 'Sarah',
-];
-const MOCK_DURATIONS = [12, 45, 8, 67, 23, 90, 15, 34, 52, 19, 78, 5, 41, 28, 95, 11];
-
-// Friends at specific gyms (for "ven" badge)
-const MOCK_FRIENDS_AT_GYMS: {gymId: number; name: string}[] = [
-  {gymId: 497381657, name: 'Jeff'}, {gymId: 497381657, name: 'Sofia'}, {gymId: 497381657, name: 'Line'},
-  {gymId: 898936694, name: 'Lars'}, {gymId: 898936694, name: 'Emma'},
-  {gymId: 1112453804, name: 'Anders'}, {gymId: 1112453804, name: 'Thomas'},
-  {gymId: 1141433639, name: 'Mikkel'},
-  {gymId: 4878979931, name: 'Anna'}, {gymId: 4878979931, name: 'Jonas'}, {gymId: 4878979931, name: 'Camilla'},
-  {gymId: 12914892503, name: 'Lars'}, {gymId: 12914892503, name: 'Sofia'}, // Destination Skagen Gym
-  {gymId: 7717864185, name: 'Marie'}, {gymId: 7717864185, name: 'Thomas'}, // Thyborøn Motionscenter
-  {gymId: 7800664320, name: 'Jeff'}, {gymId: 7800664320, name: 'Emma'}, // Loop Thisted
-  {gymId: 10812600028, name: 'Jeff'}, {gymId: 10812600028, name: 'Lars'}, // Gym & Fit 4 u Thisted
-];
-
 const formatDuration = (minutes: number): string => {
   if (minutes < 60) return `${minutes} min`;
   const h = Math.floor(minutes / 60);
@@ -52,17 +32,8 @@ const formatDuration = (minutes: number): string => {
   return m > 0 ? `${h}t ${m} min` : `${h}t`;
 };
 
-const getMockActiveUsers = (count: number, gymId: number) => {
-  const friendNames = new Set(
-    MOCK_FRIENDS_AT_GYMS.filter(f => f.gymId === gymId).map(f => f.name)
-  );
-  return Array.from({length: count}, (_, i) => ({
-    id: `active-${i}`,
-    name: MOCK_ACTIVE_NAMES[i % MOCK_ACTIVE_NAMES.length],
-    durationMinutes: MOCK_DURATIONS[i % MOCK_DURATIONS.length],
-    isFriend: friendNames.has(MOCK_ACTIVE_NAMES[i % MOCK_ACTIVE_NAMES.length]),
-  }));
-};
+type ActiveUser = { id: string; name: string; durationMinutes: number; isFriend?: boolean };
+const getActiveUsers = (_count: number, _gymId: number): ActiveUser[] => [];
 
 type GymDetailScreenProps = {
   route: {
@@ -339,7 +310,7 @@ const GymDetailScreen = () => {
               </TouchableOpacity>
             </View>
             <FlatList
-              data={getMockActiveUsers(activeUsers, gymId)}
+              data={getActiveUsers(activeUsers, gymId)}
               keyExtractor={(item) => item.id}
               style={styles.modalList}
               renderItem={({item}) => (

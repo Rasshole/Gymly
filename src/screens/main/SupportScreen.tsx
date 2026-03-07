@@ -49,13 +49,13 @@ const SupportScreen = () => {
     } else if (lowerMessage.includes('venn') || lowerMessage.includes('friend')) {
       return 'Du kan tilføje venner ved at gå til "Online" fanen og søge efter brugere. Tryk på deres profil for at sende en venneanmodning.';
     } else if (lowerMessage.includes('pr') || lowerMessage.includes('rekord')) {
-      return 'For at tilføje en PR, gå til din profil, tryk på "Dine PR\'s og Reps" og vælg "PR\'s" fanen. Tryk derefter på plus-ikonet for at tilføje en ny PR.';
+      return 'For at tilføje en PR, gå til din profil, tryk på "PR\'s" fanen og derefter på plus-ikonet for at tilføje en ny PR.';
     } else if (lowerMessage.includes('gruppe') || lowerMessage.includes('group')) {
       return 'Du kan oprette eller deltage i grupper ved at gå til "Grupper" fanen. Her kan du søge efter grupper eller oprette din egen.';
     } else if (lowerMessage.includes('indstilling') || lowerMessage.includes('setting')) {
       return 'Du kan tilgå indstillinger ved at trykke på tandhjulet i venstre hjørne af header\'en. Her kan du ændre dit email, privatlivsindstillinger og meget mere.';
     } else if (lowerMessage.includes('hej') || lowerMessage.includes('hello') || lowerMessage.includes('hjælp')) {
-      return 'Hej! Jeg kan hjælpe dig med spørgsmål om:\n• Check-in på gym\n• Tilføje venner\n• PR\'s og Reps\n• Grupper\n• Indstillinger\n\nHvad vil du gerne vide mere om?';
+      return 'Hej! Jeg kan hjælpe dig med spørgsmål om:\n• Check-in på gym\n• Tilføje venner\n• PR\'s\n• Grupper\n• Indstillinger\n\nHvad vil du gerne vide mere om?';
     } else {
       return 'Tak for dit spørgsmål! Jeg arbejder på at forbedre mine svar. For nu kan jeg hjælpe med spørgsmål om check-in, venner, PR\'s, grupper og indstillinger. Prøv at spørge om et af disse emner.';
     }

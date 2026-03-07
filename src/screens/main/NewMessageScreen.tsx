@@ -23,14 +23,6 @@ import {useGroupStore, CURRENT_USER_PLACEHOLDER_ID, GymlyGroup} from '@/store/gr
 import {useAppStore} from '@/store/appStore';
 import {colors} from '@/theme/colors';
 
-// Mock friends list - in a real app, this would come from the backend
-const mockFriends = [
-  {id: '1', name: 'Jeff', avatar: null},
-  {id: '2', name: 'Marie', avatar: null},
-  {id: '3', name: 'Lars', avatar: null},
-  {id: '4', name: 'Sofia', avatar: null},
-];
-
 const NewMessageScreen = ({navigation}: any) => {
   const {getChatByParticipants, addChat, initializeChatMessages} = useChatStore();
   const {groups} = useGroupStore();
@@ -66,7 +58,8 @@ const NewMessageScreen = ({navigation}: any) => {
     [currentUserId, currentUserName],
   );
 
-  const filteredFriends = mockFriends.filter(
+  const friends: Array<{id: string; name: string; avatar: string | null}> = [];
+  const filteredFriends = friends.filter(
     friend =>
       friend.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
       !selectedFriends.includes(friend.id),
@@ -147,7 +140,7 @@ const NewMessageScreen = ({navigation}: any) => {
     }
 
     // Handle friend chat
-    const friendObjects = mockFriends.filter(friend =>
+    const friendObjects = friends.filter(friend =>
       selectedFriends.includes(friend.id),
     );
 
@@ -319,7 +312,7 @@ const handleSearchFocus = () => {
                   </View>
                 )}
                 {selectedFriends.map(friendId => {
-                  const friend = mockFriends.find(f => f.id === friendId);
+                  const friend = friends.find(f => f.id === friendId);
                   if (!friend) {
                     return null;
                   }

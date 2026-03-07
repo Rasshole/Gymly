@@ -37,26 +37,8 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 type HomeScreenNavigationProp = StackNavigationProp<any>;
 
-// Mock friends list for mentions
-const FRIENDS = [
-  {id: '1', name: 'Jeff'},
-  {id: '2', name: 'Marie'},
-  {id: '3', name: 'Lars'},
-  {id: '4', name: 'Sofia'},
-  {id: '5', name: 'Patti'},
-  {id: '6', name: 'Thomas'},
-  {id: '7', name: 'Emma'},
-  {id: '8', name: 'Mikkel'},
-];
-
-// Mock most frequently messaged friends (top 5 suggestions)
-const MOST_FREQUENT_FRIENDS = [
-  {id: '2', name: 'Marie', lastMessage: '33m'},
-  {id: '3', name: 'Lars', lastMessage: '19m'},
-  {id: '1', name: 'Jeff', lastMessage: '8m'},
-  {id: '4', name: 'Sofia', lastMessage: '2t'},
-  {id: '5', name: 'Patti', lastMessage: '1d'},
-];
+const FRIENDS: Array<{id: string; name: string}> = [];
+const MOST_FREQUENT_FRIENDS: Array<{id: string; name: string; lastMessage?: string}> = [];
 
 // Component to render text with clickable mentions
 const RenderTextWithMentions = ({text, mentionedUsers, navigation}: {text: string; mentionedUsers?: string[]; navigation: any}) => {
@@ -404,14 +386,7 @@ const HomeScreen = () => {
     };
   }, []);
 
-  const activeFriends = useMemo(
-    () => [
-      {id: '1', name: 'Patrick', gym: 'SATS KBH Valby', startTimestamp: now - 23 * 60000, focus: 'Bryst & Triceps'},
-      {id: '2', name: 'Marie', gym: 'PureGym Lygten', startTimestamp: now - 45 * 60000, focus: 'Ben & Ryg'},
-      {id: '3', name: 'Lars', gym: 'SATS KBH Adelgade', startTimestamp: now - 12 * 60000, focus: 'Skulder'},
-    ],
-    [now],
-  );
+  const activeFriends = useMemo(() => [], []);
 
   const upcomingSessions = useMemo(
     () => [
@@ -512,67 +487,7 @@ const HomeScreen = () => {
     });
   };
 
-  const suggestedFriends = useMemo(
-    () => [
-      {
-        id: 'suggest_1',
-        name: 'Lars',
-        avatar: null,
-        mutualFriends: 3,
-        gyms: ['PureGym Fields', 'Repeat Fitness'],
-      },
-      {
-        id: 'suggest_2',
-        name: 'Sofia',
-        avatar: null,
-        mutualFriends: 5,
-        gyms: ['Urban Gym', 'PureGym Vanløse'],
-      },
-      {
-        id: 'suggest_3',
-        name: 'Thomas',
-        avatar: null,
-        mutualFriends: 2,
-        gyms: ['Repeat Fitness Nørrebro'],
-      },
-      {
-        id: 'suggest_4',
-        name: 'Emma',
-        avatar: null,
-        mutualFriends: 4,
-        gyms: ['PureGym Fields', 'Urban Gym'],
-      },
-      {
-        id: 'suggest_5',
-        name: 'Mikkel',
-        avatar: null,
-        mutualFriends: 1,
-        gyms: ['Repeat Fitness Frederiksberg'],
-      },
-      {
-        id: 'suggest_6',
-        name: 'Anna',
-        avatar: null,
-        mutualFriends: 6,
-        gyms: ['PureGym Vanløse', 'Urban Gym'],
-      },
-      {
-        id: 'suggest_7',
-        name: 'Oliver',
-        avatar: null,
-        mutualFriends: 3,
-        gyms: ['Repeat Fitness Nørrebro', 'PureGym Fields'],
-      },
-      {
-        id: 'suggest_8',
-        name: 'Ida',
-        avatar: null,
-        mutualFriends: 2,
-        gyms: ['Urban Gym Christianshavn'],
-      },
-    ],
-    [],
-  );
+  const suggestedFriends = useMemo(() => [], []);
 
   type Particle = {
     opacity: Animated.Value;
@@ -1140,60 +1055,66 @@ const HomeScreen = () => {
           <Text style={styles.subtitle}>Klar til at træne i dag?</Text>
         </View>
 
-        {/* Active Friends */}
+        {/* Active Friends - vis altid boksen */}
         <TouchableOpacity
           style={[styles.activeFriendsCard, {marginHorizontal: 16}]}
           activeOpacity={0.85}
-          onPress={() => setActivityModalVisible(true)}>
+          onPress={() => activeFriends.length > 0 && setActivityModalVisible(true)}>
           <View style={styles.activeCardHeader}>
             <View>
               <Text style={styles.activeTitle}>Venner i gym lige nu</Text>
-              <Text style={styles.activeSubtitleText}>Tryk for at se flere detaljer</Text>
-          </View>
-            <View style={styles.activeCountBadge}>
-              <Text style={styles.activeCountText}>{activeCount}</Text>
-          </View>
-          </View>
-          <View style={styles.activeFriendPreviewRow}>
-            {activeFriends.slice(0, 3).map(friend => (
-              <View key={friend.id} style={styles.activeFriendPreview}>
-                <View style={styles.activeFriendAvatar}>
-                  <Text style={styles.activeFriendAvatarText}>{friend.name.charAt(0)}</Text>
-                </View>
-                <View style={styles.activeFriendInfo}>
-                  <Text style={styles.activeFriendName}>{friend.name}</Text>
-                  <Text style={styles.activeFriendMeta}>
-                    {friend.gym} • {formatActiveDuration(friend.startTimestamp)}
-                  </Text>
-                  <View style={styles.activeFriendMuscleGroups}>
-                    {getMuscleGroupsFromFocus(friend.focus).map((muscleGroup, idx) => (
-                      <Image
-                        key={idx}
-                        source={getMuscleGroupImage(muscleGroup)}
-                        style={styles.activeFriendMuscleIcon}
-                        resizeMode="contain"
-                      />
-                    ))}
-                  </View>
-                </View>
-                <TouchableOpacity
-                  style={[
-                    styles.joinBadge,
-                    activeJoinRequests.includes(friend.id) && styles.joinBadgeDisabled,
-                  ]}
-                  onPress={() => handleJoinActive(friend.name, friend.id)}
-                  activeOpacity={0.8}>
-                  <Text
-                    style={[
-                      styles.joinBadgeText,
-                      activeJoinRequests.includes(friend.id) && styles.joinBadgeTextDisabled,
-                    ]}>
-                    {activeJoinRequests.includes(friend.id) ? 'Anmodet' : 'Deltag'}
-                  </Text>
-                </TouchableOpacity>
+              <Text style={styles.activeSubtitleText}>
+                {activeFriends.length > 0 ? 'Tryk for at se flere detaljer' : 'Ingen venner aktive'}
+              </Text>
+            </View>
+            {activeFriends.length > 0 && (
+              <View style={styles.activeCountBadge}>
+                <Text style={styles.activeCountText}>{activeCount}</Text>
               </View>
-            ))}
+            )}
           </View>
+          {activeFriends.length > 0 ? (
+            <View style={styles.activeFriendPreviewRow}>
+              {activeFriends.slice(0, 3).map(friend => (
+                <View key={friend.id} style={styles.activeFriendPreview}>
+                  <View style={styles.activeFriendAvatar}>
+                    <Text style={styles.activeFriendAvatarText}>{friend.name.charAt(0)}</Text>
+                  </View>
+                  <View style={styles.activeFriendInfo}>
+                    <Text style={styles.activeFriendName}>{friend.name}</Text>
+                    <Text style={styles.activeFriendMeta}>
+                      {friend.gym} • {formatActiveDuration(friend.startTimestamp)}
+                    </Text>
+                    <View style={styles.activeFriendMuscleGroups}>
+                      {getMuscleGroupsFromFocus(friend.focus).map((muscleGroup, idx) => (
+                        <Image
+                          key={idx}
+                          source={getMuscleGroupImage(muscleGroup)}
+                          style={styles.activeFriendMuscleIcon}
+                          resizeMode="contain"
+                        />
+                      ))}
+                    </View>
+                  </View>
+                  <TouchableOpacity
+                    style={[
+                      styles.joinBadge,
+                      activeJoinRequests.includes(friend.id) && styles.joinBadgeDisabled,
+                    ]}
+                    onPress={() => handleJoinActive(friend.name, friend.id)}
+                    activeOpacity={0.8}>
+                    <Text
+                      style={[
+                        styles.joinBadgeText,
+                        activeJoinRequests.includes(friend.id) && styles.joinBadgeTextDisabled,
+                      ]}>
+                      {activeJoinRequests.includes(friend.id) ? 'Anmodet' : 'Deltag'}
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              ))}
+            </View>
+          ) : null}
         </TouchableOpacity>
 
         {/* Feed */}
@@ -1459,8 +1380,9 @@ const HomeScreen = () => {
           })}
         </React.Fragment>
 
-        {/* Suggested Friends Section */}
-        <View style={styles.suggestedFriendsCard}>
+        {/* Suggested Friends - kun ægte brugere */}
+        {suggestedFriends.length > 0 && (
+          <View style={styles.suggestedFriendsCard}>
             <Text style={styles.suggestedFriendsTitle}>Forslåede venner</Text>
             <FlatList
               data={suggestedFriends}
@@ -1484,7 +1406,7 @@ const HomeScreen = () => {
                     </View>
                     <Text style={styles.suggestedFriendName} numberOfLines={1}>
                       {item.name}
-          </Text>
+                    </Text>
                     <Text style={styles.suggestedFriendMutual}>
                       {item.mutualFriends} fælles venner
                     </Text>
@@ -1517,13 +1439,14 @@ const HomeScreen = () => {
                           isAdded && styles.suggestedFriendAddTextAdded,
                         ]}>
                         {isAdded ? 'Tilføjet' : 'Tilføj'}
-          </Text>
+                      </Text>
                     </TouchableOpacity>
                   </TouchableOpacity>
                 );
               }}
             />
-        </View>
+          </View>
+        )}
 
       </ScrollView>
 

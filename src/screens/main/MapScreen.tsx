@@ -36,7 +36,6 @@ type OnlineUser = {
   longitude: number;
 };
 
-// Mock friends for counting online friends
 type Friend = {
   id: string;
   name: string;
@@ -44,20 +43,7 @@ type Friend = {
   gymId?: number;
 };
 
-const mockFriends: Friend[] = [
-  {id: '1', name: 'Jeff', isOnline: true, gymId: 497381657}, // SATS KBH - Valby
-  {id: '2', name: 'Marie', isOnline: false},
-  {id: '3', name: 'Lars', isOnline: true, gymId: 898936694}, // SATS KBH - Adelgade
-  {id: '4', name: 'Sofia', isOnline: true, gymId: 497381657}, // SATS KBH - Valby
-  {id: '5', name: 'Anders', isOnline: true, gymId: 1112453804}, // PureGym Lygten
-  {id: '6', name: 'Emma', isOnline: true, gymId: 898936694}, // SATS KBH - Adelgade
-  {id: '7', name: 'Mikkel', isOnline: true, gymId: 1141433639}, // PureGym Esromgade
-  {id: '8', name: 'Line', isOnline: true, gymId: 497381657}, // SATS KBH - Valby
-  {id: '9', name: 'Thomas', isOnline: true, gymId: 1112453804}, // PureGym Lygten
-  {id: '10', name: 'Anna', isOnline: true, gymId: 4878979931}, // SATS KBH - Vesterport
-  {id: '11', name: 'Jonas', isOnline: true, gymId: 4878979931}, // SATS KBH - Vesterport
-  {id: '12', name: 'Camilla', isOnline: true, gymId: 4878979931}, // SATS KBH - Vesterport
-];
+const friends: Friend[] = [];
 
 // Calculate distance between two coordinates in kilometers (Haversine formula)
 const calculateDistance = (
@@ -231,7 +217,7 @@ const MapScreen = () => {
     (sum, gym) => sum + getActiveUsersCount(gym.id),
     0,
   );
-  const friendsOnline = mockFriends.filter(friend => friend.isOnline).length;
+  const friendsOnline = friends.filter(friend => friend.isOnline).length;
 
   // Always start in Copenhagen, Sjælland
   const initialRegion: Region = {
@@ -279,7 +265,7 @@ const MapScreen = () => {
     const hasLogo = hasGymLogo(gym.brand);
     
     // Count active friends at this gym
-    const activeFriendsCount = mockFriends.filter(
+    const activeFriendsCount = friends.filter(
       friend => friend.isOnline && friend.gymId === gym.id
     ).length;
     const hasActiveFriends = activeFriendsCount > 0;
@@ -564,7 +550,7 @@ const MapScreen = () => {
           )}
           {userLocation && (
             <View style={styles.distanceInfo}>
-              <Icon name="location" size={16} color={colors.primary} />
+              <Icon name="location" size={16} color="#007AFF" />
               <Text style={styles.distanceText}>{getDistanceText(selectedGym)} væk</Text>
             </View>
           )}
@@ -575,12 +561,12 @@ const MapScreen = () => {
               {getActiveUsersCount(selectedGym.id) === 1 ? 'person' : 'personer'} aktive
             </Text>
           </View>
-          {mockFriends.filter(f => f.isOnline && f.gymId === selectedGym.id).length > 0 && (
+          {friends.filter(f => f.isOnline && f.gymId === selectedGym.id).length > 0 && (
             <View style={styles.userInfo}>
               <Icon name="person" size={16} color={colors.primary} />
               <Text style={[styles.userInfoText, {color: colors.primary}]}>
-                {mockFriends.filter(f => f.isOnline && f.gymId === selectedGym.id).length}{' '}
-                {mockFriends.filter(f => f.isOnline && f.gymId === selectedGym.id).length === 1 ? 'ven' : 'venner'}
+                {friends.filter(f => f.isOnline && f.gymId === selectedGym.id).length}{' '}
+                {friends.filter(f => f.isOnline && f.gymId === selectedGym.id).length === 1 ? 'ven' : 'venner'}
               </Text>
             </View>
           )}
@@ -595,7 +581,7 @@ const MapScreen = () => {
               }
             }}>
             <Text style={styles.viewDetailsText}>Se detaljer</Text>
-            <Icon name="chevron-forward" size={16} color="#007AFF" />
+            <Icon name="chevron-forward" size={16} color="#fff" />
           </TouchableOpacity>
         </View>
       )}
@@ -613,7 +599,7 @@ const MapScreen = () => {
             renderItem={({item: gym}) => {
               const logoUrl = getGymLogo(gym.brand);
               const hasLogo = hasGymLogo(gym.brand);
-              const activeFriends = mockFriends.filter(f => f.isOnline && f.gymId === gym.id).length;
+              const activeFriends = friends.filter(f => f.isOnline && f.gymId === gym.id).length;
               
               return (
                 <TouchableOpacity
@@ -685,10 +671,8 @@ const MapScreen = () => {
           <View style={styles.centersBarDivider} />
           <View style={styles.centersBarContent}>
             <View style={styles.centersBarHandle} />
-            <Icon name="location" size={18} color={colors.primary} style={styles.centersBarIcon} />
-            <Text style={styles.centersBarText}>
-              I Nærheden
-            </Text>
+            <Icon name="location" size={18} color="#007AFF" style={styles.centersBarIcon} />
+            <Text style={styles.centersBarText}>I Nærheden</Text>
           </View>
         </View>
       )}
@@ -769,12 +753,12 @@ const MapScreen = () => {
                               {getActiveUsersCount(gym.id) === 1 ? 'person' : 'personer'} aktive
                             </Text>
                           </View>
-                          {mockFriends.filter(f => f.isOnline && f.gymId === gym.id).length > 0 && (
+                          {friends.filter(f => f.isOnline && f.gymId === gym.id).length > 0 && (
                             <View style={styles.activityRow}>
                               <Icon name="person" size={14} color={colors.primary} />
                               <Text style={[styles.activityText, {color: colors.primary}]}>
-                                {mockFriends.filter(f => f.isOnline && f.gymId === gym.id).length}{' '}
-                                {mockFriends.filter(f => f.isOnline && f.gymId === gym.id).length === 1 ? 'ven' : 'venner'}
+                                {friends.filter(f => f.isOnline && f.gymId === gym.id).length}{' '}
+                                {friends.filter(f => f.isOnline && f.gymId === gym.id).length === 1 ? 'ven' : 'venner'}
                               </Text>
                             </View>
                           )}
@@ -832,12 +816,12 @@ const MapScreen = () => {
                               {getActiveUsersCount(gym.id) === 1 ? 'person' : 'personer'} aktive
                             </Text>
                           </View>
-                          {mockFriends.filter(f => f.isOnline && f.gymId === gym.id).length > 0 && (
+                          {friends.filter(f => f.isOnline && f.gymId === gym.id).length > 0 && (
                             <View style={styles.activityRow}>
                               <Icon name="person" size={14} color={colors.primary} />
                               <Text style={[styles.activityText, {color: colors.primary}]}>
-                                {mockFriends.filter(f => f.isOnline && f.gymId === gym.id).length}{' '}
-                                {mockFriends.filter(f => f.isOnline && f.gymId === gym.id).length === 1 ? 'ven' : 'venner'}
+                                {friends.filter(f => f.isOnline && f.gymId === gym.id).length}{' '}
+                                {friends.filter(f => f.isOnline && f.gymId === gym.id).length === 1 ? 'ven' : 'venner'}
                               </Text>
                             </View>
                           )}
@@ -1105,7 +1089,7 @@ const styles = StyleSheet.create({
   },
   distanceText: {
     fontSize: 14,
-    color: colors.secondary,
+    color: colors.text,
     marginLeft: 6,
     fontWeight: '500',
   },
@@ -1134,7 +1118,7 @@ const styles = StyleSheet.create({
   },
   viewDetailsText: {
     fontSize: 16,
-    color: colors.secondary,
+    color: '#fff',
     fontWeight: '600',
     marginRight: 4,
   },

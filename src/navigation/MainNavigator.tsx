@@ -4,29 +4,13 @@
  */
 
 import React from 'react';
-import {TouchableOpacity, View, Text, Image} from 'react-native';
+import {TouchableOpacity, View, Text} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import {useNavigation, CompositeNavigationProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
-
-const tabIconImages = {
-  Home: require('@/assets/images/tab-home.png'),
-  Friends: require('@/assets/images/tab-online.png'),
-  CheckIn: require('@/assets/images/tab-checkin.png'),
-  Messages: require('@/assets/images/tab-messages.png'),
-  Profile: require('@/assets/images/tab-profile.png'),
-};
-
-const tabLabels: Record<keyof typeof tabIconImages, string> = {
-  Home: 'Hjem',
-  Friends: 'Online',
-  CheckIn: 'Tjek ind',
-  Messages: 'Beskeder',
-  Profile: 'Profil',
-};
 
 import HomeScreen from '@/screens/main/HomeScreen';
 import ProfileScreen from '@/screens/main/ProfileScreen';
@@ -67,7 +51,7 @@ import PushNotificationsScreen from '@/screens/main/PushNotificationsScreen';
 import FeedSortingScreen from '@/screens/main/FeedSortingScreen';
 import {useNotificationStore} from '@/store/notificationStore';
 import {colors} from '@/theme/colors';
-import {scale} from '@/utils/scale';
+import CustomTabBar from '@/components/CustomTabBar';
 export type MainTabParamList = {
   Home: undefined;
   Friends: undefined;
@@ -166,7 +150,7 @@ const SettingsButton = () => {
       onPress={() => {
         navigation.navigate('Settings');
       }}
-      style={{marginLeft: 16}}>
+      style={{marginRight: 16}}>
       <Icon name="settings-outline" size={29} color={colors.text} />
     </TouchableOpacity>
   );
@@ -213,7 +197,7 @@ const NotificationsButton = () => {
       onPress={() => {
         navigation.navigate('Notifications');
       }}
-      style={{marginRight: 16, position: 'relative'}}>
+      style={{marginLeft: 16, position: 'relative'}}>
       <Icon name="notifications-outline" size={29} color={colors.text} />
       {unreadCount > 0 && (
         <View
@@ -243,121 +227,50 @@ const NotificationsButton = () => {
   );
 };
 
-const TabBarItem = ({
-  routeName,
-  focused,
-}: {
-  routeName: keyof typeof tabIconImages;
-  focused: boolean;
-}) => {
-  const source = tabIconImages[routeName];
-  const label = tabLabels[routeName];
-  if (!source) return null;
-  return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        minWidth: 0,
-      }}>
-      <Image
-        source={source}
-        style={{
-          width: 36,
-          height: 36,
-          opacity: focused ? 1 : 0.55,
-          marginBottom: 4,
-        }}
-        resizeMode="contain"
-      />
-      <Text
-        style={{
-          fontSize: 10,
-          fontWeight: '500',
-          color: focused ? colors.primary : colors.textMuted,
-          textAlign: 'center',
-          width: '100%',
-        }}
-        numberOfLines={1}>
-        {label}
-      </Text>
-    </View>
-  );
-};
-
 const MainTabs = () => {
   return (
     <Tab.Navigator
+      tabBar={props => <CustomTabBar {...props} />}
       screenOptions={{
         tabBarHideOnKeyboard: true,
-        tabBarShowLabel: false,
-        tabBarActiveTintColor: colors.primary,
-        tabBarInactiveTintColor: colors.textMuted,
-        tabBarStyle: {
-          backgroundColor: '#FFFFFF',
-          borderTopLeftRadius: 20,
-          borderTopRightRadius: 20,
-          overflow: 'hidden',
-          shadowColor: colors.primary,
-          shadowOffset: {width: 0, height: -2},
-          shadowOpacity: 0.08,
-          shadowRadius: 8,
-          elevation: 8,
-        },
         headerStyle: {
           backgroundColor: colors.backgroundCard,
         },
         headerTintColor: colors.text,
         headerShown: true,
-        headerLeft: () => <SettingsButton />,
+        headerLeft: () => <NotificationsButton />,
         headerRight: () => (
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <LeaderboardButton />
             <UpcomingButton />
-            <NotificationsButton />
+            <SettingsButton />
           </View>
         ),
       }}>
       <Tab.Screen
         name="Home"
         component={HomeScreen}
-        options={{
-          title: 'Hjem',
-          tabBarIcon: ({focused}) => <TabBarItem routeName="Home" focused={focused} />,
-        }}
+        options={{title: 'Hjem'}}
       />
       <Tab.Screen
         name="Friends"
         component={FriendsNavigator}
-        options={{
-          title: 'Online',
-          tabBarIcon: ({focused}) => <TabBarItem routeName="Friends" focused={focused} />,
-        }}
+        options={{title: 'Online'}}
       />
       <Tab.Screen
         name="CheckIn"
         component={CheckInScreen}
-        options={{
-          title: 'Tjek ind',
-          tabBarIcon: ({focused}) => <TabBarItem routeName="CheckIn" focused={focused} />,
-        }}
+        options={{title: 'Tjek ind'}}
       />
       <Tab.Screen
         name="Messages"
         component={MessagesScreen}
-        options={{
-          title: 'Beskeder',
-          tabBarIcon: ({focused}) => <TabBarItem routeName="Messages" focused={focused} />,
-        }}
+        options={{title: 'Beskeder'}}
       />
       <Tab.Screen
         name="Profile"
         component={ProfileScreen}
-        options={{
-          title: 'Profil',
-          tabBarIcon: ({focused}) => <TabBarItem routeName="Profile" focused={focused} />,
-        }}
+        options={{title: 'Profil'}}
       />
     </Tab.Navigator>
   );

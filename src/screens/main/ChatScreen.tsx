@@ -120,22 +120,10 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
     [planDateTime],
   );
 
-  // Mock initial messages - in a real app, this would come from API
   useEffect(() => {
-    if (!chatId) {
-      return;
-    }
-    const baseMessages: ChatMessage[] = [
-      {
-        id: `${chatId}_welcome`,
-        text: 'Hej! Hvordan går det?',
-        senderId: friendId,
-        timestamp: new Date(Date.now() - 3600000),
-        isRead: true,
-      },
-    ];
-    initializeChatMessages(chatId, baseMessages);
-  }, [chatId, friendId, initializeChatMessages]);
+    if (!chatId) return;
+    initializeChatMessages(chatId, []);
+  }, [chatId, initializeChatMessages]);
 
   useEffect(() => {
     if (!chatId || !initialMessage || initialMessageHandledRef.current) {

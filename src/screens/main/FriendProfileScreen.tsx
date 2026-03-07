@@ -19,48 +19,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppStore} from '@/store/appStore';
 import {colors} from '@/theme/colors';
 
-// Mock user data - in real app, this would come from API/store
-const getMockUserById = (userId: string) => {
-  const mockUsers: Record<string, any> = {
-    '1': {
-      id: '1',
-      displayName: 'Patrick',
-      username: 'patrick_fitness',
-      profileImageUrl: undefined,
-      favoriteGyms: [497381657],
-    },
-    '2': {
-      id: '2',
-      displayName: 'Marie',
-      username: 'marie_training',
-      profileImageUrl: undefined,
-      favoriteGyms: [1112453804],
-    },
-    '3': {
-      id: '3',
-      displayName: 'Lars',
-      username: 'lars_strength',
-      profileImageUrl: undefined,
-      favoriteGyms: [898936694],
-    },
-    '4': {
-      id: '4',
-      displayName: 'Sofia',
-      username: 'sofia_fit',
-      profileImageUrl: undefined,
-      favoriteGyms: [497381657],
-    },
-    '5': {
-      id: '5',
-      displayName: 'Thomas',
-      username: 'thomas_workout',
-      profileImageUrl: undefined,
-      favoriteGyms: [1112453804],
-    },
-  };
-  return mockUsers[userId] || null;
-};
-
 const FriendProfileTabs = ({friendUser}: {friendUser: any}) => {
   const [activeTab, setActiveTab] = useState<'feed' | 'prs'>('feed');
   return (
@@ -113,7 +71,7 @@ const FriendProfileScreen = () => {
 
   const friendUser = useMemo(() => {
     if (!userId) return null;
-    return getMockUserById(userId);
+    return null; // Brugerdata hentes fra API/store
   }, [userId]);
 
   if (!friendUser) {

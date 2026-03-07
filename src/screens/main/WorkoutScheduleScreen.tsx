@@ -54,23 +54,8 @@ const MUSCLE_GROUPS: {key: MuscleGroup; label: string}[] = [
   {key: 'hele_kroppen', label: 'Hele kroppen'},
 ];
 
-// Mock friends list for displaying names
-const MOCK_FRIENDS: Array<{id: string; name: string}> = [
-  {id: '1', name: 'Jeff'},
-  {id: '2', name: 'Marie'},
-  {id: '3', name: 'Lars'},
-  {id: '4', name: 'Sofia'},
-  {id: '5', name: 'Patti'},
-];
-
-// Friends list for inviting
-const FRIENDS: Array<{id: string; name: string; initials: string}> = [
-  {id: '1', name: 'Jeff', initials: 'J'},
-  {id: '2', name: 'Marie', initials: 'M'},
-  {id: '3', name: 'Lars', initials: 'L'},
-  {id: '4', name: 'Sofia', initials: 'S'},
-  {id: '5', name: 'Patti', initials: 'P'},
-];
+const MOCK_FRIENDS: Array<{id: string; name: string}> = [];
+const FRIENDS: Array<{id: string; name: string; initials: string}> = [];
 
 const WorkoutScheduleScreen = () => {
   const {user} = useAppStore();

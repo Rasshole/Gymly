@@ -98,24 +98,11 @@ const EditGroupScreen = () => {
     );
   }
 
-  // Mock friends - in real app, this would come from a store/service
-  const mockFriends: Friend[] = [
-    {id: '1', name: 'Jeff', isOnline: true},
-    {id: '2', name: 'Marie', isOnline: false},
-    {id: '3', name: 'Lars', isOnline: true},
-    {id: '4', name: 'Sofia', isOnline: false},
-    {id: '5', name: 'Jens', isOnline: true},
-    {id: '6', name: 'Mette', isOnline: true},
-    {id: '7', name: 'Thomas', isOnline: false},
-    {id: '8', name: 'Anne', isOnline: true},
-    {id: '9', name: 'Peter', isOnline: false},
-    {id: '10', name: 'Emma', isOnline: true},
-  ];
+  const friends: Friend[] = [];
 
-  // Get all available friends (not current members)
   const availableFriends = useMemo(() => {
     const memberIds = new Set(initialGroup.members.map((m: Friend) => m.id));
-    return mockFriends.filter(f => !memberIds.has(f.id));
+    return friends.filter(f => !memberIds.has(f.id));
   }, [initialGroup.members]);
 
   // Filter friends based on search - only show non-members when searching
@@ -378,15 +365,13 @@ const EditGroupScreen = () => {
               onPress={handleGroupImagePick}
               activeOpacity={0.7}>
               {groupImage ? (
-                <Image source={{uri: groupImage}} style={styles.groupImage} />
+                <Image source={{uri: groupImage}} style={styles.groupImage} resizeMode="cover" />
               ) : (
-                <View style={styles.imagePlaceholder}>
-                  <Image
-                    source={require('@/assets/images/gymly-kettlebell.png')}
-                    style={{width: 56, height: 56}}
-                    resizeMode="contain"
-                  />
-                </View>
+                <Image
+                  source={require('@/assets/images/gymly-kettlebell.png')}
+                  style={styles.groupImageLogo}
+                  resizeMode="cover"
+                />
               )}
             </TouchableOpacity>
             <TouchableOpacity
@@ -554,20 +539,24 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   imagePickerWrapper: {
-    width: 120,
-    height: 120,
+    width: 140,
+    height: 140,
     position: 'relative',
   },
   imagePicker: {
-    width: 120,
-    height: 120,
-    borderRadius: 60,
+    width: 140,
+    height: 140,
+    borderRadius: 70,
     overflow: 'hidden',
     borderWidth: 2,
     borderColor: colors.border,
     borderStyle: 'dashed',
   },
   groupImage: {
+    width: '100%',
+    height: '100%',
+  },
+  groupImageLogo: {
     width: '100%',
     height: '100%',
   },
@@ -580,11 +569,11 @@ const styles = StyleSheet.create({
   },
   imagePlusBadge: {
     position: 'absolute',
-    bottom: 0,
-    right: 0,
-    width: 32,
-    height: 32,
-    borderRadius: 16,
+    bottom: 4,
+    right: 4,
+    width: 36,
+    height: 36,
+    borderRadius: 18,
     backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',

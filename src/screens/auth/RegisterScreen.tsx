@@ -211,15 +211,12 @@ const RegisterScreen = () => {
     setShowGymSuggestions(false);
 
     // Apple: Trigger auth FIRST - never ask for name/email (Guideline 4)
+    // Altid igennem fuld onboarding: location, gym, brugernavn, biceps, foto, privatliv
     if (selected === 'apple') {
       setIsLoading(true);
       try {
-        const {user, tokens} = await AuthService.signInWithApple();
+        const {user} = await AuthService.signInWithApple();
         if (user) {
-          if (user.username && user.username.length >= 3) {
-            login(user, tokens!);
-            return;
-          }
           setFirstName(user.displayName?.split(' ')[0] || '');
           setLastName(user.displayName?.split(' ').slice(1).join(' ') || '');
           setEmail(user.email || '');
@@ -329,7 +326,7 @@ const RegisterScreen = () => {
     const firstGymLabel = favoriteGymLabels[0].trim();
     const hasLocation = location && firstGymLabel;
 
-    if (!hasLocation && method !== 'apple') {
+    if (!hasLocation) {
       Alert.alert('Mangler info', 'Vælg både beliggenhed og center.');
       return;
     }

@@ -9,7 +9,7 @@ import {AuthTokens} from '@/types/auth.types';
 import {User} from '@/types/user.types';
 
 class SecureStorageService {
-  private readonly SERVICE_NAME = 'com.gymly.app';
+  private readonly SERVICE_NAME = 'com.testlocal.Gymly';
   
   // Keys for secure storage
   private readonly TOKENS_KEY = 'auth_tokens';

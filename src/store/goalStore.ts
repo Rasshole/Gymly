@@ -49,8 +49,7 @@ export const useGoalStore = create<GoalState>((set, get) => ({
     set((state) => ({
       goals: state.goals.map((goal) => {
         if (goal.id === goalId) {
-          // Mock progress calculation
-          const progress = Math.min(goal.progress + Math.random() * 20, 100);
+          const progress = goal.progress; // Opdateres fra rigtige træningsdata
           return {
             ...goal,
             progress: Math.round(progress),

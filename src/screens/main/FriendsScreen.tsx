@@ -37,48 +37,13 @@ type Friend = {
   checkOutTime?: Date; // When they checked out (for sorting offline friends)
 };
 
-// Mock friends for testing
-const mockFriends: Friend[] = [
-  {
-    id: '1',
-    name: 'Jeff',
-    isOnline: true,
-    activeTime: '00:15:30',
-    gymName: 'PureGym Esromgade',
-    muscleGroup: 'Bryst & Triceps',
-    checkInTime: new Date(Date.now() - 15 * 60 * 1000), // 15 minutes ago
-  },
-  {
-    id: '2',
-    name: 'Marie',
-    isOnline: false,
-    checkOutTime: new Date(Date.now() - 2 * 60 * 60 * 1000), // 2 hours ago
-  },
-  {
-    id: '3',
-    name: 'Lars',
-    isOnline: true,
-    activeTime: '00:05:12',
-    gymName: 'SATS KBH - Valby',
-    muscleGroup: 'Ben & Ryg',
-    checkInTime: new Date(Date.now() - 5 * 60 * 1000), // 5 minutes ago (newer check-in)
-  },
-  {
-    id: '4',
-    name: 'Sofia',
-    isOnline: false,
-    checkOutTime: new Date(Date.now() - 30 * 60 * 1000), // 30 minutes ago (newer check-out)
-  },
-];
-
 const FriendsScreen = () => {
   const navigation = useNavigation<any>();
   const {user} = useAppStore();
   const [searchQuery, setSearchQuery] = useState('');
   const [pendingJoinRequests, setPendingJoinRequests] = useState<Set<string>>(new Set());
 
-  // Use mock friends for now
-  const friends: Friend[] = mockFriends;
+  const friends: Friend[] = [];
 
   // Sort friends: online first (by check-in time, newest first), then offline (by check-out time, newest first)
   const sortedFriends = [...friends].sort((a, b) => {

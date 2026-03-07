@@ -28,16 +28,6 @@ import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {colors} from '@/theme/colors';
 
-// Mock names for active users (matches app style)
-const MOCK_ACTIVE_NAMES = [
-  'Jeff', 'Marie', 'Lars', 'Sofia', 'Anders', 'Emma', 'Mikkel', 'Line',
-  'Thomas', 'Anna', 'Jonas', 'Camilla', 'Henrik', 'Nina', 'Peter', 'Sarah',
-  'Morten', 'Kirsten', 'Rasmus', 'Louise', 'Christian', 'Julie', 'Martin', 'Stine',
-];
-
-// Mock duration in minutes (5-120 min) - consistent per user index
-const MOCK_DURATIONS = [12, 45, 8, 67, 23, 90, 15, 34, 52, 19, 78, 5, 41, 28, 95, 11];
-
 const formatDuration = (minutes: number): string => {
   if (minutes < 60) return `${minutes} min`;
   const h = Math.floor(minutes / 60);
@@ -45,12 +35,8 @@ const formatDuration = (minutes: number): string => {
   return m > 0 ? `${h}t ${m} min` : `${h}t`;
 };
 
-const getMockActiveUsers = (count: number) =>
-  Array.from({length: count}, (_, i) => ({
-    id: `active-${i}`,
-    name: MOCK_ACTIVE_NAMES[i % MOCK_ACTIVE_NAMES.length],
-    durationMinutes: MOCK_DURATIONS[i % MOCK_DURATIONS.length],
-  }));
+type ActiveUser = { id: string; name: string; durationMinutes: number };
+const getActiveUsers = (_count: number): ActiveUser[] => [];
 
 // Calculate distance between two coordinates using Haversine formula
 const calculateDistance = (
@@ -579,7 +565,7 @@ const CentresScreen = () => {
               </TouchableOpacity>
             </View>
             <FlatList
-              data={activeUsersModal ? getMockActiveUsers(activeUsersModal.count) : []}
+              data={activeUsersModal ? getActiveUsers(activeUsersModal.count) : []}
               keyExtractor={(item) => item.id}
               renderItem={({item}) => (
                 <View style={styles.modalUserItem}>
