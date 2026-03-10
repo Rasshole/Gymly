@@ -447,7 +447,7 @@
 				CODE_SIGN_ENTITLEMENTS = GymlyFresh/GymlyFresh.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = CDVFBW66X4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = GymlyFresh/Info.plist;
@@ -462,7 +462,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.testlocal.Gymly;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test1.Gymly;
 				PRODUCT_NAME = Gymly;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -480,7 +480,7 @@
 				CODE_SIGN_ENTITLEMENTS = GymlyFresh/GymlyFresh.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = CDVFBW66X4;
 				INFOPLIST_FILE = GymlyFresh/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
@@ -494,7 +494,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.testlocal.Gymly;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test1.Gymly;
 				PRODUCT_NAME = Gymly;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
