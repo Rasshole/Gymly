@@ -19,7 +19,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {useGymStore} from '@/store/gymStore';
 import {useAppStore} from '@/store/appStore';
 import {DanishGym} from '@/data/danishGyms';
-import {colors} from '@/theme/colors';
+import colors from '@/theme/colors';
 
 type RateGymScreenProps = {
   route: {

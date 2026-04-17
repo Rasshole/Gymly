@@ -1,5 +1,5 @@
 /**
- * Login Screen
+ * Login — email only (no Apple/Google). Gymly purple branding.
  */
 
 import React, {useState} from 'react';
@@ -13,56 +13,21 @@ import {
   Platform,
   Alert,
   ActivityIndicator,
-  Image,
+  ScrollView,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import safeArea from '@/safeAreaContext';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {AuthStackParamList} from '@/navigation/AuthNavigator';
+
+const {SafeAreaView} = safeArea;
+import {AuthStackParamList} from '@/navigation/authStackParamList';
 import {useAppStore} from '@/store/appStore';
 import AuthService from '@/services/auth/AuthService';
-import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {colors} from '@/theme/colors';
-
-// Logo lige over "Log ind" – lilla kettlebell med smiley
-const loginLogo = require('../../assets/images/logo-above-logind.png');
+import GymlyLogo from '@/components/GymlyLogo';
+import colors from '@/theme/colors';
+import {spacing, radius, shadows} from '@/theme/designTokens';
 
 type LoginScreenNavigationProp = StackNavigationProp<AuthStackParamList, 'Login'>;
-
-type SocialButtonProps = {
-  icon: string;
-  label: string;
-  backgroundColor: string;
-  textColor?: string;
-  onPress: () => void;
-  loading?: boolean;
-};
-
-const SocialButton = ({
-  icon,
-  label,
-  backgroundColor,
-  textColor = '#fff',
-  onPress,
-  loading = false,
-}: SocialButtonProps) => (
-  <TouchableOpacity
-    style={[
-      styles.socialButton,
-      {backgroundColor},
-      loading && styles.socialButtonDisabled,
-    ]}
-    onPress={onPress}
-    activeOpacity={0.85}
-    disabled={loading}>
-    {loading ? (
-      <ActivityIndicator size="small" color={textColor} style={styles.socialIcon} />
-    ) : (
-      <MaterialIcon name={icon} size={22} color={textColor} style={styles.socialIcon} />
-    )}
-    <Text style={[styles.socialLabel, {color: textColor}]}>{label}</Text>
-    <View style={styles.socialSpacer} />
-  </TouchableOpacity>
-);
 
 const LoginScreen = () => {
   const navigation = useNavigation<LoginScreenNavigationProp>();
@@ -71,17 +36,20 @@ const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [socialLoading, setSocialLoading] = useState<'apple' | 'google' | null>(null);
 
   const handleLogin = async () => {
-    if (!email || !password) {
-      Alert.alert('Fejl', 'Udfyld venligst alle felter');
+    if (!email?.trim() || !password) {
+      Alert.alert('Fejl', 'Udfyld email og adgangskode');
       return;
     }
 
     setIsLoading(true);
     try {
-      const {user, tokens} = await AuthService.login({email, password});
+      const {user, tokens} = await AuthService.login({email: email.trim(), password});
+      if (!tokens) {
+        Alert.alert('Login fejlede', 'Kunne ikke oprette session. Prøv igen.');
+        return;
+      }
       login(user, tokens);
     } catch (error: any) {
       Alert.alert('Login fejlede', error.message || 'Prøv igen');
@@ -90,299 +58,203 @@ const LoginScreen = () => {
     }
   };
 
-  const handleSocialLogin = async (provider: 'apple' | 'google') => {
-    try {
-      setSocialLoading(provider);
-      const {user, tokens} = await AuthService.socialLogin(provider);
-      login(user, tokens);
-    } catch (error: any) {
-      Alert.alert('Login fejlede', error.message || 'Prøv igen');
-    } finally {
-      setSocialLoading(null);
-    }
-  };
-
   return (
-    <KeyboardAvoidingView
-      style={styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-      <View style={styles.content}>
-        {/* Logo only */}
-        <View style={styles.header}>
-          <View style={styles.logoBadge}>
-            <Image
-              source={loginLogo}
-              style={styles.loginLogo}
-              resizeMode="contain"
-            />
+    <SafeAreaView style={styles.safe} edges={['top', 'bottom']}>
+      <KeyboardAvoidingView
+        style={styles.flex}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}>
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={styles.scrollContent}
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}
+          bounces={false}>
+          <View style={styles.logoWrap}>
+            <GymlyLogo size={80} />
           </View>
-        </View>
 
-        {/* Alt under logoet – rykket tæt op på logo */}
-        <View style={styles.segmentBlock}>
-          <View style={styles.titleWrap}>
-            <Text style={styles.title}>Log ind</Text>
-          </View>
-          <Text style={styles.subtitle}>Velkommen tilbage!</Text>
-          <View style={styles.secondaryAction}>
-            <Text style={styles.subtitleMuted}>Ny hos Gymly?</Text>
+          <Text style={styles.title}>Log ind</Text>
+          <Text style={styles.subtitle}>Velkommen tilbage. Kun email og adgangskode.</Text>
+
+          <View style={[styles.card, shadows.sm]}>
+            <TextInput
+              style={styles.input}
+              placeholder="Email"
+              placeholderTextColor={colors.textMuted}
+              value={email}
+              onChangeText={setEmail}
+              autoCapitalize="none"
+              keyboardType="email-address"
+              textContentType="emailAddress"
+              autoComplete="email"
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Adgangskode"
+              placeholderTextColor={colors.textMuted}
+              value={password}
+              onChangeText={setPassword}
+              secureTextEntry
+              textContentType="password"
+              autoComplete="password"
+            />
             <TouchableOpacity
-              style={styles.signupButton}
-              onPress={() => navigation.navigate('Register')}>
-              <Text style={styles.signupButtonText}>Tilmeld dig Gymly</Text>
+              style={styles.forgot}
+              onPress={() => navigation.navigate('ForgotPassword')}
+              hitSlop={8}>
+              <Text style={styles.forgotText}>Glemt adgangskode?</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={[styles.cta, isLoading && styles.ctaDisabled]}
+              onPress={handleLogin}
+              disabled={isLoading}
+              activeOpacity={0.9}>
+              {isLoading ? (
+                <ActivityIndicator color={colors.white} />
+              ) : (
+                <Text style={styles.ctaText}>Log ind</Text>
+              )}
             </TouchableOpacity>
           </View>
 
-        {/* Social */}
-        <View style={styles.socialSection}>
-          <SocialButton
-            icon="apple"
-            label="Fortsæt med Apple"
-            backgroundColor="#000"
-            onPress={() => handleSocialLogin('apple')}
-            loading={socialLoading === 'apple'}
-          />
-          <SocialButton
-            icon="google"
-            label="Fortsæt med Google"
-            backgroundColor="#fff"
-            textColor="#0F172A"
-            onPress={() => handleSocialLogin('google')}
-            loading={socialLoading === 'google'}
-          />
-        </View>
+          <View style={styles.footerSignup}>
+            <Text style={styles.footerQ}>Ny hos Gymly?</Text>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Register')}
+              style={styles.linkBtn}
+              activeOpacity={0.85}>
+              <Text style={styles.linkBtnText}>Opret konto</Text>
+            </TouchableOpacity>
+          </View>
 
-        <View style={styles.divider}>
-          <View style={styles.dividerLine} />
-          <Text style={styles.dividerText}>eller med email</Text>
-          <View style={styles.dividerLine} />
-        </View>
-
-        {/* Form */}
-        <View style={styles.form}>
-          <TextInput
-            style={styles.input}
-            placeholder="Email"
-            value={email}
-            onChangeText={setEmail}
-            autoCapitalize="none"
-            keyboardType="email-address"
-            textContentType="emailAddress"
-            autoComplete="email"
-          />
-
-          <TextInput
-            style={styles.input}
-            placeholder="Adgangskode"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry
-            textContentType="password"
-            autoComplete="password"
-          />
-
-          <TouchableOpacity
-            style={styles.forgotPassword}
-            onPress={() => navigation.navigate('ForgotPassword')}>
-            <Text style={styles.forgotPasswordText}>Glemt adgangskode?</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={[styles.loginButton, isLoading && styles.loginButtonDisabled]}
-            onPress={handleLogin}
-            disabled={isLoading}
-            activeOpacity={0.8}>
-            {isLoading ? (
-              <ActivityIndicator color="#fff" />
-            ) : (
-              <Text style={styles.loginButtonText}>Log ind</Text>
-            )}
-          </TouchableOpacity>
-        </View>
-
-        {/* Footer */}
-        <Text style={styles.termsText}>
-          Ved at trykke fortsæt, godkender du Gymlys{' '}
-          <Text style={styles.linkText}>brugeraftaler</Text>,{' '}
-          <Text style={styles.linkText}>Privat Politik</Text> &{' '}
-          <Text style={styles.linkText}>Cookie Politik</Text>
-        </Text>
-        </View>
-      </View>
-    </KeyboardAvoidingView>
+          <Text style={styles.legal}>
+            Ved at logge ind accepterer du Gymlys{' '}
+            <Text style={styles.legalLink} onPress={() => navigation.navigate('Terms')}>
+              servicevilkår
+            </Text>{' '}
+            og{' '}
+            <Text style={styles.legalLink} onPress={() => navigation.navigate('PrivacyPolicy')}>
+              privatlivspolitik
+            </Text>
+            .
+          </Text>
+        </ScrollView>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  safe: {
     flex: 1,
-    backgroundColor: colors.backgroundCard,
+    backgroundColor: '#F3F4F6',
   },
-  content: {
+  flex: {
     flex: 1,
-    padding: 24,
-    paddingTop: 0,
-    paddingBottom: 40,
+  },
+  scrollView: {
+    flex: 1,
+  },
+  scrollContent: {
+    flexGrow: 1,
     justifyContent: 'center',
+    paddingHorizontal: spacing.xl,
+    paddingVertical: spacing.xl,
   },
-  header: {
+  logoWrap: {
     alignItems: 'center',
-    marginBottom: 0,
-    marginTop: 24,
-  },
-  segmentBlock: {
-    marginTop: 28,
-    alignItems: 'center',
-  },
-  titleWrap: {
-    width: '100%',
-    alignItems: 'center',
-    marginBottom: 2,
-  },
-  logoBadge: {
-    width: 168,
-    height: 168,
-    borderRadius: 44,
-    backgroundColor: 'transparent',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 0,
-    overflow: 'hidden',
-  },
-  loginLogo: {
-    width: 168,
-    height: 168,
+    marginBottom: spacing.xl,
   },
   title: {
-    fontSize: 32,
-    fontWeight: 'bold',
+    fontSize: 28,
+    fontWeight: '700',
     color: colors.text,
     textAlign: 'center',
-    width: '100%',
-  },
-  secondaryAction: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-    marginTop: 0,
-    alignSelf: 'stretch',
+    marginBottom: spacing.sm,
   },
   subtitle: {
     fontSize: 16,
     color: colors.textSecondary,
     textAlign: 'center',
+    marginBottom: spacing.lg,
   },
-  subtitleMuted: {
-    fontSize: 15,
-    color: colors.textTertiary,
-    marginRight: 8,
-  },
-  signupButton: {
-    backgroundColor: '#111827',
-    paddingHorizontal: 18,
-    paddingVertical: 10,
-    borderRadius: 999,
-  },
-  signupButtonText: {
-    color: '#fff',
-    fontSize: 15,
-    fontWeight: '600',
-  },
-  linkText: {
-    color: '#8B5CF6',
-    fontSize: 16,
-    fontWeight: '600',
-  },
-  socialSection: {
-    gap: 12,
-    marginBottom: 12,
-    alignSelf: 'stretch',
-  },
-  socialButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    borderRadius: 14,
-    paddingVertical: 14,
-    paddingHorizontal: 18,
+  card: {
+    backgroundColor: colors.backgroundCard,
+    borderRadius: radius.lg,
+    padding: spacing.lg,
     borderWidth: 1,
     borderColor: colors.border,
-  },
-  socialButtonDisabled: {
-    opacity: 0.7,
-  },
-  socialIcon: {
-    width: 24,
-  },
-  socialSpacer: {
-    width: 20,
-  },
-  socialLabel: {
-    flex: 1,
-    textAlign: 'center',
-    fontSize: 16,
-    fontWeight: '600',
-  },
-  divider: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 12,
-    gap: 8,
-    alignSelf: 'stretch',
-  },
-  dividerLine: {
-    flex: 1,
-    height: 1,
-    backgroundColor: colors.surface,
-  },
-  dividerText: {
-    color: colors.textMuted,
-    fontSize: 14,
-  },
-  form: {
-    marginBottom: 12,
-    alignSelf: 'stretch',
+    gap: spacing.md,
   },
   input: {
-    backgroundColor: colors.background,
-    padding: 16,
-    borderRadius: 12,
+    backgroundColor: colors.backgroundCardLight,
+    borderRadius: radius.md,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: 14,
     fontSize: 16,
-    marginBottom: 10,
+    color: colors.text,
     borderWidth: 1,
     borderColor: colors.border,
   },
-  forgotPassword: {
+  forgot: {
     alignSelf: 'flex-end',
-    marginBottom: 12,
+    marginTop: -4,
   },
-  forgotPasswordText: {
-    color: '#8B5CF6',
+  forgotText: {
+    color: colors.primary,
     fontSize: 14,
-  },
-  loginButton: {
-    backgroundColor: '#8B5CF6',
-    padding: 18,
-    borderRadius: 12,
-    alignItems: 'center',
-  },
-  loginButtonDisabled: {
-    backgroundColor: '#C7C7CC',
-  },
-  loginButtonText: {
-    color: '#fff',
-    fontSize: 18,
     fontWeight: '600',
   },
-  termsText: {
+  cta: {
+    backgroundColor: colors.primary,
+    paddingVertical: spacing.lg,
+    borderRadius: radius.lg,
+    alignItems: 'center',
+    marginTop: spacing.sm,
+    ...shadows.card,
+  },
+  ctaDisabled: {opacity: 0.55},
+  ctaText: {
+    color: colors.white,
+    fontSize: 17,
+    fontWeight: '700',
+  },
+  footerSignup: {
+    alignItems: 'center',
+    marginTop: spacing.xl,
+    gap: spacing.md,
+  },
+  footerQ: {
+    fontSize: 15,
+    color: colors.textSecondary,
+    fontWeight: '500',
+  },
+  linkBtn: {
+    borderWidth: 1.5,
+    borderColor: colors.primary,
+    paddingVertical: 12,
+    paddingHorizontal: spacing.xxl,
+    borderRadius: radius.full,
+  },
+  linkBtnText: {
+    color: colors.primary,
+    fontSize: 16,
+    fontWeight: '700',
+  },
+  legal: {
     textAlign: 'center',
     color: colors.textMuted,
-    fontSize: 13,
+    fontSize: 12,
     lineHeight: 18,
-    marginTop: 16,
-    marginBottom: 24,
+    marginTop: spacing.xl,
+    paddingHorizontal: spacing.sm,
+  },
+  legalLink: {
+    color: colors.primary,
+    fontWeight: '600',
   },
 });
 
 export default LoginScreen;
-

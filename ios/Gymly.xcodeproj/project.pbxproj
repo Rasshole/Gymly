@@ -182,6 +182,7 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "GymlyFresh" */;
 			buildPhases = (
 				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
+				M1E2T3R4O5S6T7A8R9T0A1 /* Start Metro (Debug) */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
@@ -358,6 +359,21 @@
 			shellScript = "# Afspil lyd når build er færdig\nafplay /System/Library/Sounds/Glass.aiff 2>/dev/null || say \"Build færdig\" 2>/dev/null || echo \"\\a\"\n";
 			showEnvVarsInLog = 0;
 		};
+		M1E2T3R4O5S6T7A8R9T0A1 /* Start Metro (Debug) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Start Metro (Debug)";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Start Metro hvis den ikke kører (kun Debug)\nif [ \"${CONFIGURATION}\" = \"Debug\" ]; then\n  if ! lsof -i :8081 >/dev/null 2>&1; then\n    echo \"Starting Metro bundler...\"\n    cd \"${SRCROOT}/..\" && nohup npx react-native start > /tmp/metro.log 2>&1 &\n    sleep 5\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -450,6 +466,10 @@
 				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = CDVFBW66X4;
 				ENABLE_BITCODE = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = GymlyFresh/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (

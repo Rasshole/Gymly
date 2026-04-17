@@ -1,5 +1,6 @@
 #import "AppDelegate.h"
 
+#import <TargetConditionals.h>
 #import <React/RCTBundleURLProvider.h>
 
 @implementation AppDelegate
@@ -21,16 +22,26 @@
 
 - (NSURL *)bundleURL
 {
-#if DEBUG
+  // Simulator: always load JS from Metro (also when scheme is Release), so UI code changes show up
+  // without rebuilding an embedded main.jsbundle.
+#if TARGET_OS_SIMULATOR
+  NSURL *simURL = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"];
+  if (!simURL) {
+    simURL = [NSURL URLWithString:@"http://127.0.0.1:8081/index.bundle?platform=ios&dev=true"];
+  }
+  NSLog(@"[Gymly RN] Simulator → Metro (live JS). URL: %@", simURL.absoluteString);
+  return simURL;
+#elif DEBUG
   NSURL *bundleURL = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"];
-  // If bundle URL is nil, Metro bundler is not running
   if (!bundleURL) {
-    // Fallback: 127.0.0.1 works more reliably than localhost in simulator
     bundleURL = [NSURL URLWithString:@"http://127.0.0.1:8081/index.bundle?platform=ios&dev=true"];
   }
+  NSLog(@"[Gymly RN] DEBUG device → Metro. URL: %@", bundleURL.absoluteString);
   return bundleURL;
 #else
-  return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+  NSURL *embedded = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+  NSLog(@"[Gymly RN] RELEASE device → embedded bundle. URL: %@", embedded.absoluteString);
+  return embedded;
 #endif
 }
 

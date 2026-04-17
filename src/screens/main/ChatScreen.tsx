@@ -28,8 +28,9 @@ import danishGyms, {DanishGym} from '@/data/danishGyms';
 import {MuscleGroup} from '@/types/workout.types';
 import {formatGymDisplayName} from '@/utils/gymDisplay';
 import {useChatStore, ChatPlan, ChatMessage} from '@/store/chatStore';
-import {colors} from '@/theme/colors';
-import {getMuscleGroupImage} from '@/utils/muscleGroupImages';
+import colors from '@/theme/colors';
+import {spacing, radius, typography} from '@/theme/designTokens';
+import muscleImg from '@/utils/muscleGroupImages';
 
 type ChatScreenProps = {
   route: {
@@ -53,6 +54,8 @@ const MUSCLE_GROUPS: {key: MuscleGroup; label: string}[] = [
   {key: 'mave', label: 'Mave'},
   {key: 'ryg', label: 'Ryg'},
   {key: 'hele_kroppen', label: 'Hele kroppen'},
+  {key: 'reformer', label: 'Reformer'},
+  {key: 'pilates', label: 'Pilates'},
 ];
 
 const formatMuscleSelection = (groups: MuscleGroup[]) => {
@@ -68,6 +71,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
   const {chatId, friendId, friendName, initialMessage, participants: routeParticipants} = route.params;
   const updateChatLastMessage = useChatStore(state => state.updateChatLastMessage);
   const initializeChatMessages = useChatStore(state => state.initializeChatMessages);
+  const markChatAsRead = useChatStore(state => state.markChatAsRead);
   const addMessageToChat = useChatStore(state => state.addMessageToChat);
   const getMessagesForChat = useChatStore(state => state.getMessagesForChat);
   const setActivePlanForChat = useChatStore(state => state.setActivePlanForChat);
@@ -123,7 +127,8 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
   useEffect(() => {
     if (!chatId) return;
     initializeChatMessages(chatId, []);
-  }, [chatId, initializeChatMessages]);
+    markChatAsRead(chatId);
+  }, [chatId, initializeChatMessages, markChatAsRead]);
 
   useEffect(() => {
     if (!chatId || !initialMessage || initialMessageHandledRef.current) {
@@ -161,7 +166,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
 
     if (chatId) {
       addMessageToChat(chatId, newMessage);
-      updateChatLastMessage(chatId, newMessage);
+      updateChatLastMessage(chatId, newMessage, { fromCurrentUser: true });
     }
     setMessage('');
     setSelectedImageUri(null);
@@ -412,8 +417,9 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
         <View style={styles.headerContent}>
           <TouchableOpacity
             onPress={() => navigation.goBack()}
-            style={styles.backButton}>
-            <Icon name="arrow-back" size={24} color="#000" />
+            style={styles.backButton}
+            activeOpacity={0.8}>
+            <Icon name="arrow-back" size={24} color={colors.text} />
           </TouchableOpacity>
           <View style={styles.headerInfo}>
             <View style={styles.headerAvatar}>
@@ -421,10 +427,13 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                 {friendName.charAt(0).toUpperCase()}
               </Text>
             </View>
-            <Text style={styles.headerName}>{friendName}</Text>
+            <View style={styles.headerTextWrap}>
+              <Text style={styles.headerName}>{friendName}</Text>
+              <Text style={styles.headerHint}>Aktiv nu</Text>
+            </View>
           </View>
-          <TouchableOpacity style={styles.moreButton}>
-            <Icon name="ellipsis-vertical" size={24} color="#000" />
+          <TouchableOpacity style={styles.moreButton} activeOpacity={0.8}>
+            <Icon name="ellipsis-vertical" size={22} color={colors.text} />
           </TouchableOpacity>
         </View>
       </View>
@@ -535,7 +544,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                           {[option.city, option.region].filter(Boolean).join(' • ')}
                         </Text>
                       </View>
-                      <Icon name="location-outline" size={18} color="#007AFF" />
+                      <Icon name="location-outline" size={18} color={colors.primary} />
                     </TouchableOpacity>
                   ))}
                 </View>
@@ -552,7 +561,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                       onPress={() => togglePlanMuscle(item.key)}
                       activeOpacity={0.85}>
                       <Image
-                        source={getMuscleGroupImage(item.key)}
+                        source={muscleImg.getMuscleGroupImage(item.key)}
                         style={[styles.muscleImage, isActive && styles.muscleImageActive]}
                         resizeMode="contain"
                       />
@@ -569,7 +578,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                 style={styles.timeButton}
                 onPress={openPlanTimePicker}
                 activeOpacity={0.85}>
-                <Icon name="time-outline" size={18} color="#0F172A" />
+                <Icon name="time-outline" size={18} color={colors.text} />
                 <Text style={styles.timeButtonText}>
                   {planDateTime.toLocaleDateString('da-DK', {
                     day: 'numeric',
@@ -699,7 +708,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                   onPress={handleCameraPress}
                   activeOpacity={0.7}>
                   <View style={styles.imagePickerIconContainer}>
-                    <Icon name="camera" size={24} color="#007AFF" />
+                    <Icon name="camera" size={24} color={colors.primary} />
                   </View>
                   <Text style={styles.imagePickerLabel}>Kamera</Text>
                 </TouchableOpacity>
@@ -708,7 +717,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                   onPress={handleGalleryPress}
                   activeOpacity={0.7}>
                   <View style={styles.imagePickerIconContainer}>
-                    <Icon name="images" size={24} color="#007AFF" />
+                    <Icon name="images" size={24} color={colors.primary} />
                   </View>
                   <Text style={styles.imagePickerLabel}>Galleri</Text>
                 </TouchableOpacity>
@@ -718,19 +727,19 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
             style={styles.inputIconButton}
               onPress={handleImagePickerToggle}
             activeOpacity={0.7}>
-            <Icon name="add-circle-outline" size={28} color="#007AFF" />
+            <Icon name="add-circle-outline" size={26} color={colors.primary} />
           </TouchableOpacity>
           </View>
           <TouchableOpacity
             style={styles.inputIconButton}
             onPress={handleOpenPlanModal}
             activeOpacity={0.7}>
-            <Icon name="calendar-outline" size={28} color="#007AFF" />
+            <Icon name="calendar-outline" size={26} color={colors.primary} />
           </TouchableOpacity>
           <TextInput
             style={styles.input}
-            placeholder="Besked..."
-            placeholderTextColor="#8E8E93"
+            placeholder="Skriv en besked..."
+            placeholderTextColor={colors.textMuted}
             value={message}
             onChangeText={setMessage}
             multiline
@@ -750,8 +759,8 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
             <TouchableOpacity
               onPress={handleSend}
               style={styles.sendButton}
-              activeOpacity={0.7}>
-              <Icon name="send" size={24} color="#007AFF" />
+              activeOpacity={0.8}>
+              <Icon name="send" size={20} color={colors.white} />
             </TouchableOpacity>
           )}
         </View>
@@ -768,43 +777,50 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: colors.backgroundCard,
     borderBottomWidth: 1,
-    borderBottomColor: '#EFEFF4',
-    paddingTop: 50, // Space for status bar
+    borderBottomColor: colors.border,
+    paddingTop: 50,
   },
   headerContent: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.md,
   },
   backButton: {
-    padding: 4,
+    padding: spacing.xs,
   },
   headerInfo: {
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
-    marginLeft: 8,
+    marginLeft: spacing.sm,
   },
   headerAvatar: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: colors.secondary,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: colors.primary + '30',
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 12,
+    marginRight: spacing.md,
   },
   headerAvatarText: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#fff',
+    ...typography.bodyBold,
+    color: colors.primary,
+  },
+  headerTextWrap: {
+    flex: 1,
+    minWidth: 0,
   },
   headerName: {
-    fontSize: 18,
-    fontWeight: '600',
+    ...typography.h4,
     color: colors.text,
+  },
+  headerHint: {
+    ...typography.caption,
+    color: colors.success,
+    marginTop: 2,
   },
   headerActions: {
     flexDirection: 'row',
@@ -817,8 +833,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   messagesList: {
-    padding: 16,
-    paddingBottom: 8,
+    padding: spacing.lg,
+    paddingBottom: spacing.lg,
   },
   planBanner: {
     backgroundColor: colors.success,
@@ -870,18 +886,18 @@ const styles = StyleSheet.create({
   },
   dateContainer: {
     alignItems: 'center',
-    marginVertical: 16,
+    marginVertical: spacing.lg,
   },
   dateText: {
-    fontSize: 12,
+    ...typography.caption,
     color: colors.textMuted,
-    backgroundColor: '#F0F0F0',
-    paddingHorizontal: 12,
-    paddingVertical: 4,
-    borderRadius: 12,
+    backgroundColor: colors.surface,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    borderRadius: radius.full,
   },
   messageContainer: {
-    marginBottom: 8,
+    marginBottom: spacing.sm,
   },
   messageLeft: {
     alignItems: 'flex-start',
@@ -890,25 +906,27 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   messageBubble: {
-    maxWidth: '75%',
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    borderRadius: 18,
+    maxWidth: '78%',
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.md,
+    borderRadius: radius.xl,
   },
   messageBubbleMe: {
-    backgroundColor: colors.secondary,
-    borderBottomRightRadius: 4,
+    backgroundColor: colors.primary,
+    borderBottomRightRadius: radius.sm,
   },
   messageBubbleOther: {
-    backgroundColor: '#E5E5EA',
-    borderBottomLeftRadius: 4,
+    backgroundColor: colors.surface,
+    borderBottomLeftRadius: radius.sm,
+    borderWidth: 1,
+    borderColor: colors.border,
   },
   messageText: {
-    fontSize: 16,
-    lineHeight: 20,
+    ...typography.body,
+    lineHeight: 22,
   },
   messageTextMe: {
-    color: '#fff',
+    color: colors.white,
   },
   messageTextOther: {
     color: colors.text,
@@ -924,11 +942,11 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   messageTime: {
-    fontSize: 11,
-    marginTop: 4,
+    ...typography.caption,
+    marginTop: spacing.xs,
   },
   messageTimeMe: {
-    color: 'rgba(255, 255, 255, 0.7)',
+    color: 'rgba(255, 255, 255, 0.8)',
   },
   messageTimeOther: {
     color: colors.textMuted,
@@ -936,19 +954,21 @@ const styles = StyleSheet.create({
   inputContainer: {
     backgroundColor: colors.backgroundCard,
     borderTopWidth: 1,
-    borderTopColor: '#EFEFF4',
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    paddingBottom: Platform.OS === 'ios' ? 20 : 8,
+    borderTopColor: colors.border,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.sm,
+    paddingBottom: Platform.OS === 'ios' ? spacing.xl + 4 : spacing.sm,
   },
   inputWrapper: {
     flexDirection: 'row',
     alignItems: 'flex-end',
     backgroundColor: colors.background,
-    borderRadius: 20,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    minHeight: 44,
+    borderRadius: radius.xl,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    minHeight: 48,
+    borderWidth: 1,
+    borderColor: colors.border,
   },
   inputIconButton: {
     marginRight: 8,
@@ -962,8 +982,13 @@ const styles = StyleSheet.create({
     padding: 0,
   },
   sendButton: {
-    marginLeft: 8,
-    padding: 4,
+    marginLeft: spacing.sm,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   selectedImageContainer: {
     position: 'relative',
@@ -1229,7 +1254,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surface,
   },
   planModalConfirm: {
-    backgroundColor: '#0F172A',
+    backgroundColor: colors.primary,
   },
   planModalCancelText: {
     color: colors.text,

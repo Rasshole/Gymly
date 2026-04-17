@@ -15,7 +15,7 @@ import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {TouchableOpacity} from 'react-native';
-import {colors} from '@/theme/colors';
+import colors from '@/theme/colors';
 
 const AboutGymlyScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();

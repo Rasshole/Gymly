@@ -15,7 +15,7 @@ import {
 } from 'react-native';
 import {usePrivacyStore} from '@/store/privacyStore';
 import PrivacyService from '@/services/privacy/PrivacyService';
-import {colors} from '@/theme/colors';
+import colors from '@/theme/colors';
 
 const PrivacyConsentScreen = () => {
   const {saveConsent} = usePrivacyStore();

@@ -1,37 +1,12 @@
 /**
  * Notification Store
- * Manages notifications for friend check-ins
+ * Manages notifications – uses types from @/types/notification.types
  */
 
 import {create} from 'zustand';
+import type {Notification, NotificationType} from '@/types/notification.types';
 
-export type NotificationType =
-  | 'friend_checkin'
-  | 'friend_request'
-  | 'message'
-  | 'workout_invite'
-  | 'invite_response';
-
-export interface Notification {
-  id: string;
-  type: NotificationType;
-  title: string;
-  message: string;
-  friendName?: string;
-  gymName?: string;
-  timestamp: Date;
-  read: boolean;
-  checkInTime?: Date; // When the friend checked in
-  isActive?: boolean; // Whether the friend is still checked in
-  checkOutTime?: Date; // When the friend checked out
-  // Workout invitation fields
-  workoutInviteId?: string; // ID of the workout invitation
-  planId?: string; // ID of the planned workout
-  gymId?: number; // ID of the gym
-  muscles?: string[]; // Muscle groups for the workout
-  scheduledAt?: Date; // When the workout is scheduled
-  joined?: boolean; // Whether the user has joined the workout invite
-}
+export type {Notification, NotificationType};
 
 interface NotificationState {
   notifications: Notification[];
@@ -45,6 +20,7 @@ interface NotificationState {
   removeNotification: (id: string) => void;
   checkOutFriend: (friendName: string) => void; // Mark friend as checked out
   markInviteJoined: (id: string) => void;
+  seedNotifications: (notifications: Omit<Notification, 'id' | 'timestamp' | 'read'>[]) => void;
 }
 
 export const useNotificationStore = create<NotificationState>((set, get) => ({
@@ -174,6 +150,24 @@ export const useNotificationStore = create<NotificationState>((set, get) => ({
         notifications,
         unreadCount: notifications.filter(notif => !notif.read).length,
       };
+    });
+  },
+
+  seedNotifications: (incoming: Array<Partial<Notification> & {timestamp?: Date; read?: boolean}>) => {
+    const state = get();
+    if (state.notifications.length > 0) return;
+    const now = new Date();
+    const notifications: Notification[] = incoming.map((n, i) => ({
+      ...n,
+      id: `notif_${Date.now()}_${i}_${Math.random().toString(36).slice(2, 8)}`,
+      timestamp: (n as any).timestamp
+        ? new Date((n as any).timestamp)
+        : new Date(now.getTime() - i * 3600000),
+      read: (n as any).read ?? i >= 2,
+    }));
+    set({
+      notifications,
+      unreadCount: notifications.filter(n => !n.read).length,
     });
   },
 }));

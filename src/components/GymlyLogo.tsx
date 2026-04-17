@@ -12,8 +12,9 @@ type GymlyLogoProps = {
 };
 
 const GymlyLogo: React.FC<GymlyLogoProps> = ({size = 64, resizeMode = 'contain'}) => {
-  const logoImage: ImageSourcePropType = require('@/assets/images/gymly-kettlebell.png');
-  
+  /** Transparent kant (ydre hvid fjernet) — virker på både hvid og grå baggrund */
+  const logoImage: ImageSourcePropType = require('@/assets/images/gymly-kettlebell-transparent.png');
+
   return (
     <View style={[styles.container, {width: size, height: size}]}>
       <Image
@@ -29,10 +30,13 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: 'transparent',
+    overflow: 'visible',
   },
   logoImage: {
     width: '100%',
     height: '100%',
+    backgroundColor: 'transparent',
   },
 });
 

@@ -16,6 +16,9 @@ const muscleGroupImages: Record<MuscleGroup, ImageSourcePropType> = {
   mave: require('@/assets/muscleGroups/mave.png'),
   ryg: require('@/assets/muscleGroups/ryg.png'),
   hele_kroppen: require('@/assets/muscleGroups/hele_kroppen.png'),
+  // Placeholders until dedicated assets exist
+  reformer: require('@/assets/muscleGroups/hele_kroppen.png'),
+  pilates: require('@/assets/muscleGroups/mave.png'),
 };
 
 /**
@@ -29,11 +32,22 @@ export const getMuscleGroupImage = (muscleGroup: MuscleGroup): ImageSourcePropTy
  * Get muscle group image from string (for compatibility with older code)
  */
 export const getMuscleGroupImageFromString = (muscleGroup: string): ImageSourcePropType | null => {
-  const key = muscleGroup.toLowerCase().replace(/\s+/g, '_') as MuscleGroup;
+  const first = muscleGroup.split(',')[0]?.trim() ?? muscleGroup;
+  const key = first.toLowerCase().replace(/\s+/g, '_') as MuscleGroup;
   return muscleGroupImages[key] || null;
 };
 
-export default muscleGroupImages;
+/**
+ * Default export: API + map — Hermes/Metro kan undlade named exports på namespace-import;
+ * `import muscle from '...'` er stabil.
+ */
+const muscleGroupImagesDefault = {
+  muscleGroupImages,
+  getMuscleGroupImage,
+  getMuscleGroupImageFromString,
+};
+
+export default muscleGroupImagesDefault;
 
 
 

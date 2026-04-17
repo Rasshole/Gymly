@@ -3,7 +3,7 @@ import {FlatList, StyleSheet, Text, View} from 'react-native';
 import {useWorkoutPlanStore} from '@/store/workoutPlanStore';
 import {MuscleGroup} from '@/types/workout.types';
 import {formatGymDisplayName} from '@/utils/gymDisplay';
-import {colors} from '@/theme/colors';
+import colors from '@/theme/colors';
 
 const MUSCLE_LABELS: Record<MuscleGroup, string> = {
   bryst: 'Bryst',
@@ -14,6 +14,8 @@ const MUSCLE_LABELS: Record<MuscleGroup, string> = {
   mave: 'Mave',
   ryg: 'Ryg',
   hele_kroppen: 'Hele kroppen',
+  reformer: 'Reformer',
+  pilates: 'Pilates',
 };
 
 const formatDateTime = (date: Date) =>

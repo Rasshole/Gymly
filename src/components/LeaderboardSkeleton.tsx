@@ -5,7 +5,7 @@
 
 import React, {useEffect, useRef} from 'react';
 import {View, StyleSheet, Animated} from 'react-native';
-import {colors} from '@/theme/colors';
+import colors from '@/theme/colors';
 
 const SkeletonRow = () => {
   const opacity = useRef(new Animated.Value(0.3)).current;

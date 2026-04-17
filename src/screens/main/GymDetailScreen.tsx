@@ -22,8 +22,8 @@ import {DanishGym} from '@/data/danishGyms';
 import {useGymStore} from '@/store/gymStore';
 import {useLeaderboardStore} from '@/store/leaderboardStore';
 import {useAppStore} from '@/store/appStore';
-import {getGymLogo, hasGymLogo} from '@/utils/gymLogos';
-import {colors} from '@/theme/colors';
+import gymLogos from '@/utils/gymLogos';
+import colors from '@/theme/colors';
 
 const formatDuration = (minutes: number): string => {
   if (minutes < 60) return `${minutes} min`;
@@ -66,8 +66,8 @@ const GymDetailScreen = () => {
   const gymStatus = getGymStatus(gymId);
   const gymHours = getGymHours(gymId);
   const weeklyChampion = getWeeklyChampion(gymId);
-  const logoUrl = getGymLogo(gym.brand);
-  const hasLogo = hasGymLogo(gym.brand);
+  const logoUrl = gymLogos.getGymLogo(gym.brand);
+  const hasLogo = gymLogos.hasGymLogo(gym.brand);
 
   return (
     <View style={styles.container}>

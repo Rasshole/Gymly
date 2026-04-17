@@ -19,7 +19,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {usePRStore} from '@/store/prStore';
 import {ExerciseType, RepRecord} from '@/types/pr.types';
-import {colors} from '@/theme/colors';
+import colors from '@/theme/colors';
 
 type AddRepRouteParams = {
   exercise: ExerciseType;

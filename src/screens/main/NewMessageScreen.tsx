@@ -21,7 +21,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {useChatStore} from '@/store/chatStore';
 import {useGroupStore, CURRENT_USER_PLACEHOLDER_ID, GymlyGroup} from '@/store/groupStore';
 import {useAppStore} from '@/store/appStore';
-import {colors} from '@/theme/colors';
+import colors from '@/theme/colors';
 
 const NewMessageScreen = ({navigation}: any) => {
   const {getChatByParticipants, addChat, initializeChatMessages} = useChatStore();

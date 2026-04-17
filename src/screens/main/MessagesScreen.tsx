@@ -1,9 +1,9 @@
 /**
  * Messages Screen
- * List of messages/conversations with friends
+ * Premium conversation list – moderne, clean, social
  */
 
-import React, {useMemo, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import {
   View,
   Text,
@@ -14,93 +14,106 @@ import {
   TextInput,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {useChatStore} from '@/store/chatStore';
-import {formatDistanceToNow} from 'date-fns';
-import {da} from 'date-fns/locale';
-import {colors} from '@/theme/colors';
+import {useChatStore, Chat} from '@/store/chatStore';
+import {getInitialChats, getInitialMessages} from '@/services/data';
+import {formatRelativeTime} from '@/utils/formatRelativeTime';
+import colors from '@/theme/colors';
+import {spacing, radius, typography} from '@/theme/designTokens';
+import {EmptyState} from '@/components/ui/EmptyState';
 
-type Message = {
+type ConversationItem = {
   id: string;
   name: string;
   lastMessage: string;
   timestamp: string;
   unreadCount: number;
-  participantIds?: string[];
-  participants?: string[];
+  participantIds: string[];
+  participants: string[];
   avatar?: string;
+  avatarInitials?: string;
+  isActive?: boolean;
 };
 
 const MessagesScreen = () => {
-  const navigation = useNavigation<StackNavigationProp<any>>();
-  const {chats} = useChatStore();
+  const navigation = useNavigation<any>();
+  const {chats, seedChatsFromInitial, markChatAsRead} = useChatStore();
   const [searchQuery, setSearchQuery] = useState('');
-  
-  const messages = useMemo(() => {
-    return chats.map(chat => ({
-      id: chat.id,
-      name: chat.participantNames.filter(name => name !== 'Dig').join(', ') || 'Gruppe',
-      lastMessage: chat.lastMessage?.text || '',
-      timestamp: chat.lastMessage 
-        ? formatDistanceToNow(chat.lastMessage.timestamp, {addSuffix: true, locale: da})
-        : formatDistanceToNow(chat.lastActivity, {addSuffix: true, locale: da}),
-      unreadCount: chat.unreadCount,
-      participantIds: chat.participantIds,
-      participants: chat.participantNames,
-      avatar: chat.avatar,
-    }))
-    .filter(message => {
-      if (!searchQuery.trim()) return true;
-      const query = searchQuery.toLowerCase();
-      return message.name.toLowerCase().includes(query) ||
-             message.lastMessage.toLowerCase().includes(query);
-    });
+
+  useEffect(() => {
+    if (chats.length === 0) {
+      Promise.all([getInitialChats(), getInitialMessages()]).then(
+        ([chatsData, messagesData]) => {
+          if (chatsData.length > 0) {
+            seedChatsFromInitial(chatsData, messagesData);
+          }
+        }
+      );
+    }
+  }, [chats.length, seedChatsFromInitial]);
+
+  const conversations = useMemo(() => {
+    return chats
+      .map((chat) => ({
+        id: chat.id,
+        name:
+          chat.participantNames.filter((n) => n !== 'Dig').join(', ') || 'Gruppe',
+        lastMessage: chat.lastMessage?.text || '',
+        timestamp: chat.lastMessage
+          ? formatRelativeTime(chat.lastMessage.timestamp)
+          : formatRelativeTime(chat.lastActivity),
+        unreadCount: chat.unreadCount,
+        participantIds: chat.participantIds,
+        participants: chat.participantNames,
+        avatar: chat.avatar,
+        avatarInitials: chat.avatarInitials,
+        isActive: chat.isActive,
+      }))
+      .filter((item) => {
+        if (!searchQuery.trim()) return true;
+        const q = searchQuery.toLowerCase();
+        return (
+          item.name.toLowerCase().includes(q) ||
+          item.lastMessage.toLowerCase().includes(q)
+        );
+      });
   }, [chats, searchQuery]);
 
-  const renderEmptyState = () => (
-    <View style={styles.emptyContainer}>
-      <View style={styles.emptyIconContainer}>
-        <Icon name="chatbubbles-outline" size={80} color="#C7C7CC" />
-      </View>
-      <Text style={styles.emptyTitle}>Ingen beskeder endnu</Text>
-      <Text style={styles.emptyText}>
-        Når du får beskeder fra dine venner, vil de vises her
-      </Text>
-    </View>
-  );
+  const handleOpenChat = (item: ConversationItem) => {
+    const participantIds = item.participantIds || [];
+    const participants = participantIds
+      .filter((id) => id !== 'current_user')
+      .map((id, idx) => ({
+        id,
+        name: item.participants?.[participantIds.indexOf(id)] || 'Ven',
+      }));
 
-  const renderMessageItem = ({item}: {item: Message}) => (
+    markChatAsRead(item.id);
+
+    navigation.navigate('Chat', {
+      chatId: item.id,
+      friendId: participants.length === 1 ? participants[0].id : `group_${item.id}`,
+      friendName: item.name,
+      participants: participants.length > 0 ? participants : undefined,
+    });
+  };
+
+  const renderConversationItem = ({item}: {item: ConversationItem}) => (
     <TouchableOpacity
-      style={styles.messageItem}
-      activeOpacity={0.7}
-      onPress={() => {
-        // Navigate to chat screen
-        const participantIds = item.participantIds || [];
-        const participants = participantIds
-          .filter(id => id !== 'current_user')
-          .map((id, idx) => ({
-            id,
-            name: item.participants?.[idx + 1] || 'Ven',
-          }));
-        
-        navigation.navigate('Chat', {
-          chatId: item.id,
-          friendId: participants.length === 1 ? participants[0].id : `group_${item.id}`,
-          friendName: item.name,
-          participants: participants.length > 0 ? participants : undefined,
-        });
-      }}>
-      <View style={styles.avatarContainer}>
+      style={[styles.row, item.unreadCount > 0 && styles.rowUnread]}
+      activeOpacity={0.8}
+      onPress={() => handleOpenChat(item)}>
+      <View style={styles.avatarWrapper}>
         {item.avatar ? (
           <Image source={{uri: item.avatar}} style={styles.avatar} />
         ) : (
           <View style={styles.avatarPlaceholder}>
             <Text style={styles.avatarText}>
-              {item.name.charAt(0).toUpperCase()}
+              {item.avatarInitials || item.name.charAt(0).toUpperCase()}
             </Text>
           </View>
         )}
+        {item.isActive && <View style={styles.activeDot} />}
         {item.unreadCount > 0 && (
           <View style={styles.unreadBadge}>
             <Text style={styles.unreadText}>
@@ -109,65 +122,81 @@ const MessagesScreen = () => {
           </View>
         )}
       </View>
-      <View style={styles.messageContent}>
-        <View style={styles.messageHeader}>
-          <Text style={styles.messageName} numberOfLines={1}>
+      <View style={styles.content}>
+        <View style={styles.rowHeader}>
+          <Text
+            style={[styles.name, item.unreadCount > 0 && styles.nameUnread]}
+            numberOfLines={1}>
             {item.name}
           </Text>
-          <Text style={styles.messageTime}>{item.timestamp}</Text>
+          <Text style={styles.timestamp}>{item.timestamp}</Text>
         </View>
         <Text
           style={[
-            styles.messagePreview,
-            item.unreadCount > 0 && styles.unreadPreview,
+            styles.preview,
+            item.unreadCount > 0 && styles.previewUnread,
           ]}
           numberOfLines={1}>
-          {item.lastMessage}
+          {item.lastMessage || 'Ingen beskeder endnu'}
         </Text>
       </View>
-      <Icon name="chevron-forward" size={20} color="#C7C7CC" />
+      <Icon name="chevron-forward" size={20} color={colors.textMuted} />
     </TouchableOpacity>
   );
 
   return (
     <View style={styles.container}>
-      {/* Search Bar */}
-      <View style={styles.searchContainer}>
-        <Icon name="search" size={20} color="#8E8E93" style={styles.searchIcon} />
-        <TextInput
-          style={styles.searchInput}
-          placeholder="Søg efter beskeder..."
-          placeholderTextColor="#8E8E93"
-          value={searchQuery}
-          onChangeText={setSearchQuery}
-        />
-        {searchQuery.length > 0 && (
-          <TouchableOpacity
-            onPress={() => setSearchQuery('')}
-            style={styles.clearButton}
-            activeOpacity={0.7}>
-            <Icon name="close-circle" size={20} color="#8E8E93" />
-          </TouchableOpacity>
-        )}
+      <View style={styles.header}>
+        <Text style={styles.headerTitle}>Beskeder</Text>
+        <Text style={styles.headerSubtitle}>
+          Chat med venner og hold styr på træningsplaner
+        </Text>
       </View>
-      
+
+      {chats.length > 0 && (
+        <View style={styles.searchWrapper}>
+          <Icon name="search" size={20} color={colors.textMuted} style={styles.searchIcon} />
+          <TextInput
+            style={styles.searchInput}
+            placeholder="Søg i beskeder..."
+            placeholderTextColor={colors.textMuted}
+            value={searchQuery}
+            onChangeText={setSearchQuery}
+          />
+          {searchQuery.length > 0 && (
+            <TouchableOpacity
+              onPress={() => setSearchQuery('')}
+              hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}>
+              <Icon name="close-circle" size={20} color={colors.textMuted} />
+            </TouchableOpacity>
+          )}
+        </View>
+      )}
+
       <FlatList
-        data={messages}
-        renderItem={renderMessageItem}
-        keyExtractor={item => item.id}
+        data={conversations}
+        renderItem={renderConversationItem}
+        keyExtractor={(item) => item.id}
         contentContainerStyle={
-          messages.length === 0 ? styles.emptyList : styles.list
+          conversations.length === 0 ? styles.emptyContainer : styles.list
         }
-        ListEmptyComponent={renderEmptyState}
+        ListEmptyComponent={
+          <EmptyState
+            icon="chatbubbles-outline"
+            title="Ingen beskeder endnu"
+            message="Start en samtale med en ven eller find nye træningspartnere. Når du får beskeder, vises de her."
+            actionLabel="Ny besked"
+            onAction={() => navigation.navigate('NewMessage')}
+          />
+        }
         showsVerticalScrollIndicator={false}
       />
-      
-      {/* Floating Action Button */}
+
       <TouchableOpacity
         style={styles.fab}
         onPress={() => navigation.navigate('NewMessage')}
-        activeOpacity={0.8}>
-        <Icon name="create" size={28} color="#fff" />
+        activeOpacity={0.9}>
+        <Icon name="create" size={26} color={colors.white} />
       </TouchableOpacity>
     </View>
   );
@@ -178,78 +207,103 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.background,
   },
-  searchContainer: {
+  header: {
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.lg,
+    paddingBottom: spacing.md,
+    backgroundColor: colors.backgroundCard,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border,
+  },
+  headerTitle: {
+    ...typography.h4,
+    color: colors.text,
+  },
+  headerSubtitle: {
+    ...typography.small,
+    color: colors.textSecondary,
+    marginTop: 4,
+  },
+  searchWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginHorizontal: spacing.lg,
+    marginTop: spacing.md,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
     backgroundColor: colors.backgroundCard,
-    marginHorizontal: 16,
-    marginTop: 16,
-    marginBottom: 8,
-    borderRadius: 12,
-    paddingHorizontal: 12,
-    paddingVertical: 10,
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 1},
-    shadowOpacity: 0.05,
-    shadowRadius: 4,
-    elevation: 2,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
   },
   searchIcon: {
-    marginRight: 8,
+    marginRight: spacing.sm,
   },
   searchInput: {
     flex: 1,
-    fontSize: 16,
+    ...typography.body,
     color: colors.text,
     padding: 0,
   },
-  clearButton: {
-    marginLeft: 8,
-    padding: 4,
-  },
   list: {
-    padding: 16,
+    padding: spacing.lg,
+    paddingBottom: spacing.xxxl,
   },
-  messageItem: {
+  emptyContainer: {
+    flexGrow: 1,
+    paddingBottom: spacing.xxxl,
+  },
+  row: {
     flexDirection: 'row',
     alignItems: 'center',
+    padding: spacing.lg,
     backgroundColor: colors.backgroundCard,
-    padding: 16,
-    borderRadius: 12,
-    marginBottom: 12,
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 1},
-    shadowOpacity: 0.05,
-    shadowRadius: 4,
-    elevation: 2,
+    marginBottom: spacing.sm,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
   },
-  avatarContainer: {
+  rowUnread: {
+    backgroundColor: colors.primary + '08',
+    borderColor: colors.primary + '30',
+  },
+  avatarWrapper: {
     position: 'relative',
-    marginRight: 12,
+    marginRight: spacing.md,
   },
   avatar: {
-    width: 56,
-    height: 56,
-    borderRadius: 28,
+    width: 52,
+    height: 52,
+    borderRadius: 26,
   },
   avatarPlaceholder: {
-    width: 56,
-    height: 56,
-    borderRadius: 28,
-    backgroundColor: colors.secondary,
+    width: 52,
+    height: 52,
+    borderRadius: 26,
+    backgroundColor: colors.primary + '30',
     justifyContent: 'center',
     alignItems: 'center',
   },
   avatarText: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#fff',
+    ...typography.bodyBold,
+    color: colors.primary,
+  },
+  activeDot: {
+    position: 'absolute',
+    bottom: 2,
+    right: 2,
+    width: 12,
+    height: 12,
+    borderRadius: 6,
+    backgroundColor: colors.success,
+    borderWidth: 2,
+    borderColor: colors.backgroundCard,
   },
   unreadBadge: {
     position: 'absolute',
-    top: -2,
-    right: -2,
-    backgroundColor: '#FF3B30',
+    top: -4,
+    right: -4,
+    backgroundColor: colors.primary,
     borderRadius: 10,
     minWidth: 20,
     height: 20,
@@ -257,77 +311,48 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 6,
     borderWidth: 2,
-    borderColor: '#fff',
+    borderColor: colors.backgroundCard,
   },
   unreadText: {
-    color: '#fff',
-    fontSize: 12,
-    fontWeight: 'bold',
+    ...typography.badge,
+    color: colors.white,
   },
-  messageContent: {
+  content: {
     flex: 1,
-    marginRight: 8,
+    minWidth: 0,
+    marginRight: spacing.sm,
   },
-  messageHeader: {
+  rowHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 4,
+    marginBottom: 2,
   },
-  messageName: {
-    fontSize: 16,
-    fontWeight: '600',
+  name: {
+    ...typography.bodyBold,
     color: colors.text,
     flex: 1,
   },
-  messageTime: {
-    fontSize: 12,
-    color: colors.textMuted,
-    marginLeft: 8,
+  nameUnread: {
+    fontWeight: '700',
   },
-  messagePreview: {
-    fontSize: 14,
+  timestamp: {
+    ...typography.caption,
     color: colors.textMuted,
+    marginLeft: spacing.sm,
   },
-  unreadPreview: {
+  preview: {
+    ...typography.small,
+    color: colors.textSecondary,
+  },
+  previewUnread: {
     color: colors.text,
     fontWeight: '500',
   },
-  emptyContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 32,
-  },
-  emptyList: {
-    flexGrow: 1,
-  },
-  emptyIconContainer: {
-    width: 120,
-    height: 120,
-    borderRadius: 60,
-    backgroundColor: '#F0F0F0',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 24,
-  },
-  emptyTitle: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: colors.text,
-    marginBottom: 8,
-    textAlign: 'center',
-  },
-  emptyText: {
-    fontSize: 16,
-    color: colors.textMuted,
-    textAlign: 'center',
-    lineHeight: 24,
-  },
   fab: {
     position: 'absolute',
-    right: 20,
-    bottom: 20, // At the bottom of the screen
+    right: spacing.lg,
+    bottom: spacing.xl,
     width: 56,
     height: 56,
     borderRadius: 28,
@@ -343,4 +368,3 @@ const styles = StyleSheet.create({
 });
 
 export default MessagesScreen;
-

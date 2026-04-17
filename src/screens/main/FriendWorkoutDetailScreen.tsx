@@ -16,7 +16,7 @@ import {
 import {useNavigation, useRoute, RouteProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {colors} from '@/theme/colors';
+import colors from '@/theme/colors';
 
 type FriendWorkoutDetailRouteParams = {
   friendId: string;

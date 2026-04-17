@@ -1,9 +1,9 @@
 /**
  * Group Detail Screen
- * Shows detailed information about a specific group
+ * Gruppens detaljer – beskrivelse, medlemmer, aktivitet, join/leave/invite
  */
 
-import React, {useState} from 'react';
+import React, {useState, useMemo} from 'react';
 import {
   View,
   Text,
@@ -11,23 +11,17 @@ import {
   ScrollView,
   TouchableOpacity,
   Image,
-  SafeAreaView,
-  Switch,
-  Platform,
+  Alert,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation, useRoute} from '@react-navigation/native';
-import MuscleIcon from '@/components/MuscleIcon';
-import {StackNavigationProp} from '@react-navigation/stack';
+import ScreenHeader from '@/components/ui/ScreenHeader';
+import {Card} from '@/components/ui/Card';
 import {useAppStore} from '@/store/appStore';
-import {colors} from '@/theme/colors';
-
-type Friend = {
-  id: string;
-  name: string;
-  avatar?: string;
-  isOnline: boolean;
-};
+import {useGroup, useGroupActivity} from '@/hooks/data';
+import {formatRelativeTime} from '@/utils/formatRelativeTime';
+import colors from '@/theme/colors';
+import {spacing, radius, typography} from '@/theme/designTokens';
 
 type Group = {
   id: string;
@@ -35,263 +29,325 @@ type Group = {
   description?: string;
   biography?: string;
   image?: string;
-  isPrivate: boolean;
-  adminId: string;
-  members: Friend[];
-  totalWorkouts: number;
-  totalTimeTogether: number; // in minutes
-  createdAt: Date | string;
-};
-
-type GroupDetailScreenProps = {
-  route: {
-    params: {
-      group: Group;
-    };
-  };
+  isPrivate?: boolean;
+  adminId?: string;
+  members: Array<{id: string; name: string; avatar?: string; isOnline?: boolean}>;
+  totalWorkouts?: number;
+  totalTimeTogether?: number;
+  totalCheckIns?: number;
+  location?: string;
+  focus?: string;
+  createdAt?: Date | string;
 };
 
 const GroupDetailScreen = () => {
-  const navigation = useNavigation<StackNavigationProp<any>>();
+  const navigation = useNavigation<any>();
   const route = useRoute();
   const {group: initialGroup} = (route.params as any) || {};
   const {user} = useAppStore();
-  
-  // Track privacy state
-  const [isPrivate, setIsPrivate] = useState(initialGroup?.isPrivate || false);
+
+  const {group: groupFromMock} = useGroup(initialGroup?.id, user?.id || 'current_user');
+  const groupActivityRaw = useGroupActivity(initialGroup?.id, user?.id || 'current_user');
+
+  const [isMember, setIsMember] = useState(() => {
+    if (!user || !initialGroup?.members) return false;
+    return initialGroup.members.some(
+      m => m.id === user.id || m.id === 'current'
+    );
+  });
+
+  const totalCheckIns =
+    initialGroup?.totalCheckIns ??
+    groupFromMock?.totalCheckIns ??
+    (initialGroup?.totalWorkouts ?? 0) * 2;
+
+  const groupActivity = useMemo(
+    () =>
+      [...groupActivityRaw]
+        .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
+        .slice(0, 5),
+    [groupActivityRaw]
+  );
+
+  const isAdmin =
+    user && initialGroup?.adminId && (initialGroup.adminId === user.id || initialGroup.adminId === 'current');
+
+  const handleJoin = () => {
+    setIsMember(true);
+    Alert.alert('Velkommen!', `Du er nu medlem af ${initialGroup.name}`);
+  };
+
+  const handleLeave = () => {
+    Alert.alert(
+      'Forlad gruppe',
+      `Er du sikker på at du vil forlade ${initialGroup.name}?`,
+      [
+        {text: 'Annuller', style: 'cancel'},
+        {
+          text: 'Forlad',
+          style: 'destructive',
+          onPress: () => {
+            setIsMember(false);
+            navigation.goBack();
+          },
+        },
+      ]
+    );
+  };
+
+  const handleInvite = () => {
+    Alert.alert('Inviter venner', 'Vælg venner at invitere til gruppen', [
+      {text: 'OK'},
+    ]);
+  };
 
   if (!initialGroup) {
     return (
       <View style={styles.container}>
-        <View style={styles.header}>
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.backButton}>
-            <Icon name="arrow-back" size={24} color="#000" />
-          </TouchableOpacity>
-          <Text style={styles.headerTitle}>Gruppe detaljer</Text>
-          <View style={styles.headerRight} />
-        </View>
+        <ScreenHeader title="Gruppe" onBack={() => navigation.goBack()} />
         <View style={styles.errorContainer}>
+          <Icon name="alert-circle-outline" size={48} color={colors.textMuted} />
           <Text style={styles.errorText}>Gruppe ikke fundet</Text>
         </View>
       </View>
     );
   }
 
+  const createdAtDate =
+    typeof initialGroup.createdAt === 'string'
+      ? new Date(initialGroup.createdAt)
+      : initialGroup.createdAt ?? new Date();
+
   const formatTime = (minutes: number): string => {
-    if (minutes === 0) {
-      return '0 minutter';
-    }
-    
-    const hours = Math.floor(minutes / 60);
-    const mins = minutes % 60;
-    
-    if (hours > 0 && mins > 0) {
-      return `${hours} ${hours === 1 ? 'time' : 'timer'} og ${mins} ${mins === 1 ? 'minut' : 'minutter'}`;
-    } else if (hours > 0) {
-      return `${hours} ${hours === 1 ? 'time' : 'timer'}`;
-    } else {
-      return `${mins} ${mins === 1 ? 'minut' : 'minutter'}`;
-    }
-  };
-
-  // Convert createdAt to Date if it's a string
-  const createdAtDate = typeof initialGroup.createdAt === 'string' 
-    ? new Date(initialGroup.createdAt) 
-    : initialGroup.createdAt;
-
-  // Check if current user is a member
-  const isMember = user ? initialGroup.members.some(m => m.id === user.id) : false;
-  
-  // Check if current user is admin
-  const isAdmin = user ? initialGroup.adminId === user.id : false;
-
-  const handleEditGroup = () => {
-    // Navigate to edit group screen
-    const serializableGroup = {
-      ...initialGroup,
-      isPrivate,
-      createdAt: typeof initialGroup.createdAt === 'string' ? initialGroup.createdAt : initialGroup.createdAt.toISOString(),
-    };
-    navigation.navigate('EditGroup', {group: serializableGroup});
-  };
-
-  const handleMemberPress = (memberId: string) => {
-    // Navigate to member profile
-    const member = initialGroup.members.find(m => m.id === memberId);
-    if (member) {
-      navigation.navigate('FriendProfile', {
-        friendId: memberId,
-        friendName: member.name,
-        mutualFriends: 0,
-        gyms: [],
-      });
-    }
-  };
-
-  const handleTogglePrivacy = (value: boolean) => {
-    // Reverse the logic: value is the switch state (true = public/blue, false = private/grey)
-    const newPrivacyState = !value;
-    setIsPrivate(newPrivacyState);
-    
-    // TODO: Save to backend
-    // No popup - just toggle the switch directly
+    if (!minutes || minutes === 0) return '0 min';
+    if (minutes < 60) return `${minutes} min`;
+    const h = Math.floor(minutes / 60);
+    const m = minutes % 60;
+    return m === 0 ? `${h}t` : `${h}t ${m}m`;
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      {/* Header */}
-      <View style={styles.header}>
-        <TouchableOpacity
-          onPress={() => navigation.goBack()}
-          style={styles.backButton}>
-          <Icon name="arrow-back" size={24} color="#000" />
-        </TouchableOpacity>
-        <Text style={styles.headerTitle}>Gruppe detaljer</Text>
-        {isAdmin && (
-          <TouchableOpacity
-            onPress={handleEditGroup}
-            style={styles.editButton}
-            activeOpacity={0.7}>
-            <Icon name="brush-outline" size={24} color="#007AFF" />
-          </TouchableOpacity>
-        )}
-        {!isAdmin && <View style={styles.headerRight} />}
-      </View>
+    <View style={styles.container}>
+      <ScreenHeader
+        title={initialGroup.name}
+        onBack={() => navigation.goBack()}
+        rightElement={
+          isAdmin ? (
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate('EditGroup', {
+                  group: {
+                    ...initialGroup,
+                    createdAt:
+                      typeof initialGroup.createdAt === 'string'
+                        ? initialGroup.createdAt
+                        : initialGroup.createdAt?.toISOString?.(),
+                  },
+                })
+              }>
+              <Icon name="create-outline" size={24} color={colors.primary} />
+            </TouchableOpacity>
+          ) : undefined
+        }
+      />
 
       <ScrollView
-        style={styles.content}
-        contentContainerStyle={styles.contentContainer}>
-        {/* Group Header */}
-        <View style={styles.groupHeader}>
-          <View style={styles.groupIconContainer}>
+        style={styles.scroll}
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}>
+        {/* Header */}
+        <View style={styles.header}>
+          <View style={styles.groupIcon}>
             {initialGroup.image ? (
-              <Image source={{uri: initialGroup.image}} style={styles.groupImage} />
+              <Image
+                source={{uri: initialGroup.image}}
+                style={styles.groupImage}
+                resizeMode="cover"
+              />
             ) : (
-              <Icon name="people" size={48} color="#007AFF" />
+              <Icon name="people" size={48} color={colors.primary} />
             )}
-            {isPrivate && (
+            {initialGroup.isPrivate && (
               <View style={styles.privateBadge}>
-                <Icon name="lock-closed" size={16} color="#8E8E93" />
+                <Icon name="lock-closed" size={14} color={colors.white} />
               </View>
             )}
           </View>
           <Text style={styles.groupName}>{initialGroup.name}</Text>
+          {(initialGroup.location || initialGroup.focus) && (
+            <Text style={styles.groupMeta}>
+              {[initialGroup.location, initialGroup.focus]
+                .filter(Boolean)
+                .join(' • ')}
+            </Text>
+          )}
         </View>
 
-        {/* Group Biography/Description */}
-        {initialGroup.biography && (
-          <View style={styles.descriptionSection}>
-            <Text style={styles.descriptionText}>{initialGroup.biography}</Text>
-          </View>
-        )}
-        {!initialGroup.biography && initialGroup.description && (
-          <View style={styles.descriptionSection}>
-            <Text style={styles.descriptionText}>{initialGroup.description}</Text>
-          </View>
-        )}
+        {/* Description */}
+        <View style={styles.section}>
+          <Text style={styles.description}>
+            {initialGroup.biography || initialGroup.description || 'Ingen beskrivelse'}
+          </Text>
+        </View>
 
-        {/* Privacy Toggle - Only for admin */}
-        {isAdmin && (
-          <View style={styles.privacySection}>
-            <View style={styles.privacyInfo}>
-              <Text style={styles.privacyLabel}>Gruppe synlighed</Text>
-              <Text style={styles.privacySubtext}>
-                {isPrivate
-                  ? 'Privat - Kun medlemmer kan se gruppen'
-                  : 'Offentlig - Alle kan se og søge efter gruppen'}
+        {/* Stats */}
+        <View style={styles.statsRow}>
+          <View style={styles.statCard}>
+            <Icon name="checkmark-circle" size={24} color={colors.primary} />
+            <Text style={styles.statValue}>{totalCheckIns}</Text>
+            <Text style={styles.statLabel}>Check-ins</Text>
+          </View>
+          <View style={styles.statCard}>
+            <Icon name="people" size={24} color={colors.primary} />
+            <Text style={styles.statValue}>
+              {initialGroup.members?.length ?? 0}
+            </Text>
+            <Text style={styles.statLabel}>Medlemmer</Text>
+          </View>
+          <View style={styles.statCard}>
+            <Icon name="time" size={24} color={colors.primary} />
+            <Text style={styles.statValue}>
+              {formatTime(initialGroup.totalTimeTogether ?? 0)}
+            </Text>
+            <Text style={styles.statLabel}>Træningstid</Text>
+          </View>
+        </View>
+
+        {/* CTAs */}
+        <View style={styles.ctaRow}>
+          {isMember ? (
+            <>
+              <TouchableOpacity
+                style={styles.ctaPrimary}
+                onPress={handleInvite}
+                activeOpacity={0.8}>
+                <Icon name="person-add" size={20} color={colors.white} />
+                <Text style={styles.ctaPrimaryText}>Inviter</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.ctaSecondary}
+                onPress={handleLeave}
+                activeOpacity={0.8}>
+                <Text style={styles.ctaSecondaryText}>Forlad gruppe</Text>
+              </TouchableOpacity>
+            </>
+          ) : (
+            <TouchableOpacity
+              style={styles.ctaJoin}
+              onPress={handleJoin}
+              activeOpacity={0.8}>
+              <Icon name="add-circle" size={24} color={colors.white} />
+              <Text style={styles.ctaJoinText}>Join gruppe</Text>
+            </TouchableOpacity>
+          )}
+        </View>
+
+        {/* Activity feed preview */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Seneste aktivitet</Text>
+          {groupActivity.length > 0 ? (
+            <Card variant="outlined" padding="md">
+              {groupActivity.map(activity => (
+                <View key={activity.id} style={styles.activityRow}>
+                  <View style={styles.activityAvatar}>
+                    <Text style={styles.activityAvatarText}>
+                      {activity.userName.charAt(0)}
+                    </Text>
+                  </View>
+                  <View style={styles.activityContent}>
+                    <Text style={styles.activityText}>{activity.message}</Text>
+                    <Text style={styles.activityTime}>
+                      {formatRelativeTime(activity.timestamp)}
+                    </Text>
+                  </View>
+                </View>
+              ))}
+            </Card>
+          ) : (
+            <View style={styles.emptyActivity}>
+              <Icon name="pulse-outline" size={32} color={colors.textMuted} />
+              <Text style={styles.emptyActivityText}>
+                Ingen aktivitet endnu
+              </Text>
+              <Text style={styles.emptyActivitySubtext}>
+                Tjek ind for at vise aktivitet her
               </Text>
             </View>
-            <Switch
-              value={!isPrivate}
-              onValueChange={handleTogglePrivacy}
-              trackColor={{false: '#E5E5EA', true: '#007AFF'}}
-              thumbColor={Platform.OS === 'ios' ? '#fff' : '#fff'}
-            />
-          </View>
-        )}
-
-        {/* Stats Cards */}
-        <View style={styles.statsContainer}>
-          <View style={styles.statCard}>
-            <MuscleIcon muscle="biceps" size={11} color={colors.primary} />
-            <Text style={styles.statValue}>{initialGroup.totalWorkouts}</Text>
-            <Text style={styles.statLabel}>
-              Træning{initialGroup.totalWorkouts !== 1 ? 'er' : ''} sammen
-            </Text>
-          </View>
-          <View style={styles.statCard}>
-            <Icon name="time-outline" size={28} color={colors.primary} />
-            <Text style={styles.statValue} numberOfLines={2}>
-              {formatTime(initialGroup.totalTimeTogether)}
-            </Text>
-            <Text style={styles.statLabel}>Samlet træningstid</Text>
-          </View>
+          )}
         </View>
 
-        {/* Members Section */}
+        {/* Members */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>
-            Medlemmer ({initialGroup.members.length})
+            Medlemmer ({initialGroup.members?.length ?? 0})
           </Text>
-          <View style={styles.membersList}>
-            {initialGroup.members.map((member, index) => {
-              const isCurrentUser = user && member.id === user.id;
+          <View style={styles.membersCard}>
+            {initialGroup.members?.map((member, idx) => {
+              const isCurrentUser =
+                user && (member.id === user.id || member.id === 'current');
               const isGroupAdmin = member.id === initialGroup.adminId;
               return (
                 <TouchableOpacity
                   key={member.id}
-                  style={styles.memberItem}
-                  onPress={() => handleMemberPress(member.id)}
-                  activeOpacity={0.7}>
-                  <View style={styles.memberAvatarContainer}>
+                  style={[
+                    styles.memberRow,
+                    idx < (initialGroup.members?.length ?? 0) - 1 &&
+                      styles.memberRowBorder,
+                  ]}
+                  onPress={() => {
+                    if (!isCurrentUser) {
+                      navigation.navigate('FriendProfile', {
+                        friendId: member.id,
+                        friendName: member.name,
+                        mutualFriends: 0,
+                        gyms: [],
+                      });
+                    }
+                  }}
+                  activeOpacity={0.8}>
+                  <View style={styles.memberAvatar}>
                     {member.avatar ? (
                       <Image
                         source={{uri: member.avatar}}
                         style={styles.memberAvatarImage}
                       />
                     ) : (
-                      <View style={styles.memberAvatarPlaceholder}>
-                        <Text style={styles.memberAvatarText}>
-                          {member.name.charAt(0).toUpperCase()}
-                        </Text>
-                      </View>
+                      <Text style={styles.memberAvatarText}>
+                        {member.name.charAt(0)}
+                      </Text>
                     )}
-                    {member.isOnline && (
-                      <View style={styles.onlineIndicator} />
-                    )}
+                    {member.isOnline && <View style={styles.onlineDot} />}
                   </View>
                   <View style={styles.memberInfo}>
-                    <View style={styles.memberNameRow}>
-                      <Text style={styles.memberName}>
-                        {member.name}
-                        {isCurrentUser && (
-                          <Text style={styles.currentUserLabel}> (Dig)</Text>
-                        )}
-                        {isGroupAdmin && (
-                          <Text style={styles.adminLabel}> • Admin</Text>
-                        )}
-                      </Text>
-                    </View>
-                    {member.isOnline ? (
-                      <Text style={styles.memberStatus}>Online</Text>
-                    ) : (
-                      <Text style={styles.memberStatusOffline}>Offline</Text>
-                    )}
+                    <Text style={styles.memberName}>
+                      {isCurrentUser ? 'Dig' : member.name}
+                      {isGroupAdmin && (
+                        <Text style={styles.adminLabel}> • Admin</Text>
+                      )}
+                    </Text>
+                    <Text
+                      style={[
+                        styles.memberStatus,
+                        member.isOnline && styles.memberStatusOnline,
+                      ]}>
+                      {member.isOnline ? 'Online' : 'Offline'}
+                    </Text>
                   </View>
-                  <Icon name="chevron-forward" size={20} color="#C7C7CC" />
+                  {!isCurrentUser && (
+                    <Icon name="chevron-forward" size={18} color={colors.textMuted} />
+                  )}
                 </TouchableOpacity>
               );
             })}
           </View>
         </View>
 
-        {/* Group Created Date */}
-        <View style={styles.metadataSection}>
-          <Icon name="calendar-outline" size={16} color="#8E8E93" />
+        {/* Created */}
+        <View style={styles.metadata}>
+          <Icon name="calendar-outline" size={16} color={colors.textMuted} />
           <Text style={styles.metadataText}>
-            Oprettet {createdAtDate.toLocaleDateString('da-DK', {
+            Oprettet{' '}
+            {createdAtDate.toLocaleDateString('da-DK', {
               year: 'numeric',
               month: 'long',
               day: 'numeric',
@@ -299,7 +355,7 @@ const GroupDetailScreen = () => {
           </Text>
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -308,253 +364,260 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.background,
   },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    backgroundColor: colors.backgroundCard,
-    borderBottomWidth: 1,
-    borderBottomColor: '#E5E5EA',
-  },
-  backButton: {
-    padding: 4,
-  },
-  headerTitle: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: colors.text,
-  },
-  headerRight: {
-    width: 32,
-  },
-  editButton: {
-    padding: 4,
-  },
-  memberNameRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flexWrap: 'wrap',
-  },
-  adminLabel: {
-    fontSize: 14,
-    fontWeight: '400',
-    color: '#FF9500',
-  },
-  content: {
-    flex: 1,
-  },
-  contentContainer: {
-    padding: 16,
-  },
+  scroll: {flex: 1},
+  scrollContent: {paddingBottom: spacing.xxxl},
   errorContainer: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
+    justifyContent: 'center',
+    padding: spacing.xl,
   },
   errorText: {
-    fontSize: 16,
+    ...typography.body,
     color: colors.textMuted,
+    marginTop: spacing.md,
   },
-  groupHeader: {
+  header: {
     alignItems: 'center',
-    marginBottom: 24,
-    paddingVertical: 24,
+    paddingVertical: spacing.xl,
   },
-  groupIconContainer: {
-    width: 96,
-    height: 96,
-    borderRadius: 48,
-    backgroundColor: colors.primary,
+  groupIcon: {
+    width: 88,
+    height: 88,
+    borderRadius: 44,
+    backgroundColor: colors.primary + '20',
+    alignItems: 'center',
     justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 16,
+    marginBottom: spacing.md,
     position: 'relative',
-    overflow: 'hidden',
   },
   groupImage: {
     width: '100%',
     height: '100%',
+    borderRadius: 44,
   },
   privateBadge: {
     position: 'absolute',
     top: 4,
     right: 4,
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-    borderRadius: 12,
+    backgroundColor: colors.textMuted,
+    borderRadius: 10,
     padding: 4,
   },
   groupName: {
-    fontSize: 24,
-    fontWeight: 'bold',
+    ...typography.h3,
     color: colors.text,
     textAlign: 'center',
   },
-  descriptionSection: {
-    backgroundColor: colors.backgroundCard,
-    padding: 16,
-    borderRadius: 12,
-    marginBottom: 16,
+  groupMeta: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    marginTop: 4,
   },
-  descriptionText: {
-    fontSize: 16,
+  section: {
+    paddingHorizontal: spacing.lg,
+    marginBottom: spacing.xl,
+  },
+  description: {
+    ...typography.body,
     color: colors.text,
     lineHeight: 24,
   },
-  statsContainer: {
+  statsRow: {
     flexDirection: 'row',
-    gap: 12,
-    marginBottom: 24,
+    paddingHorizontal: spacing.lg,
+    gap: spacing.sm,
+    marginBottom: spacing.xl,
   },
   statCard: {
     flex: 1,
     backgroundColor: colors.backgroundCard,
-    padding: 20,
-    borderRadius: 12,
+    padding: spacing.md,
+    borderRadius: radius.lg,
     alignItems: 'center',
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 1},
-    shadowOpacity: 0.05,
-    shadowRadius: 4,
-    elevation: 2,
+    borderWidth: 1,
+    borderColor: colors.border,
   },
   statValue: {
-    fontSize: 16,
-    fontWeight: 'bold',
+    ...typography.h4,
     color: colors.text,
-    marginTop: 8,
-    marginBottom: 4,
-    textAlign: 'center',
-    minHeight: 44,
+    marginTop: spacing.sm,
   },
   statLabel: {
-    fontSize: 12,
-    color: colors.textMuted,
-    textAlign: 'center',
+    ...typography.caption,
+    color: colors.textSecondary,
+    marginTop: 2,
   },
-  section: {
-    marginBottom: 24,
+  ctaRow: {
+    flexDirection: 'row',
+    paddingHorizontal: spacing.lg,
+    gap: spacing.sm,
+    marginBottom: spacing.xl,
+  },
+  ctaPrimary: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: spacing.sm,
+    paddingVertical: spacing.md,
+    backgroundColor: colors.primary,
+    borderRadius: radius.lg,
+  },
+  ctaPrimaryText: {
+    ...typography.bodyBold,
+    color: colors.white,
+  },
+  ctaSecondary: {
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.lg,
+    justifyContent: 'center',
+  },
+  ctaSecondaryText: {
+    ...typography.bodyBold,
+    color: colors.error,
+  },
+  ctaJoin: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: spacing.sm,
+    paddingVertical: spacing.md,
+    backgroundColor: colors.primary,
+    borderRadius: radius.lg,
+  },
+  ctaJoinText: {
+    ...typography.bodyBold,
+    color: colors.white,
   },
   sectionTitle: {
-    fontSize: 18,
-    fontWeight: '600',
+    ...typography.h4,
     color: colors.text,
-    marginBottom: 12,
+    marginBottom: spacing.md,
   },
-  membersList: {
+  activityRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: spacing.sm,
+  },
+  activityAvatar: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: colors.primary + '20',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: spacing.md,
+  },
+  activityAvatarText: {
+    ...typography.bodyBold,
+    color: colors.primary,
+  },
+  activityContent: {flex: 1},
+  activityText: {
+    ...typography.body,
+    color: colors.text,
+  },
+  activityTime: {
+    ...typography.caption,
+    color: colors.textMuted,
+    marginTop: 2,
+  },
+  emptyActivity: {
+    alignItems: 'center',
+    padding: spacing.xl,
     backgroundColor: colors.backgroundCard,
-    borderRadius: 12,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderStyle: 'dashed',
+  },
+  emptyActivityText: {
+    ...typography.body,
+    color: colors.text,
+    marginTop: spacing.sm,
+  },
+  emptyActivitySubtext: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    marginTop: 4,
+  },
+  membersCard: {
+    backgroundColor: colors.backgroundCard,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
     overflow: 'hidden',
   },
-  memberItem: {
+  memberRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 16,
+    padding: spacing.md,
+  },
+  memberRowBorder: {
     borderBottomWidth: 1,
-    borderBottomColor: '#F0F0F0',
+    borderBottomColor: colors.border,
   },
-  memberAvatarContainer: {
-    position: 'relative',
-    marginRight: 12,
-  },
-  memberAvatarPlaceholder: {
-    width: 56,
-    height: 56,
-    borderRadius: 28,
-    backgroundColor: '#C7C7CC',
-    justifyContent: 'center',
+  memberAvatar: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: colors.primary + '20',
     alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: spacing.md,
+    position: 'relative',
   },
   memberAvatarImage: {
-    width: 56,
-    height: 56,
-    borderRadius: 28,
+    width: 44,
+    height: 44,
+    borderRadius: 22,
   },
   memberAvatarText: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#fff',
-  },
-  onlineIndicator: {
-    position: 'absolute',
-    bottom: 2,
-    right: 2,
-    width: 16,
-    height: 16,
-    borderRadius: 8,
-    backgroundColor: '#34C759',
-    borderWidth: 2,
-    borderColor: '#fff',
-  },
-  memberInfo: {
-    flex: 1,
-  },
-  memberName: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: colors.text,
-    marginBottom: 4,
-  },
-  currentUserLabel: {
-    fontSize: 14,
-    fontWeight: '400',
-    color: colors.secondary,
-  },
-  memberStatus: {
-    fontSize: 14,
-    color: '#34C759',
-  },
-  memberStatusOffline: {
-    fontSize: 14,
-    color: colors.textMuted,
-  },
-  onlineBadge: {
-    marginLeft: 8,
+    ...typography.bodyBold,
+    color: colors.primary,
   },
   onlineDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    backgroundColor: '#34C759',
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    width: 12,
+    height: 12,
+    borderRadius: 6,
+    backgroundColor: colors.success,
+    borderWidth: 2,
+    borderColor: colors.backgroundCard,
   },
-  metadataSection: {
+  memberInfo: {flex: 1},
+  memberName: {
+    ...typography.bodyBold,
+    color: colors.text,
+  },
+  adminLabel: {
+    ...typography.small,
+    color: colors.warning,
+    fontWeight: '400',
+  },
+  memberStatus: {
+    ...typography.caption,
+    color: colors.textMuted,
+    marginTop: 2,
+  },
+  memberStatusOnline: {
+    color: colors.success,
+  },
+  metadata: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 16,
-    gap: 8,
+    gap: spacing.sm,
+    paddingVertical: spacing.lg,
   },
   metadataText: {
-    fontSize: 14,
+    ...typography.caption,
     color: colors.textMuted,
-  },
-  privacySection: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: '#fff',
-    padding: 16,
-    borderRadius: 12,
-    marginBottom: 16,
-    borderWidth: 1,
-    borderColor: '#E5E5EA',
-  },
-  privacyInfo: {
-    flex: 1,
-    marginRight: 16,
-  },
-  privacyLabel: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#000',
-    marginBottom: 4,
-  },
-  privacySubtext: {
-    fontSize: 14,
-    color: '#8E8E93',
   },
 });
 
 export default GroupDetailScreen;
-

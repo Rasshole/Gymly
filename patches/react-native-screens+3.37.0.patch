@@ -1,0 +1,182 @@
+diff --git a/node_modules/react-native-screens/lib/commonjs/native-stack/views/HeaderConfig.js b/node_modules/react-native-screens/lib/commonjs/native-stack/views/HeaderConfig.js
+index 9c22945..b0443bb 100644
+--- a/node_modules/react-native-screens/lib/commonjs/native-stack/views/HeaderConfig.js
++++ b/node_modules/react-native-screens/lib/commonjs/native-stack/views/HeaderConfig.js
+@@ -46,9 +46,8 @@ function HeaderConfig(_ref) {
+     searchBar,
+     title
+   } = _ref;
+-  const {
+-    colors
+-  } = (0, _native.useTheme)();
++  const theme = (0, _native.useTheme)();
++  const colors = theme?.colors ?? _native.DefaultTheme.colors;
+   const tintColor = headerTintColor ?? colors.primary;
+ 
+   // We need to use back press subscription here to override back button behavior on JS side.
+diff --git a/node_modules/react-native-screens/lib/commonjs/native-stack/views/NativeStackView.js b/node_modules/react-native-screens/lib/commonjs/native-stack/views/NativeStackView.js
+index 081f0e8..fa14019 100644
+--- a/node_modules/react-native-screens/lib/commonjs/native-stack/views/NativeStackView.js
++++ b/node_modules/react-native-screens/lib/commonjs/native-stack/views/NativeStackView.js
+@@ -47,9 +47,8 @@ const MaybeNestedStack = _ref => {
+     stackPresentation,
+     children
+   } = _ref;
+-  const {
+-    colors
+-  } = (0, _native.useTheme)();
++  const theme = (0, _native.useTheme)();
++  const colors = theme?.colors ?? _native.DefaultTheme.colors;
+   const {
+     headerShown = true,
+     contentStyle
+@@ -63,7 +62,7 @@ const MaybeNestedStack = _ref => {
+   }, [headerShown, stackPresentation, route.name]);
+   const content = /*#__PURE__*/React.createElement(Container, {
+     style: [styles.container, stackPresentation !== 'transparentModal' && stackPresentation !== 'containedTransparentModal' && {
+-      backgroundColor: colors.background
++      backgroundColor: colors?.background ?? '#F3F4F6'
+     }, contentStyle]
+     // @ts-ignore Wrong props passed to View
+     ,
+@@ -181,9 +180,8 @@ const RouteView = _ref2 => {
+     useNativeDriver: true
+   })).current;
+   const Screen = React.useContext(_Screen.ScreenContext);
+-  const {
+-    dark
+-  } = (0, _native.useTheme)();
++  const themeForScreen = (0, _native.useTheme)();
++  const dark = themeForScreen.dark ?? _native.DefaultTheme.dark;
+   const screenRef = React.useRef(null);
+   React.useEffect(() => {
+     screensRefs.current[route.key] = screenRef;
+diff --git a/node_modules/react-native-screens/lib/module/native-stack/views/HeaderConfig.js b/node_modules/react-native-screens/lib/module/native-stack/views/HeaderConfig.js
+index ca4afd7..8689438 100644
+--- a/node_modules/react-native-screens/lib/module/native-stack/views/HeaderConfig.js
++++ b/node_modules/react-native-screens/lib/module/native-stack/views/HeaderConfig.js
+@@ -1,4 +1,4 @@
+-import { useTheme } from '@react-navigation/native';
++import { DefaultTheme, useTheme } from '@react-navigation/native';
+ import * as React from 'react';
+ import { Platform } from 'react-native';
+ import { isSearchBarAvailableForCurrentPlatform, executeNativeBackPress } from '../../utils';
+@@ -37,9 +37,8 @@ export default function HeaderConfig(_ref) {
+     searchBar,
+     title
+   } = _ref;
+-  const {
+-    colors
+-  } = useTheme();
++  const theme = useTheme();
++  const colors = theme?.colors ?? DefaultTheme.colors;
+   const tintColor = headerTintColor ?? colors.primary;
+ 
+   // We need to use back press subscription here to override back button behavior on JS side.
+diff --git a/node_modules/react-native-screens/lib/module/native-stack/views/NativeStackView.js b/node_modules/react-native-screens/lib/module/native-stack/views/NativeStackView.js
+index e7fd242..7a14d87 100644
+--- a/node_modules/react-native-screens/lib/module/native-stack/views/NativeStackView.js
++++ b/node_modules/react-native-screens/lib/module/native-stack/views/NativeStackView.js
+@@ -8,7 +8,7 @@ import warnOnce from 'warn-once';
+ import ScreenStack from '../../components/ScreenStack';
+ import { GHContext } from '../contexts/GHContext';
+ import { ScreenContext } from '../../components/Screen';
+-import { StackActions, useTheme } from '@react-navigation/native';
++import { DefaultTheme, StackActions, useTheme } from '@react-navigation/native';
+ import { useSafeAreaFrame, useSafeAreaInsets } from 'react-native-safe-area-context';
+ import HeaderConfig from './HeaderConfig';
+ import SafeAreaProviderCompat from '../utils/SafeAreaProviderCompat';
+@@ -39,9 +39,8 @@ const MaybeNestedStack = _ref => {
+     stackPresentation,
+     children
+   } = _ref;
+-  const {
+-    colors
+-  } = useTheme();
++  const theme = useTheme();
++  const colors = theme?.colors ?? DefaultTheme.colors;
+   const {
+     headerShown = true,
+     contentStyle
+@@ -55,7 +54,7 @@ const MaybeNestedStack = _ref => {
+   }, [headerShown, stackPresentation, route.name]);
+   const content = /*#__PURE__*/React.createElement(Container, {
+     style: [styles.container, stackPresentation !== 'transparentModal' && stackPresentation !== 'containedTransparentModal' && {
+-      backgroundColor: colors.background
++      backgroundColor: colors?.background ?? '#F3F4F6'
+     }, contentStyle]
+     // @ts-ignore Wrong props passed to View
+     ,
+@@ -173,9 +172,8 @@ const RouteView = _ref2 => {
+     useNativeDriver: true
+   })).current;
+   const Screen = React.useContext(ScreenContext);
+-  const {
+-    dark
+-  } = useTheme();
++  const themeForScreen = useTheme();
++  const dark = themeForScreen.dark ?? DefaultTheme.dark;
+   const screenRef = React.useRef(null);
+   React.useEffect(() => {
+     screensRefs.current[route.key] = screenRef;
+diff --git a/node_modules/react-native-screens/src/native-stack/views/HeaderConfig.tsx b/node_modules/react-native-screens/src/native-stack/views/HeaderConfig.tsx
+index 5bda6e2..fea8336 100644
+--- a/node_modules/react-native-screens/src/native-stack/views/HeaderConfig.tsx
++++ b/node_modules/react-native-screens/src/native-stack/views/HeaderConfig.tsx
+@@ -1,4 +1,4 @@
+-import { Route, useTheme } from '@react-navigation/native';
++import { DefaultTheme, Route, useTheme } from '@react-navigation/native';
+ import * as React from 'react';
+ import { Platform } from 'react-native';
+ import { SearchBarProps } from '../../types';
+@@ -53,7 +53,8 @@ export default function HeaderConfig({
+   searchBar,
+   title,
+ }: Props): JSX.Element {
+-  const { colors } = useTheme();
++  const theme = useTheme();
++  const colors = theme?.colors ?? DefaultTheme.colors;
+   const tintColor = headerTintColor ?? colors.primary;
+ 
+   // We need to use back press subscription here to override back button behavior on JS side.
+diff --git a/node_modules/react-native-screens/src/native-stack/views/NativeStackView.tsx b/node_modules/react-native-screens/src/native-stack/views/NativeStackView.tsx
+index fbb51ea..917ef61 100644
+--- a/node_modules/react-native-screens/src/native-stack/views/NativeStackView.tsx
++++ b/node_modules/react-native-screens/src/native-stack/views/NativeStackView.tsx
+@@ -9,6 +9,7 @@ import ScreenStack from '../../components/ScreenStack';
+ import { GHContext } from '../contexts/GHContext';
+ import { ScreenContext } from '../../components/Screen';
+ import {
++  DefaultTheme,
+   ParamListBase,
+   StackActions,
+   StackNavigationState,
+@@ -68,7 +69,8 @@ const MaybeNestedStack = ({
+   stackPresentation: StackPresentationTypes;
+   children: React.ReactNode;
+ }) => {
+-  const { colors } = useTheme();
++  const theme = useTheme();
++  const colors = theme?.colors ?? DefaultTheme.colors;
+   const { headerShown = true, contentStyle } = options;
+ 
+   const Screen = React.useContext(ScreenContext);
+@@ -96,7 +98,7 @@ const MaybeNestedStack = ({
+         styles.container,
+         stackPresentation !== 'transparentModal' &&
+           stackPresentation !== 'containedTransparentModal' && {
+-            backgroundColor: colors.background,
++            backgroundColor: colors?.background ?? '#F3F4F6',
+           },
+         contentStyle,
+       ]}
+@@ -265,7 +267,8 @@ const RouteView = ({
+   ).current;
+ 
+   const Screen = React.useContext(ScreenContext);
+-  const { dark } = useTheme();
++  const themeForScreen = useTheme();
++  const dark = themeForScreen.dark ?? DefaultTheme.dark;
+ 
+   const screenRef = React.useRef(null);
+   React.useEffect(() => {

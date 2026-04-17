@@ -23,10 +23,10 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import danishGyms, {DanishGym} from '@/data/danishGyms';
 import {useAppStore} from '@/store/appStore';
 import {useGymStore} from '@/store/gymStore';
-import {getGymLogo, hasGymLogo} from '@/utils/gymLogos';
+import gymLogos from '@/utils/gymLogos';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {colors} from '@/theme/colors';
+import colors from '@/theme/colors';
 
 const formatDuration = (minutes: number): string => {
   if (minutes < 60) return `${minutes} min`;
@@ -71,8 +71,8 @@ const FavoriteGymItemWithLogo = ({
 }) => {
   const navigation = useNavigation<StackNavigationProp<any>>();
   const {getActiveUsersCount, getGymStatus} = useGymStore();
-  const logoUrl = getGymLogo(gym.brand);
-  const hasLogo = hasGymLogo(gym.brand);
+  const logoUrl = gymLogos.getGymLogo(gym.brand);
+  const hasLogo = gymLogos.hasGymLogo(gym.brand);
   const [logoError, setLogoError] = useState(false);
   const activeUsers = getActiveUsersCount(gym.id);
   const gymStatus = getGymStatus(gym.id);
@@ -315,8 +315,8 @@ const CentresScreen = () => {
 
   const GymIcon = ({gym, favorite}: {gym: DanishGym; favorite: boolean}) => {
     const [logoError, setLogoError] = useState(false);
-    const logoUrl = getGymLogo(gym.brand);
-    const hasLogo = hasGymLogo(gym.brand);
+    const logoUrl = gymLogos.getGymLogo(gym.brand);
+    const hasLogo = gymLogos.hasGymLogo(gym.brand);
 
     return (
       <View style={[styles.gymIcon, favorite && styles.gymIconFavorite]}>

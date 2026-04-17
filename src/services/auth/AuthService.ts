@@ -5,12 +5,19 @@
  */
 
 import {Platform} from 'react-native';
+
+const logAuthDebug = (...args: unknown[]) => {
+  if (__DEV__) {
+    console.warn(...args);
+  }
+};
 import {AuthTokens, AuthResponse} from '@/types/auth.types';
 import {User, UserLogin, UserRegistration} from '@/types/user.types';
 import SecureStorage from '../security/SecureStorage';
 import {supabase} from '@/services/supabase/supabaseClient';
 import {SUPABASE_ALLOW_UNVERIFIED_LOGIN, SUPABASE_EMAIL_REDIRECT} from '@/config/supabaseConfig';
 import {User as SupabaseUser} from '@supabase/supabase-js';
+import {normalizeDanishPhone} from '@/utils/phoneUtils';
 
 class AuthService {
   private readonly API_URL = 'https://api.gymly.app'; // TODO: Replace with actual API URL
@@ -28,8 +35,20 @@ class AuthService {
       email: user.email || '',
       username: metadata.username || user.email?.split('@')[0] || 'gymly_user',
       displayName: metadata.displayName || metadata.display_name || user.email || 'Gymly User',
+      phoneNumber:
+        typeof metadata.phoneNumber === 'string' ? metadata.phoneNumber : undefined,
       profileImageUrl: metadata.profileImageUrl,
       bicepsEmoji: metadata.bicepsEmoji || '💪🏻',
+      bio: metadata.bio,
+      birthYear:
+        metadata.birthYear ??
+        (metadata.dateOfBirth
+          ? new Date(metadata.dateOfBirth as string).getFullYear()
+          : undefined),
+      dateOfBirth: metadata.dateOfBirth
+        ? new Date(metadata.dateOfBirth as string)
+        : undefined,
+      trainingGoal: metadata.trainingGoal,
       favoriteGyms: metadata.favoriteGyms,
       privacySettings: metadata.privacySettings || {
         profileVisibility: 'friends',
@@ -68,6 +87,54 @@ class AuthService {
     };
   }
 
+  /** RN/fetch often surfaces transport failures as this English string */
+  private isLikelyNetworkFailure(message: string): boolean {
+    const m = (message || '').toLowerCase();
+    return (
+      m.includes('network request failed') ||
+      m.includes('failed to fetch') ||
+      m.includes('network error') ||
+      m.includes('load failed') ||
+      m.includes('could not connect') ||
+      m.includes('connection refused') ||
+      m.includes('timed out') ||
+      m.includes('timeout') ||
+      m.includes('host lookup') ||
+      m.includes('internet connection appears to be offline') ||
+      m.includes('the network connection was lost')
+    );
+  }
+
+  /** Supabase mail/SMTP errors – keep in sync with Dashboard troubleshooting */
+  private isLikelyEmailDeliveryFailure(lower: string): boolean {
+    return (
+      lower.includes('error sending confirmation email') ||
+      lower.includes('sending confirmation email') ||
+      lower.includes('unable to send email') ||
+      (lower.includes('failed to send') && lower.includes('email')) ||
+      lower.includes('mail delivery') ||
+      lower.includes('smtp') ||
+      lower.includes('535') ||
+      lower.includes('authentication failed') ||
+      lower.includes('connection to smtp') ||
+      (lower.includes('tls') && lower.includes('smtp'))
+    );
+  }
+
+  private humanizeAuthMessage(message: string): string {
+    const m = (message || '').trim();
+    const lower = m.toLowerCase();
+    if (this.isLikelyNetworkFailure(m)) {
+      return 'Kunne ikke få forbindelse til Gymly. Tjek internet, VPN eller prøv igen om lidt.';
+    }
+    if (this.isLikelyEmailDeliveryFailure(lower)) {
+      const hint =
+        'Bekræftelsesmailen kunne ikke sendes. Tjek Supabase (samme projekt som i appen: ykantlsuszpauddasqvz) under Authentication → Emails → SMTP: host, port (587+TLS eller 465+SSL), bruger og app-adgangskode. Slå custom SMTP fra for at teste med Supabase-standard.';
+      return m ? `${hint}\n\nDetalje: ${m}` : hint;
+    }
+    return m;
+  }
+
   /**
    * Register new user
    */
@@ -76,48 +143,66 @@ class AuthService {
       // Validate input
       this.validateRegistration(data);
 
-      const {data: signupData, error} = await supabase.auth.signUp({
-        email: data.email,
-        password: data.password,
-        options: {
-          emailRedirectTo: SUPABASE_EMAIL_REDIRECT || undefined,
-          data: {
-            username: data.username,
-            displayName: data.displayName,
-            bicepsEmoji: data.bicepsEmoji || '💪🏻',
-            favoriteGyms: data.favoriteGyms,
-            profileImageUrl: data.profileImageUrl,
-            gdprConsent: {
-              ...data.gdprConsent,
-              dataRetentionConsent: true,
-              locationTrackingConsent: false,
-              consentDate: new Date().toISOString(),
-              privacyPolicyVersion: '1.0.0',
-              termsOfServiceVersion: '1.0.0',
-              consentHistory: [],
-            },
-            privacySettings: {
-              profileVisibility: 'friends',
-              locationSharingEnabled: true,
-              showWorkoutHistory: true,
-              allowFriendRequests: true,
-              showOnlineStatus: true,
+      const signUpOnce = () =>
+        supabase.auth.signUp({
+          email: data.email,
+          password: data.password,
+          options: {
+            emailRedirectTo: SUPABASE_EMAIL_REDIRECT || undefined,
+            data: {
+              username: data.username,
+              phoneNumber: data.phoneNumber,
+              displayName: data.displayName,
+              bicepsEmoji: data.bicepsEmoji || '💪🏻',
+              favoriteGyms: data.favoriteGyms,
+              profileImageUrl: data.profileImageUrl,
+              bio: data.bio,
+              birthYear: data.birthYear,
+              dateOfBirth: data.dateOfBirth,
+              trainingGoal: data.trainingGoal,
+              gdprConsent: {
+                ...data.gdprConsent,
+                dataRetentionConsent: true,
+                locationTrackingConsent:
+                  data.gdprConsent.locationTrackingConsent ?? false,
+                consentDate: new Date().toISOString(),
+                privacyPolicyVersion: '1.0.0',
+                termsOfServiceVersion: '1.0.0',
+                consentHistory: [],
+              },
+              privacySettings: {
+                profileVisibility: 'friends',
+                locationSharingEnabled: true,
+                showWorkoutHistory: true,
+                allowFriendRequests: true,
+                showOnlineStatus: true,
+              },
             },
           },
-        },
-      });
+        });
+
+      let {data: signupData, error} = await signUpOnce();
+      if (error && this.isLikelyNetworkFailure(error.message || '')) {
+        await new Promise<void>(resolve => setTimeout(resolve, 750));
+        const second = await signUpOnce();
+        signupData = second.data;
+        error = second.error;
+      }
 
       if (error) {
-        throw new Error(error.message);
+        throw new Error(this.humanizeAuthMessage(error.message));
       }
 
       const user = signupData.user ? this.mapSupabaseUser(signupData.user) : {
         id: Date.now().toString(),
         email: data.email,
         username: data.username,
+        phoneNumber: data.phoneNumber,
         displayName: data.displayName,
         profileImageUrl: data.profileImageUrl,
         bicepsEmoji: data.bicepsEmoji || '💪🏻',
+        birthYear: data.birthYear,
+        dateOfBirth: data.dateOfBirth ? new Date(data.dateOfBirth) : undefined,
         favoriteGyms: data.favoriteGyms,
         privacySettings: {
           profileVisibility: 'friends',
@@ -160,7 +245,10 @@ class AuthService {
         tokens,
       };
     } catch (error) {
-      console.error('Registration error:', error);
+      logAuthDebug('[AuthService] register failed', error);
+      if (error instanceof Error) {
+        throw new Error(this.humanizeAuthMessage(error.message));
+      }
       throw error;
     }
   }
@@ -170,17 +258,25 @@ class AuthService {
    */
   async login(credentials: UserLogin): Promise<AuthResponse> {
     try {
-      // Validate input
       this.validateEmail(credentials.email);
-      
+
       if (!credentials.password) {
         throw new Error('Adgangskode er påkrævet');
       }
 
-      const {data, error} = await supabase.auth.signInWithPassword({
-        email: credentials.email,
-        password: credentials.password,
-      });
+      const signInOnce = () =>
+        supabase.auth.signInWithPassword({
+          email: credentials.email,
+          password: credentials.password,
+        });
+
+      let {data, error} = await signInOnce();
+      if (error && this.isLikelyNetworkFailure(error.message || '')) {
+        await new Promise<void>(resolve => setTimeout(resolve, 750));
+        const second = await signInOnce();
+        data = second.data;
+        error = second.error;
+      }
 
       if (error) {
         const errorMessage = error.message || 'Login fejlede. Prøv igen.';
@@ -190,7 +286,10 @@ class AuthService {
           errorMessage.toLowerCase().includes('email not confirmed');
         if (SUPABASE_ALLOW_UNVERIFIED_LOGIN && isUnconfirmed) {
           const storedUser = await SecureStorage.getUserData();
-          if (storedUser && storedUser.email.toLowerCase() === credentials.email.toLowerCase()) {
+          if (
+            storedUser &&
+            storedUser.email.toLowerCase() === credentials.email.toLowerCase()
+          ) {
             const betaTokens: AuthTokens = {
               accessToken: this.generateMockToken(),
               refreshToken: this.generateMockToken(),
@@ -204,7 +303,7 @@ class AuthService {
             };
           }
         }
-        throw new Error(errorMessage);
+        throw new Error(this.humanizeAuthMessage(errorMessage));
       }
 
       if (!data.session || !data.user) {
@@ -222,7 +321,10 @@ class AuthService {
         tokens,
       };
     } catch (error) {
-      console.error('Login error:', error);
+      logAuthDebug('[AuthService] login failed', error);
+      if (error instanceof Error) {
+        throw new Error(this.humanizeAuthMessage(error.message));
+      }
       throw error;
     }
   }
@@ -275,10 +377,13 @@ class AuthService {
         redirectTo: SUPABASE_EMAIL_REDIRECT || undefined,
       });
       if (error) {
-        throw new Error(error.message);
+        throw new Error(this.humanizeAuthMessage(error.message));
       }
     } catch (error) {
-      console.error('Password reset request error:', error);
+      logAuthDebug('[AuthService] password reset request failed', error);
+      if (error instanceof Error) {
+        throw new Error(this.humanizeAuthMessage(error.message));
+      }
       throw error;
     }
   }
@@ -292,7 +397,7 @@ class AuthService {
       },
     });
     if (error) {
-      throw new Error(error.message);
+      throw new Error(this.humanizeAuthMessage(error.message));
     }
   }
 
@@ -303,7 +408,8 @@ class AuthService {
     this.validateEmail(data.email);
     this.validatePassword(data.password);
     this.validateUsername(data.username);
-    
+    this.validatePhoneNumber(data.phoneNumber);
+
     if (!data.displayName || data.displayName.length < 2) {
       throw new Error('Navn skal være mindst 2 tegn');
     }
@@ -345,6 +451,15 @@ class AuthService {
 
     if (!/[0-9]/.test(password)) {
       throw new Error('Adgangskoden skal indeholde mindst ét tal');
+    }
+  }
+
+  private validatePhoneNumber(phone: string): void {
+    const normalized = normalizeDanishPhone(phone);
+    if (!normalized) {
+      throw new Error(
+        'Indtast et gyldigt dansk mobilnummer (8 cifre, fx 12 34 56 78 eller +45 12 34 56 78)',
+      );
     }
   }
 
@@ -457,7 +572,7 @@ class AuthService {
         username: data?.username || data?.email?.split('@')[0] || `${provider}user`,
         displayName: data?.firstName && data?.lastName
           ? `${data.firstName} ${data.lastName}`
-          : `${provider} User`,
+          : data?.email?.split('@')[0] || '',
         bicepsEmoji: data?.bicepsEmoji || '💪',
         favoriteGyms: data?.favoriteGyms,
         privacySettings: {

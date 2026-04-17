@@ -1,576 +1,273 @@
 /**
  * Groups Screen
- * Create and manage groups with friends
+ * Community – mine grupper, foreslåede, opret, join
  */
 
-import React, {useState, useMemo, useEffect} from 'react';
+import React, {useState, useMemo} from 'react';
 import {
   View,
   Text,
   StyleSheet,
-  FlatList,
-  SectionList,
+  ScrollView,
   TouchableOpacity,
   TextInput,
-  Image,
-  Alert,
-  ScrollView,
-  Switch,
-  Platform,
-  Linking,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {useAppStore} from '@/store/appStore';
-import {colors} from '@/theme/colors';
-import {
-  launchCamera,
-  launchImageLibrary,
-  CameraOptions,
-  ImagePickerResponse,
-} from 'react-native-image-picker';
+import {useNavigation} from '@react-navigation/native';
+import {Card} from '@/components/ui/Card';
+import {useGroups} from '@/hooks/data';
+import type {Group} from '@/types/group.types';
+import {useGroupStore} from '@/store/groupStore';
+import colors from '@/theme/colors';
+import {spacing, radius, typography} from '@/theme/designTokens';
 
-type Friend = {
-  id: string;
-  name: string;
-  avatar?: string;
-  isOnline: boolean;
-};
-
-type Group = {
-  id: string;
-  name: string;
-  description?: string;
-  biography?: string;
-  image?: string;
-  isPrivate: boolean;
-  adminId: string; // User ID of the group admin
-  members: Friend[];
-  totalWorkouts: number;
-  totalTimeTogether: number; // in minutes
-  createdAt: Date;
-};
-
-const GroupsScreen = () => {
-  const navigation = useNavigation<StackNavigationProp<any>>();
-  const {user} = useAppStore();
-  const [groups, setGroups] = useState<Group[]>([]);
-  const [showCreateGroup, setShowCreateGroup] = useState(false);
-  const [groupName, setGroupName] = useState('');
-  const [groupBiography, setGroupBiography] = useState('');
-  const [groupImage, setGroupImage] = useState<string | null>(null);
-  // Start with public (false = public, true = private)
-  const [isPrivate, setIsPrivate] = useState(false);
-  const [selectedFriends, setSelectedFriends] = useState<string[]>([]);
-  const [friendSearchQuery, setFriendSearchQuery] = useState('');
-  const [searchQuery, setSearchQuery] = useState('');
-
-  const friends: Friend[] = [];
-
-  useEffect(() => {
-    // Groups hentes fra store/API
-  }, [user]);
-
-  // Filter and categorize groups
-  const filteredAndCategorizedGroups = useMemo(() => {
-    const filtered = groups.filter(group =>
-      group.name.toLowerCase().includes(searchQuery.toLowerCase()),
-    );
-
-    const myGroups: Group[] = [];
-    const otherGroups: Group[] = [];
-
-    filtered.forEach(group => {
-      // Check if current user is a member of the group
-      const isMember = user
-        ? group.members.some(member => member.id === user.id)
-        : false;
-
-      if (isMember) {
-        myGroups.push(group);
-      } else {
-        otherGroups.push(group);
-      }
-    });
-
-    const sections: Array<{title: string; data: Group[]}> = [];
-
-    if (myGroups.length > 0) {
-      sections.push({title: 'Mine Grupper', data: myGroups});
-    }
-
-    if (otherGroups.length > 0) {
-      sections.push({title: 'Andre Grupper', data: otherGroups});
-    }
-
-    return sections;
-  }, [groups, searchQuery, user]);
-
-  const handleToggleFriend = (friendId: string) => {
-    setSelectedFriends(prev =>
-      prev.includes(friendId)
-        ? prev.filter(id => id !== friendId)
-        : [...prev, friendId],
-    );
-  };
-
-  const handleCreateGroup = () => {
-    if (!groupName.trim()) {
-      Alert.alert('Mangler navn', 'Indtast venligst et gruppenavn');
-      return;
-    }
-
-    if (selectedFriends.length === 0) {
-      Alert.alert('Ingen venner valgt', 'Vælg mindst én ven til gruppen');
-      return;
-    }
-
-    // Add current user as a member
-    const selectedFriendMembers = friends.filter(f => selectedFriends.includes(f.id));
-    const currentUserAsFriend: Friend | null = user
-      ? {
-          id: user.id,
-          name: user.displayName,
-          avatar: user.profileImageUrl,
-          isOnline: true,
-        }
-      : null;
-
-    const newGroup: Group = {
-      id: `group_${Date.now()}`,
-      name: groupName.trim(),
-      description: '', // Keep for backward compatibility
-      biography: groupBiography.trim() || undefined,
-      image: groupImage || undefined,
-      isPrivate: isPrivate,
-      adminId: user?.id || '', // Current user is admin
-      members: currentUserAsFriend
-        ? [currentUserAsFriend, ...selectedFriendMembers]
-        : selectedFriendMembers,
-      totalWorkouts: 0,
-      totalTimeTogether: 0,
-      createdAt: new Date(),
-    };
-
-    setGroups([newGroup, ...groups]);
-    setGroupName('');
-    setGroupBiography('');
-    setGroupImage(null);
-    setIsPrivate(false);
-    setSelectedFriends([]);
-    setFriendSearchQuery('');
-    setShowCreateGroup(false);
-    Alert.alert('Gruppe oprettet', `Gruppen "${newGroup.name}" er blevet oprettet`);
-  };
-
-  const handleOpenCommunity = async () => {
-    // Show alert since website is not ready yet
-    Alert.alert(
-      'Community kommer snart',
-      'Vores Community forum med åbent forum kommer snart. Hold øje med opdateringer!',
-    );
-    
-    // When website is ready, uncomment below and use actual URL:
-    // const url = 'https://gymly.dk/forum';
-    // try {
-    //   const supported = await Linking.canOpenURL(url);
-    //   if (supported) {
-    //     await Linking.openURL(url);
-    //   } else {
-    //     Alert.alert('Fejl', 'Kunne ikke åbne hjemmesiden');
-    //   }
-    // } catch (error) {
-    //   Alert.alert('Fejl', 'Kunne ikke åbne hjemmesiden');
-    // }
-  };
-
-  const renderGroupItem = ({item}: {item: Group}) => {
-    // Check if any member is online
-    const hasOnlineMembers = item.members.some(member => member.isOnline);
-    const onlineCount = item.members.filter(member => member.isOnline).length;
-
-    return (
-      <TouchableOpacity
-        style={styles.groupItem}
-        activeOpacity={0.7}
-        onPress={() => {
-          // Convert Date to ISO string for navigation serialization
-          const serializableGroup = {
-            ...item,
-            createdAt: item.createdAt.toISOString(),
-          };
-          navigation.navigate('GroupDetail', {group: serializableGroup});
-        }}>
-        <View style={styles.groupIconContainer}>
-          {item.image ? (
-            <Image source={{uri: item.image}} style={styles.groupIconImage} />
-          ) : (
-            <View style={styles.groupIconPlaceholder}>
-              <Text style={styles.groupIconPlaceholderText}>{item.name.charAt(0).toUpperCase()}</Text>
-            </View>
-          )}
-          {hasOnlineMembers && (
-            <View style={styles.onlineGroupIndicator} />
-          )}
-        </View>
-        <View style={styles.groupInfo}>
-          <View style={styles.groupNameRow}>
-            <Text style={styles.groupName} numberOfLines={1}>{item.name}</Text>
-            {hasOnlineMembers && (
-              <View style={styles.onlineBadge}>
-                <View style={styles.onlineDot} />
-                <Text style={styles.onlineText}>
-                  {onlineCount} online
-                </Text>
-              </View>
-            )}
-          </View>
-          <Text style={styles.groupMembers}>
-            {item.members.length} medlem{item.members.length !== 1 ? 'mer' : ''}
+const GroupCard = ({
+  group,
+  onPress,
+  showJoinButton,
+}: {
+  group: Group;
+  onPress: () => void;
+  showJoinButton?: boolean;
+}) => (
+  <TouchableOpacity
+    activeOpacity={0.8}
+    onPress={onPress}
+    style={styles.groupCard}>
+    <View style={styles.groupCardHeader}>
+      <View style={styles.groupIcon}>
+        <Icon name="people" size={28} color={colors.primary} />
+      </View>
+      <View style={styles.groupCardInfo}>
+        <View style={styles.groupNameRow}>
+          <Text style={styles.groupName} numberOfLines={1}>
+            {group.name}
           </Text>
-          <View style={styles.memberAvatars}>
-            {item.members.slice(0, 3).map((member, index) => (
-              <View
-                key={member.id}
-                style={[
-                  styles.memberAvatar,
-                  {marginLeft: index > 0 ? -8 : 0},
-                ]}>
-                {member.avatar ? (
-                  <Image source={{uri: member.avatar}} style={styles.avatarImage} />
-                ) : (
-                  <Text style={styles.avatarText}>
-                    {member.name.charAt(0).toUpperCase()}
-                  </Text>
-                )}
-                {member.isOnline && (
-                  <View style={styles.memberOnlineIndicator} />
-                )}
-              </View>
-            ))}
-            {item.members.length > 3 && (
-              <View style={[styles.memberAvatar, styles.moreMembers]}>
-                <Text style={styles.moreMembersText}>+{item.members.length - 3}</Text>
-              </View>
-            )}
-          </View>
-        </View>
-        <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-      </TouchableOpacity>
-    );
-  };
-
-  // Filter friends based on search query
-  const filteredFriends = useMemo(() => {
-    if (!friendSearchQuery.trim()) return friends;
-    return friends.filter(friend =>
-      friend.name.toLowerCase().includes(friendSearchQuery.toLowerCase()),
-    );
-  }, [friendSearchQuery, friends]);
-
-  const handleGroupImagePick = () => {
-    Alert.alert('Vælg gruppebillede', 'Hvordan vil du tilføje et billede?', [
-      {
-        text: 'Tag billede',
-        onPress: async () => {
-          const cameraOptions: CameraOptions = {
-            mediaType: 'photo',
-            cameraType: 'back',
-            saveToPhotos: false,
-            quality: 0.8,
-          };
-          const response: ImagePickerResponse = await launchCamera(cameraOptions);
-          const asset = response.assets && response.assets[0];
-          if (asset?.uri) {
-            setGroupImage(asset.uri);
-          }
-        },
-      },
-      {
-        text: 'Vælg fra bibliotek',
-        onPress: async () => {
-          const response: ImagePickerResponse = await launchImageLibrary({
-            mediaType: 'photo',
-            selectionLimit: 1,
-            quality: 0.8,
-          });
-          const asset = response.assets && response.assets[0];
-          if (asset?.uri) {
-            setGroupImage(asset.uri);
-          }
-        },
-      },
-      {text: 'Annuller', style: 'cancel'},
-    ]);
-  };
-
-  const renderFriendItem = ({item}: {item: Friend}) => {
-    const isSelected = selectedFriends.includes(item.id);
-    return (
-      <TouchableOpacity
-        style={[styles.friendItem, isSelected && styles.friendItemSelected]}
-        onPress={() => handleToggleFriend(item.id)}
-        activeOpacity={0.7}>
-        <View style={styles.avatarContainer}>
-          {item.avatar ? (
-            <Image source={{uri: item.avatar}} style={styles.avatar} />
-          ) : (
-            <View style={styles.avatarPlaceholder}>
-              <Text style={styles.avatarText}>
-                {item.name.charAt(0).toUpperCase()}
-              </Text>
-            </View>
+          {group.isPrivate && (
+            <Icon name="lock-closed" size={14} color={colors.textMuted} />
           )}
-          {item.isOnline && <View style={styles.onlineIndicator} />}
         </View>
-        <View style={styles.friendInfo}>
-          <Text style={styles.friendName}>{item.name}</Text>
-        </View>
-        {isSelected && (
-          <View style={styles.checkmarkContainer}>
-            <Icon name="checkmark-circle" size={24} color="#007AFF" />
+        <Text style={styles.groupMeta}>
+          {group.memberCount} medlemmer
+          {group.location && ` • ${group.location}`}
+        </Text>
+        {group.focus && (
+          <View style={styles.focusBadge}>
+            <Text style={styles.focusText}>{group.focus}</Text>
           </View>
         )}
+      </View>
+      <Icon name="chevron-forward" size={20} color={colors.textMuted} />
+    </View>
+    <Text style={styles.groupDescription} numberOfLines={2}>
+      {group.description}
+    </Text>
+    <View style={styles.groupStats}>
+      <View style={styles.stat}>
+        <Icon name="checkmark-circle" size={14} color={colors.secondary} />
+        <Text style={styles.statText}>
+          {group.totalCheckIns ?? group.activityCount ?? 0} check-ins
+        </Text>
+      </View>
+      <View style={styles.stat}>
+        <Icon name="pulse" size={14} color={colors.primary} />
+        <Text style={styles.statText}>
+          {group.activityCount ?? 0} aktiviteter
+        </Text>
+      </View>
+    </View>
+    {showJoinButton && (
+      <TouchableOpacity
+        style={styles.joinButton}
+        onPress={e => {
+          e.stopPropagation();
+          onPress();
+        }}
+        activeOpacity={0.8}>
+        <Text style={styles.joinButtonText}>Join gruppe</Text>
       </TouchableOpacity>
-    );
+    )}
+  </TouchableOpacity>
+);
+
+const GroupsScreen = () => {
+  const navigation = useNavigation<any>();
+  const [searchQuery, setSearchQuery] = useState('');
+  const storeGroups = useGroupStore(s => s.groups);
+  const {groups: mockGroups} = useGroups('current_user');
+
+  const myGroups = useMemo(() => {
+    const fromMock = mockGroups.filter(g => g.isJoined);
+    const fromStore = storeGroups.map(g => ({
+      id: g.id,
+      name: g.name,
+      description: g.description || '',
+      memberCount: g.members.length,
+      isJoined: true,
+      adminId: 'current',
+      members: g.members.map(m => ({id: m.id, name: m.name, isOnline: false})),
+      activityCount: 0,
+      totalCheckIns: 0,
+      createdAt: new Date(),
+    }));
+    return [...fromMock, ...fromStore];
+  }, [storeGroups]);
+
+  const suggestedGroups = useMemo(
+    () =>
+      mockGroups
+        .filter(g => !g.isJoined)
+        .filter(
+          g =>
+            !searchQuery.trim() ||
+            g.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            (g.location?.toLowerCase().includes(searchQuery.toLowerCase())) ||
+            (g.focus?.toLowerCase().includes(searchQuery.toLowerCase()))
+        ),
+    [searchQuery]
+  );
+
+  const filteredMyGroups = useMemo(
+    () =>
+      myGroups.filter(
+        g =>
+          !searchQuery.trim() ||
+          g.name.toLowerCase().includes(searchQuery.toLowerCase())
+      ),
+    [myGroups, searchQuery]
+  );
+
+  const handleGroupPress = (group: Group) => {
+    navigation.navigate('GroupDetail', {
+      group: {
+        ...group,
+        members: (group.members ?? [{id: '1', name: 'Medlem', isOnline: false}]).map(m => ({
+          ...m,
+          isOnline: m.isOnline ?? false,
+        })),
+        totalWorkouts: group.activityCount ?? 0,
+        totalTimeTogether: (group.totalCheckIns ?? 0) * 45,
+        biography: group.description,
+        createdAt: group.createdAt ?? new Date(),
+      },
+    });
   };
 
-  if (showCreateGroup) {
-    return (
-      <View style={styles.container}>
-        {/* Header */}
-        <View style={styles.header}>
-          <TouchableOpacity
-            onPress={() => {
-              setShowCreateGroup(false);
-              setGroupName('');
-              setGroupBiography('');
-              setGroupImage(null);
-              setIsPrivate(false);
-              setSelectedFriends([]);
-              setFriendSearchQuery('');
-            }}
-            style={styles.backButton}
-            activeOpacity={0.7}>
-            <Icon name="arrow-back" size={24} color="#000" />
-          </TouchableOpacity>
-          <Text style={styles.headerTitle}>Opret gruppe</Text>
-          <View style={styles.headerSpacer} />
-        </View>
-
-        <ScrollView
-          style={styles.createGroupContent}
-          contentContainerStyle={styles.createGroupScrollContent}
-          showsVerticalScrollIndicator={false}>
-          {/* Group Image */}
-          <View style={styles.imageSection}>
-            <View style={styles.imagePickerWrapper}>
-              <TouchableOpacity
-                style={styles.imagePicker}
-                onPress={handleGroupImagePick}
-                activeOpacity={0.7}>
-                {groupImage ? (
-                  <Image source={{uri: groupImage}} style={styles.groupImage} resizeMode="cover" />
-                ) : (
-                  <Image
-                    source={require('@/assets/images/gymly-kettlebell.png')}
-                    style={styles.groupImageLogo}
-                    resizeMode="cover"
-                  />
-                )}
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.imagePlusBadge}
-                onPress={handleGroupImagePick}
-                activeOpacity={0.8}>
-                <Icon name="add" size={18} color="#fff" />
-              </TouchableOpacity>
-            </View>
-          </View>
-
-          {/* Group Name Input */}
-          <View style={styles.inputGroup}>
-            <Text style={styles.inputLabel}>Gruppenavn *</Text>
-            <TextInput
-              style={styles.input}
-              value={groupName}
-              onChangeText={setGroupName}
-              placeholder="F.eks. Weekend Warriors"
-              placeholderTextColor="#8E8E93"
-            />
-          </View>
-
-          {/* Biography Input */}
-          <View style={styles.inputGroup}>
-            <Text style={styles.inputLabel}>Biografi</Text>
-            <TextInput
-              style={[styles.input, styles.biographyInput]}
-              value={groupBiography}
-              onChangeText={setGroupBiography}
-              placeholder="Beskriv din gruppe..."
-              placeholderTextColor="#8E8E93"
-              multiline
-              numberOfLines={4}
-              textAlignVertical="top"
-            />
-          </View>
-
-          {/* Privacy Toggle */}
-          <View style={styles.privacySection}>
-            <View style={styles.privacyInfo}>
-              <Text style={styles.inputLabel}>Gruppe synlighed</Text>
-              <Text style={styles.privacySubtext}>
-                {isPrivate
-                  ? 'Privat - Kun medlemmer kan se gruppen'
-                  : 'Offentlig - Alle kan se og søge efter gruppen'}
-              </Text>
-            </View>
-            <Switch
-              value={!isPrivate}
-              onValueChange={(value) => setIsPrivate(!value)}
-              trackColor={{false: '#E5E5EA', true: '#007AFF'}}
-              thumbColor={Platform.OS === 'ios' ? '#fff' : '#fff'}
-            />
-          </View>
-
-          {/* Friends Selection */}
-          <View style={styles.friendsSection}>
-            <Text style={styles.sectionTitle}>
-              Vælg venner ({selectedFriends.length} valgt)
-            </Text>
-            {/* Friend Search */}
-            <View style={styles.friendSearchContainer}>
-              <Icon name="search" size={20} color="#8E8E93" style={styles.searchIcon} />
-              <TextInput
-                style={styles.friendSearchInput}
-                placeholder="Søg efter venner..."
-                placeholderTextColor="#8E8E93"
-                value={friendSearchQuery}
-                onChangeText={setFriendSearchQuery}
-              />
-              {friendSearchQuery.length > 0 && (
-                <TouchableOpacity
-                  onPress={() => setFriendSearchQuery('')}
-                  style={styles.clearButton}>
-                  <Icon name="close-circle" size={20} color="#8E8E93" />
-                </TouchableOpacity>
-              )}
-            </View>
-            <FlatList
-              data={filteredFriends}
-              renderItem={renderFriendItem}
-              keyExtractor={item => item.id}
-              showsVerticalScrollIndicator={false}
-              scrollEnabled={false}
-              nestedScrollEnabled={false}
-            />
-          </View>
-
-          {/* Create Button */}
-          <TouchableOpacity
-            style={[
-              styles.createButton,
-              (!groupName.trim() || selectedFriends.length === 0) &&
-                styles.createButtonDisabled,
-            ]}
-            onPress={handleCreateGroup}
-            disabled={!groupName.trim() || selectedFriends.length === 0}
-            activeOpacity={0.8}>
-            <Text style={styles.createButtonText}>Opret gruppe</Text>
-          </TouchableOpacity>
-        </ScrollView>
-      </View>
-    );
-  }
+  const isEmpty = filteredMyGroups.length === 0 && suggestedGroups.length === 0;
 
   return (
     <View style={styles.container}>
-      {/* Create Group Button */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Grupper</Text>
         <TouchableOpacity
-          style={styles.createButtonHeader}
-          onPress={() => setShowCreateGroup(true)}
-          activeOpacity={0.7}>
+          style={styles.createButton}
+          onPress={() => navigation.navigate('CreateGroup')}
+          activeOpacity={0.8}>
           <Icon name="add-circle" size={24} color={colors.primary} />
-          <Text style={styles.createButtonHeaderText}>Opret</Text>
+          <Text style={styles.createButtonText}>Opret</Text>
         </TouchableOpacity>
       </View>
 
-      {/* Search Field */}
       <View style={styles.searchContainer}>
-        <Icon name="search" size={20} color="#8E8E93" style={styles.searchIcon} />
+        <Icon name="search" size={20} color={colors.textMuted} />
         <TextInput
           style={styles.searchInput}
-          placeholder="Søg efter grupper"
-          placeholderTextColor="#8E8E93"
+          placeholder="Søg efter grupper..."
+          placeholderTextColor={colors.textMuted}
           value={searchQuery}
           onChangeText={setSearchQuery}
         />
         {searchQuery.length > 0 && (
-          <TouchableOpacity
-            onPress={() => setSearchQuery('')}
-            style={styles.clearButton}
-            activeOpacity={0.7}>
-            <Icon name="close-circle" size={20} color="#8E8E93" />
+          <TouchableOpacity onPress={() => setSearchQuery('')}>
+            <Icon name="close-circle" size={20} color={colors.textMuted} />
           </TouchableOpacity>
         )}
       </View>
 
-      {/* Groups List with Sections */}
-      {filteredAndCategorizedGroups.length === 0 ? (
-        <View style={styles.emptyContainer}>
-          <View style={styles.emptyIconContainer}>
-            <Icon name="people-outline" size={80} color="#C7C7CC" />
+      <ScrollView
+        style={styles.scroll}
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}>
+        {isEmpty ? (
+          <View style={styles.emptyContainer}>
+            <Icon name="people-outline" size={80} color={colors.textMuted} />
+            <Text style={styles.emptyTitle}>
+              {searchQuery ? 'Ingen grupper fundet' : 'Du er ikke med i nogen grupper endnu'}
+            </Text>
+            <Text style={styles.emptyText}>
+              {searchQuery
+                ? 'Prøv et andet søgeord'
+                : 'Opret din første gruppe eller find en gruppe i dit område'}
+            </Text>
+            {!searchQuery && (
+              <>
+                <TouchableOpacity
+                  style={styles.emptyCta}
+                  onPress={() => navigation.navigate('CreateGroup')}
+                  activeOpacity={0.8}>
+                  <Icon name="add-circle" size={24} color={colors.white} />
+                  <Text style={styles.emptyCtaText}>Opret din første gruppe</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.emptyCtaSecondary}
+                  onPress={() => setSearchQuery('')}
+                  activeOpacity={0.8}>
+                  <Text style={styles.emptyCtaSecondaryText}>
+                    Find en gruppe i dit område
+                  </Text>
+                </TouchableOpacity>
+              </>
+            )}
           </View>
-          <Text style={styles.emptyTitle}>
-            {searchQuery ? 'Ingen grupper fundet' : 'Ingen grupper endnu'}
-          </Text>
-          <Text style={styles.emptyText}>
-            {searchQuery
-              ? 'Prøv at søge efter noget andet'
-              : 'Opret en gruppe for at træne sammen med dine venner'}
-          </Text>
-          {!searchQuery && (
-            <TouchableOpacity
-              style={styles.emptyButton}
-              onPress={() => setShowCreateGroup(true)}
-              activeOpacity={0.8}>
-              <Icon name="add-circle" size={20} color="#fff" />
-              <Text style={styles.emptyButtonText}>Opret første gruppe</Text>
-            </TouchableOpacity>
-          )}
-        </View>
-      ) : (
-        <SectionList
-          sections={filteredAndCategorizedGroups}
-          renderItem={renderGroupItem}
-          renderSectionHeader={({section: {title}}) => (
-            <View style={styles.sectionHeader} key={`header-${title}`}>
-              <Text style={styles.sectionHeaderText}>{title}</Text>
+        ) : (
+          <>
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>Mine grupper</Text>
+              {filteredMyGroups.length === 0 ? (
+                <View style={styles.emptySection}>
+                  <Text style={styles.emptySectionText}>
+                    Du er ikke med i nogen grupper endnu
+                  </Text>
+                  <TouchableOpacity
+                    style={styles.sectionCta}
+                    onPress={() => navigation.navigate('CreateGroup')}
+                    activeOpacity={0.8}>
+                    <Text style={styles.sectionCtaText}>Opret gruppe</Text>
+                  </TouchableOpacity>
+                </View>
+              ) : (
+                filteredMyGroups.map(group => (
+                  <GroupCard
+                    key={group.id}
+                    group={group}
+                    onPress={() => handleGroupPress(group)}
+                  />
+                ))
+              )}
             </View>
-          )}
-          keyExtractor={(item, index) => `${item.id}-${index}`}
-          contentContainerStyle={styles.list}
-          showsVerticalScrollIndicator={false}
-          ItemSeparatorComponent={() => <View style={styles.separator} />}
-          SectionSeparatorComponent={() => <View style={styles.sectionSeparator} />}
-          stickySectionHeadersEnabled={false}
-        />
-      )}
 
-      {/* Community Button - Bottom (above main tabs) */}
-      <View style={styles.communityButtonContainer}>
-        <TouchableOpacity
-          style={styles.communityButton}
-          onPress={handleOpenCommunity}
-          activeOpacity={0.8}>
-          <Icon name="people" size={24} color={colors.primary} style={{marginRight: 12}} />
-          <Text style={styles.communityButtonText}>Community</Text>
-          <Icon name="chevron-forward" size={20} color="#8E8E93" style={{marginLeft: 8}} />
-        </TouchableOpacity>
-      </View>
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>Foreslåede grupper</Text>
+              {suggestedGroups.length === 0 ? (
+                <View style={styles.emptySection}>
+                  <Text style={styles.emptySectionText}>
+                    {searchQuery ? 'Ingen grupper matcher din søgning' : 'Ingen foreslåede grupper'}
+                  </Text>
+                </View>
+              ) : (
+                suggestedGroups.map(group => (
+                  <GroupCard
+                    key={group.id}
+                    group={group}
+                    onPress={() => handleGroupPress(group)}
+                    showJoinButton
+                  />
+                ))
+              )}
+            </View>
+          </>
+        )}
+      </ScrollView>
     </View>
   );
 };
@@ -584,488 +281,197 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.md,
     backgroundColor: colors.backgroundCard,
     borderBottomWidth: 1,
-    borderBottomColor: '#E5E5EA',
-  },
-  backButton: {
-    padding: 4,
+    borderBottomColor: colors.border,
   },
   headerTitle: {
-    fontSize: 18,
-    fontWeight: '600',
+    ...typography.h4,
     color: colors.text,
   },
-  headerSpacer: {
-    width: 32,
-  },
-  createButtonHeader: {
+  createButton: {
     flexDirection: 'row',
     alignItems: 'center',
+    gap: 4,
   },
-  createButtonHeaderText: {
-    fontSize: 16,
-    fontWeight: '600',
+  createButtonText: {
+    ...typography.bodyBold,
     color: colors.primary,
-    marginLeft: 4,
   },
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginHorizontal: spacing.lg,
+    marginVertical: spacing.md,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
     backgroundColor: colors.backgroundCard,
-    marginHorizontal: 16,
-    marginTop: 8,
-    marginBottom: 8,
-    paddingHorizontal: 12,
-    borderRadius: 12,
+    borderRadius: radius.md,
     borderWidth: 1,
     borderColor: colors.border,
-  },
-  searchIcon: {
-    marginRight: 8,
+    gap: spacing.sm,
   },
   searchInput: {
     flex: 1,
-    fontSize: 16,
+    ...typography.body,
     color: colors.text,
-    paddingVertical: 12,
+    padding: 0,
   },
-  clearButton: {
-    padding: 4,
+  scroll: {flex: 1},
+  scrollContent: {paddingBottom: spacing.xxxl},
+  section: {
+    paddingHorizontal: spacing.lg,
+    marginBottom: spacing.xl,
   },
-  list: {
-    padding: 16,
-    paddingBottom: 8,
-  },
-  sectionHeader: {
-    paddingVertical: 12,
-    paddingHorizontal: 4,
-    marginTop: 16,
-    marginBottom: 8,
-  },
-  sectionHeaderText: {
-    fontSize: 18,
-    fontWeight: '700',
+  sectionTitle: {
+    ...typography.h4,
     color: colors.text,
+    marginBottom: spacing.md,
   },
-  sectionSeparator: {
-    height: 16,
-  },
-  emptyList: {
-    flexGrow: 1,
-  },
-  groupItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  groupCard: {
     backgroundColor: colors.backgroundCard,
-    padding: 16,
+    borderRadius: radius.lg,
+    padding: spacing.lg,
+    marginBottom: spacing.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  groupCardHeader: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+  },
+  groupIcon: {
+    width: 48,
+    height: 48,
     borderRadius: 12,
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 1},
-    shadowOpacity: 0.05,
-    shadowRadius: 4,
-    elevation: 2,
-  },
-  separator: {
-    height: 12,
-  },
-  groupIconContainer: {
-    width: 56,
-    height: 56,
-    borderRadius: 28,
-    backgroundColor: colors.primary,
-    justifyContent: 'center',
+    backgroundColor: colors.primary + '15',
     alignItems: 'center',
-    marginRight: 12,
-    position: 'relative',
-    overflow: 'hidden',
-  },
-  groupIconImage: {
-    width: '100%',
-    height: '100%',
-  },
-  groupIconPlaceholder: {
-    width: '100%',
-    height: '100%',
     justifyContent: 'center',
-    alignItems: 'center',
+    marginRight: spacing.md,
   },
-  groupIconPlaceholderText: {
-    fontSize: 24,
-    fontWeight: '700',
-    color: colors.white,
-  },
-  privateGroupBadge: {
-    position: 'absolute',
-    top: 2,
-    left: 2,
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-    borderRadius: 8,
-    padding: 2,
-  },
-  onlineGroupIndicator: {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    width: 14,
-    height: 14,
-    borderRadius: 7,
-    backgroundColor: '#34C759',
-    borderWidth: 2,
-    borderColor: '#fff',
+  groupCardInfo: {
+    flex: 1,
+    minWidth: 0,
   },
   groupNameRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 4,
-    flexWrap: 'wrap',
+    gap: 6,
   },
   groupName: {
-    fontSize: 16,
-    fontWeight: '600',
+    ...typography.bodyBold,
     color: colors.text,
-    flexShrink: 1,
   },
-  onlineBadge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#E8F5E9',
+  groupMeta: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    marginTop: 2,
+  },
+  focusBadge: {
+    alignSelf: 'flex-start',
+    marginTop: 6,
     paddingHorizontal: 8,
     paddingVertical: 4,
-    borderRadius: 12,
-    marginLeft: 8,
+    backgroundColor: colors.primary + '15',
+    borderRadius: radius.sm,
   },
-  onlineDot: {
-    width: 6,
-    height: 6,
-    borderRadius: 3,
-    backgroundColor: '#34C759',
-    marginRight: 4,
-  },
-  onlineText: {
-    fontSize: 11,
+  focusText: {
+    ...typography.caption,
     fontWeight: '600',
-    color: '#34C759',
+    color: colors.primary,
   },
-  memberOnlineIndicator: {
-    position: 'absolute',
-    bottom: 0,
-    right: 0,
-    width: 12,
-    height: 12,
-    borderRadius: 6,
-    backgroundColor: '#34C759',
-    borderWidth: 2,
-    borderColor: '#fff',
+  groupDescription: {
+    ...typography.small,
+    color: colors.textSecondary,
+    marginTop: spacing.md,
   },
-  groupInfo: {
-    flex: 1,
+  groupStats: {
+    flexDirection: 'row',
+    gap: spacing.lg,
+    marginTop: spacing.md,
   },
-  groupMembers: {
-    fontSize: 14,
-    color: colors.textMuted,
-    marginBottom: 8,
-  },
-  memberAvatars: {
+  stat: {
     flexDirection: 'row',
     alignItems: 'center',
+    gap: 4,
   },
-  memberAvatar: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
+  statText: {
+    ...typography.caption,
+    color: colors.textSecondary,
+  },
+  joinButton: {
+    marginTop: spacing.md,
+    paddingVertical: spacing.sm,
     backgroundColor: colors.primary,
-    justifyContent: 'center',
+    borderRadius: radius.md,
     alignItems: 'center',
-    borderWidth: 2,
-    borderColor: '#fff',
   },
-  avatarImage: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-  },
-  avatarText: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: '#fff',
-  },
-  moreMembers: {
-    backgroundColor: colors.primary,
-  },
-  moreMembersText: {
-    fontSize: 12,
-    fontWeight: '600',
-    color: colors.secondary,
+  joinButtonText: {
+    ...typography.bodyBold,
+    color: colors.white,
   },
   emptyContainer: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 32,
-  },
-  emptyIconContainer: {
-    width: 120,
-    height: 120,
-    borderRadius: 60,
-    backgroundColor: '#F0F0F0',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 24,
+    paddingVertical: spacing.xxxl,
+    paddingHorizontal: spacing.xl,
   },
   emptyTitle: {
-    fontSize: 22,
-    fontWeight: 'bold',
+    ...typography.h4,
     color: colors.text,
-    marginBottom: 8,
     textAlign: 'center',
+    marginTop: spacing.lg,
   },
   emptyText: {
-    fontSize: 16,
-    color: colors.textMuted,
+    ...typography.body,
+    color: colors.textSecondary,
     textAlign: 'center',
-    lineHeight: 24,
-    marginBottom: 24,
+    marginTop: spacing.sm,
   },
-  emptyButton: {
+  emptyCta: {
     flexDirection: 'row',
     alignItems: 'center',
+    gap: spacing.sm,
+    marginTop: spacing.xl,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.xl,
     backgroundColor: colors.primary,
-    paddingHorizontal: 20,
-    paddingVertical: 12,
-    borderRadius: 20,
+    borderRadius: radius.lg,
   },
-  emptyButtonText: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#fff',
-    marginLeft: 8,
+  emptyCtaText: {
+    ...typography.bodyBold,
+    color: colors.white,
   },
-  createGroupContent: {
-    flex: 1,
+  emptyCtaSecondary: {
+    marginTop: spacing.md,
   },
-  createGroupScrollContent: {
-    padding: 16,
-    paddingBottom: 32,
+  emptyCtaSecondaryText: {
+    ...typography.bodyBold,
+    color: colors.primary,
   },
-  imageSection: {
-    alignItems: 'center',
-    marginBottom: 24,
-  },
-  imagePickerWrapper: {
-    width: 140,
-    height: 140,
-    position: 'relative',
-  },
-  imagePicker: {
-    width: 140,
-    height: 140,
-    borderRadius: 70,
-    overflow: 'hidden',
-    borderWidth: 2,
+  emptySection: {
+    padding: spacing.lg,
+    backgroundColor: colors.backgroundCard,
+    borderRadius: radius.lg,
+    borderWidth: 1,
     borderColor: colors.border,
     borderStyle: 'dashed',
   },
-  groupImage: {
-    width: '100%',
-    height: '100%',
+  emptySectionText: {
+    ...typography.body,
+    color: colors.textSecondary,
+    textAlign: 'center',
   },
-  groupImageLogo: {
-    width: '100%',
-    height: '100%',
+  sectionCta: {
+    marginTop: spacing.md,
+    alignSelf: 'center',
   },
-  imagePlaceholder: {
-    width: '100%',
-    height: '100%',
-    backgroundColor: colors.background,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  imagePlusBadge: {
-    position: 'absolute',
-    bottom: 4,
-    right: 4,
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: colors.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  biographyInput: {
-    minHeight: 100,
-    paddingTop: 12,
-  },
-  privacySection: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: colors.backgroundCard,
-    padding: 16,
-    borderRadius: 12,
-    marginBottom: 24,
-    borderWidth: 1,
-    borderColor: colors.border,
-  },
-  privacyInfo: {
-    flex: 1,
-    marginRight: 16,
-  },
-  privacySubtext: {
-    fontSize: 14,
-    color: colors.textMuted,
-    marginTop: 4,
-  },
-  friendSearchContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.backgroundCard,
-    borderRadius: 12,
-    borderWidth: 1,
-    borderColor: colors.border,
-    paddingHorizontal: 12,
-    marginBottom: 12,
-  },
-  friendSearchInput: {
-    flex: 1,
-    fontSize: 16,
-    color: colors.text,
-    paddingVertical: 12,
-  },
-  inputGroup: {
-    marginBottom: 24,
-  },
-  inputLabel: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: colors.text,
-    marginBottom: 8,
-  },
-  input: {
-    backgroundColor: colors.backgroundCard,
-    borderRadius: 12,
-    padding: 16,
-    fontSize: 16,
-    color: colors.text,
-    borderWidth: 1,
-    borderColor: colors.border,
-  },
-  friendsSection: {
-    flex: 1,
-    marginBottom: 16,
-  },
-  sectionTitle: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: colors.text,
-    marginBottom: 12,
-  },
-  friendItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.backgroundCard,
-    padding: 12,
-    borderRadius: 12,
-    marginBottom: 8,
-    borderWidth: 2,
-    borderColor: 'transparent',
-  },
-  friendItemSelected: {
-    borderColor: colors.secondary,
-    backgroundColor: colors.primary,
-  },
-  avatarContainer: {
-    position: 'relative',
-    marginRight: 12,
-  },
-  avatar: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-  },
-  avatarPlaceholder: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: colors.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  onlineIndicator: {
-    position: 'absolute',
-    bottom: 0,
-    right: 0,
-    width: 14,
-    height: 14,
-    borderRadius: 7,
-    backgroundColor: '#34C759',
-    borderWidth: 2,
-    borderColor: '#fff',
-  },
-  friendInfo: {
-    flex: 1,
-  },
-  friendName: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: colors.text,
-  },
-  checkmarkContainer: {
-    marginLeft: 8,
-  },
-  createButton: {
-    backgroundColor: colors.primary,
-    borderRadius: 12,
-    paddingVertical: 16,
-    alignItems: 'center',
-    marginTop: 8,
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 4},
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 4,
-  },
-  createButtonDisabled: {
-    backgroundColor: '#C7C7CC',
-    shadowOpacity: 0,
-  },
-  createButtonText: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#fff',
-  },
-  communityButtonContainer: {
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    paddingBottom: 8,
-    backgroundColor: colors.background,
-    borderTopWidth: 1,
-    borderTopColor: '#E5E5EA',
-  },
-  communityButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.backgroundCard,
-    paddingHorizontal: 16,
-    paddingVertical: 14,
-    borderRadius: 12,
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 1},
-    shadowOpacity: 0.05,
-    shadowRadius: 4,
-    elevation: 2,
-  },
-  communityButtonText: {
-    flex: 1,
-    fontSize: 16,
-    fontWeight: '600',
-    color: colors.text,
+  sectionCtaText: {
+    ...typography.bodyBold,
+    color: colors.primary,
   },
 });
 
 export default GroupsScreen;
-
-
-

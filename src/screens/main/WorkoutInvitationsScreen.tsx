@@ -13,11 +13,12 @@ import {
   Alert,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import EmptyState from '@/components/ui/EmptyState';
 import {useWorkoutInvitationStore} from '@/store/workoutInvitationStore';
 import {useAppStore} from '@/store/appStore';
 import {format} from 'date-fns';
 import {da} from 'date-fns/locale';
-import {colors} from '@/theme/colors';
+import colors from '@/theme/colors';
 
 const MUSCLE_GROUP_LABELS: Record<string, string> = {
   bryst: 'Bryst',
@@ -91,13 +92,11 @@ const WorkoutInvitationsScreen = () => {
   };
 
   const renderEmptyState = () => (
-    <View style={styles.emptyContainer}>
-      <Icon name="mail-outline" size={80} color="#C7C7CC" />
-      <Text style={styles.emptyTitle}>Ingen invitationer</Text>
-      <Text style={styles.emptyText}>
-        Du har ingen ventende træningsinvitationer
-      </Text>
-    </View>
+    <EmptyState
+      icon="mail-outline"
+      title="Ingen invitationer"
+      message="Du har ingen ventende træningsinvitationer"
+    />
   );
 
   const renderInvitation = ({item}: {item: any}) => (
@@ -181,24 +180,6 @@ const styles = StyleSheet.create({
   },
   emptyList: {
     flexGrow: 1,
-  },
-  emptyContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 32,
-  },
-  emptyTitle: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: colors.text,
-    marginTop: 16,
-    marginBottom: 8,
-  },
-  emptyText: {
-    fontSize: 16,
-    color: colors.textMuted,
-    textAlign: 'center',
   },
   invitationCard: {
     backgroundColor: colors.backgroundCard,

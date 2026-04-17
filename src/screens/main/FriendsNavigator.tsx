@@ -1,118 +1,98 @@
 /**
- * Friends Navigator
- * Tab navigator for Friends, Centres, and Map screens
+ * Friends Navigator — top tabs (Online, Grupper, Centre, Kort)
+ * Custom tabs (no @react-navigation/material-top-tabs) to avoid useTheme/TabView
+ * crash: "Cannot read property 'background' of undefined".
  */
 
-import React from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import FriendsScreen from './FriendsScreen';
+import {useFocusEffect, useRoute} from '@react-navigation/native';
+import colors from '@/theme/colors';
+import {spacing} from '@/theme/designTokens';
+import OnlineScreen from './OnlineScreen';
 import GroupsScreen from './GroupsScreen';
 import CentresScreen from './CentresScreen';
 import MapScreen from './MapScreen';
-import {colors} from '@/theme/colors';
 
 export type FriendsTabParamList = {
-  Venner: undefined;
+  Online: undefined;
   Grupper: undefined;
   Centre: undefined;
   Kort: undefined;
 };
 
-const Tab = createMaterialTopTabNavigator<FriendsTabParamList>();
+export type FriendsSubRouteName = keyof FriendsTabParamList;
 
-// Custom Tab Bar Component
-const CustomTabBar = ({state, descriptors, navigation}: any) => {
-  return (
-    <View style={styles.tabBarContainer}>
-      {state.routes.map((route: any, index: number) => {
-        const {options} = descriptors[route.key];
-        const label =
-          options.tabBarLabel !== undefined
-            ? options.tabBarLabel
-            : options.title !== undefined
-            ? options.title
-            : route.name;
+const TABS: {name: FriendsSubRouteName; label: string}[] = [
+  {name: 'Online', label: 'Online'},
+  {name: 'Grupper', label: 'Grupper'},
+  {name: 'Centre', label: 'Centre'},
+  {name: 'Kort', label: 'Kort'},
+];
 
-        const isFocused = state.index === index;
-
-        const onPress = () => {
-          const event = navigation.emit({
-            type: 'tabPress',
-            target: route.key,
-            canPreventDefault: true,
-          });
-
-          if (!isFocused && !event.defaultPrevented) {
-            navigation.navigate(route.name);
-          }
-        };
-
-        return (
-          <TouchableOpacity
-            key={route.key}
-            accessibilityRole="button"
-            accessibilityState={isFocused ? {selected: true} : {}}
-            accessibilityLabel={options.tabBarAccessibilityLabel}
-            testID={options.tabBarTestID}
-            onPress={onPress}
-            style={styles.tabItem}>
-            <Text
-              style={[
-                styles.tabLabel,
-                isFocused && styles.tabLabelActive,
-              ]}>
-              {label}
-            </Text>
-            {isFocused && <View style={styles.tabIndicator} />}
-          </TouchableOpacity>
-        );
-      })}
-    </View>
-  );
-};
+function isSubRoute(s: string): s is FriendsSubRouteName {
+  return TABS.some(t => t.name === s);
+}
 
 const FriendsNavigator = () => {
+  const route = useRoute();
+  const [active, setActive] = useState<FriendsSubRouteName>('Online');
+
+  const syncFromParams = useCallback(() => {
+    const screen = (route.params as {screen?: string} | undefined)?.screen;
+    if (screen && isSubRoute(screen)) {
+      setActive(screen);
+    }
+  }, [route.params]);
+
+  useEffect(() => {
+    syncFromParams();
+  }, [syncFromParams]);
+
+  useFocusEffect(
+    useCallback(() => {
+      syncFromParams();
+    }, [syncFromParams]),
+  );
+
+  const renderScene = () => {
+    switch (active) {
+      case 'Online':
+        return <OnlineScreen />;
+      case 'Grupper':
+        return <GroupsScreen />;
+      case 'Centre':
+        return <CentresScreen />;
+      case 'Kort':
+        return <MapScreen />;
+      default:
+        return <OnlineScreen />;
+    }
+  };
+
   return (
     <View style={styles.container}>
-      <Tab.Navigator
-        tabBar={props => <CustomTabBar {...props} />}
-        screenOptions={{
-          swipeEnabled: true,
-        }}>
-        <Tab.Screen
-          name="Venner"
-          component={FriendsScreen}
-          options={{
-            title: 'Venner',
-            tabBarLabel: 'Venner',
-          }}
-        />
-        <Tab.Screen
-          name="Grupper"
-          component={GroupsScreen}
-          options={{
-            title: 'Grupper',
-            tabBarLabel: 'Grupper',
-          }}
-        />
-        <Tab.Screen
-          name="Centre"
-          component={CentresScreen}
-          options={{
-            title: 'Centre',
-            tabBarLabel: 'Centre',
-          }}
-        />
-        <Tab.Screen
-          name="Kort"
-          component={MapScreen}
-          options={{
-            title: 'Kort',
-            tabBarLabel: 'Kort',
-          }}
-        />
-      </Tab.Navigator>
+      <View style={styles.tabBarContainer}>
+        {TABS.map(tab => {
+          const isFocused = active === tab.name;
+          return (
+            <TouchableOpacity
+              key={tab.name}
+              accessibilityRole="button"
+              accessibilityState={isFocused ? {selected: true} : {}}
+              accessibilityLabel={tab.label}
+              onPress={() => setActive(tab.name)}
+              style={styles.tabItem}>
+              <Text
+                style={[styles.tabLabel, isFocused && styles.tabLabelActive]}>
+                {tab.label}
+              </Text>
+              {isFocused && <View style={styles.tabIndicator} />}
+            </TouchableOpacity>
+          );
+        })}
+      </View>
+      <View style={styles.scene}>{renderScene()}</View>
     </View>
   );
 };
@@ -126,14 +106,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: colors.backgroundCard,
     borderBottomWidth: 1,
-    borderBottomColor: '#E5E5EA',
-    paddingHorizontal: 16,
+    borderBottomColor: colors.border,
+    paddingHorizontal: spacing.lg,
   },
   tabItem: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 12,
+    paddingVertical: spacing.md,
     position: 'relative',
   },
   tabLabel: {
@@ -152,6 +132,9 @@ const styles = StyleSheet.create({
     right: 0,
     height: 2,
     backgroundColor: colors.primary,
+  },
+  scene: {
+    flex: 1,
   },
 });
 

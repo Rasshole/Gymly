@@ -18,7 +18,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {useAppStore} from '@/store/appStore';
 import {usePrivacyStore} from '@/store/privacyStore';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {colors} from '@/theme/colors';
+import colors from '@/theme/colors';
 
 const SettingsScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();

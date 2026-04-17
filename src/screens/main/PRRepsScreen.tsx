@@ -20,7 +20,7 @@ import {usePRStore} from '@/store/prStore';
 import {ExerciseType} from '@/types/pr.types';
 import AddPRScreen from './AddPRScreen';
 import AddRepScreen from './AddRepScreen';
-import {colors} from '@/theme/colors';
+import colors from '@/theme/colors';
 
 type PRRepsScreenNavigationProp = StackNavigationProp<any>;
 

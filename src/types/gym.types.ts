@@ -13,6 +13,8 @@ export interface GymCheckIn {
   id: string;
   userId: string;
   gymId: number;
+  gymName: string;
+  userName?: string;
   checkInTime: Date;
   checkOutTime?: Date;
 }

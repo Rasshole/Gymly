@@ -17,13 +17,13 @@ import {
   Animated,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppStore} from '@/store/appStore';
 import NotificationService from '@/services/notifications/NotificationService';
-import {colors} from '@/theme/colors';
+import EmptyState from '@/components/ui/EmptyState';
+import colors from '@/theme/colors';
 import {MuscleGroup} from '@/types/workout.types';
-import {getMuscleGroupImage} from '@/utils/muscleGroupImages';
+import muscleImg from '@/utils/muscleGroupImages';
 
 type Friend = {
   id: string;
@@ -122,6 +122,10 @@ const FriendsScreen = () => {
       return 'skulder';
     } else if (lower.includes('abs') || lower.includes('mave')) {
       return 'mave';
+    } else if (lower.includes('reformer')) {
+      return 'reformer';
+    } else if (lower.includes('pilates')) {
+      return 'pilates';
     }
     return 'hele_kroppen';
   };
@@ -150,15 +154,13 @@ const FriendsScreen = () => {
   };
 
   const renderEmptyState = () => (
-    <View style={styles.emptyContainer}>
-      <View style={styles.emptyIconContainer}>
-        <Icon name="people-outline" size={80} color="#C7C7CC" />
-      </View>
-      <Text style={styles.emptyTitle}>Ingen venner endnu</Text>
-      <Text style={styles.emptyText}>
-        Når du tilføjer venner, vil de vises her med deres online status
-      </Text>
-    </View>
+    <EmptyState
+      icon="people-outline"
+      title="Ingen venner endnu"
+      message="Når du tilføjer venner, vil de vises her med deres online status"
+      actionLabel="Inviter venner"
+      onAction={() => navigation.navigate('NewMessage')}
+    />
   );
 
   const AutoScrollingTextWrapper = ({
@@ -328,7 +330,7 @@ const FriendsScreen = () => {
             {item.isOnline && item.muscleGroup && (
               <View style={styles.muscleGroupIconContainer}>
                 <Image
-                  source={getMuscleGroupImage(getMuscleGroupKey(item.muscleGroup))}
+                  source={muscleImg.getMuscleGroupImage(getMuscleGroupKey(item.muscleGroup))}
                   style={styles.muscleGroupImage}
                   resizeMode="contain"
                 />
@@ -621,36 +623,8 @@ const styles = StyleSheet.create({
   requestButtonTextPending: {
     color: colors.textMuted,
   },
-  emptyContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 32,
-  },
   emptyList: {
     flexGrow: 1,
-  },
-  emptyIconContainer: {
-    width: 120,
-    height: 120,
-    borderRadius: 60,
-    backgroundColor: '#F0F0F0',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 24,
-  },
-  emptyTitle: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: colors.text,
-    marginBottom: 8,
-    textAlign: 'center',
-  },
-  emptyText: {
-    fontSize: 16,
-    color: colors.textMuted,
-    textAlign: 'center',
-    lineHeight: 24,
   },
 });
 

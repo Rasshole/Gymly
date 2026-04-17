@@ -20,7 +20,7 @@ import {SafeAreaView} from 'react-native';
 import {usePRStore} from '@/store/prStore';
 import {useAppStore} from '@/store/appStore';
 import {PersonalRecord, RepRecord, ExerciseType} from '@/types/pr.types';
-import {colors} from '@/theme/colors';
+import colors from '@/theme/colors';
 
 const exercises: ExerciseType[] = [
   'Bænkpres',

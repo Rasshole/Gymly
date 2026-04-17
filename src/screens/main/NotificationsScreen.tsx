@@ -1,9 +1,9 @@
 /**
  * Notifications Screen
- * Shows notifications when friends check in
+ * Premium notifikationer – lette at scanne, visuelt pæne
  */
 
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {
   View,
   Text,
@@ -14,18 +14,60 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
 import {useNotificationStore, Notification} from '@/store/notificationStore';
 import {useWorkoutInvitationStore} from '@/store/workoutInvitationStore';
 import {useAppStore} from '@/store/appStore';
 import {useWorkoutPlanStore} from '@/store/workoutPlanStore';
 import NotificationService from '@/services/notifications/NotificationService';
-import {formatDistanceToNow} from 'date-fns';
-import {da} from 'date-fns/locale';
-import {colors} from '@/theme/colors';
+import {getInitialNotifications} from '@/services/data';
+import {formatRelativeTime} from '@/utils/formatRelativeTime';
+import colors from '@/theme/colors';
+import {spacing, radius, typography} from '@/theme/designTokens';
+import {EmptyState} from '@/components/ui/EmptyState';
+
+const getNotificationIcon = (type: Notification['type']) => {
+  switch (type) {
+    case 'friend_checkin':
+      return 'location';
+    case 'friend_request':
+      return 'person-add';
+    case 'workout_invite':
+      return 'fitness';
+    case 'invite_response':
+      return 'checkmark-done';
+    case 'message':
+      return 'chatbubble';
+    case 'streak_milestone':
+      return 'flame';
+    case 'group_invite':
+      return 'people';
+    case 'leaderboard_movement':
+      return 'trophy';
+    case 'badge_unlocked':
+      return 'medal';
+    default:
+      return 'notifications';
+  }
+};
+
+const getNotificationIconColor = (type: Notification['type'], read: boolean) => {
+  if (read) return colors.textMuted;
+  switch (type) {
+    case 'friend_checkin':
+      return colors.success;
+    case 'streak_milestone':
+      return colors.warning;
+    case 'badge_unlocked':
+      return colors.rankGold;
+    case 'leaderboard_movement':
+      return colors.primary;
+    default:
+      return colors.primary;
+  }
+};
 
 const NotificationsScreen = () => {
-  const navigation = useNavigation<StackNavigationProp<any>>();
+  const navigation = useNavigation<any>();
   const {user} = useAppStore();
   const {
     notifications,
@@ -34,254 +76,162 @@ const NotificationsScreen = () => {
     markAllAsRead,
     removeNotification,
     markInviteJoined,
+    seedNotifications,
   } = useNotificationStore();
   const {getPendingInvitations, acceptInvitation} = useWorkoutInvitationStore();
   const {acceptPlanInvite} = useWorkoutPlanStore();
-  const [currentTime, setCurrentTime] = useState(new Date());
 
   const pendingInvitations = user ? getPendingInvitations(user.id) : [];
 
-  // Update time every second to refresh the timer
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const formatTime = (date: Date) => {
-    try {
-      return formatDistanceToNow(date, {addSuffix: true, locale: da});
-    } catch {
-      return 'Lige nu';
+    if (notifications.length === 0) {
+      getInitialNotifications().then((data) => {
+        if (data.length > 0) {
+          seedWithMock(data);
+        }
+      });
     }
-  };
-
-  const formatDuration = (checkInTime: Date, isActive: boolean) => {
-    if (!isActive) return null;
-    
-    const diff = currentTime.getTime() - checkInTime.getTime();
-    const seconds = Math.floor(diff / 1000);
-    const minutes = Math.floor(seconds / 60);
-    const hours = Math.floor(minutes / 60);
-
-    if (hours > 0) {
-      const remainingMinutes = minutes % 60;
-      if (remainingMinutes > 0) {
-        return `${hours}t ${remainingMinutes}m`;
-      }
-      return `${hours}t`;
-    } else if (minutes > 0) {
-      const remainingSeconds = seconds % 60;
-      if (remainingSeconds > 0) {
-        return `${minutes}m ${remainingSeconds}s`;
-      }
-      return `${minutes}m`;
-    } else {
-      return `${seconds}s`;
-    }
-  };
-
-  const renderEmptyState = () => (
-    <View style={styles.emptyContainer}>
-      <Icon name="notifications-outline" size={80} color="#C7C7CC" />
-      <Text style={styles.emptyTitle}>Ingen notifikationer</Text>
-      <Text style={styles.emptyText}>
-        Når dine venner tjekker ind på gym, vil du få notifikationer her.
-      </Text>
-    </View>
-  );
+  }, [notifications.length, seedNotifications]);
 
   const handleJoinWorkout = (notification: Notification) => {
-    if (notification.type !== 'workout_invite' && notification.type !== 'friend_checkin') {
+    if (
+      notification.type !== 'workout_invite' &&
+      notification.type !== 'friend_checkin'
+    ) {
       return;
     }
-
-    const {user} = useAppStore.getState();
     const joinerName = user?.displayName || 'En ven';
-
     if (notification.joined) {
-      // Remove join request - toggle back
       markInviteJoined(notification.id);
     } else {
-      // Add join request
       markInviteJoined(notification.id);
-
-      if (notification.type === 'workout_invite') {
-    if (notification.planId && user) {
-      acceptPlanInvite(notification.planId, user.id);
-    }
-
-    if (notification.friendName) {
-      NotificationService.notifyInviteAccepted(
-        notification.friendName,
-        joinerName,
-        notification.gymName || 'dit center',
-      );
-    }
-
-    if (notification.planId) {
-      navigation.navigate('WorkoutSchedule', {initialTab: 'upcoming'});
-        }
-      } else if (notification.type === 'friend_checkin') {
-        // Handle joining friend's active workout
-        // In a real app, this would send a request to join the friend's session
+      if (notification.type === 'workout_invite' && notification.planId && user) {
+        acceptPlanInvite(notification.planId, user.id);
+      }
+      if (notification.friendName) {
+        NotificationService.notifyInviteAccepted(
+          notification.friendName,
+          joinerName,
+          notification.gymName || 'dit center'
+        );
+      }
+      if (notification.planId) {
+        navigation.navigate('WorkoutSchedule', {initialTab: 'upcoming'});
       }
     }
   };
 
   const renderNotificationItem = ({item}: {item: Notification}) => {
-    const getIcon = () => {
-      switch (item.type) {
-        case 'friend_checkin':
-          return 'location';
-        case 'friend_request':
-          return 'person-add';
-        case 'workout_invite':
-          return 'fitness';
-        case 'invite_response':
-          return 'checkmark-done-outline';
-        case 'message':
-          return 'chatbubble';
-        default:
-          return 'notifications';
-      }
-    };
-
-    const getIconColor = () => {
-      if (item.read) return '#8E8E93';
-      return item.type === 'friend_checkin' ? '#34C759' : '#007AFF';
-    };
+    const iconName = getNotificationIcon(item.type);
+    const iconColor = getNotificationIconColor(item.type, item.read);
 
     return (
       <TouchableOpacity
-        style={[styles.notificationItem, !item.read && styles.unreadItem]}
+        style={[styles.row, !item.read && styles.rowUnread]}
         onPress={() => markAsRead(item.id)}
-        activeOpacity={0.7}>
-        <View style={[styles.iconContainer, {backgroundColor: getIconColor() + '20'}]}>
-          <Icon name={getIcon()} size={24} color={getIconColor()} />
+        activeOpacity={0.8}>
+        <View style={[styles.iconWrapper, {backgroundColor: iconColor + '20'}]}>
+          <Icon name={iconName as any} size={24} color={iconColor} />
         </View>
-        <View style={styles.notificationContent}>
-          {item.type === 'friend_checkin' ? (
-            <Text style={[styles.notificationTitle, !item.read && styles.unreadTitle]}>
-              {item.friendName} er nu i{' '}
-              {item.gymName && <Text style={styles.gymNameText}>{item.gymName}</Text>}
-            </Text>
-          ) : (
-            <>
-          <Text style={[styles.notificationTitle, !item.read && styles.unreadTitle]}>
-            {item.title}
+        <View style={styles.content}>
+          <Text style={[styles.title, !item.read && styles.titleUnread]}>
+            {item.type === 'friend_checkin' && item.friendName
+              ? `${item.friendName} tjekkede ind`
+              : item.title}
           </Text>
-          <Text style={styles.notificationMessage}>
-            {item.message}
-              </Text>
-            </>
-            )}
-          {item.type === 'friend_checkin' && item.checkInTime && item.isActive && (
-            <View style={styles.durationContainer}>
-              <Icon name="time-outline" size={12} color="#34C759" />
-              <Text style={styles.durationText}>
-                Aktiv i {formatDuration(item.checkInTime, item.isActive)}
-              </Text>
-            </View>
-          )}
-          {item.type === 'friend_checkin' && item.checkInTime && !item.isActive && (
-            <Text style={styles.checkOutText}>
-              Forlod {item.gymName || 'gymmet'} {formatTime(item.checkOutTime || item.timestamp)}
-            </Text>
-          )}
-          {item.type !== 'friend_checkin' && (
-            <Text style={styles.notificationTime}>{formatTime(item.timestamp)}</Text>
-          )}
-          {item.type === 'workout_invite' && item.scheduledAt && (
-            <Text style={styles.scheduledTime}>
-              {new Date(item.scheduledAt).toLocaleString('da-DK', {
-                day: 'numeric',
-                month: 'short',
-                hour: '2-digit',
-                minute: '2-digit',
-              })}
-            </Text>
-          )}
+          <Text style={styles.message} numberOfLines={2}>
+            {item.type === 'friend_checkin' && item.gymName
+              ? `${item.friendName} er nu i ${item.gymName}`
+              : item.message}
+          </Text>
+          <Text style={styles.time}>{formatRelativeTime(item.timestamp)}</Text>
         </View>
-        {!item.read && !item.joined && <View style={styles.unreadDot} />}
-        {(item.type === 'workout_invite' || item.type === 'friend_checkin') ? (
-          <View style={styles.actionButtons}>
+        {!item.read && <View style={styles.unreadDot} />}
+        {(item.type === 'workout_invite' || item.type === 'friend_checkin') && (
+          <View style={styles.actions}>
             <TouchableOpacity
               onPress={() => handleJoinWorkout(item)}
-              style={[
-                styles.joinButton,
-                item.joined && styles.joinButtonJoined,
-              ]}
-              activeOpacity={0.7}>
+              style={[styles.joinBtn, item.joined && styles.joinBtnJoined]}
+              activeOpacity={0.8}>
               <Text
                 style={[
-                  styles.joinButtonText,
-                  item.joined && styles.joinButtonTextJoined,
+                  styles.joinBtnText,
+                  item.joined && styles.joinBtnTextJoined,
                 ]}>
                 {item.joined ? 'Anmodet' : 'Deltag'}
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => removeNotification(item.id)}
-              style={styles.deleteButton}
               hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}>
-              <Icon name="close" size={20} color="#C7C7CC" />
+              <Icon name="close" size={20} color={colors.textMuted} />
             </TouchableOpacity>
           </View>
-        ) : (
-          <TouchableOpacity
-            onPress={() => removeNotification(item.id)}
-            style={styles.deleteButton}
-            hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}>
-            <Icon name="close" size={20} color="#C7C7CC" />
-          </TouchableOpacity>
         )}
+        {item.type !== 'workout_invite' &&
+          item.type !== 'friend_checkin' && (
+            <TouchableOpacity
+              onPress={() => removeNotification(item.id)}
+              hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}>
+              <Icon name="close" size={20} color={colors.textMuted} />
+            </TouchableOpacity>
+          )}
       </TouchableOpacity>
     );
   };
 
   return (
     <View style={styles.container}>
-      {pendingInvitations.length > 0 && (
-        <View style={styles.invitationsBanner}>
-          <View style={styles.invitationsBannerContent}>
-            <Icon name="fitness" size={20} color="#007AFF" />
-            <Text style={styles.invitationsBannerText}>
-              {pendingInvitations.length} træningsinvitation{pendingInvitations.length > 1 ? 'er' : ''}
-            </Text>
-          </View>
+      <View style={styles.header}>
+        <Text style={styles.headerTitle}>Notifikationer</Text>
+        <Text style={styles.headerSubtitle}>
+          Hold styr på venner, streaks og mere
+        </Text>
+        {notifications.length > 0 && unreadCount > 0 && (
           <TouchableOpacity
-            onPress={() => navigation.navigate('WorkoutInvitations')}
-            style={styles.invitationsBannerButton}>
-            <Text style={styles.invitationsBannerButtonText}>Se</Text>
-            <Icon name="chevron-forward" size={16} color="#007AFF" />
+            onPress={markAllAsRead}
+            style={styles.markAllBtn}
+            activeOpacity={0.8}>
+            <Text style={styles.markAllText}>Marker alle som læst</Text>
           </TouchableOpacity>
-        </View>
+        )}
+      </View>
+
+      {pendingInvitations.length > 0 && (
+        <TouchableOpacity
+          style={styles.inviteBanner}
+          onPress={() => navigation.navigate('WorkoutInvitations')}
+          activeOpacity={0.8}>
+          <Icon name="fitness" size={22} color={colors.white} />
+          <Text style={styles.inviteBannerText}>
+            {pendingInvitations.length} træningsinvitation
+            {pendingInvitations.length > 1 ? 'er' : ''}
+          </Text>
+          <Icon name="chevron-forward" size={20} color={colors.white} />
+        </TouchableOpacity>
       )}
-      {notifications.length > 0 && unreadCount > 0 && (
-        <View style={styles.headerActions}>
-          <TouchableOpacity onPress={markAllAsRead} style={styles.markAllReadButton}>
-            <Text style={styles.markAllReadText}>Marker alle som læst</Text>
-          </TouchableOpacity>
-        </View>
-      )}
+
       <FlatList
         data={notifications}
-        keyExtractor={(item) => item.id}
+        keyExtractor={item => item.id}
         renderItem={renderNotificationItem}
-        ListEmptyComponent={renderEmptyState}
         contentContainerStyle={
-          notifications.length === 0 && styles.centerEmptyState
+          notifications.length === 0 ? styles.emptyContainer : styles.list
         }
-        extraData={currentTime} // Re-render when time updates
+        ListEmptyComponent={
+          <EmptyState
+            icon="notifications-outline"
+            title="Ingen notifikationer lige nu"
+            message="Når dine venner tjekker ind, får du besked her. Tjek ind selv for at holde momentumet."
+            actionLabel="Tjek ind"
+            onAction={() => navigation.navigate('CheckIn')}
+          />
+        }
         refreshControl={
           <RefreshControl
             refreshing={false}
-            onRefresh={() => {
-              // In a real app, this would fetch new notifications
-            }}
+            onRefresh={() => {}}
+            tintColor={colors.primary}
           />
         }
       />
@@ -294,179 +244,130 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.background,
   },
-  invitationsBanner: {
+  header: {
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.lg,
+    paddingBottom: spacing.md,
+    backgroundColor: colors.backgroundCard,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border,
+  },
+  headerTitle: {
+    ...typography.h4,
+    color: colors.text,
+  },
+  headerSubtitle: {
+    ...typography.small,
+    color: colors.textSecondary,
+    marginTop: 4,
+  },
+  markAllBtn: {
+    alignSelf: 'flex-end',
+    marginTop: spacing.sm,
+  },
+  markAllText: {
+    ...typography.small,
+    fontWeight: '600',
+    color: colors.primary,
+  },
+  inviteBanner: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    marginHorizontal: spacing.lg,
+    marginTop: spacing.md,
+    padding: spacing.lg,
     backgroundColor: colors.primary,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    marginHorizontal: 16,
-    marginTop: 8,
-    borderRadius: 12,
+    borderRadius: radius.lg,
   },
-  invitationsBannerContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  inviteBannerText: {
+    ...typography.bodyBold,
+    color: colors.white,
     flex: 1,
+    marginLeft: spacing.md,
   },
-  invitationsBannerText: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: colors.secondary,
-    marginLeft: 8,
-  },
-  invitationsBannerButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  invitationsBannerButtonText: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: colors.secondary,
-    marginRight: 4,
-  },
-  centerEmptyState: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  headerActions: {
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    backgroundColor: colors.backgroundCard,
-    borderBottomWidth: 1,
-    borderBottomColor: '#EFEFF4',
-  },
-  markAllReadButton: {
-    alignSelf: 'flex-end',
-  },
-  markAllReadText: {
-    fontSize: 14,
-    color: colors.secondary,
-    fontWeight: '600',
+  list: {
+    paddingBottom: spacing.xxxl,
   },
   emptyContainer: {
-    alignItems: 'center',
-    padding: 20,
+    flexGrow: 1,
+    paddingBottom: spacing.xxxl,
   },
-  emptyTitle: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: '#333',
-    marginTop: 15,
-    marginBottom: 10,
-  },
-  emptyText: {
-    fontSize: 16,
-    color: colors.textSecondary,
-    textAlign: 'center',
-    lineHeight: 24,
-  },
-  notificationItem: {
+  row: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 16,
-    paddingHorizontal: 16,
+    padding: spacing.lg,
     backgroundColor: colors.backgroundCard,
-    borderBottomWidth: 1,
-    borderBottomColor: '#EFEFF4',
+    marginHorizontal: spacing.lg,
+    marginTop: spacing.sm,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
   },
-  unreadItem: {
-    backgroundColor: '#F0F9FF',
+  rowUnread: {
+    backgroundColor: colors.primary + '08',
+    borderColor: colors.primary + '30',
   },
-  iconContainer: {
+  iconWrapper: {
     width: 48,
     height: 48,
     borderRadius: 24,
-    justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 12,
+    justifyContent: 'center',
+    marginRight: spacing.md,
   },
-  notificationContent: {
+  content: {
     flex: 1,
+    minWidth: 0,
   },
-  notificationTitle: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#333',
-    marginBottom: 4,
+  title: {
+    ...typography.bodyBold,
+    color: colors.text,
   },
-  unreadTitle: {
+  titleUnread: {
     fontWeight: '700',
   },
-  notificationMessage: {
-    fontSize: 14,
+  message: {
+    ...typography.small,
     color: colors.textSecondary,
-    marginBottom: 4,
+    marginTop: 2,
   },
-  notificationTime: {
-    fontSize: 12,
-    color: colors.textMuted,
-  },
-  gymNameText: {
-    fontSize: 16,
-    color: colors.secondary,
-    fontWeight: '600',
-  },
-  durationContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 4,
-  },
-  durationText: {
-    fontSize: 12,
-    color: '#34C759',
-    fontWeight: '600',
-    marginLeft: 4,
-  },
-  checkOutText: {
-    fontSize: 12,
+  time: {
+    ...typography.caption,
     color: colors.textMuted,
     marginTop: 4,
-    fontStyle: 'italic',
   },
   unreadDot: {
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: colors.secondary,
-    marginRight: 8,
+    backgroundColor: colors.primary,
+    marginLeft: spacing.sm,
   },
-  deleteButton: {
-    padding: 4,
-  },
-  actionButtons: {
+  actions: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    gap: spacing.sm,
   },
-  joinButton: {
-    backgroundColor: colors.secondary,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 8,
+  joinBtn: {
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    backgroundColor: colors.primary,
+    borderRadius: radius.md,
   },
-  joinButtonJoined: {
-    backgroundColor: colors.backgroundCard,
+  joinBtnJoined: {
+    backgroundColor: colors.surface,
     borderWidth: 1,
-    borderColor: '#CBD5F5',
+    borderColor: colors.primary + '60',
   },
-  joinButtonText: {
-    color: '#fff',
-    fontSize: 14,
+  joinBtnText: {
+    ...typography.small,
     fontWeight: '600',
+    color: colors.white,
   },
-  joinButtonTextJoined: {
-    color: colors.text,
-  },
-  scheduledTime: {
-    fontSize: 12,
-    color: colors.secondary,
-    marginTop: 4,
-    fontWeight: '600',
+  joinBtnTextJoined: {
+    color: colors.primary,
   },
 });
 
 export default NotificationsScreen;
-

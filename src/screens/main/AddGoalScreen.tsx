@@ -18,14 +18,16 @@ import {useNavigation, useRoute, RouteProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useGoalStore} from '@/store/goalStore';
+import {useAppStore} from '@/store/appStore';
 import {GoalType, GoalPeriod} from '@/types/goal.types';
-import {colors} from '@/theme/colors';
+import colors from '@/theme/colors';
 
 type AddGoalNavigationProp = StackNavigationProp<any>;
 
 const AddGoalScreen = () => {
   const navigation = useNavigation<AddGoalNavigationProp>();
   const {addGoal} = useGoalStore();
+  const {user} = useAppStore();
   const [selectedType, setSelectedType] = useState<GoalType | null>(null);
   const [target, setTarget] = useState('');
   const [period, setPeriod] = useState<GoalPeriod>('week');
@@ -100,7 +102,7 @@ const AddGoalScreen = () => {
     }
 
     addGoal({
-      userId: 'current_user', // TODO: Get from auth store
+      userId: user?.id ?? 'current_user',
       type: selectedType,
       title,
       description,

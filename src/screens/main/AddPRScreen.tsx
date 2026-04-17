@@ -21,7 +21,7 @@ import {launchCamera, launchImageLibrary, CameraOptions, ImagePickerResponse} fr
 import {createThumbnail} from 'react-native-create-thumbnail';
 import {usePRStore} from '@/store/prStore';
 import {ExerciseType, PersonalRecord} from '@/types/pr.types';
-import {colors} from '@/theme/colors';
+import colors from '@/theme/colors';
 
 type AddPRRouteParams = {
   exercise: ExerciseType;

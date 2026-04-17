@@ -1,10 +1,11 @@
 /**
- * Leaderboard Service
- * Abstraktionslag: Mock (Zustand) eller Firestore
+ * Leaderboard Service — Firestore leaderboardStats / gym underlister
  */
 
 import firestore from '@react-native-firebase/firestore';
 import {USE_FIRESTORE_LEADERBOARD, LEADERBOARD_PAGE_SIZE} from '@/config/leaderboardConfig';
+import {isFirebaseNativeAvailable} from '@/services/firebase/nativeAvailability';
+import {getFriendIdsForUser} from '@/services/firestore/friendIdsService';
 import {useLeaderboardStore} from '@/store/leaderboardStore';
 import {
   CATEGORY_TO_FIRESTORE_FIELD,
@@ -19,19 +20,29 @@ import type {
 
 const COLLECTION_STATS = 'leaderboardStats';
 const COLLECTION_GYMS = 'gyms';
-const FRIEND_IDS = new Set(['1', '2', '3', '4', '5']);
+
+const emptyResult: FetchLeaderboardResult = {
+  entries: [],
+  hasMore: false,
+  lastDoc: null,
+};
 
 function getOrderByFieldPath(
   category: LeaderboardCategory,
-  period: LeaderboardPeriod
+  period: LeaderboardPeriod,
 ): string {
   const base = CATEGORY_TO_FIRESTORE_FIELD[category as keyof typeof CATEGORY_TO_FIRESTORE_FIELD];
-  if (!base) return 'activityScore.allTime';
+  if (!base) {
+    return 'activityScore.allTime';
+  }
   const periodKey = PERIOD_TO_FIRESTORE_KEY[period];
   if (category === 'streak' || category === 'discipline') {
     return String(base);
   }
-  if (category.startsWith('strength') || ['benchPress', 'squat', 'deadlift'].includes(category)) {
+  if (
+    category.startsWith('strength') ||
+    ['benchPress', 'squat', 'deadlift'].includes(category)
+  ) {
     return String(base);
   }
   return `${base}.${periodKey}`;
@@ -40,66 +51,124 @@ function getOrderByFieldPath(
 function formatValueForCategory(category: LeaderboardCategory, value: number): string {
   const format = (n: number, s: string) => (n === 1 ? `1 ${s}` : `${n} ${s}`);
   switch (category) {
-    case 'checkIns': return format(value, 'check-in');
-    case 'prs': return format(value, 'PR');
-    case 'trainingTime': return `${value} min`;
-    case 'socialTraining': return format(value, 'træning med venner');
-    case 'streak': return format(value, 'dags stribe');
-    case 'discipline': return format(value, 'muskelgruppe');
-    case 'benchPress': return `Bænkpres: ${value} kg`;
-    case 'squat': return `Squat: ${value} kg`;
-    case 'deadlift': return `Dødløft: ${value} kg`;
+    case 'checkIns':
+      return format(value, 'check-in');
+    case 'prs':
+      return format(value, 'PR');
+    case 'trainingTime':
+      return `${value} min`;
+    case 'socialTraining':
+      return format(value, 'træning med venner');
+    case 'streak':
+      return format(value, 'dags stribe');
+    case 'discipline':
+      return format(value, 'muskelgruppe');
+    case 'benchPress':
+      return `Bænkpres: ${value} kg`;
+    case 'squat':
+      return `Squat: ${value} kg`;
+    case 'deadlift':
+      return `Dødløft: ${value} kg`;
     case 'globalActivity':
-    case 'friendsActivity': return `${value} point`;
-    default: return `${value}`;
+    case 'friendsActivity':
+      return `${value} point`;
+    default:
+      return `${value}`;
   }
 }
 
+function getValueFromDoc(
+  docData: Record<string, unknown> | undefined,
+  category: LeaderboardCategory,
+  period: LeaderboardPeriod,
+): number {
+  if (!docData) {
+    return 0;
+  }
+  const periodKey = PERIOD_TO_FIRESTORE_KEY[period];
+  switch (category) {
+    case 'checkIns':
+      return (docData.checkIns as {weekly?: number; monthly?: number; allTime?: number} | undefined)?.[
+        periodKey
+      ] ?? 0;
+    case 'prs':
+      return (docData.prs as {weekly?: number; monthly?: number; allTime?: number} | undefined)?.[
+        periodKey
+      ] ?? 0;
+    case 'trainingTime':
+      return (
+        (docData.trainingMinutes as {weekly?: number; monthly?: number; allTime?: number} | undefined)?.[
+          periodKey
+        ] ?? 0
+      );
+    case 'socialTraining':
+      return (
+        (docData.socialWorkouts as {weekly?: number; monthly?: number; allTime?: number} | undefined)?.[
+          periodKey
+        ] ?? 0
+      );
+    case 'streak':
+      return (docData.streak as number) ?? 0;
+    case 'discipline':
+      return (
+        (docData.muscleGroupsTrained as {weekly?: number; monthly?: number; allTime?: number} | undefined)?.[
+          periodKey
+        ] ??
+        (docData.muscleGroupsTrained as number) ??
+        0
+      );
+    case 'benchPress':
+      return (docData.strengthPRs as {bench?: number} | undefined)?.bench ?? 0;
+    case 'squat':
+      return (docData.strengthPRs as {squat?: number} | undefined)?.squat ?? 0;
+    case 'deadlift':
+      return (docData.strengthPRs as {deadlift?: number} | undefined)?.deadlift ?? 0;
+    case 'globalActivity':
+    case 'friendsActivity':
+      return (
+        (docData.activityScore as {weekly?: number; monthly?: number; allTime?: number} | undefined)?.[
+          periodKey
+        ] ?? 0
+      );
+    default:
+      return 0;
+  }
+}
+
+type StatsDoc = {
+  id: string;
+  data: () => Record<string, unknown> | undefined;
+};
+
 function docToEntry(
-  doc: any,
+  doc: StatsDoc,
   rank: number,
   currentUserId: string,
-  category: LeaderboardCategory
+  category: LeaderboardCategory,
+  period: LeaderboardPeriod,
+  friendIds: Set<string>,
 ): LeaderboardEntry {
-  const data = doc.data();
+  const data = doc.data() ?? {};
   const userId = doc.id;
-  const value = getValueFromDoc(data, category, 'all');
+  const value = getValueFromDoc(data, category, period);
   return {
     rank,
     userId,
-    displayName: data.displayName || 'Bruger',
-    profileImageUrl: data.photoURL,
+    displayName: (data.displayName as string) || 'Bruger',
+    profileImageUrl: data.photoURL as string | undefined,
     value,
     valueLabel: formatValueForCategory(category, value),
     isCurrentUser: userId === currentUserId,
-    isFriend: FRIEND_IDS.has(userId),
+    isFriend: friendIds.has(userId),
   };
 }
 
-function getValueFromDoc(docData: any, category: LeaderboardCategory, period: LeaderboardPeriod): number {
-  const periodKey = PERIOD_TO_FIRESTORE_KEY[period];
-  switch (category) {
-    case 'checkIns': return docData?.checkIns?.[periodKey] ?? 0;
-    case 'prs': return docData?.prs?.[periodKey] ?? 0;
-    case 'trainingTime': return docData?.trainingMinutes?.[periodKey] ?? 0;
-    case 'socialTraining': return docData?.socialWorkouts?.[periodKey] ?? 0;
-    case 'streak': return docData?.streak ?? 0;
-    case 'discipline': return docData?.muscleGroupsTrained?.[periodKey] ?? docData?.muscleGroupsTrained ?? 0;
-    case 'benchPress': return docData?.strengthPRs?.bench ?? 0;
-    case 'squat': return docData?.strengthPRs?.squat ?? 0;
-    case 'deadlift': return docData?.strengthPRs?.deadlift ?? 0;
-    case 'globalActivity':
-    case 'friendsActivity': return docData?.activityScore?.[periodKey] ?? 0;
-    default: return 0;
-  }
-}
-
-async function fallbackToMock<T>(fn: () => Promise<T>, mockFn: () => T): Promise<T> {
+async function safeFirestore<T>(fn: () => Promise<T>, fallback: T): Promise<T> {
   try {
     return await fn();
   } catch (err) {
-    console.warn('[Leaderboard] Firestore fejl, bruger mock:', err);
-    return mockFn();
+    console.warn('[Leaderboard] Firestore:', err);
+    return fallback;
   }
 }
 
@@ -113,7 +182,7 @@ export async function fetchGlobalLeaderboard(
   category: LeaderboardCategory,
   period: LeaderboardPeriod,
   currentUserId: string,
-  limit = LEADERBOARD_PAGE_SIZE
+  limit = LEADERBOARD_PAGE_SIZE,
 ): Promise<FetchLeaderboardResult> {
   if (!USE_FIRESTORE_LEADERBOARD) {
     const store = useLeaderboardStore.getState();
@@ -121,7 +190,13 @@ export async function fetchGlobalLeaderboard(
     return {entries: entries.slice(0, limit), hasMore: entries.length > limit, lastDoc: null};
   }
 
-  return fallbackToMock(async () => {
+  if (!isFirebaseNativeAvailable()) {
+    return emptyResult;
+  }
+
+  const friendIds = new Set(await getFriendIdsForUser(currentUserId));
+
+  return safeFirestore(async () => {
     const orderByPath = getOrderByFieldPath(category, period);
     const snapshot = await firestore()
       .collection(COLLECTION_STATS)
@@ -131,7 +206,9 @@ export async function fetchGlobalLeaderboard(
 
     const entries: LeaderboardEntry[] = [];
     snapshot.docs.slice(0, limit).forEach((doc, idx) => {
-      entries.push(docToEntry(doc, idx + 1, currentUserId, category));
+      entries.push(
+        docToEntry(doc, idx + 1, currentUserId, category, period, friendIds),
+      );
     });
 
     return {
@@ -139,18 +216,14 @@ export async function fetchGlobalLeaderboard(
       hasMore: snapshot.docs.length > limit,
       lastDoc: snapshot.docs[limit - 1]?.ref ?? null,
     };
-  }, () => {
-    const store = useLeaderboardStore.getState();
-    const entries = store.getGlobalLeaderboard(category, period, currentUserId);
-    return {entries: entries.slice(0, limit), hasMore: entries.length > limit, lastDoc: null};
-  });
+  }, emptyResult);
 }
 
 export async function fetchFriendsLeaderboard(
   category: LeaderboardCategory,
   period: LeaderboardPeriod,
   currentUserId: string,
-  limit = LEADERBOARD_PAGE_SIZE
+  limit = LEADERBOARD_PAGE_SIZE,
 ): Promise<FetchLeaderboardResult> {
   if (!USE_FIRESTORE_LEADERBOARD) {
     const store = useLeaderboardStore.getState();
@@ -158,33 +231,37 @@ export async function fetchFriendsLeaderboard(
     return {entries: entries.slice(0, limit), hasMore: entries.length > limit, lastDoc: null};
   }
 
-  return fallbackToMock(async () => {
-    const friendIds = Array.from(FRIEND_IDS);
-    const idsToFetch = friendIds.includes(currentUserId) ? friendIds : [...friendIds, currentUserId];
-    if (idsToFetch.length === 0) return {entries: [], hasMore: false, lastDoc: null};
+  if (!isFirebaseNativeAvailable()) {
+    return emptyResult;
+  }
+
+  return safeFirestore(async () => {
+    const friends = await getFriendIdsForUser(currentUserId);
+    const idsToFetch = [...new Set([...friends, currentUserId])];
+    if (idsToFetch.length === 0) {
+      return emptyResult;
+    }
 
     const db = firestore();
     const docs = await Promise.all(
-      idsToFetch.map(id => db.collection(COLLECTION_STATS).doc(id).get())
+      idsToFetch.map(id => db.collection(COLLECTION_STATS).doc(id).get()),
     );
-    const validDocs = docs.filter(d => d.exists);
-    const periodKey = PERIOD_TO_FIRESTORE_KEY[period];
+    const validDocs = docs.filter(d => d.exists) as StatsDoc[];
+    const friendSet = new Set(friends);
+
     validDocs.sort((a, b) => {
-      const va = a.data()?.activityScore?.[periodKey] ?? 0;
-      const vb = b.data()?.activityScore?.[periodKey] ?? 0;
+      const va = getValueFromDoc(a.data(), category, period);
+      const vb = getValueFromDoc(b.data(), category, period);
       return vb - va;
     });
 
-    const entries: LeaderboardEntry[] = validDocs.map((doc, idx) =>
-      docToEntry(doc, idx + 1, currentUserId, 'friendsActivity')
+    const sliced = validDocs.slice(0, limit);
+    const entries: LeaderboardEntry[] = sliced.map((doc, idx) =>
+      docToEntry(doc, idx + 1, currentUserId, category, period, friendSet),
     );
 
-    return {entries, hasMore: false, lastDoc: null};
-  }, () => {
-    const store = useLeaderboardStore.getState();
-    const entries = store.getFriendsLeaderboard(category, period, currentUserId);
-    return {entries: entries.slice(0, limit), hasMore: entries.length > limit, lastDoc: null};
-  });
+    return {entries, hasMore: validDocs.length > limit, lastDoc: null};
+  }, emptyResult);
 }
 
 export async function fetchGymLeaderboard(
@@ -192,7 +269,7 @@ export async function fetchGymLeaderboard(
   gymName: string,
   period: LeaderboardPeriod,
   currentUserId: string,
-  limit = LEADERBOARD_PAGE_SIZE
+  limit = LEADERBOARD_PAGE_SIZE,
 ): Promise<FetchLeaderboardResult> {
   if (!USE_FIRESTORE_LEADERBOARD) {
     const store = useLeaderboardStore.getState();
@@ -200,7 +277,13 @@ export async function fetchGymLeaderboard(
     return {entries: entries.slice(0, limit), hasMore: entries.length > limit, lastDoc: null};
   }
 
-  return fallbackToMock(async () => {
+  if (!isFirebaseNativeAvailable()) {
+    return emptyResult;
+  }
+
+  const friendIds = new Set(await getFriendIdsForUser(currentUserId));
+
+  return safeFirestore(async () => {
     const snapshot = await firestore()
       .collection(COLLECTION_GYMS)
       .doc(String(gymId))
@@ -223,17 +306,17 @@ export async function fetchGymLeaderboard(
         gymName,
         gymId,
         isCurrentUser: userId === currentUserId,
-        isFriend: FRIEND_IDS.has(userId),
+        isFriend: friendIds.has(userId),
         isWeeklyChampion: champion?.userId === userId,
       };
     });
 
-    return {entries, hasMore: snapshot.docs.length >= limit, lastDoc: snapshot.docs[snapshot.docs.length - 1]?.ref ?? null};
-  }, () => {
-    const store = useLeaderboardStore.getState();
-    const entries = store.getGymLeaderboard(gymId, gymName, period, currentUserId);
-    return {entries: entries.slice(0, limit), hasMore: entries.length > limit, lastDoc: null};
-  });
+    return {
+      entries,
+      hasMore: snapshot.docs.length >= limit,
+      lastDoc: snapshot.docs[snapshot.docs.length - 1]?.ref ?? null,
+    };
+  }, emptyResult);
 }
 
 export async function fetchWeeklyChampion(gymId: number): Promise<WeeklyChampion | null> {
@@ -241,20 +324,20 @@ export async function fetchWeeklyChampion(gymId: number): Promise<WeeklyChampion
     const store = useLeaderboardStore.getState();
     return store.getWeeklyChampion(gymId) ?? null;
   }
-  return fallbackToMock(
-    () => fetchWeeklyChampionFromFirestore(gymId),
-    () => useLeaderboardStore.getState().getWeeklyChampion(gymId) ?? null
-  );
+  if (!isFirebaseNativeAvailable()) {
+    return null;
+  }
+  return safeFirestore(() => fetchWeeklyChampionFromFirestore(gymId), null);
 }
 
 export async function fetchWeeklyChampions(): Promise<WeeklyChampion[]> {
   if (!USE_FIRESTORE_LEADERBOARD) {
     return useLeaderboardStore.getState().getWeeklyChampions();
   }
-  return fallbackToMock(
-    fetchWeeklyChampionsFromFirestore,
-    () => useLeaderboardStore.getState().getWeeklyChampions()
-  );
+  if (!isFirebaseNativeAvailable()) {
+    return [];
+  }
+  return safeFirestore(fetchWeeklyChampionsFromFirestore, []);
 }
 
 async function fetchWeeklyChampionFromFirestore(gymId: number): Promise<WeeklyChampion | null> {
@@ -265,7 +348,9 @@ async function fetchWeeklyChampionFromFirestore(gymId: number): Promise<WeeklyCh
     .doc('weeklyChampion')
     .get();
 
-  if (!doc.exists) return null;
+  if (!doc.exists) {
+    return null;
+  }
   const d = doc.data();
   return {
     gymId,
@@ -282,8 +367,10 @@ async function fetchWeeklyChampionsFromFirestore(): Promise<WeeklyChampion[]> {
   const champions: WeeklyChampion[] = [];
   for (const gymDoc of gymsSnapshot.docs) {
     const gymId = parseInt(gymDoc.id, 10) || gymDoc.id;
-    const champ = await fetchWeeklyChampionFromFirestore(gymId);
-    if (champ) champions.push(champ);
+    const champ = await fetchWeeklyChampionFromFirestore(gymId as number);
+    if (champ) {
+      champions.push(champ);
+    }
   }
   return champions;
 }

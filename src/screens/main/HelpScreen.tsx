@@ -3,7 +3,7 @@
  * Provides help resources and information about the app
  */
 
-import React from 'react';
+import React, {useMemo} from 'react';
 import {
   View,
   Text,
@@ -17,7 +17,9 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {colors} from '@/theme/colors';
+import {HELP_NAV_ITEMS} from '@/data/helpNavItems';
+import colors from '@/theme/colors';
+import {spacing, typography} from '@/theme/designTokens';
 
 const HelpScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
@@ -49,13 +51,7 @@ const HelpScreen = () => {
     }
   };
 
-  const helpItems = [
-    {id: '1', title: 'Support', icon: 'help-circle-outline'},
-    {id: '2', title: 'Om Gymly', icon: 'information-circle-outline'},
-    {id: '3', title: 'Vilkår og betingelser', icon: 'document-text-outline'},
-    {id: '4', title: 'Privatlivspolitik', icon: 'shield-checkmark-outline'},
-    {id: '5', title: 'Slet din konto', icon: 'trash-outline', isDestructive: true},
-  ];
+  const helpItems = useMemo(() => [...HELP_NAV_ITEMS], []);
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -64,7 +60,7 @@ const HelpScreen = () => {
         <TouchableOpacity
           onPress={() => navigation.goBack()}
           style={styles.backButton}>
-          <Icon name="arrow-back" size={24} color="#000" />
+          <Icon name="arrow-back" size={24} color={colors.text} />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Hjælp</Text>
         <View style={styles.headerRight} />
@@ -93,7 +89,7 @@ const HelpScreen = () => {
             <Icon
               name="chevron-forward"
               size={20}
-              color={item.isDestructive ? '#FF3B30' : '#C7C7CC'}
+              color={item.isDestructive ? colors.error : colors.textMuted}
             />
           </TouchableOpacity>
         ))}
@@ -119,17 +115,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    paddingVertical: 16,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.lg,
     borderBottomWidth: 1,
-    borderBottomColor: '#E5E5EA',
+    borderBottomColor: colors.border,
   },
   backButton: {
     padding: 4,
   },
   headerTitle: {
-    fontSize: 18,
-    fontWeight: '600',
+    ...typography.h4,
     color: colors.text,
   },
   headerRight: {
@@ -146,33 +141,33 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
-    paddingVertical: 16,
+    paddingVertical: spacing.lg,
     borderBottomWidth: 1,
-    borderBottomColor: '#E5E5EA',
+    borderBottomColor: colors.border,
   },
   helpItemLast: {
     borderBottomWidth: 0,
   },
   helpItemText: {
-    fontSize: 16,
+    ...typography.body,
     color: colors.text,
   },
   helpItemTextDestructive: {
-    color: '#FF3B30',
+    color: colors.error,
   },
   separator: {
     height: 1,
-    backgroundColor: '#E5E5EA',
+    backgroundColor: colors.border,
     marginTop: 8,
   },
   versionContainer: {
     paddingHorizontal: 16,
-    paddingVertical: 16,
+    paddingVertical: spacing.lg,
     alignItems: 'center',
     backgroundColor: colors.background,
   },
   versionText: {
-    fontSize: 14,
+    ...typography.small,
     color: colors.textMuted,
   },
 });

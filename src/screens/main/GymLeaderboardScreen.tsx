@@ -18,8 +18,8 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {DanishGym} from '@/data/danishGyms';
 import {useLeaderboardStore} from '@/store/leaderboardStore';
 import {useAppStore} from '@/store/appStore';
-import {getGymLogo, hasGymLogo} from '@/utils/gymLogos';
-import {colors} from '@/theme/colors';
+import gymLogos from '@/utils/gymLogos';
+import colors from '@/theme/colors';
 import {LeaderboardEntry, LeaderboardPeriod} from '@/types/leaderboard.types';
 
 const PERIODS: LeaderboardPeriod[] = ['week', 'month', 'all'];
@@ -126,8 +126,8 @@ const GymLeaderboardScreen = () => {
   );
   const weeklyChampion = getWeeklyChampion(gymId);
 
-  const logoUrl = getGymLogo(gym.brand);
-  const hasLogo = hasGymLogo(gym.brand);
+  const logoUrl = gymLogos.getGymLogo(gym.brand);
+  const hasLogo = gymLogos.hasGymLogo(gym.brand);
 
   return (
     <View style={styles.container}>

@@ -7,10 +7,15 @@ export interface User {
   id: string;
   email: string;
   username: string;
+  /** E.164, fx +4512345678 */
+  phoneNumber?: string;
   displayName: string;
   profileImageUrl?: string;
   bicepsEmoji?: string; // User's chosen biceps emoji for likes
-  
+  bio?: string;
+  birthYear?: number;
+  trainingGoal?: string;
+
   // Profile information
   weight?: number; // Weight in kg
   gender?: 'male' | 'female' | 'other' | 'prefer_not_to_say';
@@ -80,15 +85,23 @@ export type ConsentType =
 export interface UserRegistration {
   email: string;
   username: string;
+  /** Normaliseret dansk mobil, fx +4512345678 */
+  phoneNumber: string;
   displayName: string;
   password: string;
   bicepsEmoji?: string; // User's chosen biceps emoji for likes
   profileImageUrl?: string;
+  bio?: string;
+  birthYear?: number;
+  /** YYYY-MM-DD (lokal kalenderdag) */
+  dateOfBirth?: string;
+  trainingGoal?: string;
   gdprConsent: {
     privacyPolicyAccepted: boolean;
     termsOfServiceAccepted: boolean;
     marketingConsent: boolean;
     analyticsConsent: boolean;
+    locationTrackingConsent?: boolean;
   };
   favoriteGyms?: number[]; // Array of gym IDs (max 3)
 }

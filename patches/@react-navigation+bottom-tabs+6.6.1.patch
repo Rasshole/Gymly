@@ -1,0 +1,68 @@
+diff --git a/node_modules/@react-navigation/bottom-tabs/src/views/Badge.tsx b/node_modules/@react-navigation/bottom-tabs/src/views/Badge.tsx
+index a9baa37..acd597d 100644
+--- a/node_modules/@react-navigation/bottom-tabs/src/views/Badge.tsx
++++ b/node_modules/@react-navigation/bottom-tabs/src/views/Badge.tsx
+@@ -1,4 +1,4 @@
+-import { useTheme } from '@react-navigation/native';
++import { useTheme, DefaultTheme } from '@react-navigation/native';
+ import color from 'color';
+ import * as React from 'react';
+ import { Animated, StyleProp, StyleSheet, TextStyle } from 'react-native';
+@@ -61,8 +61,10 @@ export default function Badge({
+   }
+ 
+   // @ts-expect-error: backgroundColor definitely exists
+-  const { backgroundColor = theme.colors.notification, ...restStyle } =
+-    StyleSheet.flatten(style) || {};
++  const {
++    backgroundColor = theme?.colors?.notification ?? DefaultTheme.colors.notification,
++    ...restStyle
++  } = StyleSheet.flatten(style) || {};
+   const textColor = color(backgroundColor).isLight() ? 'black' : 'white';
+ 
+   const borderRadius = size / 2;
+diff --git a/node_modules/@react-navigation/bottom-tabs/src/views/BottomTabBar.tsx b/node_modules/@react-navigation/bottom-tabs/src/views/BottomTabBar.tsx
+index 96469a2..5a3d3ee 100644
+--- a/node_modules/@react-navigation/bottom-tabs/src/views/BottomTabBar.tsx
++++ b/node_modules/@react-navigation/bottom-tabs/src/views/BottomTabBar.tsx
+@@ -132,7 +132,8 @@ export default function BottomTabBar({
+   insets,
+   style,
+ }: Props) {
+-  const { colors } = useTheme();
++  const theme = useTheme();
++  const colors = theme?.colors;
+   const buildLink = useLinkBuilder();
+ 
+   const focusedRoute = state.routes[state.index];
+@@ -259,8 +260,8 @@ export default function BottomTabBar({
+         styles.tabBar,
+         {
+           backgroundColor:
+-            tabBarBackgroundElement != null ? 'transparent' : colors.card,
+-          borderTopColor: colors.border,
++            tabBarBackgroundElement != null ? 'transparent' : (colors?.card ?? '#ffffff'),
++          borderTopColor: colors?.border ?? '#d8d8d8',
+         },
+         {
+           transform: [
+diff --git a/node_modules/@react-navigation/bottom-tabs/src/views/BottomTabItem.tsx b/node_modules/@react-navigation/bottom-tabs/src/views/BottomTabItem.tsx
+index 9b5975a..9b87080 100644
+--- a/node_modules/@react-navigation/bottom-tabs/src/views/BottomTabItem.tsx
++++ b/node_modules/@react-navigation/bottom-tabs/src/views/BottomTabItem.tsx
+@@ -1,4 +1,4 @@
+-import { Link, Route, useTheme } from '@react-navigation/native';
++import { Link, Route, useTheme, DefaultTheme } from '@react-navigation/native';
+ import Color from 'color';
+ import React from 'react';
+ import {
+@@ -194,7 +194,8 @@ export default function BottomTabBarItem({
+   iconStyle,
+   style,
+ }: Props) {
+-  const { colors } = useTheme();
++  const theme = useTheme();
++  const colors = theme.colors ?? DefaultTheme.colors;
+ 
+   const activeTintColor =
+     customActiveTintColor === undefined

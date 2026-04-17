@@ -24,21 +24,45 @@ import {
 import {Gesture, GestureDetector} from 'react-native-gesture-handler';
 import Reanimated, {useSharedValue, useAnimatedStyle, withTiming, withDelay, runOnJS, Easing as ReanimatedEasing} from 'react-native-reanimated';
 import Video from 'react-native-video';
-import {useAppStore} from '@/store/appStore';
-import {useNavigation} from '@react-navigation/native';
+import {useAuth} from '@/hooks/useAuth';
+import {useNavigation, useFocusEffect} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import NotificationService from '@/services/notifications/NotificationService';
 import {useFeedStore, FeedItem} from '@/store/feedStore';
-import {getMuscleGroupImage} from '@/utils/muscleGroupImages';
+import {refreshWorkoutFeedFromServer} from '@/services/supabase/workoutPostService';
+import muscleImg from '@/utils/muscleGroupImages';
 import {MuscleGroup} from '@/types/workout.types';
-import {colors} from '@/theme/colors';
+import colors from '@/theme/colors';
+import {spacing, typography} from '@/theme/designTokens';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {getLeaderboardEntriesPreview} from '@/services/data/LeaderboardDataService';
+import type {LeaderboardEntrySimple} from '@/services/data/LeaderboardDataService';
+import {useOnlineUsers} from '@/hooks/useOnlineUsers';
+import {Card} from '@/components/ui/Card';
+import {StatCard} from '@/components/ui/StatCard';
+import {QuickActionCard} from '@/components/ui/QuickActionCard';
+import {GymPresenceCard} from '@/components/ui/GymPresenceCard';
+import {DashboardSection} from '@/components/dashboard';
+import {useGymPresence} from '@/hooks/useGymPresence';
+import {useProfileStats, useWeeklyStats} from '@/hooks/useProfileData';
+import {useDashboardStatsStore} from '@/store/dashboardStatsStore';
+import {useBadgeStore} from '@/store/badgeStore';
+import {useGymStore} from '@/store/gymStore';
+import * as streak from '@/utils/streakUtils';
 
 type HomeScreenNavigationProp = StackNavigationProp<any>;
 
 const FRIENDS: Array<{id: string; name: string}> = [];
 const MOST_FREQUENT_FRIENDS: Array<{id: string; name: string; lastMessage?: string}> = [];
+
+type ActiveFriendPreview = {
+  id: string;
+  name: string;
+  gym: string;
+  focus: string;
+  startTimestamp: number;
+};
 
 // Component to render text with clickable mentions
 const RenderTextWithMentions = ({text, mentionedUsers, navigation}: {text: string; mentionedUsers?: string[]; navigation: any}) => {
@@ -176,6 +200,9 @@ const FeedPhoto = memo(
     const [photoLayout, setPhotoLayout] = useState({width: 0, height: 0});
 
     useEffect(() => {
+      if (!item.photoUri) {
+        return;
+      }
       let isMounted = true;
       Image.getSize(
         item.photoUri,
@@ -294,8 +321,28 @@ const FeedPhoto = memo(
 
 const HomeScreen = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
-  const {user} = useAppStore();
+  const user = useAuth();
   const insets = useSafeAreaInsets();
+  const {gyms: activeGyms} = useGymPresence();
+  const [leaderboardPreview, setLeaderboardPreview] = useState<LeaderboardEntrySimple[]>([]);
+  const {users: onlineUsersList} = useOnlineUsers(user?.id);
+  const {stats: profileStats, refresh: refreshProfileStats} = useProfileStats(user?.id);
+  const {weeklyStats, refresh: refreshWeeklyStats} = useWeeklyStats(user?.id);
+  const dashboardStreak = useDashboardStatsStore(s => s.streak);
+  const dashboardWeeklyCheckins = useDashboardStatsStore(s => s.weeklyCheckins);
+  const dashboardWeeklyMinutes = useDashboardStatsStore(s => s.weeklyMinutes);
+  const badgeUnlocks = useBadgeStore(s => s.unlockedByUser[user?.id ?? '']);
+  const badgeCount = badgeUnlocks ? Object.keys(badgeUnlocks).length : 0;
+  const streakDisplayValue = useMemo(() => {
+    const icon = streak.getStreakIcon(dashboardStreak);
+    return icon ? `${icon} ${dashboardStreak}` : String(dashboardStreak);
+  }, [dashboardStreak]);
+  useEffect(() => {
+    if (__DEV__) {
+      console.log('[HomeScreen] stats read', {dashboardStreak, dashboardWeeklyCheckins, dashboardWeeklyMinutes});
+    }
+  }, [dashboardStreak, dashboardWeeklyCheckins, dashboardWeeklyMinutes]);
+  const setDashboardStats = useDashboardStatsStore(s => s.setStats);
   const safeAreaBottom = insets?.bottom ?? 0;
   const {feedItems, deleteFeedItem} = useFeedStore();
   const userBicepsEmoji = user?.bicepsEmoji || '💪🏻';
@@ -355,7 +402,9 @@ const HomeScreen = () => {
       }
     >
   >({});
-  const feedCardLayouts = useRef<Record<string, {width: number; height: number}>>({});
+  const feedCardLayouts = useRef<
+    Record<string, {width: number; height: number; y: number}>
+  >({});
   const feedActionsLayouts = useRef<Record<string, {x: number; y: number; width: number; height: number}>>({});
   const likeButtonLayouts = useRef<Record<string, {x: number; y: number; width: number; height: number}>>({});
   const feedPhotoLayouts = useRef<Record<string, {x: number; y: number; width: number; height: number}>>({});
@@ -364,6 +413,46 @@ const HomeScreen = () => {
     const timer = setInterval(() => setNow(Date.now()), 60000);
     return () => clearInterval(timer);
   }, []);
+
+  // Sync dashboard from ProfileService (merges gymStore + mock base)
+  useEffect(() => {
+    if (!profileStats || !weeklyStats) return;
+    const lastCheckIn = user?.id ? useGymStore.getState().getLastUserCheckIn(user.id) : undefined;
+    setDashboardStats({
+      streak: profileStats.currentStreak,
+      longestStreak: profileStats.longestStreak,
+      lastCheckInDateKey: lastCheckIn
+        ? streak.getLocalDateString(lastCheckIn.checkInTime)
+        : null,
+      weeklyCheckins: weeklyStats.checkInsThisWeek,
+      weeklyMinutes: weeklyStats.trainingMinutesThisWeek,
+      lastCheckInAt: lastCheckIn?.checkInTime ?? null,
+    });
+  }, [profileStats, weeklyStats, setDashboardStats, user?.id]);
+
+  // Refresh stats + workout feed when returning to Home (e.g. after posting)
+  useEffect(() => {
+    if (!user?.id) {
+      setLeaderboardPreview([]);
+      return;
+    }
+    getLeaderboardEntriesPreview(user.id, 3)
+      .then(setLeaderboardPreview)
+      .catch(() => setLeaderboardPreview([]));
+  }, [user?.id]);
+
+  useFocusEffect(
+    useCallback(() => {
+      refreshProfileStats();
+      refreshWeeklyStats();
+      refreshWorkoutFeedFromServer().catch(() => {});
+      if (user?.id) {
+        getLeaderboardEntriesPreview(user.id, 3)
+          .then(setLeaderboardPreview)
+          .catch(() => setLeaderboardPreview([]));
+      }
+    }, [refreshProfileStats, refreshWeeklyStats, user?.id])
+  );
 
   // Initialize video playback when feed items change
   useEffect(() => {
@@ -386,15 +475,15 @@ const HomeScreen = () => {
     };
   }, []);
 
-  const activeFriends = useMemo(() => [], []);
+  const activeFriends = useMemo((): ActiveFriendPreview[] => [], []);
 
-  const upcomingSessions = useMemo(
-    () => [
-      {id: 'u1', name: 'Sofia', gym: 'SATS KBH Vesterport', focus: 'Bryst & Biceps', scheduledAt: now + 2 * 3600 * 1000},
-      {id: 'u2', name: 'Thomas', gym: 'PureGym Esromgade', focus: 'Hele kroppen', scheduledAt: now + 5 * 3600 * 1000},
-    ],
-    [now],
-  );
+  const upcomingSessions = useMemo(() => [] as Array<{
+    id: string;
+    name: string;
+    gym: string;
+    focus: string;
+    scheduledAt: number;
+  }>, []);
 
   const activeCount = activeFriends.length;
 
@@ -445,7 +534,13 @@ const HomeScreen = () => {
     if (lower.includes('abs') || lower.includes('mave') || lower.includes('core')) {
       groups.push('mave');
     }
-    
+    if (lower.includes('reformer')) {
+      groups.push('reformer');
+    }
+    if (lower.includes('pilates')) {
+      groups.push('pilates');
+    }
+
     return groups.length > 0 ? groups : ['hele_kroppen'];
   };
 
@@ -472,7 +567,7 @@ const HomeScreen = () => {
   const handleAddFriend = (friendId: string, friendName: string) => {
     if (!addedFriends.includes(friendId)) {
       setAddedFriends(prev => [...prev, friendId]);
-      const requesterName = user?.name || 'Du';
+      const requesterName = user?.displayName?.trim() || 'Du';
       NotificationService.sendFriendRequestNotification(friendId, requesterName);
       Alert.alert('Venneanmodning sendt', `${friendName} har modtaget en venneanmodning fra dig.`);
     }
@@ -487,7 +582,14 @@ const HomeScreen = () => {
     });
   };
 
-  const suggestedFriends = useMemo(() => [], []);
+  type SuggestedFriend = {
+    id: string;
+    name: string;
+    mutualFriends: number;
+    gyms: string[];
+    avatar?: string;
+  };
+  const suggestedFriends = useMemo((): SuggestedFriend[] => [], []);
 
   type Particle = {
     opacity: Animated.Value;
@@ -1041,6 +1143,16 @@ const HomeScreen = () => {
     updatePlayingVideos(contentOffset.y, layoutMeasurement.height);
   }, [updatePlayingVideos]);
 
+  const greetingName = user?.displayName?.trim();
+  const normalized = greetingName?.toLowerCase().replace(/\s+/g, ' ') ?? '';
+  const isGenericName =
+    !greetingName ||
+    greetingName.length < 2 ||
+    /^(google\s*user|gymly\s*user|user)(!)?$/i.test(normalized) ||
+    normalized.includes('google user') ||
+    normalized.includes('gymly user');
+  const greeting = !isGenericName ? `Hej, ${greetingName} 👋` : 'Hej 👋';
+
   return (
     <View style={styles.container}>
       <ScrollView
@@ -1049,15 +1161,211 @@ const HomeScreen = () => {
         contentContainerStyle={styles.content}
         onScroll={handleScroll}
         scrollEventThrottle={16}>
-        {/* Welcome Section */}
-        <View style={[styles.welcomeSection, {paddingHorizontal: 16}]}>
-          <Text style={styles.welcomeText}>Hej, {user?.displayName}! 👋</Text>
-          <Text style={styles.subtitle}>Klar til at træne i dag?</Text>
+        {/* 1. Header / Welcome */}
+        <View style={[styles.welcomeSection, {paddingHorizontal: spacing.lg}]}>
+          <Text style={styles.welcomeText}>{greeting}</Text>
+          <Text style={styles.subtitle}>
+            {new Date().toLocaleDateString('da-DK', {
+              weekday: 'long',
+              day: 'numeric',
+              month: 'long',
+            })}
+          </Text>
+          <Text style={styles.welcomeCta}>Klar til dagens session?</Text>
+        </View>
+
+        {/* 2. Quick Stats Cards */}
+        <View style={[styles.dashboardSection, {paddingHorizontal: spacing.lg}]}>
+          <View style={styles.dashboardStatsRow}>
+            <View style={styles.statCardWrapper}>
+              <StatCard
+                compact
+                emoji="🔥"
+                label="Dages streak"
+                value={streakDisplayValue}
+                accent
+              />
+            </View>
+            <View style={styles.statCardWrapper}>
+              <StatCard
+                compact
+                emoji="✅"
+                label="Check-ins i ugen"
+                value={dashboardWeeklyCheckins}
+              />
+            </View>
+          </View>
+          <View style={styles.dashboardStatsRow}>
+            <View style={styles.statCardWrapper}>
+              <StatCard
+                compact
+                emoji="⏰"
+                label="Min. trænet i ugen"
+                value={dashboardWeeklyMinutes}
+              />
+            </View>
+            <View style={styles.statCardWrapper}>
+              <StatCard
+                compact
+                emoji="🏅"
+                label="Badges"
+                value={badgeCount}
+                onPress={() => navigation.navigate('Badges')}
+              />
+            </View>
+          </View>
+
+          {/* 3. Quick Actions – Tjek ind + Ranglister */}
+          <View style={styles.quickActionsGrid}>
+            <View style={styles.quickActionsRow}>
+              <QuickActionCard
+                icon="location"
+                label="Tjek ind"
+                onPress={() => navigation.navigate('CheckIn')}
+              />
+              <QuickActionCard
+                icon="trophy"
+                label="Ranglister"
+                onPress={() => navigation.navigate('Leaderboard')}
+              />
+            </View>
+          </View>
+
+          {/* Aktive gyms lige nu */}
+          <DashboardSection
+            title="Aktive gyms lige nu"
+            onSeeAll={() => navigation.navigate('GymPresence')}
+            seeAllLabel="Se alle gyms">
+            {activeGyms.length > 0 ? (
+              activeGyms.slice(0, 5).map(gym => (
+                <GymPresenceCard
+                  key={gym.gymId}
+                  gym={gym}
+                  onPress={() => navigation.navigate('GymPresence', {gym})}
+                />
+              ))
+            ) : (
+              <Card padding="lg" style={styles.previewCard}>
+                <View style={styles.emptyPreview}>
+                  <Icon name="people-outline" size={32} color={colors.textMuted} />
+                  <Text style={styles.emptyPreviewText}>
+                    Ingen træner lige nu
+                  </Text>
+                  <Text style={styles.emptyPreviewSubtext}>
+                    Vær den første til at checke ind
+                  </Text>
+                  <TouchableOpacity
+                    style={styles.emptyCta}
+                    onPress={() => navigation.navigate('CheckIn')}
+                    activeOpacity={0.8}>
+                    <Text style={styles.emptyCtaText}>
+                      Vær den første til at checke ind
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              </Card>
+            )}
+          </DashboardSection>
+
+          {/* 5. Leaderboard Preview – top 3 */}
+          <DashboardSection
+            title="Top 3 denne uge"
+            onSeeAll={() => navigation.navigate('Leaderboard')}
+            seeAllLabel="Se rangliste">
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Leaderboard')}
+              activeOpacity={0.9}>
+              <Card padding="lg" style={styles.previewCard}>
+                <View style={styles.leaderboardPreviewRow}>
+                  {leaderboardPreview.length > 0 ? (
+                    leaderboardPreview.map((entry, idx) => (
+                      <View key={entry.userId} style={styles.leaderboardPreviewItem}>
+                        <View
+                          style={[
+                            styles.leaderboardPreviewRank,
+                            idx === 0 && styles.rankGold,
+                            idx === 1 && styles.rankSilver,
+                            idx === 2 && styles.rankBronze,
+                          ]}>
+                          <Text style={styles.leaderboardPreviewRankText}>{idx + 1}</Text>
+                        </View>
+                        <Text
+                          style={[
+                            styles.leaderboardPreviewName,
+                            entry.isCurrentUser && styles.leaderboardPreviewNameHighlight,
+                          ]}
+                          numberOfLines={1}>
+                          {entry.isCurrentUser ? 'Dig' : entry.displayName}
+                        </Text>
+                        <Text style={styles.leaderboardPreviewValue}>{entry.valueLabel}</Text>
+                      </View>
+                    ))
+                  ) : (
+                    <View style={styles.emptyPreview}>
+                      <Icon name="trophy-outline" size={28} color={colors.textMuted} />
+                      <Text style={styles.emptyPreviewText}>Ingen rangliste endnu</Text>
+                      <Text style={styles.emptyPreviewSubtext}>
+                        Tjek ind og invitér venner — så fylder listen.
+                      </Text>
+                    </View>
+                  )}
+                </View>
+              </Card>
+            </TouchableOpacity>
+          </DashboardSection>
+
+          {/* 6. Online / Active Users Preview */}
+          <DashboardSection
+            title="Aktive nu"
+            subtitle={
+              onlineUsersList.length > 0
+                ? `${onlineUsersList.length} brugere online`
+                : 'Ingen aktive lige nu'
+            }
+            onSeeAll={() => navigation.navigate('Friends', {screen: 'Online'} as never)}
+            seeAllLabel="Se alle">
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Friends', {screen: 'Online'} as never)}
+              activeOpacity={0.9}>
+              <Card padding="lg" style={styles.previewCard}>
+                {onlineUsersList.length > 0 ? (
+                  <View style={styles.onlineUsersRow}>
+                    {onlineUsersList.slice(0, 5).map(ou => (
+                      <View key={ou.userId} style={styles.onlineUserItem}>
+                        <View style={styles.onlineUserAvatar}>
+                          <Text style={styles.onlineUserAvatarText}>
+                            {ou.displayName.charAt(0)}
+                          </Text>
+                          <View style={styles.onlineIndicator} />
+                        </View>
+                        <Text style={styles.onlineUserName} numberOfLines={1}>
+                          {ou.displayName}
+                        </Text>
+                        {ou.gymName ? (
+                          <Text style={styles.onlineUserGym} numberOfLines={1}>
+                            {ou.gymName}
+                          </Text>
+                        ) : null}
+                      </View>
+                    ))}
+                  </View>
+                ) : (
+                  <View style={styles.emptyPreview}>
+                    <Icon name="people-outline" size={32} color={colors.textMuted} />
+                    <Text style={styles.emptyPreviewText}>Ingen aktiv lige nu</Text>
+                    <Text style={styles.emptyPreviewSubtext}>
+                      Inviter venner for at se hvem der træner
+                    </Text>
+                  </View>
+                )}
+              </Card>
+            </TouchableOpacity>
+          </DashboardSection>
         </View>
 
         {/* Active Friends - vis altid boksen */}
         <TouchableOpacity
-          style={[styles.activeFriendsCard, {marginHorizontal: 16}]}
+          style={[styles.activeFriendsCard, {marginHorizontal: spacing.lg}]}
           activeOpacity={0.85}
           onPress={() => activeFriends.length > 0 && setActivityModalVisible(true)}>
           <View style={styles.activeCardHeader}>
@@ -1089,7 +1397,7 @@ const HomeScreen = () => {
                       {getMuscleGroupsFromFocus(friend.focus).map((muscleGroup, idx) => (
                         <Image
                           key={idx}
-                          source={getMuscleGroupImage(muscleGroup)}
+                          source={muscleImg.getMuscleGroupImage(muscleGroup)}
                           style={styles.activeFriendMuscleIcon}
                           resizeMode="contain"
                         />
@@ -1149,7 +1457,24 @@ const HomeScreen = () => {
                     <Text style={styles.feedAvatarText}>{item.user.charAt(0)}</Text>
                   </View>
                   <View style={{flex: 1}}>
-                    <Text style={styles.feedUser}>{item.user}</Text>
+                    <View style={styles.feedUserRow}>
+                      <Text style={styles.feedUser}>{item.user}</Text>
+                      {item.userId &&
+                      user?.id &&
+                      item.userId === user.id &&
+                      streak.getStreakIcon(dashboardStreak) ? (
+                        <Text
+                          style={[
+                            styles.feedStreakEmoji,
+                            streak.getStreakEmphasisLevel(dashboardStreak) === 1 &&
+                              styles.feedStreakEmojiEmphasis,
+                            streak.getStreakEmphasisLevel(dashboardStreak) === 2 &&
+                              styles.feedStreakEmojiStrong,
+                          ]}>
+                          {streak.getStreakIcon(dashboardStreak)}
+                        </Text>
+                      ) : null}
+                    </View>
                     <Text style={styles.feedTimestamp}>{item.timestamp}</Text>
                   </View>
                 </TouchableOpacity>
@@ -1163,14 +1488,26 @@ const HomeScreen = () => {
                 <Text style={styles.feedWorkoutInfoLine}>{item.workoutInfo}</Text>
               )}
               {item.type === 'photo' && (
-                <FeedPhoto
-                  item={item}
-                  onDoubleTapLike={handlePhotoDoubleTap}
-                  onLayoutMeasured={(id, layout) => {
-                    feedPhotoLayouts.current[id] = layout;
-                  }}
-                  userBicepsEmoji={userBicepsEmoji}
-                />
+                <>
+                  <FeedPhoto
+                    item={item}
+                    onDoubleTapLike={handlePhotoDoubleTap}
+                    onLayoutMeasured={(id, layout) => {
+                      feedPhotoLayouts.current[id] = layout;
+                    }}
+                    userBicepsEmoji={userBicepsEmoji}
+                  />
+                  {item.rating != null && item.rating >= 1 && item.rating <= 5 && (
+                    <View style={styles.feedPhotoMoodRow}>
+                      <View style={styles.feedHighlightSecondary}>
+                        <Text style={styles.feedRatingEmoji}>
+                          {['☹️', '🙁', '😐', '😁', '🤩'][item.rating - 1]}
+                        </Text>
+                        <Text style={styles.feedHighlightSecondaryText}>Session delt</Text>
+                      </View>
+                    </View>
+                  )}
+                </>
               )}
               {item.type === 'pr' && (
                 <>
@@ -1220,7 +1557,6 @@ const HomeScreen = () => {
                           repeat={true}
                           playInBackground={false}
                           playWhenInactive={false}
-                          resizeMode="cover"
                           poster={item.videoThumbnailUri}
                           ignoreSilentSwitch="ignore"
                           progressUpdateInterval={250}
@@ -1251,7 +1587,7 @@ const HomeScreen = () => {
                       {item.muscles.map(muscle => (
                         <Image
                           key={muscle}
-                          source={getMuscleGroupImage(muscle)}
+                          source={muscleImg.getMuscleGroupImage(muscle)}
                           style={styles.feedMuscleIcon}
                           resizeMode="contain"
                         />
@@ -1473,8 +1809,11 @@ const HomeScreen = () => {
                       <Text style={styles.commentEmpty}>Ingen kommentarer endnu</Text>
                     ) : (
                       activeComments.map((comment, index) => {
-                        const commentId = comment.id || `${activeCommentItem}_comment_${index}`;
-                        const commentLike = commentLikes[activeCommentItem]?.[commentId] ?? {liked: false, likes: 0};
+                        const itemKey = activeCommentItem ?? '';
+                        const commentId = comment.id || `${itemKey}_comment_${index}`;
+                        const commentLike =
+                          (itemKey ? commentLikes[itemKey]?.[commentId] : undefined) ??
+                          {liked: false, likes: 0};
                         return (
                           <View key={commentId} style={styles.commentRow}>
                             <View style={styles.commentAvatar}>
@@ -1488,7 +1827,9 @@ const HomeScreen = () => {
                             </View>
                             <TouchableOpacity
                               style={styles.commentLikeButton}
-                              onPress={() => toggleCommentLike(activeCommentItem, commentId)}
+                              onPress={() =>
+                                activeCommentItem && toggleCommentLike(activeCommentItem, commentId)
+                              }
                               activeOpacity={0.7}>
                               <Icon
                                 name={commentLike.liked ? 'heart' : 'heart-outline'}
@@ -1577,7 +1918,7 @@ const HomeScreen = () => {
                       {getMuscleGroupsFromFocus(friend.focus).map((muscleGroup, idx) => (
                         <Image
                           key={idx}
-                          source={getMuscleGroupImage(muscleGroup)}
+                          source={muscleImg.getMuscleGroupImage(muscleGroup)}
                           style={styles.activeFriendMuscleIcon}
                           resizeMode="contain"
                         />
@@ -1615,7 +1956,7 @@ const HomeScreen = () => {
                       {getMuscleGroupsFromFocus(session.focus).map((muscleGroup, idx) => (
                         <Image
                           key={idx}
-                          source={getMuscleGroupImage(muscleGroup)}
+                          source={muscleImg.getMuscleGroupImage(muscleGroup)}
                           style={styles.upcomingMuscleIcon}
                           resizeMode="contain"
                         />
@@ -1976,8 +2317,11 @@ const HomeScreen = () => {
                       <Text style={styles.commentEmpty}>Ingen kommentarer endnu</Text>
                     ) : (
                       activeComments.map((comment, index) => {
-                        const commentId = comment.id || `${activeCommentItem}_comment_${index}`;
-                        const commentLike = commentLikes[activeCommentItem]?.[commentId] ?? {liked: false, likes: 0};
+                        const itemKey = activeCommentItem ?? '';
+                        const commentId = comment.id || `${itemKey}_comment_${index}`;
+                        const commentLike =
+                          (itemKey ? commentLikes[itemKey]?.[commentId] : undefined) ??
+                          {liked: false, likes: 0};
                         return (
                           <View key={commentId} style={styles.commentRow}>
                             <View style={styles.commentAvatar}>
@@ -1991,7 +2335,9 @@ const HomeScreen = () => {
                             </View>
                             <TouchableOpacity
                               style={styles.commentLikeButton}
-                              onPress={() => toggleCommentLike(activeCommentItem, commentId)}
+                              onPress={() =>
+                                activeCommentItem && toggleCommentLike(activeCommentItem, commentId)
+                              }
                               activeOpacity={0.7}>
                               <Icon
                                 name={commentLike.liked ? 'heart' : 'heart-outline'}
@@ -2241,21 +2587,165 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   content: {
-    paddingHorizontal: 0, // No horizontal padding - feed fills edge to edge
-    paddingVertical: 16,
+    paddingHorizontal: 0,
+    paddingVertical: spacing.lg,
   },
   welcomeSection: {
-    marginBottom: 24,
-    paddingTop: 8,
+    marginBottom: spacing.lg,
+    paddingTop: spacing.sm,
   },
-  welcomeText: {
-    fontSize: 28,
-    fontWeight: 'bold',
+  dashboardSection: {
+    marginBottom: spacing.lg,
+  },
+  dashboardStatsRow: {
+    flexDirection: 'row',
+    gap: spacing.xs,
+    marginBottom: spacing.xs,
+  },
+  statCardWrapper: {
+    flex: 1,
+  },
+  quickActionsGrid: {
+    marginBottom: spacing.xl,
+    gap: spacing.sm,
+  },
+  quickActionsRow: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  previewCard: {
+    marginBottom: spacing.sm,
+  },
+  activityPreviewCard: {
+    marginBottom: spacing.sm,
+  },
+  emptyPreview: {
+    alignItems: 'center',
+    paddingVertical: spacing.xl,
+  },
+  emptyPreviewText: {
+    ...typography.bodyBold,
     color: colors.text,
+    marginTop: spacing.sm,
+  },
+  emptyPreviewSubtext: {
+    ...typography.small,
+    color: colors.textSecondary,
+    marginTop: spacing.xs,
+  },
+  emptyCta: {
+    marginTop: spacing.md,
+    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.lg,
+    backgroundColor: colors.primary,
+    borderRadius: 12,
+  },
+  emptyCtaText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: colors.white,
+  },
+  rankGold: {backgroundColor: '#FFD700'},
+  rankSilver: {backgroundColor: '#C0C0C0'},
+  rankBronze: {backgroundColor: '#CD7F32'},
+  leaderboardPreviewValue: {
+    fontSize: 11,
+    color: colors.textMuted,
+    marginTop: 2,
+  },
+  leaderboardPreviewNameHighlight: {
+    color: colors.primary,
+    fontWeight: '700',
+  },
+  onlineUsersRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    flexWrap: 'wrap',
+  },
+  onlineUserItem: {
+    alignItems: 'center',
+    width: 64,
+    marginBottom: 8,
+  },
+  onlineUserAvatar: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: colors.primary + '25',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 6,
+    position: 'relative',
+  },
+  onlineUserAvatarText: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: colors.primary,
+  },
+  onlineIndicator: {
+    position: 'absolute',
+    bottom: 2,
+    right: 2,
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: colors.secondary,
+    borderWidth: 2,
+    borderColor: colors.backgroundCard,
+  },
+  onlineUserName: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: colors.text,
+    textAlign: 'center',
+  },
+  onlineUserGym: {
+    fontSize: 10,
+    color: colors.textMuted,
+    marginTop: 2,
+    textAlign: 'center',
+  },
+  leaderboardPreviewCard: {
+    marginBottom: 16,
+  },
+  leaderboardPreviewRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  },
+  leaderboardPreviewItem: {
+    alignItems: 'center',
+  },
+  leaderboardPreviewRank: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    justifyContent: 'center',
+    alignItems: 'center',
     marginBottom: 4,
   },
+  leaderboardPreviewRankText: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: '#fff',
+  },
+  leaderboardPreviewName: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: colors.text,
+  },
+  welcomeCta: {
+    ...typography.body,
+    color: colors.textSecondary,
+    marginTop: spacing.xs,
+  },
+  welcomeText: {
+    ...typography.h1,
+    color: colors.text,
+    marginBottom: spacing.xs,
+  },
   subtitle: {
-    fontSize: 16,
+    ...typography.body,
     color: colors.textSecondary,
   },
   activeFriendsCard: {
@@ -2424,10 +2914,30 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: colors.white,
   },
+  feedUserRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    gap: 4,
+  },
   feedUser: {
     fontSize: 16,
     fontWeight: '600',
     color: colors.text,
+  },
+  feedStreakEmoji: {
+    fontSize: 15,
+    lineHeight: 18,
+  },
+  feedStreakEmojiEmphasis: {
+    textShadowColor: colors.primary + '44',
+    textShadowOffset: {width: 0, height: 0},
+    textShadowRadius: 5,
+  },
+  feedStreakEmojiStrong: {
+    textShadowColor: colors.primary + '88',
+    textShadowOffset: {width: 0, height: 0},
+    textShadowRadius: 8,
   },
   feedTimestamp: {
     fontSize: 12,
@@ -2571,6 +3081,14 @@ const styles = StyleSheet.create({
     gap: 8,
     marginBottom: 8,
     flexWrap: 'wrap',
+    paddingHorizontal: 16,
+  },
+  feedPhotoMoodRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginTop: 8,
+    marginBottom: 4,
     paddingHorizontal: 16,
   },
   feedHighlightSecondary: {

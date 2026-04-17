@@ -19,6 +19,8 @@ export interface Chat {
   lastActivity: Date;
   unreadCount: number;
   avatar?: string;
+  avatarInitials?: string;
+  isActive?: boolean; // Online / recently active
 }
 
 export interface ChatPlan {
@@ -36,7 +38,7 @@ interface ChatState {
   messagesByChat: Record<string, ChatMessage[]>;
   activePlansByChat: Record<string, ChatPlan | null>;
   addChat: (chat: Chat) => void;
-  updateChatLastMessage: (chatId: string, message: ChatMessage) => void;
+  updateChatLastMessage: (chatId: string, message: ChatMessage, options?: { fromCurrentUser?: boolean }) => void;
   getChatByParticipants: (participantIds: string[]) => Chat | null;
   markChatAsRead: (chatId: string) => void;
   initializeChatMessages: (chatId: string, initialMessages: ChatMessage[]) => void;
@@ -45,6 +47,7 @@ interface ChatState {
   setActivePlanForChat: (chatId: string, plan: ChatPlan | null) => void;
   updateActivePlanForChat: (chatId: string, updater: (plan: ChatPlan | null) => ChatPlan | null) => void;
   getActivePlanForChat: (chatId: string) => ChatPlan | null;
+  seedChatsFromInitial: (chats: Chat[], messagesByChat: Record<string, ChatMessage[]>) => void;
 }
 
 export const useChatStore = create<ChatState>((set, get) => ({
@@ -69,7 +72,8 @@ export const useChatStore = create<ChatState>((set, get) => ({
     });
   },
 
-  updateChatLastMessage: (chatId, message) => {
+  updateChatLastMessage: (chatId, message, options) => {
+    const fromCurrentUser = options?.fromCurrentUser ?? false;
     set((state) => ({
       chats: state.chats.map((chat) =>
         chat.id === chatId
@@ -77,7 +81,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
               ...chat,
               lastMessage: message,
               lastActivity: new Date(),
-              unreadCount: chat.id === chatId ? chat.unreadCount + 1 : chat.unreadCount,
+              unreadCount: fromCurrentUser ? chat.unreadCount : chat.unreadCount + 1,
             }
           : chat,
       ),
@@ -152,6 +156,36 @@ export const useChatStore = create<ChatState>((set, get) => ({
   getActivePlanForChat: (chatId) => {
     const state = get();
     return state.activePlansByChat[chatId] ?? null;
+  },
+
+  seedChatsFromInitial: (chats, messagesByChat) => {
+    const state = get();
+    if (state.chats.length > 0) return;
+    const normalizedChats = chats.map((c) => ({
+      ...c,
+      lastMessage: c.lastMessage
+        ? {
+            ...c.lastMessage,
+            timestamp:
+              c.lastMessage.timestamp instanceof Date
+                ? c.lastMessage.timestamp
+                : new Date(c.lastMessage.timestamp),
+          }
+        : undefined,
+      lastActivity:
+        c.lastActivity instanceof Date ? c.lastActivity : new Date(c.lastActivity),
+    }));
+    const normalizedMessages: Record<string, ChatMessage[]> = {};
+    Object.entries(messagesByChat).forEach(([chatId, msgs]) => {
+      normalizedMessages[chatId] = msgs.map((m) => ({
+        ...m,
+        timestamp: m.timestamp instanceof Date ? m.timestamp : new Date(m.timestamp),
+      }));
+    });
+    set({
+      chats: normalizedChats,
+      messagesByChat: { ...state.messagesByChat, ...normalizedMessages },
+    });
   },
 }));
 

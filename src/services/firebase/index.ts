@@ -1,0 +1,1 @@
+export {isFirebaseNativeAvailable} from './nativeAvailability';

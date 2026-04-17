@@ -3,7 +3,7 @@
  * Screen for editing user profile: bio, image, privacy settings, name, username
  */
 
-import React, {useState} from 'react';
+import React, {useState, useCallback} from 'react';
 import {
   View,
   Text,
@@ -22,6 +22,7 @@ import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppStore} from '@/store/appStore';
+import {GymSlotsEditor} from '@/components/profile/GymSlotsEditor';
 import {ProfileVisibility} from '@/types/user.types';
 import {
   launchCamera,
@@ -38,7 +39,7 @@ const EditProfileScreen = () => {
 
   const [displayName, setDisplayName] = useState(user?.displayName || '');
   const [username, setUsername] = useState(user?.username || '');
-  const [bio, setBio] = useState('');
+  const [bio, setBio] = useState(user?.bio || '');
   const [profileImageUrl, setProfileImageUrl] = useState(user?.profileImageUrl || '');
   const [weight, setWeight] = useState(user?.weight ? user.weight.toString() : '');
   const [gender, setGender] = useState<'male' | 'female' | 'other' | 'prefer_not_to_say' | ''>(
@@ -54,6 +55,12 @@ const EditProfileScreen = () => {
   const [profileVisibility, setProfileVisibility] = useState<ProfileVisibility>(
     user?.privacySettings.profileVisibility || 'private'
   );
+  const [gymIdsDraft, setGymIdsDraft] = useState<number[]>(
+    () => user?.favoriteGyms?.filter(Boolean) ?? [],
+  );
+  const handleGymIdsChange = useCallback((ids: number[]) => {
+    setGymIdsDraft(ids);
+  }, []);
   const bicepsOptions = ['💪🏻', '💪🏼', '💪🏽', '💪🏾', '💪🏿', '🦾'];
 
   // Track last changes for 14-day limit
@@ -74,6 +81,14 @@ const EditProfileScreen = () => {
 
   const handleSave = () => {
     if (!user) return;
+
+    if (gymIdsDraft.length < 1) {
+      Alert.alert(
+        'Lokale centre',
+        'Vælg mindst ét primært lokale center (felt 1).',
+      );
+      return;
+    }
 
     // Validate display name change
     if (displayName !== user.displayName) {
@@ -107,11 +122,13 @@ const EditProfileScreen = () => {
       displayName: displayName.trim(),
       username: username.trim(),
       profileImageUrl: profileImageUrl.trim() || undefined,
+      bio: bio.trim() || undefined,
       weight: weight.trim() ? parseFloat(weight.trim()) : undefined,
       gender: gender || undefined,
       dateOfBirth: dateOfBirth || undefined,
       city: city.trim() || undefined,
       bicepsEmoji: bicepsEmoji,
+      favoriteGyms: gymIdsDraft.slice(0, 3),
       privacySettings: {
         ...user.privacySettings,
         profileVisibility,
@@ -437,6 +454,16 @@ const EditProfileScreen = () => {
             onChangeText={setCity}
             placeholder="Din by"
             placeholderTextColor="#8E8E93"
+          />
+        </View>
+
+        {/* Lokale centre (1 påkrævet, 2 valgfri) */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Lokale centre</Text>
+          <GymSlotsEditor
+            key={(user?.favoriteGyms ?? []).join('-') || 'gym-slots'}
+            initialIds={user?.favoriteGyms ?? []}
+            onIdsChange={handleGymIdsChange}
           />
         </View>
 

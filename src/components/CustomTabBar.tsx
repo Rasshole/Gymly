@@ -1,35 +1,57 @@
 /**
- * Custom tab bar – kun de 5 ikoner og labels, ingen duplikat tekst
+ * Custom tab bar – faner med ikoner og labels
+ * Rapporterer faktisk højde til navigatoren så useBottomTabBarHeight() er korrekt.
  */
 
 import React from 'react';
-import {View, TouchableOpacity, Image, Text, StyleSheet} from 'react-native';
-import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
+import {
+  View,
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  LayoutChangeEvent,
+} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import {
+  BottomTabBarProps,
+  BottomTabBarHeightCallbackContext,
+} from '@react-navigation/bottom-tabs';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {colors} from '@/theme/colors';
+import colors from '@/theme/colors';
+import {spacing, radius} from '@/theme/designTokens';
 
-const tabIcons: Record<string, any> = {
-  Home: require('@/assets/images/tab-home.png'),
-  Friends: require('@/assets/images/tab-online.png'),
-  CheckIn: require('@/assets/images/tab-checkin.png'),
-  Messages: require('@/assets/images/tab-messages.png'),
-  Profile: require('@/assets/images/tab-profile.png'),
+/** Samme stil for alle faner: Ionicons outline ↔ filled, Gymly primary når aktiv */
+const TAB_ICONS: Record<string, {focused: string; blur: string}> = {
+  Home: {focused: 'home', blur: 'home-outline'},
+  Friends: {focused: 'people', blur: 'people-outline'},
+  CheckIn: {focused: 'barbell', blur: 'barbell-outline'},
+  Badges: {focused: 'ribbon', blur: 'ribbon-outline'},
+  Messages: {focused: 'chatbubbles', blur: 'chatbubbles-outline'},
+  Profile: {focused: 'person', blur: 'person-outline'},
 };
 
 const tabLabels: Record<string, string> = {
   Home: 'Hjem',
   Friends: 'Online',
   CheckIn: 'Tjek ind',
+  Badges: 'Badges',
   Messages: 'Beskeder',
   Profile: 'Profil',
 };
 
 const CustomTabBar: React.FC<BottomTabBarProps> = ({state, descriptors, navigation}) => {
   const insets = useSafeAreaInsets();
+  const onTabBarHeight = React.useContext(BottomTabBarHeightCallbackContext);
   const iconSize = 32;
 
+  const onLayout = (e: LayoutChangeEvent) => {
+    onTabBarHeight?.(e.nativeEvent.layout.height);
+  };
+
   return (
-    <View style={[styles.wrapper, {paddingBottom: Math.max(insets.bottom, 8)}]}>
+    <View
+      onLayout={onLayout}
+      style={[styles.wrapper, {paddingBottom: Math.max(insets.bottom, spacing.sm)}]}>
       <View style={styles.container}>
         {state.routes.map((route, index) => {
           const {options} = descriptors[route.key];
@@ -46,8 +68,14 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({state, descriptors, navigati
             }
           };
 
-          const source = tabIcons[route.name];
           const label = tabLabels[route.name] || options.title || route.name;
+          const ionPair = TAB_ICONS[route.name];
+          const iconName = ionPair
+            ? isFocused
+              ? ionPair.focused
+              : ionPair.blur
+            : 'ellipse-outline';
+          const iconColor = isFocused ? colors.primary : colors.textMuted;
 
           return (
             <TouchableOpacity
@@ -59,16 +87,12 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({state, descriptors, navigati
               style={styles.tab}
               activeOpacity={0.7}>
               <View style={styles.tabContent}>
-                {source && (
-                  <Image
-                    source={source}
-                    style={[
-                      styles.icon,
-                      {width: iconSize, height: iconSize, opacity: isFocused ? 1 : 0.55},
-                    ]}
-                    resizeMode="contain"
-                  />
-                )}
+                <Icon
+                  name={iconName as React.ComponentProps<typeof Icon>['name']}
+                  size={iconSize}
+                  color={iconColor}
+                  style={styles.tabIcon}
+                />
                 <Text
                   style={[styles.label, {color: isFocused ? colors.primary : colors.textMuted}]}
                   numberOfLines={1}>
@@ -85,9 +109,9 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({state, descriptors, navigati
 
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: '#FFFFFF',
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    backgroundColor: colors.backgroundCard,
+    borderTopLeftRadius: radius.xl,
+    borderTopRightRadius: radius.xl,
     overflow: 'hidden',
     shadowColor: colors.primary,
     shadowOffset: {width: 0, height: -2},
@@ -97,8 +121,8 @@ const styles = StyleSheet.create({
   },
   container: {
     flexDirection: 'row',
-    paddingTop: 10,
-    paddingHorizontal: 4,
+    paddingTop: spacing.sm,
+    paddingHorizontal: spacing.xs,
   },
   tab: {
     flex: 1,
@@ -109,13 +133,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  icon: {
+  tabIcon: {
     marginBottom: 2,
   },
   label: {
     fontSize: 10,
     fontWeight: '500',
     textAlign: 'center',
+    color: colors.text,
   },
 });
 

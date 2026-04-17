@@ -17,8 +17,8 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import danishGyms, {DanishGym} from '@/data/danishGyms';
 import {useAppStore} from '@/store/appStore';
-import {getGymLogo, hasGymLogo} from '@/utils/gymLogos';
-import {colors} from '@/theme/colors';
+import gymLogos from '@/utils/gymLogos';
+import colors from '@/theme/colors';
 
 interface FavoriteGymsSelectorProps {
   visible: boolean;
@@ -64,8 +64,8 @@ const FavoriteGymsSelector = ({visible, onClose}: FavoriteGymsSelectorProps) => 
 
   const GymIcon = ({gym}: {gym: DanishGym}) => {
     const [logoError, setLogoError] = useState(false);
-    const logoUrl = getGymLogo(gym.brand);
-    const hasLogo = hasGymLogo(gym.brand);
+    const logoUrl = gymLogos.getGymLogo(gym.brand);
+    const hasLogo = gymLogos.hasGymLogo(gym.brand);
 
     if (hasLogo && logoUrl && !logoError) {
       return (

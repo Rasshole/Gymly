@@ -7,15 +7,22 @@ import React from 'react';
 import {TouchableOpacity, View, Text} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
-import {useNavigation, CompositeNavigationProp} from '@react-navigation/native';
+import {
+  useNavigation,
+  CompositeNavigationProp,
+  NavigatorScreenParams,
+} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
+import colors from '@/theme/colors';
+import {spacing} from '@/theme/designTokens';
 
 import HomeScreen from '@/screens/main/HomeScreen';
 import ProfileScreen from '@/screens/main/ProfileScreen';
 import SettingsScreen from '@/screens/main/SettingsScreen';
 import MessagesScreen from '@/screens/main/MessagesScreen';
+import BadgesScreen from '@/screens/main/BadgesScreen';
 import FriendsNavigator from '@/screens/main/FriendsNavigator';
 import CheckInScreen from '@/screens/main/CheckInScreen';
 import NotificationsScreen from '@/screens/main/NotificationsScreen';
@@ -33,6 +40,7 @@ import AddPRScreen from '@/screens/main/AddPRScreen';
 import AddRepScreen from '@/screens/main/AddRepScreen';
 import GroupDetailScreen from '@/screens/main/GroupDetailScreen';
 import EditGroupScreen from '@/screens/main/EditGroupScreen';
+import CreateGroupScreen from '@/screens/main/CreateGroupScreen';
 import PlannedWorkoutsScreen from '@/screens/main/PlannedWorkoutsScreen';
 import PersonalPRsRepsScreen from '@/screens/main/PersonalPRsRepsScreen';
 import ConnectDeviceScreen from '@/screens/main/ConnectDeviceScreen';
@@ -49,15 +57,22 @@ import FriendProfileScreen from '@/screens/main/FriendProfileScreen';
 import EditProfileScreen from '@/screens/main/EditProfileScreen';
 import PushNotificationsScreen from '@/screens/main/PushNotificationsScreen';
 import FeedSortingScreen from '@/screens/main/FeedSortingScreen';
+import ActivityFeedScreen from '@/screens/main/ActivityFeedScreen';
+import GymPresenceScreen from '@/screens/main/GymPresenceScreen';
 import {useNotificationStore} from '@/store/notificationStore';
-import {colors} from '@/theme/colors';
 import CustomTabBar from '@/components/CustomTabBar';
+import NotificationBadge from '@/components/ui/Badge';
+export type CheckInStackParamList = {
+  CheckInMain: undefined;
+};
+
 export type MainTabParamList = {
   Home: undefined;
-  Friends: undefined;
+  Friends: {screen?: 'Online' | 'Grupper' | 'Centre' | 'Kort'};
+  Badges: undefined;
   Messages: undefined;
   Profile: undefined;
-  CheckIn: undefined;
+  CheckIn: NavigatorScreenParams<CheckInStackParamList> | undefined;
   Settings: undefined;
 };
 
@@ -111,6 +126,7 @@ export type MainStackParamList = {
   EditGroup: {
     group: any;
   };
+  CreateGroup: undefined;
   PlannedWorkouts: undefined;
   PersonalPRsReps: undefined;
   ConnectDevice: undefined;
@@ -134,10 +150,28 @@ export type MainStackParamList = {
   EditProfile: undefined;
   PushNotifications: undefined;
   FeedSorting: undefined;
+  ActivityFeed: undefined;
+  GymPresence: {gym?: any} | undefined;
 };
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 const Stack = createStackNavigator<MainStackParamList>();
+const CheckInStackNav = createStackNavigator<CheckInStackParamList>();
+
+// Wrapper så Tab viser CheckIn uden React Navigation header
+const CheckInStack = () => (
+  <CheckInStackNav.Navigator
+    screenOptions={{
+      headerShown: false,
+      cardStyle: {
+        flex: 1,
+        justifyContent: 'flex-start',
+        alignItems: 'stretch',
+      },
+    }}>
+    <CheckInStackNav.Screen name="CheckInMain" component={CheckInScreen} />
+  </CheckInStackNav.Navigator>
+);
 
 // Settings button component for header
 const SettingsButton = () => {
@@ -150,7 +184,7 @@ const SettingsButton = () => {
       onPress={() => {
         navigation.navigate('Settings');
       }}
-      style={{marginRight: 16}}>
+      style={{marginRight: spacing.lg}}>
       <Icon name="settings-outline" size={29} color={colors.text} />
     </TouchableOpacity>
   );
@@ -164,7 +198,7 @@ const UpcomingButton = () => {
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate('WorkoutSchedule', {initialTab: 'upcoming'})}
-      style={{marginRight: 16}}>
+      style={{marginRight: spacing.lg}}>
       <Icon name="calendar-outline" size={29} color={colors.text} />
     </TouchableOpacity>
   );
@@ -178,7 +212,7 @@ const LeaderboardButton = () => {
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate('Leaderboard')}
-      style={{marginRight: 16}}>
+      style={{marginRight: spacing.lg}}>
       <Icon name="trophy" size={29} color={colors.text} />
     </TouchableOpacity>
   );
@@ -197,30 +231,11 @@ const NotificationsButton = () => {
       onPress={() => {
         navigation.navigate('Notifications');
       }}
-      style={{marginLeft: 16, position: 'relative'}}>
+      style={{marginLeft: spacing.lg, position: 'relative'}}>
       <Icon name="notifications-outline" size={29} color={colors.text} />
       {unreadCount > 0 && (
-        <View
-          style={{
-            position: 'absolute',
-            top: -4,
-            right: -4,
-            backgroundColor: '#FF3B30',
-            borderRadius: 10,
-            minWidth: 20,
-            height: 20,
-            justifyContent: 'center',
-            alignItems: 'center',
-            paddingHorizontal: 6,
-          }}>
-          <Text
-            style={{
-              color: '#fff',
-              fontSize: 12,
-              fontWeight: 'bold',
-            }}>
-            {unreadCount > 99 ? '99+' : unreadCount}
-          </Text>
+        <View style={{position: 'absolute', top: -4, right: -4}}>
+          <NotificationBadge count={unreadCount} variant="error" maxCount={99} />
         </View>
       )}
     </TouchableOpacity>
@@ -231,6 +246,7 @@ const MainTabs = () => {
   return (
     <Tab.Navigator
       tabBar={props => <CustomTabBar {...props} />}
+      sceneContainerStyle={{flex: 1, overflow: 'hidden'}}
       screenOptions={{
         tabBarHideOnKeyboard: true,
         headerStyle: {
@@ -259,8 +275,13 @@ const MainTabs = () => {
       />
       <Tab.Screen
         name="CheckIn"
-        component={CheckInScreen}
+        component={CheckInStack}
         options={{title: 'Tjek ind'}}
+      />
+      <Tab.Screen
+        name="Badges"
+        component={BadgesScreen}
+        options={{title: 'Badges'}}
       />
       <Tab.Screen
         name="Messages"
@@ -409,6 +430,13 @@ const MainNavigator = () => {
               }}
             />
             <Stack.Screen
+              name="CreateGroup"
+              component={CreateGroupScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
               name="PlannedWorkouts"
               component={PlannedWorkoutsScreen}
               options={{
@@ -523,6 +551,20 @@ const MainNavigator = () => {
         options={{
           title: 'Feed Sortering',
           headerBackTitle: 'Tilbage',
+        }}
+      />
+      <Stack.Screen
+        name="ActivityFeed"
+        component={ActivityFeedScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="GymPresence"
+        component={GymPresenceScreen}
+        options={{
+          headerShown: false,
         }}
       />
           </Stack.Navigator>

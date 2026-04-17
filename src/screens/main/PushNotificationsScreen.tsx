@@ -15,7 +15,7 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {colors} from '@/theme/colors';
+import colors from '@/theme/colors';
 
 interface NotificationSetting {
   id: string;

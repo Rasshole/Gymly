@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#8B5CF6" />
+  <title>Email bekræftet · Gymly</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(165deg, #f8fafc 0%, #ede9fe 40%, #f3f4f6 100%);
+      color: #111827;
+      padding: 24px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .box {
+      max-width: 400px;
+      width: 100%;
+      background: #fff;
+      border-radius: 20px;
+      padding: 36px 28px 32px;
+      text-align: center;
+      box-shadow: 0 12px 40px rgba(124, 58, 237, 0.15);
+      border: 1px solid #e5e7eb;
+    }
+    .logo {
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 20px;
+      object-fit: contain;
+    }
+    h1 {
+      font-size: 1.375rem;
+      font-weight: 700;
+      margin: 0 0 12px;
+      letter-spacing: -0.02em;
+    }
+    p {
+      margin: 0 0 14px;
+      font-size: 1rem;
+      line-height: 1.55;
+      color: #6b7280;
+    }
+    p strong { color: #111827; }
+    .ok {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      background: #ecfdf5;
+      color: #047857;
+    }
+    .err {
+      background: #fef2f2;
+      color: #b91c1c;
+    }
+    .brand {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid #e5e7eb;
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+    .brand span { font-weight: 700; color: #7c3aed; }
+  </style>
+</head>
+<body>
+  <main class="box">
+    <img class="logo" src="gymly-kettlebell-transparent.png" alt="Gymly" width="96" height="96" />
+    <h1 id="title">Bekræfter…</h1>
+    <p id="msg">Vent et øjeblik.</p>
+    <p id="extra"></p>
+    <div id="badge"></div>
+    <div class="brand"><span>Gymly</span> · træn sammen</div>
+  </main>
+  <script>
+    (function () {
+      var title = document.getElementById('title');
+      var msg = document.getElementById('msg');
+      var extra = document.getElementById('extra');
+      var badge = document.getElementById('badge');
+
+      var hash = window.location.hash ? window.location.hash.substring(1) : '';
+      var search = window.location.search ? window.location.search.substring(1) : '';
+      var h = new URLSearchParams(hash);
+      var q = new URLSearchParams(search);
+
+      var accessToken = h.get('access_token');
+      var refreshToken = h.get('refresh_token');
+      var code = q.get('code');
+      var type = q.get('type');
+      var err = h.get('error') || q.get('error');
+      var errDesc = h.get('error_description') || q.get('error_description') || '';
+
+      if (err) {
+        title.textContent = 'Kunne ikke bekræfte';
+        msg.textContent = 'Linket virker ikke eller er udløbet.';
+        extra.textContent = errDesc
+          ? decodeURIComponent(String(errDesc).replace(/\+/g, ' '))
+          : 'Prøv at sende et nyt link fra appen.';
+        badge.innerHTML = '<span class="ok err">Fejl</span>';
+        return;
+      }
+
+      if (accessToken || refreshToken || code || type === 'signup' || type === 'recovery') {
+        title.textContent = 'Velkommen til Gymly';
+        msg.innerHTML = 'Din email er <strong>bekræftet</strong>.';
+        extra.textContent =
+          'Åbn Gymly-appen og log ind med din email og adgangskode.';
+        badge.innerHTML = '<span class="ok">Klar til at logge ind</span>';
+        return;
+      }
+
+      title.textContent = 'Næsten klar';
+      msg.textContent =
+        'Hvis du lige har bekræftet i mailen, åbn appen og prøv at logge ind.';
+      extra.textContent = '';
+      badge.innerHTML = '';
+    })();
+  </script>
+</body>
+</html>

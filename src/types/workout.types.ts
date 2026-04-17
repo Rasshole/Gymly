@@ -37,7 +37,9 @@ export type MuscleGroup =
   | 'biceps'
   | 'mave'
   | 'ryg'
-  | 'hele_kroppen';
+  | 'hele_kroppen'
+  | 'reformer'
+  | 'pilates';
 
 export interface WorkoutInvitation {
   id: string;

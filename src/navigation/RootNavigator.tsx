@@ -7,7 +7,6 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {useAppStore} from '@/store/appStore';
 
-// Screens
 import AuthNavigator from './AuthNavigator';
 import MainNavigator from './MainNavigator';
 import LoadingScreen from '@/screens/LoadingScreen';

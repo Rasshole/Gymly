@@ -15,6 +15,10 @@ const GYM_LOGOS: Record<string, string> = {
   // SATS - using official logo
   'Sats': 'https://logo.clearbit.com/sats.dk',
   'SATS': 'https://logo.clearbit.com/sats.dk',
+
+  // Fitness World
+  'Fitness World': 'https://logo.clearbit.com/fitnessworld.dk',
+  'FitnessWorld': 'https://logo.clearbit.com/fitnessworld.dk',
   
   // FitnessX - using official logo
   'FitnessX': 'https://logo.clearbit.com/fitnessx.dk',
@@ -81,6 +85,9 @@ export const getGymLogo = (brand?: string): string | null => {
   if (lowerBrand.includes('sats')) {
     return GYM_LOGOS['Sats'];
   }
+  if (lowerBrand.includes('fitness world') || lowerBrand.includes('fitnessworld')) {
+    return GYM_LOGOS['Fitness World'];
+  }
   if (lowerBrand.includes('fitnessx') || lowerBrand.includes('fitness x')) {
     return GYM_LOGOS['FitnessX'];
   }
@@ -110,3 +117,10 @@ export const hasGymLogo = (brand?: string): boolean => {
   return getGymLogo(brand) !== null;
 };
 
+/** Default export — stabil under Hermes (named exports kan være undefined ved import) */
+const gymLogosApi = {
+  getGymLogo,
+  hasGymLogo,
+};
+
+export default gymLogosApi;

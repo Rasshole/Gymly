@@ -19,10 +19,10 @@ import {useWorkoutPlanStore, WorkoutPlanEntry, WorkoutHistoryEntry} from '@/stor
 import {formatGymDisplayName, findGymById} from '@/utils/gymDisplay';
 import {MuscleGroup} from '@/types/workout.types';
 import danishGyms, {DanishGym} from '@/data/danishGyms';
-import {colors} from '@/theme/colors';
+import colors from '@/theme/colors';
 import NotificationService from '@/services/notifications/NotificationService';
 import {useAppStore} from '@/store/appStore';
-import {getMuscleGroupImage} from '@/utils/muscleGroupImages';
+import muscleImg from '@/utils/muscleGroupImages';
 
 const WEEKDAYS = ['Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør', 'Søn'];
 
@@ -41,6 +41,8 @@ const muscleLabels: Record<MuscleGroup, string> = {
   mave: 'Mave',
   ryg: 'Ryg',
   hele_kroppen: 'Hele kroppen',
+  reformer: 'Reformer',
+  pilates: 'Pilates',
 };
 
 const MUSCLE_GROUPS: {key: MuscleGroup; label: string}[] = [
@@ -52,6 +54,8 @@ const MUSCLE_GROUPS: {key: MuscleGroup; label: string}[] = [
   {key: 'mave', label: 'Mave'},
   {key: 'ryg', label: 'Ryg'},
   {key: 'hele_kroppen', label: 'Hele kroppen'},
+  {key: 'reformer', label: 'Reformer'},
+  {key: 'pilates', label: 'Pilates'},
 ];
 
 const MOCK_FRIENDS: Array<{id: string; name: string}> = [];
@@ -987,7 +991,7 @@ const WorkoutScheduleScreen = () => {
                       onPress={() => togglePlanMuscle(item.key)}
                       activeOpacity={0.85}>
                       <Image
-                        source={getMuscleGroupImage(item.key)}
+                        source={muscleImg.getMuscleGroupImage(item.key)}
                         style={[styles.muscleImage, isActive && styles.muscleImageActive]}
                         resizeMode="contain"
                       />

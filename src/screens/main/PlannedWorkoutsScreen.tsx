@@ -15,7 +15,7 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {colors} from '@/theme/colors';
+import colors from '@/theme/colors';
 
 const PlannedWorkoutsScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();

@@ -6,6 +6,8 @@ export type FeedItemType = 'photo' | 'pr' | 'summary';
 export type FeedItem = {
   id: string;
   type: FeedItemType;
+  /** Bruges til at filtrere egne opslag på profil */
+  userId?: string;
   user: string;
   description: string;
   timestamp: string;
@@ -22,6 +24,8 @@ export type FeedItem = {
 interface FeedState {
   feedItems: FeedItem[];
   addFeedItem: (item: FeedItem) => void;
+  setFeedItems: (items: FeedItem[]) => void;
+  deleteFeedItem: (itemId: string) => void;
 }
 
 export const useFeedStore = create<FeedState>(set => ({
@@ -30,7 +34,8 @@ export const useFeedStore = create<FeedState>(set => ({
     set(state => ({
       feedItems: [item, ...state.feedItems],
     })),
-  deleteFeedItem: (itemId: string) =>
+  setFeedItems: items => set({feedItems: items}),
+  deleteFeedItem: itemId =>
     set(state => ({
       feedItems: state.feedItems.filter(item => item.id !== itemId),
     })),

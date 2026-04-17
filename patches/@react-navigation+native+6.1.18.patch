@@ -1,0 +1,88 @@
+diff --git a/node_modules/@react-navigation/native/lib/commonjs/theming/useTheme.js b/node_modules/@react-navigation/native/lib/commonjs/theming/useTheme.js
+index 20dd0e6..786b0e2 100644
+--- a/node_modules/@react-navigation/native/lib/commonjs/theming/useTheme.js
++++ b/node_modules/@react-navigation/native/lib/commonjs/theming/useTheme.js
+@@ -6,11 +6,23 @@ Object.defineProperty(exports, "__esModule", {
+ exports.default = useTheme;
+ var React = _interopRequireWildcard(require("react"));
+ var _ThemeContext = _interopRequireDefault(require("./ThemeContext"));
++var _DefaultTheme = _interopRequireDefault(require("./DefaultTheme"));
+ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+ function useTheme() {
+-  const theme = React.useContext(_ThemeContext.default);
+-  return theme;
++  var theme = React.useContext(_ThemeContext.default);
++  var DefaultTheme = _DefaultTheme.default;
++
++  if (theme == null) {
++    return DefaultTheme;
++  }
++
++  var colors =
++    theme.colors != null
++      ? Object.assign({}, DefaultTheme.colors, theme.colors)
++      : DefaultTheme.colors;
++
++  return Object.assign({}, DefaultTheme, theme, { colors: colors });
+ }
+ //# sourceMappingURL=useTheme.js.map
+diff --git a/node_modules/@react-navigation/native/lib/module/theming/useTheme.js b/node_modules/@react-navigation/native/lib/module/theming/useTheme.js
+index 59918dc..8d3cbf4 100644
+--- a/node_modules/@react-navigation/native/lib/module/theming/useTheme.js
++++ b/node_modules/@react-navigation/native/lib/module/theming/useTheme.js
+@@ -1,7 +1,23 @@
+ import * as React from 'react';
+ import ThemeContext from './ThemeContext';
++import DefaultTheme from './DefaultTheme';
++
++/**
++ * Merge with DefaultTheme so `colors.background` (and siblings) never read from
++ * undefined when a provider passes a partial theme or context is missing.
++ */
+ export default function useTheme() {
+   const theme = React.useContext(ThemeContext);
+-  return theme;
++
++  if (theme == null) {
++    return DefaultTheme;
++  }
++
++  const colors =
++    theme.colors != null
++      ? { ...DefaultTheme.colors, ...theme.colors }
++      : DefaultTheme.colors;
++
++  return { ...DefaultTheme, ...theme, colors };
+ }
+ //# sourceMappingURL=useTheme.js.map
+diff --git a/node_modules/@react-navigation/native/src/theming/useTheme.tsx b/node_modules/@react-navigation/native/src/theming/useTheme.tsx
+index 3c1017a..994fbde 100644
+--- a/node_modules/@react-navigation/native/src/theming/useTheme.tsx
++++ b/node_modules/@react-navigation/native/src/theming/useTheme.tsx
+@@ -1,9 +1,23 @@
+ import * as React from 'react';
+ 
+ import ThemeContext from './ThemeContext';
++import DefaultTheme from './DefaultTheme';
+ 
++/**
++ * Merge with DefaultTheme so `colors.background` (and siblings) never read from
++ * undefined when a provider passes a partial theme or context is missing.
++ */
+ export default function useTheme() {
+   const theme = React.useContext(ThemeContext);
+ 
+-  return theme;
++  if (theme == null) {
++    return DefaultTheme;
++  }
++
++  const colors =
++    theme.colors != null
++      ? { ...DefaultTheme.colors, ...theme.colors }
++      : DefaultTheme.colors;
++
++  return { ...DefaultTheme, ...theme, colors };
+ }

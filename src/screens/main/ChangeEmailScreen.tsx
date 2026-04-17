@@ -19,7 +19,7 @@ import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppStore} from '@/store/appStore';
-import {colors} from '@/theme/colors';
+import colors from '@/theme/colors';
 
 const ChangeEmailScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#8B5CF6" />
+  <meta name="description" content="Din Gymly-email er bekræftet. Åbn appen og log ind." />
+  <title>Email bekræftet · Gymly</title>
+  <style>
+    :root {
+      --purple: #8b5cf6;
+      --purple-dark: #7c3aed;
+      --green: #10b981;
+      --text: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(165deg, #f8fafc 0%, #ede9fe 38%, #f3f4f6 100%);
+      color: var(--text);
+      padding: 20px 16px 32px;
+    }
+    .wrap {
+      max-width: 440px;
+      margin: 0 auto;
+    }
+    .top {
+      text-align: center;
+      padding: 8px 0 20px;
+    }
+    .mark {
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .mark img {
+      width: 96px;
+      height: 96px;
+      object-fit: contain;
+    }
+    .brand {
+      font-size: 1.125rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--purple-dark);
+      margin-bottom: 4px;
+    }
+    .tagline {
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 28px 24px 26px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), 0 12px 48px rgba(124, 58, 237, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+    h1 {
+      font-size: 1.375rem;
+      font-weight: 700;
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+    .lead {
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--muted);
+      margin: 0 0 20px;
+    }
+    .lead strong { color: var(--text); font-weight: 600; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      background: #ecfdf5;
+      color: #047857;
+      margin-bottom: 20px;
+    }
+    .badge.err {
+      background: #fef2f2;
+      color: #b91c1c;
+    }
+    .steps {
+      text-align: left;
+      background: #f9fafb;
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin: 0 0 20px;
+      border: 1px solid var(--line);
+    }
+    .steps h2 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin: 0 0 12px;
+      font-weight: 700;
+    }
+    .steps ol {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--text);
+      font-size: 0.9375rem;
+      line-height: 1.65;
+    }
+    .steps li { margin-bottom: 6px; }
+    .steps li:last-child { margin-bottom: 0; }
+    .btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 15px 20px;
+      border-radius: 14px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn:active { transform: scale(0.98); }
+    .btn-primary {
+      background: linear-gradient(145deg, var(--purple), var(--purple-dark));
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(124, 58, 237, 0.35);
+    }
+    .btn-secondary {
+      background: #fff;
+      color: var(--purple-dark);
+      border: 2px solid var(--purple);
+    }
+    .hint {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 16px 0 0;
+    }
+    .foot {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      font-size: 0.8125rem;
+      color: var(--muted);
+      text-align: center;
+    }
+    .foot a { color: var(--purple-dark); font-weight: 600; text-decoration: none; }
+    .foot a:hover { text-decoration: underline; }
+    #state-loading .card { opacity: 0.92; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div class="mark" aria-hidden="true">
+        <img src="gymly-kettlebell-transparent.png" alt="" width="96" height="96" />
+      </div>
+      <div class="brand">Gymly</div>
+      <div class="tagline">Træn sammen</div>
+    </header>
+
+    <main class="card" id="panel" role="main">
+      <div id="state-loading">
+        <h1>Bekræfter…</h1>
+        <p class="lead">Et øjeblik, mens vi tjekker dit link.</p>
+      </div>
+
+      <div id="state-success" hidden>
+        <div class="badge" id="badge-ok">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Email bekræftet
+        </div>
+        <h1 id="headline-ok">Velkommen – du er klar</h1>
+        <p class="lead" id="msg-ok">
+          Din email er bekræftet. Du kan nu logge ind i <strong>Gymly</strong> med samme email og adgangskode som ved tilmelding.
+        </p>
+        <div class="steps">
+          <h2>Næste skridt</h2>
+          <ol>
+            <li>Åbn <strong>Gymly</strong>-appen på din telefon.</li>
+            <li>Tryk <strong>Log ind</strong> og brug din email og adgangskode.</li>
+            <li>Så er du i gang med at tjekke ind og træne med fællesskabet.</li>
+          </ol>
+        </div>
+        <a class="btn btn-primary" href="https://gymlyapp.com" id="cta-site">Besøg gymlyapp.com</a>
+        <p class="hint" id="hint-ok">
+          Luk denne fane, når du er færdig – sessionen ligger i appen, når du logger ind.
+        </p>
+      </div>
+
+      <div id="state-fallback" hidden>
+        <h1>Næsten i mål</h1>
+        <p class="lead">
+          Vi kunne ikke læse bekræftelsesdata direkte fra linket. Har du lige klikket bekræft i mailen, kan du alligevel prøve at åbne appen og logge ind.
+        </p>
+        <a class="btn btn-secondary" href="https://gymlyapp.com">Gå til Gymly</a>
+        <p class="hint">Får du ikke adgang, så tryk <strong>Send igen</strong> i appen under tilmelding.</p>
+      </div>
+
+      <div id="state-error" hidden>
+        <div class="badge err">Noget gik galt</div>
+        <h1 id="headline-err">Bekræftelse mislykkedes</h1>
+        <p class="lead" id="msg-err">Linket kunne ikke bruges. Det kan være udløbet eller allerede brugt.</p>
+        <p class="hint" id="hint-err"></p>
+        <a class="btn btn-secondary" href="https://gymlyapp.com">Tilbage til Gymly</a>
+      </div>
+
+      <footer class="foot">
+        Har du spørgsmål? Se mere på <a href="https://gymlyapp.com">gymlyapp.com</a>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      var loading = document.getElementById('state-loading');
+      var success = document.getElementById('state-success');
+      var fallback = document.getElementById('state-fallback');
+      var errBox = document.getElementById('state-error');
+
+      function show(el) {
+        loading.hidden = true;
+        success.hidden = true;
+        fallback.hidden = true;
+        errBox.hidden = true;
+        el.hidden = false;
+      }
+
+      var hash = window.location.hash ? window.location.hash.substring(1) : '';
+      var search = window.location.search ? window.location.search.substring(1) : '';
+      var fromHash = new URLSearchParams(hash);
+      var fromSearch = new URLSearchParams(search);
+
+      var accessToken = fromHash.get('access_token');
+      var refreshToken = fromHash.get('refresh_token');
+      var pkceCode = fromSearch.get('code');
+      var type = fromSearch.get('type');
+      var err = fromHash.get('error') || fromSearch.get('error');
+      var errDesc =
+        fromHash.get('error_description') ||
+        fromSearch.get('error_description') ||
+        fromSearch.get('error_code');
+
+      if (err) {
+        show(errBox);
+        document.getElementById('hint-err').textContent = errDesc
+          ? decodeURIComponent(String(errDesc).replace(/\+/g, ' '))
+          : 'Prøv at sende et nyt bekræftelseslink fra appen.';
+        return;
+      }
+
+      if (
+        accessToken ||
+        refreshToken ||
+        pkceCode ||
+        type === 'signup' ||
+        type === 'recovery'
+      ) {
+        show(success);
+        return;
+      }
+
+      show(fallback);
+    })();
+  </script>
+</body>
+</html>

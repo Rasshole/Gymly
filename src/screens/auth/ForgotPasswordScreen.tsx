@@ -16,11 +16,11 @@ import {
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {AuthStackParamList} from '@/navigation/AuthNavigator';
+import {AuthStackParamList} from '@/navigation/authStackParamList';
 import AuthService from '@/services/auth/AuthService';
 import Icon from 'react-native-vector-icons/Ionicons';
 import GymlyLogo from '@/components/GymlyLogo';
-import {colors} from '@/theme/colors';
+import colors from '@/theme/colors';
 
 type ForgotPasswordScreenNavigationProp = StackNavigationProp<
   AuthStackParamList,

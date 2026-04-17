@@ -1,0 +1,73 @@
+diff --git a/node_modules/@react-navigation/stack/lib/commonjs/views/Stack/CardContainer.js b/node_modules/@react-navigation/stack/lib/commonjs/views/Stack/CardContainer.js
+index 48a5425..7a8b190 100644
+--- a/node_modules/@react-navigation/stack/lib/commonjs/views/Stack/CardContainer.js
++++ b/node_modules/@react-navigation/stack/lib/commonjs/views/Stack/CardContainer.js
+@@ -134,9 +134,8 @@ function CardContainer(_ref) {
+     bottom: safeAreaInsetBottom,
+     left: safeAreaInsetLeft
+   };
+-  const {
+-    colors
+-  } = (0, _native.useTheme)();
++  const theme = (0, _native.useTheme)();
++  const colors = theme?.colors;
+   const [pointerEvents, setPointerEvents] = React.useState('box-none');
+   React.useEffect(() => {
+     var _scene$progress$next, _scene$progress$next$;
+@@ -215,7 +214,7 @@ function CardContainer(_ref) {
+       marginTop: headerHeight
+     } : null,
+     contentStyle: [{
+-      backgroundColor: presentation === 'transparentModal' ? 'transparent' : colors.background
++      backgroundColor: presentation === 'transparentModal' ? 'transparent' : (colors?.background ?? '#f2f2f2')
+     }, cardStyle],
+     style: [{
+       // This is necessary to avoid unfocused larger pages increasing scroll area
+diff --git a/node_modules/@react-navigation/stack/lib/module/views/Stack/CardContainer.js b/node_modules/@react-navigation/stack/lib/module/views/Stack/CardContainer.js
+index b595af8..5eda1ac 100644
+--- a/node_modules/@react-navigation/stack/lib/module/views/Stack/CardContainer.js
++++ b/node_modules/@react-navigation/stack/lib/module/views/Stack/CardContainer.js
+@@ -125,9 +125,8 @@ function CardContainer(_ref) {
+     bottom: safeAreaInsetBottom,
+     left: safeAreaInsetLeft
+   };
+-  const {
+-    colors
+-  } = useTheme();
++  const theme = useTheme();
++  const colors = theme?.colors;
+   const [pointerEvents, setPointerEvents] = React.useState('box-none');
+   React.useEffect(() => {
+     var _scene$progress$next, _scene$progress$next$;
+@@ -206,7 +205,7 @@ function CardContainer(_ref) {
+       marginTop: headerHeight
+     } : null,
+     contentStyle: [{
+-      backgroundColor: presentation === 'transparentModal' ? 'transparent' : colors.background
++      backgroundColor: presentation === 'transparentModal' ? 'transparent' : (colors?.background ?? '#f2f2f2')
+     }, cardStyle],
+     style: [{
+       // This is necessary to avoid unfocused larger pages increasing scroll area
+diff --git a/node_modules/@react-navigation/stack/src/views/Stack/CardContainer.tsx b/node_modules/@react-navigation/stack/src/views/Stack/CardContainer.tsx
+index 1e9ee0e..c6314f3 100644
+--- a/node_modules/@react-navigation/stack/src/views/Stack/CardContainer.tsx
++++ b/node_modules/@react-navigation/stack/src/views/Stack/CardContainer.tsx
+@@ -163,7 +163,8 @@ function CardContainer({
+     left: safeAreaInsetLeft,
+   };
+ 
+-  const { colors } = useTheme();
++  const theme = useTheme();
++  const colors = theme?.colors;
+ 
+   const [pointerEvents, setPointerEvents] = React.useState<'box-none' | 'none'>(
+     'box-none'
+@@ -254,7 +255,7 @@ function CardContainer({
+           backgroundColor:
+             presentation === 'transparentModal'
+               ? 'transparent'
+-              : colors.background,
++              : (colors?.background ?? '#f2f2f2'),
+         },
+         cardStyle,
+       ]}

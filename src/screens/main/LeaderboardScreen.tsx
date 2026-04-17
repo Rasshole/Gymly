@@ -1,494 +1,615 @@
 /**
- * Rangliste-skærm – Check-ins, Tid trænet & Center
- * Uge, Måned, Nogensinde
- * Tid trænet: flest min / flest timer
- * Center: flest check-ins / mest tid
+ * Ranglister — data fra Firestore (leaderboardStats / gym underlister)
  */
 
-import React, {useState, useMemo} from 'react';
+import React, {useState, useMemo, useEffect} from 'react';
 import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity,
   ScrollView,
-  Image,
-  Modal,
+  TouchableOpacity,
   TextInput,
-  FlatList,
+  ActivityIndicator,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {useLeaderboardStore} from '@/store/leaderboardStore';
+import ScreenHeader from '@/components/ui/ScreenHeader';
+import {Card} from '@/components/ui/Card';
+import {EmptyState} from '@/components/ui/EmptyState';
+import Chip from '@/components/ui/Chip';
+import {LeaderboardRow} from '@/components/ui/LeaderboardRow';
+import danishGyms from '@/data/danishGyms';
+import colors from '@/theme/colors';
+import {spacing, radius, typography, shadows} from '@/theme/designTokens';
 import {useAppStore} from '@/store/appStore';
-import {useLeaderboardQuery} from '@/hooks/useLeaderboardQuery';
-import LeaderboardSkeleton from '@/components/LeaderboardSkeleton';
-import {colors} from '@/theme/colors';
-import {LeaderboardEntry, LeaderboardPeriod} from '@/types/leaderboard.types';
-import {getGymLogo, hasGymLogo} from '@/utils/gymLogos';
-import danishGyms, {DanishGym} from '@/data/danishGyms';
+import {
+  fetchGlobalLeaderboard,
+  fetchFriendsLeaderboard,
+  fetchGymLeaderboard,
+} from '@/services/leaderboard/leaderboardService';
+import {getHomeLeaderboardCenterIdForUser, resolveGymNameForLeaderboard} from '@/utils/leaderboardCenterFromGym';
+import {findGymById} from '@/utils/gymDisplay';
+import type {
+  LeaderboardCategory,
+  LeaderboardEntry,
+  LeaderboardPeriod,
+} from '@/types/leaderboard.types';
 
-type LeaderboardCategory = 'checkIns' | 'trainingTime' | 'center';
-type TimeUnit = 'minutes' | 'hours';
-type CenterSubFilter = 'checkIns' | 'time';
+type Period = 'week' | 'month' | 'all';
+type LeaderboardMetric = 'checkins' | 'minutes' | 'streak';
+type CategoryTab = 'gymly' | 'friends' | 'center';
 
-const PERIODS: {key: LeaderboardPeriod; label: string}[] = [
-  {key: 'week', label: 'Uge'},
-  {key: 'month', label: 'Måned'},
-  {key: 'all', label: 'Nogensinde'},
+const METRIC_OPTIONS: {key: LeaderboardMetric; label: string}[] = [
+  {key: 'checkins', label: 'Check-ins'},
+  {key: 'minutes', label: 'Tid trænet'},
+  {key: 'streak', label: 'Streak'},
 ];
 
-const TIME_UNITS: {key: TimeUnit; label: string}[] = [
-  {key: 'minutes', label: 'Flest min'},
-  {key: 'hours', label: 'Flest timer'},
+const CATEGORY_TABS: {key: CategoryTab; label: string}[] = [
+  {key: 'gymly', label: 'Gymly'},
+  {key: 'friends', label: 'Venner'},
+  {key: 'center', label: 'Center'},
 ];
 
-const CENTER_SUB_FILTERS: {key: CenterSubFilter; label: string}[] = [
-  {key: 'checkIns', label: 'Flest check-ins'},
-  {key: 'time', label: 'Mest tid'},
+const PERIOD_OPTIONS: {key: Period; label: string}[] = [
+  {key: 'week', label: 'Denne uge'},
+  {key: 'month', label: 'Denne måned'},
+  {key: 'all', label: 'Altid'},
 ];
 
-const CATEGORIES: {key: LeaderboardCategory; label: string; icon: string}[] = [
-  {key: 'checkIns', label: 'Check-ins', icon: 'checkmark-circle'},
-  {key: 'trainingTime', label: 'Tid trænet', icon: 'time'},
-  {key: 'center', label: 'Center', icon: 'business'},
-];
+const TOP_PREVIEW_COUNT = 10;
 
-const getRankStyle = (rank: number) => {
-  if (rank === 1) return {backgroundColor: '#FFD700'};
-  if (rank === 2) return {backgroundColor: '#C0C0C0'};
-  if (rank === 3) return {backgroundColor: '#CD7F32'};
-  return {backgroundColor: colors.surface};
-};
+function metricToCategory(m: LeaderboardMetric): LeaderboardCategory {
+  switch (m) {
+    case 'checkins':
+      return 'checkIns';
+    case 'minutes':
+      return 'trainingTime';
+    case 'streak':
+      return 'streak';
+    default:
+      return 'checkIns';
+  }
+}
 
-const GymSearchModal = ({
-  visible,
-  onClose,
-  onSelectGym,
+function getMotivationText(
+  current: LeaderboardEntry | undefined,
+  rank: number,
+): string {
+  if (!current) {
+    return 'Check ind og kom på ranglisten.';
+  }
+  if (rank === 1) {
+    return 'Du er #1 – hold momentumet!';
+  }
+  if (rank <= 4) {
+    return `${rank - 1} plads(er) til top 3 – du er tæt på!`;
+  }
+  return 'Hold momentum – du kæmper med om pladserne.';
+}
+
+function YourPlacementCard({
+  entry,
+  rank,
+  motivation,
 }: {
-  visible: boolean;
-  onClose: () => void;
-  onSelectGym: (gym: DanishGym) => void;
-}) => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const filteredGyms = useMemo(() => {
-    const q = searchQuery.trim().toLowerCase();
-    if (!q) return danishGyms;
-    return danishGyms.filter(
-      g =>
-        g.name.toLowerCase().includes(q) ||
-        (g.city?.toLowerCase().includes(q)) ||
-        (g.brand?.toLowerCase().includes(q)) ||
-        (g.address?.toLowerCase().includes(q))
-    );
-  }, [searchQuery]);
-
+  entry: LeaderboardEntry;
+  rank: number;
+  motivation: string;
+}) {
   return (
-    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet">
-      <View style={styles.modalContainer}>
-        <View style={styles.modalHeader}>
-          <Text style={styles.modalTitle}>Find center i Danmark</Text>
-          <TouchableOpacity onPress={onClose} style={styles.modalCloseBtn}>
-            <Icon name="close" size={28} color={colors.text} />
-          </TouchableOpacity>
+    <Card variant="elevated" padding="lg">
+      <View style={styles.yourCardHeader}>
+        <Text style={styles.yourCardTitle}>Din placering</Text>
+        <View style={styles.rankBadge}>
+          <Text style={styles.rankBadgeText}>#{rank}</Text>
         </View>
-        <View style={styles.modalSearchRow}>
-          <Icon name="search" size={20} color={colors.textMuted} />
-          <TextInput
-            style={styles.modalSearchInput}
-            placeholder="Søg efter center, by eller kæde..."
-            placeholderTextColor={colors.textMuted}
-            value={searchQuery}
-            onChangeText={setSearchQuery}
-            autoCapitalize="none"
-            autoCorrect={false}
-          />
-          {searchQuery.length > 0 && (
-            <TouchableOpacity onPress={() => setSearchQuery('')}>
-              <Icon name="close-circle" size={20} color={colors.textMuted} />
-            </TouchableOpacity>
-          )}
-        </View>
-        <FlatList
-          data={filteredGyms}
-          keyExtractor={item => String(item.id)}
-          renderItem={({item}) => (
-            <TouchableOpacity
-              style={styles.modalGymRow}
-              onPress={() => onSelectGym(item)}
-              activeOpacity={0.7}>
-              {hasGymLogo(item.brand) && getGymLogo(item.brand) ? (
-                <Image
-                  source={{uri: getGymLogo(item.brand)!}}
-                  style={styles.modalGymLogo}
-                  resizeMode="contain"
-                />
-              ) : (
-                <View style={styles.modalGymIcon}>
-                  <Icon name="business" size={24} color={colors.primary} />
-                </View>
-              )}
-              <View style={styles.modalGymInfo}>
-                <Text style={styles.modalGymName}>{item.name}</Text>
-                {(item.city || item.brand) && (
-                  <Text style={styles.modalGymMeta}>
-                    {[item.brand, item.city].filter(Boolean).join(' • ')}
-                  </Text>
-                )}
-              </View>
-              <Icon name="chevron-forward" size={20} color={colors.textMuted} />
-            </TouchableOpacity>
-          )}
-          ListEmptyComponent={
-            <View style={styles.modalEmpty}>
-              <Text style={styles.modalEmptyText}>
-                {searchQuery ? 'Ingen centre fundet' : 'Indlæser...'}
-              </Text>
-            </View>
-          }
-        />
       </View>
-    </Modal>
+      <Text style={styles.yourStatValue}>{entry.valueLabel}</Text>
+      <Text style={styles.motivationText}>{motivation}</Text>
+    </Card>
   );
-};
+}
 
-const LeaderboardRow = ({
-  item,
-  onPress,
-}: {
-  item: LeaderboardEntry;
-  onPress: () => void;
-}) => {
-  const rankStyle = getRankStyle(item.rank);
-
-  return (
-    <TouchableOpacity
-      style={[styles.row, item.isCurrentUser && styles.rowHighlight]}
-      onPress={onPress}
-      activeOpacity={0.7}
-      disabled={item.isCurrentUser}>
-      <View style={[styles.rankBadge, rankStyle]}>
-        <Text style={[styles.rankText, item.rank <= 3 && styles.rankTextMedal]}>
-          {item.rank}
-        </Text>
-      </View>
-      {item.profileImageUrl ? (
-        <Image source={{uri: item.profileImageUrl}} style={styles.avatar} />
-      ) : (
-        <View style={styles.avatarPlaceholder}>
-          <Text style={styles.avatarText}>{item.displayName.charAt(0)}</Text>
-        </View>
-      )}
-      <View style={styles.userInfo}>
-        <View style={styles.nameRow}>
-          <Text style={styles.name}>
-            {item.isCurrentUser ? 'Dig' : item.displayName}
-          </Text>
-          {item.isWeeklyChampion && (
-            <View style={styles.championBadge}>
-              <Text style={styles.championEmoji}>🏆</Text>
-              <Text style={styles.championText}>Ugens mester</Text>
-            </View>
-          )}
-          {item.isFriend && !item.isCurrentUser && (
-            <View style={styles.friendBadge}>
-              <Text style={styles.friendBadgeText}>Ven</Text>
-            </View>
-          )}
-        </View>
-        <Text style={styles.value}>{item.valueLabel}</Text>
-      </View>
-      {item.rank === 1 && (
-        <Icon name="trophy" size={22} color="#FFD700" />
-      )}
-    </TouchableOpacity>
-  );
-};
-
-const LeaderboardCard = ({
-  title,
-  icon,
-  entries,
+function TopThreePodium({
+  users,
   onUserPress,
 }: {
-  title: string;
-  icon: string;
-  entries: LeaderboardEntry[];
-  onUserPress: (userId: string, displayName: string) => void;
-}) => (
-  <View style={styles.card}>
-    <View style={styles.cardHeader}>
-      <Icon name={icon as any} size={24} color={colors.primary} />
-      <Text style={styles.cardTitle}>{title}</Text>
+  users: LeaderboardEntry[];
+  onUserPress: (id: string, name: string) => void;
+}) {
+  const order = [1, 0, 2];
+  return (
+    <View style={styles.podium}>
+      {order.map(idx => {
+        const u = users[idx];
+        if (!u) {
+          return null;
+        }
+        const rank = idx + 1;
+        const podiumPad =
+          rank === 1 ? styles.podium1 : rank === 2 ? styles.podium2 : styles.podium3;
+        return (
+          <TouchableOpacity
+            key={u.userId}
+            style={[styles.podiumItem, podiumPad]}
+            onPress={() => !u.isCurrentUser && onUserPress(u.userId, u.displayName)}
+            activeOpacity={0.8}>
+            <View style={[styles.podiumRank, rank === 1 && styles.podiumRank1]}>
+              <Text style={styles.podiumRankText}>{rank}</Text>
+            </View>
+            <View style={styles.podiumAvatar}>
+              <Text style={styles.podiumAvatarText}>
+                {u.displayName
+                  .split(' ')
+                  .map(n => n[0])
+                  .join('')
+                  .toUpperCase()
+                  .slice(0, 2) || '?'}
+              </Text>
+            </View>
+            <Text style={styles.podiumName} numberOfLines={1}>
+              {u.isCurrentUser ? 'Dig' : u.displayName}
+            </Text>
+            <Text style={styles.podiumGym} numberOfLines={1}>
+              {u.gymName ?? '—'}
+            </Text>
+            <Text style={styles.podiumScore}>{u.valueLabel}</Text>
+          </TouchableOpacity>
+        );
+      })}
     </View>
-    {entries.slice(0, 10).map((item, idx) => (
-      <LeaderboardRow
-        key={`${item.userId}-${idx}`}
-        item={{...item, rank: item.rank || idx + 1}}
-        onPress={() => onUserPress(item.userId, item.displayName)}
+  );
+}
+
+function LeaderboardSearchBar({
+  value,
+  onChangeText,
+  variant = 'page',
+}: {
+  value: string;
+  onChangeText: (text: string) => void;
+  variant?: 'page' | 'inSection';
+}) {
+  return (
+    <View
+      style={[
+        styles.searchContainer,
+        variant === 'inSection' && styles.searchInSection,
+      ]}>
+      <Icon name="search" size={20} color={colors.textMuted} />
+      <TextInput
+        style={styles.searchInput}
+        placeholder="Søg efter navn eller brugernavn..."
+        placeholderTextColor={colors.textMuted}
+        value={value}
+        onChangeText={onChangeText}
+        autoCapitalize="none"
+        autoCorrect={false}
       />
-    ))}
-  </View>
-);
+      {value.length > 0 && (
+        <TouchableOpacity onPress={() => onChangeText('')}>
+          <Icon name="close-circle" size={20} color={colors.textMuted} />
+        </TouchableOpacity>
+      )}
+    </View>
+  );
+}
 
 const LeaderboardScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
-  const {user} = useAppStore();
-  const {getCenterLeaderboard} = useLeaderboardStore();
-  const [category, setCategory] = useState<LeaderboardCategory>('checkIns');
-  const [period, setPeriod] = useState<LeaderboardPeriod>('all');
-  const [timeUnit, setTimeUnit] = useState<TimeUnit>('minutes');
-  const [centerSubFilter, setCenterSubFilter] = useState<CenterSubFilter>('checkIns');
-  const [selectedGym, setSelectedGym] = useState<{id: number; name: string} | null>(null);
-  const [showGymSearchModal, setShowGymSearchModal] = useState(false);
-  const currentUserId = user?.id || 'current_user';
-
-  const localGyms = useMemo(() => {
-    const ids = user?.favoriteGyms || [];
-    return ids
-      .map(id => danishGyms.find(g => g.id === id))
-      .filter((g): g is DanishGym => g != null);
-  }, [user?.favoriteGyms]);
-
-  const {entries: rawQueryEntries, isLoading: queryLoading} = useLeaderboardQuery(
-    'global',
-    category === 'center' ? 'checkIns' : category,
-    period,
-    currentUserId
+  const insets = useSafeAreaInsets();
+  const user = useAppStore(s => s.user);
+  const homeCenterId = useMemo(
+    () => getHomeLeaderboardCenterIdForUser(user?.favoriteGyms),
+    [user?.favoriteGyms],
   );
 
-  const centerEntries =
-    selectedGym != null
-      ? getCenterLeaderboard(centerSubFilter, period, currentUserId, selectedGym.id)
-      : [];
+  const [category, setCategory] = useState<CategoryTab>('gymly');
+  const [metric, setMetric] = useState<LeaderboardMetric>('checkins');
+  const [period, setPeriod] = useState<Period>('week');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [showFullList, setShowFullList] = useState(false);
+  const [selectedCenterId, setSelectedCenterId] = useState<string | null>(homeCenterId);
+  const [centerSearchQuery, setCenterSearchQuery] = useState('');
+  const [entries, setEntries] = useState<LeaderboardEntry[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const rawEntries =
-    category === 'center' ? centerEntries : rawQueryEntries;
-  const isLoading = category === 'center' ? false : queryLoading;
+  useEffect(() => {
+    setSelectedCenterId(homeCenterId);
+  }, [homeCenterId]);
 
-  // Transform valueLabel for Tid trænet when showing timer
-  const entries =
-    category === 'trainingTime' && timeUnit === 'hours'
-      ? rawEntries.map(e => ({
-          ...e,
-          valueLabel:
-            e.value >= 60
-              ? `${Math.floor(e.value / 60)} timer`
-              : `${e.value} min`,
-        }))
-      : rawEntries;
-
-  const handleUserPress = (userId: string, displayName: string) => {
-    if (userId !== 'current_user') {
-      navigation.navigate('FriendProfile', {
-        friendId: userId,
-        friendName: displayName,
-        mutualFriends: 0,
-        gyms: [],
-      });
+  const filteredCenters = useMemo(() => {
+    const q = centerSearchQuery.trim().toLowerCase();
+    let list = danishGyms;
+    if (q) {
+      list = danishGyms.filter(
+        c =>
+          c.name.toLowerCase().includes(q) ||
+          (c.city?.toLowerCase().includes(q) ?? false),
+      );
     }
+    return list.slice(0, 200);
+  }, [centerSearchQuery]);
+
+  const selectedCenter = useMemo(() => {
+    if (!selectedCenterId) {
+      return null;
+    }
+    return findGymById(parseInt(selectedCenterId, 10));
+  }, [selectedCenterId]);
+
+  useEffect(() => {
+    setShowFullList(false);
+    setSearchQuery('');
+  }, [category, selectedCenterId, metric, period]);
+
+  useEffect(() => {
+    if (category !== 'center') {
+      setCenterSearchQuery('');
+    }
+  }, [category]);
+
+  useEffect(() => {
+    if (!user?.id) {
+      setEntries([]);
+      setLoading(false);
+      return;
+    }
+
+    let cancelled = false;
+    setLoading(true);
+    const cat = metricToCategory(metric);
+    const periodLb = period as LeaderboardPeriod;
+
+    (async () => {
+      try {
+        let result;
+        if (category === 'gymly') {
+          result = await fetchGlobalLeaderboard(cat, periodLb, user.id);
+        } else if (category === 'friends') {
+          result = await fetchFriendsLeaderboard(cat, periodLb, user.id);
+        } else {
+          if (!selectedCenterId) {
+            if (!cancelled) {
+              setEntries([]);
+              setLoading(false);
+            }
+            return;
+          }
+          const gid = parseInt(selectedCenterId, 10);
+          const g = findGymById(gid);
+          result = await fetchGymLeaderboard(
+            gid,
+            g?.name ?? resolveGymNameForLeaderboard(selectedCenterId),
+            periodLb,
+            user.id,
+          );
+        }
+        if (!cancelled) {
+          setEntries(result.entries);
+        }
+      } catch {
+        if (!cancelled) {
+          setEntries([]);
+        }
+      } finally {
+        if (!cancelled) {
+          setLoading(false);
+        }
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [user?.id, category, metric, period, selectedCenterId]);
+
+  const filtered = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) {
+      return entries;
+    }
+    return entries.filter(e => e.displayName.toLowerCase().includes(q));
+  }, [entries, searchQuery]);
+
+  const hasMoreThanPreview = filtered.length > TOP_PREVIEW_COUNT;
+
+  const currentUserEntry = useMemo(
+    () => filtered.find(e => e.isCurrentUser),
+    [filtered],
+  );
+
+  const currentRank = useMemo(() => {
+    const idx = filtered.findIndex(e => e.isCurrentUser);
+    return idx >= 0 ? idx + 1 : 0;
+  }, [filtered]);
+
+  const topThree = useMemo(() => filtered.slice(0, 3), [filtered]);
+
+  const listAfterPodium = useMemo(() => {
+    const afterThree = filtered.slice(3);
+    if (!showFullList && hasMoreThanPreview) {
+      return afterThree.slice(0, TOP_PREVIEW_COUNT - 3);
+    }
+    return afterThree;
+  }, [filtered, showFullList, hasMoreThanPreview]);
+
+  const motivation = useMemo(
+    () => getMotivationText(currentUserEntry, currentRank),
+    [currentUserEntry, currentRank],
+  );
+
+  const handleUserPress = (userId: string, name: string) => {
+    navigation.navigate('FriendProfile', {
+      friendId: userId,
+      friendName: name,
+      mutualFriends: 0,
+      gyms: [],
+    });
   };
 
-  const currentCategory = CATEGORIES.find(c => c.key === category)!;
-  const cardTitle =
-    category === 'center' && selectedGym
-      ? `${selectedGym.name} – ${CENTER_SUB_FILTERS.find(f => f.key === centerSubFilter)?.label || ''}`
-      : category === 'center'
-      ? 'Center'
-      : currentCategory.label;
+  const isEmpty = !loading && filtered.length === 0;
+  const listSectionTitle =
+    hasMoreThanPreview && !showFullList ? 'Top 10' : 'Rangliste';
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-          <Icon name="arrow-back" size={24} color={colors.text} />
-        </TouchableOpacity>
-        <Text style={styles.headerTitle}>Rangliste</Text>
-        <View style={styles.headerRight} />
-      </View>
+      <ScreenHeader title="Ranglister" onBack={() => navigation.goBack()} showBack />
 
-      {/* Kategorier: Check-ins | Tid trænet */}
-      <View style={styles.categorySection}>
-        <View style={styles.categoryRow}>
-          {CATEGORIES.map(c => (
-            <TouchableOpacity
-              key={c.key}
-              style={[
-                styles.categoryButton,
-                category === c.key && styles.categoryButtonActive,
-              ]}
-              onPress={() => setCategory(c.key)}
-              activeOpacity={0.8}>
-              <Icon
-                name={c.icon as any}
-                size={22}
-                color={category === c.key ? '#fff' : colors.text}
-              />
-              <Text
-                style={[
-                  styles.categoryButtonText,
-                  category === c.key && styles.categoryButtonTextActive,
-                ]}>
-                {c.label}
-              </Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-        <Text style={styles.categoryHint}>
-          {category === 'checkIns'
-            ? 'Flest check-ins vinder'
-            : category === 'trainingTime'
-            ? 'Flest minutter eller timer trænet'
-            : 'Flest check-ins eller mest tid på center'}
-        </Text>
-      </View>
-
-      {/* Periode: Uge / Måned / Nogensinde */}
-      <View style={styles.periodRow}>
-        {PERIODS.map(({key, label}) => (
-          <TouchableOpacity
-            key={key}
-            style={[styles.periodTab, period === key && styles.periodTabActive]}
-            onPress={() => setPeriod(key)}>
-            <Text style={[styles.periodTabText, period === key && styles.periodTabTextActive]}>
-              {label}
-            </Text>
-          </TouchableOpacity>
-        ))}
-      </View>
-
-      {/* Tid trænet: Flest min / Flest timer */}
-      {category === 'trainingTime' && (
-        <View style={styles.periodRow}>
-          {TIME_UNITS.map(({key, label}) => (
-            <TouchableOpacity
-              key={key}
-              style={[styles.periodTab, timeUnit === key && styles.periodTabActive]}
-              onPress={() => setTimeUnit(key)}>
-              <Text
-                style={[
-                  styles.periodTabText,
-                  timeUnit === key && styles.periodTabTextActive,
-                ]}>
-                {label}
-              </Text>
-            </TouchableOpacity>
-          ))}
+      {loading && (
+        <View style={styles.loadingBar}>
+          <ActivityIndicator color={colors.primary} />
         </View>
       )}
 
-      {/* Center: Flest check-ins / Mest tid */}
-      {category === 'center' && (
-        <>
-          <View style={styles.periodRow}>
-            {CENTER_SUB_FILTERS.map(({key, label}) => (
+      <ScrollView
+        style={styles.scroll}
+        contentContainerStyle={[
+          styles.scrollContent,
+          {paddingBottom: insets.bottom + spacing.xl},
+        ]}
+        showsVerticalScrollIndicator={false}>
+        <View style={styles.categoryRow}>
+          {CATEGORY_TABS.map(({key, label}) => {
+            const selected = category === key;
+            return (
               <TouchableOpacity
                 key={key}
-                style={[styles.periodTab, centerSubFilter === key && styles.periodTabActive]}
-                onPress={() => setCenterSubFilter(key)}>
+                style={[styles.categoryTab, selected && styles.categoryTabSelected]}
+                onPress={() => setCategory(key)}
+                activeOpacity={0.85}>
                 <Text
-                  style={[
-                    styles.periodTabText,
-                    centerSubFilter === key && styles.periodTabTextActive,
-                  ]}>
+                  style={[styles.categoryTabText, selected && styles.categoryTabTextSelected]}
+                  numberOfLines={1}>
                   {label}
                 </Text>
               </TouchableOpacity>
-            ))}
-          </View>
+            );
+          })}
+        </View>
 
-          {/* Vælg center: 3 lokale + søg alle */}
-          <View style={styles.gymSelectorSection}>
-            <Text style={styles.gymSelectorLabel}>Vælg center</Text>
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              contentContainerStyle={styles.gymSelectorScroll}>
-              {localGyms.map((gym, index) => (
-                <TouchableOpacity
-                  key={gym.id}
-                  style={[
-                    styles.gymSelectorCard,
-                    selectedGym?.id === gym.id && styles.gymSelectorCardActive,
-                  ]}
-                  onPress={() =>
-                    setSelectedGym(selectedGym?.id === gym.id ? null : {id: gym.id, name: gym.name})
-                  }
-                  activeOpacity={0.8}>
-                  <View style={styles.gymSelectorBadge}>
-                    <Text style={styles.gymSelectorBadgeText}>{index + 1}</Text>
+        <Text style={styles.categoryHint}>
+          {category === 'gymly' && 'Rangliste for alle brugere på Gymly.'}
+          {category === 'friends' && 'Rangliste mellem dig og dine venner.'}
+          {category === 'center' &&
+            'Rangliste for det valgte center (baseret på backend-data for centeret).'}
+        </Text>
+
+        {category === 'center' && (
+          <Text style={[styles.categoryHint, {marginTop: -spacing.md}]}>
+            Måling gælder globalt for Gymly og Venner; center-visning følger centerets rangliste.
+          </Text>
+        )}
+
+        <View style={styles.filterSection}>
+          <Text style={styles.filterLabel}>Måling</Text>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.chipRow}>
+            {METRIC_OPTIONS.map(({key, label}) => (
+              <Chip
+                key={key}
+                label={label}
+                selected={metric === key}
+                onPress={() => setMetric(key)}
+              />
+            ))}
+          </ScrollView>
+        </View>
+
+        <View style={styles.filterSection}>
+          <Text style={styles.filterLabel}>Periode</Text>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.chipRow}>
+            {PERIOD_OPTIONS.map(({key, label}) => (
+              <Chip
+                key={key}
+                label={label}
+                selected={period === key}
+                onPress={() => setPeriod(key)}
+              />
+            ))}
+          </ScrollView>
+        </View>
+
+        {category === 'center' && (
+          <View style={styles.centerSection}>
+            <Text style={styles.filterLabel}>Vælg center</Text>
+            {selectedCenter && (
+              <View style={styles.selectedCenterBanner}>
+                <View style={styles.selectedCenterTextWrap}>
+                  <Text style={styles.selectedCenterName}>{selectedCenter.name}</Text>
+                  <Text style={styles.selectedCenterCity}>{selectedCenter.city ?? ''}</Text>
+                </View>
+                {selectedCenterId === homeCenterId && (
+                  <View style={styles.homeBadge}>
+                    <Text style={styles.homeBadgeText}>Dit center</Text>
                   </View>
-                  {hasGymLogo(gym.brand) && getGymLogo(gym.brand) ? (
-                    <Image
-                      source={{uri: getGymLogo(gym.brand)!}}
-                      style={styles.gymSelectorLogo}
-                      resizeMode="contain"
-                    />
-                  ) : (
-                    <View style={styles.gymSelectorIcon}>
-                      <Icon name="business" size={24} color={colors.primary} />
-                    </View>
-                  )}
-                  <Text
-                    style={[
-                      styles.gymSelectorName,
-                      selectedGym?.id === gym.id && styles.gymSelectorNameActive,
-                    ]}
-                    numberOfLines={2}>
-                    {gym.name}
-                  </Text>
+                )}
+              </View>
+            )}
+            <View style={styles.centerSearchWrap}>
+              <Icon name="search" size={20} color={colors.textMuted} />
+              <TextInput
+                style={styles.centerSearchInput}
+                placeholder="Søg efter center (navn eller by)..."
+                placeholderTextColor={colors.textMuted}
+                value={centerSearchQuery}
+                onChangeText={setCenterSearchQuery}
+                autoCapitalize="none"
+                autoCorrect={false}
+              />
+              {centerSearchQuery.length > 0 && (
+                <TouchableOpacity onPress={() => setCenterSearchQuery('')}>
+                  <Icon name="close-circle" size={20} color={colors.textMuted} />
                 </TouchableOpacity>
-              ))}
-              <TouchableOpacity
-                style={[styles.gymSelectorCard, styles.gymSearchCard]}
-                onPress={() => setShowGymSearchModal(true)}
-                activeOpacity={0.8}>
-                <Icon name="search" size={28} color={colors.primary} />
-                <Text style={styles.gymSearchCardText}>Søg alle centre</Text>
-              </TouchableOpacity>
+              )}
+            </View>
+            <Text style={styles.centerListLabel}>Centre (OpenStreetMap)</Text>
+            <ScrollView
+              style={styles.centerList}
+              nestedScrollEnabled
+              keyboardShouldPersistTaps="handled"
+              showsVerticalScrollIndicator={false}>
+              {filteredCenters.map(c => {
+                const id = String(c.id);
+                const selected = selectedCenterId === id;
+                return (
+                  <TouchableOpacity
+                    key={id}
+                    style={[styles.centerRow, selected && styles.centerRowSelected]}
+                    onPress={() => {
+                      setSelectedCenterId(id);
+                      setCenterSearchQuery('');
+                    }}
+                    activeOpacity={0.85}>
+                    <View style={styles.centerRowText}>
+                      <Text style={styles.centerRowName}>{c.name}</Text>
+                      <Text style={styles.centerRowCity}>{c.city ?? ''}</Text>
+                    </View>
+                    {selected ? (
+                      <Icon name="checkmark-circle" size={22} color={colors.primary} />
+                    ) : (
+                      <Icon name="chevron-forward" size={18} color={colors.textMuted} />
+                    )}
+                  </TouchableOpacity>
+                );
+              })}
             </ScrollView>
           </View>
+        )}
 
-          <GymSearchModal
-            visible={showGymSearchModal}
-            onClose={() => setShowGymSearchModal(false)}
-            onSelectGym={gym => {
-              setSelectedGym({id: gym.id, name: gym.name});
-              setShowGymSearchModal(false);
-            }}
-          />
-        </>
-      )}
+        {currentUserEntry && currentRank > 0 && (
+          <View style={styles.section}>
+            <YourPlacementCard
+              entry={currentUserEntry}
+              rank={currentRank}
+              motivation={motivation}
+            />
+          </View>
+        )}
 
-      {/* Rangliste */}
-      <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
-        {category === 'center' && selectedGym == null ? (
-          <View style={styles.emptyCenter}>
-            <Icon name="business-outline" size={48} color={colors.textMuted} />
-            <Text style={styles.emptyCenterText}>Vælg et center ovenfor for at se ranglisten</Text>
+        {!hasMoreThanPreview && !loading && (
+          <LeaderboardSearchBar value={searchQuery} onChangeText={setSearchQuery} />
+        )}
+
+        {!isEmpty && topThree.length > 0 && (
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Top 3</Text>
+            <TopThreePodium users={topThree} onUserPress={handleUserPress} />
           </View>
-        ) : isLoading ? (
-          <View style={styles.card}>
-            <View style={styles.cardHeader}>
-              <Icon name={currentCategory.icon as any} size={24} color={colors.primary} />
-              <Text style={styles.cardTitle}>{cardTitle}</Text>
-            </View>
-            <LeaderboardSkeleton count={8} />
+        )}
+
+        {hasMoreThanPreview && showFullList && (
+          <View style={styles.section}>
+            <Text style={styles.searchSectionLabel}>Søg på profiler</Text>
+            <LeaderboardSearchBar
+              variant="inSection"
+              value={searchQuery}
+              onChangeText={setSearchQuery}
+            />
           </View>
-        ) : category === 'center' && entries.length === 0 ? (
-          <View style={styles.emptyCenter}>
-            <Icon name="stats-chart-outline" size={48} color={colors.textMuted} />
-            <Text style={styles.emptyCenterText}>
-              Ingen rangliste-data for dette center endnu
-            </Text>
+        )}
+
+        {!isEmpty && listAfterPodium.length > 0 && (
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>{listSectionTitle}</Text>
+            <Card variant="default" padding="md">
+              {listAfterPodium.map((item, idx) => (
+                <LeaderboardRow
+                  key={item.userId}
+                  rank={item.rank ?? idx + 4}
+                  name={item.isCurrentUser ? 'Dig' : item.displayName}
+                  value={item.valueLabel}
+                  valueLabel={item.gymName ?? ''}
+                  imageUrl={item.profileImageUrl}
+                  isCurrentUser={item.isCurrentUser}
+                  isFriend={item.isFriend}
+                  onPress={
+                    item.isCurrentUser
+                      ? undefined
+                      : () => handleUserPress(item.userId, item.displayName)
+                  }
+                />
+              ))}
+            </Card>
+            {hasMoreThanPreview && (
+              <TouchableOpacity
+                style={styles.fullListButton}
+                onPress={() => {
+                  if (showFullList) {
+                    setSearchQuery('');
+                  }
+                  setShowFullList(!showFullList);
+                }}
+                activeOpacity={0.85}>
+                <Text style={styles.fullListButtonText}>
+                  {showFullList ? 'Vis kun top 10' : 'Se hele listen og søg profiler'}
+                </Text>
+                <Icon
+                  name={showFullList ? 'chevron-up' : 'chevron-down'}
+                  size={20}
+                  color={colors.primary}
+                />
+              </TouchableOpacity>
+            )}
           </View>
-        ) : (
-          <LeaderboardCard
-            title={cardTitle}
-            icon={currentCategory.icon}
-            entries={entries}
-            onUserPress={handleUserPress}
+        )}
+
+        {isEmpty && !loading && (
+          <EmptyState
+            icon="trophy-outline"
+            title={
+              category === 'center' && !selectedCenterId
+                ? 'Vælg et center'
+                : category === 'center'
+                  ? 'Ingen på ranglisten for dette center endnu'
+                  : category === 'friends'
+                    ? 'Ingen venner på ranglisten endnu'
+                    : 'Ingen rangliste endnu'
+            }
+            message={
+              category === 'center' && !selectedCenterId
+                ? 'Vælg et center på listen for at se ranglisten.'
+                : category === 'center'
+                  ? 'Kom tilbage når der er data, eller prøv et andet center.'
+                  : category === 'friends'
+                    ? 'Tilføj venner for at se jeres fælles rangliste.'
+                    : 'Når brugere træner og registrerer aktivitet, vises de her.'
+            }
+            actionLabel={category === 'friends' ? 'Inviter venner' : undefined}
+            onAction={
+              category === 'friends'
+                ? () => navigation.navigate('Friends', {screen: 'Grupper'} as never)
+                : undefined
+            }
           />
         )}
       </ScrollView>
@@ -501,366 +622,319 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.background,
   },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    backgroundColor: colors.backgroundCard,
-    borderBottomWidth: 1,
-    borderBottomColor: '#EFEFF4',
-    paddingTop: 50,
+  loadingBar: {
+    paddingVertical: spacing.sm,
   },
-  backButton: {padding: 4},
-  headerTitle: {fontSize: 18, fontWeight: '600', color: colors.text},
-  headerRight: {width: 32},
-  categorySection: {
-    paddingHorizontal: 16,
-    paddingTop: 16,
-    paddingBottom: 8,
+  scroll: {
+    flex: 1,
+  },
+  scrollContent: {
+    flexGrow: 1,
   },
   categoryRow: {
     flexDirection: 'row',
-    gap: 10,
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.lg,
+    gap: spacing.sm,
+    marginBottom: spacing.lg,
   },
-  categoryButton: {
+  categoryTab: {
     flex: 1,
-    flexDirection: 'row',
+    minHeight: 52,
+    borderRadius: radius.sm,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.backgroundCard,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: colors.surface,
-    paddingVertical: 14,
-    paddingHorizontal: 16,
-    borderRadius: 12,
-    gap: 8,
+    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.xs,
   },
-  categoryButtonActive: {
+  categoryTabSelected: {
+    borderColor: colors.primary,
     backgroundColor: colors.primary,
+    ...shadows.sm,
   },
-  categoryButtonText: {
-    fontSize: 16,
+  categoryTabText: {
+    ...typography.small,
     fontWeight: '700',
-    color: colors.text,
+    color: colors.textSecondary,
+    textAlign: 'center',
   },
-  categoryButtonTextActive: {
-    color: '#fff',
+  categoryTabTextSelected: {
+    color: colors.white,
   },
   categoryHint: {
-    fontSize: 13,
+    ...typography.small,
     color: colors.textSecondary,
-    textAlign: 'center',
-    marginTop: 8,
+    paddingHorizontal: spacing.lg,
+    marginBottom: spacing.lg,
+    lineHeight: 20,
   },
-  gymSelectorSection: {
-    paddingHorizontal: 16,
-    paddingVertical: 12,
+  centerSection: {
+    paddingHorizontal: spacing.lg,
+    marginBottom: spacing.lg,
   },
-  gymSelectorLabel: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: colors.textSecondary,
-    marginBottom: 10,
-  },
-  gymSelectorScroll: {
-    gap: 10,
-    paddingRight: 16,
-  },
-  gymSelectorCard: {
-    width: 120,
-    backgroundColor: colors.backgroundCard,
-    borderRadius: 12,
-    padding: 12,
-    alignItems: 'center',
-    borderWidth: 2,
-    borderColor: 'transparent',
-  },
-  gymSelectorBadge: {
-    width: 24,
-    height: 24,
-    borderRadius: 12,
-    backgroundColor: '#FFD700',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 8,
-  },
-  gymSelectorBadgeText: {
-    fontSize: 12,
-    fontWeight: '700',
-    color: colors.text,
-  },
-  gymSelectorCardActive: {
-    borderColor: colors.primary,
-    backgroundColor: colors.primary + '15',
-  },
-  gymSelectorLogo: {
-    width: 40,
-    height: 40,
-    marginBottom: 8,
-  },
-  gymSelectorIcon: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: colors.primary + '20',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 8,
-  },
-  gymSelectorName: {
-    fontSize: 12,
-    fontWeight: '600',
-    color: colors.text,
-    textAlign: 'center',
-  },
-  gymSelectorNameActive: {
-    color: colors.primary,
-  },
-  gymSearchCard: {
-    borderStyle: 'dashed',
-    borderWidth: 2,
-    borderColor: colors.primary + '60',
-  },
-  gymSearchCardText: {
-    fontSize: 12,
-    fontWeight: '600',
-    color: colors.primary,
-    textAlign: 'center',
-    marginTop: 6,
-  },
-  modalContainer: {
-    flex: 1,
-    backgroundColor: colors.background,
-    paddingTop: 50,
-  },
-  modalHeader: {
+  selectedCenterBanner: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: '#EFEFF4',
+    padding: spacing.md,
+    marginBottom: spacing.md,
+    backgroundColor: colors.backgroundCard,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.primary,
+    ...shadows.sm,
   },
-  modalTitle: {
-    fontSize: 18,
-    fontWeight: '700',
+  selectedCenterTextWrap: {
+    flex: 1,
+  },
+  selectedCenterName: {
+    ...typography.bodyBold,
     color: colors.text,
   },
-  modalCloseBtn: {padding: 4},
-  modalSearchRow: {
+  selectedCenterCity: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    marginTop: 2,
+  },
+  homeBadge: {
+    backgroundColor: colors.primary + '22',
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+    borderRadius: radius.sm,
+    marginLeft: spacing.sm,
+  },
+  homeBadgeText: {
+    ...typography.caption,
+    color: colors.primary,
+    fontWeight: '700',
+  },
+  centerSearchWrap: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10,
-    margin: 16,
-    paddingHorizontal: 14,
-    paddingVertical: 12,
+    marginBottom: spacing.sm,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
     backgroundColor: colors.backgroundCard,
-    borderRadius: 12,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    gap: spacing.sm,
   },
-  modalSearchInput: {
+  centerSearchInput: {
     flex: 1,
-    fontSize: 16,
+    ...typography.body,
     color: colors.text,
     padding: 0,
   },
-  modalGymRow: {
+  centerListLabel: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    marginBottom: spacing.sm,
+    fontWeight: '600',
+  },
+  centerList: {
+    maxHeight: 220,
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: radius.md,
+    backgroundColor: colors.backgroundCard,
+  },
+  centerRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 14,
-    backgroundColor: colors.backgroundCard,
-    marginHorizontal: 16,
-    marginBottom: 8,
-    borderRadius: 12,
-    gap: 12,
+    justifyContent: 'space-between',
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.md,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: colors.border,
   },
-  modalGymLogo: {
-    width: 44,
-    height: 44,
-    borderRadius: 8,
+  centerRowSelected: {
+    backgroundColor: colors.primary + '12',
   },
-  modalGymIcon: {
-    width: 44,
-    height: 44,
-    borderRadius: 8,
-    backgroundColor: colors.primary + '20',
-    justifyContent: 'center',
-    alignItems: 'center',
+  centerRowText: {
+    flex: 1,
   },
-  modalGymInfo: {flex: 1},
-  modalGymName: {
-    fontSize: 16,
-    fontWeight: '600',
+  centerRowName: {
+    ...typography.bodyBold,
     color: colors.text,
   },
-  modalGymMeta: {
-    fontSize: 13,
-    color: colors.textMuted,
+  centerRowCity: {
+    ...typography.caption,
+    color: colors.textSecondary,
     marginTop: 2,
   },
-  modalEmpty: {
-    padding: 32,
-    alignItems: 'center',
+  section: {
+    paddingHorizontal: spacing.lg,
+    marginBottom: spacing.xl,
   },
-  modalEmptyText: {
-    fontSize: 16,
-    color: colors.textSecondary,
+  sectionTitle: {
+    ...typography.h4,
+    color: colors.text,
+    marginBottom: spacing.md,
   },
-  emptyCenter: {
-    flex: 1,
+  fullListButton: {
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 48,
-    paddingHorizontal: 32,
-  },
-  emptyCenterText: {
-    fontSize: 16,
-    color: colors.textSecondary,
-    textAlign: 'center',
-    marginTop: 16,
-  },
-  periodRow: {
-    flexDirection: 'row',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    gap: 8,
-  },
-  periodTab: {
-    paddingHorizontal: 14,
-    paddingVertical: 8,
-    borderRadius: 20,
-    backgroundColor: colors.surface,
-  },
-  periodTabActive: {
-    backgroundColor: colors.primary,
-  },
-  periodTabText: {
-    fontSize: 13,
-    fontWeight: '600',
-    color: colors.textSecondary,
-  },
-  periodTabTextActive: {
-    color: '#fff',
-  },
-  content: {
-    flex: 1,
-    paddingBottom: 32,
-  },
-  card: {
+    gap: spacing.sm,
+    marginTop: spacing.md,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.lg,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.primary,
     backgroundColor: colors.backgroundCard,
-    marginHorizontal: 16,
-    marginBottom: 16,
-    borderRadius: 16,
-    padding: 16,
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 1},
-    shadowOpacity: 0.05,
-    shadowRadius: 4,
-    elevation: 2,
   },
-  cardHeader: {
+  fullListButtonText: {
+    ...typography.bodyBold,
+    color: colors.primary,
+    flexShrink: 1,
+  },
+  filterSection: {
+    paddingHorizontal: spacing.lg,
+    marginBottom: spacing.md,
+  },
+  filterLabel: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    marginBottom: spacing.sm,
+    textTransform: 'uppercase',
+    fontWeight: '600',
+  },
+  chipRow: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 12,
-    gap: 8,
+    marginHorizontal: spacing.lg,
+    marginBottom: spacing.xl,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.md,
+    backgroundColor: colors.backgroundCard,
+    borderRadius: radius.md,
+    gap: spacing.sm,
+    borderWidth: 1,
+    borderColor: colors.border,
   },
-  cardTitle: {
-    fontSize: 18,
-    fontWeight: '700',
+  searchInSection: {
+    marginHorizontal: 0,
+    marginBottom: 0,
+  },
+  searchSectionLabel: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    marginBottom: spacing.sm,
+    fontWeight: '600',
+  },
+  searchInput: {
+    flex: 1,
+    ...typography.body,
     color: colors.text,
+    padding: 0,
   },
-  row: {
+  yourCardHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#F0F0F0',
+    justifyContent: 'space-between',
+    marginBottom: spacing.md,
   },
-  rowHighlight: {
-    backgroundColor: colors.primary + '15',
-    marginHorizontal: -16,
-    paddingHorizontal: 16,
-    borderBottomColor: 'transparent',
+  yourCardTitle: {
+    ...typography.h4,
+    color: colors.text,
   },
   rankBadge: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 10,
-  },
-  rankText: {
-    fontSize: 13,
-    fontWeight: 'bold',
-    color: colors.text,
-  },
-  rankTextMedal: {
-    color: '#fff',
-  },
-  avatar: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    marginRight: 10,
-  },
-  avatarPlaceholder: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
     backgroundColor: colors.primary,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.xs,
+    borderRadius: radius.full,
+  },
+  rankBadgeText: {
+    ...typography.bodyBold,
+    color: colors.white,
+  },
+  yourStatValue: {
+    ...typography.h3,
+    color: colors.primary,
+    marginBottom: spacing.md,
+  },
+  motivationText: {
+    ...typography.small,
+    color: colors.textSecondary,
+    fontStyle: 'italic',
+  },
+  podium: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
+    gap: spacing.sm,
+  },
+  podiumItem: {
+    flex: 1,
+    alignItems: 'center',
+    paddingVertical: spacing.lg,
+    paddingHorizontal: spacing.sm,
+    borderRadius: radius.lg,
+    backgroundColor: colors.backgroundCard,
+    ...shadows.card,
+  },
+  podium1: {
+    paddingTop: spacing.xl,
+  },
+  podium2: {
+    paddingTop: spacing.xxl,
+  },
+  podium3: {
+    paddingTop: spacing.xxl,
+  },
+  podiumRank: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: colors.surface,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 10,
+    marginBottom: spacing.sm,
   },
-  avatarText: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: '#fff',
+  podiumRank1: {
+    backgroundColor: colors.primary,
   },
-  userInfo: {flex: 1},
-  nameRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-    flexWrap: 'wrap',
-  },
-  name: {
-    fontSize: 15,
-    fontWeight: '600',
+  podiumRankText: {
+    ...typography.bodyBold,
     color: colors.text,
   },
-  value: {
-    fontSize: 13,
-    color: colors.textMuted,
+  podiumAvatar: {
+    width: 64,
+    height: 64,
+    borderRadius: 32,
+    backgroundColor: colors.primary,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: spacing.sm,
+  },
+  podiumAvatarText: {
+    ...typography.h4,
+    color: '#fff',
+    fontWeight: '600',
+  },
+  podiumName: {
+    ...typography.bodyBold,
+    color: colors.text,
+    marginTop: spacing.sm,
+  },
+  podiumGym: {
+    ...typography.caption,
+    color: colors.textSecondary,
     marginTop: 2,
   },
-  championBadge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#FFD70030',
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    borderRadius: 8,
-    gap: 4,
-  },
-  championEmoji: {fontSize: 10},
-  championText: {
-    fontSize: 10,
-    fontWeight: '600',
-    color: '#B8860B',
-  },
-  friendBadge: {
-    backgroundColor: colors.primary,
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    borderRadius: 8,
-  },
-  friendBadgeText: {
-    fontSize: 10,
-    fontWeight: '600',
-    color: '#fff',
+  podiumScore: {
+    ...typography.h4,
+    color: colors.primary,
+    marginTop: spacing.sm,
   },
 });
 

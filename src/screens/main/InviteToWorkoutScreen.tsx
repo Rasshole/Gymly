@@ -20,8 +20,8 @@ import {useNavigation, useRoute} from '@react-navigation/native';
 import {useWorkoutInvitationStore} from '@/store/workoutInvitationStore';
 import {useAppStore} from '@/store/appStore';
 import {MuscleGroup} from '@/types/workout.types';
-import {colors} from '@/theme/colors';
-import {getMuscleGroupImage} from '@/utils/muscleGroupImages';
+import colors from '@/theme/colors';
+import muscleImg from '@/utils/muscleGroupImages';
 
 const MUSCLE_GROUPS: {key: MuscleGroup; label: string}[] = [
   {key: 'bryst', label: 'Bryst'},
@@ -32,6 +32,8 @@ const MUSCLE_GROUPS: {key: MuscleGroup; label: string}[] = [
   {key: 'mave', label: 'Mave'},
   {key: 'ryg', label: 'Ryg'},
   {key: 'hele_kroppen', label: 'Hele kroppen'},
+  {key: 'reformer', label: 'Reformer'},
+  {key: 'pilates', label: 'Pilates'},
 ];
 
 type InviteToWorkoutScreenProps = {
@@ -238,7 +240,7 @@ const InviteToWorkoutScreen = () => {
                   onPress={() => toggleMuscleGroup(group.key)}
                   activeOpacity={0.7}>
                   <Image
-                    source={getMuscleGroupImage(group.key)}
+                    source={muscleImg.getMuscleGroupImage(group.key)}
                     style={[styles.muscleGroupImage, isSelected && styles.muscleGroupImageSelected]}
                     resizeMode="contain"
                   />

@@ -22,6 +22,7 @@ interface GymState {
   getGymHours: (gymId: number) => GymHours | undefined;
   getGymStatus: (gymId: number) => GymStatus;
   addCheckIn: (checkIn: Omit<GymCheckIn, 'id'>) => void;
+  getLastUserCheckIn: (userId: string) => GymCheckIn | undefined;
   addRating: (rating: Omit<GymRating, 'createdAt'>) => void;
 }
 
@@ -280,7 +281,7 @@ export const useGymStore = create<GymState>((set, get) => ({
   },
 
   /**
-   * Add a check-in
+   * Add a check-in (userId, gymId, gymName, checkInTime)
    */
   addCheckIn: (checkInData) => {
     const checkIn: GymCheckIn = {
@@ -293,6 +294,14 @@ export const useGymStore = create<GymState>((set, get) => ({
     }));
 
     onLeaderboardCheckIn(checkInData.userId, checkInData.gymId);
+  },
+
+  /**
+   * Get user's most recent check-in (for streak logic)
+   */
+  getLastUserCheckIn: (userId) => {
+    const state = get();
+    return state.checkIns.find((c) => c.userId === userId);
   },
 
   /**

@@ -44,9 +44,19 @@ export const useAppStore = create<AppState>((set, get) => ({
       const isValid = await SecureStorage.areTokensValid();
       
       if (tokens && isValid) {
-        const user = await SecureStorage.getUserData();
+        let user = await SecureStorage.getUserData();
         
         if (user) {
+          const dn = (user.displayName || '').trim().toLowerCase();
+          const isGenericName =
+            !dn ||
+            dn === 'user' ||
+            dn.includes('google user') ||
+            dn.includes('gymly user');
+          if (isGenericName) {
+            user = {...user, displayName: ''};
+            await SecureStorage.saveUserData(user);
+          }
           set({
             isAuthenticated: true,
             user,

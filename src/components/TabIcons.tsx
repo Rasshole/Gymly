@@ -6,7 +6,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import Svg, {Path, Circle} from 'react-native-svg';
-import {colors} from '@/theme/colors';
+import colors from '@/theme/colors';
 
 type TabIconProps = {
   name: 'Home' | 'Friends' | 'CheckIn' | 'Messages' | 'Profile';

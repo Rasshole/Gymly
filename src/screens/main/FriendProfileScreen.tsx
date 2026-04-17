@@ -17,7 +17,7 @@ import {useNavigation, useRoute} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppStore} from '@/store/appStore';
-import {colors} from '@/theme/colors';
+import colors from '@/theme/colors';
 
 const FriendProfileTabs = ({friendUser}: {friendUser: any}) => {
   const [activeTab, setActiveTab] = useState<'feed' | 'prs'>('feed');
@@ -161,6 +161,18 @@ const FriendProfileScreen = () => {
             <Icon name="chatbubble-outline" size={20} color="#fff" />
             <Text style={styles.messageButtonText}>Beskeder</Text>
           </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.inviteButton}
+            onPress={() =>
+              navigation.navigate('InviteToWorkout', {
+                friendId: friendUser.id,
+                friendName: friendUser.displayName,
+              })
+            }
+            activeOpacity={0.8}>
+            <Icon name="fitness-outline" size={20} color="#fff" />
+            <Text style={styles.messageButtonText}>Inviter til træning</Text>
+          </TouchableOpacity>
         </View>
 
         {/* Feed/PRs Tabs */}
@@ -254,6 +266,16 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   messageButton: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.primary,
+    paddingVertical: 12,
+    borderRadius: 12,
+    gap: 8,
+  },
+  inviteButton: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
