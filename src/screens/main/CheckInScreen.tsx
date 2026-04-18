@@ -451,11 +451,14 @@ const CheckInScreen = () => {
         });
         return true;
       } catch (err) {
-        Alert.alert(
-          'Fejl',
-          'Kunne ikke registrere check-in. Tjek din forbindelse og prøv igen.',
-          [{text: 'OK'}]
-        );
+        const detail =
+          err instanceof Error && err.message?.trim()
+            ? err.message
+            : 'Kunne ikke registrere check-in. Tjek din forbindelse og prøv igen.';
+        if (__DEV__) {
+          console.warn('[CheckIn] submitCheckIn failed', err);
+        }
+        Alert.alert('Fejl', detail, [{text: 'OK'}]);
         return false;
       }
     },

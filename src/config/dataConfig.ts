@@ -4,6 +4,6 @@
 
 /**
  * Når true: spring GPS/afstands-krav over (kun til intern debug).
- * App Store: false.
+ * App Store / produktion: false.
  */
 export const SKIP_CHECK_IN_LOCATION_RADIUS = false;

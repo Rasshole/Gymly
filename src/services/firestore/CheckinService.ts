@@ -1,36 +1,20 @@
 /**
- * CheckinService – Firestore check-in flow
- * Writes check-in + activity, used by CheckInScreen.
- * Supabase er auth + feed; Firestore check-in kræver konfigureret native Firebase.
+ * CheckinService – tjek-ind i skyen.
+ * Native Firebase: Firestore (checkins + activities).
+ * Ellers: Supabase `check_ins` (kræver migration 20260328130000_check_ins.sql).
  */
 
 import firestore from '@react-native-firebase/firestore';
 import {isFirebaseNativeAvailable} from '@/services/firebase/nativeAvailability';
+import {submitCheckInSupabase} from '@/services/supabase/checkInService';
+import type {SubmitCheckInParams} from '@/types/checkIn.types';
 import {COLLECTIONS} from './firestoreConfig';
 
-export interface SubmitCheckInParams {
-  userId: string;
-  gymId: number;
-  gymName: string;
-  city?: string;
-  workoutType?: string;
-  note?: string;
-  displayName: string;
-  userInitials?: string;
-}
+export type {SubmitCheckInParams} from '@/types/checkIn.types';
 
-/**
- * Submit check-in to Firestore.
- * Creates: checkins doc + activities doc (for feed).
- * Throws on Firestore error.
- */
-export async function submitCheckIn(params: SubmitCheckInParams): Promise<string> {
-  if (!isFirebaseNativeAvailable()) {
-    throw new Error(
-      'Firebase er ikke konfigureret på denne build. Tjek-ind i skyen er ikke tilgængelig — tilføj native Firebase eller migrér tjek-ind til Supabase.',
-    );
-  }
-
+async function submitCheckInFirestore(
+  params: SubmitCheckInParams,
+): Promise<string> {
   const {
     userId,
     gymId,
@@ -50,7 +34,6 @@ export async function submitCheckIn(params: SubmitCheckInParams): Promise<string
 
   const batch = firestore().batch();
 
-  // 1. Check-in document (userName for presence display)
   batch.set(checkInRef, {
     userId,
     userName: displayName,
@@ -62,7 +45,6 @@ export async function submitCheckIn(params: SubmitCheckInParams): Promise<string
     createdAt: now,
   });
 
-  // 2. Activity document (for feed)
   const activityText = `checkede ind i ${gymName}`;
   batch.set(activityRef, {
     type: 'check_in',
@@ -79,4 +61,14 @@ export async function submitCheckIn(params: SubmitCheckInParams): Promise<string
 
   await batch.commit();
   return checkInRef.id;
+}
+
+/**
+ * Gemmer tjek-ind: Firestore hvis native Firebase findes, ellers Supabase.
+ */
+export async function submitCheckIn(params: SubmitCheckInParams): Promise<string> {
+  if (!isFirebaseNativeAvailable()) {
+    return submitCheckInSupabase(params);
+  }
+  return submitCheckInFirestore(params);
 }
