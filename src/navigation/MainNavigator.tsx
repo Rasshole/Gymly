@@ -3,8 +3,8 @@
  * Main app screens after authentication
  */
 
-import React from 'react';
-import {TouchableOpacity, View} from 'react-native';
+import React, {useEffect} from 'react';
+import {AppState, TouchableOpacity, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import {
@@ -220,13 +220,40 @@ const LeaderboardButton = () => {
   );
 };
 
+/** Synkroniser antal indgående venneanmodninger til badge (klokke). */
+const IncomingFriendBadgeSync = () => {
+  const user = useAppStore(s => s.user);
+  const setIncoming = useNotificationStore(s => s.setIncomingFriendRequestCount);
+
+  useEffect(() => {
+    if (!user?.id) {
+      setIncoming(0);
+      return;
+    }
+    const load = () => {
+      void listPendingIncomingRequests(user.id).then(rows => setIncoming(rows.length)).catch(() => setIncoming(0));
+    };
+    load();
+    const sub = AppState.addEventListener('change', state => {
+      if (state === 'active') {
+        load();
+      }
+    });
+    return () => sub.remove();
+  }, [user?.id, setIncoming]);
+
+  return null;
+};
+
 // Notifications button component for header
 const NotificationsButton = () => {
   const navigation = useNavigation<CompositeNavigationProp<
     BottomTabNavigationProp<MainTabParamList>,
     StackNavigationProp<MainStackParamList>
   >>();
-  const {unreadCount} = useNotificationStore();
+  const unreadCount = useNotificationStore(s => s.unreadCount);
+  const incomingFr = useNotificationStore(s => s.incomingFriendRequestCount);
+  const bellTotal = unreadCount + incomingFr;
 
   return (
     <TouchableOpacity
@@ -235,9 +262,9 @@ const NotificationsButton = () => {
       }}
       style={{marginLeft: spacing.lg, position: 'relative'}}>
       <Icon name="notifications-outline" size={29} color={colors.text} />
-      {unreadCount > 0 && (
+      {bellTotal > 0 && (
         <View style={{position: 'absolute', top: -4, right: -4}}>
-          <NotificationBadge count={unreadCount} variant="error" maxCount={99} />
+          <NotificationBadge count={bellTotal} variant="error" maxCount={99} />
         </View>
       )}
     </TouchableOpacity>
@@ -301,7 +328,9 @@ const MainTabs = () => {
 
 const MainNavigator = () => {
   return (
-    <Stack.Navigator
+    <>
+      <IncomingFriendBadgeSync />
+      <Stack.Navigator
       screenOptions={{
         headerStyle: {
           backgroundColor: colors.backgroundCard,
@@ -576,9 +605,10 @@ const MainNavigator = () => {
           headerShown: false,
         }}
       />
-          </Stack.Navigator>
-        );
-      };
+    </Stack.Navigator>
+    </>
+  );
+};
 
-      export default MainNavigator;
+export default MainNavigator;
 

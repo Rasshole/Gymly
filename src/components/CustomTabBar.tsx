@@ -19,6 +19,8 @@ import {
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import colors from '@/theme/colors';
 import {spacing, radius} from '@/theme/designTokens';
+import {useChatStore} from '@/store/chatStore';
+import NotificationBadge from '@/components/ui/Badge';
 
 /** Samme stil for alle faner: Ionicons outline ↔ filled, Gymly primary når aktiv */
 const TAB_ICONS: Record<string, {focused: string; blur: string}> = {
@@ -87,12 +89,19 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({state, descriptors, navigati
               style={styles.tab}
               activeOpacity={0.7}>
               <View style={styles.tabContent}>
-                <Icon
-                  name={iconName as React.ComponentProps<typeof Icon>['name']}
-                  size={iconSize}
-                  color={iconColor}
-                  style={styles.tabIcon}
-                />
+                <View style={route.name === 'Messages' ? styles.iconWithBadge : undefined}>
+                  <Icon
+                    name={iconName as React.ComponentProps<typeof Icon>['name']}
+                    size={iconSize}
+                    color={iconColor}
+                    style={styles.tabIcon}
+                  />
+                  {route.name === 'Messages' && messagesUnread > 0 ? (
+                    <View style={styles.messageBadgeWrap}>
+                      <NotificationBadge count={messagesUnread} variant="error" maxCount={99} />
+                    </View>
+                  ) : null}
+                </View>
                 <Text
                   style={[styles.label, {color: isFocused ? colors.primary : colors.textMuted}]}
                   numberOfLines={1}>
@@ -132,6 +141,14 @@ const styles = StyleSheet.create({
   tabContent: {
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  iconWithBadge: {
+    position: 'relative',
+  },
+  messageBadgeWrap: {
+    position: 'absolute',
+    top: -6,
+    right: -10,
   },
   tabIcon: {
     marginBottom: 2,

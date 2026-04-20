@@ -87,6 +87,7 @@ const NotificationsScreen = () => {
     removeNotification,
     markInviteJoined,
     seedNotifications,
+    setIncomingFriendRequestCount,
   } = useNotificationStore();
   const {getPendingInvitations} = useWorkoutInvitationStore();
   const {acceptPlanInvite} = useWorkoutPlanStore();
@@ -159,14 +160,21 @@ const NotificationsScreen = () => {
     setFriendReqBusyId(req.id);
     try {
       await acceptFriendRequest(req.id);
-      setIncomingFriendRequests(prev => prev.filter(r => r.id !== req.id));
+      await loadIncomingFriendRequests();
     } catch (e: unknown) {
       const msg =
         e && typeof e === 'object' && 'message' in e && typeof (e as {message: unknown}).message === 'string'
           ? (e as {message: string}).message
           : '';
+      const code =
+        e && typeof e === 'object' && 'code' in e && typeof (e as {code: unknown}).code === 'string'
+          ? (e as {code: string}).code
+          : '';
       const human =
-        /division by zero|22P02/i.test(msg) || !msg
+        /division by zero|22012/i.test(msg) ||
+        code === '22012' ||
+        /22P02/i.test(msg) ||
+        !msg
           ? 'Anmodningen findes ikke længere, eller du har ikke lov til at acceptere den. Træk for at opdatere.'
           : msg;
       Alert.alert('Kunne ikke acceptere', human);
@@ -179,7 +187,7 @@ const NotificationsScreen = () => {
     setFriendReqBusyId(req.id);
     try {
       await declineFriendRequest(req.id);
-      setIncomingFriendRequests(prev => prev.filter(r => r.id !== req.id));
+      await loadIncomingFriendRequests();
     } catch (e: unknown) {
       const msg =
         e && typeof e === 'object' && 'message' in e && typeof (e as {message: unknown}).message === 'string'

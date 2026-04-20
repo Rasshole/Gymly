@@ -11,8 +11,11 @@ export type {Notification, NotificationType};
 interface NotificationState {
   notifications: Notification[];
   unreadCount: number;
-  
+  /** Indgående venneanmodninger (Supabase) — vises på klokke-badge sammen med unreadCount */
+  incomingFriendRequestCount: number;
+
   // Actions
+  setIncomingFriendRequestCount: (count: number) => void;
   addNotification: (notification: Omit<Notification, 'id' | 'timestamp' | 'read'>) => void;
   markAsRead: (id: string) => void;
   markAllAsRead: () => void;
@@ -26,6 +29,9 @@ interface NotificationState {
 export const useNotificationStore = create<NotificationState>((set, get) => ({
   notifications: [],
   unreadCount: 0,
+  incomingFriendRequestCount: 0,
+
+  setIncomingFriendRequestCount: count => set({incomingFriendRequestCount: Math.max(0, count)}),
 
   /**
    * Add a new notification

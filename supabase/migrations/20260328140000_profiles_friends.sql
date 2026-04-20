@@ -56,6 +56,12 @@ create policy "friendships_select"
   to authenticated
   using (auth.uid() = user_a or auth.uid() = user_b);
 
+drop policy if exists "friendships_insert_members" on public.friendships;
+create policy "friendships_insert_members"
+  on public.friendships for insert
+  to authenticated
+  with check (auth.uid() = user_a or auth.uid() = user_b);
+
 -- Anmodninger indsættes af afsender; accepteres via funktion
 create table if not exists public.friend_requests (
   id uuid primary key default gen_random_uuid(),
@@ -101,12 +107,13 @@ create policy "fr_delete_sender"
   to authenticated
   using (auth.uid() = from_user_id);
 
--- LANGUAGE sql + én sætning pr. funktion: Supabase SQL Editor splitter på ';' og ødelægger PL/pgSQL-kroppe.
--- Fejl (ikke fundet / ikke autoriseret / ikke pending) → division by zero så RPC fejler tydeligt for klienten.
+-- LANGUAGE sql + én sætning: Supabase SQL Editor splitter på ';' inde i PL/pgSQL.
+-- security invoker: kører som den bruger der trykker Accept, så RLS (inkl. INSERT på friendships) matcher JWT.
+-- Fejl (ikke fundet / ikke autoriseret / ikke pending) → division by zero så RPC fejler for klienten.
 create or replace function public.accept_friend_request(p_request_id uuid)
 returns void
 language sql
-security definer
+security invoker
 set search_path = public
 as $sql$
 with updated as (
@@ -147,7 +154,7 @@ $sql$;
 create or replace function public.decline_friend_request(p_request_id uuid)
 returns void
 language sql
-security definer
+security invoker
 set search_path = public
 as $sql$
 update public.friend_requests
