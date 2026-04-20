@@ -11,6 +11,7 @@ import {
   FlatList,
   TouchableOpacity,
   RefreshControl,
+  Alert,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
@@ -159,8 +160,16 @@ const NotificationsScreen = () => {
     try {
       await acceptFriendRequest(req.id);
       setIncomingFriendRequests(prev => prev.filter(r => r.id !== req.id));
-    } catch {
-      /* stille fejl — bruger kan prøve igen */
+    } catch (e: unknown) {
+      const msg =
+        e && typeof e === 'object' && 'message' in e && typeof (e as {message: unknown}).message === 'string'
+          ? (e as {message: string}).message
+          : '';
+      const human =
+        /division by zero|22P02/i.test(msg) || !msg
+          ? 'Anmodningen findes ikke længere, eller du har ikke lov til at acceptere den. Træk for at opdatere.'
+          : msg;
+      Alert.alert('Kunne ikke acceptere', human);
     } finally {
       setFriendReqBusyId(null);
     }
@@ -171,8 +180,12 @@ const NotificationsScreen = () => {
     try {
       await declineFriendRequest(req.id);
       setIncomingFriendRequests(prev => prev.filter(r => r.id !== req.id));
-    } catch {
-      /* stille fejl */
+    } catch (e: unknown) {
+      const msg =
+        e && typeof e === 'object' && 'message' in e && typeof (e as {message: unknown}).message === 'string'
+          ? (e as {message: string}).message
+          : '';
+      Alert.alert('Kunne ikke afvise', msg || 'Prøv igen.');
     } finally {
       setFriendReqBusyId(null);
     }
