@@ -1,0 +1,21 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/confirm",
+      "destination": "/confirm/index.html"
+    },
+    {
+      "source": "/confirm/",
+      "destination": "/confirm/index.html"
+    },
+    {
+      "source": "/auth/confirm",
+      "destination": "/auth-confirm/index.html"
+    },
+    {
+      "source": "/auth/confirm/",
+      "destination": "/auth-confirm/index.html"
+    }
+  ]
+}

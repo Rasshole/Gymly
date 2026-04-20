@@ -1,0 +1,41 @@
+# Deployer indholdet af website/ til dit webhotel (FTP/SFTP).
+#
+# Opsætning (én gang):
+#   GitHub → repo → Settings → Secrets and variables → Actions → New repository secret:
+#     GYMLYAPP_FTP_SERVER   fx ftp.gymlyapp.com eller din hosts FTP-vært
+#     GYMLYAPP_FTP_USERNAME
+#     GYMLYAPP_FTP_PASSWORD
+#     GYMLYAPP_FTP_SERVER_DIR  (anbefalet) fx public_html/ eller /public_html/ afhængigt af host
+#
+# Kør deploy:
+#   Actions → "Deploy gymlyapp website" → Run workflow
+#   eller push til main når du ændrer filer under website/
+
+name: Deploy gymlyapp website
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'website/**'
+      - '.github/workflows/deploy-gymlyapp-website.yml'
+
+jobs:
+  ftp-deploy:
+    name: FTP upload (website → gymlyapp)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: FTP deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.GYMLYAPP_FTP_SERVER }}
+          username: ${{ secrets.GYMLYAPP_FTP_USERNAME }}
+          password: ${{ secrets.GYMLYAPP_FTP_PASSWORD }}
+          local-dir: ./website/
+          server-dir: ${{ secrets.GYMLYAPP_FTP_SERVER_DIR }}
+          dangerous-clean-slate: false
+          log-level: standard

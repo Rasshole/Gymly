@@ -9,12 +9,14 @@ import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {useFocusEffect, useRoute} from '@react-navigation/native';
 import colors from '@/theme/colors';
 import {spacing} from '@/theme/designTokens';
+import FriendsScreen from './FriendsScreen';
 import OnlineScreen from './OnlineScreen';
 import GroupsScreen from './GroupsScreen';
 import CentresScreen from './CentresScreen';
 import MapScreen from './MapScreen';
 
 export type FriendsTabParamList = {
+  Venner: undefined;
   Online: undefined;
   Grupper: undefined;
   Centre: undefined;
@@ -24,6 +26,7 @@ export type FriendsTabParamList = {
 export type FriendsSubRouteName = keyof FriendsTabParamList;
 
 const TABS: {name: FriendsSubRouteName; label: string}[] = [
+  {name: 'Venner', label: 'Venner'},
   {name: 'Online', label: 'Online'},
   {name: 'Grupper', label: 'Grupper'},
   {name: 'Centre', label: 'Centre'},
@@ -57,6 +60,8 @@ const FriendsNavigator = () => {
 
   const renderScene = () => {
     switch (active) {
+      case 'Venner':
+        return <FriendsScreen />;
       case 'Online':
         return <OnlineScreen />;
       case 'Grupper':

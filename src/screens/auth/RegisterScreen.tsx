@@ -74,6 +74,13 @@ const GEO_OPTS_ONBOARD = {
   maximumAge: 60000,
 };
 
+/** Standard startalder i onboarding (~25 år); bruges som init for fødselsdato + iOS-datokladde. */
+function defaultOnboardingBirthDate(): Date {
+  const d = new Date();
+  d.setFullYear(d.getFullYear() - 25);
+  return d;
+}
+
 const RegisterScreen = () => {
   const navigation = useNavigation<RegisterScreenNavigationProp>();
   const insets = useSafeAreaInsets();
@@ -85,11 +92,9 @@ const RegisterScreen = () => {
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [dateOfBirth, setDateOfBirth] = useState(() => {
-    const d = new Date();
-    d.setFullYear(d.getFullYear() - 25);
-    return d;
-  });
+  const [dateOfBirth, setDateOfBirth] = useState(defaultOnboardingBirthDate);
+  /** iOS: spinner opdaterer kun kladden; «Vælg» skriver til dateOfBirth (pålideligt bekræftelsesflow). */
+  const [dobPickerDraft, setDobPickerDraft] = useState(defaultOnboardingBirthDate);
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [location, setLocation] = useState<DanishRegion | ''>('');
   const [favoriteGyms, setFavoriteGyms] = useState<(DanishGym | null)[]>([null, null, null]);
@@ -477,6 +482,12 @@ const RegisterScreen = () => {
     setPendingAuth(null);
   };
 
+  useEffect(() => {
+    if (step !== 'profile') {
+      setShowDatePicker(false);
+    }
+  }, [step]);
+
   useEffect(
     () => () => {
       if (splashFinishTimerRef.current) {
@@ -706,9 +717,16 @@ const RegisterScreen = () => {
         <Text style={styles.blockTitleSmall}>Fødselsdato</Text>
         <TouchableOpacity
           style={[styles.input, styles.dobButton]}
-          onPress={() => setShowDatePicker(true)}
+          onPress={() => {
+            setDobPickerDraft(new Date(dateOfBirth.getTime()));
+            setShowDatePicker(true);
+          }}
           activeOpacity={0.85}>
-          <Text style={styles.dobButtonText}>{formatBirthDateLabel(dateOfBirth)}</Text>
+          <Text style={styles.dobButtonText}>
+            {formatBirthDateLabel(
+              showDatePicker && Platform.OS === 'ios' ? dobPickerDraft : dateOfBirth,
+            )}
+          </Text>
           <Icon name="calendar-outline" size={22} color={colors.textMuted} />
         </TouchableOpacity>
         <Text style={[styles.helperMuted, styles.helperBelowDob]}>
@@ -717,7 +735,7 @@ const RegisterScreen = () => {
         {showDatePicker && (
           <>
             <DateTimePicker
-              value={dateOfBirth}
+              value={Platform.OS === 'ios' ? dobPickerDraft : dateOfBirth}
               mode="date"
               display={Platform.OS === 'ios' ? 'spinner' : 'default'}
               onChange={(event, selectedDate) => {
@@ -726,8 +744,13 @@ const RegisterScreen = () => {
                   if (event.type === 'set' && selectedDate) {
                     setDateOfBirth(selectedDate);
                   }
-                } else if (selectedDate) {
-                  setDateOfBirth(selectedDate);
+                  return;
+                }
+                if (event.type === 'dismissed') {
+                  return;
+                }
+                if (selectedDate) {
+                  setDobPickerDraft(selectedDate);
                 }
               }}
               minimumDate={(() => {
@@ -741,7 +764,10 @@ const RegisterScreen = () => {
             {Platform.OS === 'ios' && (
               <TouchableOpacity
                 style={styles.datePickerDone}
-                onPress={() => setShowDatePicker(false)}
+                onPress={() => {
+                  setDateOfBirth(new Date(dobPickerDraft.getTime()));
+                  setShowDatePicker(false);
+                }}
                 activeOpacity={0.85}>
                 <Text style={styles.datePickerDoneText}>Vælg</Text>
               </TouchableOpacity>

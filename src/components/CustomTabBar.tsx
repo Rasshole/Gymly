@@ -32,7 +32,7 @@ const TAB_ICONS: Record<string, {focused: string; blur: string}> = {
 
 const tabLabels: Record<string, string> = {
   Home: 'Hjem',
-  Friends: 'Online',
+  Friends: 'Venner',
   CheckIn: 'Tjek ind',
   Badges: 'Badges',
   Messages: 'Beskeder',

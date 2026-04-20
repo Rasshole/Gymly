@@ -1,0 +1,28 @@
+# Netlify — place this file in the repo ROOT that Netlify builds from,
+# OR merge the [[redirects]] blocks into your existing netlify.toml.
+# "200" = rewrite (URL stays /confirm; query + hash preserved).
+# Publish directory must contain: index.html (homepage), confirm/index.html, auth-confirm/index.html
+
+[[redirects]]
+  from = "/confirm"
+  to = "/confirm/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/confirm/"
+  to = "/confirm/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/auth/confirm"
+  to = "/auth-confirm/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/auth/confirm/"
+  to = "/auth-confirm/index.html"
+  status = 200
+  force = true

@@ -3,7 +3,7 @@
  * Shows list of friends and who is currently online/active at gyms
  */
 
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState, useRef, useEffect, useCallback} from 'react';
 import {
   View,
   Text,
@@ -12,11 +12,10 @@ import {
   TouchableOpacity,
   TextInput,
   Image,
-  Alert,
   ScrollView,
-  Animated,
+  ActivityIndicator,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppStore} from '@/store/appStore';
 import NotificationService from '@/services/notifications/NotificationService';
@@ -24,6 +23,10 @@ import EmptyState from '@/components/ui/EmptyState';
 import colors from '@/theme/colors';
 import {MuscleGroup} from '@/types/workout.types';
 import muscleImg from '@/utils/muscleGroupImages';
+import {
+  listFriendsWithProfiles,
+  upsertMyProfile,
+} from '@/services/supabase/friendService';
 
 type Friend = {
   id: string;
@@ -42,8 +45,59 @@ const FriendsScreen = () => {
   const {user} = useAppStore();
   const [searchQuery, setSearchQuery] = useState('');
   const [pendingJoinRequests, setPendingJoinRequests] = useState<Set<string>>(new Set());
+  const [friends, setFriends] = useState<Friend[]>([]);
+  const [loadingFriends, setLoadingFriends] = useState(true);
 
-  const friends: Friend[] = [];
+  const openAddFriend = useCallback(() => {
+    const stackNav = navigation.getParent()?.getParent?.();
+    if (stackNav && typeof (stackNav as any).navigate === 'function') {
+      (stackNav as any).navigate('AddFriend');
+      return;
+    }
+    (navigation as any).navigate?.('AddFriend');
+  }, [navigation]);
+
+  useFocusEffect(
+    useCallback(() => {
+      if (!user) {
+        setFriends([]);
+        setLoadingFriends(false);
+        return;
+      }
+      let cancelled = false;
+      void (async () => {
+        setLoadingFriends(true);
+        try {
+          await upsertMyProfile(user);
+          const profiles = await listFriendsWithProfiles(user.id);
+          if (cancelled) {
+            return;
+          }
+          setFriends(
+            profiles.map(p => ({
+              id: p.id,
+              name: p.displayName,
+              avatar: p.avatarUrl ?? undefined,
+              isOnline: false,
+              checkOutTime: undefined,
+              checkInTime: undefined,
+            })),
+          );
+        } catch {
+          if (!cancelled) {
+            setFriends([]);
+          }
+        } finally {
+          if (!cancelled) {
+            setLoadingFriends(false);
+          }
+        }
+      })();
+      return () => {
+        cancelled = true;
+      };
+    }, [user]),
+  );
 
   // Sort friends: online first (by check-in time, newest first), then offline (by check-out time, newest first)
   const sortedFriends = [...friends].sort((a, b) => {
@@ -142,7 +196,7 @@ const FriendsScreen = () => {
       // Send join request
       if (user) {
         NotificationService.sendJoinRequest(
-          user.firstName || 'En ven',
+          user.displayName || 'En ven',
           friend.id,
           friend.name,
           friend.gymName,
@@ -157,9 +211,9 @@ const FriendsScreen = () => {
     <EmptyState
       icon="people-outline"
       title="Ingen venner endnu"
-      message="Når du tilføjer venner, vil de vises her med deres online status"
-      actionLabel="Inviter venner"
-      onAction={() => navigation.navigate('NewMessage')}
+      message="Søg efter dit brugernavn hos hinanden og send en venneanmodning. Du kan også svare under Notifikationer."
+      actionLabel="Tilføj ven"
+      onAction={openAddFriend}
     />
   );
 
@@ -346,7 +400,7 @@ const FriendsScreen = () => {
             <AutoScrollingTextWrapper>
               {(containerWidth) => (
                 <AutoScrollingText
-                  text={item.gymName}
+                  text={item.gymName ?? ''}
                   containerWidth={containerWidth}
                 />
               )}
@@ -408,15 +462,23 @@ const FriendsScreen = () => {
         contentContainerStyle={
           filteredFriends.length === 0 ? styles.emptyList : styles.list
         }
-        ListEmptyComponent={renderEmptyState}
+        ListEmptyComponent={
+          loadingFriends ? (
+            <View style={styles.loadingEmpty}>
+              <ActivityIndicator size="large" color={colors.primary} />
+            </View>
+          ) : (
+            renderEmptyState()
+          )
+        }
         ListHeaderComponent={
           <TouchableOpacity
-            style={styles.leaderboardBanner}
-            onPress={() => navigation.navigate('Leaderboard')}
-            activeOpacity={0.8}>
-            <Icon name="trophy" size={20} color="#FFD700" />
-            <Text style={styles.leaderboardBannerText}>Se ranglisten</Text>
-            <Icon name="chevron-forward" size={18} color={colors.textMuted} />
+            style={styles.addFriendBanner}
+            onPress={openAddFriend}
+            activeOpacity={0.85}>
+            <Icon name="person-add-outline" size={22} color={colors.white} />
+            <Text style={styles.addFriendBannerText}>Tilføj ven</Text>
+            <Icon name="chevron-forward" size={18} color={colors.white} />
           </TouchableOpacity>
         }
         showsVerticalScrollIndicator={false}
@@ -460,25 +522,25 @@ const styles = StyleSheet.create({
     marginLeft: 8,
     padding: 4,
   },
-  leaderboardBanner: {
+  addFriendBanner: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: colors.backgroundCard,
-    padding: 12,
+    backgroundColor: colors.primary,
+    padding: 14,
     borderRadius: 12,
     marginBottom: 12,
     shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 1},
-    shadowOpacity: 0.05,
-    shadowRadius: 4,
-    elevation: 2,
-    gap: 8,
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+    elevation: 3,
   },
-  leaderboardBannerText: {
+  addFriendBannerText: {
     flex: 1,
-    fontSize: 15,
-    fontWeight: '600',
-    color: colors.text,
+    fontSize: 16,
+    fontWeight: '700',
+    color: colors.white,
+    marginLeft: 10,
   },
   list: {
     paddingHorizontal: 16,
@@ -625,6 +687,11 @@ const styles = StyleSheet.create({
   },
   emptyList: {
     flexGrow: 1,
+  },
+  loadingEmpty: {
+    paddingVertical: 48,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

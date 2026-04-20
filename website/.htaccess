@@ -1,0 +1,16 @@
+# Apache (fx cPanel): så /confirm ikke sendes til SPA index.html.
+# Placér i roden af gymlyapp.com (samme mappe som index.html).
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  RewriteRule ^confirm$ /confirm/index.html [L]
+  RewriteRule ^confirm/$ /confirm/index.html [L]
+  RewriteRule ^auth/confirm$ /auth-confirm/index.html [L]
+  RewriteRule ^auth/confirm/$ /auth-confirm/index.html [L]
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>

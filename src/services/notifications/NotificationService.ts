@@ -35,7 +35,7 @@ class NotificationService {
         ? friends.filter(friend => friendIds.includes(friend.id))
         : friends;
 
-    recipients.forEach(friend => {
+    recipients.forEach(() => {
       addNotification({
         type: 'workout_invite',
         title: `${inviterName} inviterer dig`,
@@ -61,6 +61,27 @@ class NotificationService {
       title: `${joinerName} joiner din træning`,
       message: `${joinerName} deltager på ${gymName}`,
       friendName: joinerName,
+      gymName,
+      isActive: false,
+    });
+  }
+
+  /**
+   * Lokal bekræftelse når bruger beder om at træne med en online ven (ingen server endnu).
+   */
+  static sendJoinRequest(
+    joinerName: string,
+    _friendId: string,
+    friendName: string,
+    gymName?: string,
+  ) {
+    const {addNotification} = useNotificationStore.getState();
+    const place = gymName ? ` på ${gymName}` : '';
+    addNotification({
+      type: 'message',
+      title: 'Anmodning sendt',
+      message: `${joinerName} — vi har registreret din anmodning om at træne med ${friendName}${place}.`,
+      friendName,
       gymName,
       isActive: false,
     });

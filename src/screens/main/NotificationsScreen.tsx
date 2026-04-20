@@ -3,7 +3,7 @@
  * Premium notifikationer – lette at scanne, visuelt pæne
  */
 
-import React, {useEffect} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -13,7 +13,7 @@ import {
   RefreshControl,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {useNavigation} from '@react-navigation/native';
+import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import {useNotificationStore, Notification} from '@/store/notificationStore';
 import {useWorkoutInvitationStore} from '@/store/workoutInvitationStore';
 import {useAppStore} from '@/store/appStore';
@@ -24,6 +24,15 @@ import {formatRelativeTime} from '@/utils/formatRelativeTime';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
 import {EmptyState} from '@/components/ui/EmptyState';
+import {
+  listPendingIncomingRequests,
+  acceptFriendRequest,
+  declineFriendRequest,
+  type PublicProfile,
+  type FriendRequestRow,
+} from '@/services/supabase/friendService';
+
+type IncomingFriendRequest = FriendRequestRow & {fromProfile?: PublicProfile};
 
 const getNotificationIcon = (type: Notification['type']) => {
   switch (type) {
@@ -78,16 +87,40 @@ const NotificationsScreen = () => {
     markInviteJoined,
     seedNotifications,
   } = useNotificationStore();
-  const {getPendingInvitations, acceptInvitation} = useWorkoutInvitationStore();
+  const {getPendingInvitations} = useWorkoutInvitationStore();
   const {acceptPlanInvite} = useWorkoutPlanStore();
 
   const pendingInvitations = user ? getPendingInvitations(user.id) : [];
+  const [incomingFriendRequests, setIncomingFriendRequests] = useState<
+    IncomingFriendRequest[]
+  >([]);
+  const [friendReqBusyId, setFriendReqBusyId] = useState<string | null>(null);
+  const [refreshing, setRefreshing] = useState(false);
+
+  const loadIncomingFriendRequests = useCallback(async () => {
+    if (!user?.id) {
+      setIncomingFriendRequests([]);
+      return;
+    }
+    try {
+      const list = await listPendingIncomingRequests(user.id);
+      setIncomingFriendRequests(list);
+    } catch {
+      setIncomingFriendRequests([]);
+    }
+  }, [user?.id]);
+
+  useFocusEffect(
+    useCallback(() => {
+      void loadIncomingFriendRequests();
+    }, [loadIncomingFriendRequests]),
+  );
 
   useEffect(() => {
     if (notifications.length === 0) {
       getInitialNotifications().then((data) => {
         if (data.length > 0) {
-          seedWithMock(data);
+          seedNotifications(data);
         }
       });
     }
@@ -118,6 +151,39 @@ const NotificationsScreen = () => {
       if (notification.planId) {
         navigation.navigate('WorkoutSchedule', {initialTab: 'upcoming'});
       }
+    }
+  };
+
+  const handleAcceptFriendRequest = async (req: IncomingFriendRequest) => {
+    setFriendReqBusyId(req.id);
+    try {
+      await acceptFriendRequest(req.id);
+      setIncomingFriendRequests(prev => prev.filter(r => r.id !== req.id));
+    } catch {
+      /* stille fejl — bruger kan prøve igen */
+    } finally {
+      setFriendReqBusyId(null);
+    }
+  };
+
+  const handleDeclineFriendRequest = async (req: IncomingFriendRequest) => {
+    setFriendReqBusyId(req.id);
+    try {
+      await declineFriendRequest(req.id);
+      setIncomingFriendRequests(prev => prev.filter(r => r.id !== req.id));
+    } catch {
+      /* stille fejl */
+    } finally {
+      setFriendReqBusyId(null);
+    }
+  };
+
+  const onPullRefresh = async () => {
+    setRefreshing(true);
+    try {
+      await loadIncomingFriendRequests();
+    } finally {
+      setRefreshing(false);
     }
   };
 
@@ -211,6 +277,50 @@ const NotificationsScreen = () => {
         </TouchableOpacity>
       )}
 
+      {incomingFriendRequests.length > 0 && (
+        <View style={styles.friendReqBlock}>
+          <Text style={styles.friendReqHeading}>Venneanmodninger</Text>
+          {incomingFriendRequests.map(req => {
+            const label =
+              req.fromProfile?.displayName ??
+              req.fromProfile?.username ??
+              'Ny bruger';
+            const busy = friendReqBusyId === req.id;
+            return (
+              <View key={req.id} style={styles.friendReqCard}>
+                <Icon name="person-add-outline" size={24} color={colors.primary} />
+                <View style={styles.friendReqBody}>
+                  <Text style={styles.friendReqName} numberOfLines={1}>
+                    {label}
+                  </Text>
+                  {req.fromProfile?.username ? (
+                    <Text style={styles.friendReqSub} numberOfLines={1}>
+                      @{req.fromProfile.username}
+                    </Text>
+                  ) : null}
+                </View>
+                <View style={styles.friendReqActions}>
+                  <TouchableOpacity
+                    onPress={() => handleDeclineFriendRequest(req)}
+                    disabled={busy}
+                    style={[styles.friendReqBtn, styles.friendReqBtnMuted]}
+                    activeOpacity={0.8}>
+                    <Text style={styles.friendReqBtnTextMuted}>Afvis</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() => handleAcceptFriendRequest(req)}
+                    disabled={busy}
+                    style={[styles.friendReqBtn, styles.friendReqBtnPrimary]}
+                    activeOpacity={0.8}>
+                    <Text style={styles.friendReqBtnTextPrimary}>Acceptér</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            );
+          })}
+        </View>
+      )}
+
       <FlatList
         data={notifications}
         keyExtractor={item => item.id}
@@ -229,8 +339,8 @@ const NotificationsScreen = () => {
         }
         refreshControl={
           <RefreshControl
-            refreshing={false}
-            onRefresh={() => {}}
+            refreshing={refreshing}
+            onRefresh={onPullRefresh}
             tintColor={colors.primary}
           />
         }
@@ -285,6 +395,70 @@ const styles = StyleSheet.create({
     color: colors.white,
     flex: 1,
     marginLeft: spacing.md,
+  },
+  friendReqBlock: {
+    marginHorizontal: spacing.lg,
+    marginTop: spacing.md,
+  },
+  friendReqHeading: {
+    ...typography.small,
+    fontWeight: '700',
+    color: colors.textSecondary,
+    marginBottom: spacing.sm,
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+  },
+  friendReqCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.backgroundCard,
+    borderRadius: radius.lg,
+    padding: spacing.md,
+    marginBottom: spacing.sm,
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  friendReqBody: {
+    flex: 1,
+    marginLeft: spacing.md,
+    minWidth: 0,
+  },
+  friendReqName: {
+    ...typography.bodyBold,
+    color: colors.text,
+  },
+  friendReqSub: {
+    ...typography.caption,
+    color: colors.textMuted,
+    marginTop: 2,
+  },
+  friendReqActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.xs,
+  },
+  friendReqBtn: {
+    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.sm,
+    borderRadius: radius.md,
+  },
+  friendReqBtnMuted: {
+    backgroundColor: colors.surface,
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  friendReqBtnPrimary: {
+    backgroundColor: colors.primary,
+  },
+  friendReqBtnTextMuted: {
+    ...typography.small,
+    fontWeight: '600',
+    color: colors.textSecondary,
+  },
+  friendReqBtnTextPrimary: {
+    ...typography.small,
+    fontWeight: '700',
+    color: colors.white,
   },
   list: {
     paddingBottom: spacing.xxxl,

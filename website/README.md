@@ -29,3 +29,10 @@ Derefter gå til http://localhost:8080
 - Farver fra appen: `#8B5CF6` (primary), `#10B981` (secondary)
 - Font: DM Sans
 - Responsivt layout
+
+## Email-bekræftelse (https://gymlyapp.com/confirm)
+
+- Side: **`confirm/index.html`** (egen layout, ingen marketing-navbar).
+- Legacy redirect: **`auth-confirm/index.html`** → `/confirm` (bevarer query/hash).
+- Hosting: ved SPA-fallback skal **`_redirects`** (Netlify), **`vercel.json`** (Vercel) eller **`.htaccess`** (Apache) deployes sammen med siden — se filerne i roden af `website/`.
+- Efter deploy: verificér at [https://gymlyapp.com/confirm](https://gymlyapp.com/confirm) viser bekræftelsessiden, ikke forsiden.

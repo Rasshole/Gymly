@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import {TouchableOpacity, View, Text} from 'react-native';
+import {TouchableOpacity, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import {
@@ -59,6 +59,7 @@ import PushNotificationsScreen from '@/screens/main/PushNotificationsScreen';
 import FeedSortingScreen from '@/screens/main/FeedSortingScreen';
 import ActivityFeedScreen from '@/screens/main/ActivityFeedScreen';
 import GymPresenceScreen from '@/screens/main/GymPresenceScreen';
+import AddFriendScreen from '@/screens/main/AddFriendScreen';
 import {useNotificationStore} from '@/store/notificationStore';
 import CustomTabBar from '@/components/CustomTabBar';
 import NotificationBadge from '@/components/ui/Badge';
@@ -152,6 +153,7 @@ export type MainStackParamList = {
   FeedSorting: undefined;
   ActivityFeed: undefined;
   GymPresence: {gym?: any} | undefined;
+  AddFriend: undefined;
 };
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
@@ -563,6 +565,13 @@ const MainNavigator = () => {
       <Stack.Screen
         name="GymPresence"
         component={GymPresenceScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="AddFriend"
+        component={AddFriendScreen}
         options={{
           headerShown: false,
         }}

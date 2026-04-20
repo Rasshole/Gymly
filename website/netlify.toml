@@ -1,0 +1,25 @@
+# gymlyapp.com på Netlify: build/publish skal pege på website/ (eller kopier disse redirects til root-config).
+
+[[redirects]]
+  from = "/confirm"
+  to = "/confirm/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/confirm/"
+  to = "/confirm/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/auth/confirm"
+  to = "/auth-confirm/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/auth/confirm/"
+  to = "/auth-confirm/index.html"
+  status = 200
+  force = true

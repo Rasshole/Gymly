@@ -6,8 +6,8 @@ export const SUPABASE_ANON_KEY =
  * After email confirm, Supabase redirects here (must be on Redirect URL allow list).
  * In Dashboard: Authentication → URL Configuration:
  * - Site URL: https://gymlyapp.com  ← NOT http://localhost:3000 or links open localhost
- * - Redirect URLs: https://gymlyapp.com/auth/confirm (and optionally https://gymlyapp.com/**)
- * Host the page from repo: web/auth-confirm/index.html at this path on gymlyapp.com
+ * - Redirect URLs: https://gymlyapp.com/confirm (and legacy https://gymlyapp.com/auth/confirm → /confirm)
+ * Host: web/confirm/index.html at https://gymlyapp.com/confirm
  */
-export const SUPABASE_EMAIL_REDIRECT = 'https://gymlyapp.com/auth/confirm';
+export const SUPABASE_EMAIL_REDIRECT = 'https://gymlyapp.com/confirm';
 export const SUPABASE_ALLOW_UNVERIFIED_LOGIN = false;
