@@ -3,7 +3,7 @@
  * Shows list of friends and who is currently online/active at gyms
  */
 
-import React, {useState, useRef, useEffect, useCallback} from 'react';
+import React, {useState, useCallback} from 'react';
 import {
   View,
   Text,
@@ -12,12 +12,13 @@ import {
   TouchableOpacity,
   TextInput,
   Image,
-  ScrollView,
   ActivityIndicator,
+  Pressable,
 } from 'react-native';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppStore} from '@/store/appStore';
+import {useFriendStore} from '@/store/friendStore';
 import NotificationService from '@/services/notifications/NotificationService';
 import EmptyState from '@/components/ui/EmptyState';
 import colors from '@/theme/colors';
@@ -27,6 +28,12 @@ import {
   listFriendsWithProfiles,
   upsertMyProfile,
 } from '@/services/supabase/friendService';
+import {
+  PRESENCE_WINDOW_HOURS,
+  fetchLatestCheckInPerUser,
+  type CheckInRow,
+} from '@/services/supabase/presenceService';
+import {navigateToFriendProfile} from '@/navigation/rootNavigation';
 
 type Friend = {
   id: string;
@@ -43,6 +50,7 @@ type Friend = {
 const FriendsScreen = () => {
   const navigation = useNavigation<any>();
   const {user} = useAppStore();
+  const loadFriendStore = useFriendStore(s => s.load);
   const [searchQuery, setSearchQuery] = useState('');
   const [pendingJoinRequests, setPendingJoinRequests] = useState<Set<string>>(new Set());
   const [friends, setFriends] = useState<Friend[]>([]);
@@ -57,6 +65,19 @@ const FriendsScreen = () => {
     (navigation as any).navigate?.('AddFriend');
   }, [navigation]);
 
+  const openFriendProfile = useCallback(
+    (item: Friend) => {
+      navigateToFriendProfile(navigation, {
+        friendId: item.id,
+        friendName: item.name,
+        mutualFriends: 0,
+        gyms: item.gymName ? [item.gymName] : [],
+        friendAvatarUrl: item.avatar,
+      });
+    },
+    [navigation],
+  );
+
   useFocusEffect(
     useCallback(() => {
       if (!user) {
@@ -69,19 +90,52 @@ const FriendsScreen = () => {
         setLoadingFriends(true);
         try {
           await upsertMyProfile(user);
+          void loadFriendStore(user.id);
           const profiles = await listFriendsWithProfiles(user.id);
           if (cancelled) {
             return;
           }
+          const friendIds = profiles.map(p => p.id);
+          let latestByUser = new Map<string, CheckInRow>();
+          try {
+            latestByUser = await fetchLatestCheckInPerUser(friendIds);
+          } catch {
+            latestByUser = new Map();
+          }
+          if (cancelled) {
+            return;
+          }
+          const windowMs = PRESENCE_WINDOW_HOURS * 3600_000;
+          const now = Date.now();
           setFriends(
-            profiles.map(p => ({
-              id: p.id,
-              name: p.displayName,
-              avatar: p.avatarUrl ?? undefined,
-              isOnline: false,
-              checkOutTime: undefined,
-              checkInTime: undefined,
-            })),
+            profiles.map(p => {
+              const row = latestByUser.get(p.id);
+              if (row && now - new Date(row.created_at).getTime() <= windowMs) {
+                const mins = Math.max(
+                  1,
+                  Math.floor((now - new Date(row.created_at).getTime()) / 60_000),
+                );
+                return {
+                  id: p.id,
+                  name: p.displayName,
+                  avatar: p.avatarUrl ?? undefined,
+                  isOnline: true,
+                  gymName: row.gym_name,
+                  activeTime: `${mins} min`,
+                  muscleGroup: row.workout_type ?? undefined,
+                  checkInTime: new Date(row.created_at),
+                  checkOutTime: undefined,
+                };
+              }
+              return {
+                id: p.id,
+                name: p.displayName,
+                avatar: p.avatarUrl ?? undefined,
+                isOnline: false,
+                checkOutTime: row ? new Date(row.created_at) : undefined,
+                checkInTime: undefined,
+              };
+            }),
           );
         } catch {
           if (!cancelled) {
@@ -96,7 +150,7 @@ const FriendsScreen = () => {
       return () => {
         cancelled = true;
       };
-    }, [user]),
+    }, [user, loadFriendStore]),
   );
 
   // Sort friends: online first (by check-in time, newest first), then offline (by check-out time, newest first)
@@ -217,148 +271,16 @@ const FriendsScreen = () => {
     />
   );
 
-  const AutoScrollingTextWrapper = ({
-    children,
-  }: {
-    children: (width: number) => React.ReactNode;
-  }) => {
-    const [containerWidth, setContainerWidth] = useState(250);
-
-    return (
-      <View
-        style={styles.activeTextWrapper}
-        onLayout={(event) => {
-          const {width} = event.nativeEvent.layout;
-          if (width > 0) {
-            setContainerWidth(width);
-          }
-        }}>
-        {children(containerWidth)}
-      </View>
-    );
-  };
-
-  const AutoScrollingText = ({
-    text,
-    containerWidth,
-  }: {
-    text: string;
-    containerWidth: number;
-  }) => {
-    const scrollViewRef = useRef<ScrollView>(null);
-    const textWidthRef = useRef<number>(0);
-    const intervalRef = useRef<NodeJS.Timeout | null>(null);
-    const isHoldingRef = useRef<boolean>(false);
-    const scrollPositionRef = useRef<number>(0);
-    const directionRef = useRef<'forward' | 'backward'>('forward');
-    const [canScroll, setCanScroll] = useState(false);
-
-    useEffect(() => {
-      return () => {
-        if (intervalRef.current) {
-          clearInterval(intervalRef.current);
-        }
-      };
-    }, []);
-
-    const handleTextLayout = (event: any) => {
-      const {width} = event.nativeEvent.layout;
-      textWidthRef.current = width;
-      if (width > containerWidth * 0.9) {
-        setCanScroll(true);
-      }
-    };
-
-    const startLoopScroll = () => {
-      if (!canScroll || textWidthRef.current <= containerWidth || isHoldingRef.current) {
-        return;
-      }
-
-      isHoldingRef.current = true;
-      const scrollDistance = textWidthRef.current - containerWidth;
-      const scrollStep = 2; // Pixels per interval
-      const scrollInterval = 16; // ~60fps
-
-      intervalRef.current = setInterval(() => {
-        if (!isHoldingRef.current) {
-          if (intervalRef.current) {
-            clearInterval(intervalRef.current);
-            intervalRef.current = null;
-          }
-          return;
-        }
-
-        scrollPositionRef.current += directionRef.current === 'forward' ? scrollStep : -scrollStep;
-
-        if (scrollPositionRef.current >= scrollDistance) {
-          scrollPositionRef.current = scrollDistance;
-          directionRef.current = 'backward';
-        } else if (scrollPositionRef.current <= 0) {
-          scrollPositionRef.current = 0;
-          directionRef.current = 'forward';
-        }
-
-        scrollViewRef.current?.scrollTo({
-          x: scrollPositionRef.current,
-          animated: false,
-        });
-      }, scrollInterval);
-    };
-
-    const stopLoopScroll = () => {
-      isHoldingRef.current = false;
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-        intervalRef.current = null;
-      }
-      // Scroll back to start smoothly
-      scrollPositionRef.current = 0;
-      directionRef.current = 'forward';
-      scrollViewRef.current?.scrollTo({x: 0, animated: true});
-    };
-
-    return (
-      <TouchableOpacity
-        activeOpacity={1}
-        onPressIn={startLoopScroll}
-        onPressOut={stopLoopScroll}
-        style={styles.activeTextTouchContainer}>
-        <ScrollView
-          ref={scrollViewRef}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          style={[styles.activeTextContainer, {maxWidth: containerWidth}]}
-          contentContainerStyle={styles.activeTextContent}
-          nestedScrollEnabled
-          scrollEnabled={false}>
-          <Text
-            style={styles.activeText}
-            onLayout={handleTextLayout}
-            numberOfLines={1}>
-            {text}
-          </Text>
-        </ScrollView>
-      </TouchableOpacity>
-    );
-  };
-
   const renderFriendItem = ({item}: {item: Friend}) => (
     <View style={styles.friendItem}>
-      <TouchableOpacity
-        style={styles.friendInfoContainer}
-        onPress={() => {
-          if (item.isOnline) {
-            navigation.navigate('FriendWorkoutDetail', {
-              friendId: item.id,
-              friendName: item.name,
-              activeTime: item.activeTime,
-              gymName: item.gymName,
-              muscleGroup: item.muscleGroup,
-            });
-          }
-        }}
-        activeOpacity={item.isOnline ? 0.7 : 1}
-        disabled={!item.isOnline}>
+      <Pressable
+        style={({pressed}) => [
+          styles.friendInfoContainer,
+          pressed && styles.friendInfoContainerPressed,
+        ]}
+        onPress={() => openFriendProfile(item)}
+        accessibilityRole="button"
+        accessibilityLabel={`${item.name}, se profil`}>
         <View style={styles.avatarContainer}>
           {item.avatar ? (
             <Image source={{uri: item.avatar}} style={styles.avatar} />
@@ -397,14 +319,12 @@ const FriendsScreen = () => {
             )}
           </View>
           {item.isOnline && item.gymName && (
-            <AutoScrollingTextWrapper>
-              {(containerWidth) => (
-                <AutoScrollingText
-                  text={item.gymName ?? ''}
-                  containerWidth={containerWidth}
-                />
-              )}
-            </AutoScrollingTextWrapper>
+            <Text
+              style={styles.activeText}
+              numberOfLines={1}
+              ellipsizeMode="tail">
+              {item.gymName}
+            </Text>
           )}
           {!item.isOnline && (
             <Text style={styles.offlineText} numberOfLines={1}>
@@ -412,7 +332,7 @@ const FriendsScreen = () => {
             </Text>
           )}
         </View>
-      </TouchableOpacity>
+      </Pressable>
       {item.isOnline && (
         <TouchableOpacity
           style={[
@@ -563,6 +483,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
   },
+  friendInfoContainerPressed: {
+    opacity: 0.75,
+  },
   separator: {
     height: 1,
     backgroundColor: '#E5E5EA',
@@ -605,10 +528,6 @@ const styles = StyleSheet.create({
     flex: 1,
     minWidth: 0, // Allow text to shrink
   },
-  activeTextWrapper: {
-    flex: 1,
-    minWidth: 0,
-  },
   friendHeader: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -645,16 +564,6 @@ const styles = StyleSheet.create({
     height: 8,
     borderRadius: 4,
     backgroundColor: '#34C759',
-  },
-  activeTextTouchContainer: {
-    flex: 1,
-    minWidth: 0,
-  },
-  activeTextContainer: {
-    maxWidth: '100%',
-  },
-  activeTextContent: {
-    paddingRight: 4,
   },
   activeText: {
     fontSize: 14,

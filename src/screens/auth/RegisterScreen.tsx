@@ -31,7 +31,9 @@ import AuthService from '@/services/auth/AuthService';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon from 'react-native-vector-icons/Ionicons';
 import GymlyLogo from '@/components/GymlyLogo';
-import danishGyms, {DanishGym, DanishRegion} from '@/data/danishGyms';
+import {getActiveDanishGyms, DanishGym, DanishRegion} from '@/data/danishGyms';
+
+const REG_PICKER_GYMS = getActiveDanishGyms();
 import colors from '@/theme/colors';
 import {spacing, radius, shadows} from '@/theme/designTokens';
 import {
@@ -147,7 +149,7 @@ const RegisterScreen = () => {
     }
     const normalizedQuery = normalizeSearchValue(trimmed);
     const tokens = normalizedQuery.split(/\s+/).filter(Boolean);
-    const filtered = danishGyms.filter(option => {
+    const filtered = REG_PICKER_GYMS.filter(option => {
       if (tokens.length === 0) return true;
       const haystack = normalizeSearchValue(
         `${option.name} ${option.city ?? ''} ${option.region} ${option.address ?? ''}`,
@@ -392,15 +394,15 @@ const RegisterScreen = () => {
 
   const handleSocialContinue = () => setStep('privacy');
 
-  const buildFavoriteGymIds = (): number[] => {
-    const ids: number[] = [];
+  const buildFavoriteGymIds = (): string[] => {
+    const ids: string[] = [];
     favoriteGymLabels.forEach((label, index) => {
       const trimmed = label.trim();
       if (!trimmed) return;
       const selected = favoriteGyms[index];
       const gymId =
         selected?.id ??
-        danishGyms.find(
+        REG_PICKER_GYMS.find(
           g =>
             g.name.toLowerCase().includes(trimmed.toLowerCase()) ||
             (g.city && g.city.toLowerCase().includes(trimmed.toLowerCase())),

@@ -14,7 +14,7 @@ export interface OnlineUser {
   profileImageUrl?: string;
   avatarInitials?: string;
   gymName?: string;
-  gymId?: number;
+  gymId?: string;
   city?: string;
   lastActive: Date;
   status: OnlineUserStatus;

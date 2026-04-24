@@ -265,7 +265,7 @@ export async function fetchFriendsLeaderboard(
 }
 
 export async function fetchGymLeaderboard(
-  gymId: number,
+  gymId: string,
   gymName: string,
   period: LeaderboardPeriod,
   currentUserId: string,
@@ -319,7 +319,7 @@ export async function fetchGymLeaderboard(
   }, emptyResult);
 }
 
-export async function fetchWeeklyChampion(gymId: number): Promise<WeeklyChampion | null> {
+export async function fetchWeeklyChampion(gymId: string): Promise<WeeklyChampion | null> {
   if (!USE_FIRESTORE_LEADERBOARD) {
     const store = useLeaderboardStore.getState();
     return store.getWeeklyChampion(gymId) ?? null;
@@ -340,7 +340,7 @@ export async function fetchWeeklyChampions(): Promise<WeeklyChampion[]> {
   return safeFirestore(fetchWeeklyChampionsFromFirestore, []);
 }
 
-async function fetchWeeklyChampionFromFirestore(gymId: number): Promise<WeeklyChampion | null> {
+async function fetchWeeklyChampionFromFirestore(gymId: string): Promise<WeeklyChampion | null> {
   const doc = await firestore()
     .collection(COLLECTION_GYMS)
     .doc(String(gymId))
@@ -366,8 +366,8 @@ async function fetchWeeklyChampionsFromFirestore(): Promise<WeeklyChampion[]> {
   const gymsSnapshot = await firestore().collection(COLLECTION_GYMS).limit(50).get();
   const champions: WeeklyChampion[] = [];
   for (const gymDoc of gymsSnapshot.docs) {
-    const gymId = parseInt(gymDoc.id, 10) || gymDoc.id;
-    const champ = await fetchWeeklyChampionFromFirestore(gymId as number);
+    const gymId = gymDoc.id;
+    const champ = await fetchWeeklyChampionFromFirestore(gymId);
     if (champ) {
       champions.push(champ);
     }

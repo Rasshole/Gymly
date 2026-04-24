@@ -8,16 +8,16 @@
 import {USE_FIRESTORE_LEADERBOARD} from '@/config/leaderboardConfig';
 
 export type LeaderboardEvent =
-  | {type: 'checkIn'; userId: string; gymId: number}
-  | {type: 'workout'; userId: string; durationMinutes: number; gymId?: number; muscleGroup?: string; friendIds?: string[]}
+  | {type: 'checkIn'; userId: string; gymId: string}
+  | {type: 'workout'; userId: string; durationMinutes: number; gymId?: string; muscleGroup?: string; friendIds?: string[]}
   | {type: 'pr'; userId: string; exercise: string; weightKg: number}
-  | {type: 'checkOut'; userId: string; gymId: number; durationMinutes: number};
+  | {type: 'checkOut'; userId: string; gymId: string; durationMinutes: number};
 
 /**
  * Kald efter check-in
  * Cloud Function: onCheckIn -> increment checkIns.weekly/monthly/allTime, update gym leaderboard
  */
-export function onCheckIn(userId: string, gymId: number): void {
+export function onCheckIn(userId: string, gymId: string): void {
   if (USE_FIRESTORE_LEADERBOARD) {
     // TODO: Cloud Function eller client write
     // await updateUserLeaderboardStats(userId, { checkIns: increment(1) })
@@ -34,7 +34,7 @@ export function onCheckIn(userId: string, gymId: number): void {
 export function onWorkoutComplete(
   userId: string,
   durationMinutes: number,
-  options?: {gymId?: number; muscleGroup?: string; friendIds?: string[]}
+  options?: {gymId?: string; muscleGroup?: string; friendIds?: string[]}
 ): void {
   if (USE_FIRESTORE_LEADERBOARD) {
     // TODO: Cloud Function
@@ -67,7 +67,7 @@ export function onPRSet(
  */
 export function onCheckOut(
   userId: string,
-  gymId: number,
+  gymId: string,
   durationMinutes: number
 ): void {
   if (USE_FIRESTORE_LEADERBOARD) {

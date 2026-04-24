@@ -55,10 +55,10 @@ const EditProfileScreen = () => {
   const [profileVisibility, setProfileVisibility] = useState<ProfileVisibility>(
     user?.privacySettings.profileVisibility || 'private'
   );
-  const [gymIdsDraft, setGymIdsDraft] = useState<number[]>(
-    () => user?.favoriteGyms?.filter(Boolean) ?? [],
+  const [gymIdsDraft, setGymIdsDraft] = useState<string[]>(
+    () => (user?.favoriteGyms?.filter(Boolean) as string[] | undefined) ?? [],
   );
-  const handleGymIdsChange = useCallback((ids: number[]) => {
+  const handleGymIdsChange = useCallback((ids: string[]) => {
     setGymIdsDraft(ids);
   }, []);
   const bicepsOptions = ['💪🏻', '💪🏼', '💪🏽', '💪🏾', '💪🏿', '🦾'];

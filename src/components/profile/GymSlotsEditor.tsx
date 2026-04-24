@@ -12,15 +12,18 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import danishGyms, {DanishGym} from '@/data/danishGyms';
+import {getActiveDanishGyms} from '@/data/danishGyms';
+import type {DanishGym} from '@/data/danishGyms';
+
+const PICKER_GYMS = getActiveDanishGyms();
 import colors from '@/theme/colors';
 import {spacing, typography, shadows} from '@/theme/designTokens';
 
-function slotsFromIds(ids: (number | undefined)[]): (DanishGym | null)[] {
+function slotsFromIds(ids: (string | undefined)[]): (DanishGym | null)[] {
   return [0, 1, 2].map(i => {
     const id = ids[i];
     if (!id) return null;
-    return danishGyms.find(g => g.id === id) ?? null;
+    return PICKER_GYMS.find(g => g.id === id) ?? null;
   });
 }
 
@@ -33,20 +36,22 @@ function labelsFromSlots(slots: (DanishGym | null)[]): string[] {
 function buildIds(
   slots: (DanishGym | null)[],
   labels: string[],
-): number[] {
-  const ids: number[] = [];
+): string[] {
+  const ids: string[] = [];
   labels.forEach((label, index) => {
     const trimmed = label.trim();
     if (!trimmed) return;
     const selected = slots[index];
     const gymId =
       selected?.id ??
-      danishGyms.find(
+      PICKER_GYMS.find(
         g =>
           g.name.toLowerCase().includes(trimmed.toLowerCase()) ||
           (g.city && g.city.toLowerCase().includes(trimmed.toLowerCase())),
       )?.id;
-    if (gymId != null && !ids.includes(gymId)) ids.push(gymId);
+    if (gymId != null && gymId !== '' && !ids.includes(gymId)) {
+      ids.push(gymId);
+    }
   });
   return ids;
 }
@@ -59,9 +64,9 @@ const normalizeSearchValue = (value: string) =>
     .toLowerCase();
 
 export type GymSlotsEditorProps = {
-  /** Op til 3 gym-ID'er i rækkefølge */
-  initialIds: number[];
-  onIdsChange: (ids: number[]) => void;
+  /** Op til 3 center-ids i rækkefølge */
+  initialIds: string[];
+  onIdsChange: (ids: string[]) => void;
 };
 
 export const GymSlotsEditor: React.FC<GymSlotsEditorProps> = ({
@@ -90,7 +95,7 @@ export const GymSlotsEditor: React.FC<GymSlotsEditorProps> = ({
     }
     const normalizedQuery = normalizeSearchValue(trimmed);
     const tokens = normalizedQuery.split(/\s+/).filter(Boolean);
-    const filtered = danishGyms.filter(option => {
+    const filtered = PICKER_GYMS.filter(option => {
       if (tokens.length === 0) return true;
       const haystack = normalizeSearchValue(
         `${option.name} ${option.city ?? ''} ${option.region} ${option.address ?? ''}`,

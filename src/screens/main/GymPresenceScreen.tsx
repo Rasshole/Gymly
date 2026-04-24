@@ -3,9 +3,9 @@
  * Shows active gyms list or user list for a specific gym
  */
 
-import React from 'react';
+import React, {useCallback} from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
-import {useNavigation, useRoute} from '@react-navigation/native';
+import {useNavigation, useRoute, useFocusEffect} from '@react-navigation/native';
 import ScreenHeader from '@/components/ui/ScreenHeader';
 import {ActiveUserRow} from '@/components/ui/ActiveUserRow';
 import {GymPresenceCard} from '@/components/ui/GymPresenceCard';
@@ -19,7 +19,13 @@ const GymPresenceScreen = () => {
   const navigation = useNavigation<any>();
   const route = useRoute<any>();
   const gym = route.params?.gym as GymPresence | undefined;
-  const {gyms: activeGyms} = useGymPresence();
+  const {gyms: activeGyms, refresh: refreshPresence} = useGymPresence();
+
+  useFocusEffect(
+    useCallback(() => {
+      void refreshPresence();
+    }, [refreshPresence]),
+  );
 
   // Show gym detail (user list) when a specific gym was passed
   if (gym) {

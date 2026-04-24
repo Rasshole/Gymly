@@ -3,7 +3,7 @@
  * Premium conversation list – moderne, clean, social
  */
 
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {
   View,
   Text,
@@ -13,10 +13,13 @@ import {
   Image,
   TextInput,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {useChatStore, Chat} from '@/store/chatStore';
+import {useChatStore, Chat, ChatMessage} from '@/store/chatStore';
+import {CURRENT_USER_PLACEHOLDER_ID} from '@/store/groupStore';
+import {useAppStore} from '@/store/appStore';
 import {getInitialChats, getInitialMessages} from '@/services/data';
+import {syncDmInboxToStore} from '@/services/supabase/dmInboxSync';
 import {formatRelativeTime} from '@/utils/formatRelativeTime';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
@@ -35,10 +38,126 @@ type ConversationItem = {
   isActive?: boolean;
 };
 
+/** Kun modparten(e) i listen – ikke eget navn */
+function getConversationTitle(
+  chat: Chat,
+  currentUserId: string | undefined,
+  myDisplayName: string | undefined,
+): string {
+  const ids = chat.participantIds;
+  const names = chat.participantNames;
+  if (!names?.length) {
+    return 'Besked';
+  }
+  if (ids?.length && names.length) {
+    const n = Math.min(ids.length, names.length);
+    const otherNames: string[] = [];
+    for (let i = 0; i < n; i++) {
+      const id = ids[i];
+      if (
+        (currentUserId && id === currentUserId) ||
+        id === 'current_user' ||
+        id === CURRENT_USER_PLACEHOLDER_ID
+      ) {
+        continue;
+      }
+      const label = names[i];
+      if (label) {
+        otherNames.push(label);
+      }
+    }
+    if (otherNames.length > 0) {
+      return otherNames.join(', ');
+    }
+  }
+  const myLower = (myDisplayName || '').trim().toLowerCase();
+  const filtered = names.filter(
+    name =>
+      name &&
+      name !== 'Dig' &&
+      (!myLower || name.trim().toLowerCase() !== myLower),
+  );
+  return filtered.join(', ') || 'Gruppe';
+}
+
+const PREVIEW_MAX_LEN = 100;
+
+function previewForListMessage(
+  m: ChatMessage | undefined,
+  myId: string | undefined,
+): string {
+  if (!m) {
+    return '';
+  }
+  const isMine =
+    myId != null &&
+    (m.senderId === myId ||
+      m.senderId === 'current_user' ||
+      m.senderId === CURRENT_USER_PLACEHOLDER_ID);
+  let body = '';
+  const t = m.text?.trim();
+  if (t) {
+    body = t.length > PREVIEW_MAX_LEN ? `${t.slice(0, PREVIEW_MAX_LEN - 1)}…` : t;
+  } else if (m.imageUri) {
+    body = 'Billede';
+  }
+  if (!body) {
+    return '';
+  }
+  return isMine ? `Du: ${body}` : body;
+}
+
+/** Seneste besked til listen: chat.lastMessage eller sidste i tråden */
+function getLastMessageInThread(
+  chat: Chat,
+  messagesByChat: Record<string, ChatMessage[] | undefined>,
+): ChatMessage | undefined {
+  if (chat.lastMessage) {
+    return chat.lastMessage;
+  }
+  const msgs = messagesByChat[chat.id];
+  if (msgs?.length) {
+    return msgs[msgs.length - 1];
+  }
+  return undefined;
+}
+
+function getChatListPreview(
+  chat: Chat,
+  messagesByChat: Record<string, ChatMessage[] | undefined>,
+  myId: string | undefined,
+): string {
+  const last = getLastMessageInThread(chat, messagesByChat);
+  return previewForListMessage(last, myId);
+}
+
 const MessagesScreen = () => {
   const navigation = useNavigation<any>();
   const {chats, seedChatsFromInitial, markChatAsRead} = useChatStore();
+  const messagesByChat = useChatStore(s => s.messagesByChat);
+  const totalMessageUnread = useChatStore(s =>
+    s.chats.reduce((sum, c) => sum + (c.unreadCount ?? 0), 0),
+  );
+  const {user} = useAppStore();
   const [searchQuery, setSearchQuery] = useState('');
+
+  useFocusEffect(
+    useCallback(() => {
+      if (!user?.id) {
+        return;
+      }
+      void (async () => {
+        try {
+          await syncDmInboxToStore(
+            user.id,
+            user.displayName?.trim() || 'Dig',
+          );
+        } catch {
+          // offline / RLS: ignore; liste viser cache
+        }
+      })();
+    }, [user?.id, user?.displayName]),
+  );
 
   useEffect(() => {
     if (chats.length === 0) {
@@ -53,15 +172,19 @@ const MessagesScreen = () => {
   }, [chats.length, seedChatsFromInitial]);
 
   const conversations = useMemo(() => {
+    const meId = user?.id;
+    const meName = user?.displayName;
     return chats
       .map((chat) => ({
         id: chat.id,
-        name:
-          chat.participantNames.filter((n) => n !== 'Dig').join(', ') || 'Gruppe',
-        lastMessage: chat.lastMessage?.text || '',
-        timestamp: chat.lastMessage
-          ? formatRelativeTime(chat.lastMessage.timestamp)
-          : formatRelativeTime(chat.lastActivity),
+        name: getConversationTitle(chat, meId, meName),
+        lastMessage: getChatListPreview(chat, messagesByChat, meId),
+        timestamp: (() => {
+          const last = getLastMessageInThread(chat, messagesByChat);
+          return last
+            ? formatRelativeTime(last.timestamp)
+            : formatRelativeTime(chat.lastActivity);
+        })(),
         unreadCount: chat.unreadCount,
         participantIds: chat.participantIds,
         participants: chat.participantNames,
@@ -77,13 +200,19 @@ const MessagesScreen = () => {
           item.lastMessage.toLowerCase().includes(q)
         );
       });
-  }, [chats, searchQuery]);
+  }, [chats, searchQuery, user?.id, user?.displayName, messagesByChat]);
 
   const handleOpenChat = (item: ConversationItem) => {
+    const myId = user?.id;
     const participantIds = item.participantIds || [];
     const participants = participantIds
-      .filter((id) => id !== 'current_user')
-      .map((id, idx) => ({
+      .filter(
+        id =>
+          id !== 'current_user' &&
+          id !== CURRENT_USER_PLACEHOLDER_ID &&
+          (myId ? id !== myId : true),
+      )
+      .map(id => ({
         id,
         name: item.participants?.[participantIds.indexOf(id)] || 'Ven',
       }));
@@ -180,6 +309,18 @@ const MessagesScreen = () => {
         contentContainerStyle={
           conversations.length === 0 ? styles.emptyContainer : styles.list
         }
+        ListHeaderComponent={
+          totalMessageUnread > 0 && conversations.length > 0 ? (
+            <View style={styles.unreadStrip}>
+              <Icon name="notifications-outline" size={18} color={colors.primary} />
+              <Text style={styles.unreadStripText}>
+                {totalMessageUnread === 1
+                  ? '1 ny besked – åbn samtalen nedenfor'
+                  : `${totalMessageUnread} nye beskeder – åbn samtalerne nedenfor`}
+              </Text>
+            </View>
+          ) : null
+        }
         ListEmptyComponent={
           <EmptyState
             icon="chatbubbles-outline"
@@ -238,6 +379,23 @@ const styles = StyleSheet.create({
   },
   searchIcon: {
     marginRight: spacing.sm,
+  },
+  unreadStrip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    marginBottom: spacing.md,
+    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.md,
+    backgroundColor: colors.primary + '12',
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.primary + '28',
+  },
+  unreadStripText: {
+    ...typography.caption,
+    color: colors.text,
+    flex: 1,
   },
   searchInput: {
     flex: 1,

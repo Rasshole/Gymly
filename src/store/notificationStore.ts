@@ -23,6 +23,8 @@ interface NotificationState {
   removeNotification: (id: string) => void;
   checkOutFriend: (friendName: string) => void; // Mark friend as checked out
   markInviteJoined: (id: string) => void;
+  /** Marker besked-notifikationer for en chat som læst (når brugeren åbner tråden) */
+  markMessageNotificationsForChatRead: (chatId: string) => void;
   seedNotifications: (notifications: Omit<Notification, 'id' | 'timestamp' | 'read'>[]) => void;
 }
 
@@ -37,6 +39,17 @@ export const useNotificationStore = create<NotificationState>((set, get) => ({
    * Add a new notification
    */
   addNotification: (notificationData) => {
+    if (notificationData.friendRequestId) {
+      const frId = notificationData.friendRequestId;
+      if (
+        get().notifications.some(
+          n =>
+            n.type === 'friend_request' && n.friendRequestId === frId,
+        )
+      ) {
+        return;
+      }
+    }
     const now = new Date();
     const notification: Notification = {
       ...notificationData,
@@ -155,6 +168,21 @@ export const useNotificationStore = create<NotificationState>((set, get) => ({
       return {
         notifications,
         unreadCount: notifications.filter(notif => !notif.read).length,
+      };
+    });
+  },
+
+  markMessageNotificationsForChatRead: chatId => {
+    if (!chatId) return;
+    set(state => {
+      const notifications = state.notifications.map(notif =>
+        notif.type === 'message' && notif.chatId === chatId
+          ? {...notif, read: true}
+          : notif,
+      );
+      return {
+        notifications,
+        unreadCount: notifications.filter(n => !n.read).length,
       };
     });
   },

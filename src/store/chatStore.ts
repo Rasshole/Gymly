@@ -1,4 +1,5 @@
 import {create} from 'zustand';
+import {useNotificationStore} from '@/store/notificationStore';
 import {DanishGym} from '@/data/danishGyms';
 import {MuscleGroup} from '@/types/workout.types';
 
@@ -25,15 +26,27 @@ export interface Chat {
 
 export interface ChatPlan {
   id: string;
+  /** Supabase planned_workouts.id når plan er synket */
+  serverPlannedWorkoutId?: string;
   gym: DanishGym;
   muscles: MuscleGroup[];
   scheduledAt: Date;
   createdBy: string;
   joinedIds: string[];
   invitedIds: string[];
+  /** Modtagerens svar (kun meningsfuldt for én-til-én-inviter) */
+  inviteeResponse?: 'pending' | 'accepted' | 'declined';
 }
 
 interface ChatState {
+  /** Tråd der lige nu vises (Chat-screen fokus) – ulæste tælles ikke for den */
+  foregroundOpenChatId: string | null;
+  setForegroundOpenChatId: (chatId: string | null) => void;
+  /**
+   * Seneste "jeg har set denne tråd"-tid (ms). Indbagkesync sammenligner med
+   * serverens last_message_at så badget vises også når Realtime udebliver.
+   */
+  threadLastReadAt: Record<string, number>;
   chats: Chat[];
   messagesByChat: Record<string, ChatMessage[]>;
   activePlansByChat: Record<string, ChatPlan | null>;
@@ -48,9 +61,24 @@ interface ChatState {
   updateActivePlanForChat: (chatId: string, updater: (plan: ChatPlan | null) => ChatPlan | null) => void;
   getActivePlanForChat: (chatId: string) => ChatPlan | null;
   seedChatsFromInitial: (chats: Chat[], messagesByChat: Record<string, ChatMessage[]>) => void;
+  /** Erstat tråd (bruges når server har uuid / sync indbakke) */
+  upsertChat: (chat: Chat) => void;
+  /** Erstat hele besked-listen (hent fra Supabase) */
+  setMessagesForChat: (chatId: string, messages: ChatMessage[]) => void;
+  mergeIncomingMessage: (
+    threadId: string,
+    message: ChatMessage,
+    fromCurrentUser: boolean,
+    myUserId?: string,
+  ) => void;
 }
 
 export const useChatStore = create<ChatState>((set, get) => ({
+  foregroundOpenChatId: null,
+  setForegroundOpenChatId: chatId => set({foregroundOpenChatId: chatId}),
+
+  threadLastReadAt: {},
+
   chats: [],
   messagesByChat: {},
   activePlansByChat: {},
@@ -74,6 +102,8 @@ export const useChatStore = create<ChatState>((set, get) => ({
 
   updateChatLastMessage: (chatId, message, options) => {
     const fromCurrentUser = options?.fromCurrentUser ?? false;
+    const openId = get().foregroundOpenChatId;
+    const skipUnread = fromCurrentUser || openId === chatId;
     set((state) => ({
       chats: state.chats.map((chat) =>
         chat.id === chatId
@@ -81,11 +111,34 @@ export const useChatStore = create<ChatState>((set, get) => ({
               ...chat,
               lastMessage: message,
               lastActivity: new Date(),
-              unreadCount: fromCurrentUser ? chat.unreadCount : chat.unreadCount + 1,
+              unreadCount: skipUnread ? chat.unreadCount : chat.unreadCount + 1,
             }
           : chat,
       ),
     }));
+    if (!fromCurrentUser && openId !== chatId) {
+      const chat = get().chats.find((c) => c.id === chatId);
+      if (chat) {
+        const i = chat.participantIds.indexOf(message.senderId);
+        const senderName =
+          i >= 0
+            ? chat.participantNames[i] ?? 'En ven'
+            : 'En ven';
+        const preview = message.text?.trim()
+          ? message.text.slice(0, 120)
+          : message.imageUri
+            ? 'Billede'
+            : 'Ny besked';
+        useNotificationStore.getState().addNotification({
+          type: 'message',
+          title: 'Ny besked',
+          message: senderName ? `${senderName}: ${preview}` : preview,
+          friendName: senderName,
+          chatId,
+          friendId: message.senderId,
+        });
+      }
+    }
   },
 
   getChatByParticipants: (participantIds) => {
@@ -100,7 +153,12 @@ export const useChatStore = create<ChatState>((set, get) => ({
   },
 
   markChatAsRead: (chatId) => {
+    const now = Date.now();
     set((state) => ({
+      threadLastReadAt: {
+        ...state.threadLastReadAt,
+        [chatId]: now,
+      },
       chats: state.chats.map((chat) =>
         chat.id === chatId ? {...chat, unreadCount: 0} : chat,
       ),
@@ -122,12 +180,103 @@ export const useChatStore = create<ChatState>((set, get) => ({
   },
 
   addMessageToChat: (chatId, message) => {
+    set((state) => {
+      const list = state.messagesByChat[chatId] ?? [];
+      if (list.some((m) => m.id === message.id)) {
+        return state;
+      }
+      return {
+        messagesByChat: {
+          ...state.messagesByChat,
+          [chatId]: [...list, message],
+        },
+      };
+    });
+  },
+
+  setMessagesForChat: (chatId, messages) => {
     set((state) => ({
       messagesByChat: {
         ...state.messagesByChat,
-        [chatId]: [...(state.messagesByChat[chatId] ?? []), message],
+        [chatId]: messages,
       },
     }));
+  },
+
+  upsertChat: (chat) => {
+    set((state) => {
+      // unreadCount: 0 er et gyldigt værdier – må ikke nulstille via ?? når
+      // forrige var fx 1. Undlad felt = behold forrige (fx ved indbagkesync uden
+      // eksplicit ulæs).
+      const mergeUnread = (prevUnread: number) =>
+        Object.prototype.hasOwnProperty.call(chat, 'unreadCount')
+          ? (chat as Chat).unreadCount
+          : prevUnread;
+
+      const i = state.chats.findIndex((c) => c.id === chat.id);
+      if (i >= 0) {
+        const next = [...state.chats];
+        const prev = state.chats[i];
+        next[i] = {
+          ...prev,
+          ...chat,
+          participantIds: chat.participantIds,
+          participantNames: chat.participantNames,
+          unreadCount: mergeUnread(prev.unreadCount),
+        };
+        return {chats: next};
+      }
+      const byParticipants = state.chats.find(
+        (c) =>
+          c.participantIds.length === chat.participantIds.length &&
+          c.participantIds.every((id) => chat.participantIds.includes(id)),
+      );
+      if (byParticipants) {
+        return {
+          chats: state.chats.map((c) =>
+            c.id === byParticipants.id
+              ? {
+                  ...c,
+                  id: chat.id,
+                  ...chat,
+                  participantIds: chat.participantIds,
+                  participantNames: chat.participantNames,
+                  unreadCount: mergeUnread(c.unreadCount),
+                }
+              : c,
+          ),
+        };
+      }
+      return {
+        chats: [
+          ...state.chats,
+          {
+            ...chat,
+            unreadCount: mergeUnread(0),
+          } as Chat,
+        ],
+      };
+    });
+  },
+
+  mergeIncomingMessage: (threadId, message, fromCurrentUser, myUserId) => {
+    if (
+      myUserId &&
+      !fromCurrentUser &&
+      !get().chats.some(c => c.id === threadId)
+    ) {
+      const ids = [myUserId, message.senderId].sort();
+      get().upsertChat({
+        id: threadId,
+        participantIds: ids,
+        participantNames: ids.map(id => (id === myUserId ? 'Dig' : 'Ven')),
+        lastActivity: message.timestamp,
+        lastMessage: message,
+        unreadCount: 0,
+      });
+    }
+    get().addMessageToChat(threadId, message);
+    get().updateChatLastMessage(threadId, message, {fromCurrentUser});
   },
 
   getMessagesForChat: (chatId) => {

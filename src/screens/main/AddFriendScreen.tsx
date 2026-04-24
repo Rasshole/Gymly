@@ -16,6 +16,7 @@ import {
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppStore} from '@/store/appStore';
+import {useFriendStore} from '@/store/friendStore';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
 import ScreenHeader from '@/components/ui/ScreenHeader';
@@ -27,15 +28,21 @@ import {
   getOutgoingPendingTo,
   type PublicProfile,
 } from '@/services/supabase/friendService';
+import {
+  PRESENCE_WINDOW_HOURS,
+  fetchLatestCheckInPerUser,
+} from '@/services/supabase/presenceService';
 
 const AddFriendScreen = () => {
   const navigation = useNavigation<any>();
   const {user} = useAppStore();
+  const loadFriendStore = useFriendStore(s => s.load);
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState<PublicProfile[]>([]);
   const [friendIds, setFriendIds] = useState<Set<string>>(new Set());
   const [pendingTo, setPendingTo] = useState<Set<string>>(new Set());
+  const [activeFriendGymById, setActiveFriendGymById] = useState<Record<string, string>>({});
   const searchTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const currentUserId = user?.id;
@@ -71,6 +78,7 @@ const AddFriendScreen = () => {
   const runSearch = async (q: string) => {
     if (!currentUserId || q.trim().length < 2) {
       setResults([]);
+      setActiveFriendGymById({});
       return;
     }
     setLoading(true);
@@ -84,9 +92,31 @@ const AddFriendScreen = () => {
         }
       }
       setPendingTo(pending);
+      const ids = await getMyFriendIds(currentUserId);
+      const friendHitIds = list.filter(p => ids.has(p.id)).map(p => p.id);
+      if (friendHitIds.length === 0) {
+        setActiveFriendGymById({});
+      } else {
+        try {
+          const latest = await fetchLatestCheckInPerUser(friendHitIds);
+          const windowMs = PRESENCE_WINDOW_HOURS * 3600_000;
+          const now = Date.now();
+          const next: Record<string, string> = {};
+          for (const fid of friendHitIds) {
+            const row = latest.get(fid);
+            if (row && now - new Date(row.created_at).getTime() <= windowMs) {
+              next[fid] = row.gym_name;
+            }
+          }
+          setActiveFriendGymById(next);
+        } catch {
+          setActiveFriendGymById({});
+        }
+      }
     } catch (e: any) {
       Alert.alert('Søgning fejlede', e?.message ?? 'Prøv igen.');
       setResults([]);
+      setActiveFriendGymById({});
     } finally {
       setLoading(false);
     }
@@ -99,6 +129,7 @@ const AddFriendScreen = () => {
     try {
       await sendFriendRequest(currentUserId, profile.id);
       setPendingTo(prev => new Set(prev).add(profile.id));
+      void loadFriendStore(currentUserId);
       Alert.alert(
         'Sendt',
         `${profile.displayName} får en besked under Notifikationer.`,
@@ -111,6 +142,7 @@ const AddFriendScreen = () => {
   const renderRow = ({item}: {item: PublicProfile}) => {
     const isFriend = friendIds.has(item.id);
     const isPending = pendingTo.has(item.id);
+    const activeGym = activeFriendGymById[item.id];
     return (
       <View style={styles.row}>
         <View style={styles.avatar}>
@@ -125,6 +157,11 @@ const AddFriendScreen = () => {
           <Text style={styles.username} numberOfLines={1}>
             @{item.username}
           </Text>
+          {isFriend && activeGym ? (
+            <Text style={styles.activeHint} numberOfLines={1}>
+              Træner nu · {activeGym}
+            </Text>
+          ) : null}
         </View>
         {isFriend ? (
           <View style={styles.pillMuted}>
@@ -254,6 +291,12 @@ const styles = StyleSheet.create({
   rowBody: {flex: 1, marginLeft: spacing.md},
   name: {...typography.bodyBold, color: colors.text},
   username: {...typography.small, color: colors.textMuted, marginTop: 2},
+  activeHint: {
+    ...typography.small,
+    color: colors.secondaryDark,
+    marginTop: 4,
+    fontWeight: '600',
+  },
   addBtn: {
     flexDirection: 'row',
     alignItems: 'center',

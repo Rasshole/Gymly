@@ -37,6 +37,7 @@ const SelectedCenterCard: React.FC<SelectedCenterCardProps> = ({
   onClose,
   onViewDetails,
 }) => {
+  const hasAnyone = totalActiveCount > 0 || friendsActiveCount > 0;
   const statusLabel = ACTIVITY_LABELS[activityLevel];
   const statusColor =
     activityLevel === 'busy'
@@ -82,26 +83,32 @@ const SelectedCenterCard: React.FC<SelectedCenterCardProps> = ({
       )}
 
       <View style={styles.activitySection}>
-        <View style={styles.activityRow}>
-          <View style={styles.activityItem}>
-            <Icon name="people" size={18} color={colors.secondary} style={{marginRight: 6}} />
-            <Text style={[styles.activityValue, {color: colors.secondary}]}>
-              {totalActiveCount} {totalActiveCount === 1 ? 'person' : 'personer'} aktive
-            </Text>
-          </View>
-          <View style={styles.activityItem}>
-            <Icon name="person" size={18} color={colors.primary} style={{marginRight: 6}} />
-            <Text style={[styles.activityValue, {color: colors.primary}]}>
-              {friendsActiveCount} {friendsActiveCount === 1 ? 'ven' : 'venner'} aktive
-            </Text>
-          </View>
-        </View>
-        <View style={[styles.statusPill, {backgroundColor: `${statusColor}20`}]}>
-          <View style={[styles.statusDot, {backgroundColor: statusColor}]} />
-          <Text style={[styles.statusText, {color: statusColor}]}>
-            {statusLabel}
-          </Text>
-        </View>
+        {hasAnyone ? (
+          <>
+            <View style={styles.activityRow}>
+              <View style={styles.activityItem}>
+                <Icon name="people" size={18} color={colors.secondary} style={{marginRight: 6}} />
+                <Text style={[styles.activityValue, {color: colors.secondary}]}>
+                  {totalActiveCount} {totalActiveCount === 1 ? 'person' : 'personer'} aktive
+                </Text>
+              </View>
+              <View style={styles.activityItem}>
+                <Icon name="person" size={18} color={colors.primary} style={{marginRight: 6}} />
+                <Text style={[styles.activityValue, {color: colors.primary}]}>
+                  {friendsActiveCount} {friendsActiveCount === 1 ? 'ven' : 'venner'} aktive
+                </Text>
+              </View>
+            </View>
+            <View style={[styles.statusPill, {backgroundColor: `${statusColor}20`}]}>
+              <View style={[styles.statusDot, {backgroundColor: statusColor}]} />
+              <Text style={[styles.statusText, {color: statusColor}]}>
+                {statusLabel}
+              </Text>
+            </View>
+          </>
+        ) : (
+          <Text style={styles.activityEmpty}>Ingen er tjekket ind lige nu</Text>
+        )}
       </View>
 
       {friendNames.length > 0 && (
@@ -205,6 +212,11 @@ const styles = StyleSheet.create({
   activityValue: {
     fontSize: 15,
     fontWeight: '600',
+  },
+  activityEmpty: {
+    fontSize: 14,
+    color: colors.textMuted,
+    fontWeight: '500',
   },
   statusPill: {
     flexDirection: 'row',

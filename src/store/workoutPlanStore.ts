@@ -1,6 +1,6 @@
 import {create} from 'zustand';
 import {MuscleGroup} from '@/types/workout.types';
-import danishGyms, {DanishGym} from '@/data/danishGyms';
+import {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
 
 export interface WorkoutPlanEntry {
   id: string;
@@ -25,6 +25,8 @@ export interface WorkoutHistoryEntry {
 interface WorkoutPlanState {
   plannedWorkouts: WorkoutPlanEntry[];
   completedWorkouts: WorkoutHistoryEntry[];
+  /** Server-planer (merge/replace efter id) */
+  mergePlannedFromServer: (fromServer: WorkoutPlanEntry[]) => void;
   addPlannedWorkout: (plan: WorkoutPlanEntry) => void;
   addPlanInvites: (planId: string, friendIds: string[]) => void;
   removePlanInvites: (planId: string, friendIds: string[]) => void;
@@ -33,8 +35,10 @@ interface WorkoutPlanState {
   addCompletedWorkout: (entry: WorkoutHistoryEntry) => void;
 }
 
-const findGymByName = (name: string): DanishGym =>
-  danishGyms.find(gym => gym.name === name) || danishGyms[0];
+const findGymByName = (name: string): DanishGym => {
+  const list = getActiveDanishGyms();
+  return list.find(gym => gym.name === name) || list[0]!;
+};
 
 const initialPlanned: WorkoutPlanEntry[] = [];
 
@@ -43,6 +47,13 @@ const initialCompleted: WorkoutHistoryEntry[] = [];
 export const useWorkoutPlanStore = create<WorkoutPlanState>(set => ({
   plannedWorkouts: initialPlanned,
   completedWorkouts: initialCompleted,
+
+  mergePlannedFromServer: fromServer =>
+    set(s => {
+      const m = new Map(s.plannedWorkouts.map(p => [p.id, p]));
+      fromServer.forEach(p => m.set(p.id, p));
+      return {plannedWorkouts: Array.from(m.values())};
+    }),
 
   addPlannedWorkout: plan =>
     set(state => ({

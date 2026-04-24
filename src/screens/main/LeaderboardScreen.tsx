@@ -21,7 +21,7 @@ import {Card} from '@/components/ui/Card';
 import {EmptyState} from '@/components/ui/EmptyState';
 import Chip from '@/components/ui/Chip';
 import {LeaderboardRow} from '@/components/ui/LeaderboardRow';
-import danishGyms from '@/data/danishGyms';
+import {getActiveDanishGyms} from '@/data/danishGyms';
 import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows} from '@/theme/designTokens';
 import {useAppStore} from '@/store/appStore';
@@ -224,9 +224,9 @@ const LeaderboardScreen = () => {
 
   const filteredCenters = useMemo(() => {
     const q = centerSearchQuery.trim().toLowerCase();
-    let list = danishGyms;
+    let list = getActiveDanishGyms();
     if (q) {
-      list = danishGyms.filter(
+      list = getActiveDanishGyms().filter(
         c =>
           c.name.toLowerCase().includes(q) ||
           (c.city?.toLowerCase().includes(q) ?? false),
@@ -239,7 +239,7 @@ const LeaderboardScreen = () => {
     if (!selectedCenterId) {
       return null;
     }
-    return findGymById(parseInt(selectedCenterId, 10));
+    return findGymById(selectedCenterId);
   }, [selectedCenterId]);
 
   useEffect(() => {
@@ -280,10 +280,9 @@ const LeaderboardScreen = () => {
             }
             return;
           }
-          const gid = parseInt(selectedCenterId, 10);
-          const g = findGymById(gid);
+          const g = findGymById(selectedCenterId);
           result = await fetchGymLeaderboard(
-            gid,
+            selectedCenterId,
             g?.name ?? resolveGymNameForLeaderboard(selectedCenterId),
             periodLb,
             user.id,
@@ -472,14 +471,14 @@ const LeaderboardScreen = () => {
                 </TouchableOpacity>
               )}
             </View>
-            <Text style={styles.centerListLabel}>Centre (OpenStreetMap)</Text>
+            <Text style={styles.centerListLabel}>Centre</Text>
             <ScrollView
               style={styles.centerList}
               nestedScrollEnabled
               keyboardShouldPersistTaps="handled"
               showsVerticalScrollIndicator={false}>
               {filteredCenters.map(c => {
-                const id = String(c.id);
+                const id = c.id;
                 const selected = selectedCenterId === id;
                 return (
                   <TouchableOpacity

@@ -24,7 +24,7 @@ import colors from '@/theme/colors';
 type RateGymScreenProps = {
   route: {
     params: {
-      gymId: number;
+      gymId: string;
       gym: DanishGym;
     };
   };

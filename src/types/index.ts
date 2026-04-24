@@ -3,6 +3,7 @@
  * @see BACKEND_README.md for Firestore collection structure
  */
 
+export * from './center.types';
 export * from './activity.types';
 export * from './checkIn.types';
 export * from './profile.types';

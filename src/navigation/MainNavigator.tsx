@@ -3,8 +3,8 @@
  * Main app screens after authentication
  */
 
-import React, {useEffect} from 'react';
-import {AppState, TouchableOpacity, View} from 'react-native';
+import React from 'react';
+import {TouchableOpacity, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import {
@@ -60,9 +60,15 @@ import FeedSortingScreen from '@/screens/main/FeedSortingScreen';
 import ActivityFeedScreen from '@/screens/main/ActivityFeedScreen';
 import GymPresenceScreen from '@/screens/main/GymPresenceScreen';
 import AddFriendScreen from '@/screens/main/AddFriendScreen';
-import {useNotificationStore} from '@/store/notificationStore';
+import {useInAppNotifications} from '@/hooks/useInAppNotifications';
+import {InAppNotificationBootstrap} from '@/components/inApp/InAppNotificationBootstrap';
+import {useAppStore} from '@/store/appStore';
 import CustomTabBar from '@/components/CustomTabBar';
 import NotificationBadge from '@/components/ui/Badge';
+import {DmRealtimeSync} from '@/components/DmRealtimeSync';
+import {FriendRequestRealtimeSync} from '@/components/FriendRequestRealtimeSync';
+import ActiveCheckinGeofenceMonitor from '@/components/checkin/ActiveCheckinGeofenceMonitor';
+import {PushNotificationBootstrap} from '@/components/push/PushNotificationBootstrap';
 export type CheckInStackParamList = {
   CheckInMain: undefined;
 };
@@ -70,7 +76,7 @@ export type CheckInStackParamList = {
 export type MainTabParamList = {
   Home: undefined;
   Friends: {screen?: 'Online' | 'Grupper' | 'Centre' | 'Kort'};
-  Badges: undefined;
+  Badges: {highlightBadgeId?: string} | undefined;
   Messages: undefined;
   Profile: undefined;
   CheckIn: NavigatorScreenParams<CheckInStackParamList> | undefined;
@@ -78,14 +84,16 @@ export type MainTabParamList = {
 };
 
 export type MainStackParamList = {
-  MainTabs: undefined;
+  MainTabs: NavigatorScreenParams<MainTabParamList> | undefined;
   Settings: undefined;
-  Notifications: undefined;
+  Notifications: {highlightNotificationId?: string} | undefined;
   NewMessage: undefined;
   Chat: {
+    chatId?: string;
     friendId: string;
     friendName: string;
     initialMessage?: string;
+    participants?: Array<{id: string; name: string}>;
   };
   InviteToWorkout: {
     friendId: string;
@@ -93,16 +101,16 @@ export type MainStackParamList = {
   };
   WorkoutInvitations: undefined;
   GymDetail: {
-    gymId: number;
+    gymId: string;
     gym: any;
   };
   GymLeaderboard: {
-    gymId: number;
+    gymId: string;
     gym: any;
   };
   Leaderboard: undefined;
   RateGym: {
-    gymId: number;
+    gymId: string;
     gym: any;
   };
   FriendWorkoutDetail: {
@@ -141,12 +149,15 @@ export type MainStackParamList = {
   UpcomingWorkouts: undefined;
   WorkoutSchedule: {
     initialTab?: 'upcoming' | 'history';
+    openPlannedId?: string;
   };
   FriendProfile: {
     friendId: string;
-    friendName: string;
-    mutualFriends: number;
-    gyms: string[];
+    friendName?: string;
+    userId?: string;
+    mutualFriends?: number;
+    gyms?: string[];
+    friendAvatarUrl?: string;
   };
   EditProfile: undefined;
   PushNotifications: undefined;
@@ -220,40 +231,13 @@ const LeaderboardButton = () => {
   );
 };
 
-/** Synkroniser antal indgående venneanmodninger til badge (klokke). */
-const IncomingFriendBadgeSync = () => {
-  const user = useAppStore(s => s.user);
-  const setIncoming = useNotificationStore(s => s.setIncomingFriendRequestCount);
-
-  useEffect(() => {
-    if (!user?.id) {
-      setIncoming(0);
-      return;
-    }
-    const load = () => {
-      void listPendingIncomingRequests(user.id).then(rows => setIncoming(rows.length)).catch(() => setIncoming(0));
-    };
-    load();
-    const sub = AppState.addEventListener('change', state => {
-      if (state === 'active') {
-        load();
-      }
-    });
-    return () => sub.remove();
-  }, [user?.id, setIncoming]);
-
-  return null;
-};
-
 // Notifications button component for header
 const NotificationsButton = () => {
   const navigation = useNavigation<CompositeNavigationProp<
     BottomTabNavigationProp<MainTabParamList>,
     StackNavigationProp<MainStackParamList>
   >>();
-  const unreadCount = useNotificationStore(s => s.unreadCount);
-  const incomingFr = useNotificationStore(s => s.incomingFriendRequestCount);
-  const bellTotal = unreadCount + incomingFr;
+  const {dbUnread: bellTotal} = useInAppNotifications();
 
   return (
     <TouchableOpacity
@@ -329,7 +313,11 @@ const MainTabs = () => {
 const MainNavigator = () => {
   return (
     <>
-      <IncomingFriendBadgeSync />
+      <InAppNotificationBootstrap />
+      <PushNotificationBootstrap />
+      <FriendRequestRealtimeSync />
+      <DmRealtimeSync />
+      <ActiveCheckinGeofenceMonitor />
       <Stack.Navigator
       screenOptions={{
         headerStyle: {

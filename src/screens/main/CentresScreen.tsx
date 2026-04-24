@@ -12,7 +12,6 @@ import {
   TouchableOpacity,
   Pressable,
   TextInput,
-  Image,
   Platform,
   PermissionsAndroid,
   Modal,
@@ -20,11 +19,11 @@ import {
 } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 import Icon from 'react-native-vector-icons/Ionicons';
-import danishGyms, {DanishGym} from '@/data/danishGyms';
+import danishGyms, {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
 import {useAppStore} from '@/store/appStore';
 import {useGymStore} from '@/store/gymStore';
-import gymLogos from '@/utils/gymLogos';
 import {useNavigation} from '@react-navigation/native';
+import GymLogoView from '@/components/ui/GymLogoView';
 import {StackNavigationProp} from '@react-navigation/stack';
 import colors from '@/theme/colors';
 
@@ -71,9 +70,6 @@ const FavoriteGymItemWithLogo = ({
 }) => {
   const navigation = useNavigation<StackNavigationProp<any>>();
   const {getActiveUsersCount, getGymStatus} = useGymStore();
-  const logoUrl = gymLogos.getGymLogo(gym.brand);
-  const hasLogo = gymLogos.hasGymLogo(gym.brand);
-  const [logoError, setLogoError] = useState(false);
   const activeUsers = getActiveUsersCount(gym.id);
   const gymStatus = getGymStatus(gym.id);
 
@@ -91,22 +87,9 @@ const FavoriteGymItemWithLogo = ({
         <View style={styles.favoriteGymNumber}>
           <Text style={styles.favoriteGymNumberText}>{index + 1}</Text>
         </View>
-        {hasLogo && logoUrl && !logoError ? (
-          <View style={styles.favoriteGymLogoContainer}>
-            <Image
-              source={{uri: logoUrl}}
-              style={styles.favoriteGymLogo}
-              resizeMode="contain"
-              onError={() => setLogoError(true)}
-            />
-          </View>
-        ) : (
-          <View style={styles.favoriteGymIconPlaceholder}>
-            <Text style={styles.favoriteGymIconLetter}>
-              {gym.name.charAt(0).toUpperCase()}
-            </Text>
-          </View>
-        )}
+        <View style={styles.favoriteGymLogoContainer}>
+          <GymLogoView gymName={gym.name} brand={gym.brand} size={48} />
+        </View>
         <View style={styles.gymInfo}>
           <View style={styles.gymNameRow}>
             <Text style={styles.gymName} numberOfLines={1}>
@@ -257,10 +240,21 @@ const CentresScreen = () => {
       .filter((gym): gym is DanishGym => gym !== undefined);
   }, [favoriteGymIds]);
 
-  const filteredGyms = danishGyms.filter(gym =>
-    gym.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    gym.city?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    gym.brand?.toLowerCase().includes(searchQuery.toLowerCase()),
+  const allCentres = useMemo(
+    () => [
+      ...getActiveDanishGyms(),
+      ...danishGyms.filter(g => g._center.is_coming_soon),
+    ],
+    [],
+  );
+
+  const qLower = searchQuery.toLowerCase();
+  const filteredGyms = allCentres.filter(
+    gym =>
+      gym.name.toLowerCase().includes(qLower) ||
+      (gym.city?.toLowerCase().includes(qLower) ?? false) ||
+      (gym.brand?.toLowerCase().includes(qLower) ?? false) ||
+      (gym.address?.toLowerCase().includes(qLower) ?? false),
   );
 
   // Separate favorite gyms from filtered gyms
@@ -311,28 +305,23 @@ const CentresScreen = () => {
       .map(item => item.gym);
   }, [favoriteGyms, favoriteGymsFiltered, otherGymsFiltered, searchQuery, userLocation, getGymStatus]);
 
-  const isFavorite = (gymId: number) => favoriteGymIds.includes(gymId);
+  const isFavorite = (gymId: string) => favoriteGymIds.includes(gymId);
 
   const GymIcon = ({gym, favorite}: {gym: DanishGym; favorite: boolean}) => {
-    const [logoError, setLogoError] = useState(false);
-    const logoUrl = gymLogos.getGymLogo(gym.brand);
-    const hasLogo = gymLogos.hasGymLogo(gym.brand);
-
-    return (
-      <View style={[styles.gymIcon, favorite && styles.gymIconFavorite]}>
-        {favorite ? (
+    if (favorite) {
+      return (
+        <View style={[styles.gymIcon, styles.gymIconFavorite]}>
           <Icon name="star" size={24} color="#FFD700" />
-        ) : hasLogo && logoUrl && !logoError ? (
-          <Image
-            source={{uri: logoUrl}}
-            style={styles.gymLogo}
-            resizeMode="contain"
-            onError={() => setLogoError(true)}
-          />
-        ) : (
-          <Icon name="heart" size={24} color="#fff" />
-        )}
-      </View>
+        </View>
+      );
+    }
+    return (
+      <GymLogoView
+        gymName={gym.name}
+        brand={gym.brand}
+        size={48}
+        style={styles.gymLogoSlot}
+      />
     );
   };
 
@@ -676,7 +665,7 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 24,
-    backgroundColor: colors.primary,
+    backgroundColor: '#FFF9E6',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -684,9 +673,9 @@ const styles = StyleSheet.create({
   gymIconFavorite: {
     backgroundColor: '#FFF9E6',
   },
-  gymLogo: {
-    width: 32,
-    height: 32,
+  /** Afstand når listepunkt bruger `GymLogoView` (ikke favorit-stjerne) */
+  gymLogoSlot: {
+    marginRight: 12,
   },
   gymNameRow: {
     flexDirection: 'row',

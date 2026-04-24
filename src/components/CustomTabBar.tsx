@@ -3,7 +3,7 @@
  * Rapporterer faktisk højde til navigatoren så useBottomTabBarHeight() er korrekt.
  */
 
-import React from 'react';
+import React, {useMemo} from 'react';
 import {
   View,
   TouchableOpacity,
@@ -45,6 +45,11 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({state, descriptors, navigati
   const insets = useSafeAreaInsets();
   const onTabBarHeight = React.useContext(BottomTabBarHeightCallbackContext);
   const iconSize = 32;
+  const chats = useChatStore(s => s.chats);
+  const messagesUnread = useMemo(
+    () => chats.reduce((sum, c) => sum + (c.unreadCount ?? 0), 0),
+    [chats],
+  );
 
   const onLayout = (e: LayoutChangeEvent) => {
     onTabBarHeight?.(e.nativeEvent.layout.height);
@@ -53,7 +58,11 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({state, descriptors, navigati
   return (
     <View
       onLayout={onLayout}
-      style={[styles.wrapper, {paddingBottom: Math.max(insets.bottom, spacing.sm)}]}>
+      style={[
+        styles.wrapper,
+        {paddingBottom: Math.max(insets.bottom, spacing.sm)},
+        messagesUnread > 0 && styles.wrapperWithBadge,
+      ]}>
       <View style={styles.container}>
         {state.routes.map((route, index) => {
           const {options} = descriptors[route.key];
@@ -89,7 +98,9 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({state, descriptors, navigati
               style={styles.tab}
               activeOpacity={0.7}>
               <View style={styles.tabContent}>
-                <View style={route.name === 'Messages' ? styles.iconWithBadge : undefined}>
+                <View
+                  style={route.name === 'Messages' ? styles.iconWithBadge : undefined}
+                  pointerEvents="box-none">
                   <Icon
                     name={iconName as React.ComponentProps<typeof Icon>['name']}
                     size={iconSize}
@@ -97,7 +108,7 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({state, descriptors, navigati
                     style={styles.tabIcon}
                   />
                   {route.name === 'Messages' && messagesUnread > 0 ? (
-                    <View style={styles.messageBadgeWrap}>
+                    <View style={styles.messageBadgeWrap} pointerEvents="none">
                       <NotificationBadge count={messagesUnread} variant="error" maxCount={99} />
                     </View>
                   ) : null}
@@ -117,16 +128,25 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({state, descriptors, navigati
 };
 
 const styles = StyleSheet.create({
+  /**
+   * Undgå overflow: hidden her — den klipper et badge (top: negativ) væk,
+   * så tallet for ulæste beskeder ikke ses i bunden.
+   * Top-runde hjørner styres alligevel visuelt med baggrund.
+   */
   wrapper: {
     backgroundColor: colors.backgroundCard,
     borderTopLeftRadius: radius.xl,
     borderTopRightRadius: radius.xl,
-    overflow: 'hidden',
+    overflow: 'visible',
     shadowColor: colors.primary,
     shadowOffset: {width: 0, height: -2},
     shadowOpacity: 0.08,
     shadowRadius: 8,
     elevation: 8,
+  },
+  /** Lidt ekstra plads så tallet (badge) ligger i synligt felt */
+  wrapperWithBadge: {
+    paddingTop: spacing.xs,
   },
   container: {
     flexDirection: 'row',
@@ -144,11 +164,13 @@ const styles = StyleSheet.create({
   },
   iconWithBadge: {
     position: 'relative',
+    zIndex: 1,
   },
   messageBadgeWrap: {
     position: 'absolute',
-    top: -6,
-    right: -10,
+    top: 0,
+    right: -8,
+    zIndex: 2,
   },
   tabIcon: {
     marginBottom: 2,

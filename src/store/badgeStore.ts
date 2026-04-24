@@ -9,6 +9,11 @@ import {
   evaluateNewUnlocks,
   computeBadgeProgress,
 } from '@/services/badgeEngine';
+import {
+  insertBadgeUnlockedNotification,
+  insertStreakMilestoneNotification,
+  tryInsertBadgeProgressNotification,
+} from '@/services/notifications/inAppNotificationService';
 import {buildUserBadgeStats} from '@/services/userBadgeStats';
 import {useActivityStore} from '@/store/activityStore';
 import type {BadgeDefinition} from '@/types/badge.types';
@@ -109,30 +114,53 @@ export const useBadgeStore = create<BadgeStoreState>((set, get) => ({
     const prev = get().unlockedByUser[userId] ?? {};
     const unlockedSet = new Set(Object.keys(prev));
     const newly = evaluateNewUnlocks(stats, unlockedSet);
-    if (newly.length === 0) {
-      return;
-    }
-    const nextUserMap = {...prev};
-    newly.forEach((def, i) => {
-      nextUserMap[def.id] = new Date(Date.now() + i).toISOString();
-    });
-    set(state => ({
-      unlockedByUser: {
-        ...state.unlockedByUser,
-        [userId]: nextUserMap,
-      },
-      unlockModalQueue: [...state.unlockModalQueue, ...newly],
-    }));
-    void get().persist();
-
-    const addBadge = useActivityStore.getState().addBadgeUnlockedActivity;
-    for (const def of newly) {
-      addBadge({
-        userId,
-        displayName,
-        badgeEmoji: def.emoji,
-        badgeName: def.name,
+    if (newly.length > 0) {
+      const nextUserMap = {...prev};
+      newly.forEach((def, i) => {
+        nextUserMap[def.id] = new Date(Date.now() + i).toISOString();
       });
+      set(state => ({
+        unlockedByUser: {
+          ...state.unlockedByUser,
+          [userId]: nextUserMap,
+        },
+        unlockModalQueue: [...state.unlockModalQueue, ...newly],
+      }));
+      void get().persist();
+
+      const addBadge = useActivityStore.getState().addBadgeUnlockedActivity;
+      for (const def of newly) {
+        addBadge({
+          userId,
+          displayName,
+          badgeEmoji: def.emoji,
+          badgeName: def.name,
+        });
+      }
+      const postStats = buildUserBadgeStats(userId);
+      for (const def of newly) {
+        if (def.category === 'streak') {
+          void insertStreakMilestoneNotification(
+            userId,
+            def.requirement_value,
+            def,
+          ).catch(() => {});
+        } else {
+          void insertBadgeUnlockedNotification(userId, def).catch(() => {});
+        }
+      }
+    }
+    const postStats = buildUserBadgeStats(userId);
+    for (const def of BADGE_DEFINITIONS) {
+      const unlocked = get().isUnlocked(userId, def.id);
+      const prog = computeBadgeProgress(def, postStats, unlocked);
+      if (prog.status === 'almost_unlocked' && prog.percent >= 80 && !unlocked) {
+        void tryInsertBadgeProgressNotification(
+          userId,
+          def,
+          prog.percent,
+        ).catch(() => {});
+      }
     }
   },
 

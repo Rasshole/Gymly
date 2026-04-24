@@ -1,0 +1,93 @@
+/**
+ * Coarse ~postområde (first 2 cifre i postnr.) → grov {lat, lng} for kort, når præcise koordinater mangler.
+ * Erstattes gradvist af geokodede værdier i centers.json.
+ */
+const PREFIX: Record<string, {lat: number; lng: number}> = {
+  '10': {lat: 55.68, lng: 12.57},
+  '11': {lat: 55.68, lng: 12.55},
+  '12': {lat: 55.7, lng: 12.58},
+  '13': {lat: 55.68, lng: 12.58},
+  '14': {lat: 55.6, lng: 12.3},
+  '15': {lat: 55.65, lng: 12.56},
+  '16': {lat: 55.66, lng: 12.52},
+  '17': {lat: 55.7, lng: 12.52},
+  '18': {lat: 55.7, lng: 12.5},
+  '19': {lat: 55.6, lng: 12.35},
+  '20': {lat: 55.66, lng: 12.52},
+  '21': {lat: 55.72, lng: 12.58},
+  '22': {lat: 55.7, lng: 12.58},
+  '23': {lat: 55.64, lng: 12.58},
+  '24': {lat: 55.6, lng: 12.35},
+  '25': {lat: 55.5, lng: 12.3},
+  '26': {lat: 55.6, lng: 12.35},
+  '27': {lat: 55.6, lng: 12.35},
+  '28': {lat: 55.75, lng: 12.48},
+  '29': {lat: 55.7, lng: 12.5},
+  '30': {lat: 55.8, lng: 12.28},
+  '31': {lat: 55.0, lng: 11.86},
+  '32': {lat: 55.9, lng: 11.6},
+  '33': {lat: 55.8, lng: 12.3},
+  '34': {lat: 55.7, lng: 12.35},
+  '35': {lat: 55.4, lng: 11.4},
+  '36': {lat: 55.55, lng: 11.3},
+  '37': {lat: 55.3, lng: 11.0},
+  '40': {lat: 55.6, lng: 12.08},
+  '42': {lat: 55.2, lng: 11.75},
+  '43': {lat: 55.0, lng: 11.9},
+  '44': {lat: 55.6, lng: 11.35},
+  '45': {lat: 55.0, lng: 9.0},
+  '46': {lat: 55.0, lng: 9.4},
+  '47': {lat: 55.0, lng: 10.0},
+  '48': {lat: 55.0, lng: 8.3},
+  '49': {lat: 55.0, lng: 8.0},
+  '50': {lat: 55.4, lng: 10.38},
+  '52': {lat: 55.2, lng: 10.5},
+  '53': {lat: 55.0, lng: 8.2},
+  '55': {lat: 55.2, lng: 9.5},
+  '56': {lat: 55.0, lng: 8.0},
+  '60': {lat: 55.2, lng: 9.5},
+  '62': {lat: 55.0, lng: 8.0},
+  '64': {lat: 55.0, lng: 8.0},
+  '65': {lat: 55.0, lng: 8.0},
+  '66': {lat: 55.0, lng: 8.0},
+  '67': {lat: 55.0, lng: 8.3},
+  '68': {lat: 55.0, lng: 8.0},
+  '70': {lat: 55.0, lng: 9.5},
+  '71': {lat: 55.5, lng: 8.0},
+  '72': {lat: 55.1, lng: 8.0},
+  '74': {lat: 56.1, lng: 9.0},
+  '75': {lat: 56.1, lng: 8.0},
+  '78': {lat: 55.0, lng: 8.4},
+  '79': {lat: 55.0, lng: 8.4},
+  '80': {lat: 56.1, lng: 10.0},
+  '81': {lat: 56.1, lng: 10.0},
+  '82': {lat: 56.0, lng: 10.2},
+  '83': {lat: 55.0, lng: 10.2},
+  '84': {lat: 56.0, lng: 9.0},
+  '85': {lat: 55.0, lng: 9.0},
+  '86': {lat: 56.0, lng: 9.0},
+  '87': {lat: 55.5, lng: 9.5},
+  '88': {lat: 56.3, lng: 9.3},
+  '89': {lat: 56.3, lng: 10.0},
+  '90': {lat: 57.0, lng: 9.0},
+  '92': {lat: 57.0, lng: 9.5},
+  '93': {lat: 57.0, lng: 9.5},
+  '94': {lat: 57.0, lng: 9.0},
+  '95': {lat: 55.0, lng: 9.3},
+  '96': {lat: 55.0, lng: 8.0},
+  '98': {lat: 55.0, lng: 8.0},
+  '99': {lat: 55.0, lng: 8.0},
+};
+
+const FALLBACK = {lat: 56.0, lng: 10.0};
+
+export function getApproxLatLngForPostalCode(postal: string | undefined | null): {
+  lat: number;
+  lng: number;
+} {
+  if (!postal || postal.length < 2) {
+    return FALLBACK;
+  }
+  const p = `${postal[0]}${postal[1]}`;
+  return PREFIX[p] ?? FALLBACK;
+}

@@ -44,7 +44,7 @@ export interface FirestoreGymLeaderboardEntry {
 
 /** Weekly Champion document: /gyms/{gymId}/weeklyChampion */
 export interface FirestoreWeeklyChampion {
-  gymId: number;
+  gymId: string;
   gymName: string;
   userId: string;
   displayName: string;

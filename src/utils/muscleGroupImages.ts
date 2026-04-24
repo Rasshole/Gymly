@@ -16,9 +16,8 @@ const muscleGroupImages: Record<MuscleGroup, ImageSourcePropType> = {
   mave: require('@/assets/muscleGroups/mave.png'),
   ryg: require('@/assets/muscleGroups/ryg.png'),
   hele_kroppen: require('@/assets/muscleGroups/hele_kroppen.png'),
-  // Placeholders until dedicated assets exist
-  reformer: require('@/assets/muscleGroups/hele_kroppen.png'),
-  pilates: require('@/assets/muscleGroups/mave.png'),
+  reformer: require('@/assets/muscleGroups/reformer.png'),
+  pilates: require('@/assets/muscleGroups/pilates.png'),
 };
 
 /**

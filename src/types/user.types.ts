@@ -29,7 +29,7 @@ export interface User {
   gdprConsent: GDPRConsent;
   
   // Favorite gyms (top 3 local training centers)
-  favoriteGyms?: number[]; // Array of gym IDs (max 3)
+  favoriteGyms?: string[]; // Stabile center-ids (max 3)
   
   // Account timestamps
   createdAt: Date;
@@ -103,7 +103,7 @@ export interface UserRegistration {
     analyticsConsent: boolean;
     locationTrackingConsent?: boolean;
   };
-  favoriteGyms?: number[]; // Array of gym IDs (max 3)
+  favoriteGyms?: string[]; // Stabile center-ids (max 3)
 }
 
 export interface UserLogin {

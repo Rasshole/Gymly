@@ -11,7 +11,6 @@ import {
   ScrollView,
   TouchableOpacity,
   Pressable,
-  Image,
   Modal,
   FlatList,
 } from 'react-native';
@@ -22,8 +21,8 @@ import {DanishGym} from '@/data/danishGyms';
 import {useGymStore} from '@/store/gymStore';
 import {useLeaderboardStore} from '@/store/leaderboardStore';
 import {useAppStore} from '@/store/appStore';
-import gymLogos from '@/utils/gymLogos';
 import colors from '@/theme/colors';
+import GymLogoView from '@/components/ui/GymLogoView';
 
 const formatDuration = (minutes: number): string => {
   if (minutes < 60) return `${minutes} min`;
@@ -33,12 +32,12 @@ const formatDuration = (minutes: number): string => {
 };
 
 type ActiveUser = { id: string; name: string; durationMinutes: number; isFriend?: boolean };
-const getActiveUsers = (_count: number, _gymId: number): ActiveUser[] => [];
+const getActiveUsers = (_count: number, _gymId: string): ActiveUser[] => [];
 
 type GymDetailScreenProps = {
   route: {
     params: {
-      gymId: number;
+      gymId: string;
       gym: DanishGym;
     };
   };
@@ -66,9 +65,6 @@ const GymDetailScreen = () => {
   const gymStatus = getGymStatus(gymId);
   const gymHours = getGymHours(gymId);
   const weeklyChampion = getWeeklyChampion(gymId);
-  const logoUrl = gymLogos.getGymLogo(gym.brand);
-  const hasLogo = gymLogos.hasGymLogo(gym.brand);
-
   return (
     <View style={styles.container}>
       {/* Header */}
@@ -88,17 +84,12 @@ const GymDetailScreen = () => {
         keyboardShouldPersistTaps="always">
         {/* Gym Header */}
         <View style={styles.gymHeader}>
-          {hasLogo && logoUrl ? (
-            <Image
-              source={{uri: logoUrl}}
-              style={styles.gymHeaderLogo}
-              resizeMode="contain"
-            />
-          ) : (
-            <View style={styles.gymHeaderIcon}>
-              <Icon name="fitness" size={48} color="#007AFF" />
-            </View>
-          )}
+          <GymLogoView
+            gymName={gym.name}
+            brand={gym.brand}
+            size={80}
+            style={styles.gymHeaderLogo}
+          />
           <Text style={styles.gymHeaderName}>{gym.name}</Text>
           {gym.brand && (
             <Text style={styles.gymHeaderBrand}>{gym.brand}</Text>
@@ -403,17 +394,6 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   gymHeaderLogo: {
-    width: 80,
-    height: 80,
-    marginBottom: 16,
-  },
-  gymHeaderIcon: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    backgroundColor: colors.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
     marginBottom: 16,
   },
   gymHeaderName: {

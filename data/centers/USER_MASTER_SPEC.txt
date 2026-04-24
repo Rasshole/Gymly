@@ -1,0 +1,519 @@
+Replace the entire current gym/center dataset in Gymly with a new unified production-ready center database.
+
+IMPORTANT:
+I want you to remove/replace all existing hardcoded, fake, outdated, incomplete, duplicate, or placeholder center data everywhere in the app and use the new master center database below as the single source of truth.
+
+The new center database must be used in ALL of these places:
+1. Map screen / center map markers
+2. Check-in flow when selecting a center
+3. Local center selection / preferred center
+4. "Centres" under the "Venner" section when viewing all centers
+5. Any search/filter/select center UI
+6. Any nearby-center logic
+7. Any leaderboard/grouping logic by center if center ids are used
+
+GOAL:
+One clean center system used everywhere.
+
+--------------------------------------------------
+DATA MODEL
+--------------------------------------------------
+
+Create a unified center model like this:
+
+type GymCenter = {
+  id: string
+  name: string
+  brand: string
+  address: string
+  postal_code: string
+  city: string
+  country: string
+  lat: number | null
+  lng: number | null
+  is_active: boolean
+  is_coming_soon?: boolean
+}
+
+Requirements:
+- id must be stable and unique
+- use slug-style ids, e.g. "puregym-kobmagergade-kobenhavn-k"
+- country = "Denmark"
+- is_active = true for live centers
+- is_coming_soon = true only for upcoming centers
+- no fake data
+- no duplicates
+- normalize city spelling where needed
+- normalize addresses cleanly
+
+--------------------------------------------------
+GEOCODING / MAP REQUIREMENT
+--------------------------------------------------
+
+I need every center to work on the map.
+
+If lat/lng are not already in the codebase:
+1. create a geocoding/import utility that geocodes each address
+2. populate lat/lng for each center
+3. cache/store the result in the center dataset so the app does NOT geocode on every app load
+
+Important:
+- do NOT leave the centers unusable on the map
+- if geocoding cannot happen automatically right now, still wire the data structure correctly and clearly mark what file needs lat/lng completion
+- the final system must be ready for real coordinates
+
+--------------------------------------------------
+SOURCE OF TRUTH
+--------------------------------------------------
+
+Create ONE master data source for all centers, for example:
+- src/data/centers.ts
+or
+- src/data/centers.json
+or
+- supabase seed file
+
+Then refactor the app so ALL center UIs use this source.
+
+Do NOT leave old arrays or duplicate center lists in different screens/components.
+
+--------------------------------------------------
+REFACTOR REQUIREMENTS
+--------------------------------------------------
+
+Replace current center data everywhere:
+- map markers
+- check-in center picker
+- local center picker
+- friends > centres page
+- search/filter center results
+
+Make sure:
+- all center pickers show the same center database
+- search works consistently
+- no old centers remain anywhere
+- no demo centers remain anywhere
+- no outdated names remain anywhere
+
+If current code uses different shapes in different screens:
+- refactor them to use a shared adapter/helper
+
+--------------------------------------------------
+MASTER CENTER DATABASE
+--------------------------------------------------
+
+Use the exact centers below as the new database.
+
+BRAND: PureGym
+
+- Ravnsøvej 58, 8240 Risskov
+- Århusvej 105, 8960 Randers SØ
+- Thors Bakke 2, 8900 Randers C
+- Børglumvej 9-13, 8240 Risskov
+- Gl. Hobrovej 38, 8920 Randers NV
+- Niels Juels Gade 84, 8200 Århus N
+- Knudrisgade 4-6, 8000 Århus C
+- Jens Baggesens Vej 90, 8200 Århus N
+- Margrethepladsen 4, 8000 Århus C
+- Dalgas Avenue 2A, 8000 Århus C
+- Blomstervej 2D, 8381 Tilst
+- Skanderborgvej 106, 8260 Viby J
+- Gudrunsvej 7, 8220 Brabrand
+- Lykkesholms Allé 106, 8260 Viby J
+- Stenvej 21B, 8270 Højbjerg
+- Banegårdsgade 18, 8300 Odder
+- Sygehusvej 26, 8660 Skanderborg
+- Stagehøjvej 27, 8600 Silkeborg
+- Papirfabrikken 22, 8600 Silkeborg
+- Skjernvej 1, 9220 Aalborg Øst
+- Slagterivej 2, 8800 Viborg
+- Gugvej 124, 9210 Aalborg SØ
+- Visionsvej 51-53, 9000 Aalborg
+- Porsvej 2, 9000 Aalborg
+- J.F. Kennedys Plads 1K, 9000 Aalborg
+- Nytorv 28, 9000 Aalborg
+- Ove Jensens Alle 19 D, 8700 Horsens
+- Dannebrogsgade 58, 9000 Aalborg
+- Løvbakken 4, 9400 Nørresundby
+- Sct Jørgensbjerg 41, 4400 Kalundborg
+- Bagerstræde 4, 3300 Frederiksværk
+- Bredballe Center 24, 7120 Vejle Øst
+- Falkenborggården 4, 3600 Frederikssund
+- Damhaven 1, 7100 Vejle
+- Idrætsvej 5, 3550 Slangerup
+- Vestergade 24, 7400 Herning
+- Hjørringvej 143 R, 9900 Frederikshavn
+- Nørre Voldgade 12, 7000 Fredericia
+- Frejasvej 32, 3400 Hillerød
+- Københavnsvej 31, 3400 Hillerød
+- Sankt Hans Gade 30, 5000 Odense C
+- Tarupvej 71, 5210 Odense NV
+- Dannebrogsgade 2, 5000 Odense C
+- Ejbygade 4, 5220 Odense SØ
+- Slotsgade 18, 5000 Odense C
+- Grønløkkevej 9, 5000 Odense C
+- Klokkestøbervej 20, 5230 Odense M
+- Rådhustorvet 25, 3660 Stenløse
+- Odensevej 95, 5260 Odense S
+- Banetorvet 3, 3450 Allerød
+- Frederikshavnsvej 79, 9800 Hjørring
+- Bondovej 12, 5250 Odense SV
+- Jernbanegade 5, 4200 Slagelse
+- Bornholmsvej 1, 4200 Slagelse
+- Algade 49, 4000 Roskilde
+- Hvedemarken 2, 3520 Farum
+- Egevangen 4, 2980 Kokkedal
+- Kirke Værløsevej 32, 3500 Værløse
+- Søndre Strandvej 10, 3000 Helsingør
+- Stationsvej 7, 2760 Måløv
+- Banegårdspladsen 3-5, 2750 Ballerup
+- Hospitalsgade 16, 6000 Kolding
+- Holte Midtpunkt 23, 2840 Holte
+- Karolinegade 1E, 6000 Kolding
+- Agtrupvej 51, 6000 Kolding
+- Vadstrupvej 35, 2880 Bagsværd
+- Taastrup Torv 2, 2630 Taastrup
+- Nørrelundvej 4, 2730 Herlev
+- Jernbanepladsen 10, 2800 Kongens Lyngby
+- Roskildevej 14, 2620 Albertslund
+- Lundtoftegårdsvej 12, 2800 Kongens Lyngby
+- Herlev Hovedgade 31, 2730 Herlev
+- Telefonvej 8D, 2860 Søborg
+- Banegårdsvej 21, 2600 Glostrup
+- Søndre Ringvej 41-45, 2605 Brøndby
+- Håndværkerbyen 35B, 2670 Greve
+- Frederikssundsvej 264, 2700 Brønshøj
+- Karlslunde Parkvej 13, 2690 Karlslunde
+- Over Bølgen 29, 2670 Greve
+- Søborg Hovedgade 27, 2870 Dyssegård
+- Ishøj Store Torv 20, 2635 Ishøj
+- Nygårds Plads 25, 2605 Brøndby
+- Rødovre Centrum 1F, 2610 Rødovre
+- Lyngbyvej 317, 2820 Gentofte
+- Solrød Center 110, 2680 Solrød Strand
+- Adolphsvej 25, 2820 Gentofte
+- Skalbakken 10, 2720 Vanløse
+- Vallensbæk Stationstorv 65, 2665 Vallensbæk Strand
+- Apollovej 33, 2720 Vanløse
+- Tomsgårdsvej 15, 2400 København NV
+- Emdrupvej 115A, 2400 København NV
+- C.F. Richs Vej 107, 2000 Frederiksberg
+- Laurits Olsensvej 143, 2650 Hvidovre
+- Rentemestervej 2, 2400 København NV
+- Brøndby Strand Centrum 50, 2660 Brøndby Strand
+- Esromgade 15, 2200 København N
+- Mariendalsvej 57C, 2000 Frederiksberg
+- Farumgade 6, 2200 København N
+- Tigervej 12-14, 4600 Køge
+- Strandvejen 32F, 2100 København Ø
+- Bibliotekvej 58, 2650 Hvidovre
+- Æbeløgade 4, 2100 København Ø
+- Helgesvej 29, 2000 Frederiksberg
+- Jagtvej 113-115, 2200 København N
+- Mosedalvej 11, 2500 Valby
+- Worsaaesvej 17, 1972 Frederiksberg C
+- Ellebjergvej 138, 2450 København SV
+- Århusgade 102, 2100 København Ø
+- Strandmarksvej 20, 2650 Hvidovre
+- Matthæusgade 48, 1666 København V
+- Ellebjergvej 40, 2450 København SV
+- Gasværksvej 16, 1656 København V
+- Oslo Plads 2, 2100 København Ø
+- Købmagergade 48, 1150 København K
+- Kigkurren 1, 2300 København S
+- Rued Langgaards Vej 2C, 2300 København S
+- Lyongade 23-25, 2300 København S
+- Englandsvej 28-30, 2300 København S
+- Lergravsvej 57, 2300 København S
+- Asger Jorns Allé 2, 2300 København S
+- Ugandavej 111-123, 2770 Kastrup
+- Grønvej 3, 4700 Næstved
+- Christian X's Vej 9, 6100 Haderslev
+- Sct. Jørgens Park 92, 4700 Næstved
+- Østervangsvej 10-12, 6715 Esbjerg N
+- Ådalsparken 15, 6700 Esbjerg
+- Exnersgade 18, 6700 Esbjerg
+- Centerpassagen 12, 6400 Sønderborg
+
+BRAND: SATS
+
+- Adelgade — Adelgade 5-7, 1304 København K
+- Amager Strand — Amager Strandvej 108, 2300 København S
+- Birkerød — Bistrupvej 1, 3460 Birkerød
+- Blox — Christians Brygge 25, 1219 København K
+- Field's — Arne Jacobsens Allé 12 - Butik 430, 2300 København S
+- Fisketorvet — Fisketorvet Shopping Center, 1560 København V
+- FRB - ABC — Frederiksberg Allé 98, 1820 Frederiksberg C
+- FRB - Falkoner — Falkoner Plads 1, 2000 Frederiksberg
+- Frederikssund — Sillebroen, Nygade 1, 3600 Frederikssund
+- Gentofte — Gentoftegade 35, 1. Sal, 2820 Gentofte
+- Helsingør — Rønnebær Allé 110, 3000 Helsingør
+- Herlev — Herlev Torv 28, 2730 Herlev
+- Hørsholm — Kammerrådensvej 2, 2970 Hørsholm
+- Køge - Den hvide by — Galoche Allé 11, 4600 Køge
+- Køge - Strædet — Strædet Rådhusstræde 7G, 4600 Køge
+- Lyngby Kanalvej — Kanalvej 1, 2800 Kongens Lyngby
+- Nygårdsvej — Nygårdsvej 5, 2100 København Ø
+- Nærum — Rundforbivej 186-188, 2850 Nærum
+- Nørrebro — Frederikssundsvej 5, 2400 København NV
+- Parken — Øster Alle 42, 2100 København Ø
+- Roskilde — Ro´s Torv 1, 1. 46, 4000 Roskilde
+- Sluseholmen — Sluseholmen 15 D, 2450 København SV
+- Sydhavn — Scandiagade 15, 2450 København SV
+- Søborg — Tobaksvejen 4, Bygning E, 2860 Søborg
+- Taastrup — Cityringen 24, Dørnr. 451, City 2, 2630 Taastrup
+- Valby — Torvegade 17, 2500 Valby
+- Vallensbæk — Stationstorvet 76, 1. Sal, 2665 Vallensbæk Strand
+- Vesterport — Ved Vesterport 1, 1612 København V
+
+BRAND: Fitness X
+
+- Aarhus C, Ankersgade — Ankersgade 12, 8000 Aarhus C
+- Aarhus C, Frisko — Daugbjergvej 26C, 8000 Aarhus C
+- Aarhus C, Nørrebrogade — Nørrebrogade 28, 8000 Aarhus C
+- Aarhus C, Sønder Allé — Sønder Allé 11, 8000 Aarhus C
+- Aarhus N, Paludan-Müllers Vej — Paludan-Müllers Vej 82, 8200 Aarhus N
+- Aarhus C, Prismet — Viborgvej 3, 8000 Aarhus C
+- Aarhus V, Brabrand — Edwin Rahrs Vej 32, 8220 Brabrand
+- Aarhus, Viby — Viby Ringvej 10, 8260 Viby
+- Ballerup — Hedeparken 9B, 2750 Ballerup
+- Esbjerg Ø, Jagtvej — Jagtvej 53, 6705 Esbjerg Ø
+- Esbjerg, Strandbytorv — Strandbygade 20, 6700 Esbjerg
+- Frederiksberg, Fasanvej — Nordre Fasanvej 27, 2000 Frederiksberg
+- Hasselager — Kolt Østervej 25, 8361 Hasselager
+- Hjørring — Østergade 30, 9800 Hjørring
+- Holstebro, Struervej — Struervej 14, 7500 Holstebro
+- Holstebro, Vestergade — Vestergade 16, 7500 Holstebro
+- Horsens, Emil Møllers Gade — Emil Møllers Gade 30, 8700 Horsens
+- Horsens, Høegh Guldbergs Gade — Høegh Guldbergs Gade 1, 8700 Horsens
+- København S, Amager Strand — Amager Strandvej 112A, 2300 København S
+- København S, Femøren — Engvej 163, 2300 København S
+- København V, Carlsberg Byen — Thorvald Bindesbølls Plads 1, 1799 København V
+- Lyngby — Jernbanepladsen 6, 2800 Kongens Lyngby
+- Randers SØ, Haraldsvej — Haraldsvej 60, 8960 Randers SØ
+- Randers C, Vestergrave — Vestergrave 2, 8900 Randers C
+- Roskilde — Holbækvej 7, 4000 Roskilde
+- Slagelse, Fabrikken — Ndr. Ringgade 59, 4200 Slagelse
+- Valby, Vigerslevvej — Centerparken 34, 2500 Valby
+- Viborg — Tingvej 7, 8800 Viborg
+- Virum — Virumvej 96, 2830 Virum
+- Valby, Grønttorvet — Gammel Køge Landevej 70, 2500 Valby
+- København Ø, Hans Knudsens Plads — Lyngbyvej 62, 2100 København Ø
+
+COMING SOON / BRAND: Fitness X
+
+- Frederiksberg C, Forum — Rosenørns Allé 31, 1. sal, 1970 Frederiksberg
+- København Ø, Østerfælled Torv — Østerfælled Torv 3, 2100 København Ø
+- Roskilde, Skomagergade — Skomagergade 32B, 4000 Roskilde
+- København S, Lindgreens Allé — Lindgreens Allé 9, 2300 København S
+
+BRAND: LOOP Fitness
+
+- LOOP Fitness Aabenraa — Møllemærsk 24, 6200 Aabenraa
+- LOOP Fitness Aabybro — Østergade 30 B, 9440 Aabybro
+- LOOP Fitness Aalborg C — Sjællandsgade 16-22, 9000 Aalborg
+- LOOP Fitness Aalborg SØ — Gugvej 217, 9210 Aalborg SØ
+- LOOP Fitness Aarhus C — Søren Frichs Vej 44, 8230 Åbyhøj
+- LOOP Fitness Aarhus V — Bredskiftevej 20A, 8210 Århus V
+- LOOP Fitness Aars — Himmerlandsgade 116, 9600 Aars
+- LOOP Fitness Allerød — Rørmosevej 2B, 3450 Allerød
+- LOOP Fitness Amager, Strandlodsvej — Strandlodsvej 9 R, 2300 København S
+- LOOP Fitness Asnæs — Nygade 1, 4550 Asnæs
+- LOOP Fitness Assens — Søndre Ringvej 12, 5610 Assens
+- LOOP Fitness Bagsværd — Vadstrupvej 41, 2880 Bagsværd
+- LOOP Fitness Ballerup — Ballerup Centret, 2750 Ballerup
+- LOOP Fitness Beder — Kirkebakken 4, 8330 Beder
+- LOOP Fitness Birkerød — Hovedgaden 38, 3460 Birkerød
+- LOOP Fitness Bjerringbro — Brogade 49, 8850 Bjerringbro
+- LOOP Fitness Brande — Chr Bergs Vej 5, 7330 Brande
+- LOOP Fitness Brønderslev — Håndværkervej 1, 9700 Brønderslev
+- LOOP Fitness Brønshøj — Frederikssundsvej 266, 2700 Brønshøj
+- LOOP Fitness Dalum — Dalumvej 43, 5250 Odense SV
+- LOOP Fitness Dianalund — Torvet 2, 4293 Dianalund
+- LOOP Fitness Dragør — A.P. Møllers Allé 13, 2791 Dragør
+- LOOP Fitness Dronninglund — Stationsvej 20-22, 9330 Dronninglund
+- LOOP Fitness Esbjerg — Tordenskjoldsgade 9, 6700 Esbjerg
+- LOOP Fitness Faaborg — Herregårdscentret 15A, 5600 Faaborg
+- LOOP Fitness Farum — Frederiksborgvej 17, 3520 Farum
+- LOOP Fitness Flintholm — Stig Lommers Plads 1, 2000 Frederiksberg
+- LOOP Fitness Fredensborg — Christopher Boecksvej 17, 3480 Fredensborg
+- LOOP Fitness Fredericia — Sanddal Bakke 21, 7000 Fredericia
+- LOOP Fitness Frederiksberg — Nordre Fasanvej 43, 2000 Frederiksberg
+- LOOP Fitness Frederikshavn — Grønlandsvej 12, 9900 Frederikshavn
+- LOOP Fitness Frederikssund — Østergade 1R, 3600 Frederikssund
+- LOOP Fitness Frederiksværk — Havtornvej 6, 3300 Frederiksværk
+- LOOP Fitness Galten — Torvet 2B, 8464 Galten
+- LOOP Fitness Gilleleje — Gilleleje Hovedgade 24, 3250 Gilleleje
+- LOOP Fitness Glostrup — Hermods Alle 6, 2600 Glostrup
+- LOOP Fitness Grenaa — Rugvænget 2C, 8500 Grenaa
+- LOOP Fitness Greve — Håndværkerbyen 36, 2670 Greve
+- LOOP Fitness Haderslev — Vinkelvej 3B, 6100 Haderslev
+- LOOP Fitness Hadsten — Gammel Sellingvej 1, 8370 Hadsten
+- LOOP Fitness Hadsund — Mejerigade 4, 9560 Hadsund
+- LOOP Fitness Hammel — TEMA Centret, Østergade 8A, 8450 Hammel
+- LOOP Fitness Haslev — Grønlandsgade 1-3, 4690 Haslev
+- LOOP Fitness Hedehusene — Hovedgaden 451B, 2640 Hedehusene
+- LOOP Fitness Hedensted — Vesterbrogade 5, 8722 Hedensted
+- LOOP Fitness Hellerup — Strandvejen 209, 2900 Hellerup
+- LOOP Fitness Helsingør — Blichersvej 57, 3000 Helsingør
+- LOOP Fitness Herlev — Herlev Hovedgade 201B, 1. sal, 2730 Herlev
+- LOOP Fitness Herning — Herning Centret, Merkurvej 163, 7400 Herning
+- LOOP Fitness Hillerød — Vølundsvej 9, 1, 3400 Hillerød
+- LOOP Fitness Hinnerup — Storegade 11, 8382 Hinnerup
+- LOOP Fitness Hirtshals — Vestergade 17, 9850 Hirtshals
+- LOOP Fitness Hjørring — Hvidevold 2A, 9800 Hjørring
+- LOOP Fitness Hobro — Adelgade 40E, 9500 Hobro
+- LOOP Fitness Holbæk — Tåstrup Møllevej 5, 4300 Holbæk
+- LOOP Fitness Holstebro — Ved Enghavens Parkering, Magnus Kjærs Gade 4, 7500 Holstebro
+- LOOP Fitness Hørning — Rådhuspladsen 2A, st, 8362 Hørning
+- LOOP Fitness Hornslet — Tingvej 41, 8543 Hornslet
+- LOOP Fitness Horsens — Høegh Guldbergsgade 36, 8700 Horsens
+- LOOP Fitness Hørsholm — Usserød Kongevej 99, 2970 Hørsholm
+- LOOP Fitness Hvidovre — Arnold Nielsens Boulevard 144, 2650 Hvidovre
+- LOOP Fitness Ikast C — Saturnvej 4, 7430 Ikast
+- LOOP Fitness Jyderup — Drivsåtsvej 1, 4450 Jyderup
+- LOOP Fitness Kalundborg — Nytorv 6, 4400 Kalundborg
+- LOOP Fitness Kastrup — Amager Landevej 233, 2770 Kastrup
+- LOOP Fitness Kjellerup — Bryggerstræde 9, 1. sal, 8620 Kjellerup
+- LOOP Fitness Klarup — Klarupvej 68, 9270 Klarup
+- LOOP Fitness Køge — Marksvinget 19, 4600 Køge
+- LOOP Fitness Kolding — Albuen 5, 6000 Kolding
+- LOOP Fitness Korsør — Algade 29, 4220 Korsør
+- LOOP Fitness Løgstør — Torvegade 3, 9670 Løgstør
+- LOOP Fitness Lystrup — Møgelgårdsvej 8, 8520 Lystrup
+- LOOP Fitness Måløv — Måløv Stationsplads 7, 2760 Måløv
+- LOOP Fitness Maribo — Ved Åen 1, 4930 Maribo
+- LOOP Fitness Munkebo — Bycentret 101A, 5330 Munkebo
+- LOOP Fitness Nærum — Nærumvænge Torv 18, 2850 Nærum
+- LOOP Fitness Næstved — Merkurvej 6, 4700 Næstved
+- LOOP Fitness Nibe — Toften 3.B, 9240 Nibe
+- LOOP Fitness Nørresundby — Skrågade 10, 9400 Nørresundby
+- LOOP Fitness Nyborg — Dronningensvej 5, 5800 Nyborg
+- LOOP Fitness Nykøbing Falster — Nygade 25, 4800 Nykøbing F
+- LOOP Fitness Nykøbing Mors — Grønnegade 29, 7900 Nykøbing M
+- LOOP Fitness Nykøbing Sj — Siriusvej 6, 4500 Nykøbing Sj
+- LOOP Fitness Odder — Rådhusgade 96, 8300 Odder
+- LOOP Fitness Odense C Østerbro — Østerbro 20, 5000 Odense C
+- LOOP Fitness Odense C Vesterbro — Vesterbro 39, 5000 Odense C
+- LOOP Fitness Odense SØ — Unsbjergvej 4, 5220 Odense SØ
+- LOOP Fitness Odense V — Middelfartvej 131, 5200 Odense
+- LOOP Fitness Ølstykke — Ørnebjergvej 1, 3650 Ølstykke
+- LOOP Fitness Østerbro — Teglværksgade 37, 2100 København Ø
+- LOOP Fitness Overlund — Randersvej 68, 8800 Viborg
+- LOOP Fitness Peter Bangs Vej — Peter Bangs Vej 39A, 2000 Frederiksberg
+- LOOP Fitness Randers — Mariagervej 67, 8920 Randers NV
+- LOOP Fitness Randers SV — Gamle Stationsvej 3, 8940 Randers SV
+- LOOP Fitness Ringe — Bygmestervej 23, 5750 Ringe
+- LOOP Fitness Ringkøbing — Vellingvej 49, 6950 Ringkøbing
+- LOOP Fitness Ringsted — Huginsvej 2, 4100 Ringsted
+- LOOP Fitness Risskov — Ravnsøvej 15, 1. sal, 8240 Risskov
+- LOOP Fitness Rødekro — Rødekro Midt 7, 6230 Rødekro
+- LOOP Fitness Rødovre — Rødovre Centrum, Højnæsvej 73, 2610 Rødovre
+- LOOP Fitness Roskilde — Byleddet 1, 4000 Roskilde
+- LOOP Fitness Sæby — Sophus Falcksvej 1, 9300 Sæby
+- LOOP Fitness Silkeborg — Nørrevænget 5D, 8600 Silkeborg
+- LOOP Fitness Sindal — Nørre Torv 6A, 9870 Sindal
+- LOOP Fitness Skagen — Buttervej 33 B, 9990 Skagen
+- LOOP Fitness Skanderborg — Godthåbsvej 29, 8660 Skanderborg
+- LOOP Fitness Skive — Ågade 1A, 7800 Skive
+- LOOP Fitness Skødstrup — Rosenbakken 1, 8541 Skødstrup
+- LOOP Fitness Skovlunde — Bybjergvej 6D, 2740 Skovlunde
+- LOOP Fitness Slagelse — Kongstedsvej 2, 4200 Slagelse
+- LOOP Fitness Slangerup — Kongensgade 1, 3550 Slangerup
+- LOOP Fitness Snekkersten — Snekkersten Stationsvej 25, 3070 Snekkersten
+- LOOP Fitness Søborg — Tobaksvejen 20, 2860 Søborg
+- LOOP Fitness Sønderborg — Grundtvigs Allé 198, 6400 Sønderborg
+- LOOP Fitness Søndersø — Vesterled 16, 5471 Søndersø
+- LOOP Fitness Sorø — Holberg Arkaden 9B, 4180 Sorø
+- LOOP Fitness Stenløse — Damgårdsvej 15, 3660 Stenløse
+- LOOP Fitness Støvring — Elme Allé 1 A, 9530 Støvring
+- LOOP Fitness Strib — Sofiendalvej 10, Strib, 5500 Middelfart
+- LOOP Fitness Struer — Ved Fjorden 6B, 7600 Struer
+- LOOP Fitness Svendborg — Ørbækvej 3, 5700 Svendborg
+- LOOP Fitness Svenstrup J — Fabriksparken 1, 9230 Svenstrup J
+- LOOP Fitness Sydhavns Plads — Sydhavns Plads 12, 2450 København SV
+- LOOP Fitness Thisted — Nørretorv 6B, 7700 Thisted
+- LOOP Fitness Tølløse — Vestergade 62, 4340 Tølløse
+- LOOP Fitness Tønder — Nørremarksvej 31, 6270 Tønder
+- LOOP Fitness Tranbjerg J — Børupvej 3, 8310 Tranbjerg J
+- LOOP Fitness Værløse — Kirke Værløsevej 14, 3500 Værløse
+- LOOP Fitness Valby — Toftegårds Allé 9A, 2500 Valby
+- LOOP Fitness Vanløse — Jernbane Allé 42A, 2720 Vanløse
+- LOOP Fitness Varde — Ribevej 1, 6800 Varde
+- LOOP Fitness Vejen — Jyllandsgade 3, 6600 Vejen
+- LOOP Fitness Vejle — Horsensvej 72C, 7100 Vejle
+- LOOP Fitness Viborg — Falkevej 19, 8800 Viborg
+- LOOP Fitness Viby — Skanderborgvej 224B, 8260 Viby J
+- LOOP Fitness Virum — Geels Plads 2, st, 2830 Virum
+- LOOP Fitness Vodskov — Vodskovvej 57, 9310 Vodskov
+- LOOP Fitness Vordingborg — Rådhustorvet 4D, 4760 Vordingborg
+
+BRAND: Sporting Health Club
+
+- SHC Borups Allé — Borups Allé 45, 2200 København N
+- SHC Gothersgade — Gothersgade 14, 1123 København K
+- SHC Kaktus Towers — Dybbølsbro 1, 1560 København V
+- SHC Scandinavia — Amager Boulevard 70, 4 sal, 2300 København S
+- SHC Ørstedsparken — Nørre Farimagsgade 43, 1364 København K
+- SHC Østbanegade — Østbanegade 121, 2100 København Ø
+- SHC Åboulevarden — Åboulevard 58, 2200 København N
+
+BRAND: ARCA
+
+- ARCA Garagen — Adelgade 11, 1304 København K
+- ARCA Kirken — Griffenfeldsgade 7A, 2200 København N
+- ARCA Lageret — Glentevej 47, 2400 København NV
+- ARCA Trykkeriet — Rentemestervej 56, 2400 København NV
+- ARCA Boxen — Portugalsgade 13, 2300 København S
+- ARCA Omstillingen — Norgesgade 10, 2300 København S
+- ARCA Klubben — Jagtvej 217, 2100 København Ø
+- ARCA Krydsfeltet — Rosenvængets Allé 9, 2100 København Ø
+- ARCA Centralen — Dannebrogsgade 5-9, 1660 København V
+- ARCA Kogeriet — Finsensvej 14, 2000 Frederiksberg
+- ARCA Bazaren — Høffdingsvej 32, 2500 Valby
+- ARCA Værkstedet — Kastanie Alle 20, 2720 Vanløse
+- ARCA Højen — Tuxensvej 1, 2700 Brønshøj
+- ARCA Posthuset — Brogårdsvej 12, 2820 Gentofte
+- ARCA Laboratoriet — Kochsgade 23B, 5000 Odense
+- ARCA Spartan Mentality — Søren Frichs Vej 34C, 8230 Åbyhøj
+- ARCA Fundamentet — Helsingforsgade 23, 8200 Aarhus N
+- ARCA Gøglerskolen — Klosterport 4N, 8000 Aarhus C
+
+--------------------------------------------------
+IMPLEMENTATION DETAILS
+--------------------------------------------------
+
+1. Build the new master center dataset
+2. Remove all old center data
+3. Update all screens/components to use the new dataset
+4. Add proper search/filter helper
+5. Add geocoded lat/lng support for map markers
+6. Ensure coming-soon centers are hidden from check-in flow, but can optionally appear in an “upcoming” list if needed
+7. Local center selection should only allow active centers
+8. Friends > Centres should show all active centers grouped/searchable
+9. Check-in picker should show nearest active centers first if location is available
+10. Make sure the app does not crash if some coordinates are temporarily null
+
+--------------------------------------------------
+CLEANUP
+--------------------------------------------------
+
+Also:
+- remove fake/demo/placeholder centers
+- remove outdated center arrays
+- remove duplicate brands or legacy names
+- preserve existing UI styling as much as possible
+- do not break navigation
+- do not break check-in flow
+
+--------------------------------------------------
+FINAL OUTPUT
+--------------------------------------------------
+
+After completing the work, tell me:
+1. where the master center database now lives
+2. which files/components were updated
+3. whether old center data was fully removed
+4. how lat/lng is being handled
+5. if any addresses still need manual geocoding review
+</user_query>

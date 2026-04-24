@@ -1,12 +1,15 @@
 /**
- * Venner ved check-in — stub indtil push/in-app notifikationer er koblet på.
- * Undgår Metro "unknown module" når filen manglede lokalt.
+ * Venner ved check-in.
+ * Supabase: venner får INSERT via Realtime (FriendCheckInRealtimeSync) + samme RLS som SELECT.
+ * Native Firebase: kan udvides med FCM her.
  */
+
+import {isFirebaseNativeAvailable} from '@/services/firebase/nativeAvailability';
 
 export type NotifyFriendsOfCheckInParams = {
   actorUserId: string;
   displayName: string;
-  gymId: number;
+  gymId: string;
   gymName: string;
   city?: string;
   workoutEncoded?: string;
@@ -15,5 +18,8 @@ export type NotifyFriendsOfCheckInParams = {
 export async function notifyFriendsOfCheckIn(
   _params: NotifyFriendsOfCheckInParams,
 ): Promise<void> {
-  /* TODO: Firestore + FCM til venner der følger brugeren */
+  if (!isFirebaseNativeAvailable()) {
+    return;
+  }
+  /* TODO: Firestore + FCM når native Firebase bruges til check-ins */
 }

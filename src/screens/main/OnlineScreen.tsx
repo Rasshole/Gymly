@@ -3,7 +3,7 @@
  * Premium active users – træner nu, online nu, aktiv for X min
  */
 
-import React, {useMemo, useState} from 'react';
+import React, {useMemo, useState, useCallback} from 'react';
 import {
   View,
   Text,
@@ -12,8 +12,10 @@ import {
   TouchableOpacity,
   Image,
   TextInput,
+  Alert,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useFocusEffect} from '@react-navigation/native';
+import {navigateToFriendProfile} from '@/navigation/rootNavigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useOnlineUsers} from '@/hooks/data';
 import type {OnlineUser} from '@/types/online.types';
@@ -24,6 +26,7 @@ import EmptyState from '@/components/ui/EmptyState';
 import {FilterChips} from '@/components/ui/FilterChips';
 import {useAppStore} from '@/store/appStore';
 import {useChatStore} from '@/store/chatStore';
+import {getOrCreateDmThread} from '@/services/supabase/dmService';
 
 type FilterType = 'venner' | 'alle';
 
@@ -73,14 +76,24 @@ const getStatusColor = (status: OnlineUser['status']): string => {
 const OnlineScreen = () => {
   const navigation = useNavigation<any>();
   const {user} = useAppStore();
-  const {getChatByParticipants, addChat, initializeChatMessages} = useChatStore();
+  const {getChatByParticipants, upsertChat} = useChatStore();
   const [filter, setFilter] = useState<FilterType>('venner');
   const [searchQuery, setSearchQuery] = useState('');
   const currentUserId = user?.id || 'current_user';
+  const currentUserName = user?.displayName || 'Dig';
 
-  const {users: usersFromSource} = useOnlineUsers(currentUserId, {
-    filter,
-  });
+  const {users: usersFromSource, refresh: refreshOnline} = useOnlineUsers(
+    user?.id,
+    {
+      filter,
+    },
+  );
+
+  useFocusEffect(
+    useCallback(() => {
+      void refreshOnline();
+    }, [refreshOnline]),
+  );
 
   const displayUsers = useMemo(
     () => usersFromSource.filter((u) => matchesSearch(u, searchQuery)),
@@ -88,35 +101,42 @@ const OnlineScreen = () => {
   );
 
   const handleSeProfil = (u: OnlineUser) => {
-    navigation.navigate('FriendProfile', {
-      userId: u.userId,
+    navigateToFriendProfile(navigation, {
+      friendId: u.userId,
       friendName: u.displayName,
       mutualFriends: 0,
       gyms: u.gymName ? [u.gymName] : [],
     });
   };
 
-  const handleSendBesked = (u: OnlineUser) => {
+  const handleSendBesked = async (u: OnlineUser) => {
     const participantIds = [currentUserId, u.userId].sort();
+    const nameById: Record<string, string> = {
+      [currentUserId]: currentUserName,
+      [u.userId]: u.displayName,
+    };
+    const participantNames = participantIds.map(id => nameById[id] ?? 'Ven');
     const existingChat = getChatByParticipants(participantIds);
-    const chatId = existingChat?.id ?? `chat_${u.userId}`;
-    if (!existingChat) {
-      addChat({
-        id: chatId,
+    try {
+      const threadId = await getOrCreateDmThread(u.userId);
+      upsertChat({
+        id: threadId,
         participantIds,
-        participantNames: ['Dig', u.displayName],
-        lastActivity: new Date(),
-        unreadCount: 0,
-        avatarInitials: u.avatarInitials,
+        participantNames,
+        lastActivity: existingChat?.lastActivity ?? new Date(),
+        unreadCount: existingChat?.unreadCount ?? 0,
+        avatar: existingChat?.avatar,
+        avatarInitials: existingChat?.avatarInitials ?? u.avatarInitials,
       });
-      initializeChatMessages(chatId, []);
+      navigation.navigate('Chat', {
+        chatId: threadId,
+        friendId: u.userId,
+        friendName: u.displayName,
+        participants: [{id: u.userId, name: u.displayName}],
+      });
+    } catch (e) {
+      Alert.alert('Besked', (e as Error).message);
     }
-    navigation.navigate('Chat', {
-      chatId,
-      friendId: u.userId,
-      friendName: u.displayName,
-      participants: [{id: u.userId, name: u.displayName}],
-    });
   };
 
   const handleInviterTilGruppe = (u: OnlineUser) => {

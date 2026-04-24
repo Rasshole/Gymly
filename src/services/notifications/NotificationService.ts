@@ -6,6 +6,7 @@
 
 import {useNotificationStore} from '@/store/notificationStore';
 import {DanishGym} from '@/data/danishGyms';
+import {listPendingIncomingRequests} from '@/services/supabase/friendService';
 
 const friends: Array<{id: string; name: string}> = [];
 
@@ -88,6 +89,28 @@ class NotificationService {
   }
 
   /**
+   * Ven har tjekket ind (Supabase Realtime) — ingen simuleret auto-checkout.
+   */
+  static addFriendCheckInRealtime(
+    friendName: string,
+    gymName: string,
+    gymIdStr: string | undefined,
+  ) {
+    const {addNotification} = useNotificationStore.getState();
+    const gid = gymIdStr && gymIdStr.length > 0 ? gymIdStr : undefined;
+    addNotification({
+      type: 'friend_checkin',
+      title: `${friendName} har tjekket ind`,
+      message: `${friendName} træner på ${gymName}`,
+      friendName,
+      gymName,
+      gymId: gid,
+      checkInTime: new Date(),
+      isActive: true,
+    });
+  }
+
+  /**
    * Simulate a friend checking in
    * In a real app, this would be triggered by a WebSocket message or push notification
    */
@@ -166,8 +189,37 @@ class NotificationService {
       title: 'Ny venneanmodning',
       message: `${requesterName} vil gerne være venner med dig`,
       friendName: requesterName,
+      friendId,
       isActive: false,
     });
+  }
+
+  /**
+   * Indgående venneanmodning (Supabase Realtime INSERT) – klokke + notifikationsliste
+   */
+  static addIncomingFriendRequestFromRealtime(
+    requestId: string,
+    fromUserId: string,
+    requesterDisplayName: string,
+    myUserId: string,
+  ) {
+    const {addNotification, setIncomingFriendRequestCount} =
+      useNotificationStore.getState();
+    addNotification({
+      type: 'friend_request',
+      title: 'Ny venneanmodning',
+      message: `${requesterDisplayName} vil gerne være venner med dig`,
+      friendName: requesterDisplayName,
+      friendId: fromUserId,
+      friendRequestId: requestId,
+      isActive: false,
+    });
+    void listPendingIncomingRequests(myUserId)
+      .then(rows => setIncomingFriendRequestCount(rows.length))
+      .catch(() => {
+        const prev = useNotificationStore.getState().incomingFriendRequestCount;
+        setIncomingFriendRequestCount(prev + 1);
+      });
   }
 
   /**

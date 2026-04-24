@@ -70,7 +70,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
                 <Text style={styles.userName}>{user.name}</Text>
                 {user.isFriend && (
                   <View style={styles.friendLabel}>
-                    <Icon name="heart" size={12} color={colors.secondary} />
+                    <Icon name="people" size={12} color={colors.secondary} />
                     <Text style={styles.friendText}>Ven</Text>
                   </View>
                 )}

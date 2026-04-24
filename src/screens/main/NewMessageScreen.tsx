@@ -4,6 +4,7 @@
  */
 
 import React, {useRef, useState, useMemo, useCallback} from 'react';
+import {useFocusEffect} from '@react-navigation/native';
 import {
   View,
   Text,
@@ -16,15 +17,19 @@ import {
   KeyboardAvoidingView,
   Platform,
   Image,
+  ActivityIndicator,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useChatStore} from '@/store/chatStore';
 import {useGroupStore, CURRENT_USER_PLACEHOLDER_ID, GymlyGroup} from '@/store/groupStore';
 import {useAppStore} from '@/store/appStore';
+import {listFriendsWithProfiles} from '@/services/supabase/friendService';
+import {getOrCreateDmThread} from '@/services/supabase/dmService';
 import colors from '@/theme/colors';
 
 const NewMessageScreen = ({navigation}: any) => {
-  const {getChatByParticipants, addChat, initializeChatMessages} = useChatStore();
+  const {getChatByParticipants, addChat, initializeChatMessages, upsertChat} =
+    useChatStore();
   const {groups} = useGroupStore();
   const {user} = useAppStore();
   const [selectedFriends, setSelectedFriends] = useState<string[]>([]);
@@ -33,11 +38,51 @@ const NewMessageScreen = ({navigation}: any) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchActive, setSearchActive] = useState(true);
   const [messageInputFocused, setMessageInputFocused] = useState(false);
+  const [friends, setFriends] = useState<
+    Array<{id: string; name: string; avatar: string | null}>
+  >([]);
+  const [friendsLoading, setFriendsLoading] = useState(false);
   const searchInputRef = useRef<TextInput>(null);
   const messageInputRef = useRef<TextInput>(null);
 
   const currentUserId = user?.id || CURRENT_USER_PLACEHOLDER_ID;
   const currentUserName = user?.displayName || 'Dig';
+
+  useFocusEffect(
+    useCallback(() => {
+      if (!user?.id) {
+        setFriends([]);
+        return;
+      }
+      let cancelled = false;
+      setFriendsLoading(true);
+      void (async () => {
+        try {
+          const profiles = await listFriendsWithProfiles(user.id);
+          if (!cancelled) {
+            setFriends(
+              profiles.map(p => ({
+                id: p.id,
+                name: p.displayName,
+                avatar: p.avatarUrl,
+              })),
+            );
+          }
+        } catch {
+          if (!cancelled) {
+            setFriends([]);
+          }
+        } finally {
+          if (!cancelled) {
+            setFriendsLoading(false);
+          }
+        }
+      })();
+      return () => {
+        cancelled = true;
+      };
+    }, [user?.id]),
+  );
 
   const myGroups = useMemo(() => {
     return groups.filter(group =>
@@ -58,12 +103,16 @@ const NewMessageScreen = ({navigation}: any) => {
     [currentUserId, currentUserName],
   );
 
-  const friends: Array<{id: string; name: string; avatar: string | null}> = [];
-  const filteredFriends = friends.filter(
-    friend =>
-      friend.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
-      !selectedFriends.includes(friend.id),
-  );
+  const q = searchQuery.trim().toLowerCase();
+  const filteredFriends = friends.filter(friend => {
+    if (selectedFriends.includes(friend.id)) {
+      return false;
+    }
+    if (!q) {
+      return true;
+    }
+    return friend.name.toLowerCase().includes(q);
+  });
 
   const filteredGroups = useMemo(() => {
     if (!searchQuery.trim()) {
@@ -77,7 +126,7 @@ const NewMessageScreen = ({navigation}: any) => {
     );
   }, [searchQuery, myGroups]);
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (selectedFriends.length === 0 && !selectedGroup) {
       Alert.alert('Vælg modtager', 'Vælg venligst en ven eller gruppe at sende beskeden til');
       return;
@@ -150,45 +199,70 @@ const NewMessageScreen = ({navigation}: any) => {
     }
 
     const allParticipantIds = [currentUserId, ...selectedFriends].sort();
-    
-    // Check if chat already exists
+    const nameById: Record<string, string> = {
+      [currentUserId]: currentUserName,
+      ...Object.fromEntries(friendObjects.map(f => [f.id, f.name] as const)),
+    };
     const existingChat = getChatByParticipants(allParticipantIds);
-    
-    if (existingChat) {
-      // Navigate to existing chat
-      navigation.navigate('Chat', {
-        chatId: existingChat.id,
-        friendId: friendObjects.length === 1 ? friendObjects[0].id : `group_${existingChat.id}`,
-        friendName: friendObjects.length === 1 ? friendObjects[0].name : `${friendObjects.length} venner`,
-        participants: friendObjects.map(friend => ({id: friend.id, name: friend.name})),
-        initialMessage: trimmedMessage,
-      });
-    } else {
-      // Create new chat
-      const chatId = `chat_${Date.now()}`;
-      const newChat = {
-        id: chatId,
-        participantIds: allParticipantIds,
-        participantNames: ['Dig', ...friendObjects.map(f => f.name)],
-        lastActivity: new Date(),
-        unreadCount: 0,
-      };
-      addChat(newChat);
 
-      if (friendObjects.length === 1) {
+    if (friendObjects.length === 1) {
+      const other = friendObjects[0];
+      try {
+        const threadId = await getOrCreateDmThread(other.id);
+        upsertChat({
+          id: threadId,
+          participantIds: allParticipantIds,
+          participantNames: allParticipantIds.map(
+            id => nameById[id] ?? 'Ven',
+          ),
+          lastActivity: new Date(),
+          unreadCount: existingChat?.unreadCount ?? 0,
+          avatar: existingChat?.avatar,
+          avatarInitials: existingChat?.avatarInitials,
+        });
         navigation.navigate('Chat', {
-          chatId,
-          friendId: friendObjects[0].id,
-          friendName: friendObjects[0].name,
-          participants: [{id: friendObjects[0].id, name: friendObjects[0].name}],
+          chatId: threadId,
+          friendId: other.id,
+          friendName: other.name,
+          participants: [{id: other.id, name: other.name}],
+          initialMessage: trimmedMessage,
+        });
+      } catch (e) {
+        Alert.alert('Besked', (e as Error).message);
+        return;
+      }
+    } else {
+      if (existingChat) {
+        navigation.navigate('Chat', {
+          chatId: existingChat.id,
+          friendId: `group_${existingChat.id}`,
+          friendName: `${friendObjects.length} venner`,
+          participants: friendObjects.map(friend => ({
+            id: friend.id,
+            name: friend.name,
+          })),
           initialMessage: trimmedMessage,
         });
       } else {
+        const chatId = `chat_${Date.now()}`;
+        addChat({
+          id: chatId,
+          participantIds: allParticipantIds,
+          participantNames: allParticipantIds.map(
+            id => nameById[id] ?? 'Ven',
+          ),
+          lastActivity: new Date(),
+          unreadCount: 0,
+        });
+        initializeChatMessages(chatId, []);
         navigation.navigate('Chat', {
           chatId,
           friendId: `group_${chatId}`,
           friendName: `${friendObjects.length} venner`,
-          participants: friendObjects.map(friend => ({id: friend.id, name: friend.name})),
+          participants: friendObjects.map(friend => ({
+            id: friend.id,
+            name: friend.name,
+          })),
           initialMessage: trimmedMessage,
         });
       }
@@ -375,34 +449,62 @@ const handleSearchFocus = () => {
               {/* Friends Section */}
               {filteredFriends.length > 0 && (
                 <View style={styles.friendsSection}>
-                  {filteredGroups.length > 0 && (
-                    <Text style={styles.sectionSubtitle}>Venner</Text>
-                  )}
-              {filteredFriends.map(friend => (
-                <TouchableOpacity
-                  key={friend.id}
-                  style={styles.friendItem}
-                  onPress={() => handleSelectFriend(friend.id)}
-                  activeOpacity={0.7}>
-                  <View style={styles.friendAvatar}>
-                    <Text style={styles.friendAvatarText}>
-                      {friend.name.charAt(0)}
-                    </Text>
-                  </View>
-                  <Text style={styles.friendName}>{friend.name}</Text>
-                  <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-                </TouchableOpacity>
-              ))}
+                  <Text style={styles.sectionSubtitle}>Venner</Text>
+                  {filteredFriends.map(friend => (
+                    <TouchableOpacity
+                      key={friend.id}
+                      style={styles.friendItem}
+                      onPress={() => handleSelectFriend(friend.id)}
+                      activeOpacity={0.7}>
+                      {friend.avatar ? (
+                        <Image source={{uri: friend.avatar}} style={styles.friendAvatarImage} />
+                      ) : (
+                        <View style={styles.friendAvatar}>
+                          <Text style={styles.friendAvatarText}>
+                            {friend.name.charAt(0)}
+                          </Text>
+                        </View>
+                      )}
+                      <Text style={styles.friendName}>{friend.name}</Text>
+                      <Icon name="chevron-forward" size={20} color="#C7C7CC" />
+                    </TouchableOpacity>
+                  ))}
                 </View>
               )}
 
-              {/* Empty State */}
-              {filteredFriends.length === 0 && filteredGroups.length === 0 && searchQuery.length > 0 && (
-                <View style={styles.emptyState}>
-                  <Icon name="people-outline" size={48} color="#C7C7CC" />
-                  <Text style={styles.emptyText}>Ingen resultater fundet</Text>
-                </View>
-              )}
+              {friendsLoading &&
+                filteredGroups.length === 0 &&
+                filteredFriends.length === 0 && (
+                  <View style={styles.emptyState}>
+                    <ActivityIndicator size="large" color={colors.primary} />
+                    <Text style={styles.emptySubtext}>Henter venner…</Text>
+                  </View>
+                )}
+
+              {!friendsLoading &&
+                friends.length === 0 &&
+                filteredGroups.length === 0 &&
+                filteredFriends.length === 0 &&
+                searchQuery.trim().length === 0 && (
+                  <View style={styles.emptyState}>
+                    <Icon name="people-outline" size={48} color="#C7C7CC" />
+                    <Text style={styles.emptyText}>Ingen venner endnu</Text>
+                    <Text style={styles.emptySubtext}>
+                      Tilføj venner under fanen Venner for at skrive sammen.
+                    </Text>
+                  </View>
+                )}
+
+              {/* Empty State — søgning uden match */}
+              {!friendsLoading &&
+                filteredFriends.length === 0 &&
+                filteredGroups.length === 0 &&
+                searchQuery.trim().length > 0 && (
+                  <View style={styles.emptyState}>
+                    <Icon name="people-outline" size={48} color="#C7C7CC" />
+                    <Text style={styles.emptyText}>Ingen resultater fundet</Text>
+                  </View>
+                )}
             </View>
           )}
         </View>
@@ -556,7 +658,7 @@ const styles = StyleSheet.create({
   selectedFriendName: {
     fontSize: 14,
     fontWeight: '600',
-    color: colors.secondary,
+    color: colors.white,
   },
   selectedGroup: {
     flexDirection: 'row',
@@ -588,7 +690,7 @@ const styles = StyleSheet.create({
   selectedGroupName: {
     fontSize: 14,
     fontWeight: '600',
-    color: colors.secondary,
+    color: colors.white,
   },
   removeButton: {
     padding: 4,
@@ -663,6 +765,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginRight: 12,
   },
+  friendAvatarImage: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    marginRight: 12,
+    backgroundColor: colors.surface,
+  },
   friendAvatarText: {
     fontSize: 18,
     fontWeight: 'bold',
@@ -676,6 +785,13 @@ const styles = StyleSheet.create({
   emptyState: {
     alignItems: 'center',
     padding: 32,
+  },
+  emptySubtext: {
+    fontSize: 14,
+    color: colors.textMuted,
+    marginTop: 8,
+    textAlign: 'center',
+    paddingHorizontal: 16,
   },
   emptyText: {
     fontSize: 16,

@@ -4,32 +4,43 @@
 
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '@/theme/colors';
 import {spacing, typography} from '@/theme/designTokens';
+import GymLogoView from '@/components/ui/GymLogoView';
 
 export type ProfileCenterRow = {
   name: string;
   city?: string;
+  brand?: string;
 };
 
 type ProfileCentersListProps = {
   centers: ProfileCenterRow[];
+  /** Default: "Dine centre" — brug fx "Lokale centre" på andres profil */
+  sectionTitle?: string;
 };
 
 export const ProfileCentersList: React.FC<ProfileCentersListProps> = ({
   centers,
+  sectionTitle = 'Dine centre',
 }) => {
-  if (centers.length === 0) return null;
+  if (centers.length === 0) {
+    return null;
+  }
   return (
     <View style={styles.wrap}>
-      <Text style={styles.title}>Dine centre</Text>
+      <Text style={styles.title}>{sectionTitle}</Text>
       {centers.map((c, i) => (
         <View
           key={`${c.name}_${i}`}
           style={[styles.row, i > 0 && styles.rowDivider]}>
           <Text style={styles.badge}>{i + 1}</Text>
-          <Icon name="business-outline" size={16} color={colors.textSecondary} />
+          <GymLogoView
+            gymName={c.name}
+            brand={c.brand}
+            size={40}
+            style={styles.rowLogo}
+          />
           <View style={styles.textCol}>
             <Text style={styles.name} numberOfLines={2}>
               {c.name}
@@ -82,6 +93,7 @@ const styles = StyleSheet.create({
     color: colors.primary,
     width: 18,
   },
+  rowLogo: {marginRight: 4},
   textCol: {flex: 1},
   name: {
     ...typography.body,

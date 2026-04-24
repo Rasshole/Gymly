@@ -21,10 +21,12 @@ import {
 } from 'react-native';
 import MapView, {Marker, Region} from 'react-native-maps';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useFocusEffect, useIsFocused} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import danishGyms, {DanishGym} from '@/data/danishGyms';
+import {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
 import GymLogoView from '@/components/ui/GymLogoView';
+
+const MAP_GYMS = getActiveDanishGyms();
 import {useAppStore} from '@/store/appStore';
 import {useOnlineUsers} from '@/hooks/useOnlineUsers';
 import {getMapCenterActivity} from '@/data/mapCenterActivity';
@@ -34,19 +36,12 @@ import {
   SelectedCenterCard,
   NearbyCentersCarousel,
 } from '@/components/map';
+import {loadMapGymBadges} from '@/services/supabase/presenceService';
+import {subscribeCheckInsPresence} from '@/realtime/checkInsPresenceSubscription';
 
 if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
-
-// HARDCODED TEST DATA - Force visible badges to prove markers work (REMOVE when verified)
-const HARDCODED_MARKER_TEST: Record<number, {friendsActiveCount: number; totalActiveCount: number}> = {
-  497381657: {friendsActiveCount: 3, totalActiveCount: 18}, // SATS KBH - Valby
-  898936694: {friendsActiveCount: 1, totalActiveCount: 9},   // SATS KBH - Adelgade
-  1112453804: {friendsActiveCount: 2, totalActiveCount: 14}, // PureGym Lygten
-  1141433639: {friendsActiveCount: 0, totalActiveCount: 4}, // PureGym Esromgade
-  1779005080: {friendsActiveCount: 1, totalActiveCount: 7}, // PureGym Søborg
-};
 
 // INLINE MARKER STYLES - White circle, barbell fallback, NO purple/heart
 const markerStyles = StyleSheet.create({
@@ -138,9 +133,68 @@ const calculateDistance = (
 
 const MapScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
+  const isFocused = useIsFocused();
   const {user} = useAppStore();
-  const currentUserId = user?.id || 'current_user';
-  const {users: onlineFriends} = useOnlineUsers(currentUserId, {filter: 'venner'});
+  const currentUserId = user?.id || '';
+  const {users: onlineFriends, refresh: refreshOnlineFriends} = useOnlineUsers(
+    currentUserId || undefined,
+    {filter: 'venner'},
+  );
+
+  const [mapFriendsByGymId, setMapFriendsByGymId] = useState<Map<string, number>>(
+    () => new Map(),
+  );
+  const [mapTotalByGymId, setMapTotalByGymId] = useState<Map<string, number>>(
+    () => new Map(),
+  );
+
+  const refreshMapBadges = useCallback(async () => {
+    if (!user?.id) {
+      setMapFriendsByGymId(new Map());
+      setMapTotalByGymId(new Map());
+      return;
+    }
+    try {
+      const {friendsByGymId, totalByGymId} = await loadMapGymBadges(user.id);
+      setMapFriendsByGymId(friendsByGymId);
+      setMapTotalByGymId(totalByGymId);
+    } catch {
+      setMapFriendsByGymId(new Map());
+      setMapTotalByGymId(new Map());
+    }
+  }, [user?.id]);
+
+  useEffect(() => {
+    void refreshMapBadges();
+  }, [refreshMapBadges]);
+
+  useFocusEffect(
+    useCallback(() => {
+      void refreshMapBadges();
+      void refreshOnlineFriends();
+    }, [refreshMapBadges, refreshOnlineFriends]),
+  );
+
+  useEffect(() => {
+    if (!isFocused) {
+      return;
+    }
+    return subscribeCheckInsPresence(() => {
+      void refreshMapBadges();
+      void refreshOnlineFriends();
+    });
+  }, [isFocused, refreshMapBadges, refreshOnlineFriends]);
+
+  useEffect(() => {
+    if (!isFocused || !user?.id) {
+      return;
+    }
+    const t = setInterval(() => {
+      void refreshMapBadges();
+      void refreshOnlineFriends();
+    }, 45000);
+    return () => clearInterval(t);
+  }, [isFocused, user?.id, refreshMapBadges, refreshOnlineFriends]);
 
   const friends = useMemo(
     () =>
@@ -153,14 +207,6 @@ const MapScreen = () => {
         })),
     [onlineFriends],
   );
-
-  const friendsByGymId = useMemo(() => {
-    const map = new Map<number, number>();
-    friends.forEach(f => {
-      if (f.gymId) map.set(f.gymId, (map.get(f.gymId) ?? 0) + 1);
-    });
-    return map;
-  }, [friends]);
 
   const mapRef = useRef<MapView>(null);
   const [selectedGym, setSelectedGym] = useState<DanishGym | null>(null);
@@ -197,7 +243,7 @@ const MapScreen = () => {
   );
 
   const filteredAndSortedGyms = useMemo(() => {
-    let filtered = danishGyms;
+    let filtered = MAP_GYMS;
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
       filtered = filtered.filter(
@@ -221,31 +267,43 @@ const MapScreen = () => {
     return filteredAndSortedGyms.slice(0, 5);
   }, [filteredAndSortedGyms]);
 
-  const mapCenters = useMemo(() => {
-    const centers = getMapCenters(filteredAndSortedGyms, friendsByGymId);
-    return centers.map(c => {
-      const override = HARDCODED_MARKER_TEST[c.id];
-      if (override) {
-        return {...c, friendsActiveCount: override.friendsActiveCount, totalActiveCount: override.totalActiveCount};
-      }
-      return c;
-    });
-  }, [filteredAndSortedGyms, friendsByGymId]);
+  /** Alle aktive centre — markører (søgning skjuler ikke pins) */
+  const allMapCenters = useMemo(
+    () => getMapCenters(MAP_GYMS, mapFriendsByGymId, mapTotalByGymId),
+    [mapFriendsByGymId, mapTotalByGymId],
+  );
+
+  useEffect(() => {
+    if (!__DEV__) {
+      return;
+    }
+    const total = MAP_GYMS.length;
+    const explicit = allMapCenters.filter(c => c.hasExplicitGeocode).length;
+    const approx = total - explicit;
+    console.warn(
+      `[Map] Aktive centre: ${total}. Eksplicit lat/lng i JSON: ${explicit}. Post/fallback: ${approx}. Markører: ${allMapCenters.length}.`,
+    );
+    if (approx > 0) {
+      console.warn(
+        '[Map] Kør: node scripts/geocode-centers.mjs for at skrive rigtige koordinater til centers.json',
+      );
+    }
+  }, [allMapCenters]);
 
   const nearestCentersForCarousel = useMemo(() => {
-    return mapCenters.slice(0, 5).map(c => {
-      const gym = filteredAndSortedGyms.find(g => g.id === c.id)!;
+    return filteredAndSortedGyms.slice(0, 5).map(gym => {
+      const c = allMapCenters.find(x => x.id === gym.id);
       return {
         gym,
         distanceText: getDistanceText(gym),
-        totalActiveCount: c.totalActiveCount,
-        friendsActiveCount: c.friendsActiveCount,
+        totalActiveCount: c?.totalActiveCount ?? 0,
+        friendsActiveCount: c?.friendsActiveCount ?? 0,
       };
     });
-  }, [mapCenters, filteredAndSortedGyms, getDistanceText]);
+  }, [filteredAndSortedGyms, allMapCenters, getDistanceText]);
 
   const categorizedGyms = useMemo(() => {
-    const withDist = danishGyms.map(g => ({
+    const withDist = MAP_GYMS.map(g => ({
       gym: g,
       distance: calculateDistance(
         userLocation.latitude,
@@ -259,19 +317,25 @@ const MapScreen = () => {
     return {within5km, beyond5km};
   }, [userLocation]);
 
-  const handleSelectGym = useCallback((gym: DanishGym) => {
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-    setSelectedGym(gym);
-    mapRef.current?.animateToRegion(
-      {
-        latitude: gym.latitude,
-        longitude: gym.longitude,
-        latitudeDelta: 0.012,
-        longitudeDelta: 0.012,
-      },
-      400,
-    );
-  }, []);
+  const handleSelectGym = useCallback(
+    (gym: DanishGym) => {
+      LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+      setSelectedGym(gym);
+      const mc = allMapCenters.find(x => x.id === gym.id);
+      const lat = mc?.mapLatitude ?? gym.latitude;
+      const lng = mc?.mapLongitude ?? gym.longitude;
+      mapRef.current?.animateToRegion(
+        {
+          latitude: lat,
+          longitude: lng,
+          latitudeDelta: 0.012,
+          longitudeDelta: 0.012,
+        },
+        400,
+      );
+    },
+    [allMapCenters],
+  );
 
   const handleCloseSelection = useCallback(() => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
@@ -299,17 +363,16 @@ const MapScreen = () => {
 
   // INLINE MARKER - Old purple heart markers REMOVED. This is the ONLY marker render path.
   const renderGymMarker = (center: MapCenter) => {
-    const gym = filteredAndSortedGyms.find(g => g.id === center.id);
-    if (!gym) return null;
-    if (__DEV__) {
-      console.log(`[MapMarker INLINE] ${center.name}: friends=${center.friendsActiveCount} total=${center.totalActiveCount} logo=${!!center.logoUrl}`);
+    const gym = MAP_GYMS.find(g => g.id === center.id);
+    if (!gym) {
+      return null;
     }
     const isSelected = selectedGym?.id === center.id;
     const size = isSelected ? 48 : 42;
     return (
       <Marker
         key={center.id}
-        coordinate={{latitude: center.latitude, longitude: center.longitude}}
+        coordinate={{latitude: center.mapLatitude, longitude: center.mapLongitude}}
         onPress={() => handleSelectGym(gym)}
         tracksViewChanges={false}>
         <View style={markerStyles.wrapper}>
@@ -323,29 +386,50 @@ const MapScreen = () => {
             <GymLogoView
               gymName={center.name}
               brand={center.brand}
-              logoUrl={center.logoUrl}
+              variant="plain"
               size={size - 8}
             />
           </View>
-          <View style={[markerStyles.badgeTop, markerStyles.badgeFriends]}>
-            <Icon name="person" size={10} color="#fff" />
-            <Text style={markerStyles.badgeText}>{center.friendsActiveCount}</Text>
-          </View>
-          <View style={[markerStyles.badgeBottom, markerStyles.badgeTotal]}>
-            <Icon name="people" size={10} color="#fff" />
-            <Text style={markerStyles.badgeText}>{center.totalActiveCount}</Text>
-          </View>
+          {center.friendsActiveCount > 0 ? (
+            <View style={[markerStyles.badgeTop, markerStyles.badgeFriends]}>
+              <Icon name="person" size={10} color="#fff" />
+              <Text style={markerStyles.badgeText}>{center.friendsActiveCount}</Text>
+            </View>
+          ) : null}
+          {center.totalActiveCount > 0 ? (
+            <View style={[markerStyles.badgeBottom, markerStyles.badgeTotal]}>
+              <Icon name="people" size={10} color="#fff" />
+              <Text style={markerStyles.badgeText}>{center.totalActiveCount}</Text>
+            </View>
+          ) : null}
         </View>
       </Marker>
     );
   };
 
-  const selectedActivity = selectedGym
-    ? getMapCenterActivity(
-        selectedGym.id,
-        friends.filter(f => f.gymId === selectedGym.id).length,
-      )
-    : null;
+  const selectedActivity = useMemo(() => {
+    if (!selectedGym) {
+      return null;
+    }
+    const c = allMapCenters.find(x => x.id === selectedGym.id);
+    return getMapCenterActivity(
+      selectedGym.id,
+      c?.friendsActiveCount ?? 0,
+      c?.totalActiveCount ?? 0,
+    );
+  }, [selectedGym, allMapCenters]);
+
+  const getActivityForGymId = useCallback(
+    (gymId: string) => {
+      const c = allMapCenters.find(x => x.id === gymId);
+      return getMapCenterActivity(
+        gymId,
+        c?.friendsActiveCount ?? 0,
+        c?.totalActiveCount ?? 0,
+      );
+    },
+    [allMapCenters],
+  );
 
   const friendNamesAtSelected = selectedGym
     ? friends.filter(f => f.gymId === selectedGym.id).map(f => f.name)
@@ -370,7 +454,7 @@ const MapScreen = () => {
             <View style={styles.userMarkerDot} />
           </View>
         </Marker>
-        {mapCenters.map(renderGymMarker)}
+        {allMapCenters.map(renderGymMarker)}
       </MapView>
 
       {/* Search */}
@@ -498,8 +582,7 @@ const MapScreen = () => {
                 <View style={styles.sheetSection}>
                   <Text style={styles.sheetSectionTitle}>Indenfor 5 km</Text>
                   {categorizedGyms.within5km.map(gym => {
-                    const friendsAtGym = friends.filter(f => f.gymId === gym.id).length;
-                    const activity = getMapCenterActivity(gym.id, friendsAtGym);
+                    const activity = getActivityForGymId(gym.id);
                     return (
                       <TouchableOpacity
                         key={gym.id}
@@ -537,9 +620,8 @@ const MapScreen = () => {
               {categorizedGyms.beyond5km.length > 0 && (
                 <View style={styles.sheetSection}>
                   <Text style={styles.sheetSectionTitle}>Længere væk</Text>
-                  {categorizedGyms.beyond5km.slice(0, 20).map(gym => {
-                    const friendsAtGym = friends.filter(f => f.gymId === gym.id).length;
-                    const activity = getMapCenterActivity(gym.id, friendsAtGym);
+                  {categorizedGyms.beyond5km.map(gym => {
+                    const activity = getActivityForGymId(gym.id);
                     return (
                       <TouchableOpacity
                         key={gym.id}

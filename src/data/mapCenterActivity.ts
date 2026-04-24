@@ -5,7 +5,7 @@
 export type ActivityLevel = 'calm' | 'moderate' | 'busy';
 
 export interface MapCenterActivity {
-  gymId: number;
+  gymId: string;
   totalActiveCount: number;
   friendsActiveCount: number;
   activityLevel: ActivityLevel;
@@ -22,18 +22,20 @@ function getActivityLevel(total: number): ActivityLevel {
 }
 
 /**
- * totalActiveCount kommer fra venner der træner her (eller 0) indtil global presence er tilgængelig.
+ * totalActiveCount og friendsActiveCount fra `loadMapGymBadges` / mapCenters.
  */
 export function getMapCenterActivity(
-  gymId: number,
+  gymId: string,
   friendsActiveCount: number,
+  totalActiveCount: number,
 ): MapCenterActivity {
-  const totalActiveCount = Math.max(0, Math.floor(friendsActiveCount));
+  const f = Math.max(0, Math.floor(friendsActiveCount));
+  const t = Math.max(0, Math.floor(totalActiveCount));
   return {
     gymId,
-    totalActiveCount,
-    friendsActiveCount: totalActiveCount,
-    activityLevel: getActivityLevel(totalActiveCount),
+    totalActiveCount: t,
+    friendsActiveCount: f,
+    activityLevel: getActivityLevel(t),
   };
 }
 

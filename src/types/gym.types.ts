@@ -4,7 +4,7 @@
  */
 
 export interface GymActivity {
-  gymId: number;
+  gymId: string;
   activeUsers: number; // Number of users currently checked in
   activeUserIds: string[]; // IDs of active users
 }
@@ -12,7 +12,7 @@ export interface GymActivity {
 export interface GymCheckIn {
   id: string;
   userId: string;
-  gymId: number;
+  gymId: string;
   gymName: string;
   userName?: string;
   checkInTime: Date;
@@ -20,7 +20,7 @@ export interface GymCheckIn {
 }
 
 export interface GymRating {
-  gymId: number;
+  gymId: string;
   userId: string;
   rating: number; // 1-5 stars
   comment?: string;
@@ -28,7 +28,7 @@ export interface GymRating {
 }
 
 export interface GymStats {
-  gymId: number;
+  gymId: string;
   totalCheckIns: number; // Total check-ins by all users
   userCheckIns: number; // Check-ins by current user
   averageRating: number; // Average rating (1-5)
@@ -36,7 +36,7 @@ export interface GymStats {
 }
 
 export interface GymHours {
-  gymId: number;
+  gymId: string;
   monday?: {open: string; close: string}; // e.g., "06:00", "22:00"
   tuesday?: {open: string; close: string};
   wednesday?: {open: string; close: string};

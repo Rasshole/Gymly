@@ -1,9 +1,8 @@
 /**
- * Push Notifications Screen
- * Manage push notification preferences
+ * Push-indstillinger — synkes til `notification_preferences` (påvirker udsendelse fra Edge Function).
  */
 
-import React, {useState} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {
   View,
   Text,
@@ -11,354 +10,143 @@ import {
   ScrollView,
   Switch,
   Alert,
+  Linking,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '@/theme/colors';
-
-interface NotificationSetting {
-  id: string;
-  title: string;
-  description?: string;
-  enabled: boolean;
-}
-
-interface NotificationSection {
-  id: string;
-  title: string;
-  settings: NotificationSetting[];
-}
+import {useAppStore} from '@/store/appStore';
+import {
+  fetchNotificationPreferences,
+  upsertNotificationPreferences,
+} from '@/services/push/notificationPreferencesService';
+import {spacing, typography, radius} from '@/theme/designTokens';
+import {requestUserPermission, getFcmToken, savePushTokenToSupabase} from '@/services/push/pushTokenService';
 
 const PushNotificationsScreen = () => {
-  const navigation = useNavigation<StackNavigationProp<any>>();
+  const userId = useAppStore(s => s.user?.id);
+  const [pushEnabled, setPushEnabled] = useState(true);
+  const [messages, setMessages] = useState(true);
+  const [friendReq, setFriendReq] = useState(true);
+  const [checkins, setCheckins] = useState(true);
+  const [badges, setBadges] = useState(true);
+  const [planned, setPlanned] = useState(true);
+  const [reminders, setReminders] = useState(true);
+  const [loading, setLoading] = useState(true);
 
-  const [notificationSections, setNotificationSections] = useState<
-    NotificationSection[]
-  >([
-    {
-      id: 'workouts',
-      title: 'TRÆNINGER',
-      settings: [
-        {
-          id: 'workout_reminder',
-          title: 'Træningspåmindelse',
-          description: 'Notificer mig 24 timer før en af mine træninger',
-          enabled: true,
-        },
-        {
-          id: 'workout_change',
-          title: 'Træning ændret',
-          description:
-            'Notificer mig når en af mine træninger bliver ændret eller aflyst',
-          enabled: true,
-        },
-        {
-          id: 'workout_rsvp',
-          title: 'Træning RSVP',
-          description:
-            'Notificer mig når nogen melder sig til en træning jeg organiserer',
-          enabled: true,
-        },
-        {
-          id: 'workout_invitation',
-          title: 'Træningsinvitation',
-          description:
-            'Notificer mig når en ven inviterer mig til at deltage i en træning',
-          enabled: true,
-        },
-      ],
-    },
-    {
-      id: 'posts',
-      title: 'POSTS',
-      settings: [
-        {
-          id: 'post_kudos_likes',
-          title: 'Post likes',
-          description:
-            'Notificer mig når jeg modtager likes på et post eller mine kommentarer',
-          enabled: true,
-        },
-        {
-          id: 'post_comments',
-          title: 'Post kommentarer',
-          description:
-            'Notificer mig når nogen kommenterer på mit post eller svarer på min kommentar på et post',
-          enabled: true,
-        },
-        {
-          id: 'post_mentions',
-          title: 'Omtaler i posts',
-          description:
-            'Notificer mig når nogen nævner mig i en kommentar eller svarer direkte til min kommentar',
-          enabled: true,
-        },
-      ],
-    },
-    {
-      id: 'activities',
-      title: 'TRÆNING',
-      settings: [
-        {
-          id: 'activity_kudos_likes',
-          title: 'Likes',
-          description:
-            'Notificer mig når jeg modtager likes på mine træninger eller mine kommentarer',
-          enabled: true,
-        },
-        {
-          id: 'activity_comments',
-          title: 'Kommentarer',
-          description: 'Notificer mig når nogen kommenterer på min træning',
-          enabled: true,
-        },
-        {
-          id: 'activity_comments_others',
-          title: 'Kommentarer på andres træninger',
-          description:
-            'Notificer mig når nogen kommenterer på en træning jeg har kommenteret på',
-          enabled: false,
-        },
-        {
-          id: 'activity_mentions',
-          title: 'Omtaler i træninger',
-          description: 'Notificer mig når nogen nævner mig i en træning',
-          enabled: true,
-        },
-      ],
-    },
-    {
-      id: 'friends',
-      title: 'VENNER',
-      settings: [
-        {
-          id: 'friends_activities',
-          title: 'Venners træninger',
-          description:
-            'Notificer mig når mine venner poster interessante træninger (f.eks. NY PR, træning med video eller træning med andre), eller venner jeg har favoriteret poster træninger',
-          enabled: true,
-        },
-        {
-          id: 'suggested_friend',
-          title: 'Foreslået ven',
-          description: 'Notificer mig for at foreslå venner at følge',
-          enabled: true,
-        },
-        {
-          id: 'friend_joins',
-          title: 'Ven bliver medlem',
-          description: 'Notificer mig når nogen jeg kender bliver medlem af Gymly',
-          enabled: true,
-        },
-        {
-          id: 'new_follower',
-          title: 'Ny følger',
-          description: 'Notificer mig når nogen følger mig på Gymly',
-          enabled: true,
-        },
-        {
-          id: 'new_friend_request',
-          title: 'Ny venneanmodning',
-          description: 'Notificer mig når nogen anmoder om at blive min ven',
-          enabled: true,
-        },
-      ],
-    },
-    {
-      id: 'messages',
-      title: 'BESKED',
-      settings: [
-        {
-          id: 'message_received',
-          title: 'Besked modtaget',
-          description: 'Notificer mig når jeg har modtaget en besked',
-          enabled: true,
-        },
-        {
-          id: 'message_request',
-          title: 'Besked anmodning',
-          description: 'Notificer mig når jeg har modtaget en beskedanmodning',
-          enabled: true,
-        },
-        {
-          id: 'group_chat_message',
-          title: 'Gruppechat besked',
-          description: 'Notificer mig når en besked bliver sendt i en af mine grupper',
-          enabled: true,
-        },
-      ],
-    },
-    {
-      id: 'clubs',
-      title: 'GRUPPER',
-      settings: [
-        {
-          id: 'club_invitation',
-          title: 'Gruppeinvitation',
-          description: 'Notificer mig når en ven inviterer mig til at blive medlem af en gruppe',
-          enabled: true,
-        },
-        {
-          id: 'club_new_event',
-          title: 'Gruppe træning',
-          description:
-            'Notificer mig når en træning bliver tilføjet i en af mine grupper',
-          enabled: true,
-        },
-        {
-          id: 'club_join_request',
-          title: 'Anmodning om medlemskab',
-          description:
-            'Notificer mig når nogen anmoder om at blive medlem af en af mine grupper',
-          enabled: true,
-        },
-      ],
-    },
-    {
-      id: 'media',
-      title: 'MEDIER',
-      settings: [
-        {
-          id: 'videos',
-          title: 'Videoer',
-          description: 'Notificer mig når nogen jeg følger har uploadet en video',
-          enabled: true,
-        },
-      ],
-    },
-    {
-      id: 'other',
-      title: 'ANDET',
-      settings: [
-        {
-          id: 'marketing',
-          title: 'Marketing',
-          description:
-            'Tillad Gymly at sende mig push notifikationer om tilbud eller andre marketing bekendtgørelser',
-          enabled: false,
-        },
-        {
-          id: 'feature_tips',
-          title: 'Funktioner og abonnementstips',
-          description:
-            'Modtag bekendtgørelser om nye funktioner og tips til, hvordan man bedst bruger dem',
-          enabled: true,
-        },
-      ],
-    },
-  ]);
-
-  const handleToggle = async (sectionId: string, settingId: string, value: boolean) => {
+  const load = useCallback(async () => {
+    if (!userId) {
+      return;
+    }
+    setLoading(true);
     try {
-      setNotificationSections(prevSections =>
-        prevSections.map(section =>
-          section.id === sectionId
-            ? {
-                ...section,
-                settings: section.settings.map(setting =>
-                  setting.id === settingId
-                    ? {...setting, enabled: value}
-                    : setting,
-                ),
-              }
-            : section,
-        ),
-      );
+      const p = await fetchNotificationPreferences(userId);
+      setPushEnabled(p.push_enabled);
+      setMessages(p.messages_enabled);
+      setFriendReq(p.friend_requests_enabled);
+      setCheckins(p.check_ins_enabled);
+      setBadges(p.badges_streaks_enabled);
+      setPlanned(p.planned_workouts_enabled);
+      setReminders(p.workout_reminders_enabled);
+    } catch (e) {
+      Alert.alert('Fejl', 'Kunne ikke hente notifikationsindstillinger');
+    } finally {
+      setLoading(false);
+    }
+  }, [userId]);
 
-      // TODO: Implement actual API call to save notification preferences
-      // await updateNotificationPreference(settingId, value);
-    } catch (error) {
-      Alert.alert('Fejl', 'Kunne ikke opdatere indstilling');
-      // Revert on error
-      setNotificationSections(prevSections =>
-        prevSections.map(section =>
-          section.id === sectionId
-            ? {
-                ...section,
-                settings: section.settings.map(setting =>
-                  setting.id === settingId
-                    ? {...setting, enabled: !value}
-                    : setting,
-                ),
-              }
-            : section,
-        ),
-      );
+  useEffect(() => {
+    load().catch(() => {});
+  }, [load]);
+
+  const persist = async (patch: Parameters<typeof upsertNotificationPreferences>[1]) => {
+    if (!userId) {
+      return;
+    }
+    try {
+      await upsertNotificationPreferences(userId, patch);
+    } catch {
+      Alert.alert('Fejl', 'Kunne ikke gemme');
+      load().catch(() => {});
     }
   };
 
   return (
     <View style={styles.container}>
-      <ScrollView style={styles.scrollView} contentContainerStyle={styles.content}>
-        {/* Header Section */}
+      <ScrollView
+        style={styles.scroll}
+        contentContainerStyle={styles.content}
+        keyboardShouldPersistTaps="handled">
         <View style={styles.headerSection}>
           <Icon name="notifications-outline" size={48} color={colors.primary} />
-          <Text style={styles.headerTitle}>Push Notifikationer</Text>
+          <Text style={styles.headerTitle}>Push-notifikationer</Text>
           <Text style={styles.headerDescription}>
-            Vælg hvilke push notifikationer du vil modtage
+            Styring af hvilke telefon-notifikationer du vil modtage. Hvis du afviser
+            systemtilladelsen, kan du slå det til senere i enhedsindstillinger.
+          </Text>
+          <Text style={styles.linkHint} onPress={() => Linking.openSettings()}>
+            Åbn indstillinger for Gymly
           </Text>
         </View>
 
-        {/* Notification Settings */}
-        {notificationSections.map((section, sectionIndex) => (
-          <View
-            key={section.id}
-            style={[
-              styles.section,
-              sectionIndex > 0 && styles.sectionSpacing,
-            ]}>
-            <Text style={styles.sectionTitle}>{section.title}</Text>
-            {section.settings.map((setting, settingIndex) => (
-              <View
-                key={setting.id}
-                style={[
-                  styles.settingItem,
-                  settingIndex === section.settings.length - 1 &&
-                    styles.settingItemLast,
-                ]}>
-                <View style={styles.settingInfo}>
-                  <Text style={styles.settingTitle}>{setting.title}</Text>
-                  {setting.description && (
-                    <Text style={styles.settingDescription}>
-                      {setting.description}
-                    </Text>
-                  )}
-                </View>
-                <Switch
-                  value={setting.enabled}
-                  onValueChange={value =>
-                    handleToggle(section.id, setting.id, value)
+        <View style={styles.section}>
+          <Text style={styles.sectionLabel}>Hovedkontakt</Text>
+          <View style={styles.row}>
+            <Text style={styles.rowTitle}>Push-notifikationer</Text>
+            <Switch
+              value={pushEnabled}
+              disabled={loading}
+              onValueChange={async v => {
+                setPushEnabled(v);
+                if (v) {
+                  const ok = await requestUserPermission();
+                  if (ok && userId) {
+                    const t = await getFcmToken();
+                    if (t) {
+                      await savePushTokenToSupabase(userId, t);
+                    }
                   }
-                  trackColor={{false: '#E5E5EA', true: '#34C759'}}
-                  thumbColor="#fff"
-                />
-              </View>
-            ))}
+                }
+                await persist({push_enabled: v});
+              }}
+              trackColor={{false: '#E5E5EA', true: '#34C759'}}
+            />
           </View>
-        ))}
+        </View>
+
+        <View style={styles.section}>
+          <Text style={styles.sectionLabel}>Kategorier</Text>
+          {[
+            {label: 'Beskeder (DM)', value: messages, on: setMessages, key: 'messages_enabled' as const},
+            {label: 'Venneanmodninger & accept', value: friendReq, on: setFriendReq, key: 'friend_requests_enabled' as const},
+            {label: 'Når venner tjekker ind', value: checkins, on: setCheckins, key: 'check_ins_enabled' as const},
+            {label: 'Badges & streaks', value: badges, on: setBadges, key: 'badges_streaks_enabled' as const},
+            {label: 'Planlagt træning (invit m.m.)', value: planned, on: setPlanned, key: 'planned_workouts_enabled' as const},
+            {label: 'Træningspåmindelser', value: reminders, on: setReminders, key: 'workout_reminders_enabled' as const},
+          ].map(r => (
+            <View key={r.key} style={styles.row}>
+              <Text style={styles.rowTitle}>{r.label}</Text>
+              <Switch
+                value={r.value}
+                disabled={loading || !pushEnabled}
+                onValueChange={async v => {
+                  r.on(v);
+                  await persist({[r.key]: v});
+                }}
+                trackColor={{false: '#E5E5EA', true: '#34C759'}}
+              />
+            </View>
+          ))}
+        </View>
       </ScrollView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background,
-  },
-  scrollView: {
-    flex: 1,
-  },
-  content: {
-    padding: 16,
-    paddingBottom: 40,
-  },
-  headerSection: {
-    alignItems: 'center',
-    paddingVertical: 32,
-    marginBottom: 16,
-  },
+  container: {flex: 1, backgroundColor: colors.background},
+  scroll: {flex: 1},
+  content: {padding: 16, paddingBottom: 40},
+  headerSection: {alignItems: 'center', paddingVertical: 24, marginBottom: 8},
   headerTitle: {
     fontSize: 24,
     fontWeight: '600',
@@ -367,57 +155,34 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   headerDescription: {
-    fontSize: 16,
+    fontSize: 15,
     color: colors.textSecondary,
     textAlign: 'center',
-    paddingHorizontal: 32,
+    paddingHorizontal: 20,
   },
+  linkHint: {marginTop: 10, color: colors.primary, fontSize: 15, fontWeight: '600'},
   section: {
     backgroundColor: colors.backgroundCard,
-    borderRadius: 16,
-    padding: 16,
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 3,
+    borderRadius: radius.lg,
+    padding: spacing.md,
+    marginBottom: spacing.md,
   },
-  sectionSpacing: {
-    marginTop: 16,
-  },
-  sectionTitle: {
-    fontSize: 13,
-    fontWeight: '600',
+  sectionLabel: {
+    fontSize: 12,
+    fontWeight: '700',
     color: colors.textSecondary,
     textTransform: 'uppercase',
-    marginBottom: 12,
-    letterSpacing: 0.5,
+    marginBottom: spacing.sm,
   },
-  settingItem: {
+  row: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: '#F8F9FA',
+    justifyContent: 'space-between',
+    paddingVertical: 10,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: colors.border,
   },
-  settingItemLast: {
-    borderBottomWidth: 0,
-  },
-  settingInfo: {
-    flex: 1,
-    marginRight: 12,
-  },
-  settingTitle: {
-    fontSize: 16,
-    fontWeight: '500',
-    color: colors.text,
-    marginBottom: 2,
-  },
-  settingDescription: {
-    fontSize: 14,
-    color: colors.textSecondary,
-  },
+  rowTitle: {...typography.body, flex: 1, marginRight: 12, color: colors.text},
 });
 
 export default PushNotificationsScreen;
-

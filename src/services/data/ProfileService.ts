@@ -4,6 +4,7 @@
 
 import {BADGE_BY_ID} from '@/config/badgeDefinitions';
 import {getUserStats} from '@/services/firestore/UserService';
+import {getMyFriendIds} from '@/services/supabase/friendService';
 import {useBadgeStore} from '@/store/badgeStore';
 import type {
   ProfileStats,
@@ -15,6 +16,13 @@ import type {
 
 export async function getProfileStats(userId: string): Promise<ProfileStats> {
   const fromDb = await getUserStats(userId);
+  let friendsCount = fromDb?.friendsCount ?? 0;
+  try {
+    const ids = await getMyFriendIds(userId);
+    friendsCount = ids.size;
+  } catch {
+    /* Supabase ikke tilgængelig — behold Firestore */
+  }
   if (fromDb) {
     return {
       totalCheckIns: fromDb.totalCheckIns ?? 0,
@@ -22,7 +30,7 @@ export async function getProfileStats(userId: string): Promise<ProfileStats> {
       longestStreak: fromDb.longestStreak ?? fromDb.streak ?? 0,
       totalTrainingMinutes: fromDb.totalTrainingMinutes ?? 0,
       badgesCount: fromDb.badgesCount ?? 0,
-      friendsCount: fromDb.friendsCount ?? 0,
+      friendsCount,
       followersCount: fromDb.followersCount ?? 0,
       followingCount: fromDb.followingCount ?? 0,
     };
@@ -33,7 +41,7 @@ export async function getProfileStats(userId: string): Promise<ProfileStats> {
     longestStreak: 0,
     totalTrainingMinutes: 0,
     badgesCount: 0,
-    friendsCount: 0,
+    friendsCount,
     followersCount: 0,
     followingCount: 0,
   };

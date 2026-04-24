@@ -26,7 +26,7 @@ export interface NearbyCenterItem {
 
 export interface NearbyCentersCarouselProps {
   centers: NearbyCenterItem[];
-  selectedGymId: number | null;
+  selectedGymId: string | null;
   onSelectCenter: (gym: DanishGym) => void;
 }
 
@@ -55,6 +55,7 @@ const NearbyCentersCarousel: React.FC<NearbyCentersCarouselProps> = ({
   const renderItem = ({item}: {item: NearbyCenterItem}) => {
     const {gym, distanceText, totalActiveCount, friendsActiveCount} = item;
     const isSelected = selectedGymId === gym.id;
+    const hasActivity = totalActiveCount > 0 || friendsActiveCount > 0;
 
     return (
       <TouchableOpacity
@@ -72,20 +73,28 @@ const NearbyCentersCarousel: React.FC<NearbyCentersCarouselProps> = ({
             <Icon name="location" size={12} color={colors.primary} />
             <Text style={styles.distanceText}>{distanceText}</Text>
           </View>
-          <View style={styles.activityRow}>
-            <View style={styles.activityChip}>
-              <Icon name="people" size={11} color={colors.secondary} />
-              <Text style={[styles.activityChipText, {color: colors.secondary}]}>
-                {totalActiveCount}
-              </Text>
+          {hasActivity ? (
+            <View style={styles.activityRow}>
+              {totalActiveCount > 0 ? (
+                <View style={styles.activityChip}>
+                  <Icon name="people" size={11} color={colors.secondary} />
+                  <Text style={[styles.activityChipText, {color: colors.secondary}]}>
+                    {totalActiveCount}
+                  </Text>
+                </View>
+              ) : null}
+              {friendsActiveCount > 0 ? (
+                <View style={styles.activityChip}>
+                  <Icon name="person" size={11} color={colors.primary} />
+                  <Text style={[styles.activityChipText, {color: colors.primary}]}>
+                    {friendsActiveCount}
+                  </Text>
+                </View>
+              ) : null}
             </View>
-            <View style={styles.activityChip}>
-              <Icon name="person" size={11} color={colors.primary} />
-              <Text style={[styles.activityChipText, {color: colors.primary}]}>
-                {friendsActiveCount}
-              </Text>
-            </View>
-          </View>
+          ) : (
+            <Text style={styles.activityEmpty}>Ingen aktive lige nu</Text>
+          )}
         </View>
       </TouchableOpacity>
     );
@@ -195,6 +204,11 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '700',
     marginLeft: 4,
+  },
+  activityEmpty: {
+    fontSize: 12,
+    color: colors.textMuted,
+    fontWeight: '500',
   },
 });
 

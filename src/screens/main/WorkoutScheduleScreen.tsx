@@ -1,4 +1,5 @@
-import React, {useMemo, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
+import {useFocusEffect, useRoute} from '@react-navigation/native';
 import {
   StyleSheet,
   Text,
@@ -17,8 +18,13 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import DateTimePicker, {DateTimePickerEvent} from '@react-native-community/datetimepicker';
 import {useWorkoutPlanStore, WorkoutPlanEntry, WorkoutHistoryEntry} from '@/store/workoutPlanStore';
 import {formatGymDisplayName, findGymById} from '@/utils/gymDisplay';
+import {
+  fetchPlannedWorkoutsForUser,
+} from '@/services/supabase/plannedWorkoutService';
 import {MuscleGroup} from '@/types/workout.types';
-import danishGyms, {DanishGym} from '@/data/danishGyms';
+import {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
+
+const SCHEDULE_GYMS = getActiveDanishGyms();
 import colors from '@/theme/colors';
 import NotificationService from '@/services/notifications/NotificationService';
 import {useAppStore} from '@/store/appStore';
@@ -62,6 +68,7 @@ const MOCK_FRIENDS: Array<{id: string; name: string}> = [];
 const FRIENDS: Array<{id: string; name: string; initials: string}> = [];
 
 const WorkoutScheduleScreen = () => {
+  const route = useRoute<{params?: {openPlannedId?: string; initialTab?: string}}>();
   const {user} = useAppStore();
   // Brug brugerens valgte biceps; hvis ingen er valgt, brug samme hvide standard som i Profil (💪🏻)
   const rawBicepsEmoji = user?.bicepsEmoji || '💪🏻';
@@ -70,6 +77,9 @@ const WorkoutScheduleScreen = () => {
   const plannedWorkouts = useWorkoutPlanStore(state => state.plannedWorkouts);
   const completedWorkouts = useWorkoutPlanStore(state => state.completedWorkouts);
   const addPlannedWorkout = useWorkoutPlanStore(state => state.addPlannedWorkout);
+  const mergePlannedFromServer = useWorkoutPlanStore(
+    state => state.mergePlannedFromServer,
+  );
   const addPlanInvites = useWorkoutPlanStore(state => state.addPlanInvites);
   const removePlanInvites = useWorkoutPlanStore(state => state.removePlanInvites);
 
@@ -115,6 +125,69 @@ const WorkoutScheduleScreen = () => {
   const [planInvitedFriends, setPlanInvitedFriends] = useState<string[]>([]);
   const [planInviteSectionVisible, setPlanInviteSectionVisible] = useState(false);
   const [planInviteSearchQuery, setPlanInviteSearchQuery] = useState('');
+
+  useFocusEffect(
+    useCallback(() => {
+      if (!user?.id) {
+        return;
+      }
+      let alive = true;
+      (async () => {
+        try {
+          const from = new Date();
+          from.setMonth(from.getMonth() - 1);
+          const list = await fetchPlannedWorkoutsForUser(user.id, from.toISOString());
+          if (!alive) {
+            return;
+          }
+          const entries: WorkoutPlanEntry[] = list.map(({workout, participants}) => {
+            const g = findGymById(workout.center_id) ?? SCHEDULE_GYMS[0]!;
+            const inv = participants.find(p => p.role === 'invitee');
+            return {
+              id: workout.id,
+              gym: g,
+              muscles: (workout.training_types || []) as MuscleGroup[],
+              scheduledAt: new Date(workout.scheduled_at),
+              invitedFriends: inv ? [inv.user_id] : [],
+              acceptedFriends:
+                inv?.response_status === 'accepted' && inv
+                  ? [inv.user_id]
+                  : [],
+            };
+          });
+          mergePlannedFromServer(entries);
+        } catch {
+          // table/migration
+        }
+      })();
+      return () => {
+        alive = false;
+      };
+    }, [user?.id, mergePlannedFromServer]),
+  );
+
+  const openPlannedId = route.params?.openPlannedId;
+  const openPlannedHandledRef = useRef<string | null>(null);
+  useEffect(() => {
+    if (!openPlannedId) {
+      return;
+    }
+    if (openPlannedHandledRef.current === openPlannedId) {
+      return;
+    }
+    const p = useWorkoutPlanStore
+      .getState()
+      .plannedWorkouts.find(w => w.id === openPlannedId);
+    if (p) {
+      openPlannedHandledRef.current = openPlannedId;
+      const d = new Date(p.scheduledAt);
+      d.setHours(0, 0, 0, 0);
+      setSelectedDate(d);
+      setCurrentMonth(new Date(d.getFullYear(), d.getMonth(), 1));
+      setSelectedWorkout({type: 'planned', data: p});
+      setDetailModalVisible(true);
+    }
+  }, [openPlannedId, plannedWorkouts]);
 
   const upcomingByDay = useMemo(() => {
     const map = new Map<string, WorkoutPlanEntry[]>();
@@ -253,7 +326,7 @@ const WorkoutScheduleScreen = () => {
     if (!query) {
       return [];
     }
-    return danishGyms
+    return SCHEDULE_GYMS
       .filter(gym => {
         const haystack = `${gym.name} ${gym.city ?? ''} ${gym.brand ?? ''} ${gym.postalCode ?? ''}`
           .toLowerCase()
@@ -275,7 +348,7 @@ const WorkoutScheduleScreen = () => {
   );
 
   const handleOpenPlanModal = () => {
-    const defaultGym = planSelectedGym || danishGyms[0];
+    const defaultGym = planSelectedGym || SCHEDULE_GYMS[0];
     setPlanSelectedGym(defaultGym);
     setPlanCenterQuery(defaultGym ? formatGymDisplayName(defaultGym) : '');
     setPlanMuscles(planMuscles.length > 0 ? planMuscles : [MUSCLE_GROUPS[0].key]);
@@ -340,7 +413,7 @@ const WorkoutScheduleScreen = () => {
   const findGymByQuery = (query: string): DanishGym | null => {
     const lowerQuery = query.toLowerCase().trim();
     return (
-      danishGyms.find(
+      SCHEDULE_GYMS.find(
         gym =>
           gym.name.toLowerCase().includes(lowerQuery) ||
           gym.address?.toLowerCase().includes(lowerQuery),

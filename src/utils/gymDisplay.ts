@@ -26,8 +26,8 @@ export const formatGymDisplayName = (gym?: DanishGym | null) => {
   return `${base} ${titleCase(location.trim())}`;
 };
 
-export const findGymById = (id?: number | null): DanishGym | null => {
-  if (!id) {
+export const findGymById = (id?: string | null): DanishGym | null => {
+  if (id == null || id === '') {
     return null;
   }
   return danishGyms.find(gym => gym.id === id) || null;

@@ -56,7 +56,7 @@ export function useLeaderboardQuery(
   category: LeaderboardCategory,
   period: LeaderboardPeriod,
   currentUserId: string,
-  gymId?: number,
+  gymId?: string,
   gymName?: string
 ) {
   const [entries, setEntries] = useState<LeaderboardEntry[]>([]);
@@ -139,7 +139,7 @@ export function useLeaderboardQuery(
   return {entries, isLoading, error, refetch: load};
 }
 
-export function useWeeklyChampionQuery(gymId?: number) {
+export function useWeeklyChampionQuery(gymId?: string) {
   const [champion, setChampion] = useState<WeeklyChampion | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 

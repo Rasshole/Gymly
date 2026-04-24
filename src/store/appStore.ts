@@ -8,6 +8,19 @@ import {User} from '@/types/user.types';
 import {AuthTokens} from '@/types/auth.types';
 import SecureStorage from '@/services/security/SecureStorage';
 import AuthService from '@/services/auth/AuthService';
+import {supabase} from '@/services/supabase/supabaseClient';
+import {upsertMyProfile} from '@/services/supabase/friendService';
+import {useFriendStore} from '@/store/friendStore';
+import {useInAppNotificationStore} from '@/store/inAppNotificationStore';
+import {useSessionStore} from '@/store/sessionStore';
+
+function syncPublicProfileToSupabase(user: User) {
+  void upsertMyProfile(user).catch(err => {
+    if (__DEV__) {
+      console.warn('[appStore] upsertMyProfile', err);
+    }
+  });
+}
 
 interface AppState {
   // Authentication state
@@ -23,7 +36,7 @@ interface AppState {
   deleteAccount: () => Promise<void>;
   setUser: (user: User) => void;
   setLoading: (loading: boolean) => void;
-  setFavoriteGyms: (gymIds: number[]) => void;
+  setFavoriteGyms: (gymIds: string[]) => void;
 }
 
 export const useAppStore = create<AppState>((set, get) => ({
@@ -57,12 +70,33 @@ export const useAppStore = create<AppState>((set, get) => ({
             user = {...user, displayName: ''};
             await SecureStorage.saveUserData(user);
           }
+          try {
+            const {
+              data: {session},
+            } = await supabase.auth.getSession();
+            if (session?.user) {
+              const fromAuth = AuthService.getMappedUser(session.user);
+              const metaGyms = fromAuth.favoriteGyms;
+              const localGyms = user.favoriteGyms;
+              if (
+                Array.isArray(metaGyms) &&
+                metaGyms.length > 0 &&
+                (!Array.isArray(localGyms) || localGyms.length === 0)
+              ) {
+                user = {...user, favoriteGyms: metaGyms};
+                await SecureStorage.saveUserData(user);
+              }
+            }
+          } catch {
+            // session merge er best-effort
+          }
           set({
             isAuthenticated: true,
             user,
             tokens,
             isLoading: false,
           });
+          syncPublicProfileToSupabase(user);
           return;
         }
       }
@@ -94,6 +128,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       user,
       tokens,
     });
+    syncPublicProfileToSupabase(user);
   },
 
   /**
@@ -102,6 +137,9 @@ export const useAppStore = create<AppState>((set, get) => ({
   logout: async () => {
     try {
       await AuthService.logout();
+      useSessionStore.getState().endSession();
+      useFriendStore.getState().reset();
+      useInAppNotificationStore.getState().reset();
       set({
         isAuthenticated: false,
         user: null,
@@ -118,6 +156,9 @@ export const useAppStore = create<AppState>((set, get) => ({
   deleteAccount: async () => {
     try {
       await AuthService.deleteAccount();
+      useSessionStore.getState().endSession();
+      useFriendStore.getState().reset();
+      useInAppNotificationStore.getState().reset();
       set({
         isAuthenticated: false,
         user: null,
@@ -125,6 +166,9 @@ export const useAppStore = create<AppState>((set, get) => ({
       });
     } catch (error) {
       console.error('Delete account error:', error);
+      useSessionStore.getState().endSession();
+      useFriendStore.getState().reset();
+      useInAppNotificationStore.getState().reset();
       set({
         isAuthenticated: false,
         user: null,
@@ -139,6 +183,7 @@ export const useAppStore = create<AppState>((set, get) => ({
   setUser: (user: User) => {
     set({user});
     SecureStorage.saveUserData(user);
+    syncPublicProfileToSupabase(user);
   },
 
   /**
@@ -151,7 +196,7 @@ export const useAppStore = create<AppState>((set, get) => ({
   /**
    * Set favorite gyms (top 3)
    */
-  setFavoriteGyms: (gymIds: number[]) => {
+  setFavoriteGyms: (gymIds: string[]) => {
     const state = get();
     if (state.user) {
       const updatedUser = {
@@ -161,6 +206,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       };
       set({user: updatedUser});
       SecureStorage.saveUserData(updatedUser);
+      syncPublicProfileToSupabase(updatedUser);
     }
   },
 }));

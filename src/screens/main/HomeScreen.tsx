@@ -30,7 +30,10 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import NotificationService from '@/services/notifications/NotificationService';
 import {useFeedStore, FeedItem} from '@/store/feedStore';
-import {refreshWorkoutFeedFromServer} from '@/services/supabase/workoutPostService';
+import {
+  refreshWorkoutFeedFromServer,
+  subscribeWorkoutFeedRealtime,
+} from '@/services/supabase/workoutPostService';
 import muscleImg from '@/utils/muscleGroupImages';
 import {MuscleGroup} from '@/types/workout.types';
 import colors from '@/theme/colors';
@@ -323,9 +326,11 @@ const HomeScreen = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
   const user = useAuth();
   const insets = useSafeAreaInsets();
-  const {gyms: activeGyms} = useGymPresence();
+  const {gyms: activeGyms, refresh: refreshGymPresence} = useGymPresence();
   const [leaderboardPreview, setLeaderboardPreview] = useState<LeaderboardEntrySimple[]>([]);
-  const {users: onlineUsersList} = useOnlineUsers(user?.id);
+  const {users: onlineUsersList, refresh: refreshOnlineUsers} = useOnlineUsers(user?.id, {
+    filter: 'venner',
+  });
   const {stats: profileStats, refresh: refreshProfileStats} = useProfileStats(user?.id);
   const {weeklyStats, refresh: refreshWeeklyStats} = useWeeklyStats(user?.id);
   const dashboardStreak = useDashboardStatsStore(s => s.streak);
@@ -410,7 +415,11 @@ const HomeScreen = () => {
   const feedPhotoLayouts = useRef<Record<string, {x: number; y: number; width: number; height: number}>>({});
 
   useEffect(() => {
-    const timer = setInterval(() => setNow(Date.now()), 60000);
+    return subscribeWorkoutFeedRealtime();
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => setNow(Date.now()), 30000);
     return () => clearInterval(timer);
   }, []);
 
@@ -446,12 +455,20 @@ const HomeScreen = () => {
       refreshProfileStats();
       refreshWeeklyStats();
       refreshWorkoutFeedFromServer().catch(() => {});
+      void refreshGymPresence();
+      void refreshOnlineUsers();
       if (user?.id) {
         getLeaderboardEntriesPreview(user.id, 3)
           .then(setLeaderboardPreview)
           .catch(() => setLeaderboardPreview([]));
       }
-    }, [refreshProfileStats, refreshWeeklyStats, user?.id])
+    }, [
+      refreshProfileStats,
+      refreshWeeklyStats,
+      refreshGymPresence,
+      refreshOnlineUsers,
+      user?.id,
+    ])
   );
 
   // Initialize video playback when feed items change
@@ -475,8 +492,6 @@ const HomeScreen = () => {
     };
   }, []);
 
-  const activeFriends = useMemo((): ActiveFriendPreview[] => [], []);
-
   const upcomingSessions = useMemo(() => [] as Array<{
     id: string;
     name: string;
@@ -484,8 +499,6 @@ const HomeScreen = () => {
     focus: string;
     scheduledAt: number;
   }>, []);
-
-  const activeCount = activeFriends.length;
 
   const formatActiveDuration = (startTimestamp: number) => {
     const diffMinutes = Math.max(1, Math.floor((now - startTimestamp) / 60000));
@@ -543,6 +556,19 @@ const HomeScreen = () => {
 
     return groups.length > 0 ? groups : ['hele_kroppen'];
   };
+
+  /** Venner med aktiv tjek ind (Supabase) – til "Venner i gym" + modal */
+  const activeFriends = useMemo((): ActiveFriendPreview[] => {
+    return onlineUsersList.map(ou => ({
+      id: ou.userId,
+      name: ou.displayName,
+      gym: (ou.gymName && ou.gymName.trim()) || '—',
+      focus: (ou.muscleGroup && ou.muscleGroup.trim()) || 'Fri træning',
+      startTimestamp: ou.lastActive.getTime(),
+    }));
+  }, [onlineUsersList]);
+
+  const activeCount = activeFriends.length;
 
   const handleJoinActive = (friendName: string, friendId: string) => {
     if (activeJoinRequests.includes(friendId)) {
@@ -1234,6 +1260,7 @@ const HomeScreen = () => {
           {/* Aktive gyms lige nu */}
           <DashboardSection
             title="Aktive gyms lige nu"
+            subtitle="Top 5 centre med flest aktive træninger lige nu"
             onSeeAll={() => navigation.navigate('GymPresence')}
             seeAllLabel="Se alle gyms">
             {activeGyms.length > 0 ? (
@@ -1319,8 +1346,10 @@ const HomeScreen = () => {
             title="Aktive nu"
             subtitle={
               onlineUsersList.length > 0
-                ? `${onlineUsersList.length} brugere online`
-                : 'Ingen aktive lige nu'
+                ? onlineUsersList.length === 1
+                  ? '1 ven med aktiv træning lige nu'
+                  : `${onlineUsersList.length} venner med aktiv træning lige nu`
+                : 'Ingen af dine venner træner lige nu'
             }
             onSeeAll={() => navigation.navigate('Friends', {screen: 'Online'} as never)}
             seeAllLabel="Se alle">
@@ -1329,32 +1358,36 @@ const HomeScreen = () => {
               activeOpacity={0.9}>
               <Card padding="lg" style={styles.previewCard}>
                 {onlineUsersList.length > 0 ? (
-                  <View style={styles.onlineUsersRow}>
+                  <View style={styles.onlineUsersListCol}>
                     {onlineUsersList.slice(0, 5).map(ou => (
-                      <View key={ou.userId} style={styles.onlineUserItem}>
-                        <View style={styles.onlineUserAvatar}>
+                      <View key={ou.userId} style={styles.onlineUserListRow}>
+                        <View style={styles.onlineUserAvatarList}>
                           <Text style={styles.onlineUserAvatarText}>
                             {ou.displayName.charAt(0)}
                           </Text>
                           <View style={styles.onlineIndicator} />
                         </View>
-                        <Text style={styles.onlineUserName} numberOfLines={1}>
-                          {ou.displayName}
-                        </Text>
-                        {ou.gymName ? (
-                          <Text style={styles.onlineUserGym} numberOfLines={1}>
-                            {ou.gymName}
+                        <View style={styles.onlineUserListBody}>
+                          <Text style={styles.onlineUserNameList} numberOfLines={1}>
+                            {ou.displayName}
                           </Text>
-                        ) : null}
+                          <Text style={styles.onlineUserGymList} numberOfLines={1}>
+                            {ou.gymName || '—'}
+                          </Text>
+                          <Text style={styles.onlineUserSessionList} numberOfLines={2}>
+                            I gang i {formatActiveDuration(ou.lastActive.getTime())} ·{' '}
+                            {ou.muscleGroup?.trim() || 'Træning'}
+                          </Text>
+                        </View>
                       </View>
                     ))}
                   </View>
                 ) : (
                   <View style={styles.emptyPreview}>
                     <Icon name="people-outline" size={32} color={colors.textMuted} />
-                    <Text style={styles.emptyPreviewText}>Ingen aktiv lige nu</Text>
+                    <Text style={styles.emptyPreviewText}>Ingen venner aktive lige nu</Text>
                     <Text style={styles.emptyPreviewSubtext}>
-                      Inviter venner for at se hvem der træner
+                      Tjek ind og få venner til at følge med — så ser du dem her
                     </Text>
                   </View>
                 )}
@@ -1391,7 +1424,7 @@ const HomeScreen = () => {
                   <View style={styles.activeFriendInfo}>
                     <Text style={styles.activeFriendName}>{friend.name}</Text>
                     <Text style={styles.activeFriendMeta}>
-                      {friend.gym} • {formatActiveDuration(friend.startTimestamp)}
+                      {friend.gym} · {friend.focus} · i gang i {formatActiveDuration(friend.startTimestamp)}
                     </Text>
                     <View style={styles.activeFriendMuscleGroups}>
                       {getMuscleGroupsFromFocus(friend.focus).map((muscleGroup, idx) => (
@@ -1913,7 +1946,9 @@ const HomeScreen = () => {
                   </View>
                   <View style={{flex: 1}}>
                     <Text style={styles.activityFriendName}>{friend.name}</Text>
-                    <Text style={styles.activityFriendGym}>{friend.gym}</Text>
+                    <Text style={styles.activityFriendGym}>
+                      {friend.gym} · {friend.focus}
+                    </Text>
                     <View style={styles.activeFriendMuscleGroups}>
                       {getMuscleGroupsFromFocus(friend.focus).map((muscleGroup, idx) => (
                         <Image
@@ -2704,6 +2739,42 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     marginTop: 2,
     textAlign: 'center',
+  },
+  onlineUsersListCol: {
+    gap: 10,
+  },
+  onlineUserListRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+  },
+  onlineUserAvatarList: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: colors.primary + '25',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 10,
+    position: 'relative',
+  },
+  onlineUserListBody: {
+    flex: 1,
+    minWidth: 0,
+  },
+  onlineUserNameList: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: colors.text,
+  },
+  onlineUserGymList: {
+    fontSize: 12,
+    color: colors.textSecondary,
+    marginTop: 2,
+  },
+  onlineUserSessionList: {
+    fontSize: 12,
+    color: colors.textMuted,
+    marginTop: 4,
   },
   leaderboardPreviewCard: {
     marginBottom: 16,

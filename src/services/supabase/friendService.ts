@@ -35,12 +35,16 @@ export async function upsertMyProfile(user: User): Promise<void> {
   if (!username) {
     return;
   }
+  const gymIds = (user.favoriteGyms ?? [])
+    .filter((id): id is string => typeof id === 'string' && id.length > 0)
+    .slice(0, 3);
   const {error} = await supabase.from('profiles').upsert(
     {
       id: user.id,
       username,
       display_name: (user.displayName || username).trim(),
       avatar_url: user.profileImageUrl ?? null,
+      favorite_gym_ids: gymIds,
       updated_at: new Date().toISOString(),
     },
     {onConflict: 'id'},
@@ -88,6 +92,85 @@ export async function searchProfiles(
   return [...merged.values()].slice(0, 25);
 }
 
+/** Kort vist navn til notifikationer (Realtime) */
+export async function getPublicProfilesByIds(
+  ids: string[],
+): Promise<Map<string, PublicProfile>> {
+  const uniq = [...new Set(ids.filter(Boolean))].slice(0, 100);
+  if (uniq.length === 0) {
+    return new Map();
+  }
+  const {data, error} = await supabase
+    .from('profiles')
+    .select('id, username, display_name, avatar_url')
+    .in('id', uniq);
+  if (error) {
+    throw error;
+  }
+  const m = new Map<string, PublicProfile>();
+  for (const row of data ?? []) {
+    m.set(row.id as string, mapProfile(row as any));
+  }
+  return m;
+}
+
+export async function getProfileDisplayNameForId(userId: string): Promise<string> {
+  const {data, error} = await supabase
+    .from('profiles')
+    .select('display_name, username')
+    .eq('id', userId)
+    .maybeSingle();
+  if (error || !data) {
+    return 'En bruger';
+  }
+  const d = (data as {display_name: string; username: string}).display_name?.trim();
+  const u = (data as {display_name: string; username: string}).username?.trim();
+  return d || u || 'En bruger';
+}
+
+/** Bruger DB-orden (least/greatest) — ikke nødvendigvis samme som JS a &lt; b for uuid-strings. */
+const friendshipOrFilter = (id1: string, id2: string) =>
+  `and(user_a.eq.${id1},user_b.eq.${id2}),and(user_a.eq.${id2},user_b.eq.${id1})`;
+
+/** Om der findes et venskab mellem to brugere */
+export async function isFriendWith(
+  myUserId: string,
+  otherUserId: string,
+): Promise<boolean> {
+  if (!myUserId || !otherUserId || myUserId === otherUserId) {
+    return false;
+  }
+  const {data, error} = await supabase
+    .from('friendships')
+    .select('user_a')
+    .or(friendshipOrFilter(myUserId, otherUserId))
+    .maybeSingle();
+  if (error) {
+    return false;
+  }
+  return !!data;
+}
+
+/**
+ * Fjerner venskab i DB: RPC bruger least/greatest (uuid) så parret matcher altid
+ * `friendships` (user_a, user_b), og sletter `friend_requests` for paret uden
+ * at fejle på tomt DELETE … SELECT.
+ */
+export async function removeFriendship(
+  myUserId: string,
+  otherUserId: string,
+): Promise<void> {
+  if (myUserId === otherUserId) {
+    throw new Error('Ugyldig modpart');
+  }
+  const {error} = await supabase.rpc('remove_friendship_between', {
+    p_other: otherUserId,
+  });
+  if (error) {
+    throw new Error('Kunne ikke fjerne venskab. Prøv igen.');
+  }
+}
+
 export async function getMyFriendIds(userId: string): Promise<Set<string>> {
   const {data, error} = await supabase
     .from('friendships')
@@ -122,6 +205,57 @@ export async function getOutgoingPendingTo(
     return false;
   }
   return !!data;
+}
+
+export type PendingBetween = {
+  incoming: FriendRequestRow | null;
+  outgoing: FriendRequestRow | null;
+};
+
+/** Indkommende/udgående afventende anmodninger mellem to brugere */
+export async function getPendingRequestBetween(
+  myUserId: string,
+  otherUserId: string,
+): Promise<PendingBetween> {
+  const [inc, out] = await Promise.all([
+    supabase
+      .from('friend_requests')
+      .select('id, from_user_id, to_user_id, status, created_at')
+      .eq('to_user_id', myUserId)
+      .eq('from_user_id', otherUserId)
+      .eq('status', 'pending')
+      .maybeSingle(),
+    supabase
+      .from('friend_requests')
+      .select('id, from_user_id, to_user_id, status, created_at')
+      .eq('from_user_id', myUserId)
+      .eq('to_user_id', otherUserId)
+      .eq('status', 'pending')
+      .maybeSingle(),
+  ]);
+
+  const map = (r: (typeof inc)['data']): FriendRequestRow | null => {
+    if (!r) {
+      return null;
+    }
+    return {
+      id: r.id as string,
+      fromUserId: r.from_user_id as string,
+      toUserId: r.to_user_id as string,
+      status: r.status as string,
+      createdAt: r.created_at as string,
+    };
+  };
+  if (inc.error) {
+    throw inc.error;
+  }
+  if (out.error) {
+    throw out.error;
+  }
+  return {
+    incoming: map(inc.data),
+    outgoing: map(out.data),
+  };
 }
 
 export async function sendFriendRequest(

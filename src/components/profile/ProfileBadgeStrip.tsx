@@ -17,11 +17,18 @@ import {spacing, radius, typography} from '@/theme/designTokens';
 
 type Props = {
   userId: string;
+  /** Når man ser en andens profil: anden copy, ingen navigation til egen Badges-fane */
+  viewingOtherUser?: boolean;
+  otherUserDisplayName?: string;
 };
 
 const MAX_BADGES = 6;
 
-export function ProfileBadgeStrip({userId}: Props) {
+export function ProfileBadgeStrip({
+  userId,
+  viewingOtherUser = false,
+  otherUserDisplayName = '',
+}: Props) {
   const navigation = useNavigation<any>();
   const unlockSnap = useBadgeStore(s => s.unlockedByUser[userId]);
   const [detail, setDetail] = useState<BadgeDefinition | null>(null);
@@ -60,19 +67,29 @@ export function ProfileBadgeStrip({userId}: Props) {
   );
 
   if (totalUnlocked === 0) {
+    const name = (otherUserDisplayName || 'Brugeren').trim();
+    const sub = viewingOtherUser
+      ? `${name} har ikke låst badges op endnu`
+      : 'Tjek ind og byg streak — se alle under Badges';
+    const content = (
+      <>
+        <Text style={styles.emptyEmoji}>🏅</Text>
+        <View style={styles.emptyBody}>
+          <Text style={styles.emptyTitle}>Ingen badges endnu</Text>
+          <Text style={styles.emptySub}>{sub}</Text>
+        </View>
+        {viewingOtherUser ? null : <Text style={styles.emptyChev}>›</Text>}
+      </>
+    );
+    if (viewingOtherUser) {
+      return <View style={styles.emptyRow}>{content}</View>;
+    }
     return (
       <TouchableOpacity
         style={styles.emptyRow}
         onPress={() => navigation.navigate('Badges')}
         activeOpacity={0.85}>
-        <Text style={styles.emptyEmoji}>🏅</Text>
-        <View style={styles.emptyBody}>
-          <Text style={styles.emptyTitle}>Ingen badges endnu</Text>
-          <Text style={styles.emptySub}>
-            Tjek ind og byg streak — se alle under Badges
-          </Text>
-        </View>
-        <Text style={styles.emptyChev}>›</Text>
+        {content}
       </TouchableOpacity>
     );
   }
@@ -81,9 +98,11 @@ export function ProfileBadgeStrip({userId}: Props) {
     <View style={styles.wrap}>
       <View style={styles.headerRow}>
         <Text style={styles.title}>Badges</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('Badges')}>
-          <Text style={styles.seeAll}>Se alle</Text>
-        </TouchableOpacity>
+        {viewingOtherUser ? null : (
+          <TouchableOpacity onPress={() => navigation.navigate('Badges')}>
+            <Text style={styles.seeAll}>Se alle</Text>
+          </TouchableOpacity>
+        )}
       </View>
       <ScrollView
         horizontal

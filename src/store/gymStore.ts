@@ -15,12 +15,12 @@ interface GymState {
   hours: GymHours[];
   
   // Actions
-  getGymActivity: (gymId: number) => GymActivity | undefined;
-  getActiveUsersCount: (gymId: number) => number;
-  getUserCheckInsCount: (gymId: number, userId: string) => number;
-  getGymStats: (gymId: number, userId: string) => GymStats;
-  getGymHours: (gymId: number) => GymHours | undefined;
-  getGymStatus: (gymId: number) => GymStatus;
+  getGymActivity: (gymId: string) => GymActivity | undefined;
+  getActiveUsersCount: (gymId: string) => number;
+  getUserCheckInsCount: (gymId: string, userId: string) => number;
+  getGymStats: (gymId: string, userId: string) => GymStats;
+  getGymHours: (gymId: string) => GymHours | undefined;
+  getGymStatus: (gymId: string) => GymStatus;
   addCheckIn: (checkIn: Omit<GymCheckIn, 'id'>) => void;
   getLastUserCheckIn: (userId: string) => GymCheckIn | undefined;
   addRating: (rating: Omit<GymRating, 'createdAt'>) => void;
@@ -31,40 +31,14 @@ const mockActivities: GymActivity[] = [];
 const mockCheckIns: GymCheckIn[] = [];
 const mockRatings: GymRating[] = [];
 
-// Mock gym hours - most gyms are open 6:00-22:00 on weekdays, 8:00-20:00 on weekends
-const mockHours: GymHours[] = [
-  {
-    gymId: 1,
-    monday: {open: '06:00', close: '22:00'},
-    tuesday: {open: '06:00', close: '22:00'},
-    wednesday: {open: '06:00', close: '22:00'},
-    thursday: {open: '06:00', close: '22:00'},
-    friday: {open: '06:00', close: '22:00'},
-    saturday: {open: '08:00', close: '20:00'},
-    sunday: {open: '08:00', close: '20:00'},
-  },
-  {
-    gymId: 2,
-    isOpen24Hours: true, // PureGym is often 24/7
-  },
-  {
-    gymId: 3,
-    monday: {open: '06:00', close: '23:00'},
-    tuesday: {open: '06:00', close: '23:00'},
-    wednesday: {open: '06:00', close: '23:00'},
-    thursday: {open: '06:00', close: '23:00'},
-    friday: {open: '06:00', close: '23:00'},
-    saturday: {open: '07:00', close: '21:00'},
-    sunday: {open: '07:00', close: '21:00'},
-  },
-];
+const mockHours: GymHours[] = [];
 
 // Helper function to get default hours based on brand
 const getDefaultHoursForBrand = (brand?: string): GymHours | null => {
   if (!brand) {
     // Default hours for unknown brands: 6:00-22:00 weekdays, 8:00-20:00 weekends
     return {
-      gymId: 0, // Will be replaced
+      gymId: '',
       monday: {open: '06:00', close: '22:00'},
       tuesday: {open: '06:00', close: '22:00'},
       wednesday: {open: '06:00', close: '22:00'},
@@ -80,7 +54,7 @@ const getDefaultHoursForBrand = (brand?: string): GymHours | null => {
   // PureGym is typically 24/7
   if (brandLower.includes('puregym') || brandLower.includes('pure gym')) {
     return {
-      gymId: 0, // Will be replaced
+      gymId: '',
       isOpen24Hours: true,
     };
   }
@@ -89,7 +63,7 @@ const getDefaultHoursForBrand = (brand?: string): GymHours | null => {
   // (varies by location, but this is common)
   if (brandLower.includes('sats')) {
     return {
-      gymId: 0, // Will be replaced
+      gymId: '',
       monday: {open: '06:00', close: '22:00'},
       tuesday: {open: '06:00', close: '22:00'},
       wednesday: {open: '06:00', close: '22:00'},
@@ -103,7 +77,7 @@ const getDefaultHoursForBrand = (brand?: string): GymHours | null => {
   // Fitness World typically: 6:00-22:00 weekdays, 8:00-20:00 weekends
   if (brandLower.includes('fitness world') || brandLower.includes('fitnessworld')) {
     return {
-      gymId: 0, // Will be replaced
+      gymId: '',
       monday: {open: '06:00', close: '22:00'},
       tuesday: {open: '06:00', close: '22:00'},
       wednesday: {open: '06:00', close: '22:00'},
@@ -117,7 +91,7 @@ const getDefaultHoursForBrand = (brand?: string): GymHours | null => {
   // LOOP Fitness: typically 5:00-00:00 (24/7 style)
   if (brandLower.includes('loop')) {
     return {
-      gymId: 0, // Will be replaced
+      gymId: '',
       isOpen24Hours: true,
     };
   }
@@ -125,7 +99,7 @@ const getDefaultHoursForBrand = (brand?: string): GymHours | null => {
   // FitnessX: typically 6:00-22:00 weekdays, 8:00-20:00 weekends
   if (brandLower.includes('fitnessx')) {
     return {
-      gymId: 0, // Will be replaced
+      gymId: '',
       monday: {open: '06:00', close: '22:00'},
       tuesday: {open: '06:00', close: '22:00'},
       wednesday: {open: '06:00', close: '22:00'},
@@ -139,7 +113,7 @@ const getDefaultHoursForBrand = (brand?: string): GymHours | null => {
   // Orange Fitness: typically 6:00-22:00 weekdays, 8:00-20:00 weekends
   if (brandLower.includes('orange fitness') || brandLower.includes('orangefitness')) {
     return {
-      gymId: 0, // Will be replaced
+      gymId: '',
       monday: {open: '06:00', close: '22:00'},
       tuesday: {open: '06:00', close: '22:00'},
       wednesday: {open: '06:00', close: '22:00'},
@@ -152,7 +126,7 @@ const getDefaultHoursForBrand = (brand?: string): GymHours | null => {
   
   // Default hours for other brands
   return {
-    gymId: 0, // Will be replaced
+    gymId: '',
     monday: {open: '06:00', close: '22:00'},
     tuesday: {open: '06:00', close: '22:00'},
     wednesday: {open: '06:00', close: '22:00'},

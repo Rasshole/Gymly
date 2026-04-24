@@ -17,6 +17,7 @@ import {useNavigation} from '@react-navigation/native';
 import {useSessionStore} from '@/store/sessionStore';
 import {useGymPresence} from '@/hooks/useGymPresence';
 import {useAppStore} from '@/store/appStore';
+import {useFriendStore} from '@/store/friendStore';
 import ActiveUsersList, {type ActiveUser} from './ActiveUsersList';
 import UserProfileModal from './UserProfileModal';
 import colors from '@/theme/colors';
@@ -56,6 +57,8 @@ const ActiveSessionView: React.FC<ActiveSessionViewProps> = ({onEndSession}) => 
   const {activeSession, getElapsedSeconds} = useSessionStore();
   const {gyms} = useGymPresence();
   const {user} = useAppStore();
+  const friendIds = useFriendStore(s => s.friendIds);
+  const loadFriendStore = useFriendStore(s => s.load);
   const [elapsed, setElapsed] = useState(0);
   const [selectedUser, setSelectedUser] = useState<ActiveUser | null>(null);
   const [showPRModal, setShowPRModal] = useState(false);
@@ -66,6 +69,12 @@ const ActiveSessionView: React.FC<ActiveSessionViewProps> = ({onEndSession}) => 
     }, 1000);
     return () => clearInterval(interval);
   }, [getElapsedSeconds]);
+
+  useEffect(() => {
+    if (user?.id) {
+      void loadFriendStore(user.id);
+    }
+  }, [user?.id, loadFriendStore]);
 
   const gymPresence = gyms.find(
     (g) =>
@@ -85,7 +94,7 @@ const ActiveSessionView: React.FC<ActiveSessionViewProps> = ({onEndSession}) => 
           id: u.id,
           name: u.name,
           avatar: u.avatar,
-          isFriend: u.id.startsWith('u') && ['u1', 'u2', 'u3'].includes(u.id),
+          isFriend: friendIds.has(u.id),
           workoutType: activeSession?.workoutType,
         }))
       : [

@@ -22,7 +22,9 @@ import {useNavigation} from '@react-navigation/native';
 import ScreenHeader from '@/components/ui/ScreenHeader';
 import {Card} from '@/components/ui/Card';
 import type {Group} from '@/types/group.types';
-import danishGyms, {DanishGym} from '@/data/danishGyms';
+import {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
+
+const GROUP_GYM_LIST = getActiveDanishGyms();
 import {useGroupStore} from '@/store/groupStore';
 import {useAppStore} from '@/store/appStore';
 import {formatGymDisplayName} from '@/utils/gymDisplay';
@@ -55,7 +57,7 @@ const CreateGroupScreen = () => {
 
   const cities = useMemo(() => {
     const set = new Set<string>();
-    for (const g of danishGyms) {
+    for (const g of GROUP_GYM_LIST) {
       if (g.city?.trim()) {
         set.add(g.city.trim());
       }
@@ -66,9 +68,9 @@ const CreateGroupScreen = () => {
   const filteredGyms = useMemo(() => {
     const q = gymSearchQuery.trim().toLowerCase();
     if (!q) {
-      return danishGyms;
+      return GROUP_GYM_LIST;
     }
-    return danishGyms.filter(
+    return GROUP_GYM_LIST.filter(
       g =>
         g.name.toLowerCase().includes(q) ||
         (g.city && g.city.toLowerCase().includes(q)) ||

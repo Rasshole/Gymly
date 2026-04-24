@@ -453,7 +453,7 @@ const styles = StyleSheet.create({
   },
   selectedDateTimeText: {
     fontSize: 14,
-    color: colors.secondary,
+    color: colors.white,
     fontWeight: '600',
     textAlign: 'center',
   },

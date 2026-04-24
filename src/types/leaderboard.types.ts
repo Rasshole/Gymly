@@ -58,7 +58,7 @@ export interface LeaderboardEntry {
   value: number;
   valueLabel: string;
   gymName?: string;
-  gymId?: number;
+  gymId?: string;
   isCurrentUser?: boolean;
   isFriend?: boolean;
   isWeeklyChampion?: boolean;
@@ -77,7 +77,7 @@ export interface LeaderboardCategoryConfig {
 
 /** Weekly Champion – kronet per center */
 export interface WeeklyChampion {
-  gymId: number;
+  gymId: string;
   gymName: string;
   userId: string;
   displayName: string;

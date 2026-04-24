@@ -558,7 +558,7 @@ class AuthService {
       email?: string;
       username?: string;
       bicepsEmoji?: string;
-      favoriteGyms?: number[];
+      favoriteGyms?: string[];
     },
   ): Promise<AuthResponse> {
     if (provider === 'apple') {

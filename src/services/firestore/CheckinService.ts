@@ -7,14 +7,14 @@
 import firestore from '@react-native-firebase/firestore';
 import {isFirebaseNativeAvailable} from '@/services/firebase/nativeAvailability';
 import {submitCheckInSupabase} from '@/services/supabase/checkInService';
-import type {SubmitCheckInParams} from '@/types/checkIn.types';
+import type {CheckInSubmitResult, SubmitCheckInParams} from '@/types/checkIn.types';
 import {COLLECTIONS} from './firestoreConfig';
 
 export type {SubmitCheckInParams} from '@/types/checkIn.types';
 
 async function submitCheckInFirestore(
   params: SubmitCheckInParams,
-): Promise<string> {
+): Promise<CheckInSubmitResult> {
   const {
     userId,
     gymId,
@@ -60,13 +60,15 @@ async function submitCheckInFirestore(
   });
 
   await batch.commit();
-  return checkInRef.id;
+  return {id: checkInRef.id, startedAt: now.toDate()};
 }
 
 /**
  * Gemmer tjek-ind: Firestore hvis native Firebase findes, ellers Supabase.
  */
-export async function submitCheckIn(params: SubmitCheckInParams): Promise<string> {
+export async function submitCheckIn(
+  params: SubmitCheckInParams,
+): Promise<CheckInSubmitResult> {
   if (!isFirebaseNativeAvailable()) {
     return submitCheckInSupabase(params);
   }

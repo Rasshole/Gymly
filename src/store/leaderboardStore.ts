@@ -13,14 +13,15 @@ import {
   LeaderboardStats,
   WeeklyChampion,
 } from '@/types/leaderboard.types';
-import danishGyms, {DanishGym} from '@/data/danishGyms';
+import danishGyms, {DanishGym, getActiveDanishGyms} from '@/data/danishGyms';
 
 // Venner af den aktuelle bruger – tom indtil rigtige data hentes
 const FRIEND_IDS = new Set<string>();
 
 // Ingen mock data – tomme arrays indtil rigtige data hentes fra backend
 const getMockLeaderboardStats = (): LeaderboardStats[] => [];
-const getMockGymCheckIns = (): Array<{userId: string; gymId: number; count: number}> => [];
+const getMockGymCheckIns = (): Array<{userId: string; gymId: string; count: number}> => [];
+const MOCK_LB_GYM_IDS = () => getActiveDanishGyms().slice(0, 12).map(g => g.id);
 const getMockWeeklyChampions = (): WeeklyChampion[] => [];
 
 // Formateringsfunktioner
@@ -50,7 +51,7 @@ interface LeaderboardState {
   ) => LeaderboardEntry[];
   /** Hent gym-specifik rangliste */
   getGymLeaderboard: (
-    gymId: number,
+    gymId: string,
     gymName: string,
     period: LeaderboardPeriod,
     currentUserId: string
@@ -62,10 +63,10 @@ interface LeaderboardState {
     subFilter: 'checkIns' | 'time',
     period: LeaderboardPeriod,
     currentUserId: string,
-    gymId?: number
+    gymId?: string
   ) => LeaderboardEntry[];
   /** Hent Weekly Champion for et gym */
-  getWeeklyChampion: (gymId: number) => WeeklyChampion | undefined;
+  getWeeklyChampion: (gymId: string) => WeeklyChampion | undefined;
   /** Hent alle Weekly Champions */
   getWeeklyChampions: () => WeeklyChampion[];
   getPeriodLabel: (period: LeaderboardPeriod) => string;
@@ -242,7 +243,7 @@ export const useLeaderboardStore = create<LeaderboardState>((set, get) => {
     },
 
     getCenterLeaderboard: (subFilter, period, currentUserId, gymId) => {
-      const gymIds = [1, 2, 3, 497381657, 898936694, 1112453804];
+      const gymIds = MOCK_LB_GYM_IDS();
       const targetGymIds = gymId != null ? [gymId] : gymIds;
 
       if (subFilter === 'checkIns') {
@@ -311,20 +312,25 @@ export const useLeaderboardStore = create<LeaderboardState>((set, get) => {
     },
 
     getGymLeaderboards: (currentUserId) => {
-      const gymIds = [1, 2, 3, 497381657, 898936694, 1112453804];
-      return gymIds
-        .map(gymId => {
-          const gym = danishGyms.find(g => g.id === gymId);
-          const leaderboard = get().getGymLeaderboard(
-            gymId,
-            gym?.name || `Center ${gymId}`,
-            'all',
-            currentUserId
-          );
-          const topUser = leaderboard[0];
-          return {gym: gym!, topUser: topUser!};
-        })
-        .filter(x => x.gym && x.topUser);
+      const gymIds = MOCK_LB_GYM_IDS();
+      const out: Array<{gym: DanishGym; topUser: LeaderboardEntry}> = [];
+      for (const gymId of gymIds) {
+        const gym = danishGyms.find(g => g.id === gymId);
+        if (!gym) {
+          continue;
+        }
+        const leaderboard = get().getGymLeaderboard(
+          gymId,
+          gym.name,
+          'all',
+          currentUserId
+        );
+        const topUser = leaderboard[0];
+        if (topUser) {
+          out.push({gym, topUser});
+        }
+      }
+      return out;
     },
 
     getWeeklyChampion: (gymId) =>

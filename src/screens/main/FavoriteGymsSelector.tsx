@@ -12,13 +12,14 @@ import {
   TouchableOpacity,
   TextInput,
   Modal,
-  Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import danishGyms, {DanishGym} from '@/data/danishGyms';
+import {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
+
+const FAV_PICKER = getActiveDanishGyms();
 import {useAppStore} from '@/store/appStore';
-import gymLogos from '@/utils/gymLogos';
 import colors from '@/theme/colors';
+import GymLogoView from '@/components/ui/GymLogoView';
 
 interface FavoriteGymsSelectorProps {
   visible: boolean;
@@ -28,12 +29,12 @@ interface FavoriteGymsSelectorProps {
 const FavoriteGymsSelector = ({visible, onClose}: FavoriteGymsSelectorProps) => {
   const {user, setFavoriteGyms} = useAppStore();
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedGyms, setSelectedGyms] = useState<number[]>(
+  const [selectedGyms, setSelectedGyms] = useState<string[]>(
     user?.favoriteGyms || [],
   );
 
   const filteredGyms = useMemo(() => {
-    return danishGyms.filter(
+    return FAV_PICKER.filter(
       gym =>
         gym.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         gym.city?.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -41,7 +42,7 @@ const FavoriteGymsSelector = ({visible, onClose}: FavoriteGymsSelectorProps) => 
     );
   }, [searchQuery]);
 
-  const toggleGym = (gymId: number) => {
+  const toggleGym = (gymId: string) => {
     setSelectedGyms(prev => {
       if (prev.includes(gymId)) {
         // Remove gym
@@ -62,31 +63,11 @@ const FavoriteGymsSelector = ({visible, onClose}: FavoriteGymsSelectorProps) => 
     onClose();
   };
 
-  const GymIcon = ({gym}: {gym: DanishGym}) => {
-    const [logoError, setLogoError] = useState(false);
-    const logoUrl = gymLogos.getGymLogo(gym.brand);
-    const hasLogo = gymLogos.hasGymLogo(gym.brand);
-
-    if (hasLogo && logoUrl && !logoError) {
-      return (
-        <View style={styles.gymLogoContainer}>
-          <Image
-            source={{uri: logoUrl}}
-            style={styles.gymLogo}
-            resizeMode="contain"
-            onError={() => setLogoError(true)}
-          />
-        </View>
-      );
-    }
-
-    const initial = gym.name.charAt(0).toUpperCase();
-    return (
-      <View style={styles.gymIconPlaceholder}>
-        <Text style={styles.gymIconLetter}>{initial}</Text>
-      </View>
-    );
-  };
+  const GymIcon = ({gym}: {gym: DanishGym}) => (
+    <View style={styles.gymLogoContainer}>
+      <GymLogoView gymName={gym.name} brand={gym.brand} size={48} />
+    </View>
+  );
 
   const renderGymItem = ({item}: {item: DanishGym}) => {
     const isSelected = selectedGyms.includes(item.id);

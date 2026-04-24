@@ -21,6 +21,7 @@ type ProfileHeaderProps = {
   followersCount?: number;
   followingCount?: number;
   friendsCount?: number;
+  onFriendsPress?: () => void;
 };
 
 const StatCol = ({value, label}: {value: number; label: string}) => (
@@ -28,6 +29,26 @@ const StatCol = ({value, label}: {value: number; label: string}) => (
     <Text style={styles.statValue}>{value}</Text>
     <Text style={styles.statLabel}>{label}</Text>
   </View>
+);
+
+const StatColButton = ({
+  value,
+  label,
+  onPress,
+}: {
+  value: number;
+  label: string;
+  onPress: () => void;
+}) => (
+  <TouchableOpacity
+    style={styles.statCol}
+    onPress={onPress}
+    activeOpacity={0.7}
+    accessibilityLabel={`${label}: ${value}`}
+    accessibilityRole="button">
+    <Text style={styles.statValue}>{value}</Text>
+    <Text style={styles.statLabel}>{label}</Text>
+  </TouchableOpacity>
 );
 
 export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
@@ -41,6 +62,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   followersCount = 0,
   followingCount = 0,
   friendsCount = 0,
+  onFriendsPress,
 }) => (
   <View style={styles.container}>
     <View style={styles.centered}>
@@ -75,7 +97,15 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
     <View style={styles.statsRow}>
       <StatCol value={followersCount} label="Følgere" />
       <StatCol value={followingCount} label="Følger" />
-      <StatCol value={friendsCount} label="Venner" />
+      {onFriendsPress ? (
+        <StatColButton
+          value={friendsCount}
+          label="Venner"
+          onPress={onFriendsPress}
+        />
+      ) : (
+        <StatCol value={friendsCount} label="Venner" />
+      )}
     </View>
 
     {showBio && bio && bio.trim().length > 0 ? (

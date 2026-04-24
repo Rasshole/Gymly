@@ -81,7 +81,7 @@ const ActiveUsersList: React.FC<ActiveUsersListProps> = ({
               />
               {user.isFriend && (
                 <View style={styles.friendBadge}>
-                  <Icon name="heart" size={10} color={colors.white} />
+                  <Icon name="person" size={10} color={colors.white} />
                 </View>
               )}
             </View>

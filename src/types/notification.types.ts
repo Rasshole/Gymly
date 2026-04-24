@@ -6,13 +6,19 @@
 export type NotificationType =
   | 'friend_checkin'
   | 'friend_request'
+  | 'friend_request_accepted'
   | 'message'
   | 'workout_invite'
   | 'invite_response'
   | 'streak_milestone'
   | 'group_invite'
   | 'leaderboard_movement'
-  | 'badge_unlocked';
+  | 'badge_unlocked'
+  | 'badge_progress'
+  | 'planned_workout_invite'
+  | 'planned_workout_accepted'
+  | 'planned_workout_declined'
+  | 'planned_workout_reminder';
 
 export interface Notification {
   id: string;
@@ -28,7 +34,7 @@ export interface Notification {
   checkOutTime?: Date;
   workoutInviteId?: string;
   planId?: string;
-  gymId?: number;
+  gymId?: string;
   muscles?: string[];
   scheduledAt?: Date;
   joined?: boolean;
@@ -38,4 +44,19 @@ export interface Notification {
   rankChange?: number;
   newRank?: number;
   badgeName?: string;
+  /** Ulæst besked: bruges til at navigere og rydde notifikationer når chat åbnes */
+  chatId?: string;
+  friendId?: string;
+  /** Venneanmodning (undgå dubletter når Realtime udsendes igen) */
+  friendRequestId?: string;
+  /** planlagt træning (Supabase) */
+  plannedWorkoutId?: string;
+  threadId?: string;
+  /** Rå type fra public.notifications hvis kilden er Supabase */
+  dbType?: string;
+  dataPayload?: Record<string, unknown>;
+  /** Oprettet i Supabase (public.notifications) */
+  isFromServer?: boolean;
+  /** Lokalt efter accept/afvis (ingen serverfelt) */
+  friendRequestUiState?: 'pending' | 'accepted' | 'declined';
 }

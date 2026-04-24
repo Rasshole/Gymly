@@ -13,8 +13,8 @@ import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import safeArea from '@/safeAreaContext';
 import RootNavigator from './src/navigation/RootNavigator';
+import {navigationRef} from './src/navigation/navigationRef';
 import {useAppStore} from './src/store/appStore';
-import {useBadgeStore} from './src/store/badgeStore';
 import {BadgeUnlockModalHost} from './src/components/badges/BadgeUnlockModalHost';
 import {usePrivacyStore} from './src/store/privacyStore';
 import {StartupErrorBoundary} from './src/components/StartupErrorBoundary';
@@ -35,7 +35,7 @@ const App = () => {
       <GestureHandlerRootView style={styles.root}>
         <SafeAreaProvider>
           <StatusBar barStyle="dark-content" />
-          <NavigationContainer theme={DefaultTheme}>
+          <NavigationContainer ref={navigationRef} theme={DefaultTheme}>
             <RootNavigator />
             <BadgeUnlockModalHost />
           </NavigationContainer>

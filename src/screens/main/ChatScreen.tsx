@@ -10,6 +10,7 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
+  Pressable,
   FlatList,
   KeyboardAvoidingView,
   Platform,
@@ -18,16 +19,41 @@ import {
   ScrollView,
   Image,
   TouchableWithoutFeedback,
+  Keyboard,
+  ActivityIndicator,
+  useWindowDimensions,
 } from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {launchCamera, launchImageLibrary, CameraOptions, ImagePickerResponse} from 'react-native-image-picker';
 import {format} from 'date-fns';
 import {da} from 'date-fns/locale';
 import DateTimePicker, {DateTimePickerEvent} from '@react-native-community/datetimepicker';
-import danishGyms, {DanishGym} from '@/data/danishGyms';
+import {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
+
+const CHAT_GYMS = getActiveDanishGyms();
 import {MuscleGroup} from '@/types/workout.types';
-import {formatGymDisplayName} from '@/utils/gymDisplay';
+import {formatGymDisplayName, findGymById} from '@/utils/gymDisplay';
+import {supabase} from '@/services/supabase/supabaseClient';
+import {
+  createPlannedWorkoutInvite,
+  fetchPlannedWorkoutByThread,
+  respondPlannedWorkoutInvite,
+  type PlannedWorkoutRow,
+  type PlannedParticipantRow,
+} from '@/services/supabase/plannedWorkoutService';
+import {useInAppNotificationStore} from '@/store/inAppNotificationStore';
+import {useFocusEffect} from '@react-navigation/native';
 import {useChatStore, ChatPlan, ChatMessage} from '@/store/chatStore';
+import {useAppStore} from '@/store/appStore';
+import {useNotificationStore} from '@/store/notificationStore';
+import {navigateToFriendProfile} from '@/navigation/rootNavigation';
+import {
+  isDmThreadId,
+  fetchDmMessages,
+  sendDmMessage,
+} from '@/services/supabase/dmService';
+import {uploadDmChatImage} from '@/services/supabase/dmImageUpload';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
 import muscleImg from '@/utils/muscleGroupImages';
@@ -58,6 +84,77 @@ const MUSCLE_GROUPS: {key: MuscleGroup; label: string}[] = [
   {key: 'pilates', label: 'Pilates'},
 ];
 
+/** iOS-style media sheet (Ionicons ≈ SF Symbols); icons use system dark, not brand circles */
+const CHAT_MEDIA_SHEET = {
+  icon: '#1C1C1E',
+} as const;
+
+const CHAT_IMAGE_MAX_H = 320;
+
+type DmChatMessageImageProps = {
+  uri: string;
+  maxWidth: number;
+  onPress: () => void;
+};
+
+const DmChatMessageImage = ({uri, maxWidth, onPress}: DmChatMessageImageProps) => {
+  const [natural, setNatural] = useState<{w: number; h: number} | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    Image.getSize(
+      uri,
+      (w, h) => {
+        if (!cancelled && w > 0 && h > 0) {
+          setNatural({w, h});
+        }
+      },
+      () => {
+        if (!cancelled) {
+          setNatural(null);
+        }
+      },
+    );
+    return () => {
+      cancelled = true;
+    };
+  }, [uri]);
+
+  const {w, h} = useMemo(() => {
+    if (!natural) {
+      const w0 = maxWidth;
+      return {w: w0, h: Math.min(w0 * 0.75, CHAT_IMAGE_MAX_H)};
+    }
+    const r = natural.h / natural.w;
+    let w1 = Math.min(maxWidth, 280, natural.w);
+    let h1 = w1 * r;
+    if (h1 > CHAT_IMAGE_MAX_H) {
+      h1 = CHAT_IMAGE_MAX_H;
+      w1 = h1 / r;
+    }
+    if (w1 > maxWidth) {
+      w1 = maxWidth;
+      h1 = w1 * r;
+    }
+    if (h1 > CHAT_IMAGE_MAX_H) {
+      h1 = CHAT_IMAGE_MAX_H;
+    }
+    return {w: w1, h: h1};
+  }, [maxWidth, natural]);
+
+  return (
+    <Pressable onPress={onPress} style={({pressed}) => (pressed ? {opacity: 0.92} : null)}>
+      <Image
+        source={{uri}}
+        style={[styles.messageImageContent, {width: w, height: h}]}
+        resizeMode="cover"
+        accessibilityLabel="Billede"
+        accessibilityRole="image"
+      />
+    </Pressable>
+  );
+};
+
 const formatMuscleSelection = (groups: MuscleGroup[]) => {
   if (groups.length === 0) {
     return 'Fri træning';
@@ -67,11 +164,45 @@ const formatMuscleSelection = (groups: MuscleGroup[]) => {
     .join(', ');
 };
 
+function mapServerPlanToChatPlan(r: {
+  workout: PlannedWorkoutRow;
+  participants: PlannedParticipantRow[];
+}): ChatPlan {
+  const w = r.workout;
+  const gym = findGymById(w.center_id) ?? getActiveDanishGyms()[0]!;
+  const invitee = r.participants.find(p => p.role === 'invitee');
+  const muscles = (w.training_types || []) as MuscleGroup[];
+  const inviteeId = invitee?.user_id;
+  const accepted = invitee?.response_status === 'accepted' && inviteeId;
+  const ir: 'pending' | 'accepted' | 'declined' =
+    invitee?.response_status === 'declined'
+      ? 'declined'
+      : invitee?.response_status === 'accepted'
+        ? 'accepted'
+        : 'pending';
+  return {
+    id: w.id,
+    serverPlannedWorkoutId: w.id,
+    gym,
+    muscles,
+    scheduledAt: new Date(w.scheduled_at),
+    createdBy: w.creator_user_id,
+    joinedIds: accepted ? [w.creator_user_id, inviteeId!] : [w.creator_user_id],
+    invitedIds: inviteeId ? [inviteeId] : [],
+    inviteeResponse: ir,
+  };
+}
+
 const ChatScreen = ({route, navigation}: ChatScreenProps) => {
   const {chatId, friendId, friendName, initialMessage, participants: routeParticipants} = route.params;
   const updateChatLastMessage = useChatStore(state => state.updateChatLastMessage);
   const initializeChatMessages = useChatStore(state => state.initializeChatMessages);
+  const setMessagesForChat = useChatStore(state => state.setMessagesForChat);
   const markChatAsRead = useChatStore(state => state.markChatAsRead);
+  const markMessageNotificationsForChatRead = useNotificationStore(
+    state => state.markMessageNotificationsForChatRead,
+  );
+  const setForegroundOpenChatId = useChatStore(state => state.setForegroundOpenChatId);
   const addMessageToChat = useChatStore(state => state.addMessageToChat);
   const getMessagesForChat = useChatStore(state => state.getMessagesForChat);
   const setActivePlanForChat = useChatStore(state => state.setActivePlanForChat);
@@ -82,7 +213,8 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
   const activePlan: ChatPlan | null = useChatStore(
     useCallback(state => (chatId ? state.activePlansByChat[chatId] ?? null : null), [chatId]),
   );
-  const currentUserId = 'current_user'; // In a real app, this would come from auth
+  const currentUserId = useAppStore(s => s.user?.id) ?? 'current_user';
+  const isDm = useMemo(() => isDmThreadId(chatId), [chatId]);
   const chatParticipants =
     routeParticipants && routeParticipants.length > 0
       ? routeParticipants
@@ -100,14 +232,98 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
   const [planDateTime, setPlanDateTime] = useState(new Date());
   const [planTimePickerVisible, setPlanTimePickerVisible] = useState(false);
   const [selectedImageUri, setSelectedImageUri] = useState<string | null>(null);
+  const [selectedImageMime, setSelectedImageMime] = useState<string | null>(null);
+  const [isSendingImage, setIsSendingImage] = useState(false);
+  const [lightboxUri, setLightboxUri] = useState<string | null>(null);
   const [showImagePickerOptions, setShowImagePickerOptions] = useState(false);
+  const [planActionBusy, setPlanActionBusy] = useState(false);
+  const {width: windowWidth} = useWindowDimensions();
+  const refreshInAppNotifications = useInAppNotificationStore(s => s.refresh);
+  const maxDmImageWidth = useMemo(
+    () => Math.min(windowWidth * 0.7, 280),
+    [windowWidth],
+  );
   const flatListRef = useRef<FlatList>(null);
   const initialMessageHandledRef = useRef(false);
+  const insets = useSafeAreaInsets();
+  const [keyboardOpen, setKeyboardOpen] = useState(false);
+
+  useEffect(() => {
+    const show = Keyboard.addListener(
+      Platform.OS === 'ios' ? 'keyboardWillShow' : 'keyboardDidShow',
+      () => setKeyboardOpen(true),
+    );
+    const hide = Keyboard.addListener(
+      Platform.OS === 'ios' ? 'keyboardWillHide' : 'keyboardDidHide',
+      () => setKeyboardOpen(false),
+    );
+    return () => {
+      show.remove();
+      hide.remove();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isDm || !chatId) {
+      return;
+    }
+    let cancelled = false;
+    (async () => {
+      try {
+        const r = await fetchPlannedWorkoutByThread(chatId);
+        if (cancelled || !r) {
+          return;
+        }
+        if (r.workout.status === 'active') {
+          setActivePlanForChat(chatId, mapServerPlanToChatPlan(r));
+        }
+      } catch {
+        // offline / tabel findes ikke endnu
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [isDm, chatId, setActivePlanForChat]);
+
+  const serverPwId = activePlan?.serverPlannedWorkoutId;
+  useEffect(() => {
+    if (!serverPwId || !chatId) {
+      return;
+    }
+    const ch = supabase
+      .channel(`chat_pw_${serverPwId}`)
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'planned_workout_participants',
+          filter: `planned_workout_id=eq.${serverPwId}`,
+        },
+        () => {
+          void (async () => {
+            const r = await fetchPlannedWorkoutByThread(chatId);
+            if (r?.workout.status === 'active') {
+              setActivePlanForChat(chatId, mapServerPlanToChatPlan(r));
+            }
+          })();
+        },
+      )
+      .subscribe();
+    return () => {
+      void supabase.removeChannel(ch);
+    };
+  }, [serverPwId, chatId, setActivePlanForChat]);
+
+  useEffect(() => {
+    initialMessageHandledRef.current = false;
+  }, [chatId]);
 
   const planSuggestions = useMemo(() => {
     if (!planCenterQuery.trim()) return [];
     const query = planCenterQuery.toLowerCase();
-    return danishGyms
+    return CHAT_GYMS
       .filter(gym => 
         formatGymDisplayName(gym).toLowerCase().includes(query) ||
         gym.city?.toLowerCase().includes(query)
@@ -124,26 +340,94 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
     [planDateTime],
   );
 
-  useEffect(() => {
-    if (!chatId) return;
-    initializeChatMessages(chatId, []);
-    markChatAsRead(chatId);
-  }, [chatId, initializeChatMessages, markChatAsRead]);
+  useFocusEffect(
+    useCallback(() => {
+      if (!chatId) {
+        return;
+      }
+      setForegroundOpenChatId(chatId);
+      if (isDm) {
+        markChatAsRead(chatId);
+        markMessageNotificationsForChatRead(chatId);
+      } else {
+        initializeChatMessages(chatId, []);
+        markChatAsRead(chatId);
+        markMessageNotificationsForChatRead(chatId);
+      }
+      return () => {
+        setForegroundOpenChatId(null);
+      };
+    }, [
+      chatId,
+      isDm,
+      initializeChatMessages,
+      markChatAsRead,
+      markMessageNotificationsForChatRead,
+      setForegroundOpenChatId,
+    ]),
+  );
 
   useEffect(() => {
+    if (!chatId || !isDm) {
+      return;
+    }
+    let cancelled = false;
+    (async () => {
+      try {
+        const list = await fetchDmMessages(chatId, {limit: 100});
+        if (cancelled) {
+          return;
+        }
+        setMessagesForChat(chatId, list);
+        if (initialMessage?.trim() && !initialMessageHandledRef.current) {
+          const {message: sent} = await sendDmMessage(chatId, {
+            body: initialMessage.trim(),
+          });
+          initialMessageHandledRef.current = true;
+          addMessageToChat(chatId, sent);
+          updateChatLastMessage(chatId, sent, {fromCurrentUser: true});
+        }
+      } catch (e) {
+        if (!cancelled) {
+          Alert.alert('Chat', (e as Error).message);
+        }
+      } finally {
+        if (!cancelled) {
+          markChatAsRead(chatId);
+          markMessageNotificationsForChatRead(chatId);
+        }
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [chatId, isDm, setMessagesForChat, addMessageToChat, updateChatLastMessage, markChatAsRead, markMessageNotificationsForChatRead]);
+
+  useEffect(() => {
+    if (isDm) {
+      return;
+    }
     if (!chatId || !initialMessage || initialMessageHandledRef.current) {
       return;
     }
-      const newMessage: ChatMessage = {
-        id: Date.now().toString(),
-        text: initialMessage,
-        senderId: currentUserId,
-        timestamp: new Date(),
-        isRead: false,
-      };
+    const newMessage: ChatMessage = {
+      id: Date.now().toString(),
+      text: initialMessage,
+      senderId: currentUserId,
+      timestamp: new Date(),
+      isRead: false,
+    };
     addMessageToChat(chatId, newMessage);
+    updateChatLastMessage(chatId, newMessage, {fromCurrentUser: true});
     initialMessageHandledRef.current = true;
-  }, [addMessageToChat, chatId, currentUserId, initialMessage]);
+  }, [
+    isDm,
+    addMessageToChat,
+    updateChatLastMessage,
+    chatId,
+    currentUserId,
+    initialMessage,
+  ]);
 
   useEffect(() => {
     // Scroll to bottom when messages change
@@ -152,8 +436,57 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
     }, 100);
   }, [messages]);
 
-  const handleSend = () => {
-    if (!message.trim() && !selectedImageUri) return;
+  const handleSend = async () => {
+    if (isSendingImage) {
+      return;
+    }
+    if (!message.trim() && !selectedImageUri) {
+      return;
+    }
+
+    if (isDm && chatId) {
+      if (selectedImageUri) {
+        setIsSendingImage(true);
+        try {
+          const imageUrl = await uploadDmChatImage(
+            selectedImageUri,
+            chatId,
+            selectedImageMime,
+          );
+          const {message: sent} = await sendDmMessage(chatId, {
+            body: message.trim(),
+            imageUrl,
+          });
+          addMessageToChat(chatId, sent);
+          updateChatLastMessage(chatId, sent, {fromCurrentUser: true});
+          setMessage('');
+          setSelectedImageUri(null);
+          setSelectedImageMime(null);
+        } catch (e) {
+          Alert.alert(
+            'Billedet kunne ikke sendes. Prøv igen.',
+            (e as Error).message,
+          );
+        } finally {
+          setIsSendingImage(false);
+        }
+        return;
+      }
+      if (!message.trim()) {
+        return;
+      }
+      try {
+        const {message: sent} = await sendDmMessage(chatId, {
+          body: message.trim(),
+        });
+        addMessageToChat(chatId, sent);
+        updateChatLastMessage(chatId, sent, {fromCurrentUser: true});
+      } catch (e) {
+        Alert.alert('Kunne ikke sende', (e as Error).message);
+      }
+      setMessage('');
+      return;
+    }
 
     const newMessage: ChatMessage = {
       id: Date.now().toString(),
@@ -166,10 +499,11 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
 
     if (chatId) {
       addMessageToChat(chatId, newMessage);
-      updateChatLastMessage(chatId, newMessage, { fromCurrentUser: true });
+      updateChatLastMessage(chatId, newMessage, {fromCurrentUser: true});
     }
     setMessage('');
     setSelectedImageUri(null);
+    setSelectedImageMime(null);
   };
 
   const handleImagePickerToggle = () => {
@@ -205,6 +539,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
       const asset = response.assets && response.assets[0];
       if (asset?.uri) {
         setSelectedImageUri(asset.uri);
+        setSelectedImageMime(asset.type ?? null);
       }
     });
   };
@@ -220,12 +555,13 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
         return;
       }
       if (response.errorCode) {
-        Alert.alert('Galleri fejl', response.errorMessage || 'Kunne ikke åbne galleriet.');
+        Alert.alert('Fotos', response.errorMessage || 'Kunne ikke åbne fotos.');
         return;
       }
       const asset = response.assets && response.assets[0];
       if (asset?.uri) {
         setSelectedImageUri(asset.uri);
+        setSelectedImageMime(asset.type ?? null);
       }
     });
   };
@@ -312,6 +648,44 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
     if (!chatId) {
       return;
     }
+
+    const resetPlanModal = () => {
+      setPlanModalVisible(false);
+      setPlanSelectedGym(null);
+      setPlanCenterQuery('');
+      setPlanMuscles([]);
+    };
+
+    if (isDm && friendId) {
+      setPlanActionBusy(true);
+      void (async () => {
+        try {
+          await createPlannedWorkoutInvite({
+            inviteeId: friendId,
+            centerId: planSelectedGym.id,
+            centerName: formatGymDisplayName(planSelectedGym),
+            scheduledAt: planDateTime,
+            trainingTypes: planMuscles,
+            note: null,
+            threadId: chatId,
+          });
+          const r = await fetchPlannedWorkoutByThread(chatId);
+          if (r) {
+            setActivePlanForChat(chatId, mapServerPlanToChatPlan(r));
+          }
+          if (currentUserId) {
+            void refreshInAppNotifications(currentUserId);
+          }
+        } catch (e) {
+          Alert.alert('Kunne ikke oprette', (e as Error).message);
+        } finally {
+          setPlanActionBusy(false);
+          resetPlanModal();
+        }
+      })();
+      return;
+    }
+
     const newPlan: ChatPlan = {
       id: `plan_${Date.now()}`,
       gym: planSelectedGym,
@@ -322,34 +696,86 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
       invitedIds: participantList.map(participant => participant.id),
     };
     setActivePlanForChat(chatId, newPlan);
-    setPlanModalVisible(false);
-    setPlanSelectedGym(null);
-    setPlanCenterQuery('');
-    setPlanMuscles([]);
+    resetPlanModal();
+  };
+
+  const isPlanCreator = activePlan?.createdBy === currentUserId;
+
+  const handleDeclineServerPlan = () => {
+    if (!chatId || !activePlan?.serverPlannedWorkoutId || isPlanCreator) {
+      return;
+    }
+    if (activePlan.inviteeResponse !== 'pending') {
+      return;
+    }
+    setPlanActionBusy(true);
+    void (async () => {
+      try {
+        await respondPlannedWorkoutInvite(activePlan.serverPlannedWorkoutId!, false);
+        const r = await fetchPlannedWorkoutByThread(chatId);
+        if (r) {
+          setActivePlanForChat(chatId, mapServerPlanToChatPlan(r));
+        }
+        if (currentUserId) {
+          void refreshInAppNotifications(currentUserId);
+        }
+      } catch (e) {
+        Alert.alert('Kunne ikke afvise', (e as Error).message);
+      } finally {
+        setPlanActionBusy(false);
+      }
+    })();
   };
 
   const handleJoinPlan = () => {
-    if (!chatId) {
+    if (!chatId || !activePlan) {
       return;
     }
+
+    if (activePlan.serverPlannedWorkoutId) {
+      if (isPlanCreator) {
+        setPlanDetailVisible(true);
+        return;
+      }
+      if (activePlan.inviteeResponse === 'pending') {
+        setPlanActionBusy(true);
+        void (async () => {
+          try {
+            await respondPlannedWorkoutInvite(activePlan.serverPlannedWorkoutId!, true);
+            const r = await fetchPlannedWorkoutByThread(chatId);
+            if (r) {
+              setActivePlanForChat(chatId, mapServerPlanToChatPlan(r));
+            }
+            if (currentUserId) {
+              void refreshInAppNotifications(currentUserId);
+            }
+          } catch (e) {
+            Alert.alert('Kunne ikke acceptere', (e as Error).message);
+          } finally {
+            setPlanActionBusy(false);
+          }
+        })();
+        return;
+      }
+      setPlanDetailVisible(true);
+      return;
+    }
+
     updateActivePlanForChat(chatId, prev => {
       if (!prev) {
         return prev;
       }
       const hasJoined = prev.joinedIds.includes(currentUserId);
       if (hasJoined) {
-        // Remove join request
         return {
           ...prev,
           joinedIds: prev.joinedIds.filter(id => id !== currentUserId),
         };
-      } else {
-        // Add join request
+      }
       return {
         ...prev,
         joinedIds: [...prev.joinedIds, currentUserId],
       };
-      }
     });
   };
 
@@ -380,24 +806,33 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
             style={[
               styles.messageBubble,
               isMe ? styles.messageBubbleMe : styles.messageBubbleOther,
+              item.imageUri &&
+                (item.text?.trim()
+                  ? styles.messageBubbleWithImage
+                  : styles.messageBubbleImageOnly),
             ]}>
             {item.imageUri && (
-              <Image source={{uri: item.imageUri}} style={styles.messageImage} />
+              <DmChatMessageImage
+                uri={item.imageUri}
+                maxWidth={maxDmImageWidth}
+                onPress={() => setLightboxUri(item.imageUri!)}
+              />
             )}
-            {item.text && (
+            {item.text?.trim() ? (
             <Text
               style={[
                 styles.messageText,
                 isMe ? styles.messageTextMe : styles.messageTextOther,
-                  item.imageUri && styles.messageTextWithImage,
+                item.imageUri && styles.messageTextWithImage,
               ]}>
               {item.text}
             </Text>
-            )}
+            ) : null}
             <Text
               style={[
                 styles.messageTime,
                 isMe ? styles.messageTimeMe : styles.messageTimeOther,
+                item.imageUri && !item.text?.trim() && styles.messageTimeImageOnly,
               ]}>
               {formatTime(item.timestamp)}
             </Text>
@@ -407,11 +842,13 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
     );
   };
 
+  const inputBarBottomPad = keyboardOpen ? 0 : Math.max(insets.bottom, spacing.xs);
+
   return (
     <KeyboardAvoidingView
       style={styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={Platform.OS === 'ios' ? 90 : 0}>
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      keyboardVerticalOffset={0}>
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.headerContent}>
@@ -421,7 +858,17 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
             activeOpacity={0.8}>
             <Icon name="arrow-back" size={24} color={colors.text} />
           </TouchableOpacity>
-          <View style={styles.headerInfo}>
+          <TouchableOpacity
+            style={styles.headerInfo}
+            onPress={() => {
+              if (friendId) {
+                navigateToFriendProfile(navigation, {friendId, friendName});
+              }
+            }}
+            activeOpacity={0.7}
+            disabled={!friendId}
+            accessibilityRole="button"
+            accessibilityLabel={`Åbn profil: ${friendName}`}>
             <View style={styles.headerAvatar}>
               <Text style={styles.headerAvatarText}>
                 {friendName.charAt(0).toUpperCase()}
@@ -431,9 +878,6 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
               <Text style={styles.headerName}>{friendName}</Text>
               <Text style={styles.headerHint}>Aktiv nu</Text>
             </View>
-          </View>
-          <TouchableOpacity style={styles.moreButton} activeOpacity={0.8}>
-            <Icon name="ellipsis-vertical" size={22} color={colors.text} />
           </TouchableOpacity>
         </View>
       </View>
@@ -441,10 +885,18 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
       {/* Messages List */}
       <View style={styles.chatBody}>
         {activePlan && (
-          <TouchableOpacity
-            style={styles.planBanner}
+          <Pressable
             onPress={() => setPlanDetailVisible(true)}
-            activeOpacity={0.85}>
+            onLongPress={() => {
+              if (activePlan.serverPlannedWorkoutId) {
+                navigation.navigate('WorkoutSchedule', {
+                  openPlannedId: activePlan.serverPlannedWorkoutId,
+                });
+              } else {
+                navigation.navigate('WorkoutSchedule', {initialTab: 'upcoming'});
+              }
+            }}
+            style={({pressed}) => [styles.planBanner, pressed && {opacity: 0.92}]}>
             {(() => {
               const joinedNames = planParticipants
                 .filter(participant => participant.hasJoined)
@@ -452,12 +904,31 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
               const pendingNames = planParticipants
                 .filter(participant => !participant.hasJoined)
                 .map(participant => participant.name);
-              const infoText =
-                joinedNames.length > 0
+              const useServer = !!activePlan.serverPlannedWorkoutId;
+              const isCreator = activePlan.createdBy === currentUserId;
+              const serverStatusLine = useServer
+                ? isCreator
+                  ? activePlan.inviteeResponse === 'pending'
+                    ? `Afventer svar · ${friendName}`
+                    : activePlan.inviteeResponse === 'accepted'
+                      ? 'Træner sammen – accepteret'
+                      : `${friendName} har afvist`
+                  : activePlan.inviteeResponse === 'pending'
+                    ? 'Du er inviteret'
+                    : activePlan.inviteeResponse === 'accepted'
+                      ? 'Du deltager'
+                      : 'Du har afvist'
+                : null;
+              const infoText = useServer
+                ? serverStatusLine
+                : joinedNames.length > 0
                   ? `${joinedNames.join(', ')} har joinet`
                   : 'Ingen har joinet endnu';
-              const pendingText =
-                pendingNames.length > 0 ? `Venter: ${pendingNames.join(', ')}` : '';
+              const pendingText = useServer
+                ? null
+                : pendingNames.length > 0
+                  ? `Venter: ${pendingNames.join(', ')}`
+                  : '';
               return (
                 <>
                   <View style={{flex: 1}}>
@@ -472,29 +943,75 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                     {pendingText ? (
                       <Text style={styles.planBannerPending}>{pendingText}</Text>
                     ) : null}
+                    {useServer ? (
+                      <Text style={styles.planBannerHint}>Langt tryk → kalender</Text>
+                    ) : null}
                   </View>
+                  {useServer && !isCreator && activePlan.inviteeResponse === 'pending' ? (
+                    <View style={styles.planBannerActionRow}>
+                      <TouchableOpacity
+                        style={styles.planBannerDecline}
+                        onPress={e => {
+                          e.stopPropagation();
+                          handleDeclineServerPlan();
+                        }}
+                        disabled={planActionBusy}
+                        activeOpacity={0.9}>
+                        <Text style={styles.planBannerDeclineText}>Afvis</Text>
+                      </TouchableOpacity>
+                      <TouchableOpacity
+                        style={styles.planBannerJoin}
+                        onPress={e => {
+                          e.stopPropagation();
+                          handleJoinPlan();
+                        }}
+                        disabled={planActionBusy}
+                        activeOpacity={0.9}>
+                        {planActionBusy ? (
+                          <ActivityIndicator color={colors.successLight} size="small" />
+                        ) : (
+                          <Text style={styles.planBannerJoinText}>Accepter</Text>
+                        )}
+                      </TouchableOpacity>
+                    </View>
+                  ) : useServer && isCreator ? (
+                    <View style={styles.planBannerCreatorBadge}>
+                      <Text style={styles.planBannerJoinTextAnmodet}>Inviteret</Text>
+                    </View>
+                  ) : !useServer ? (
                     <TouchableOpacity
-                  style={[
-                    styles.planBannerJoin,
-                    activePlan.joinedIds.includes(currentUserId) && styles.planBannerJoinAnmodet,
-                  ]}
+                      style={[
+                        styles.planBannerJoin,
+                        activePlan.joinedIds.includes(currentUserId) && styles.planBannerJoinAnmodet,
+                      ]}
                       onPress={event => {
                         event.stopPropagation();
                         handleJoinPlan();
                       }}
                       activeOpacity={0.9}>
-                  <Text
-                    style={[
-                      styles.planBannerJoinText,
-                      activePlan.joinedIds.includes(currentUserId) && styles.planBannerJoinTextAnmodet,
-                    ]}>
-                    {activePlan.joinedIds.includes(currentUserId) ? 'Anmodet' : 'Deltag'}
-                  </Text>
+                      <Text
+                        style={[
+                          styles.planBannerJoinText,
+                          activePlan.joinedIds.includes(currentUserId) && styles.planBannerJoinTextAnmodet,
+                        ]}>
+                        {activePlan.joinedIds.includes(currentUserId) ? 'Anmodet' : 'Deltag'}
+                      </Text>
                     </TouchableOpacity>
+                  ) : (
+                    <TouchableOpacity
+                      style={[styles.planBannerJoin, styles.planBannerJoinAnmodet]}
+                      onPress={e => {
+                        e.stopPropagation();
+                        setPlanDetailVisible(true);
+                      }}
+                      activeOpacity={0.9}>
+                      <Text style={styles.planBannerJoinTextAnmodet}>Detaljer</Text>
+                    </TouchableOpacity>
+                  )}
                 </>
               );
             })()}
-          </TouchableOpacity>
+          </Pressable>
         )}
         <FlatList
           ref={flatListRef}
@@ -503,6 +1020,8 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
           keyExtractor={item => item.id}
           contentContainerStyle={styles.messagesList}
           inverted={false}
+          keyboardShouldPersistTaps="handled"
+          keyboardDismissMode="interactive"
           onContentSizeChange={() => flatListRef.current?.scrollToEnd({animated: true})}
         />
       </View>
@@ -692,8 +1211,12 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
         </View>
       </Modal>
 
-      {/* Input Bar */}
-      <View style={styles.inputContainer}>
+      {/* No extra bottom padding while keyboard is open (avoids grey gap above keyboard) */}
+      <View
+        style={[
+          styles.inputContainer,
+          {paddingBottom: inputBarBottomPad},
+        ]}>
         {showImagePickerOptions && (
           <TouchableWithoutFeedback onPress={() => setShowImagePickerOptions(false)}>
             <View style={styles.imagePickerBackdrop} />
@@ -703,24 +1226,36 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
           <View style={styles.imagePickerContainer}>
             {showImagePickerOptions && (
               <View style={styles.imagePickerOptions}>
-                <TouchableOpacity
-                  style={styles.imagePickerOption}
+                <Pressable
+                  style={({pressed}) => [
+                    styles.imagePickerCard,
+                    pressed && styles.imagePickerCardPressed,
+                  ]}
                   onPress={handleCameraPress}
-                  activeOpacity={0.7}>
-                  <View style={styles.imagePickerIconContainer}>
-                    <Icon name="camera" size={24} color={colors.primary} />
-                  </View>
+                  android_ripple={{color: 'rgba(0,0,0,0.06)'}}>
+                  <Icon
+                    name="camera"
+                    size={26}
+                    color={CHAT_MEDIA_SHEET.icon}
+                    style={styles.imagePickerIcon}
+                  />
                   <Text style={styles.imagePickerLabel}>Kamera</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.imagePickerOption}
+                </Pressable>
+                <Pressable
+                  style={({pressed}) => [
+                    styles.imagePickerCard,
+                    pressed && styles.imagePickerCardPressed,
+                  ]}
                   onPress={handleGalleryPress}
-                  activeOpacity={0.7}>
-                  <View style={styles.imagePickerIconContainer}>
-                    <Icon name="images" size={24} color={colors.primary} />
-                  </View>
-                  <Text style={styles.imagePickerLabel}>Galleri</Text>
-                </TouchableOpacity>
+                  android_ripple={{color: 'rgba(0,0,0,0.06)'}}>
+                  <Icon
+                    name="images"
+                    size={26}
+                    color={CHAT_MEDIA_SHEET.icon}
+                    style={styles.imagePickerIcon}
+                  />
+                  <Text style={styles.imagePickerLabel}>Fotos</Text>
+                </Pressable>
               </View>
             )}
           <TouchableOpacity
@@ -748,9 +1283,22 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
           {selectedImageUri && (
             <View style={styles.selectedImageContainer}>
               <Image source={{uri: selectedImageUri}} style={styles.selectedImage} />
+              {isSendingImage && (
+                <View style={styles.selectedImageSending}>
+                  <ActivityIndicator color={colors.white} size="small" />
+                </View>
+              )}
               <TouchableOpacity
-                onPress={() => setSelectedImageUri(null)}
-                style={styles.removeImageButton}>
+                onPress={() => {
+                  if (isSendingImage) {
+                    return;
+                  }
+                  setSelectedImageUri(null);
+                  setSelectedImageMime(null);
+                }}
+                style={styles.removeImageButton}
+                disabled={isSendingImage}
+                accessibilityLabel="Fjern billede">
                 <Icon name="close-circle" size={20} color="#fff" />
               </TouchableOpacity>
             </View>
@@ -758,13 +1306,47 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
           {(message.trim().length > 0 || selectedImageUri) && (
             <TouchableOpacity
               onPress={handleSend}
-              style={styles.sendButton}
-              activeOpacity={0.8}>
-              <Icon name="send" size={20} color={colors.white} />
+              style={[styles.sendButton, isSendingImage && styles.sendButtonDisabled]}
+              activeOpacity={0.8}
+              disabled={isSendingImage}
+              accessibilityLabel="Send besked">
+              {isSendingImage ? (
+                <ActivityIndicator color={colors.white} size="small" />
+              ) : (
+                <Icon name="send" size={20} color={colors.white} />
+              )}
             </TouchableOpacity>
           )}
         </View>
       </View>
+
+      <Modal
+        visible={!!lightboxUri}
+        animationType="fade"
+        transparent
+        statusBarTranslucent
+        onRequestClose={() => setLightboxUri(null)}>
+        <View style={styles.lightboxRoot}>
+          <View style={[styles.lightboxTop, {paddingTop: insets.top + 8}]}>
+            <TouchableOpacity
+              onPress={() => setLightboxUri(null)}
+              style={styles.lightboxClose}
+              hitSlop={{top: 12, bottom: 12, left: 12, right: 12}}
+              accessibilityLabel="Luk">
+              <Icon name="close" size={28} color={colors.white} />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.lightboxImageWrap}>
+            {lightboxUri ? (
+              <Image
+                source={{uri: lightboxUri}}
+                style={styles.lightboxImage}
+                resizeMode="contain"
+              />
+            ) : null}
+          </View>
+        </View>
+      </Modal>
     </KeyboardAvoidingView>
   );
 };
@@ -884,6 +1466,32 @@ const styles = StyleSheet.create({
     color: colors.textTertiary,
     fontWeight: '600',
   },
+  planBannerHint: {
+    fontSize: 11,
+    color: 'rgba(255,255,255,0.75)',
+    marginTop: 4,
+  },
+  planBannerActionRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  planBannerDecline: {
+    backgroundColor: 'rgba(0,0,0,0.2)',
+    borderRadius: 999,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+  },
+  planBannerDeclineText: {
+    color: '#fff',
+    fontWeight: '600',
+  },
+  planBannerCreatorBadge: {
+    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    borderRadius: 999,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+  },
   dateContainer: {
     alignItems: 'center',
     marginVertical: spacing.lg,
@@ -909,7 +1517,15 @@ const styles = StyleSheet.create({
     maxWidth: '78%',
     paddingHorizontal: spacing.lg,
     paddingVertical: spacing.md,
-    borderRadius: radius.xl,
+    borderRadius: 18,
+  },
+  messageBubbleWithImage: {
+    paddingTop: 8,
+    paddingHorizontal: 10,
+  },
+  messageBubbleImageOnly: {
+    padding: 4,
+    paddingBottom: 6,
   },
   messageBubbleMe: {
     backgroundColor: colors.primary,
@@ -934,16 +1550,17 @@ const styles = StyleSheet.create({
   messageTextWithImage: {
     marginTop: 8,
   },
-  messageImage: {
-    width: 200,
-    height: 200,
-    borderRadius: 12,
-    marginBottom: 8,
-    resizeMode: 'cover',
+  messageImageContent: {
+    borderRadius: 16,
+    overflow: 'hidden',
+    backgroundColor: 'rgba(0,0,0,0.06)',
   },
   messageTime: {
     ...typography.caption,
     marginTop: spacing.xs,
+  },
+  messageTimeImageOnly: {
+    marginTop: 4,
   },
   messageTimeMe: {
     color: 'rgba(255, 255, 255, 0.8)',
@@ -956,8 +1573,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: colors.border,
     paddingHorizontal: spacing.lg,
-    paddingVertical: spacing.sm,
-    paddingBottom: Platform.OS === 'ios' ? spacing.xl + 4 : spacing.sm,
+    paddingTop: spacing.sm,
   },
   inputWrapper: {
     flexDirection: 'row',
@@ -990,15 +1606,26 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  sendButtonDisabled: {
+    opacity: 0.85,
+  },
   selectedImageContainer: {
     position: 'relative',
     marginRight: 8,
   },
   selectedImage: {
-    width: 60,
-    height: 60,
-    borderRadius: 8,
+    width: 68,
+    height: 68,
+    borderRadius: 12,
     resizeMode: 'cover',
+    backgroundColor: colors.surface,
+  },
+  selectedImageSending: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0,0,0,0.25)',
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   removeImageButton: {
     position: 'absolute',
@@ -1006,6 +1633,28 @@ const styles = StyleSheet.create({
     right: -8,
     backgroundColor: '#FF3B30',
     borderRadius: 10,
+  },
+  lightboxRoot: {
+    flex: 1,
+    backgroundColor: '#000',
+  },
+  lightboxTop: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    paddingHorizontal: 16,
+    paddingBottom: 8,
+  },
+  lightboxClose: {
+    padding: 4,
+  },
+  lightboxImageWrap: {
+    flex: 1,
+    paddingHorizontal: 8,
+    paddingBottom: 24,
+  },
+  lightboxImage: {
+    flex: 1,
+    width: '100%',
   },
   imagePickerBackdrop: {
     position: 'absolute',
@@ -1025,35 +1674,33 @@ const styles = StyleSheet.create({
     bottom: 50,
     left: 0,
     flexDirection: 'row',
-    backgroundColor: colors.backgroundCard,
-    borderRadius: 16,
-    padding: 8,
-    shadowColor: colors.primary,
-    shadowOpacity: 0.15,
-    shadowRadius: 10,
-    shadowOffset: {width: 0, height: 4},
-    elevation: 5,
-    gap: 12,
-    zIndex: 1000,
-  },
-  imagePickerOption: {
-    alignItems: 'center',
-    padding: 8,
-    minWidth: 70,
-  },
-  imagePickerIconContainer: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: colors.primary,
+    alignItems: 'stretch',
     justifyContent: 'center',
+    gap: 16,
+    width: 260,
+    zIndex: 1000,
+    backgroundColor: 'transparent',
+  },
+  imagePickerCard: {
+    flex: 1,
+    minWidth: 0,
+    backgroundColor: '#F2F2F7',
+    borderRadius: 16,
+    padding: 16,
     alignItems: 'center',
-    marginBottom: 6,
+    justifyContent: 'center',
+  },
+  imagePickerCardPressed: {
+    opacity: 0.7,
+  },
+  imagePickerIcon: {
+    marginBottom: 8,
   },
   imagePickerLabel: {
-    fontSize: 12,
-    color: colors.text,
-    fontWeight: '600',
+    fontSize: 13,
+    fontWeight: '500',
+    color: '#1C1C1E',
+    textAlign: 'center',
   },
   planModalOverlay: {
     flex: 1,

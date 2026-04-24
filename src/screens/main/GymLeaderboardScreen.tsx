@@ -10,7 +10,6 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
-  Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation, useRoute} from '@react-navigation/native';
@@ -18,8 +17,8 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {DanishGym} from '@/data/danishGyms';
 import {useLeaderboardStore} from '@/store/leaderboardStore';
 import {useAppStore} from '@/store/appStore';
-import gymLogos from '@/utils/gymLogos';
 import colors from '@/theme/colors';
+import GymLogoView from '@/components/ui/GymLogoView';
 import {LeaderboardEntry, LeaderboardPeriod} from '@/types/leaderboard.types';
 
 const PERIODS: LeaderboardPeriod[] = ['week', 'month', 'all'];
@@ -126,9 +125,6 @@ const GymLeaderboardScreen = () => {
   );
   const weeklyChampion = getWeeklyChampion(gymId);
 
-  const logoUrl = gymLogos.getGymLogo(gym.brand);
-  const hasLogo = gymLogos.hasGymLogo(gym.brand);
-
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -142,17 +138,12 @@ const GymLeaderboardScreen = () => {
       </View>
 
       <View style={styles.gymHeader}>
-        {hasLogo && logoUrl ? (
-          <Image
-            source={{uri: logoUrl}}
-            style={styles.gymLogo}
-            resizeMode="contain"
-          />
-        ) : (
-          <View style={styles.gymIcon}>
-            <Icon name="fitness" size={32} color={colors.primary} />
-          </View>
-        )}
+        <GymLogoView
+          gymName={gym.name}
+          brand={gym.brand}
+          size={56}
+          style={styles.gymLogo}
+        />
         <Text style={styles.gymName}>{gym.name}</Text>
         <Text style={styles.gymSubtitle}>Flest besøg</Text>
         {weeklyChampion && (
@@ -234,17 +225,6 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   gymLogo: {
-    width: 56,
-    height: 56,
-    marginBottom: 12,
-  },
-  gymIcon: {
-    width: 56,
-    height: 56,
-    borderRadius: 28,
-    backgroundColor: colors.primary + '20',
-    justifyContent: 'center',
-    alignItems: 'center',
     marginBottom: 12,
   },
   gymName: {

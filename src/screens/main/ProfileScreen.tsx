@@ -28,6 +28,8 @@ import {
   StreakHighlight,
   ProfileBadgeStrip,
 } from '@/components/profile';
+import {FriendsListModal} from '@/components/friends/FriendsListModal';
+import {useFriendStore} from '@/store/friendStore';
 import {Card} from '@/components/ui/Card';
 import type {FeedItem} from '@/store/feedStore';
 import type {Workout} from '@/types/workout.types';
@@ -38,6 +40,7 @@ import {
   type WorkoutPeriod,
 } from '@/utils/workoutPeriodFilter';
 import {useProfileStats, useWeeklyStats} from '@/hooks/useProfileData';
+import {useFriends} from '@/hooks/useFriends';
 import {useJoinedGroups} from '@/hooks/useGroupData';
 import {useBadgeStore} from '@/store/badgeStore';
 import * as streak from '@/utils/streakUtils';
@@ -82,6 +85,12 @@ const ProfileScreen = () => {
     useState<WorkoutPeriod>('week');
 
   const {stats: profileStats, refresh: refreshProfileStats} = useProfileStats(user?.id);
+  const {friendCount: friendsListCount, hasSyncedFriendList} = useFriends();
+  const loadFriendStore = useFriendStore(s => s.load);
+  const friendCountDisplay = hasSyncedFriendList
+    ? (friendsListCount ?? 0)
+    : (profileStats?.friendsCount ?? 0);
+  const [friendsListOpen, setFriendsListOpen] = useState(false);
   const {weeklyStats, refresh: refreshWeeklyStats} = useWeeklyStats(user?.id);
   const {groups: joinedGroupsList} = useJoinedGroups(user?.id);
   const setDashboardStats = useDashboardStatsStore(s => s.setStats);
@@ -110,7 +119,10 @@ const ProfileScreen = () => {
       refreshWorkoutFeedFromServer().catch(() => {});
       refreshProfileStats();
       refreshWeeklyStats();
-    }, [refreshProfileStats, refreshWeeklyStats]),
+      if (user?.id) {
+        void loadFriendStore(user.id);
+      }
+    }, [refreshProfileStats, refreshWeeklyStats, user?.id, loadFriendStore]),
   );
 
   const displayName = user?.displayName || 'Bruger';
@@ -125,6 +137,7 @@ const ProfileScreen = () => {
       .map(g => ({
         name: g!.name,
         city: g!.city,
+        brand: g!.brand,
       }));
   }, [user?.favoriteGyms]);
 
@@ -149,8 +162,8 @@ const ProfileScreen = () => {
       key: 'friends',
       icon: 'people',
       label: 'Venner',
-      value: profileStats?.friendsCount ?? 0,
-      onPress: () => navigation.navigate('Friends'),
+      value: friendCountDisplay,
+      onPress: () => setFriendsListOpen(true),
     },
     {
       key: 'groups',
@@ -267,7 +280,8 @@ const ProfileScreen = () => {
           onEditPress={() => navigation.navigate('EditProfile')}
           followersCount={profileStats?.followersCount ?? 0}
           followingCount={profileStats?.followingCount ?? 0}
-          friendsCount={profileStats?.friendsCount ?? 0}
+          friendsCount={friendCountDisplay}
+          onFriendsPress={() => setFriendsListOpen(true)}
         />
 
         {user?.id ? <ProfileBadgeStrip userId={user.id} /> : null}
@@ -459,6 +473,10 @@ const ProfileScreen = () => {
           </View>
         )}
       </ScrollView>
+      <FriendsListModal
+        visible={friendsListOpen}
+        onClose={() => setFriendsListOpen(false)}
+      />
     </View>
   );
 };

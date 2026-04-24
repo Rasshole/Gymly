@@ -18,6 +18,7 @@ import {
   Switch,
   Platform,
   PermissionsAndroid,
+  AppState,
 } from 'react-native';
 import Geolocation, {
   type GeolocationError,
@@ -26,20 +27,35 @@ import Geolocation, {
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation, useFocusEffect} from '@react-navigation/native';
-import danishGyms, {DanishGym} from '@/data/danishGyms';
+import {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
+
+const CHECKIN_GYMS = getActiveDanishGyms();
 import {useAppStore} from '@/store/appStore';
 import {useGymStore} from '@/store/gymStore';
 import {SKIP_CHECK_IN_LOCATION_RADIUS} from '@/config/dataConfig';
 import {useDashboardStatsStore} from '@/store/dashboardStatsStore';
 import {useBadgeStore} from '@/store/badgeStore';
 import * as streak from '@/utils/streakUtils';
-import {useSessionStore} from '@/store/sessionStore';
+import {
+  activeSessionFromSupabaseRow,
+  useSessionStore,
+} from '@/store/sessionStore';
 import {useWorkoutStore} from '@/store/workoutStore';
+import {isFirebaseNativeAvailable} from '@/services/firebase/nativeAvailability';
 import {submitCheckIn} from '@/services/firestore/CheckinService';
+import {
+  endActiveCheckInInSupabase,
+  getActiveCheckInForUser,
+} from '@/services/supabase/checkInService';
+import {supabase} from '@/services/supabase/supabaseClient';
 import {notifyFriendsOfCheckIn} from '@/services/firestore/FriendCheckInNotificationService';
 import {formatGymDisplayName, findGymById} from '@/utils/gymDisplay';
+import {
+  fetchPlannedWorkoutsForUser,
+  findLinkablePlannedWorkoutId,
+} from '@/services/supabase/plannedWorkoutService';
 import {calculateDistance, formatDistance} from '@/utils/geoUtils';
-import gymLogos from '@/utils/gymLogos';
+import GymLogoView from '@/components/ui/GymLogoView';
 import muscleImg from '@/utils/muscleGroupImages';
 import {
   encodeMuscleGroupsForSession,
@@ -59,6 +75,12 @@ import {
   createWorkoutPost,
   refreshWorkoutFeedFromServer,
 } from '@/services/supabase/workoutPostService';
+import {
+  deleteMyLiveWorkoutSession,
+  LIVE_HEARTBEAT_INTERVAL_MS,
+  touchMyLiveWorkoutSession,
+  upsertLiveWorkoutSession,
+} from '@/services/supabase/liveWorkoutSessionService';
 
 const MOOD_TO_RATING: Record<string, number> = {
   angry: 1,
@@ -139,7 +161,7 @@ function logCheckInDebug(label: string, payload: Record<string, unknown>) {
 function findNearestGymFromCoords(latitude: number, longitude: number): DanishGym | null {
   let best: DanishGym | null = null;
   let bestDist = Infinity;
-  for (const gym of danishGyms) {
+  for (const gym of CHECKIN_GYMS) {
     const d = calculateDistance(latitude, longitude, gym.latitude, gym.longitude);
     if (d < bestDist) {
       bestDist = d;
@@ -179,23 +201,74 @@ const CheckInScreen = () => {
   const [ctaFooterHeight, setCtaFooterHeight] = useState(CHECKIN_CTA_RESERVE);
 
   const currentUserId = user?.id || 'current_user';
+  const [linkablePlannedId, setLinkablePlannedId] = useState<string | null>(null);
+
   const favoriteGym = useMemo(
     () => findGymById(user?.favoriteGyms?.[0] ?? null),
     [user?.favoriteGyms]
   );
 
+  useEffect(() => {
+    if (!user?.id || !selectedGym) {
+      setLinkablePlannedId(null);
+      return;
+    }
+    let alive = true;
+    (async () => {
+      try {
+        const from = new Date();
+        from.setDate(from.getDate() - 1);
+        const rows = await fetchPlannedWorkoutsForUser(user.id, from.toISOString());
+        if (!alive) {
+          return;
+        }
+        setLinkablePlannedId(
+          findLinkablePlannedWorkoutId({
+            rows,
+            userId: user.id,
+            gymId: selectedGym.id,
+            at: new Date(),
+          }),
+        );
+      } catch {
+        if (alive) {
+          setLinkablePlannedId(null);
+        }
+      }
+    })();
+    return () => {
+      alive = false;
+    };
+  }, [user?.id, selectedGym]);
+
   const filteredGyms = useMemo(() => {
     const q = gymSearchQuery.trim().toLowerCase();
-    if (!q) return danishGyms.slice(0, 20);
-    return danishGyms
-      .filter(
+    if (q) {
+      return CHECKIN_GYMS.filter(
         g =>
           g.name.toLowerCase().includes(q) ||
-          (g.city?.toLowerCase().includes(q)) ||
-          (g.brand?.toLowerCase().includes(q))
-      )
-      .slice(0, 15);
-  }, [gymSearchQuery]);
+          (g.city?.toLowerCase().includes(q) ?? false) ||
+          (g.brand?.toLowerCase().includes(q) ?? false) ||
+          (g.address?.toLowerCase().includes(q) ?? false),
+      ).slice(0, 15);
+    }
+    if (userLocation) {
+      return [...CHECKIN_GYMS]
+        .map(g => ({
+          g,
+          d: calculateDistance(
+            userLocation.latitude,
+            userLocation.longitude,
+            g.latitude,
+            g.longitude,
+          ),
+        }))
+        .sort((a, b) => a.d - b.d)
+        .map(x => x.g)
+        .slice(0, 20);
+    }
+    return CHECKIN_GYMS.slice(0, 20);
+  }, [gymSearchQuery, userLocation]);
 
   // Nærmeste center baseret på brugerens lokation
   const nearestGym = useMemo(() => {
@@ -424,7 +497,8 @@ const CheckInScreen = () => {
     async (gym: DanishGym, groups: MuscleGroup[]) => {
       const encoded = encodeMuscleGroupsForSession(groups);
       try {
-        await submitCheckIn({
+        const isFb = isFirebaseNativeAvailable();
+        const result = await submitCheckIn({
           userId: currentUserId,
           gymId: gym.id,
           gymName: gym.name,
@@ -432,6 +506,8 @@ const CheckInScreen = () => {
           workoutType: workoutTypeForFirestoreCheckIn(encoded),
           displayName: user?.displayName ?? 'Bruger',
           userInitials: user?.displayName?.charAt(0)?.toUpperCase(),
+          plannedWorkoutId:
+            linkablePlannedId && gym.id === selectedGym?.id ? linkablePlannedId : null,
         });
         onStatsCheckIn();
         useBadgeStore
@@ -440,7 +516,30 @@ const CheckInScreen = () => {
             currentUserId,
             user?.displayName ?? 'Bruger',
           );
-        startSession({gymId: gym.id, gymName: gym.name, workoutType: encoded});
+        startSession({
+          checkInId: isFb ? null : result.id,
+          gymId: gym.id,
+          gymName: gym.name,
+          city: gym.city,
+          startTime: result.startedAt,
+          workoutType: encoded,
+        });
+        if (user?.id) {
+          try {
+            await upsertLiveWorkoutSession({
+              userId: user.id,
+              gymId: gym.id,
+              gymName: gym.name,
+              city: gym.city,
+              workoutType: encoded,
+              displayName: user?.displayName ?? 'Bruger',
+            });
+          } catch (liveErr) {
+            if (__DEV__) {
+              console.warn('[CheckIn] workout_live_sessions upsert', liveErr);
+            }
+          }
+        }
         void notifyFriendsOfCheckIn({
           actorUserId: currentUserId,
           displayName: user?.displayName ?? 'Bruger',
@@ -462,8 +561,100 @@ const CheckInScreen = () => {
         return false;
       }
     },
-    [currentUserId, user, onStatsCheckIn, startSession]
+    [currentUserId, user, onStatsCheckIn, startSession, user?.id, linkablePlannedId, selectedGym]
   );
+
+  const restoreSessionFromDatabase = useCallback(
+    async (reason: 'mount' | 'foreground') => {
+      if (isFirebaseNativeAvailable() || !user?.id) {
+        return;
+      }
+      try {
+        const row = await getActiveCheckInForUser(user.id);
+        if (row) {
+          const session = activeSessionFromSupabaseRow(row);
+          startSession(session);
+          try {
+            await upsertLiveWorkoutSession({
+              userId: user.id,
+              gymId: session.gymId,
+              gymName: session.gymName,
+              city: session.city ?? null,
+              workoutType: session.workoutType,
+              displayName: user?.displayName ?? 'Bruger',
+            });
+          } catch (liveErr) {
+            if (__DEV__) {
+              console.warn(
+                '[CheckIn] live session upsert (restoreSession)',
+                liveErr,
+              );
+            }
+          }
+        } else if (
+          reason === 'foreground' &&
+          useSessionStore.getState().activeSession?.checkInId
+        ) {
+          endSession();
+        }
+      } catch (e) {
+        if (reason === 'foreground' && __DEV__) {
+          console.warn('[CheckIn] restoreSessionFromDatabase', e);
+        }
+      }
+    },
+    [endSession, startSession, user?.id, user?.displayName],
+  );
+
+  useEffect(() => {
+    void restoreSessionFromDatabase('mount');
+  }, [restoreSessionFromDatabase]);
+
+  useEffect(() => {
+    const sub = AppState.addEventListener('change', state => {
+      if (state === 'active') {
+        void restoreSessionFromDatabase('foreground');
+      }
+    });
+    return () => sub.remove();
+  }, [restoreSessionFromDatabase]);
+
+  useEffect(() => {
+    if (isFirebaseNativeAvailable() || !user?.id) {
+      return;
+    }
+    const ch = supabase
+      .channel(`check_in_session_${user.id}`)
+      .on(
+        'postgres_changes',
+        {
+          event: 'UPDATE',
+          schema: 'public',
+          table: 'check_ins',
+          filter: `user_id=eq.${user.id}`,
+        },
+        payload => {
+          const next = payload.new as {
+            id?: string;
+            ended_at?: string | null;
+            is_active?: boolean;
+          };
+          const cur = useSessionStore.getState().activeSession;
+          if (cur?.checkInId && next.id === cur.checkInId) {
+            if (next.ended_at != null || next.is_active === false) {
+              endSession();
+              if (user.id) {
+                void deleteMyLiveWorkoutSession(user.id).catch(() => {});
+              }
+            }
+          }
+        },
+      )
+      .subscribe();
+    return () => {
+      void supabase.removeChannel(ch);
+    };
+  }, [endSession, user?.id]);
 
   const handleCheckIn = async () => {
     if (!selectedGym) {
@@ -537,6 +728,15 @@ const CheckInScreen = () => {
     }) => {
       setShowSummaryModal(false);
       setShowGymlySplash(true);
+      if (user?.id && activeSession?.checkInId) {
+        try {
+          await endActiveCheckInInSupabase(activeSession.checkInId, user.id, 'user');
+        } catch (e) {
+          if (__DEV__) {
+            console.warn('[CheckIn] endActiveCheckInInSupabase', e);
+          }
+        }
+      }
       const elapsed = getElapsedSeconds();
       const durationMinutes = Math.floor(elapsed / 60) || 1;
       if (activeSession) {
@@ -583,6 +783,15 @@ const CheckInScreen = () => {
           }
         }
       }
+      if (user?.id) {
+        try {
+          await deleteMyLiveWorkoutSession(user.id);
+        } catch (e) {
+          if (__DEV__) {
+            console.warn('[CheckIn] delete live session', e);
+          }
+        }
+      }
       endSession();
       returnToCheckInMain();
     },
@@ -597,6 +806,16 @@ const CheckInScreen = () => {
       returnToCheckInMain,
     ]
   );
+
+  useEffect(() => {
+    if (!activeSession || !user?.id) {
+      return;
+    }
+    const t = setInterval(() => {
+      void touchMyLiveWorkoutSession(user.id).catch(() => {});
+    }, LIVE_HEARTBEAT_INTERVAL_MS);
+    return () => clearInterval(t);
+  }, [activeSession, user?.id]);
 
   const selectGymManually = useCallback((gym: DanishGym) => {
     hasManuallySelectedGym.current = true;
@@ -980,18 +1199,7 @@ const CheckInScreen = () => {
                     closeGymModal();
                   }}
                   activeOpacity={0.8}>
-                  {gymLogos.hasGymLogo(favoriteGym.brand) &&
-                  gymLogos.getGymLogo(favoriteGym.brand) ? (
-                    <Image
-                      source={{uri: gymLogos.getGymLogo(favoriteGym.brand)!}}
-                      style={styles.modalGymLogo}
-                      resizeMode="contain"
-                    />
-                  ) : (
-                    <View style={styles.modalGymIcon}>
-                      <Icon name="business" size={24} color={colors.primary} />
-                    </View>
-                  )}
+                  <GymLogoView gymName={favoriteGym.name} brand={favoriteGym.brand} size={44} />
                   <View style={styles.modalGymInfo}>
                     <Text style={styles.modalGymName}>
                       {formatGymDisplayName(favoriteGym)}
@@ -1023,18 +1231,7 @@ const CheckInScreen = () => {
                       closeGymModal();
                     }}
                     activeOpacity={0.8}>
-                    {gymLogos.hasGymLogo(gym.brand) &&
-                    gymLogos.getGymLogo(gym.brand) ? (
-                      <Image
-                        source={{uri: gymLogos.getGymLogo(gym.brand)!}}
-                        style={styles.modalGymLogo}
-                        resizeMode="contain"
-                      />
-                    ) : (
-                      <View style={styles.modalGymIcon}>
-                        <Icon name="business" size={24} color={colors.primary} />
-                      </View>
-                    )}
+                    <GymLogoView gymName={gym.name} brand={gym.brand} size={44} />
                     <View style={styles.modalGymInfo}>
                       <Text style={styles.modalGymName}>
                         {formatGymDisplayName(gym)}
@@ -1408,15 +1605,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.backgroundCard,
     marginBottom: 4,
     borderRadius: radius.md,
-  },
-  modalGymLogo: {width: 44, height: 44, borderRadius: 8},
-  modalGymIcon: {
-    width: 44,
-    height: 44,
-    borderRadius: 8,
-    backgroundColor: colors.primary + '15',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   modalGymInfo: {flex: 1},
   modalGymName: {...typography.bodyBold, color: colors.text},

@@ -6,7 +6,7 @@
 export interface Workout {
   id: string;
   userId: string;
-  gymId?: number;
+  gymId?: string;
   gymName?: string;
   startTime: Date;
   endTime?: Date;

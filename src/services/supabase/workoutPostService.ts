@@ -128,3 +128,63 @@ export async function createWorkoutPost(
 
   return mapPostRowToFeedItem(inserted as WorkoutPostRow);
 }
+
+// --- Realtime: én delt kanal, refcount når Home m.fl. lytter ---
+
+const feedChannelListeners = new Set<() => void>();
+let postsFeedChannel: ReturnType<typeof supabase.channel> | null = null;
+let postsFeedRefCount = 0;
+
+function notifyPostsFeedSideEffects() {
+  for (const fn of feedChannelListeners) {
+    try {
+      fn();
+    } catch (e) {
+      console.warn('[workout feed realtime]', e);
+    }
+  }
+}
+
+function ensurePostsFeedChannel() {
+  if (postsFeedChannel) {
+    return;
+  }
+  postsFeedChannel = supabase
+    .channel('workout_posts_shared')
+    .on(
+      'postgres_changes',
+      {event: '*', schema: 'public', table: 'posts'},
+      () => {
+        void (async () => {
+          try {
+            await refreshWorkoutFeedFromServer();
+          } finally {
+            notifyPostsFeedSideEffects();
+          }
+        })();
+      },
+    )
+    .subscribe();
+}
+
+/**
+ * Nyt/ændret/slettet indlæg i `posts` → genindlæs feed (Zustand).
+ * @param onUpdate valgfri ekstra callback efter refresh (fx animation).
+ */
+export function subscribeWorkoutFeedRealtime(onUpdate?: () => void): () => void {
+  postsFeedRefCount += 1;
+  if (onUpdate) {
+    feedChannelListeners.add(onUpdate);
+  }
+  ensurePostsFeedChannel();
+  return () => {
+    postsFeedRefCount -= 1;
+    if (onUpdate) {
+      feedChannelListeners.delete(onUpdate);
+    }
+    if (postsFeedRefCount <= 0 && postsFeedChannel) {
+      void supabase.removeChannel(postsFeedChannel);
+      postsFeedChannel = null;
+    }
+  };
+}
