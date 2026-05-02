@@ -18,7 +18,9 @@ export type NotificationType =
   | 'planned_workout_invite'
   | 'planned_workout_accepted'
   | 'planned_workout_declined'
-  | 'planned_workout_reminder';
+  | 'planned_workout_reminder'
+  | 'workout_reaction'
+  | 'biceps_reaction';
 
 export interface Notification {
   id: string;
@@ -44,6 +46,8 @@ export interface Notification {
   rankChange?: number;
   newRank?: number;
   badgeName?: string;
+  /** Fra public.notifications.data (badge_unlocked / badge_progress / streak_milestone) */
+  badgeId?: string;
   /** Ulæst besked: bruges til at navigere og rydde notifikationer når chat åbnes */
   chatId?: string;
   friendId?: string;
@@ -52,6 +56,8 @@ export interface Notification {
   /** planlagt træning (Supabase) */
   plannedWorkoutId?: string;
   threadId?: string;
+  /** check_ins.id fra friend_checked_in data (biceps-reaktion) */
+  checkInId?: string;
   /** Rå type fra public.notifications hvis kilden er Supabase */
   dbType?: string;
   dataPayload?: Record<string, unknown>;

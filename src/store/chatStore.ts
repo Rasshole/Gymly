@@ -2,6 +2,22 @@ import {create} from 'zustand';
 import {useNotificationStore} from '@/store/notificationStore';
 import {DanishGym} from '@/data/danishGyms';
 import {MuscleGroup} from '@/types/workout.types';
+import {safeDisplayName} from '@/utils/displayName';
+
+export type PlannedWorkoutDmEmbed =
+  | {
+      kind: 'invite';
+      plannedWorkoutId: string;
+      centerName: string;
+      scheduledAt: string;
+      trainingTypes: string[];
+      status: 'pending';
+    }
+  | {
+      kind: 'status';
+      plannedWorkoutId: string;
+      status: 'accepted' | 'declined';
+    };
 
 export interface ChatMessage {
   id: string;
@@ -10,6 +26,8 @@ export interface ChatMessage {
   timestamp: Date;
   isRead: boolean;
   imageUri?: string;
+  /** DM body [GYM_PLAN_INVITE] / [GYM_PLAN_STATUS] (parsed in dmService) */
+  plannedWorkoutEmbed?: PlannedWorkoutDmEmbed;
 }
 
 export interface Chat {
@@ -23,6 +41,14 @@ export interface Chat {
   avatarInitials?: string;
   isActive?: boolean; // Online / recently active
 }
+
+export type DmPresenceState = {
+  isActive: boolean;
+  lastSeenAt?: number;
+  trainingGymName?: string;
+  trainingNow?: boolean;
+  typingByThread: Record<string, boolean>;
+};
 
 export interface ChatPlan {
   id: string;
@@ -50,6 +76,8 @@ interface ChatState {
   chats: Chat[];
   messagesByChat: Record<string, ChatMessage[]>;
   activePlansByChat: Record<string, ChatPlan | null>;
+  dmPresenceByUser: Record<string, DmPresenceState>;
+  threadSeenAtByUser: Record<string, Record<string, number>>;
   addChat: (chat: Chat) => void;
   updateChatLastMessage: (chatId: string, message: ChatMessage, options?: { fromCurrentUser?: boolean }) => void;
   getChatByParticipants: (participantIds: string[]) => Chat | null;
@@ -71,6 +99,14 @@ interface ChatState {
     fromCurrentUser: boolean,
     myUserId?: string,
   ) => void;
+  upsertDmPresence: (
+    userId: string,
+    patch: Partial<Omit<DmPresenceState, 'typingByThread'>> & {
+      typingForThread?: {threadId: string; typing: boolean};
+    },
+  ) => void;
+  setThreadSeenAtByUser: (threadId: string, userId: string, seenAt: number) => void;
+  getThreadSeenAtByUser: (threadId: string, userId: string) => number;
 }
 
 export const useChatStore = create<ChatState>((set, get) => ({
@@ -82,6 +118,8 @@ export const useChatStore = create<ChatState>((set, get) => ({
   chats: [],
   messagesByChat: {},
   activePlansByChat: {},
+  dmPresenceByUser: {},
+  threadSeenAtByUser: {},
 
   addChat: (chat) => {
     set((state) => {
@@ -122,13 +160,17 @@ export const useChatStore = create<ChatState>((set, get) => ({
         const i = chat.participantIds.indexOf(message.senderId);
         const senderName =
           i >= 0
-            ? chat.participantNames[i] ?? 'En ven'
-            : 'En ven';
-        const preview = message.text?.trim()
-          ? message.text.slice(0, 120)
-          : message.imageUri
-            ? 'Billede'
-            : 'Ny besked';
+            ? safeDisplayName(chat.participantNames[i], 'Ukendt bruger')
+            : 'Ukendt bruger';
+        const preview = message.plannedWorkoutEmbed
+          ? message.plannedWorkoutEmbed.kind === 'invite'
+            ? 'Træningsinvitation'
+            : 'Svar på træning'
+          : message.text?.trim()
+            ? message.text.slice(0, 120)
+            : message.imageUri
+              ? 'Billede'
+              : 'Ny besked';
         useNotificationStore.getState().addNotification({
           type: 'message',
           title: 'Ny besked',
@@ -269,7 +311,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
       get().upsertChat({
         id: threadId,
         participantIds: ids,
-        participantNames: ids.map(id => (id === myUserId ? 'Dig' : 'Ven')),
+        participantNames: ids.map(id => (id === myUserId ? 'Dig' : 'Ukendt bruger')),
         lastActivity: message.timestamp,
         lastMessage: message,
         unreadCount: 0,
@@ -277,6 +319,55 @@ export const useChatStore = create<ChatState>((set, get) => ({
     }
     get().addMessageToChat(threadId, message);
     get().updateChatLastMessage(threadId, message, {fromCurrentUser});
+  },
+
+  upsertDmPresence: (userId, patch) => {
+    set(state => {
+      const prev = state.dmPresenceByUser[userId] ?? {
+        isActive: false,
+        typingByThread: {},
+      };
+      const nextTyping = patch.typingForThread
+        ? {
+            ...prev.typingByThread,
+            [patch.typingForThread.threadId]: patch.typingForThread.typing,
+          }
+        : prev.typingByThread;
+      return {
+        dmPresenceByUser: {
+          ...state.dmPresenceByUser,
+          [userId]: {
+            ...prev,
+            ...(typeof patch.isActive === 'boolean' ? {isActive: patch.isActive} : {}),
+            ...(typeof patch.lastSeenAt === 'number' ? {lastSeenAt: patch.lastSeenAt} : {}),
+            ...(typeof patch.trainingGymName === 'string' || patch.trainingGymName === undefined
+              ? {trainingGymName: patch.trainingGymName}
+              : {}),
+            ...(typeof patch.trainingNow === 'boolean'
+              ? {trainingNow: patch.trainingNow}
+              : {}),
+            typingByThread: nextTyping,
+          },
+        },
+      };
+    });
+  },
+
+  setThreadSeenAtByUser: (threadId, userId, seenAt) => {
+    set(state => ({
+      threadSeenAtByUser: {
+        ...state.threadSeenAtByUser,
+        [threadId]: {
+          ...(state.threadSeenAtByUser[threadId] ?? {}),
+          [userId]: seenAt,
+        },
+      },
+    }));
+  },
+
+  getThreadSeenAtByUser: (threadId, userId) => {
+    const state = get();
+    return state.threadSeenAtByUser[threadId]?.[userId] ?? 0;
   },
 
   getMessagesForChat: (chatId) => {

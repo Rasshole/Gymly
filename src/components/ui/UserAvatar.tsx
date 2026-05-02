@@ -11,6 +11,13 @@ import colors from '@/theme/colors';
 type UserAvatarProps = {
   name: string;
   imageUrl?: string | null;
+  user?: {
+    full_name?: string | null;
+    displayName?: string | null;
+    username?: string | null;
+    avatar_url?: string | null;
+    avatarUrl?: string | null;
+  };
   size?: 'xs' | 'sm' | 'md' | 'lg';
   showOnlineIndicator?: boolean;
   isOnline?: boolean;
@@ -22,16 +29,23 @@ const sizeMap = {xs: 24, sm: 32, md: 40, lg: 56};
 export const UserAvatar: React.FC<UserAvatarProps> = ({
   name,
   imageUrl,
+  user,
   size = 'md',
   showOnlineIndicator = false,
   isOnline = false,
   style,
 }) => {
   const dimension = sizeMap[size];
+  const resolvedName =
+    user?.full_name?.trim() ||
+    user?.displayName?.trim() ||
+    user?.username?.trim() ||
+    name;
+  const resolvedImage = user?.avatar_url ?? user?.avatarUrl ?? imageUrl;
 
   return (
     <View style={[styles.wrapper, style]}>
-      <Avatar name={name} imageUrl={imageUrl} size={size} />
+      <Avatar name={resolvedName} imageUrl={resolvedImage} size={size} />
       {showOnlineIndicator && (
         <View
           style={[

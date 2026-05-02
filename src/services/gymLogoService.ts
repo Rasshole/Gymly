@@ -1,3 +1,4 @@
+import {normalizeGymBrand} from '@/utils/gymDisplay';
 /**
  * Gym logo service — **kun** bundtede, officielle brand-PNG'er.
  * Ingen recolor, ingen Clearbit/remote for centre i master-datasættet.
@@ -65,10 +66,11 @@ const BRAND_KEY_TO_CHAIN: Record<string, GymChain> = {
  * Løser officielt logo hvis `brand` matcher en nøgle (f.eks. efter redigering i DB)
  */
 function chainFromBrandField(brand?: string): GymChain | null {
-  if (!brand?.trim()) {
+  const canonical = normalizeGymBrand(brand);
+  if (!canonical) {
     return null;
   }
-  const k = brand.trim().toLowerCase();
+  const k = canonical.toLowerCase();
   return BRAND_KEY_TO_CHAIN[k] ?? null;
 }
 
@@ -78,7 +80,8 @@ export function detectGymChain(
 ): {chain: GymChain; displayName: string} {
   const fromField = chainFromBrandField(brand);
   if (fromField) {
-    return {chain: fromField, displayName: brand!.trim()};
+    const canonical = normalizeGymBrand(brand);
+    return {chain: fromField, displayName: canonical || brand!.trim()};
   }
   const raw = (brand || gymName || '').trim().toLowerCase().replace(/[^\w\sæøå-]/g, '');
   const combined = `${raw} ${(gymName || '').trim().toLowerCase()}`;
@@ -87,7 +90,7 @@ export function detectGymChain(
     {pattern: /sats/, chain: 'sats', displayName: 'SATS'},
     {pattern: /puregym|pure gym/, chain: 'puregym', displayName: 'PureGym'},
     {pattern: /fitness world|fitnessworld/, chain: 'fitness_world', displayName: 'Fitness World'},
-    {pattern: /fitnessx|fitness x/, chain: 'fitnessx', displayName: 'FitnessX'},
+    {pattern: /fitnessx|fitness x/, chain: 'fitnessx', displayName: 'Fitness X'},
     {pattern: /loop fitness|loopfitness/i, chain: 'loop_fitness', displayName: 'LOOP'},
     {pattern: /arcaplanet/, chain: 'arcaplanet', displayName: 'ARCA'},
     {pattern: /arca(?!planet)/, chain: 'arca', displayName: 'ARCA'},
@@ -138,6 +141,24 @@ export function getDefaultGymlyLogoAsset(): number {
  */
 export function getLogoFallbackInitials(brand?: string, gymName?: string): string {
   const {chain, displayName} = detectGymChain(brand, gymName);
+  if (chain === 'sporting_health_club') {
+    return 'SHC';
+  }
+  if (chain === 'fitnessx') {
+    return 'FX';
+  }
+  if (chain === 'sats') {
+    return 'S';
+  }
+  if (chain === 'puregym') {
+    return 'P';
+  }
+  if (chain === 'loop_fitness') {
+    return 'L';
+  }
+  if (chain === 'arca' || chain === 'arcaplanet') {
+    return 'A';
+  }
   if (chain !== 'unknown' && displayName) {
     const initials = displayName
       .split(/\s+/)

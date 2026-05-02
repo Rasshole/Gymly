@@ -3,6 +3,12 @@
  */
 
 import {supabase} from '@/services/supabase/supabaseClient';
+import type {WorkoutPlanEntry} from '@/store/workoutPlanStore';
+import {MuscleGroup} from '@/types/workout.types';
+import {findGymById} from '@/utils/gymDisplay';
+import {getActiveDanishGyms} from '@/data/danishGyms';
+
+const SCHED_GYMS = getActiveDanishGyms();
 
 export type PlannedWorkoutRow = {
   id: string;
@@ -28,16 +34,23 @@ export type PlannedParticipantRow = {
 };
 
 function rpcError(msg: string): string {
-  if (/not_friends/i.test(msg)) {
+  const m = msg || '';
+  if (/ambiguous|column reference|42702|infinite recursion|42P17/i.test(m)) {
+    return 'Kunne ikke opdatere invitationen. Prøv igen om lidt.';
+  }
+  if (/not_friends/i.test(m)) {
     return 'I skal være venner for at planlægge sammen.';
   }
-  if (/not_invitee/i.test(msg)) {
+  if (/not_invitee/i.test(m)) {
     return 'Du er ikke modtager af denne invitation.';
   }
-  if (/not_found|not active/i.test(msg)) {
+  if (/not_found|not active|not_active/i.test(m)) {
     return 'Træningen findes ikke længere.';
   }
-  return msg || 'Kunne ikke opdatere';
+  if (/not authenticated/i.test(m)) {
+    return 'Log ind igen for at fortsætte.';
+  }
+  return 'Noget gik galt. Prøv igen om lidt.';
 }
 
 export async function createPlannedWorkoutInvite(params: {
@@ -180,6 +193,48 @@ export async function fetchPlannedWorkoutsForUser(
     workout: w,
     participants: byPw[w.id] ?? [],
   }));
+}
+
+/**
+ * Henter brugerens planlagte træninger og mapper til app-format
+ * (kalender + gymly-realtime-refresh).
+ */
+export async function loadWorkoutPlanEntriesForUser(
+  userId: string,
+  fromMonthBack: boolean = true,
+): Promise<WorkoutPlanEntry[]> {
+  const from = new Date();
+  if (fromMonthBack) {
+    from.setMonth(from.getMonth() - 1);
+  }
+  const list = await fetchPlannedWorkoutsForUser(
+    userId,
+    fromMonthBack ? from.toISOString() : undefined,
+  );
+  return list.map(({workout, participants}) => {
+    const g = findGymById(workout.center_id) ?? SCHED_GYMS[0]!;
+    const invitees = participants.filter(p => p.role === 'invitee');
+    const invitedFriends = invitees.map(p => p.user_id);
+    const acceptedFriends = invitees
+      .filter(p => p.response_status === 'accepted')
+      .map(p => p.user_id);
+    const inviteStatusByUserId: Record<
+      string,
+      'pending' | 'accepted' | 'declined'
+    > = {};
+    invitees.forEach(p => {
+      inviteStatusByUserId[p.user_id] = p.response_status;
+    });
+    return {
+      id: workout.id,
+      gym: g,
+      muscles: (workout.training_types || []) as MuscleGroup[],
+      scheduledAt: new Date(workout.scheduled_at),
+      invitedFriends,
+      acceptedFriends,
+      inviteStatusByUserId,
+    };
+  });
 }
 
 /** Tidsvindue til fælles tjek-ind (minutter før/efter planlagt tid) */

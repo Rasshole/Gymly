@@ -20,6 +20,8 @@ const FAV_PICKER = getActiveDanishGyms();
 import {useAppStore} from '@/store/appStore';
 import colors from '@/theme/colors';
 import GymLogoView from '@/components/ui/GymLogoView';
+import {gymSearchMatchesTokens} from '@/utils/gymSearch';
+import {formatGymDisplayName, normalizeGymBrand} from '@/utils/gymDisplay';
 
 interface FavoriteGymsSelectorProps {
   visible: boolean;
@@ -34,12 +36,10 @@ const FavoriteGymsSelector = ({visible, onClose}: FavoriteGymsSelectorProps) => 
   );
 
   const filteredGyms = useMemo(() => {
-    return FAV_PICKER.filter(
-      gym =>
-        gym.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        gym.city?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        gym.brand?.toLowerCase().includes(searchQuery.toLowerCase()),
-    );
+    return FAV_PICKER.filter(gym => {
+      const haystack = [gym.name, gym.city ?? '', gym.address ?? '', gym.brand ?? ''].join(' ');
+      return gymSearchMatchesTokens(haystack, searchQuery);
+    });
   }, [searchQuery]);
 
   const toggleGym = (gymId: string) => {
@@ -90,12 +90,12 @@ const FavoriteGymsSelector = ({visible, onClose}: FavoriteGymsSelectorProps) => 
           <GymIcon gym={item} />
           <View style={styles.gymInfo}>
             <Text style={styles.gymName} numberOfLines={1}>
-              {item.name}
+              {formatGymDisplayName(item)}
             </Text>
             <View style={styles.gymDetails}>
               {item.brand && (
                 <Text style={styles.gymBrand} numberOfLines={1}>
-                  {item.brand}
+                  {normalizeGymBrand(item.brand)}
                 </Text>
               )}
               {item.city && (

@@ -1,5 +1,8 @@
 import type {NotificationRow, InAppNotificationType} from '@/services/notifications/inAppNotificationService';
 import type {Notification, NotificationType} from '@/types/notification.types';
+import {safeDisplayName} from '@/utils/displayName';
+import {formatGymNameWithBrand} from '@/utils/gymDisplay';
+import {detectGymChain} from '@/services/gymLogoService';
 
 function mapType(t: InAppNotificationType): NotificationType {
   switch (t) {
@@ -27,6 +30,18 @@ function mapType(t: InAppNotificationType): NotificationType {
       return 'message';
     case 'workout_reminder':
       return 'planned_workout_reminder';
+    case 'workout_reaction':
+      return 'workout_reaction';
+    case 'biceps_reaction':
+      return 'biceps_reaction';
+    case 'gymly_group_invite':
+    case 'gymly_group_invite_declined':
+      return 'group_invite';
+    case 'gymly_group_member_joined':
+    case 'gymly_group_message':
+    case 'gymly_planned_in_group':
+    case 'gymly_group_check_in':
+      return 'friend_checkin';
     default:
       return 'friend_checkin';
   }
@@ -64,11 +79,26 @@ export function applyLocalFriendRequestResolution(
 export function mapRowToViewNotification(row: NotificationRow): Notification {
   const data = row.data ?? {};
   const fId = (data.friendRequestId as string) || undefined;
-  const targetUser = (data.targetUserId as string) || row.actor_user_id || undefined;
+  const actorName =
+    safeDisplayName(
+      data.friendName as string | undefined,
+      data.actorName as string | undefined,
+      data.displayName as string | undefined,
+    ) || 'Ukendt bruger';
   const plannedWorkoutId = (data.plannedWorkoutId as string) || undefined;
   const threadId =
     (data.threadId as string) || (data.conversationId as string) || undefined;
   const schedRaw = data.scheduledAt as string | undefined;
+  const groupId =
+    (data.groupId as string) || (data.group_id as string) || undefined;
+  const groupName = (data.groupName as string) || undefined;
+  const centerNameRaw = ((data.centerName as string) || '').trim();
+  const inferredBrand = centerNameRaw
+    ? detectGymChain(undefined, centerNameRaw).displayName
+    : '';
+  const formattedCenterName = centerNameRaw
+    ? formatGymNameWithBrand(centerNameRaw, inferredBrand)
+    : undefined;
   return {
     id: row.id,
     type: mapType(row.type),
@@ -76,11 +106,13 @@ export function mapRowToViewNotification(row: NotificationRow): Notification {
     message: row.body,
     read: row.is_read,
     timestamp: new Date(row.created_at),
-    friendName: targetUser,
-    friendId: row.actor_user_id || (data.friendUserId as string) || targetUser,
+    groupId,
+    groupName,
+    friendName: actorName,
+    friendId: row.actor_user_id || (data.friendUserId as string) || undefined,
     friendRequestId: fId,
     checkInTime: new Date(row.created_at),
-    gymName: (data.centerName as string) || undefined,
+    gymName: formattedCenterName,
     gymId: (data.centerId as string) || undefined,
     planId: plannedWorkoutId,
     plannedWorkoutId,
@@ -93,8 +125,10 @@ export function mapRowToViewNotification(row: NotificationRow): Notification {
         ? (data.trainingTypes as string[])
         : undefined,
     badgeName: (data.badgeName as string) || undefined,
+    badgeId: (data.badgeId as string) || undefined,
     streakCount: typeof data.streakDays === 'number' ? data.streakDays : undefined,
     dbType: row.type,
+    checkInId: (data.checkInId as string) || undefined,
     dataPayload: data,
     isFromServer: true,
   };

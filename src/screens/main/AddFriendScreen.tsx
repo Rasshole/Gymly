@@ -139,30 +139,45 @@ const AddFriendScreen = () => {
     }
   };
 
+  const openProfile = (profile: PublicProfile) => {
+    navigation.navigate('FriendProfile', {
+      friendId: profile.id,
+      friendName: profile.displayName,
+      friendAvatarUrl: profile.avatarUrl ?? undefined,
+    });
+  };
+
   const renderRow = ({item}: {item: PublicProfile}) => {
     const isFriend = friendIds.has(item.id);
     const isPending = pendingTo.has(item.id);
     const activeGym = activeFriendGymById[item.id];
     return (
       <View style={styles.row}>
-        <View style={styles.avatar}>
-          <Text style={styles.avatarText}>
-            {item.displayName.charAt(0).toUpperCase()}
-          </Text>
-        </View>
-        <View style={styles.rowBody}>
-          <Text style={styles.name} numberOfLines={1}>
-            {item.displayName}
-          </Text>
-          <Text style={styles.username} numberOfLines={1}>
-            @{item.username}
-          </Text>
-          {isFriend && activeGym ? (
-            <Text style={styles.activeHint} numberOfLines={1}>
-              Træner nu · {activeGym}
+        <TouchableOpacity
+          style={styles.rowMain}
+          onPress={() => openProfile(item)}
+          activeOpacity={0.7}
+          accessibilityRole="button"
+          accessibilityLabel={`Se profil for ${item.displayName}`}>
+          <View style={styles.avatar}>
+            <Text style={styles.avatarText}>
+              {item.displayName.charAt(0).toUpperCase()}
             </Text>
-          ) : null}
-        </View>
+          </View>
+          <View style={styles.rowBody}>
+            <Text style={styles.name} numberOfLines={1}>
+              {item.displayName}
+            </Text>
+            <Text style={styles.username} numberOfLines={1}>
+              @{item.username}
+            </Text>
+            {isFriend && activeGym ? (
+              <Text style={styles.activeHint} numberOfLines={1}>
+                Træner nu · {activeGym}
+              </Text>
+            ) : null}
+          </View>
+        </TouchableOpacity>
         {isFriend ? (
           <View style={styles.pillMuted}>
             <Text style={styles.pillMutedText}>Venner</Text>
@@ -175,7 +190,8 @@ const AddFriendScreen = () => {
           <TouchableOpacity
             style={styles.addBtn}
             onPress={() => handleAdd(item)}
-            activeOpacity={0.85}>
+            activeOpacity={0.85}
+            hitSlop={{top: 8, bottom: 8, left: 8, right: 8}}>
             <Icon name="person-add-outline" size={18} color={colors.white} style={styles.addBtnIcon} />
             <Text style={styles.addBtnText}>Tilføj</Text>
           </TouchableOpacity>
@@ -275,6 +291,12 @@ const styles = StyleSheet.create({
     marginBottom: spacing.sm,
     borderWidth: 1,
     borderColor: colors.border,
+  },
+  rowMain: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    minWidth: 0,
   },
   avatar: {
     width: 44,

@@ -10,7 +10,6 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
-  TextInput,
   Image,
   ActivityIndicator,
   Pressable,
@@ -28,12 +27,15 @@ import {
   listFriendsWithProfiles,
   upsertMyProfile,
 } from '@/services/supabase/friendService';
+import {UserAvatar} from '@/components/ui/UserAvatar';
 import {
   PRESENCE_WINDOW_HOURS,
   fetchLatestCheckInPerUser,
   type CheckInRow,
 } from '@/services/supabase/presenceService';
 import {navigateToFriendProfile} from '@/navigation/rootNavigation';
+import SocialSearchBar from '@/components/social/SocialSearchBar';
+import SocialPrimaryButton from '@/components/social/SocialPrimaryButton';
 
 type Friend = {
   id: string;
@@ -282,15 +284,11 @@ const FriendsScreen = () => {
         accessibilityRole="button"
         accessibilityLabel={`${item.name}, se profil`}>
         <View style={styles.avatarContainer}>
-          {item.avatar ? (
-            <Image source={{uri: item.avatar}} style={styles.avatar} />
-          ) : (
-            <View style={styles.avatarPlaceholder}>
-              <Text style={styles.avatarText}>
-                {item.name.charAt(0).toUpperCase()}
-              </Text>
-            </View>
-          )}
+          <UserAvatar
+            name={item.name}
+            imageUrl={item.avatar}
+            size="lg"
+          />
           {item.isOnline && <View style={styles.onlineIndicator} />}
         </View>
         <View style={styles.friendInfo}>
@@ -355,24 +353,12 @@ const FriendsScreen = () => {
 
   return (
     <View style={styles.container}>
-      {/* Search Bar */}
-      <View style={styles.searchContainer}>
-        <Icon name="search" size={20} color="#8E8E93" style={styles.searchIcon} />
-        <TextInput
-          style={styles.searchInput}
-          placeholder="Søg efter folk på Gymly"
-          placeholderTextColor="#8E8E93"
-          value={searchQuery}
-          onChangeText={setSearchQuery}
-        />
-        {searchQuery.length > 0 && (
-          <TouchableOpacity
-            onPress={() => setSearchQuery('')}
-            style={styles.clearButton}>
-            <Icon name="close-circle" size={20} color="#8E8E93" />
-          </TouchableOpacity>
-        )}
-      </View>
+      <SocialSearchBar
+        value={searchQuery}
+        onChangeText={setSearchQuery}
+        placeholder="Søg efter folk på Gymly"
+        style={styles.searchOuter}
+      />
 
       {/* Friends List */}
       <FlatList
@@ -392,14 +378,12 @@ const FriendsScreen = () => {
           )
         }
         ListHeaderComponent={
-          <TouchableOpacity
-            style={styles.addFriendBanner}
+          <SocialPrimaryButton
+            label="Tilføj ven"
+            iconName="person-add-outline"
             onPress={openAddFriend}
-            activeOpacity={0.85}>
-            <Icon name="person-add-outline" size={22} color={colors.white} />
-            <Text style={styles.addFriendBannerText}>Tilføj ven</Text>
-            <Icon name="chevron-forward" size={18} color={colors.white} />
-          </TouchableOpacity>
+            style={styles.addFriendBanner}
+          />
         }
         showsVerticalScrollIndicator={false}
         ItemSeparatorComponent={() => <View style={styles.separator} />}
@@ -413,54 +397,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.background,
   },
-  searchContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.backgroundCard,
+  searchOuter: {
     marginHorizontal: 16,
-    marginTop: 8,
-    marginBottom: 8,
-    paddingHorizontal: 12,
-    paddingVertical: 10,
-    borderRadius: 10,
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 1},
-    shadowOpacity: 0.05,
-    shadowRadius: 4,
-    elevation: 2,
-  },
-  searchIcon: {
-    marginRight: 8,
-  },
-  searchInput: {
-    flex: 1,
-    fontSize: 16,
-    color: colors.text,
-    padding: 0,
-  },
-  clearButton: {
-    marginLeft: 8,
-    padding: 4,
+    marginTop: 10,
+    marginBottom: 10,
   },
   addFriendBanner: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.primary,
-    padding: 14,
-    borderRadius: 12,
+    marginHorizontal: 16,
     marginBottom: 12,
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.2,
-    shadowRadius: 6,
-    elevation: 3,
-  },
-  addFriendBannerText: {
-    flex: 1,
-    fontSize: 16,
-    fontWeight: '700',
-    color: colors.white,
-    marginLeft: 10,
   },
   list: {
     paddingHorizontal: 16,

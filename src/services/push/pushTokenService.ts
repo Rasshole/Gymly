@@ -53,16 +53,22 @@ export async function savePushTokenToSupabase(
   if (!userId || !token?.trim()) {
     return;
   }
-  const {error} = await supabase.from('user_push_tokens').upsert(
-    {
-      user_id: userId,
-      token: token.trim(),
-      platform,
-      enabled: true,
-      updated_at: new Date().toISOString(),
-    },
-    {onConflict: 'user_id,token'},
-  );
+  const row = {
+    user_id: userId,
+    token: token.trim(),
+    platform,
+    enabled: true,
+    updated_at: new Date().toISOString(),
+  };
+  let {error} = await supabase
+    .from('push_tokens')
+    .upsert(row, {onConflict: 'user_id,token'});
+  if (error) {
+    const fallback = await supabase
+      .from('user_push_tokens')
+      .upsert(row, {onConflict: 'user_id,token'});
+    error = fallback.error;
+  }
   if (error && __DEV__) {
     console.warn('[push] save token', error.message);
   }

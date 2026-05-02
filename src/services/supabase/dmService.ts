@@ -3,7 +3,9 @@
  */
 
 import {supabase} from '@/services/supabase/supabaseClient';
-import type {Chat, ChatMessage} from '@/store/chatStore';
+import type {Chat, ChatMessage, PlannedWorkoutDmEmbed} from '@/store/chatStore';
+import {withAvatarCacheBust} from '../../utils/avatar';
+import {safeDisplayName} from '@/utils/displayName';
 
 const UUID_RE =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
@@ -21,14 +23,82 @@ export type DmMessageRow = {
   created_at: string;
 };
 
+const GYM_PLAN_INVITE_PREFIX = '[GYM_PLAN_INVITE]';
+const GYM_PLAN_STATUS_PREFIX = '[GYM_PLAN_STATUS]';
+
+function parsePlannedWorkoutDmBody(body: string | null): {
+  text: string;
+  plannedWorkoutEmbed?: PlannedWorkoutDmEmbed;
+} {
+  const raw = body ?? '';
+  if (raw.startsWith(GYM_PLAN_INVITE_PREFIX)) {
+    try {
+      const data = JSON.parse(
+        raw.slice(GYM_PLAN_INVITE_PREFIX.length),
+      ) as {
+        plannedWorkoutId?: string;
+        centerName?: string;
+        scheduledAt?: string;
+        trainingTypes?: unknown;
+        status?: string;
+      };
+      const id = data.plannedWorkoutId;
+      if (!id) {
+        return {text: raw};
+      }
+      const types = Array.isArray(data.trainingTypes)
+        ? (data.trainingTypes as string[])
+        : [];
+      return {
+        text: '',
+        plannedWorkoutEmbed: {
+          kind: 'invite',
+          plannedWorkoutId: id,
+          centerName: data.centerName ?? '',
+          scheduledAt: data.scheduledAt ?? '',
+          trainingTypes: types,
+          status: 'pending',
+        },
+      };
+    } catch {
+      return {text: raw};
+    }
+  }
+  if (raw.startsWith(GYM_PLAN_STATUS_PREFIX)) {
+    try {
+      const data = JSON.parse(raw.slice(GYM_PLAN_STATUS_PREFIX.length)) as {
+        plannedWorkoutId?: string;
+        status?: string;
+      };
+      const id = data.plannedWorkoutId;
+      if (!id || (data.status !== 'accepted' && data.status !== 'declined')) {
+        return {text: raw};
+      }
+      return {
+        text: '',
+        plannedWorkoutEmbed: {
+          kind: 'status',
+          plannedWorkoutId: id,
+          status: data.status,
+        },
+      };
+    } catch {
+      return {text: raw};
+    }
+  }
+  return {text: raw.trim()};
+}
+
 export function messageFromDmRow(row: DmMessageRow): ChatMessage {
+  const parsed = parsePlannedWorkoutDmBody(row.body);
   return {
     id: row.id,
-    text: row.body?.trim() ?? '',
+    text: parsed.text,
     senderId: row.sender_id,
     timestamp: new Date(row.created_at),
     isRead: true,
     imageUri: row.image_url?.trim() || undefined,
+    plannedWorkoutEmbed: parsed.plannedWorkoutEmbed,
   };
 }
 
@@ -46,6 +116,7 @@ type ProfileRow = {
   display_name: string;
   username: string;
   avatar_url: string | null;
+  updated_at?: string | null;
 };
 
 function mapRowToMessage(row: DmMessageRow): ChatMessage {
@@ -169,7 +240,7 @@ export async function fetchDmInbox(
 
   const {data: profiles, error: pErr} = await supabase
     .from('profiles')
-    .select('id, display_name, username, avatar_url')
+    .select('id, display_name, username, avatar_url, updated_at')
     .in('id', unique);
   if (pErr) {
     throw new Error(pErr.message);
@@ -185,9 +256,9 @@ export async function fetchDmInbox(
     return {
       thread: t,
       otherUserId: otherId,
-      otherDisplayName: p?.display_name?.trim() || p?.username || 'Ven',
+      otherDisplayName: safeDisplayName(p?.display_name, p?.username),
       otherUsername: p?.username || 'bruger',
-      otherAvatar: p?.avatar_url ?? null,
+      otherAvatar: withAvatarCacheBust(p?.avatar_url ?? null, p?.updated_at) ?? null,
     };
   });
 }
@@ -215,7 +286,7 @@ export async function fetchDmInboxItemForThread(
   const otherId = row.user_a === myUserId ? row.user_b : row.user_a;
   const {data: profile, error: pErr} = await supabase
     .from('profiles')
-    .select('id, display_name, username, avatar_url')
+    .select('id, display_name, username, avatar_url, updated_at')
     .eq('id', otherId)
     .maybeSingle();
   if (pErr) {
@@ -225,9 +296,9 @@ export async function fetchDmInboxItemForThread(
   return {
     thread: row,
     otherUserId: otherId,
-    otherDisplayName: p?.display_name?.trim() || p?.username || 'Ven',
+    otherDisplayName: safeDisplayName(p?.display_name, p?.username),
     otherUsername: p?.username || 'bruger',
-    otherAvatar: p?.avatar_url ?? null,
+    otherAvatar: withAvatarCacheBust(p?.avatar_url ?? null, p?.updated_at) ?? null,
   };
 }
 

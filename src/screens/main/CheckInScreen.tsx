@@ -7,10 +7,10 @@ import React, {useState, useMemo, useCallback, useEffect, useRef} from 'react';
 import {
   View,
   Text,
-  TextInput,
   StyleSheet,
   ScrollView,
   TouchableOpacity,
+  Pressable,
   Modal,
   Image,
   ActivityIndicator,
@@ -19,6 +19,10 @@ import {
   Platform,
   PermissionsAndroid,
   AppState,
+  LayoutAnimation,
+  UIManager,
+  Animated,
+  Easing,
 } from 'react-native';
 import Geolocation, {
   type GeolocationError,
@@ -31,7 +35,6 @@ import {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
 
 const CHECKIN_GYMS = getActiveDanishGyms();
 import {useAppStore} from '@/store/appStore';
-import {useGymStore} from '@/store/gymStore';
 import {SKIP_CHECK_IN_LOCATION_RADIUS} from '@/config/dataConfig';
 import {useDashboardStatsStore} from '@/store/dashboardStatsStore';
 import {useBadgeStore} from '@/store/badgeStore';
@@ -41,13 +44,12 @@ import {
   useSessionStore,
 } from '@/store/sessionStore';
 import {useWorkoutStore} from '@/store/workoutStore';
-import {isFirebaseNativeAvailable} from '@/services/firebase/nativeAvailability';
 import {submitCheckIn} from '@/services/firestore/CheckinService';
 import {
   endActiveCheckInInSupabase,
   getActiveCheckInForUser,
 } from '@/services/supabase/checkInService';
-import {supabase} from '@/services/supabase/supabaseClient';
+import {runAutoCheckoutEvaluation} from '@/services/autoCheckout/runAutoCheckoutEvaluation';
 import {notifyFriendsOfCheckIn} from '@/services/firestore/FriendCheckInNotificationService';
 import {formatGymDisplayName, findGymById} from '@/utils/gymDisplay';
 import {
@@ -71,6 +73,7 @@ import ActiveSessionView from '@/components/checkin/ActiveSessionView';
 import WorkoutSummaryModal from '@/components/checkin/WorkoutSummaryModal';
 import SwipeCheckIn from '@/components/checkin/SwipeCheckIn';
 import CheckInSplashOverlay from '@/components/checkin/CheckInSplashOverlay';
+import SocialSearchBar from '@/components/social/SocialSearchBar';
 import {
   createWorkoutPost,
   refreshWorkoutFeedFromServer,
@@ -125,15 +128,12 @@ const BASE_MUSCLE_ICON_MARGIN_RIGHT = 8;
 const BASE_MUSCLE_LABEL_LINE_HEIGHT = 14;
 
 /** Strammere grid — mindre scroll på tjek-ind */
-const TRAINING_COL_GAP = spacing.sm;
-const TRAINING_ROW_GAP = spacing.sm;
 const MUSCLE_ICON_SIZE = Math.round(BASE_MUSCLE_ICON * VERTICAL_SCALE);
 const MUSCLE_ICON_MARGIN_RIGHT = Math.round(BASE_MUSCLE_ICON_MARGIN_RIGHT * VERTICAL_SCALE);
 const MUSCLE_LABEL_LINE_HEIGHT = Math.round(BASE_MUSCLE_LABEL_LINE_HEIGHT * VERTICAL_SCALE);
 
 const SECTION_SUB_BELOW_MARGIN_TOP = Math.round(2 * VERTICAL_SCALE);
 const GYM_SECTION_HEADER_MARGIN_BOTTOM = spacing.sm;
-const GYM_CARD_PADDING_V = spacing.md;
 const GYM_ICON_BOX_SIZE = Math.round(46 * VERTICAL_SCALE);
 /** Minimal luft mellem hint og swipe-track */
 const CTA_HINT_MARGIN_BOTTOM = 0;
@@ -152,10 +152,36 @@ const CHECKIN_CTA_RESERVE = 92;
 
 const GEO_PERMISSION_DENIED = 1;
 
+if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
+  UIManager.setLayoutAnimationEnabledExperimental(true);
+}
+
 function logCheckInDebug(label: string, payload: Record<string, unknown>) {
   if (__DEV__) {
     console.warn(`[CheckIn] ${label}`, payload);
   }
+}
+
+/** Vis ikke rå [firestore/...] / Supabase-tekster i produktion */
+function userFacingCheckInError(err: unknown): string {
+  const m =
+    err instanceof Error ? err.message : typeof err === 'string' ? err : '';
+  if (
+    /firestore|permission-denied|PERMISSION_DENIED|unauthenticated|not authorized/i.test(
+      m,
+    )
+  ) {
+    return 'Kunne ikke tjekke ind. Prøv igen.';
+  }
+  if (
+    /network|Network request failed|Failed to fetch|timeout|getaddrinfo/i.test(m)
+  ) {
+    return 'Kunne ikke tjekke ind. Tjek forbindelsen og prøv igen.';
+  }
+  if (m && m.length < 200 && /[æøåÆØÅ]/.test(m)) {
+    return m;
+  }
+  return 'Kunne ikke tjekke ind. Prøv igen.';
 }
 
 function findNearestGymFromCoords(latitude: number, longitude: number): DanishGym | null {
@@ -496,12 +522,12 @@ const CheckInScreen = () => {
   const doCheckInAndStartSession = useCallback(
     async (gym: DanishGym, groups: MuscleGroup[]) => {
       const encoded = encodeMuscleGroupsForSession(groups);
+      const centerDisplayName = formatGymDisplayName(gym);
       try {
-        const isFb = isFirebaseNativeAvailable();
         const result = await submitCheckIn({
           userId: currentUserId,
           gymId: gym.id,
-          gymName: gym.name,
+          gymName: centerDisplayName,
           city: gym.city,
           workoutType: workoutTypeForFirestoreCheckIn(encoded),
           displayName: user?.displayName ?? 'Bruger',
@@ -517,9 +543,9 @@ const CheckInScreen = () => {
             user?.displayName ?? 'Bruger',
           );
         startSession({
-          checkInId: isFb ? null : result.id,
+          checkInId: result.id,
           gymId: gym.id,
-          gymName: gym.name,
+          gymName: centerDisplayName,
           city: gym.city,
           startTime: result.startedAt,
           workoutType: encoded,
@@ -529,7 +555,7 @@ const CheckInScreen = () => {
             await upsertLiveWorkoutSession({
               userId: user.id,
               gymId: gym.id,
-              gymName: gym.name,
+              gymName: centerDisplayName,
               city: gym.city,
               workoutType: encoded,
               displayName: user?.displayName ?? 'Bruger',
@@ -544,29 +570,25 @@ const CheckInScreen = () => {
           actorUserId: currentUserId,
           displayName: user?.displayName ?? 'Bruger',
           gymId: gym.id,
-          gymName: gym.name,
+          gymName: centerDisplayName,
           city: gym.city,
           workoutEncoded: encoded,
         });
         return true;
       } catch (err) {
-        const detail =
-          err instanceof Error && err.message?.trim()
-            ? err.message
-            : 'Kunne ikke registrere check-in. Tjek din forbindelse og prøv igen.';
         if (__DEV__) {
           console.warn('[CheckIn] submitCheckIn failed', err);
         }
-        Alert.alert('Fejl', detail, [{text: 'OK'}]);
+        Alert.alert('Fejl', userFacingCheckInError(err), [{text: 'OK'}]);
         return false;
       }
     },
-    [currentUserId, user, onStatsCheckIn, startSession, user?.id, linkablePlannedId, selectedGym]
+    [currentUserId, user, onStatsCheckIn, startSession, linkablePlannedId, selectedGym]
   );
 
   const restoreSessionFromDatabase = useCallback(
     async (reason: 'mount' | 'foreground') => {
-      if (isFirebaseNativeAvailable() || !user?.id) {
+      if (!user?.id) {
         return;
       }
       try {
@@ -619,42 +641,17 @@ const CheckInScreen = () => {
     return () => sub.remove();
   }, [restoreSessionFromDatabase]);
 
-  useEffect(() => {
-    if (isFirebaseNativeAvailable() || !user?.id) {
-      return;
-    }
-    const ch = supabase
-      .channel(`check_in_session_${user.id}`)
-      .on(
-        'postgres_changes',
-        {
-          event: 'UPDATE',
-          schema: 'public',
-          table: 'check_ins',
-          filter: `user_id=eq.${user.id}`,
-        },
-        payload => {
-          const next = payload.new as {
-            id?: string;
-            ended_at?: string | null;
-            is_active?: boolean;
-          };
-          const cur = useSessionStore.getState().activeSession;
-          if (cur?.checkInId && next.id === cur.checkInId) {
-            if (next.ended_at != null || next.is_active === false) {
-              endSession();
-              if (user.id) {
-                void deleteMyLiveWorkoutSession(user.id).catch(() => {});
-              }
-            }
-          }
-        },
-      )
-      .subscribe();
-    return () => {
-      void supabase.removeChannel(ch);
-    };
-  }, [endSession, user?.id]);
+  useFocusEffect(
+    useCallback(() => {
+      if (!user?.id) {
+        return;
+      }
+      runAutoCheckoutEvaluation({
+        userId: user.id,
+        appState: AppState.currentState,
+      }).catch(() => {});
+    }, [user?.id]),
+  );
 
   const handleCheckIn = async () => {
     if (!selectedGym) {
@@ -889,6 +886,37 @@ const CheckInScreen = () => {
   }, [ensureAndroidLocationPermission, applyGeolocationSuccess]);
 
   const insets = useSafeAreaInsets();
+  const ctaPulse = useRef(new Animated.Value(1)).current;
+
+  useEffect(() => {
+    if (!isWithinCheckInRadius || isSubmitting) {
+      ctaPulse.stopAnimation();
+      ctaPulse.setValue(1);
+      return;
+    }
+    const loop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(ctaPulse, {
+          toValue: 1.02,
+          duration: 900,
+          easing: Easing.inOut(Easing.ease),
+          useNativeDriver: true,
+        }),
+        Animated.timing(ctaPulse, {
+          toValue: 1,
+          duration: 900,
+          easing: Easing.inOut(Easing.ease),
+          useNativeDriver: true,
+        }),
+      ]),
+    );
+    loop.start();
+    return () => {
+      loop.stop();
+      ctaPulse.stopAnimation();
+      ctaPulse.setValue(1);
+    };
+  }, [ctaPulse, isSubmitting, isWithinCheckInRadius]);
 
   const hideGymlySplash = useCallback(() => {
     setShowGymlySplash(false);
@@ -926,7 +954,6 @@ const CheckInScreen = () => {
   ]);
 
   const streakBanner = useMemo(() => {
-    const icon = streak.getStreakIcon(dashboardStreak);
     const streakLabel =
       dashboardStreak === 1 ? '1 dags streak' : `${dashboardStreak} dages streak`;
     const next = streak.getNextMilestone(dashboardStreak);
@@ -936,7 +963,7 @@ const CheckInScreen = () => {
         : next.daysRemaining === 1
           ? `1 dag til ${next.emoji}`
           : `${next.daysRemaining} dage til ${next.emoji}`;
-    return {icon, streakLabel, milestoneLine};
+    return {streakLabel, milestoneLine};
   }, [dashboardStreak]);
 
   // Active session – live workout view
@@ -1035,13 +1062,13 @@ const CheckInScreen = () => {
                 )}
               </View>
             </TouchableOpacity>
-            <TouchableOpacity
+            <Pressable
               style={styles.lokalitetButton}
               onPress={handleLokalitetPress}
-              activeOpacity={0.8}>
+              android_ripple={{color: colors.primary + '22'}}>
               <Icon name="locate" size={18} color={colors.primary} />
               <Text style={styles.lokalitetText}>Lokalitet</Text>
-            </TouchableOpacity>
+            </Pressable>
           </View>
         </View>
 
@@ -1056,16 +1083,24 @@ const CheckInScreen = () => {
                 {row.map(({key, label}) => {
                   const isSelected = selectedMuscleGroups.includes(key);
                   return (
-                    <TouchableOpacity
+                    <Pressable
                       key={key}
-                      style={[
+                      style={({pressed}) => [
                         styles.muscleCardHorizontal,
                         isSelected && styles.muscleCardHorizontalSelected,
+                        isSelected && styles.muscleCardHorizontalSelectedScale,
+                        pressed && styles.muscleCardHorizontalPressed,
                       ]}
-                      onPress={() =>
-                        setSelectedMuscleGroups(prev => toggleCheckInMuscleGroup(prev, key))
-                      }
-                      activeOpacity={0.8}>
+                      onPress={() => {
+                        LayoutAnimation.configureNext(
+                          LayoutAnimation.create(
+                            220,
+                            LayoutAnimation.Types.easeInEaseOut,
+                            LayoutAnimation.Properties.opacity,
+                          ),
+                        );
+                        setSelectedMuscleGroups(prev => toggleCheckInMuscleGroup(prev, key));
+                      }}>
                       <Image
                         source={muscleImg.getMuscleGroupImage(key)}
                         style={[styles.muscleIconLeft, isSelected && styles.muscleImageSelected]}
@@ -1079,7 +1114,7 @@ const CheckInScreen = () => {
                         numberOfLines={2}>
                         {label}
                       </Text>
-                    </TouchableOpacity>
+                    </Pressable>
                   );
                 })}
               </View>
@@ -1091,15 +1126,17 @@ const CheckInScreen = () => {
           <View style={styles.soloCard}>
             <View style={styles.soloRow}>
               <Text style={styles.soloLabel}>Solo træning</Text>
-              <Switch
-                value={soloTraining}
-                onValueChange={setSoloTraining}
-                trackColor={{false: colors.border, true: colors.primary + '80'}}
-                thumbColor={soloTraining ? colors.primary : colors.textMuted}
-              />
+              <View style={styles.soloSwitchWrap}>
+                <Switch
+                  value={soloTraining}
+                  onValueChange={setSoloTraining}
+                  trackColor={{false: colors.border, true: colors.primary + '80'}}
+                  thumbColor={soloTraining ? colors.primary : colors.textMuted}
+                />
+              </View>
             </View>
-            <Text style={styles.soloHint} numberOfLines={1}>
-              Skjul for venner
+            <Text style={styles.soloHint} numberOfLines={2}>
+              Skjul denne træning for venner i feed og online-status
             </Text>
           </View>
         </View>
@@ -1127,19 +1164,20 @@ const CheckInScreen = () => {
             <>
               <View style={styles.streakBannerRow}>
                 <View style={styles.streakBannerTextCol}>
-                  <Text
-                    style={[
-                      styles.streakBannerTitle,
-                      streak.getStreakEmphasisLevel(dashboardStreak) === 1 &&
-                        styles.streakBannerTitleEmphasis,
-                      streak.getStreakEmphasisLevel(dashboardStreak) === 2 &&
-                        styles.streakBannerTitleStrong,
-                    ]}
-                    numberOfLines={1}>
-                    {streakBanner.icon
-                      ? `${streakBanner.icon} ${streakBanner.streakLabel}`
-                      : streakBanner.streakLabel}
-                  </Text>
+                  <View style={styles.streakMainRow}>
+                    <Icon name="flame" size={18} color={colors.warning} />
+                    <Text
+                      style={[
+                        styles.streakBannerTitle,
+                        streak.getStreakEmphasisLevel(dashboardStreak) === 1 &&
+                          styles.streakBannerTitleEmphasis,
+                        streak.getStreakEmphasisLevel(dashboardStreak) === 2 &&
+                          styles.streakBannerTitleStrong,
+                      ]}
+                      numberOfLines={1}>
+                      {streakBanner.streakLabel}
+                    </Text>
+                  </View>
                   {streakBanner.milestoneLine ? (
                     <Text style={styles.streakBannerSub} numberOfLines={1}>
                       {streakBanner.milestoneLine}
@@ -1147,19 +1185,24 @@ const CheckInScreen = () => {
                   ) : null}
                 </View>
               </View>
-              <Text style={styles.ctaHint} numberOfLines={3}>
-                {ctaHintText}
-              </Text>
-              <SwipeCheckIn
-                compact
-                onSuccess={handleCheckIn}
-                disabled={
-                  !selectedGym ||
-                  (!SKIP_LOCATION_CHECK &&
-                    (!userLocation || !isWithinCheckInRadius))
-                }
-                label="Tjek ind"
-              />
+              <View style={styles.ctaHintRow}>
+                <Icon name="location-outline" size={13} color={colors.textSecondary} />
+                <Text style={styles.ctaHint} numberOfLines={2}>
+                  {ctaHintText}
+                </Text>
+              </View>
+              <Animated.View style={{transform: [{scale: ctaPulse}]}}>
+                <SwipeCheckIn
+                  compact
+                  onSuccess={handleCheckIn}
+                  disabled={
+                    !selectedGym ||
+                    (!SKIP_LOCATION_CHECK &&
+                      (!userLocation || !isWithinCheckInRadius))
+                  }
+                  label="Tjek ind"
+                />
+              </Animated.View>
             </>
           )}
         </View>
@@ -1177,17 +1220,13 @@ const CheckInScreen = () => {
               <Icon name="close" size={28} color={colors.text} />
             </TouchableOpacity>
           </View>
-          <View style={styles.modalSearch}>
-            <Icon name="search" size={20} color={colors.textMuted} />
-            <TextInput
-              style={styles.modalSearchInput}
-              placeholder="Søg efter center, by eller kæde..."
-              placeholderTextColor={colors.textMuted}
-              value={gymSearchQuery}
-              onChangeText={setGymSearchQuery}
-              autoCapitalize="none"
-            />
-          </View>
+          <SocialSearchBar
+            value={gymSearchQuery}
+            onChangeText={setGymSearchQuery}
+            placeholder="Søg efter center, by eller kæde..."
+            autoCapitalize="none"
+            style={styles.modalSearchOuter}
+          />
           <ScrollView style={styles.modalList}>
             {favoriteGym && !gymSearchQuery.trim() && (
               <View style={styles.modalSection}>
@@ -1277,7 +1316,7 @@ const styles = StyleSheet.create({
   },
   centerSection: {
     paddingHorizontal: spacing.md,
-    paddingTop: spacing.sm,
+    paddingTop: spacing.md,
     flexShrink: 0,
     alignSelf: 'stretch',
     width: '100%',
@@ -1319,8 +1358,9 @@ const styles = StyleSheet.create({
   },
   sectionLabel: {
     ...typography.small,
-    fontWeight: '600',
+    fontWeight: '700',
     color: colors.textSecondary,
+    letterSpacing: 0.2,
   },
   sectionLabelTight: {
     marginBottom: 3,
@@ -1333,12 +1373,19 @@ const styles = StyleSheet.create({
     flexShrink: 0,
     justifyContent: 'space-between',
     backgroundColor: colors.backgroundCard,
-    borderRadius: radius.md,
-    paddingVertical: GYM_CARD_PADDING_V,
-    paddingHorizontal: spacing.md,
+    borderRadius: radius.lg,
+    paddingVertical: spacing.md + 2,
+    paddingHorizontal: spacing.md + 2,
     borderWidth: 1,
     borderColor: colors.border,
-    ...(Platform.OS === 'ios' ? {...shadows.card} : {elevation: 6}),
+    ...(Platform.OS === 'ios'
+      ? {
+          shadowColor: '#000',
+          shadowOffset: {width: 0, height: 4},
+          shadowOpacity: 0.08,
+          shadowRadius: 10,
+        }
+      : {elevation: 5}),
   },
   gymCardLeft: {flexDirection: 'row', alignItems: 'center', flex: 1, minWidth: 0},
   gymIconBox: {
@@ -1352,24 +1399,24 @@ const styles = StyleSheet.create({
   gymCardText: {marginLeft: spacing.sm + 2, flex: 1, minWidth: 0},
   gymNearestLabel: {
     ...typography.caption,
-    fontSize: 11,
+    fontSize: 10,
     fontWeight: '700',
-    color: colors.primary,
+    color: colors.primaryLight,
     textTransform: 'uppercase',
     letterSpacing: 0.4,
     marginBottom: 2,
   },
   gymName: {
     ...typography.bodyBold,
-    fontSize: 17,
-    lineHeight: 22,
+    fontSize: 19,
+    lineHeight: 24,
     color: colors.text,
   },
   gymDistance: {
     fontSize: 12,
-    color: colors.secondary,
-    marginTop: 0,
-    fontWeight: '600',
+    color: colors.textSecondary,
+    marginTop: 1,
+    fontWeight: '500',
   },
   gymNamePlaceholder: {
     ...typography.body,
@@ -1380,33 +1427,35 @@ const styles = StyleSheet.create({
   gymHint: {
     ...typography.caption,
     color: colors.textMuted,
-    marginTop: 2,
+    marginTop: 3,
     fontSize: 11,
     lineHeight: 14,
+    opacity: 0.85,
   },
   lokalitetButton: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 4,
-    paddingHorizontal: spacing.sm + 2,
-    paddingVertical: spacing.sm,
+    justifyContent: 'center',
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm + 2,
     borderWidth: 1,
-    borderColor: colors.primary,
-    borderRadius: radius.sm + 2,
-    backgroundColor: colors.primary + '0D',
+    borderColor: colors.primary + '77',
+    borderRadius: radius.full,
+    backgroundColor: colors.primary + '14',
   },
-  lokalitetText: {fontSize: 11, fontWeight: '600', color: colors.primary},
+  lokalitetText: {fontSize: 12, fontWeight: '700', color: colors.primary},
   muscleGridTwoCol: {
     width: '100%',
     flexGrow: 0,
-    gap: TRAINING_ROW_GAP,
+    gap: spacing.md,
   },
   muscleRow2col: {
     flexDirection: 'row',
     alignItems: 'stretch',
     width: '100%',
     flexGrow: 0,
-    gap: TRAINING_COL_GAP,
+    gap: spacing.md,
   },
   muscleCardHorizontal: {
     flex: 1,
@@ -1417,15 +1466,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
     paddingVertical: 0,
-    paddingHorizontal: spacing.md,
-    borderRadius: radius.md,
+    paddingHorizontal: spacing.md + 2,
+    borderRadius: radius.lg,
     borderWidth: 1,
     borderColor: colors.border,
-    backgroundColor: colors.backgroundCard,
-    ...(Platform.OS === 'ios' ? shadows.sm : {elevation: 2}),
+    backgroundColor: '#F3F4F7',
+    ...(Platform.OS === 'ios'
+      ? {
+          shadowColor: '#000',
+          shadowOffset: {width: 0, height: 2},
+          shadowOpacity: 0.05,
+          shadowRadius: 6,
+        }
+      : {elevation: 2}),
   },
   muscleCardHorizontalSelected: {
-    backgroundColor: colors.primary,
+    backgroundColor: colors.primaryDark,
     borderColor: colors.primaryDark,
     ...(Platform.OS === 'ios'
       ? {
@@ -1436,6 +1492,12 @@ const styles = StyleSheet.create({
         }
       : {elevation: 4}),
   },
+  muscleCardHorizontalSelectedScale: {
+    transform: [{scale: 1.03}],
+  },
+  muscleCardHorizontalPressed: {
+    opacity: 0.9,
+  },
   muscleIconLeft: {
     width: MUSCLE_ICON_SIZE,
     height: MUSCLE_ICON_SIZE,
@@ -1445,7 +1507,7 @@ const styles = StyleSheet.create({
   muscleLabelHorizontal: {
     flex: 1,
     minWidth: 0,
-    fontSize: 12,
+    fontSize: 13,
     lineHeight: MUSCLE_LABEL_LINE_HEIGHT,
     fontWeight: '600',
     color: colors.text,
@@ -1454,9 +1516,9 @@ const styles = StyleSheet.create({
   muscleLabelHorizontalSelected: {color: colors.white},
   soloCard: {
     backgroundColor: colors.backgroundCard,
-    borderRadius: radius.md,
+    borderRadius: radius.lg,
     paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
+    paddingVertical: spacing.md,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: colors.border,
     alignSelf: 'stretch',
@@ -1466,14 +1528,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: 0,
+    marginBottom: 2,
   },
-  soloLabel: {fontSize: 12, fontWeight: '600', color: colors.text},
+  soloLabel: {fontSize: 14, fontWeight: '700', color: colors.text},
+  soloSwitchWrap: {
+    transform: [{scaleX: 1.06}, {scaleY: 1.06}],
+  },
   soloHint: {
-    fontSize: 10,
-    lineHeight: 11,
+    fontSize: 11,
+    lineHeight: 15,
     color: colors.textMuted,
-    opacity: 0.7,
+    opacity: 0.9,
     marginTop: spacing.xs,
   },
   ctaFooterBarAbsolute: {
@@ -1497,7 +1562,7 @@ const styles = StyleSheet.create({
     }),
   },
   ctaFooterAccent: {
-    height: 2,
+    height: 3,
     backgroundColor: colors.primary,
     opacity: 0.9,
   },
@@ -1512,10 +1577,15 @@ const styles = StyleSheet.create({
     maxWidth: '100%',
   },
   streakBannerTitle: {
-    fontSize: 13,
-    fontWeight: '700',
+    fontSize: 22,
+    fontWeight: '800',
     color: colors.text,
     textAlign: 'center',
+  },
+  streakMainRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
   },
   streakBannerTitleEmphasis: {
     textShadowColor: colors.primary + '55',
@@ -1529,10 +1599,10 @@ const styles = StyleSheet.create({
     color: colors.primaryDark,
   },
   streakBannerSub: {
-    fontSize: 10,
+    fontSize: 11,
     color: colors.textMuted,
     textAlign: 'center',
-    marginTop: 2,
+    marginTop: 4,
   },
   ctaFooterInner: {
     paddingHorizontal: spacing.md,
@@ -1540,14 +1610,22 @@ const styles = StyleSheet.create({
     paddingBottom: 0,
     backgroundColor: colors.surfaceLight,
   },
+  ctaHintRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+    gap: 6,
+    marginBottom: 6,
+  },
   ctaHint: {
-    fontSize: 10,
-    lineHeight: 12,
+    fontSize: 12,
+    lineHeight: 16,
     color: colors.textSecondary,
-    textAlign: 'center',
+    textAlign: 'left',
     marginBottom: CTA_HINT_MARGIN_BOTTOM,
     paddingHorizontal: 2,
     marginTop: 0,
+    maxWidth: '92%',
   },
   ctaButton: {
     flexDirection: 'row',
@@ -1562,49 +1640,50 @@ const styles = StyleSheet.create({
   kettlebellIcon: {width: 26, height: 26, marginRight: spacing.sm, tintColor: colors.white},
   ctaButtonText: {...typography.bodyBold, color: colors.white},
   ctaSpinner: {marginLeft: spacing.sm},
-  modalContainer: {flex: 1, backgroundColor: colors.background, paddingTop: 60},
+  modalContainer: {flex: 1, backgroundColor: colors.background, paddingTop: 66},
   modalHeader: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: spacing.lg,
-    paddingVertical: spacing.md,
+    paddingVertical: spacing.md + 2,
     borderBottomWidth: 1,
     borderBottomColor: colors.border,
   },
-  modalTitle: {...typography.h4, color: colors.text},
+  modalTitle: {...typography.h3, color: colors.text},
   modalClose: {padding: 4},
-  modalSearch: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.sm,
-    margin: spacing.lg,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    backgroundColor: colors.backgroundCard,
-    borderRadius: radius.md,
-    borderWidth: 1,
-    borderColor: colors.border,
+  modalSearchOuter: {
+    marginHorizontal: spacing.lg,
+    marginTop: spacing.md,
+    marginBottom: spacing.lg,
   },
-  modalSearchInput: {flex: 1, ...typography.body, color: colors.text, padding: 0},
   modalList: {flex: 1},
   modalSection: {marginBottom: spacing.xl, paddingHorizontal: spacing.lg},
   modalSectionLabel: {
     ...typography.caption,
     fontWeight: '600',
     color: colors.textSecondary,
-    marginBottom: spacing.sm,
+    marginBottom: spacing.md,
     textTransform: 'uppercase',
+    letterSpacing: 0.45,
   },
   modalGymRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: spacing.md,
-    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.md + 2,
+    paddingHorizontal: spacing.md,
     gap: spacing.md,
     backgroundColor: colors.backgroundCard,
-    marginBottom: 4,
-    borderRadius: radius.md,
+    marginBottom: spacing.sm,
+    borderRadius: radius.lg,
+    ...(Platform.OS === 'ios'
+      ? {
+          shadowColor: '#000',
+          shadowOffset: {width: 0, height: 2},
+          shadowOpacity: 0.04,
+          shadowRadius: 6,
+        }
+      : {elevation: 1}),
   },
   modalGymInfo: {flex: 1},
   modalGymName: {...typography.bodyBold, color: colors.text},

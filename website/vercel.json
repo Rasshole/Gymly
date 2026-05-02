@@ -4,6 +4,8 @@
     { "source": "/confirm", "destination": "/confirm/index.html" },
     { "source": "/confirm/", "destination": "/confirm/index.html" },
     { "source": "/auth/confirm", "destination": "/auth-confirm/index.html" },
-    { "source": "/auth/confirm/", "destination": "/auth-confirm/index.html" }
+    { "source": "/auth/confirm/", "destination": "/auth-confirm/index.html" },
+    { "source": "/reset-password", "destination": "/reset-password/index.html" },
+    { "source": "/reset-password/", "destination": "/reset-password/index.html" }
   ]
 }

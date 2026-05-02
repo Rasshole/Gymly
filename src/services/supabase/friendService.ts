@@ -1,11 +1,13 @@
 import {supabase} from '@/services/supabase/supabaseClient';
 import type {User} from '@/types/user.types';
+import {withAvatarCacheBust} from '../../utils/avatar';
 
 export type PublicProfile = {
   id: string;
   username: string;
   displayName: string;
   avatarUrl: string | null;
+  avatarUpdatedAt?: string | null;
 };
 
 export type FriendRequestRow = {
@@ -21,12 +23,14 @@ function mapProfile(row: {
   username: string;
   display_name: string;
   avatar_url: string | null;
+  updated_at?: string | null;
 }): PublicProfile {
   return {
     id: row.id,
     username: row.username,
     displayName: row.display_name,
-    avatarUrl: row.avatar_url,
+    avatarUrl: withAvatarCacheBust(row.avatar_url, row.updated_at),
+    avatarUpdatedAt: row.updated_at ?? null,
   };
 }
 
@@ -66,13 +70,13 @@ export async function searchProfiles(
   const [byUser, byName] = await Promise.all([
     supabase
       .from('profiles')
-      .select('id, username, display_name, avatar_url')
+      .select('id, username, display_name, avatar_url, updated_at')
       .neq('id', currentUserId)
       .ilike('username', pattern)
       .limit(15),
     supabase
       .from('profiles')
-      .select('id, username, display_name, avatar_url')
+      .select('id, username, display_name, avatar_url, updated_at')
       .neq('id', currentUserId)
       .ilike('display_name', pattern)
       .limit(15),
@@ -102,7 +106,7 @@ export async function getPublicProfilesByIds(
   }
   const {data, error} = await supabase
     .from('profiles')
-    .select('id, username, display_name, avatar_url')
+    .select('id, username, display_name, avatar_url, updated_at')
     .in('id', uniq);
   if (error) {
     throw error;
@@ -306,7 +310,7 @@ export async function listFriendsWithProfiles(
 
   const {data: profiles, error: pErr} = await supabase
     .from('profiles')
-    .select('id, username, display_name, avatar_url')
+    .select('id, username, display_name, avatar_url, updated_at')
     .in('id', friendIds);
 
   if (pErr) {
@@ -336,7 +340,7 @@ export async function listPendingIncomingRequests(
 
   const {data: profiles} = await supabase
     .from('profiles')
-    .select('id, username, display_name, avatar_url')
+    .select('id, username, display_name, avatar_url, updated_at')
     .in('id', fromIds);
 
   const byId = new Map((profiles ?? []).map(p => [p.id, mapProfile(p as any)]));

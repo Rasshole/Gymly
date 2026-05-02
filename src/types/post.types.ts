@@ -12,5 +12,6 @@ export type WorkoutPostRow = {
   workout_type: string;
   mood_rating: number | null;
   author_display_name: string;
+  author_avatar_url?: string | null;
   created_at: string;
 };

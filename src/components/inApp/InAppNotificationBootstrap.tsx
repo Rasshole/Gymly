@@ -8,7 +8,6 @@ import {useInAppNotificationStore} from '@/store/inAppNotificationStore';
 export function InAppNotificationBootstrap() {
   const userId = useAppStore(s => s.user?.id);
   const refresh = useInAppNotificationStore(s => s.refresh);
-  const startRt = useInAppNotificationStore(s => s.startRealtime);
   const reset = useInAppNotificationStore(s => s.reset);
 
   useEffect(() => {
@@ -17,8 +16,7 @@ export function InAppNotificationBootstrap() {
       return;
     }
     void refresh(userId);
-    return startRt(userId);
-  }, [userId, refresh, startRt, reset]);
+  }, [userId, refresh, reset]);
 
   return null;
 }

@@ -15,6 +15,7 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
 import {useSessionStore} from '@/store/sessionStore';
+import {useCheckInUIStore} from '@/store/checkInUIStore';
 import {useGymPresence} from '@/hooks/useGymPresence';
 import {useAppStore} from '@/store/appStore';
 import {useFriendStore} from '@/store/friendStore';
@@ -55,6 +56,7 @@ export interface ActiveSessionViewProps {
 const ActiveSessionView: React.FC<ActiveSessionViewProps> = ({onEndSession}) => {
   const navigation = useNavigation<any>();
   const {activeSession, getElapsedSeconds} = useSessionStore();
+  const showAwayZoneWarning = useCheckInUIStore(s => s.showAwayZoneWarning);
   const {gyms} = useGymPresence();
   const {user} = useAppStore();
   const friendIds = useFriendStore(s => s.friendIds);
@@ -131,6 +133,14 @@ const ActiveSessionView: React.FC<ActiveSessionViewProps> = ({onEndSession}) => 
         showsVerticalScrollIndicator={false}>
         {/* Main card – gammel design */}
         <View style={styles.card}>
+          {showAwayZoneWarning ? (
+            <View style={styles.awayWarningBanner} accessibilityRole="alert">
+              <Text style={styles.awayWarningText}>
+                Det ser ud til, at du har forladt centeret. Du bliver snart automatisk
+                tjekket ud.
+              </Text>
+            </View>
+          ) : null}
           <Text style={styles.cardTitle}>Du er nu tjekket ind</Text>
           <Text style={styles.cardSubtitle}>
             I {activeSession.gymName} • {workoutLabel}
@@ -187,6 +197,8 @@ const ActiveSessionView: React.FC<ActiveSessionViewProps> = ({onEndSession}) => 
         user={selectedUser}
         visible={!!selectedUser}
         onClose={() => setSelectedUser(null)}
+        viewerUserId={user?.id}
+        viewerName={currentUserName}
       />
 
       {/* PR exercise selection modal */}
@@ -245,6 +257,19 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.08,
     shadowRadius: 8,
     elevation: 3,
+  },
+  awayWarningBanner: {
+    backgroundColor: 'rgba(139, 92, 246, 0.12)',
+    borderWidth: 1,
+    borderColor: 'rgba(139, 92, 246, 0.45)',
+    borderRadius: radius.lg,
+    padding: spacing.md,
+    marginBottom: spacing.md,
+  },
+  awayWarningText: {
+    ...typography.small,
+    color: colors.text,
+    lineHeight: 20,
   },
   cardTitle: {
     ...typography.h3,

@@ -1,5 +1,6 @@
 import {create} from 'zustand';
-import {supabase} from '@/services/supabase/supabaseClient';
+import type {RealtimeChannel} from '@supabase/supabase-js';
+import {logRealtimeEvent, logRealtimeStore} from '@/realtime/realtimeDebug';
 import {
   fetchInAppNotifications,
   getUnreadInAppCount,
@@ -23,7 +24,6 @@ type InAppState = {
   setRows: (r: NotificationRow[], uid: string) => void;
   reset: () => void;
   refresh: (userId: string) => Promise<void>;
-  startRealtime: (userId: string) => () => void;
   markRead: (id: string, userId: string) => Promise<void>;
   markAllRead: (userId: string) => Promise<void>;
   setFriendRequestOutcome: (
@@ -36,8 +36,6 @@ type InAppState = {
   removeInAppRowById: (notifId: string) => void;
 };
 
-let realtimeCleanup: (() => void) | null = null;
-
 export const useInAppNotificationStore = create<InAppState>((set, get) => ({
   rows: [],
   dbUnread: 0,
@@ -47,10 +45,6 @@ export const useInAppNotificationStore = create<InAppState>((set, get) => ({
   setRows: (r, uid) => set({rows: r, loadedUserId: uid}),
 
   reset: () => {
-    if (realtimeCleanup) {
-      realtimeCleanup();
-      realtimeCleanup = null;
-    }
     set({rows: [], dbUnread: 0, loadedUserId: null, friendRequestOutcomes: {}});
   },
 
@@ -101,7 +95,8 @@ export const useInAppNotificationStore = create<InAppState>((set, get) => ({
 
   clearFriendRequestOutcome: notifId => {
     set(state => {
-      const {[notifId]: _, ...rest} = state.friendRequestOutcomes;
+      const rest = {...state.friendRequestOutcomes};
+      delete rest[notifId];
       return {friendRequestOutcomes: rest};
     });
   },
@@ -111,7 +106,8 @@ export const useInAppNotificationStore = create<InAppState>((set, get) => ({
       const row = state.rows.find(r => r.id === notifId);
       const wasUnread = row && !row.is_read;
       const next = state.rows.filter(r => r.id !== notifId);
-      const {[notifId]: _, ...outcomes} = state.friendRequestOutcomes;
+      const outcomes = {...state.friendRequestOutcomes};
+      delete outcomes[notifId];
       const frP = next.filter(
         r => r.type === 'friend_request' && !r.is_read,
       ).length;
@@ -122,79 +118,6 @@ export const useInAppNotificationStore = create<InAppState>((set, get) => ({
         dbUnread: wasUnread ? Math.max(0, state.dbUnread - 1) : state.dbUnread,
       };
     });
-  },
-
-  startRealtime: (userId: string) => {
-    if (realtimeCleanup) {
-      realtimeCleanup();
-    }
-    const ch = supabase
-      .channel(`inapp_notif_store_${userId}`)
-      .on(
-        'postgres_changes',
-        {
-          event: 'INSERT',
-          schema: 'public',
-          table: 'notifications',
-          filter: `user_id=eq.${userId}`,
-        },
-        payload => {
-          const n = payload.new as NotificationRow;
-          set(state => {
-            if (state.rows.some(p => p.id === n.id)) {
-              return state;
-            }
-            const nextRows = [n, ...state.rows];
-            const nextUnread = n.is_read
-              ? state.dbUnread
-              : state.dbUnread + 1;
-            const frP = nextRows.filter(
-              r => r.type === 'friend_request' && !r.is_read,
-            ).length;
-            useNotificationStore.getState().setIncomingFriendRequestCount(frP);
-            return {rows: nextRows, dbUnread: nextUnread};
-          });
-        },
-      )
-      .on(
-        'postgres_changes',
-        {
-          event: 'UPDATE',
-          schema: 'public',
-          table: 'notifications',
-          filter: `user_id=eq.${userId}`,
-        },
-        () => {
-          void get()
-            .refresh(userId)
-            .catch(() => {});
-        },
-      )
-      .on(
-        'postgres_changes',
-        {
-          event: 'DELETE',
-          schema: 'public',
-          table: 'notifications',
-          filter: `user_id=eq.${userId}`,
-        },
-        payload => {
-          const oldId = (payload.old as {id?: string})?.id;
-          if (oldId) {
-            get().removeInAppRowById(oldId);
-          }
-        },
-      )
-      .subscribe();
-    realtimeCleanup = () => {
-      void supabase.removeChannel(ch);
-      realtimeCleanup = null;
-    };
-    return () => {
-      if (realtimeCleanup) {
-        realtimeCleanup();
-      }
-    };
   },
 
   markRead: async (id, userId) => {
@@ -224,3 +147,71 @@ export const useInAppNotificationStore = create<InAppState>((set, get) => ({
     useNotificationStore.getState().setIncomingFriendRequestCount(0);
   },
 }));
+
+/**
+ * Tilsluttes én fælles GymlyRealtimeHub-kanal (ingen duplikat subscriptions).
+ */
+export function attachInAppNotificationsToHubChannel(
+  channel: RealtimeChannel,
+  userId: string,
+): RealtimeChannel {
+  return channel
+    .on(
+      'postgres_changes',
+      {
+        event: 'INSERT',
+        schema: 'public',
+        table: 'notifications',
+        filter: `user_id=eq.${userId}`,
+      },
+      payload => {
+        logRealtimeEvent('notifications', 'notifications', 'INSERT', userId);
+        const n = payload.new as NotificationRow;
+        useInAppNotificationStore.setState(state => {
+          if (state.rows.some(p => p.id === n.id)) {
+            return state;
+          }
+          const nextRows = [n, ...state.rows];
+          const nextUnread = n.is_read ? state.dbUnread : state.dbUnread + 1;
+          const frP = nextRows.filter(
+            r => r.type === 'friend_request' && !r.is_read,
+          ).length;
+          useNotificationStore.getState().setIncomingFriendRequestCount(frP);
+          return {rows: nextRows, dbUnread: nextUnread};
+        });
+        logRealtimeStore('notifications', 'insert_row');
+      },
+    )
+    .on(
+      'postgres_changes',
+      {
+        event: 'UPDATE',
+        schema: 'public',
+        table: 'notifications',
+        filter: `user_id=eq.${userId}`,
+      },
+      () => {
+        logRealtimeEvent('notifications', 'notifications', 'UPDATE', userId);
+        useInAppNotificationStore.getState().refresh(userId).catch(() => {});
+        logRealtimeStore('notifications', 'refresh_after_update');
+      },
+    )
+    .on(
+      'postgres_changes',
+      {
+        event: 'DELETE',
+        schema: 'public',
+        table: 'notifications',
+        filter: `user_id=eq.${userId}`,
+      },
+      payload => {
+        logRealtimeEvent('notifications', 'notifications', 'DELETE', userId);
+        const oldId = (payload.old as {id?: string})?.id;
+        if (oldId) {
+          useInAppNotificationStore.getState().removeInAppRowById(oldId);
+          logRealtimeStore('notifications', 'remove_row');
+        }
+      },
+    );
+}
+

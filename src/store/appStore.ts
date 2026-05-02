@@ -13,9 +13,10 @@ import {upsertMyProfile} from '@/services/supabase/friendService';
 import {useFriendStore} from '@/store/friendStore';
 import {useInAppNotificationStore} from '@/store/inAppNotificationStore';
 import {useSessionStore} from '@/store/sessionStore';
+import {useBadgeStore} from '@/store/badgeStore';
 
 function syncPublicProfileToSupabase(user: User) {
-  void upsertMyProfile(user).catch(err => {
+  upsertMyProfile(user).catch(err => {
     if (__DEV__) {
       console.warn('[appStore] upsertMyProfile', err);
     }
@@ -50,58 +51,83 @@ export const useAppStore = create<AppState>((set, get) => ({
    */
   initialize: async () => {
     set({isLoading: true});
-    
+
     try {
-      // Check if tokens exist and are valid
+      // Source of truth: Supabase persisted session (AsyncStorage).
+      const {
+        data: {session},
+      } = await supabase.auth.getSession();
+
+      if (session?.user && session.access_token && session.refresh_token) {
+        const fromAuth = AuthService.getMappedUser(session.user);
+        const storedUser = await SecureStorage.getUserData();
+        const mergedUser = (() => {
+          if (!storedUser) {
+            return fromAuth;
+          }
+          const fallbackDisplayName =
+            (storedUser.displayName || '').trim().length > 0
+              ? storedUser.displayName
+              : fromAuth.displayName;
+          const fallbackGyms =
+            Array.isArray(storedUser.favoriteGyms) &&
+            storedUser.favoriteGyms.length > 0
+              ? storedUser.favoriteGyms
+              : fromAuth.favoriteGyms;
+          return {
+            ...fromAuth,
+            displayName: fallbackDisplayName,
+            favoriteGyms: fallbackGyms,
+          };
+        })();
+        const tokens: AuthTokens = {
+          accessToken: session.access_token,
+          refreshToken: session.refresh_token,
+          expiresAt:
+            (session.expires_at ?? Math.floor(Date.now() / 1000) + 3600) * 1000,
+        };
+
+        await SecureStorage.saveTokens(tokens);
+        await SecureStorage.saveUserData(mergedUser);
+
+        set({
+          isAuthenticated: true,
+          user: mergedUser,
+          tokens,
+          isLoading: false,
+        });
+
+        useBadgeStore
+          .getState()
+          .hydrate()
+          .then(() => {
+            useBadgeStore
+              .getState()
+              .syncBadgesForUser(
+                mergedUser.id,
+                (mergedUser.displayName || '').trim() || 'Bruger',
+              );
+          })
+          .catch(() => {});
+        syncPublicProfileToSupabase(mergedUser);
+        return;
+      }
+
+      // Fallback for legacy local token storage when session restore fails.
       const tokens = await SecureStorage.getTokens();
       const isValid = await SecureStorage.areTokensValid();
-      
-      if (tokens && isValid) {
-        let user = await SecureStorage.getUserData();
-        
-        if (user) {
-          const dn = (user.displayName || '').trim().toLowerCase();
-          const isGenericName =
-            !dn ||
-            dn === 'user' ||
-            dn.includes('google user') ||
-            dn.includes('gymly user');
-          if (isGenericName) {
-            user = {...user, displayName: ''};
-            await SecureStorage.saveUserData(user);
-          }
-          try {
-            const {
-              data: {session},
-            } = await supabase.auth.getSession();
-            if (session?.user) {
-              const fromAuth = AuthService.getMappedUser(session.user);
-              const metaGyms = fromAuth.favoriteGyms;
-              const localGyms = user.favoriteGyms;
-              if (
-                Array.isArray(metaGyms) &&
-                metaGyms.length > 0 &&
-                (!Array.isArray(localGyms) || localGyms.length === 0)
-              ) {
-                user = {...user, favoriteGyms: metaGyms};
-                await SecureStorage.saveUserData(user);
-              }
-            }
-          } catch {
-            // session merge er best-effort
-          }
-          set({
-            isAuthenticated: true,
-            user,
-            tokens,
-            isLoading: false,
-          });
-          syncPublicProfileToSupabase(user);
-          return;
-        }
+      const user = await SecureStorage.getUserData();
+      if (tokens && isValid && user) {
+        set({
+          isAuthenticated: true,
+          user,
+          tokens,
+          isLoading: false,
+        });
+        return;
       }
-      
-      // No valid session found
+
+      // No valid session found.
       set({
         isAuthenticated: false,
         user: null,
@@ -128,6 +154,18 @@ export const useAppStore = create<AppState>((set, get) => ({
       user,
       tokens,
     });
+    useBadgeStore
+      .getState()
+      .hydrate()
+      .then(() => {
+        useBadgeStore
+          .getState()
+          .syncBadgesForUser(
+            user.id,
+            (user.displayName || '').trim() || 'Bruger',
+          );
+      })
+      .catch(() => {});
     syncPublicProfileToSupabase(user);
   },
 

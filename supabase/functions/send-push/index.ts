@@ -27,6 +27,11 @@ type NotifRow = {
   data: Record<string, unknown> | null;
 };
 
+type PushTokenRow = {
+  token: string;
+  platform: string | null;
+};
+
 function jsonResponse(body: object, status = 200) {
   return new Response(JSON.stringify(body), {
     status,
@@ -79,8 +84,18 @@ function preferenceAllows(
   if (type === "friend_request" || type === "friend_request_accepted") {
     return p.friend_requests_enabled;
   }
-  if (type === "friend_checked_in") {
+  if (type === "friend_checked_in" || type === "workout_reaction" || type === "biceps_reaction") {
     return p.check_ins_enabled;
+  }
+  if (
+    type === "gymly_group_invite" ||
+    type === "gymly_group_invite_declined" ||
+    type === "gymly_group_member_joined" ||
+    type === "gymly_group_message" ||
+    type === "gymly_planned_in_group" ||
+    type === "gymly_group_check_in"
+  ) {
+    return p.messages_enabled;
   }
   if (type === "badge_unlocked" || type === "streak_milestone" || type === "badge_progress") {
     return p.badges_streaks_enabled;
@@ -96,6 +111,44 @@ function preferenceAllows(
     return p.workout_reminders_enabled;
   }
   return true;
+}
+
+async function loadPushTokens(
+  admin: ReturnType<typeof createClient>,
+  userId: string,
+): Promise<PushTokenRow[]> {
+  const primary = await admin
+    .from("push_tokens")
+    .select("token, platform")
+    .eq("user_id", userId)
+    .eq("enabled", true);
+  if (!primary.error && primary.data) {
+    return primary.data as PushTokenRow[];
+  }
+  const fallback = await admin
+    .from("user_push_tokens")
+    .select("token, platform")
+    .eq("user_id", userId)
+    .eq("enabled", true);
+  return (fallback.data ?? []) as PushTokenRow[];
+}
+
+async function disableInvalidToken(
+  admin: ReturnType<typeof createClient>,
+  userId: string,
+  token: string,
+): Promise<void> {
+  const patch = {enabled: false, updated_at: new Date().toISOString()};
+  await admin
+    .from("push_tokens")
+    .update(patch)
+    .eq("user_id", userId)
+    .eq("token", token);
+  await admin
+    .from("user_push_tokens")
+    .update(patch)
+    .eq("user_id", userId)
+    .eq("token", token);
 }
 
 Deno.serve(async (req) => {
@@ -169,13 +222,8 @@ Deno.serve(async (req) => {
     return jsonResponse({ok: true, skipped: "preferences"});
   }
 
-  const {data: tokens, error: te} = await admin
-    .from("user_push_tokens")
-    .select("token, platform")
-    .eq("user_id", rec.user_id)
-    .eq("enabled", true);
-
-  if (te || !tokens?.length) {
+  const tokens = await loadPushTokens(admin, rec.user_id);
+  if (!tokens.length) {
     return jsonResponse({ok: true, sent: 0, reason: "no tokens"});
   }
 
@@ -200,6 +248,7 @@ Deno.serve(async (req) => {
   dataPayload.targetUserId = rec.user_id;
 
   let sent = 0;
+  let disabled = 0;
   for (const t of tokens) {
     const body = {
       message: {
@@ -229,8 +278,16 @@ Deno.serve(async (req) => {
     } else {
       const errText = await r.text();
       console.error("FCM error", r.status, errText);
+      if (
+        errText.includes("UNREGISTERED") ||
+        errText.includes("registration-token-not-registered") ||
+        errText.includes("INVALID_ARGUMENT")
+      ) {
+        await disableInvalidToken(admin, rec.user_id, t.token);
+        disabled += 1;
+      }
     }
   }
 
-  return jsonResponse({ok: true, sent});
+  return jsonResponse({ok: true, sent, disabled});
 });

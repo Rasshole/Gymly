@@ -11,7 +11,6 @@ import {
   ScrollView,
   TouchableOpacity,
   Pressable,
-  TextInput,
   Platform,
   PermissionsAndroid,
   Modal,
@@ -24,8 +23,10 @@ import {useAppStore} from '@/store/appStore';
 import {useGymStore} from '@/store/gymStore';
 import {useNavigation} from '@react-navigation/native';
 import GymLogoView from '@/components/ui/GymLogoView';
+import {formatGymDisplayName, normalizeGymBrand} from '@/utils/gymDisplay';
 import {StackNavigationProp} from '@react-navigation/stack';
 import colors from '@/theme/colors';
+import SocialSearchBar from '@/components/social/SocialSearchBar';
 
 const formatDuration = (minutes: number): string => {
   if (minutes < 60) return `${minutes} min`;
@@ -93,13 +94,13 @@ const FavoriteGymItemWithLogo = ({
         <View style={styles.gymInfo}>
           <View style={styles.gymNameRow}>
             <Text style={styles.gymName} numberOfLines={1}>
-              {gym.name}
+              {formatGymDisplayName(gym)}
             </Text>
           </View>
           <View style={styles.gymDetails}>
             {gym.brand && (
               <Text style={styles.gymBrand} numberOfLines={1}>
-                {gym.brand}
+                  {normalizeGymBrand(gym.brand)}
               </Text>
             )}
             {gym.city && (
@@ -317,7 +318,7 @@ const CentresScreen = () => {
     }
     return (
       <GymLogoView
-        gymName={gym.name}
+        gymName={formatGymDisplayName(gym)}
         brand={gym.brand}
         size={48}
         style={styles.gymLogoSlot}
@@ -410,7 +411,7 @@ const CentresScreen = () => {
                     styles.statusText,
                     gymStatus.isOpen ? styles.statusTextOpen : styles.statusTextClosed,
                   ]}>
-                  {gymStatus.isOpen ? 'Åbent' : 'Lukket'}
+                  {gymStatus.isOpen ? 'Åbent nu' : 'Lukket nu'}
                 </Text>
               </View>
               <View style={styles.activeUsersContainer}>
@@ -427,7 +428,7 @@ const CentresScreen = () => {
               </View>
             </View>
           </View>
-          <Icon name="chevron-forward" size={20} color="#C7C7CC" />
+          <Icon name="chevron-forward" size={22} color="#C7C7CC" style={styles.rowChevron} />
         </TouchableOpacity>
         {activeUsers > 0 && (
           <Pressable
@@ -452,24 +453,12 @@ const CentresScreen = () => {
 
   return (
     <View style={styles.container}>
-      {/* Search Bar */}
-      <View style={styles.searchContainer}>
-        <Icon name="search" size={20} color="#8E8E93" style={styles.searchIcon} />
-        <TextInput
-          style={styles.searchInput}
-          placeholder="Søg efter centre..."
-          placeholderTextColor="#8E8E93"
-          value={searchQuery}
-          onChangeText={setSearchQuery}
-        />
-        {searchQuery.length > 0 && (
-          <TouchableOpacity
-            onPress={() => setSearchQuery('')}
-            style={styles.clearButton}>
-            <Icon name="close-circle" size={20} color="#8E8E93" />
-          </TouchableOpacity>
-        )}
-      </View>
+      <SocialSearchBar
+        value={searchQuery}
+        onChangeText={setSearchQuery}
+        placeholder="Søg efter centre..."
+        style={styles.searchOuter}
+      />
 
       {/* Scrollable Content */}
       <ScrollView
@@ -509,11 +498,8 @@ const CentresScreen = () => {
 
         {/* Gyms List */}
         <View style={styles.list}>
-          {otherGymsSorted.map((gym, index) => (
-            <View key={gym.id}>
-              {renderGymItem(gym)}
-              {index < otherGymsSorted.length - 1 && <View style={styles.separator} />}
-            </View>
+          {otherGymsSorted.map(gym => (
+            <View key={gym.id}>{renderGymItem(gym)}</View>
           ))}
         </View>
       </ScrollView>
@@ -545,7 +531,7 @@ const CentresScreen = () => {
             <View style={styles.modalHeader}>
               <Text style={styles.modalTitle}>
                 {activeUsersModal?.count} aktive
-                {activeUsersModal?.gym ? ` – ${activeUsersModal.gym.name}` : ''}
+                {activeUsersModal?.gym ? ` – ${formatGymDisplayName(activeUsersModal.gym)}` : ''}
               </Text>
               <TouchableOpacity
                 onPress={() => setActiveUsersModal(null)}
@@ -591,34 +577,13 @@ const styles = StyleSheet.create({
   scrollContent: {
     paddingBottom: 16,
   },
-  searchContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.backgroundCard,
+  searchOuter: {
     marginHorizontal: 16,
-    marginTop: 8,
-    marginBottom: 8,
-    paddingHorizontal: 12,
-    paddingVertical: 10,
-    borderRadius: 10,
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 1},
-    shadowOpacity: 0.05,
-    shadowRadius: 4,
-    elevation: 2,
+    marginTop: 10,
+    marginBottom: 10,
   },
-  searchIcon: {
-    marginRight: 8,
-  },
-  searchInput: {
-    flex: 1,
-    fontSize: 16,
-    color: colors.text,
-    padding: 0,
-  },
-  clearButton: {
-    marginLeft: 8,
-    padding: 4,
+  rowChevron: {
+    alignSelf: 'center',
   },
   statsContainer: {
     paddingHorizontal: 16,
@@ -655,11 +620,6 @@ const styles = StyleSheet.create({
     right: 44,
     bottom: 16,
     zIndex: 10,
-  },
-  separator: {
-    height: 1,
-    backgroundColor: '#E5E5EA',
-    marginLeft: 64,
   },
   gymIcon: {
     width: 48,
@@ -780,8 +740,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   gymName: {
-    fontSize: 16,
-    fontWeight: '600',
+    fontSize: 17,
+    fontWeight: '700',
     color: colors.text,
     marginBottom: 4,
   },
@@ -800,8 +760,8 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
   },
   gymAddress: {
-    fontSize: 12,
-    color: colors.textMuted,
+    fontSize: 13,
+    color: colors.textTertiary,
   },
   activeUsersContainer: {
     flexDirection: 'row',
@@ -837,8 +797,9 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   distanceText: {
-    fontSize: 14,
-    color: colors.textMuted,
+    fontSize: 12,
+    color: colors.textTertiary,
+    fontWeight: '500',
   },
   statusRow: {
     marginTop: 4,
@@ -874,7 +835,8 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   statusTextOpen: {
-    color: '#34C759',
+    color: '#059669',
+    fontWeight: '600',
   },
   statusTextClosed: {
     color: '#FF3B30',

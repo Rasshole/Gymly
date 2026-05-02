@@ -9,7 +9,6 @@ import {
   StyleSheet,
   TouchableOpacity,
   Dimensions,
-  TextInput,
   Modal,
   ScrollView,
   PanResponder,
@@ -18,13 +17,20 @@ import {
   LayoutAnimation,
   UIManager,
   Platform,
+  PermissionsAndroid,
+  Animated,
 } from 'react-native';
-import MapView, {Marker, Region} from 'react-native-maps';
+import Geolocation, {
+  type GeolocationError,
+  type GeolocationResponse,
+} from '@react-native-community/geolocation';
+import MapView, {Marker, Region, AnimatedRegion} from 'react-native-maps';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {useNavigation, useFocusEffect, useIsFocused} from '@react-navigation/native';
+import {useNavigation, useFocusEffect} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
 import GymLogoView from '@/components/ui/GymLogoView';
+import {formatGymDisplayName} from '@/utils/gymDisplay';
 
 const MAP_GYMS = getActiveDanishGyms();
 import {useAppStore} from '@/store/appStore';
@@ -36,6 +42,7 @@ import {
   SelectedCenterCard,
   NearbyCentersCarousel,
 } from '@/components/map';
+import SocialSearchBar from '@/components/social/SocialSearchBar';
 import {loadMapGymBadges} from '@/services/supabase/presenceService';
 import {subscribeCheckInsPresence} from '@/realtime/checkInsPresenceSubscription';
 
@@ -53,9 +60,9 @@ const markerStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
+    shadowOffset: {width: 0, height: 3},
+    shadowOpacity: 0.22,
+    shadowRadius: 6,
     elevation: 8,
   },
   circleSelected: {
@@ -133,7 +140,6 @@ const calculateDistance = (
 
 const MapScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
-  const isFocused = useIsFocused();
   const {user} = useAppStore();
   const currentUserId = user?.id || '';
   const {users: onlineFriends, refresh: refreshOnlineFriends} = useOnlineUsers(
@@ -176,25 +182,26 @@ const MapScreen = () => {
   );
 
   useEffect(() => {
-    if (!isFocused) {
+    if (!user?.id) {
       return;
     }
     return subscribeCheckInsPresence(() => {
       void refreshMapBadges();
       void refreshOnlineFriends();
     });
-  }, [isFocused, refreshMapBadges, refreshOnlineFriends]);
+  }, [user?.id, refreshMapBadges, refreshOnlineFriends]);
 
+  /** Udebliver Realtime: sjælden synk (rollup + venner) */
   useEffect(() => {
-    if (!isFocused || !user?.id) {
+    if (!user?.id) {
       return;
     }
     const t = setInterval(() => {
       void refreshMapBadges();
       void refreshOnlineFriends();
-    }, 45000);
+    }, 3 * 60_000);
     return () => clearInterval(t);
-  }, [isFocused, user?.id, refreshMapBadges, refreshOnlineFriends]);
+  }, [user?.id, refreshMapBadges, refreshOnlineFriends]);
 
   const friends = useMemo(
     () =>
@@ -210,24 +217,170 @@ const MapScreen = () => {
 
   const mapRef = useRef<MapView>(null);
   const [selectedGym, setSelectedGym] = useState<DanishGym | null>(null);
-  const [userLocation] = useState({latitude: 55.6761, longitude: 12.5683});
+  const [userLocation, setUserLocation] = useState({latitude: 55.6761, longitude: 12.5683});
+  const userAnimatedCoordinateRef = useRef(
+    new AnimatedRegion({
+      latitude: 55.6761,
+      longitude: 12.5683,
+      latitudeDelta: 0.0005,
+      longitudeDelta: 0.0005,
+    }),
+  );
+  const markerPulse = useRef(new Animated.Value(0.35)).current;
+  const lastLocationUpdateMsRef = useRef(0);
+  const watchIdRef = useRef<number | null>(null);
+  const [followUserMode, setFollowUserMode] = useState(false);
+  const [locationPermissionStatus, setLocationPermissionStatus] = useState<
+    'idle' | 'granted' | 'denied' | 'unavailable'
+  >('idle');
   const [searchQuery, setSearchQuery] = useState('');
   const [showCentersSheet, setShowCentersSheet] = useState(false);
   const [mapType, setMapType] = useState<'standard' | 'satellite' | 'hybrid' | 'terrain'>('standard');
   const [showMapTypePicker, setShowMapTypePicker] = useState(false);
 
-  const initialRegion: Region = {
-    latitude: 55.6761,
-    longitude: 12.5683,
-    latitudeDelta: 0.1,
-    longitudeDelta: 0.1,
-  };
+  const initialRegion = useMemo<Region>(
+    () => ({
+      latitude: 55.6761,
+      longitude: 12.5683,
+      latitudeDelta: 0.1,
+      longitudeDelta: 0.1,
+    }),
+    [],
+  );
 
   useEffect(() => {
     setTimeout(() => {
       mapRef.current?.animateToRegion(initialRegion, 1000);
     }, 200);
-  }, []);
+  }, [initialRegion]);
+
+  useEffect(() => {
+    const loop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(markerPulse, {
+          toValue: 1,
+          duration: 1200,
+          useNativeDriver: true,
+        }),
+        Animated.timing(markerPulse, {
+          toValue: 0.35,
+          duration: 1200,
+          useNativeDriver: true,
+        }),
+      ]),
+    );
+    loop.start();
+    return () => {
+      loop.stop();
+    };
+  }, [markerPulse]);
+
+  const applyLocationUpdate = useCallback(
+    (position: GeolocationResponse) => {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      const now = Date.now();
+      if (now - lastLocationUpdateMsRef.current < 900) {
+        return;
+      }
+      lastLocationUpdateMsRef.current = now;
+      setUserLocation(prev => {
+        const dLat = Math.abs(prev.latitude - latitude);
+        const dLng = Math.abs(prev.longitude - longitude);
+        if (dLat < 0.00001 && dLng < 0.00001) {
+          return prev;
+        }
+        return {latitude, longitude};
+      });
+      (userAnimatedCoordinateRef.current as any)
+        .timing({
+          latitude,
+          longitude,
+          latitudeDelta: 0.0005,
+          longitudeDelta: 0.0005,
+          duration: 550,
+        })
+        .start();
+      if (followUserMode) {
+        mapRef.current?.animateCamera(
+          {
+            center: {latitude, longitude},
+            zoom: 16.2,
+          },
+          {duration: 700},
+        );
+      }
+    },
+    [followUserMode],
+  );
+
+  const requestAndStartLocationWatch = useCallback(async () => {
+    if (Platform.OS === 'android') {
+      try {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+          {
+            title: 'Placeringsadgang',
+            message: 'Gymly bruger lokation til kort og centerafstande',
+            buttonNegative: 'Annuller',
+            buttonPositive: 'OK',
+          },
+        );
+        if (granted !== PermissionsAndroid.RESULTS.GRANTED) {
+          setLocationPermissionStatus('denied');
+          return;
+        }
+      } catch {
+        setLocationPermissionStatus('unavailable');
+        return;
+      }
+    } else {
+      Geolocation.requestAuthorization(
+        () => {},
+        () => {},
+      );
+    }
+
+    setLocationPermissionStatus('granted');
+    Geolocation.getCurrentPosition(
+      pos => applyLocationUpdate(pos),
+      (_err: GeolocationError) => {
+        setLocationPermissionStatus('unavailable');
+      },
+      {enableHighAccuracy: false, timeout: 10_000, maximumAge: 60_000},
+    );
+
+    watchIdRef.current = Geolocation.watchPosition(
+      pos => applyLocationUpdate(pos),
+      (err: GeolocationError) => {
+        if (err?.code === 1) {
+          setLocationPermissionStatus('denied');
+        }
+      },
+      {
+        enableHighAccuracy: true,
+        distanceFilter: 6,
+        interval: 2500,
+        fastestInterval: 1500,
+        useSignificantChanges: false,
+      },
+    ) as unknown as number;
+  }, [applyLocationUpdate]);
+
+  useFocusEffect(
+    useCallback(() => {
+      requestAndStartLocationWatch().catch(() => {
+        setLocationPermissionStatus('unavailable');
+      });
+      return () => {
+        if (watchIdRef.current != null) {
+          Geolocation.clearWatch(watchIdRef.current);
+          watchIdRef.current = null;
+        }
+        setFollowUserMode(false);
+      };
+    }, [requestAndStartLocationWatch]),
+  );
 
   const getDistanceText = useCallback(
     (gym: DanishGym): string => {
@@ -262,10 +415,6 @@ const MapScreen = () => {
       .sort((a, b) => a.distance - b.distance)
       .map(item => item.gym);
   }, [searchQuery, userLocation]);
-
-  const nearestGyms = useMemo(() => {
-    return filteredAndSortedGyms.slice(0, 5);
-  }, [filteredAndSortedGyms]);
 
   /** Alle aktive centre — markører (søgning skjuler ikke pins) */
   const allMapCenters = useMemo(
@@ -344,7 +493,7 @@ const MapScreen = () => {
     setTimeout(() => {
       mapRef.current?.animateToRegion(initialRegion, 500);
     }, 100);
-  }, []);
+  }, [initialRegion]);
 
   const handleOpenCentersSheet = useCallback(() => setShowCentersSheet(true), []);
   const handleCloseCentersSheet = useCallback(() => setShowCentersSheet(false), []);
@@ -355,7 +504,9 @@ const MapScreen = () => {
         onStartShouldSetPanResponder: () => true,
         onMoveShouldSetPanResponder: (_, gs) => Math.abs(gs.dy) > 10 && gs.dy < 0,
         onPanResponderRelease: (_, gs) => {
-          if (gs.dy < -30) handleOpenCentersSheet();
+          if (gs.dy < -30) {
+            handleOpenCentersSheet();
+          }
         },
       }),
     [handleOpenCentersSheet],
@@ -448,31 +599,55 @@ const MapScreen = () => {
         zoomEnabled
         pitchEnabled
         rotateEnabled
+        onPanDrag={() => {
+          if (followUserMode) {
+            setFollowUserMode(false);
+          }
+        }}
+        onRegionChangeComplete={(_, gesture) => {
+          if (followUserMode && gesture?.isGesture) {
+            setFollowUserMode(false);
+          }
+        }}
         onMapReady={() => mapRef.current?.animateToRegion(initialRegion, 1000)}>
-        <Marker coordinate={userLocation} title="Din placering">
-          <View style={styles.userMarker}>
-            <View style={styles.userMarkerDot} />
+        <Marker.Animated
+          coordinate={userAnimatedCoordinateRef.current as unknown as {latitude: number; longitude: number}}
+          title="Din placering">
+          <View style={styles.userMarkerWrap}>
+            <Animated.View
+              style={[
+                styles.userMarkerPulse,
+                {
+                  transform: [
+                    {
+                      scale: markerPulse.interpolate({
+                        inputRange: [0.35, 1],
+                        outputRange: [1, 1.9],
+                      }),
+                    },
+                  ],
+                  opacity: markerPulse.interpolate({
+                    inputRange: [0.35, 1],
+                    outputRange: [0.2, 0.03],
+                  }),
+                },
+              ]}
+            />
+            <View style={styles.userMarker}>
+              <View style={styles.userMarkerDot} />
+            </View>
           </View>
-        </Marker>
+        </Marker.Animated>
         {allMapCenters.map(renderGymMarker)}
       </MapView>
 
-      {/* Search */}
-      <View style={styles.searchContainer}>
-        <Icon name="search" size={20} color="#8E8E93" style={styles.searchIcon} />
-        <TextInput
-          style={styles.searchInput}
-          placeholder="Søg efter fitness centre..."
-          placeholderTextColor="#8E8E93"
-          value={searchQuery}
-          onChangeText={setSearchQuery}
-        />
-        {searchQuery.length > 0 && (
-          <TouchableOpacity onPress={() => setSearchQuery('')} style={styles.clearBtn}>
-            <Icon name="close-circle" size={20} color="#8E8E93" />
-          </TouchableOpacity>
-        )}
-      </View>
+      <SocialSearchBar
+        variant="floating"
+        value={searchQuery}
+        onChangeText={setSearchQuery}
+        placeholder="Søg efter fitness centre..."
+        style={styles.searchContainer}
+      />
 
       {/* Map type picker */}
       <TouchableOpacity
@@ -514,10 +689,27 @@ const MapScreen = () => {
       {/* Center on user */}
       <TouchableOpacity
         style={styles.locateBtn}
-        onPress={() => mapRef.current?.animateToRegion(initialRegion, 1000)}
+        onPress={() => {
+          setFollowUserMode(true);
+          mapRef.current?.animateCamera(
+            {
+              center: userLocation,
+              zoom: 16.2,
+            },
+            {duration: 600},
+          );
+        }}
         activeOpacity={0.8}>
         <Icon name="locate" size={24} color="#fff" />
       </TouchableOpacity>
+
+      {locationPermissionStatus === 'denied' ? (
+        <View style={styles.locationHint}>
+          <Text style={styles.locationHintText}>
+            Slå lokation til for at se centre tæt på dig
+          </Text>
+        </View>
+      ) : null}
 
       {/* Selected center card - floats above carousel */}
       {selectedGym && selectedActivity && (
@@ -595,7 +787,7 @@ const MapScreen = () => {
                           <GymLogoView gymName={gym.name} brand={gym.brand} size={48} />
                         </View>
                         <View style={styles.sheetItemInfo}>
-                          <Text style={styles.sheetItemName}>{gym.name}</Text>
+                          <Text style={styles.sheetItemName}>{formatGymDisplayName(gym)}</Text>
                           {gym.city && <Text style={styles.sheetItemCity}>{gym.city}</Text>}
                           <View style={styles.sheetActivity}>
                             <Icon name="people" size={14} color={colors.secondary} />
@@ -634,7 +826,7 @@ const MapScreen = () => {
                           <GymLogoView gymName={gym.name} brand={gym.brand} size={48} />
                         </View>
                         <View style={styles.sheetItemInfo}>
-                          <Text style={styles.sheetItemName}>{gym.name}</Text>
+                          <Text style={styles.sheetItemName}>{formatGymDisplayName(gym)}</Text>
                           {gym.city && <Text style={styles.sheetItemCity}>{gym.city}</Text>}
                           <View style={styles.sheetActivity}>
                             <Icon name="people" size={14} color={colors.secondary} />
@@ -669,39 +861,25 @@ const styles = StyleSheet.create({
   map: {width: Dimensions.get('window').width, height: Dimensions.get('window').height},
   searchContainer: {
     position: 'absolute',
-    top: 30,
+    top: 32,
     left: 16,
     right: 16,
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.backgroundCard,
-    borderRadius: 12,
-    paddingHorizontal: 12,
-    paddingVertical: 10,
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.15,
-    shadowRadius: 6,
-    elevation: 4,
     zIndex: 100,
   },
-  searchIcon: {marginRight: 8},
-  searchInput: {flex: 1, fontSize: 16, color: colors.text, padding: 0},
-  clearBtn: {padding: 4, marginLeft: 8},
   mapTypeBtn: {
     position: 'absolute',
-    bottom: 280,
+    bottom: 284,
     right: 16,
-    width: 48,
-    height: 48,
-    borderRadius: 24,
+    width: 52,
+    height: 52,
+    borderRadius: 26,
     backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 3},
+    shadowOpacity: 0.18,
+    shadowRadius: 6,
     elevation: 8,
     zIndex: 101,
   },
@@ -729,24 +907,37 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 220,
     right: 16,
-    width: 48,
-    height: 48,
-    borderRadius: 24,
+    width: 52,
+    height: 52,
+    borderRadius: 26,
     backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 3},
+    shadowOpacity: 0.18,
+    shadowRadius: 6,
     elevation: 8,
     zIndex: 100,
+  },
+  userMarkerWrap: {
+    width: 34,
+    height: 34,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  userMarkerPulse: {
+    position: 'absolute',
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    backgroundColor: colors.primary,
   },
   userMarker: {
     width: 22,
     height: 22,
     borderRadius: 11,
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.primary,
     borderWidth: 3,
     borderColor: '#fff',
     shadowColor: '#000',
@@ -769,6 +960,23 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignSelf: 'center',
     marginTop: 2,
+  },
+  locationHint: {
+    position: 'absolute',
+    top: 86,
+    left: 16,
+    right: 16,
+    backgroundColor: 'rgba(17, 24, 39, 0.82)',
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    zIndex: 101,
+  },
+  locationHintText: {
+    color: colors.white,
+    fontSize: 13,
+    textAlign: 'center',
+    fontWeight: '600',
   },
   carouselWrapper: {
     position: 'absolute',
@@ -810,17 +1018,17 @@ const styles = StyleSheet.create({
   sheetBackdrop: {position: 'absolute', top: 0, left: 0, right: 0, bottom: 0},
   sheetContainer: {
     backgroundColor: colors.backgroundCard,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
     height: Dimensions.get('window').height * 0.55,
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: -2},
-    shadowOpacity: 0.2,
-    shadowRadius: 8,
-    elevation: 8,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: -4},
+    shadowOpacity: 0.12,
+    shadowRadius: 16,
+    elevation: 12,
   },
-  sheetHandle: {alignItems: 'center', paddingTop: 12, paddingBottom: 8},
-  sheetHandleBar: {width: 40, height: 4, backgroundColor: '#E5E5EA', borderRadius: 2},
+  sheetHandle: {alignItems: 'center', paddingTop: 10, paddingBottom: 6},
+  sheetHandleBar: {width: 40, height: 5, backgroundColor: '#C7C7CC', borderRadius: 3},
   sheetHeader: {
     paddingHorizontal: 20,
     paddingBottom: 16,
@@ -838,9 +1046,9 @@ const styles = StyleSheet.create({
   sheetItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: '#F2F2F7',
+    paddingVertical: 16,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: '#E5E5EA',
   },
   sheetLogoWrapper: {width: 48, height: 48, marginRight: 12},
   sheetLogo: {width: 48, height: 48, borderRadius: 12, marginRight: 12, backgroundColor: colors.surfaceLight},
@@ -859,8 +1067,20 @@ const styles = StyleSheet.create({
   sheetItemCity: {fontSize: 13, color: colors.textMuted, marginBottom: 4},
   sheetActivity: {flexDirection: 'row', alignItems: 'center'},
   sheetActivityText: {fontSize: 12, fontWeight: '500', marginLeft: 4},
-  sheetItemRight: {flexDirection: 'row', alignItems: 'center', marginLeft: 12},
-  sheetDistance: {fontSize: 14, fontWeight: '600', color: colors.primary, marginRight: 4},
+  sheetItemRight: {
+    marginLeft: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    gap: 4,
+    minWidth: 80,
+  },
+  sheetDistance: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: colors.primary,
+    textAlign: 'right',
+  },
 });
 
 export default MapScreen;

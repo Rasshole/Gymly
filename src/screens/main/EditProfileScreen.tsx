@@ -3,7 +3,7 @@
  * Screen for editing user profile: bio, image, privacy settings, name, username
  */
 
-import React, {useState, useCallback} from 'react';
+import React, {useState, useCallback, useRef} from 'react';
 import {
   View,
   Text,
@@ -16,6 +16,8 @@ import {
   Image,
   Switch,
   Platform,
+  Animated,
+  Pressable,
 } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import {useNavigation} from '@react-navigation/native';
@@ -24,6 +26,13 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppStore} from '@/store/appStore';
 import {GymSlotsEditor} from '@/components/profile/GymSlotsEditor';
 import {ProfileVisibility} from '@/types/user.types';
+import {
+  spacing,
+  radius,
+  typography,
+  shadows,
+} from '@/theme/designTokens';
+import colors from '@/theme/colors';
 import {
   launchCamera,
   launchImageLibrary,
@@ -52,6 +61,7 @@ const EditProfileScreen = () => {
   const [city, setCity] = useState(user?.city || '');
   const [bicepsEmoji, setBicepsEmoji] = useState(user?.bicepsEmoji || '💪🏻');
   const [showGenderPicker, setShowGenderPicker] = useState(false);
+  const photoScale = useRef(new Animated.Value(1)).current;
   const [profileVisibility, setProfileVisibility] = useState<ProfileVisibility>(
     user?.privacySettings.profileVisibility || 'private'
   );
@@ -247,14 +257,32 @@ const EditProfileScreen = () => {
           <TouchableOpacity
             style={styles.imageContainer}
             onPress={handleProfilePhotoPick}
+            onPressIn={() =>
+              Animated.spring(photoScale, {
+                toValue: 0.97,
+                friction: 6,
+                tension: 300,
+                useNativeDriver: true,
+              }).start()
+            }
+            onPressOut={() =>
+              Animated.spring(photoScale, {
+                toValue: 1,
+                friction: 6,
+                tension: 240,
+                useNativeDriver: true,
+              }).start()
+            }
             activeOpacity={0.8}>
-            {profileImageUrl ? (
-              <Image source={{uri: profileImageUrl}} style={styles.profileImage} />
-            ) : (
-              <View style={styles.imagePlaceholder}>
-                <Icon name="camera" size={32} color="#007AFF" />
-              </View>
-            )}
+            <Animated.View style={{transform: [{scale: photoScale}]}}>
+              {profileImageUrl ? (
+                <Image source={{uri: profileImageUrl}} style={styles.profileImage} />
+              ) : (
+                <View style={styles.imagePlaceholder}>
+                  <Icon name="camera" size={32} color={colors.primary} />
+                </View>
+              )}
+            </Animated.View>
             <View style={styles.imageEditOverlay}>
               <Icon name="pencil" size={20} color="#fff" />
             </View>
@@ -315,16 +343,17 @@ const EditProfileScreen = () => {
           <Text style={styles.sectionTitle}>Standard biceps emoji</Text>
           <View style={styles.bicepsGrid}>
             {bicepsOptions.map(option => (
-              <TouchableOpacity
+              <Pressable
                 key={option}
-                style={[
+                style={({pressed}) => [
                   styles.bicepsOption,
                   bicepsEmoji === option && styles.bicepsOptionSelected,
+                  pressed && styles.bicepsOptionPressed,
                 ]}
                 onPress={() => setBicepsEmoji(option)}
-                activeOpacity={0.8}>
+                android_ripple={{color: '#00000010'}}>
                 <Text style={styles.bicepsEmoji}>{option}</Text>
-              </TouchableOpacity>
+              </Pressable>
             ))}
           </View>
         </View>
@@ -506,25 +535,25 @@ const EditProfileScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: colors.background,
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    backgroundColor: '#fff',
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm + 2,
+    backgroundColor: colors.backgroundCard,
     borderBottomWidth: 1,
-    borderBottomColor: '#E5E5EA',
+    borderBottomColor: colors.border,
   },
   backButton: {
     padding: 8,
   },
   headerTitle: {
     fontSize: 18,
-    fontWeight: '600',
-    color: '#000',
+    fontWeight: '700',
+    color: colors.text,
     flex: 1,
     textAlign: 'center',
     marginRight: 40, // Balance out the back button width
@@ -535,43 +564,44 @@ const styles = StyleSheet.create({
   saveButtonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#007AFF',
+    color: colors.primary,
   },
   scrollView: {
     flex: 1,
   },
   content: {
-    padding: 16,
+    padding: spacing.md,
   },
   section: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.backgroundCard,
     borderRadius: 16,
-    padding: 16,
-    marginBottom: 16,
+    padding: spacing.md,
+    marginBottom: spacing.md,
+    ...shadows.sm,
   },
   sectionTitle: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#000',
+    color: colors.text,
     marginBottom: 12,
   },
   imageContainer: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
+    width: 108,
+    height: 108,
+    borderRadius: 54,
     alignSelf: 'center',
     position: 'relative',
   },
   profileImage: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
+    width: 108,
+    height: 108,
+    borderRadius: 54,
   },
   imagePlaceholder: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    backgroundColor: '#E3F2FD',
+    width: 108,
+    height: 108,
+    borderRadius: 54,
+    backgroundColor: colors.primary + '16',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -582,21 +612,21 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 3,
-    borderColor: '#fff',
+    borderColor: colors.backgroundCard,
   },
   input: {
     borderWidth: 1,
-    borderColor: '#E5E5EA',
-    borderRadius: 12,
+    borderColor: colors.border,
+    borderRadius: 14,
     paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingVertical: 14,
     fontSize: 16,
-    color: '#000',
-    backgroundColor: '#F8F9FA',
+    color: colors.text,
+    backgroundColor: '#F4F5F8',
   },
   bioInput: {
     height: 100,
@@ -625,11 +655,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     borderWidth: 1,
-    borderColor: '#E5E5EA',
-    borderRadius: 12,
+    borderColor: colors.border,
+    borderRadius: 14,
     paddingHorizontal: 16,
-    paddingVertical: 12,
-    backgroundColor: '#F8F9FA',
+    paddingVertical: 14,
+    backgroundColor: '#F4F5F8',
   },
   pickerButtonText: {
     fontSize: 16,
@@ -640,8 +670,8 @@ const styles = StyleSheet.create({
   },
   pickerOptions: {
     marginTop: 8,
-    borderRadius: 12,
-    backgroundColor: '#F8F9FA',
+    borderRadius: 14,
+    backgroundColor: '#F4F5F8',
     borderWidth: 1,
     borderColor: '#E5E5EA',
     overflow: 'hidden',
@@ -726,15 +756,23 @@ const styles = StyleSheet.create({
     width: 56,
     height: 56,
     borderRadius: 28,
-    backgroundColor: '#F8F9FA',
-    borderWidth: 1,
-    borderColor: '#E5E5EA',
+    backgroundColor: '#F4F5F8',
+    borderWidth: 1.25,
+    borderColor: colors.border,
     alignItems: 'center',
     justifyContent: 'center',
   },
   bicepsOptionSelected: {
-    borderColor: '#007AFF',
-    backgroundColor: '#E3F2FD',
+    borderColor: colors.primary,
+    backgroundColor: colors.primary + '15',
+    shadowColor: colors.primary,
+    shadowOffset: {width: 0, height: 0},
+    shadowOpacity: 0.25,
+    shadowRadius: 9,
+    elevation: 3,
+  },
+  bicepsOptionPressed: {
+    transform: [{scale: 0.97}],
   },
   bicepsEmoji: {
     fontSize: 24,

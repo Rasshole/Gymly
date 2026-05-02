@@ -13,7 +13,15 @@ export type InAppNotificationType =
   | 'planned_workout_declined'
   | 'planned_workout_reminder'
   | 'dm_message'
-  | 'workout_reminder';
+  | 'workout_reminder'
+  | 'workout_reaction'
+  | 'biceps_reaction'
+  | 'gymly_group_invite'
+  | 'gymly_group_invite_declined'
+  | 'gymly_group_member_joined'
+  | 'gymly_group_message'
+  | 'gymly_planned_in_group'
+  | 'gymly_group_check_in';
 
 export type NotificationRow = {
   id: string;
@@ -157,9 +165,9 @@ export async function insertBadgeUnlockedNotification(
   const {error} = await supabase.from('notifications').insert({
     user_id: userId,
     type: 'badge_unlocked',
-    title: 'Nyt badge',
-    body: `Du har låst et nyt badge op: ${def.name}`,
-    data: {badgeId: def.id, badgeName: def.name},
+    title: '🔥 Nyt badge unlocked!',
+    body: `Du har låst '${def.name}' op`,
+    data: {badgeId: def.id, badgeName: def.name, icon: def.emoji},
   });
   if (error && error.code !== '23505') {
   }

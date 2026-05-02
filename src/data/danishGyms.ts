@@ -11,10 +11,12 @@ export type DanishGym = {
   name: string;
   city?: string;
   address?: string;
+  postalCode?: string;
   region: DanishRegion;
   latitude: number;
   longitude: number;
   brand?: string;
+  logoKey?: string;
   website?: string;
   is_coming_soon?: boolean;
   /** Faktisk række (koordinater kan være postområde-fallback) */
@@ -50,15 +52,22 @@ function inferDanishRegion(postal: string, city: string): DanishRegion {
 
 function toDanishGym(c: GymCenter): DanishGym {
   const {lat, lng} = getEffectiveLatLng(c);
+  const logoKey = (c.brand || '')
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '_')
+    .replace(/^_+|_+$/g, '');
   return {
     id: c.id,
     name: c.name,
     city: c.city,
     address: c.address,
+    postalCode: c.postal_code,
     region: inferDanishRegion(c.postal_code, c.city),
     latitude: lat,
     longitude: lng,
     brand: c.brand,
+    logoKey: logoKey || undefined,
     is_coming_soon: c.is_coming_soon,
     _center: c,
   };

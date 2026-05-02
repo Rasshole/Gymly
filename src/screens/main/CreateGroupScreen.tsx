@@ -25,11 +25,15 @@ import type {Group} from '@/types/group.types';
 import {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
 
 const GROUP_GYM_LIST = getActiveDanishGyms();
-import {useGroupStore} from '@/store/groupStore';
 import {useAppStore} from '@/store/appStore';
+import {useGymlyGroupsStore} from '@/store/gymlyGroupsStore';
+import {createGymlyGroupRpc} from '@/services/supabase/gymlyGroupsService';
 import {formatGymDisplayName} from '@/utils/gymDisplay';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import SocialPrimaryButton from '@/components/social/SocialPrimaryButton';
+import SocialSearchBar from '@/components/social/SocialSearchBar';
 
 const FOCUS_OPTIONS = [
   'Konsistens',
@@ -42,10 +46,12 @@ const FOCUS_OPTIONS = [
 
 const CreateGroupScreen = () => {
   const navigation = useNavigation<any>();
+  const insets = useSafeAreaInsets();
   const {user} = useAppStore();
-  const addGroup = useGroupStore(s => s.addGroup);
+  const refreshGymly = useGymlyGroupsStore(s => s.refresh);
 
   const [name, setName] = useState('');
+  const [creating, setCreating] = useState(false);
   const [description, setDescription] = useState('');
   const [isPrivate, setIsPrivate] = useState(false);
   const [selectedGym, setSelectedGym] = useState<DanishGym | null>(null);
@@ -78,7 +84,7 @@ const CreateGroupScreen = () => {
     );
   }, [gymSearchQuery]);
 
-  const handleCreate = () => {
+  const handleCreate = async () => {
     if (!name.trim()) {
       Alert.alert('Mangler navn', 'Indtast venligst et gruppenavn');
       return;
@@ -91,66 +97,64 @@ const CreateGroupScreen = () => {
       Alert.alert('Vælg by', 'Tryk på Lokation og vælg hvilken by gruppen er i');
       return;
     }
-
-    const locationLabel = `${selectedCity.trim()} · ${formatGymDisplayName(selectedGym)}`;
-
-    const newGroup: Group = {
-      id: `g_${Date.now()}`,
-      name: name.trim(),
-      description: description.trim() || 'Ingen beskrivelse',
-      memberCount: 1,
-      isJoined: true,
-      isPrivate,
-      adminId: user?.id || 'current',
-      location: locationLabel,
-      focus: focus || undefined,
-      activityCount: 0,
-      totalCheckIns: 0,
-      members: [
-        {
-          id: user?.id || 'current',
-          name: user?.displayName || 'Dig',
-          isOnline: true,
-        },
-      ],
-    };
-
-    addGroup({
-      id: newGroup.id,
-      name: newGroup.name,
-      description: newGroup.description,
-      members: newGroup.members!.map(m => ({
-        id: m.id,
-        name: m.name,
-        avatar: m.avatar,
-      })),
-    });
-
-    const groupForDetail = {
-      id: newGroup.id,
-      name: newGroup.name,
-      description: newGroup.description,
-      biography: newGroup.description,
-      image: undefined,
-      isPrivate: newGroup.isPrivate,
-      adminId: newGroup.adminId,
-      members: newGroup.members!.map(m => ({
-        id: m.id,
-        name: m.name,
-        avatar: m.avatar,
-        isOnline: m.isOnline,
-      })),
-      totalWorkouts: 0,
-      totalTimeTogether: 0,
-      createdAt: new Date(),
-    };
-
-    Alert.alert('Gruppe oprettet', `"${newGroup.name}" er nu oprettet`, [
-      {
-        text: 'OK',
-        onPress: () => navigation.navigate('GroupDetail', {group: groupForDetail}),
-      },
-    ]);
+    if (!user?.id) {
+      Alert.alert('Log ind', 'Du skal være logget ind for at oprette en gruppe');
+      return;
+    }
+    setCreating(true);
+    try {
+      const gid = await createGymlyGroupRpc({
+        name: name.trim(),
+        description: description.trim() || 'Ingen beskrivelse',
+        isPrivate,
+        centerId: selectedGym.id,
+        city: selectedCity.trim(),
+        focus: focus || '',
+        imageUrl: null,
+      });
+      await refreshGymly(user.id);
+      const row = useGymlyGroupsStore.getState().groups.find(g => g.id === gid);
+      const mems = row?.members ?? [
+        {id: user.id, name: user.displayName || 'Dig', avatar: undefined},
+      ];
+      const groupForDetail = {
+        id: gid,
+        name: name.trim(),
+        description: description.trim() || 'Ingen beskrivelse',
+        biography: description.trim() || 'Ingen beskrivelse',
+        image: row?.image_url ?? undefined,
+        isPrivate,
+        adminId: user.id,
+        members: mems.map(m => ({
+          id: m.id,
+          name: m.name,
+          avatar: m.avatar,
+          isOnline: false,
+        })),
+        totalWorkouts: 0,
+        totalTimeTogether: 0,
+        createdAt: new Date(),
+        groupId: gid,
+        lastMessagePreview: row?.last_message_preview,
+      };
+      navigation.replace('GroupDetail', {group: groupForDetail, groupId: gid});
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : String(e);
+      if (
+        msg.includes('gymly_') ||
+        msg.includes('function') ||
+        msg.includes('does not exist')
+      ) {
+        Alert.alert(
+          'Database',
+          'Grupper er ikke aktiveret på serveren endnu. Kør den seneste Supabase-migration (gymly groups).',
+        );
+      } else {
+        Alert.alert('Kunne ikke oprette', msg);
+      }
+    } finally {
+      setCreating(false);
+    }
   };
 
   return (
@@ -259,17 +263,13 @@ const CreateGroupScreen = () => {
                 <Icon name="close" size={28} color={colors.text} />
               </TouchableOpacity>
             </View>
-            <View style={styles.modalSearch}>
-              <Icon name="search" size={20} color={colors.textMuted} />
-              <TextInput
-                style={styles.modalSearchInput}
-                placeholder="Søg efter center, by eller kæde..."
-                placeholderTextColor={colors.textMuted}
-                value={gymSearchQuery}
-                onChangeText={setGymSearchQuery}
-                autoCapitalize="none"
-              />
-            </View>
+            <SocialSearchBar
+              value={gymSearchQuery}
+              onChangeText={setGymSearchQuery}
+              placeholder="Søg efter center, by eller kæde..."
+              autoCapitalize="none"
+              style={styles.modalSearchOuter}
+            />
             <FlatList
               data={filteredGyms}
               keyExtractor={item => String(item.id)}
@@ -360,15 +360,21 @@ const CreateGroupScreen = () => {
           </ScrollView>
         </View>
 
-        <TouchableOpacity
-          style={[styles.cta, !name.trim() && styles.ctaDisabled]}
+      </ScrollView>
+
+      <View
+        style={[
+          styles.footer,
+          {paddingBottom: Math.max(insets.bottom, 12) + 8},
+        ]}>
+        <SocialPrimaryButton
+          label="Opret gruppe"
+          iconName="add-circle"
           onPress={handleCreate}
           disabled={!name.trim()}
-          activeOpacity={0.8}>
-          <Icon name="add-circle" size={24} color={colors.white} />
-          <Text style={styles.ctaText}>Opret gruppe</Text>
-        </TouchableOpacity>
-      </ScrollView>
+          loading={creating}
+        />
+      </View>
     </View>
   );
 };
@@ -381,16 +387,23 @@ const styles = StyleSheet.create({
   scroll: {flex: 1},
   scrollContent: {
     padding: spacing.lg,
-    paddingBottom: spacing.xxxl,
+    paddingBottom: spacing.xl,
+  },
+  footer: {
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.md,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: colors.border,
+    backgroundColor: colors.backgroundCard,
   },
   section: {
-    marginBottom: spacing.xl,
+    marginBottom: 22,
   },
   label: {
-    ...typography.small,
+    fontSize: 12,
     fontWeight: '600',
     color: colors.textSecondary,
-    marginBottom: spacing.sm,
+    marginBottom: 8,
   },
   hint: {
     ...typography.caption,
@@ -399,8 +412,10 @@ const styles = StyleSheet.create({
   },
   input: {
     backgroundColor: colors.backgroundCard,
-    borderRadius: radius.md,
-    padding: spacing.md,
+    borderRadius: 14,
+    minHeight: 52,
+    paddingHorizontal: spacing.md,
+    paddingVertical: 14,
     borderWidth: 1,
     borderColor: colors.border,
     ...typography.body,
@@ -414,8 +429,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: spacing.md,
     backgroundColor: colors.backgroundCard,
-    borderRadius: radius.md,
-    padding: spacing.md,
+    borderRadius: 14,
+    minHeight: 52,
+    paddingHorizontal: spacing.md,
+    paddingVertical: 12,
     borderWidth: 1,
     borderColor: colors.border,
   },
@@ -448,24 +465,9 @@ const styles = StyleSheet.create({
   modalClose: {
     padding: spacing.xs,
   },
-  modalSearch: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.sm,
+  modalSearchOuter: {
     marginHorizontal: spacing.lg,
     marginBottom: spacing.sm,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    backgroundColor: colors.backgroundCard,
-    borderRadius: radius.md,
-    borderWidth: 1,
-    borderColor: colors.border,
-  },
-  modalSearchInput: {
-    flex: 1,
-    ...typography.body,
-    color: colors.text,
-    paddingVertical: spacing.xs,
   },
   modalRow: {
     paddingHorizontal: spacing.lg,
@@ -493,21 +495,27 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: spacing.lg,
+    paddingVertical: 18,
+    paddingHorizontal: spacing.lg,
     backgroundColor: colors.backgroundCard,
-    borderRadius: radius.lg,
+    borderRadius: 16,
     borderWidth: 1,
     borderColor: colors.border,
+    gap: spacing.md,
   },
   chipRow: {
     flexDirection: 'row',
-    gap: spacing.sm,
+    flexWrap: 'wrap',
+    gap: 10,
+    paddingVertical: 2,
   },
   chip: {
-    paddingHorizontal: spacing.lg,
-    paddingVertical: spacing.sm,
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    minHeight: 36,
+    justifyContent: 'center',
     borderRadius: radius.full,
-    backgroundColor: colors.surface,
+    backgroundColor: '#F2F2F7',
   },
   chipActive: {
     backgroundColor: colors.primary,
@@ -518,23 +526,6 @@ const styles = StyleSheet.create({
     color: colors.textSecondary,
   },
   chipTextActive: {
-    color: colors.white,
-  },
-  cta: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: spacing.sm,
-    paddingVertical: spacing.lg,
-    backgroundColor: colors.primary,
-    borderRadius: radius.lg,
-    marginTop: spacing.lg,
-  },
-  ctaDisabled: {
-    opacity: 0.5,
-  },
-  ctaText: {
-    ...typography.h4,
     color: colors.white,
   },
 });

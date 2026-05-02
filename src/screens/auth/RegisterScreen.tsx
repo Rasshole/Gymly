@@ -45,6 +45,8 @@ import {
 import {User} from '@/types/user.types';
 import {AuthTokens} from '@/types/auth.types';
 import {isValidDanishMobile, normalizeDanishPhone} from '@/utils/phoneUtils';
+import {gymSearchMatchesTokens} from '@/utils/gymSearch';
+import {formatGymDisplayName} from '@/utils/gymDisplay';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import * as streak from '@/utils/streakUtils';
 import Geolocation, {
@@ -133,13 +135,6 @@ const RegisterScreen = () => {
 
   const fullName = `${firstName.trim()} ${lastName.trim()}`.trim();
 
-  const normalizeSearchValue = (value: string) =>
-    value
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/[.,/]/g, ' ')
-      .toLowerCase();
-
   const gymSuggestions = useMemo(() => {
     const activeLabel =
       activeGymIndex !== null ? favoriteGymLabels[activeGymIndex] : '';
@@ -147,14 +142,15 @@ const RegisterScreen = () => {
     if (!showGymSuggestions || activeGymIndex === null || trimmed.length === 0) {
       return [];
     }
-    const normalizedQuery = normalizeSearchValue(trimmed);
-    const tokens = normalizedQuery.split(/\s+/).filter(Boolean);
     const filtered = REG_PICKER_GYMS.filter(option => {
-      if (tokens.length === 0) return true;
-      const haystack = normalizeSearchValue(
-        `${option.name} ${option.city ?? ''} ${option.region} ${option.address ?? ''}`,
-      );
-      return tokens.every(token => haystack.includes(token));
+      const haystack = [
+        option.name,
+        option.city ?? '',
+        option.region,
+        option.address ?? '',
+        option.brand ?? '',
+      ].join(' ');
+      return gymSearchMatchesTokens(haystack, trimmed);
     });
     return filtered.slice(0, 10);
   }, [favoriteGymLabels, showGymSuggestions, activeGymIndex]);
@@ -251,7 +247,7 @@ const RegisterScreen = () => {
   };
 
   const handleSelectGymSuggestion = (gym: DanishGym) => {
-    const displayLabel = [gym.name, gym.city].filter(Boolean).join(', ');
+    const displayLabel = formatGymDisplayName(gym);
     if (activeGymIndex !== null) {
       setFavoriteGyms(prev => {
         const next = [...prev];
@@ -402,11 +398,10 @@ const RegisterScreen = () => {
       const selected = favoriteGyms[index];
       const gymId =
         selected?.id ??
-        REG_PICKER_GYMS.find(
-          g =>
-            g.name.toLowerCase().includes(trimmed.toLowerCase()) ||
-            (g.city && g.city.toLowerCase().includes(trimmed.toLowerCase())),
-        )?.id;
+        REG_PICKER_GYMS.find(g => {
+          const haystack = [g.name, g.city ?? '', g.address ?? '', g.brand ?? ''].join(' ');
+          return gymSearchMatchesTokens(haystack, trimmed);
+        })?.id;
       if (gymId && !ids.includes(gymId)) ids.push(gymId);
     });
     return ids;
@@ -867,7 +862,7 @@ const RegisterScreen = () => {
                     onPress={() => handleSelectGymSuggestion(option)}>
                     <MaterialIcon name="map-marker-radius" size={18} color={colors.primary} />
                     <View style={styles.suggestionText}>
-                      <Text style={styles.suggestionTitle}>{option.name}</Text>
+                      <Text style={styles.suggestionTitle}>{formatGymDisplayName(option)}</Text>
                       <Text style={styles.suggestionSub}>{option.city}</Text>
                     </View>
                   </TouchableOpacity>

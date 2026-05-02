@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import {TouchableOpacity, View} from 'react-native';
+import {TouchableOpacity, View, StyleSheet} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import {
@@ -16,7 +16,47 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '@/theme/colors';
-import {spacing} from '@/theme/designTokens';
+import {spacing, radius} from '@/theme/designTokens';
+
+const HEADER_ICON = 24;
+/** Equal-width header slots so the title stays visually centered on iOS */
+const HEADER_SIDE_SLOT = 132;
+
+const tabHeaderStyles = StyleSheet.create({
+  headerSideLeft: {
+    width: HEADER_SIDE_SLOT,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    paddingLeft: spacing.sm,
+  },
+  headerSideRight: {
+    width: HEADER_SIDE_SLOT,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    paddingRight: spacing.sm,
+    gap: 4,
+  },
+  iconTap: {
+    width: 40,
+    height: 40,
+    borderRadius: radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  bellWrap: {
+    position: 'relative',
+    width: 40,
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  notifBadge: {
+    position: 'absolute',
+    top: 2,
+    right: 0,
+  },
+});
 
 import HomeScreen from '@/screens/main/HomeScreen';
 import ProfileScreen from '@/screens/main/ProfileScreen';
@@ -62,13 +102,14 @@ import GymPresenceScreen from '@/screens/main/GymPresenceScreen';
 import AddFriendScreen from '@/screens/main/AddFriendScreen';
 import {useInAppNotifications} from '@/hooks/useInAppNotifications';
 import {InAppNotificationBootstrap} from '@/components/inApp/InAppNotificationBootstrap';
-import {useAppStore} from '@/store/appStore';
 import CustomTabBar from '@/components/CustomTabBar';
 import NotificationBadge from '@/components/ui/Badge';
-import {DmRealtimeSync} from '@/components/DmRealtimeSync';
-import {FriendRequestRealtimeSync} from '@/components/FriendRequestRealtimeSync';
-import ActiveCheckinGeofenceMonitor from '@/components/checkin/ActiveCheckinGeofenceMonitor';
+import {CheckInSessionController} from '@/components/checkin/CheckInSessionController';
 import {PushNotificationBootstrap} from '@/components/push/PushNotificationBootstrap';
+import {UserBadgesRealtimeSync} from '@/components/badges/UserBadgesRealtimeSync';
+import {GymlyRealtimeHub} from '@/realtime/gymlyRealtimeHub';
+import type {ActiveCenter} from '@/types/activeCenter.types';
+import type {GymPresence} from '@/types/gymPresence.types';
 export type CheckInStackParamList = {
   CheckInMain: undefined;
 };
@@ -163,7 +204,9 @@ export type MainStackParamList = {
   PushNotifications: undefined;
   FeedSorting: undefined;
   ActivityFeed: undefined;
-  GymPresence: {gym?: any} | undefined;
+  GymPresence:
+    | {activeCenter?: ActiveCenter; gym?: GymPresence}
+    | undefined;
   AddFriend: undefined;
 };
 
@@ -197,8 +240,10 @@ const SettingsButton = () => {
       onPress={() => {
         navigation.navigate('Settings');
       }}
-      style={{marginRight: spacing.lg}}>
-      <Icon name="settings-outline" size={29} color={colors.text} />
+      style={tabHeaderStyles.iconTap}
+      activeOpacity={0.75}
+      accessibilityLabel="Indstillinger">
+      <Icon name="settings-outline" size={HEADER_ICON} color={colors.text} />
     </TouchableOpacity>
   );
 };
@@ -211,8 +256,10 @@ const UpcomingButton = () => {
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate('WorkoutSchedule', {initialTab: 'upcoming'})}
-      style={{marginRight: spacing.lg}}>
-      <Icon name="calendar-outline" size={29} color={colors.text} />
+      style={tabHeaderStyles.iconTap}
+      activeOpacity={0.75}
+      accessibilityLabel="Kalender">
+      <Icon name="calendar-outline" size={HEADER_ICON} color={colors.text} />
     </TouchableOpacity>
   );
 };
@@ -225,8 +272,10 @@ const LeaderboardButton = () => {
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate('Leaderboard')}
-      style={{marginRight: spacing.lg}}>
-      <Icon name="trophy" size={29} color={colors.text} />
+      style={tabHeaderStyles.iconTap}
+      activeOpacity={0.75}
+      accessibilityLabel="Ranglister">
+      <Icon name="trophy-outline" size={HEADER_ICON} color={colors.text} />
     </TouchableOpacity>
   );
 };
@@ -240,18 +289,24 @@ const NotificationsButton = () => {
   const {dbUnread: bellTotal} = useInAppNotifications();
 
   return (
-    <TouchableOpacity
-      onPress={() => {
-        navigation.navigate('Notifications');
-      }}
-      style={{marginLeft: spacing.lg, position: 'relative'}}>
-      <Icon name="notifications-outline" size={29} color={colors.text} />
-      {bellTotal > 0 && (
-        <View style={{position: 'absolute', top: -4, right: -4}}>
-          <NotificationBadge count={bellTotal} variant="error" maxCount={99} />
+    <View style={tabHeaderStyles.headerSideLeft}>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('Notifications');
+        }}
+        style={tabHeaderStyles.iconTap}
+        activeOpacity={0.75}
+        accessibilityLabel="Notifikationer">
+        <View style={tabHeaderStyles.bellWrap}>
+          <Icon name="notifications-outline" size={HEADER_ICON} color={colors.text} />
+          {bellTotal > 0 ? (
+            <View style={tabHeaderStyles.notifBadge} pointerEvents="none">
+              <NotificationBadge count={bellTotal} variant="error" maxCount={99} compact />
+            </View>
+          ) : null}
         </View>
-      )}
-    </TouchableOpacity>
+      </TouchableOpacity>
+    </View>
   );
 };
 
@@ -264,12 +319,25 @@ const MainTabs = () => {
         tabBarHideOnKeyboard: true,
         headerStyle: {
           backgroundColor: colors.backgroundCard,
+          shadowOpacity: 0,
+          elevation: 0,
+          borderBottomWidth: StyleSheet.hairlineWidth,
+          borderBottomColor: colors.border,
+          paddingVertical: 8,
         },
+        headerTitleAlign: 'center',
+        headerTitleStyle: {
+          fontWeight: '700',
+          fontSize: 17,
+          color: colors.text,
+        },
+        headerLeftContainerStyle: {minWidth: HEADER_SIDE_SLOT},
+        headerRightContainerStyle: {minWidth: HEADER_SIDE_SLOT},
         headerTintColor: colors.text,
         headerShown: true,
         headerLeft: () => <NotificationsButton />,
         headerRight: () => (
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={tabHeaderStyles.headerSideRight}>
             <LeaderboardButton />
             <UpcomingButton />
             <SettingsButton />
@@ -313,11 +381,11 @@ const MainTabs = () => {
 const MainNavigator = () => {
   return (
     <>
+      <GymlyRealtimeHub />
       <InAppNotificationBootstrap />
       <PushNotificationBootstrap />
-      <FriendRequestRealtimeSync />
-      <DmRealtimeSync />
-      <ActiveCheckinGeofenceMonitor />
+      <UserBadgesRealtimeSync />
+      <CheckInSessionController />
       <Stack.Navigator
       screenOptions={{
         headerStyle: {

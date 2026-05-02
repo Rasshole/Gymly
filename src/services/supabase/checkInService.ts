@@ -60,28 +60,75 @@ export async function getActiveCheckInForUser(
   return data as SupabaseCheckInRow;
 }
 
+export type AutoCheckoutKind = 'inactivity' | 'left_geofence';
+
 /**
  * Tjek-ud. `endReason` sættes ved manuelt/ auto (kolonne `end_reason` efter migration).
+ * `autoCheckoutReason` spejles i `auto_checkout_reason` når sat (migration).
  */
 export async function endActiveCheckInInSupabase(
   checkInId: string,
   userId: string,
   endReason?: CheckInEndReason,
+  options?: {autoCheckoutReason?: AutoCheckoutKind},
 ): Promise<void> {
   const now = new Date().toISOString();
+  const auto =
+    options?.autoCheckoutReason != null
+      ? options.autoCheckoutReason
+      : endReason === 'inactivity' || endReason === 'left_geofence'
+        ? (endReason as AutoCheckoutKind)
+        : null;
+
+  const fullPatch: Record<string, unknown> = {
+    is_active: false,
+    ended_at: now,
+    end_reason: endReason ?? 'user',
+    geofence_grace_started_at: null,
+    geofence_grace_kind: null,
+    away_started_at: null,
+    last_distance_meters: null,
+  };
+  if (auto) {
+    fullPatch.auto_checkout_reason = auto;
+  } else {
+    fullPatch.auto_checkout_reason = null;
+  }
+
   const {error} = await supabase
     .from('check_ins')
-    .update({
-      is_active: false,
-      ended_at: now,
-      geofence_grace_started_at: null,
-      geofence_grace_kind: null,
-      end_reason: endReason ?? 'user',
-    })
+    .update(fullPatch)
     .eq('id', checkInId)
-    .eq('user_id', userId);
+    .eq('user_id', userId)
+    .eq('is_active', true)
+    .is('ended_at', null);
 
   if (error) {
+    if (
+      error.message?.includes('auto_checkout_reason') ||
+      error.message?.includes('away_started') ||
+      error.message?.includes('column') ||
+      error.message?.includes('last_distance')
+    ) {
+      const {error: err2} = await supabase
+        .from('check_ins')
+        .update({is_active: false, ended_at: now, end_reason: endReason ?? 'user'})
+        .eq('id', checkInId)
+        .eq('user_id', userId)
+        .eq('is_active', true)
+        .is('ended_at', null);
+      if (err2) {
+        const {error: err3} = await supabase
+          .from('check_ins')
+          .update({is_active: false, ended_at: now})
+          .eq('id', checkInId)
+          .eq('user_id', userId);
+        if (err3) {
+          throw new Error(err3.message ?? 'Kunne ikke tjekke ud i databasen.');
+        }
+      }
+      return;
+    }
     const {error: err2} = await supabase
       .from('check_ins')
       .update({is_active: false, ended_at: now})
@@ -90,7 +137,6 @@ export async function endActiveCheckInInSupabase(
     if (err2) {
       throw new Error(err2.message ?? 'Kunne ikke tjekke ud i databasen.');
     }
-    return;
   }
 }
 
@@ -113,6 +159,71 @@ export async function updateCheckInLastSeenAt(
     }
     throw new Error(error.message ?? 'Kunne ikke opdatere last_seen_at.');
   }
+}
+
+/** Væk fra center: persist (away_started, distance). Grace-felter ryddes når "hjem" i safe. */
+export async function patchCheckInAwayState(
+  checkInId: string,
+  userId: string,
+  patch: {
+    away_started_at: string | null;
+    last_distance_meters: number | null;
+  },
+): Promise<void> {
+  const {error} = await supabase
+    .from('check_ins')
+    .update({
+      away_started_at: patch.away_started_at,
+      last_distance_meters: patch.last_distance_meters,
+      geofence_grace_started_at: patch.away_started_at,
+      geofence_grace_kind: patch.away_started_at
+        ? patch.last_distance_meters != null && patch.last_distance_meters > 800
+          ? 'outside'
+          : 'buffer'
+        : null,
+    })
+    .eq('id', checkInId)
+    .eq('user_id', userId)
+    .eq('is_active', true)
+    .is('ended_at', null);
+
+  if (error) {
+    if (
+      error.message?.includes('away_started') ||
+      error.message?.includes('last_distance') ||
+      error.message?.includes('column')
+    ) {
+      return;
+    }
+    throw new Error(error.message ?? 'Kunne ikke opdatere away state.');
+  }
+}
+
+export async function getLatestAutoCheckoutEventForUser(userId: string): Promise<{
+  endedAt: string;
+  reason: AutoCheckoutKind;
+} | null> {
+  const {data, error} = await supabase
+    .from('check_ins')
+    .select('ended_at, auto_checkout_reason')
+    .eq('user_id', userId)
+    .eq('is_active', false)
+    .not('auto_checkout_reason', 'is', null)
+    .not('ended_at', 'is', null)
+    .order('ended_at', {ascending: false})
+    .limit(1)
+    .maybeSingle();
+  if (error || !data) {
+    return null;
+  }
+  const reason = String(data.auto_checkout_reason || '');
+  if (reason !== 'inactivity' && reason !== 'left_geofence') {
+    return null;
+  }
+  return {
+    endedAt: String(data.ended_at),
+    reason: reason as AutoCheckoutKind,
+  };
 }
 
 export async function setCheckInGeofenceGrace(
@@ -209,6 +320,8 @@ export async function submitCheckInSupabase(
   if (params.plannedWorkoutId) {
     insertPayload.planned_workout_id = params.plannedWorkoutId;
   }
+  insertPayload.away_started_at = null;
+  insertPayload.last_distance_meters = null;
 
   let {data, error} = await supabase
     .from('check_ins')
@@ -217,7 +330,9 @@ export async function submitCheckInSupabase(
     .single();
 
   if (error && /planned_workout/i.test(String(error.message))) {
-    const {planned_workout_id: _dropped, ...withoutPw} = insertPayload;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars -- drop planned id for retry
+    const {planned_workout_id, ...withoutPw} = insertPayload;
+    void planned_workout_id;
     const r2 = await supabase
       .from('check_ins')
       .insert(withoutPw)
@@ -236,6 +351,22 @@ export async function submitCheckInSupabase(
       .single();
     data = r3.data;
     error = r3.error;
+  }
+  if (
+    error &&
+    /away_started|last_distance|auto_checkout/i.test(String(error.message))
+  ) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars -- drop optional cols for old DBs
+    const {away_started_at, last_distance_meters, ...withoutAway} = insertPayload;
+    void away_started_at;
+    void last_distance_meters;
+    const r4 = await supabase
+      .from('check_ins')
+      .insert(withoutAway)
+      .select('id, started_at')
+      .single();
+    data = r4.data;
+    error = r4.error;
   }
 
   if (error) {
@@ -256,6 +387,9 @@ export async function submitCheckInSupabase(
     throw new Error(message);
   }
 
+  if (!data) {
+    throw new Error('Kunne ikke gemme tjek-ind (ingen række returneret).');
+  }
   return {
     id: data.id,
     startedAt: new Date(data.started_at ?? startedAt),

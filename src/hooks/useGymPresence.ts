@@ -1,16 +1,21 @@
 /**
- * Aktive gyms "lige nu" — Supabase check_ins + gym_active_user_totals.
+ * Aktive gyms "lige nu" — check_ins (aktiv) + gym_active_checkin_rollup.
  */
 
 import {useState, useEffect, useCallback} from 'react';
 import {AppState} from 'react-native';
 import {useAppStore} from '@/store/appStore';
 import type {GymPresence} from '@/types/gymPresence.types';
-import {loadGymPresenceForUser} from '@/services/supabase/presenceService';
+import {
+  loadActiveCentersData,
+  mapActiveCenterToGymPresence,
+} from '@/services/supabase/activeCentersService';
 import {subscribeCheckInsPresence} from '@/realtime/checkInsPresenceSubscription';
+import {useOptionalUserCoords} from '@/hooks/useOptionalUserCoords';
 
 export function useGymPresence() {
   const userId = useAppStore(s => s.user?.id);
+  const coords = useOptionalUserCoords();
   const [gyms, setGyms] = useState<GymPresence[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
@@ -23,8 +28,11 @@ export function useGymPresence() {
     }
     setLoading(true);
     try {
-      const list = await loadGymPresenceForUser(userId);
-      setGyms(list);
+      const centers = await loadActiveCentersData(userId, {
+        userLatitude: coords?.latitude,
+        userLongitude: coords?.longitude,
+      });
+      setGyms(centers.map(mapActiveCenterToGymPresence));
       setError(null);
     } catch (e) {
       setGyms([]);
@@ -32,7 +40,7 @@ export function useGymPresence() {
     } finally {
       setLoading(false);
     }
-  }, [userId]);
+  }, [userId, coords?.latitude, coords?.longitude]);
 
   useEffect(() => {
     void refresh();
@@ -45,16 +53,6 @@ export function useGymPresence() {
     return subscribeCheckInsPresence(() => {
       void refresh();
     });
-  }, [userId, refresh]);
-
-  useEffect(() => {
-    if (!userId) {
-      return;
-    }
-    const id = setInterval(() => {
-      void refresh();
-    }, 60000);
-    return () => clearInterval(id);
   }, [userId, refresh]);
 
   useEffect(() => {

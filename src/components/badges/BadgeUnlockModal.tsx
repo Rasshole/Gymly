@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Animated,
   Pressable,
+  Easing,
 } from 'react-native';
 import type {BadgeDefinition} from '@/types/badge.types';
 import colors from '@/theme/colors';
@@ -18,26 +19,36 @@ type Props = {
   onDismiss: () => void;
 };
 
+const DURATION_UP = 220;
+
 export function BadgeUnlockModal({visible, badge, onDismiss}: Props) {
-  const scale = useRef(new Animated.Value(0.85)).current;
+  const scale = useRef(new Animated.Value(0.8)).current;
   const opacity = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     if (visible && badge) {
-      scale.setValue(0.85);
+      scale.setValue(0.8);
       opacity.setValue(0);
       Animated.parallel([
-        Animated.spring(scale, {
-          toValue: 1,
-          friction: 6,
-          tension: 80,
-          useNativeDriver: true,
-        }),
         Animated.timing(opacity, {
           toValue: 1,
-          duration: 220,
+          duration: 200,
           useNativeDriver: true,
         }),
+        Animated.sequence([
+          Animated.timing(scale, {
+            toValue: 1.1,
+            duration: DURATION_UP,
+            easing: Easing.out(Easing.cubic),
+            useNativeDriver: true,
+          }),
+          Animated.spring(scale, {
+            toValue: 1,
+            friction: 6,
+            tension: 120,
+            useNativeDriver: true,
+          }),
+        ]),
       ]).start();
     }
   }, [visible, badge, scale, opacity]);
@@ -56,10 +67,12 @@ export function BadgeUnlockModal({visible, badge, onDismiss}: Props) {
         <Animated.View style={[styles.cardWrap, {opacity, transform: [{scale}]}]}>
           <Pressable onPress={e => e.stopPropagation()}>
             <View style={styles.card}>
-              <Text style={styles.emoji} accessibilityRole="text">
-                {badge.emoji}
-              </Text>
-              <Text style={styles.kicker}>Badge unlocked</Text>
+              <View style={styles.emojiGlow}>
+                <Text style={styles.emoji} accessibilityRole="text">
+                  {badge.emoji}
+                </Text>
+              </View>
+              <Text style={styles.kicker}>Nyt badge</Text>
               <Text style={styles.name}>{badge.name}</Text>
               <Text style={styles.desc}>{badge.description}</Text>
               <TouchableOpacity
@@ -94,16 +107,22 @@ const styles = StyleSheet.create({
     padding: spacing.xl,
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: 'rgba(139, 92, 246, 0.35)',
+    borderColor: 'rgba(139, 92, 246, 0.45)',
     shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 8},
-    shadowOpacity: 0.25,
+    shadowOffset: {width: 0, height: 0},
+    shadowOpacity: 0.45,
+    shadowRadius: 24,
+    elevation: 14,
+  },
+  emojiGlow: {
+    marginBottom: spacing.sm,
+    shadowColor: colors.primary,
+    shadowOffset: {width: 0, height: 0},
+    shadowOpacity: 0.55,
     shadowRadius: 20,
-    elevation: 12,
   },
   emoji: {
-    fontSize: 56,
-    marginBottom: spacing.sm,
+    fontSize: 58,
   },
   kicker: {
     ...typography.caption,

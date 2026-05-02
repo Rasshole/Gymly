@@ -10,8 +10,6 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
-  Image,
-  TextInput,
   Alert,
 } from 'react-native';
 import {useNavigation, useFocusEffect} from '@react-navigation/native';
@@ -27,6 +25,8 @@ import {FilterChips} from '@/components/ui/FilterChips';
 import {useAppStore} from '@/store/appStore';
 import {useChatStore} from '@/store/chatStore';
 import {getOrCreateDmThread} from '@/services/supabase/dmService';
+import {UserAvatar} from '@/components/ui/UserAvatar';
+import SocialSearchBar from '@/components/social/SocialSearchBar';
 
 type FilterType = 'venner' | 'alle';
 
@@ -162,15 +162,11 @@ const OnlineScreen = () => {
           onPress={() => handleSeProfil(item)}
           activeOpacity={0.9}>
           <View style={styles.avatarWrap}>
-            {item.profileImageUrl ? (
-              <Image source={{uri: item.profileImageUrl}} style={styles.avatar} />
-            ) : (
-              <View style={styles.avatarPlaceholder}>
-                <Text style={styles.avatarText}>
-                  {item.avatarInitials || item.displayName.charAt(0)}
-                </Text>
-              </View>
-            )}
+            <UserAvatar
+              name={item.displayName}
+              imageUrl={item.profileImageUrl}
+              size="lg"
+            />
             <View style={[styles.statusDot, {backgroundColor: statusColor}]} />
           </View>
           <View style={styles.cardContent}>
@@ -266,29 +262,21 @@ const OnlineScreen = () => {
     <View style={styles.container}>
       <View style={styles.filters}>
         <FilterChips
+          appearance="segmented"
           options={filterOptions}
           value={filter}
           onChange={setFilter}
         />
       </View>
 
-      <View style={styles.searchContainer}>
-        <Icon name="search" size={20} color={colors.textMuted} />
-        <TextInput
-          style={styles.searchInput}
-          placeholder={searchPlaceholder}
-          placeholderTextColor={colors.textMuted}
-          value={searchQuery}
-          onChangeText={setSearchQuery}
-          autoCorrect={false}
-          autoCapitalize="none"
-        />
-        {searchQuery.length > 0 && (
-          <TouchableOpacity onPress={() => setSearchQuery('')}>
-            <Icon name="close-circle" size={20} color={colors.textMuted} />
-          </TouchableOpacity>
-        )}
-      </View>
+      <SocialSearchBar
+        value={searchQuery}
+        onChangeText={setSearchQuery}
+        placeholder={searchPlaceholder}
+        autoCorrect={false}
+        autoCapitalize="none"
+        style={styles.searchOuter}
+      />
 
       <FlatList
         data={displayUsers}
@@ -314,27 +302,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.lg,
     paddingTop: spacing.md,
     paddingBottom: spacing.sm,
-    gap: spacing.sm,
-    backgroundColor: colors.backgroundCard,
+    backgroundColor: colors.background,
   },
-  searchContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  searchOuter: {
     marginHorizontal: spacing.lg,
     marginBottom: spacing.md,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    backgroundColor: colors.backgroundCard,
-    borderRadius: radius.md,
-    borderWidth: 1,
-    borderColor: colors.border,
-    gap: spacing.sm,
-  },
-  searchInput: {
-    flex: 1,
-    ...typography.body,
-    color: colors.text,
-    padding: 0,
   },
   list: {
     padding: spacing.lg,

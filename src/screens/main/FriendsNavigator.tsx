@@ -1,11 +1,18 @@
 /**
- * Friends Navigator — top tabs (Online, Grupper, Centre, Kort)
+ * Friends Navigator — top tabs (Venner, Online, Grupper, Centre, Kort)
  * Custom tabs (no @react-navigation/material-top-tabs) to avoid useTheme/TabView
  * crash: "Cannot read property 'background' of undefined".
  */
 
-import React, {useCallback, useEffect, useState} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import React, {useCallback, useEffect, useState, useRef} from 'react';
+import {
+  View,
+  Text,
+  Pressable,
+  StyleSheet,
+  Animated,
+  LayoutChangeEvent,
+} from 'react-native';
 import {useFocusEffect, useRoute} from '@react-navigation/native';
 import colors from '@/theme/colors';
 import {spacing} from '@/theme/designTokens';
@@ -40,6 +47,8 @@ function isSubRoute(s: string): s is FriendsSubRouteName {
 const FriendsNavigator = () => {
   const route = useRoute();
   const [active, setActive] = useState<FriendsSubRouteName>('Online');
+  const [tabBarWidth, setTabBarWidth] = useState(0);
+  const indicatorX = useRef(new Animated.Value(0)).current;
 
   const syncFromParams = useCallback(() => {
     const screen = (route.params as {screen?: string} | undefined)?.screen;
@@ -58,6 +67,30 @@ const FriendsNavigator = () => {
     }, [syncFromParams]),
   );
 
+  const activeIndex = TABS.findIndex(t => t.name === active);
+
+  useEffect(() => {
+    if (tabBarWidth <= 0) {
+      return;
+    }
+    const segment = tabBarWidth / TABS.length;
+    Animated.spring(indicatorX, {
+      toValue: activeIndex * segment,
+      useNativeDriver: true,
+      friction: 9,
+      tension: 68,
+    }).start();
+  }, [activeIndex, indicatorX, tabBarWidth]);
+
+  const onTabRowLayout = (e: LayoutChangeEvent) => {
+    const w = e.nativeEvent.layout.width;
+    setTabBarWidth(w);
+    const idx = TABS.findIndex(t => t.name === active);
+    if (w > 0) {
+      indicatorX.setValue(idx * (w / TABS.length));
+    }
+  };
+
   const renderScene = () => {
     switch (active) {
       case 'Venner':
@@ -75,27 +108,46 @@ const FriendsNavigator = () => {
     }
   };
 
+  const segmentW = tabBarWidth > 0 ? tabBarWidth / TABS.length : 0;
+
   return (
     <View style={styles.container}>
-      <View style={styles.tabBarContainer}>
-        {TABS.map(tab => {
-          const isFocused = active === tab.name;
-          return (
-            <TouchableOpacity
-              key={tab.name}
-              accessibilityRole="button"
-              accessibilityState={isFocused ? {selected: true} : {}}
-              accessibilityLabel={tab.label}
-              onPress={() => setActive(tab.name)}
-              style={styles.tabItem}>
-              <Text
-                style={[styles.tabLabel, isFocused && styles.tabLabelActive]}>
-                {tab.label}
-              </Text>
-              {isFocused && <View style={styles.tabIndicator} />}
-            </TouchableOpacity>
-          );
-        })}
+      <View style={styles.tabBarOuter}>
+        <View style={styles.tabRow} onLayout={onTabRowLayout}>
+          {TABS.map(tab => {
+            const isFocused = active === tab.name;
+            return (
+              <Pressable
+                key={tab.name}
+                accessibilityRole="button"
+                accessibilityState={isFocused ? {selected: true} : {}}
+                accessibilityLabel={tab.label}
+                onPress={() => setActive(tab.name)}
+                style={styles.tabItem}>
+                <Text
+                  style={[
+                    styles.tabLabel,
+                    !isFocused && styles.tabLabelInactive,
+                    isFocused && styles.tabLabelActive,
+                  ]}>
+                  {tab.label}
+                </Text>
+              </Pressable>
+            );
+          })}
+          {segmentW > 0 ? (
+            <Animated.View
+              pointerEvents="none"
+              style={[
+                styles.tabIndicator,
+                {
+                  width: segmentW,
+                  transform: [{translateX: indicatorX}],
+                },
+              ]}
+            />
+          ) : null}
+        </View>
       </View>
       <View style={styles.scene}>{renderScene()}</View>
     </View>
@@ -107,35 +159,41 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.backgroundCard,
   },
-  tabBarContainer: {
-    flexDirection: 'row',
+  tabBarOuter: {
     backgroundColor: colors.backgroundCard,
-    borderBottomWidth: 1,
+    borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: colors.border,
-    paddingHorizontal: spacing.lg,
+    paddingHorizontal: spacing.sm,
+    paddingTop: 4,
+  },
+  tabRow: {
+    flexDirection: 'row',
+    position: 'relative',
   },
   tabItem: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: spacing.md,
-    position: 'relative',
+    paddingVertical: 12,
   },
   tabLabel: {
     fontSize: 14,
     fontWeight: '600',
     color: colors.textMuted,
-    textTransform: 'none',
+  },
+  tabLabelInactive: {
+    opacity: 0.55,
   },
   tabLabelActive: {
     color: colors.primary,
+    opacity: 1,
   },
   tabIndicator: {
     position: 'absolute',
     bottom: 0,
     left: 0,
-    right: 0,
     height: 2,
+    borderRadius: 1,
     backgroundColor: colors.primary,
   },
   scene: {

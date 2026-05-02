@@ -14,6 +14,8 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import {getActiveDanishGyms} from '@/data/danishGyms';
 import type {DanishGym} from '@/data/danishGyms';
+import {gymSearchMatchesTokens} from '@/utils/gymSearch';
+import {formatGymDisplayName} from '@/utils/gymDisplay';
 
 const PICKER_GYMS = getActiveDanishGyms();
 import colors from '@/theme/colors';
@@ -28,9 +30,7 @@ function slotsFromIds(ids: (string | undefined)[]): (DanishGym | null)[] {
 }
 
 function labelsFromSlots(slots: (DanishGym | null)[]): string[] {
-  return slots.map(g =>
-    g ? [g.name, g.city].filter(Boolean).join(', ') : '',
-  );
+  return slots.map(g => (g ? formatGymDisplayName(g) : ''));
 }
 
 function buildIds(
@@ -44,24 +44,16 @@ function buildIds(
     const selected = slots[index];
     const gymId =
       selected?.id ??
-      PICKER_GYMS.find(
-        g =>
-          g.name.toLowerCase().includes(trimmed.toLowerCase()) ||
-          (g.city && g.city.toLowerCase().includes(trimmed.toLowerCase())),
-      )?.id;
+      PICKER_GYMS.find(g => {
+        const haystack = [g.name, g.city ?? '', g.address ?? '', g.brand ?? ''].join(' ');
+        return gymSearchMatchesTokens(haystack, trimmed);
+      })?.id;
     if (gymId != null && gymId !== '' && !ids.includes(gymId)) {
       ids.push(gymId);
     }
   });
   return ids;
 }
-
-const normalizeSearchValue = (value: string) =>
-  value
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[.,/]/g, ' ')
-    .toLowerCase();
 
 export type GymSlotsEditorProps = {
   /** Op til 3 center-ids i rækkefølge */
@@ -93,21 +85,22 @@ export const GymSlotsEditor: React.FC<GymSlotsEditorProps> = ({
     if (!showGymSuggestions || activeGymIndex === null || trimmed.length === 0) {
       return [];
     }
-    const normalizedQuery = normalizeSearchValue(trimmed);
-    const tokens = normalizedQuery.split(/\s+/).filter(Boolean);
     const filtered = PICKER_GYMS.filter(option => {
-      if (tokens.length === 0) return true;
-      const haystack = normalizeSearchValue(
-        `${option.name} ${option.city ?? ''} ${option.region} ${option.address ?? ''}`,
-      );
-      return tokens.every(token => haystack.includes(token));
+      const haystack = [
+        option.name,
+        option.city ?? '',
+        option.region,
+        option.address ?? '',
+        option.brand ?? '',
+      ].join(' ');
+      return gymSearchMatchesTokens(haystack, trimmed);
     });
     return filtered.slice(0, 10);
   }, [favoriteGymLabels, showGymSuggestions, activeGymIndex]);
 
   const handleSelectGymSuggestion = (gym: DanishGym) => {
     if (activeGymIndex === null) return;
-    const displayLabel = [gym.name, gym.city].filter(Boolean).join(', ');
+    const displayLabel = formatGymDisplayName(gym);
     const idx = activeGymIndex;
     setFavoriteGyms(prev => {
       const next = [...prev];
@@ -173,7 +166,7 @@ export const GymSlotsEditor: React.FC<GymSlotsEditorProps> = ({
                     activeOpacity={0.7}>
                     <Icon name="location" size={18} color={colors.primary} />
                     <View style={styles.suggestionText}>
-                      <Text style={styles.suggestionTitle}>{option.name}</Text>
+                      <Text style={styles.suggestionTitle}>{formatGymDisplayName(option)}</Text>
                       <Text style={styles.suggestionSub}>{option.city}</Text>
                     </View>
                   </TouchableOpacity>

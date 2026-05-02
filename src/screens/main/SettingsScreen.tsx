@@ -3,7 +3,7 @@
  * Comprehensive app settings - account, privacy, notifications, preferences, support
  */
 
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {
   View,
   Text,
@@ -12,11 +12,17 @@ import {
   TouchableOpacity,
   Switch,
   Alert,
+  Modal,
+  Pressable,
+  Animated,
+  Easing,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useAppStore} from '@/store/appStore';
 import {usePrivacyStore} from '@/store/privacyStore';
+import {supabase} from '@/services/supabase/supabaseClient';
+import {SUPABASE_PASSWORD_RESET_REDIRECT} from '@/config/supabaseConfig';
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '@/theme/colors';
 
@@ -35,6 +41,9 @@ const SettingsScreen = () => {
   const [appearance, setAppearance] = useState<'system' | 'light' | 'dark'>('system');
   const [units, setUnits] = useState<'metric' | 'imperial'>('metric');
   const [language, setLanguage] = useState<'da' | 'en'>('da');
+  const [deviceComingSoonOpen, setDeviceComingSoonOpen] = useState(false);
+  const deviceModalOpacity = useRef(new Animated.Value(0)).current;
+  const deviceModalScale = useRef(new Animated.Value(0.95)).current;
 
   const handleMarketingToggle = async (value: boolean) => {
     setMarketingEnabled(value);
@@ -107,6 +116,77 @@ const SettingsScreen = () => {
       'Du kan anmode om en kopi af dine data ved at kontakte support@gymly.dk. Vi sender dig en eksport inden for 30 dage (GDPR artikel 20).',
       [{text: 'OK'}]
     );
+  };
+
+  const handlePasswordReset = () => {
+    if (!user?.email) {
+      Alert.alert('Skift adgangskode', 'Vi kunne ikke finde en email på din konto.');
+      return;
+    }
+    Alert.alert(
+      'Skift adgangskode',
+      'Vi sender dig et link til at vælge nyt kodeord.',
+      [
+        {text: 'Annuller', style: 'cancel'},
+        {
+          text: 'Send link',
+          onPress: async () => {
+            try {
+              const {error} = await supabase.auth.resetPasswordForEmail(user.email, {
+                redirectTo: SUPABASE_PASSWORD_RESET_REDIRECT || undefined,
+              });
+              if (error) {
+                throw error;
+              }
+              Alert.alert('Skift adgangskode', 'Vi har sendt et link til din email.');
+            } catch {
+              Alert.alert('Skift adgangskode', 'Kunne ikke sende link. Prøv igen.');
+            }
+          },
+        },
+      ],
+    );
+  };
+
+  const openDeviceComingSoon = () => {
+    setDeviceComingSoonOpen(true);
+    deviceModalOpacity.setValue(0);
+    deviceModalScale.setValue(0.95);
+    Animated.parallel([
+      Animated.timing(deviceModalOpacity, {
+        toValue: 1,
+        duration: 180,
+        easing: Easing.out(Easing.quad),
+        useNativeDriver: true,
+      }),
+      Animated.timing(deviceModalScale, {
+        toValue: 1,
+        duration: 220,
+        easing: Easing.out(Easing.back(1.1)),
+        useNativeDriver: true,
+      }),
+    ]).start();
+  };
+
+  const closeDeviceComingSoon = () => {
+    Animated.parallel([
+      Animated.timing(deviceModalOpacity, {
+        toValue: 0,
+        duration: 130,
+        easing: Easing.in(Easing.quad),
+        useNativeDriver: true,
+      }),
+      Animated.timing(deviceModalScale, {
+        toValue: 0.96,
+        duration: 130,
+        easing: Easing.in(Easing.quad),
+        useNativeDriver: true,
+      }),
+    ]).start(({finished}) => {
+      if (finished) {
+        setDeviceComingSoonOpen(false);
+      }
+    });
   };
 
   const SettingRow = ({
@@ -206,9 +286,7 @@ const SettingsScreen = () => {
           <SettingRow
             icon="lock-closed-outline"
             title="Skift adgangskode"
-            onPress={() =>
-              Alert.alert('Kommer snart', 'Funktionen til at skifte adgangskode kommer snart.')
-            }
+            onPress={handlePasswordReset}
           />
           <SettingRow
             icon="download-outline"
@@ -258,7 +336,7 @@ const SettingsScreen = () => {
             icon="phone-portrait-outline"
             title="Forbind app eller enhed"
             subtitle="Apple Health, Garmin, etc."
-            onPress={() => navigation.navigate('ConnectDevice')}
+            onPress={openDeviceComingSoon}
           />
           <SettingRow
             icon="options-outline"
@@ -404,6 +482,47 @@ const SettingsScreen = () => {
         {/* Version */}
         <Text style={styles.versionText}>Gymly version 1.0.0</Text>
       </ScrollView>
+
+      <Modal
+        transparent
+        visible={deviceComingSoonOpen}
+        animationType="none"
+        onRequestClose={closeDeviceComingSoon}>
+        <Pressable style={styles.deviceModalBackdrop} onPress={closeDeviceComingSoon}>
+          <Pressable onPress={e => e.stopPropagation()}>
+            <Animated.View
+              style={[
+                styles.deviceModalCard,
+                {
+                  opacity: deviceModalOpacity,
+                  transform: [{scale: deviceModalScale}],
+                },
+              ]}>
+              <Text style={styles.deviceModalIcon}>⌚</Text>
+              <Text style={styles.deviceModalTitle}>Forbind enhed</Text>
+              <Text style={styles.deviceModalMessage}>Denne funktion kommer snart 👀</Text>
+              <Text style={styles.deviceModalSubtext}>
+                Vi arbejder på integration med Garmin, Apple Watch, Fitbit m.fl.
+              </Text>
+              <TouchableOpacity
+                style={styles.deviceModalPrimaryButton}
+                onPress={closeDeviceComingSoon}
+                activeOpacity={0.9}>
+                <Text style={styles.deviceModalPrimaryButtonText}>OK</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.deviceModalSecondaryButton}
+                onPress={() => {
+                  closeDeviceComingSoon();
+                  Alert.alert('Kommer snart', 'Vi tilføjer besked-flow for notifikationer snart.');
+                }}
+                activeOpacity={0.8}>
+                <Text style={styles.deviceModalSecondaryButtonText}>Bliv notificeret</Text>
+              </TouchableOpacity>
+            </Animated.View>
+          </Pressable>
+        </Pressable>
+      </Modal>
     </View>
   );
 };
@@ -521,6 +640,77 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 13,
     color: colors.textMuted,
+  },
+  deviceModalBackdrop: {
+    flex: 1,
+    backgroundColor: 'rgba(17, 24, 39, 0.45)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 24,
+  },
+  deviceModalCard: {
+    width: '100%',
+    maxWidth: 360,
+    backgroundColor: colors.backgroundCard,
+    borderRadius: 20,
+    paddingVertical: 24,
+    paddingHorizontal: 20,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 10},
+    shadowOpacity: 0.14,
+    shadowRadius: 24,
+    elevation: 8,
+  },
+  deviceModalIcon: {
+    fontSize: 30,
+    marginBottom: 10,
+  },
+  deviceModalTitle: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: colors.text,
+    marginBottom: 10,
+  },
+  deviceModalMessage: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: colors.text,
+    textAlign: 'center',
+    marginBottom: 8,
+  },
+  deviceModalSubtext: {
+    fontSize: 14,
+    lineHeight: 20,
+    color: colors.textMuted,
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  deviceModalPrimaryButton: {
+    width: '100%',
+    backgroundColor: colors.primary,
+    borderRadius: 12,
+    paddingVertical: 12,
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  deviceModalPrimaryButtonText: {
+    color: colors.white,
+    fontSize: 16,
+    fontWeight: '700',
+  },
+  deviceModalSecondaryButton: {
+    width: '100%',
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: colors.border,
+    paddingVertical: 12,
+    alignItems: 'center',
+  },
+  deviceModalSecondaryButtonText: {
+    color: colors.textSecondary,
+    fontSize: 15,
+    fontWeight: '600',
   },
 });
 

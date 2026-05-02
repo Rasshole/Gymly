@@ -2,24 +2,29 @@
  * Profil – faner Feed (træninger + opslag) og Data (statistik, mål); titel/tandhjul i tab-header
  */
 
-import React, {useMemo, useCallback, useState, useEffect} from 'react';
+import React, {useMemo, useCallback, useEffect, useState} from 'react';
 import {
   View,
   Text,
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  Image,
+  Pressable,
+  ActivityIndicator,
+  Alert,
+  Modal,
+  TextInput,
+  TouchableWithoutFeedback,
+  Animated,
+  Easing,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation, useFocusEffect} from '@react-navigation/native';
 import {useAppStore} from '@/store/appStore';
-import {useDashboardStatsStore} from '@/store/dashboardStatsStore';
-import {useGymStore} from '@/store/gymStore';
 import {useFeedStore} from '@/store/feedStore';
 import {useGoalStore} from '@/store/goalStore';
-import {useWorkoutStore} from '@/store/workoutStore';
 import {refreshWorkoutFeedFromServer} from '@/services/supabase/workoutPostService';
+import {subscribeWorkoutFeedRealtime} from '@/services/supabase/workoutPostService';
 import danishGyms from '@/data/danishGyms';
 import {
   ProfileHeader,
@@ -32,20 +37,33 @@ import {FriendsListModal} from '@/components/friends/FriendsListModal';
 import {useFriendStore} from '@/store/friendStore';
 import {Card} from '@/components/ui/Card';
 import type {FeedItem} from '@/store/feedStore';
-import type {Workout} from '@/types/workout.types';
+import {
+  completedSessionsToWorkouts,
+  formatSessionDateAndDurationDa,
+  type ProfileCompletedSession,
+} from '@/services/supabase/profileCheckInHistory';
 import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
 import {
   filterWorkoutsByPeriod,
   sumWorkoutMinutes,
   type WorkoutPeriod,
 } from '@/utils/workoutPeriodFilter';
-import {useProfileStats, useWeeklyStats} from '@/hooks/useProfileData';
+import {useProfileStats} from '@/hooks/useProfileData';
 import {useFriends} from '@/hooks/useFriends';
-import {useJoinedGroups} from '@/hooks/useGroupData';
 import {useBadgeStore} from '@/store/badgeStore';
-import * as streak from '@/utils/streakUtils';
+import {useUserTrainingStats} from '@/hooks/useUserTrainingStats';
+import {formatGymDisplayName} from '@/utils/gymDisplay';
+import {useSessionStore} from '@/store/sessionStore';
 import colors from '@/theme/colors';
 import {spacing, typography, radius} from '@/theme/designTokens';
+import GymlyPostCard from '@/components/feed/GymlyPostCard';
+import {
+  fetchPostBicepsStates,
+  fetchPostBicepsUsers,
+  subscribePostBicepsRealtime,
+  togglePostBicepsReaction,
+  type PostBicepsUser,
+} from '@/services/supabase/workoutReactionService';
 
 const formatTotalTime = (minutes: number): string => {
   if (minutes < 60) return `${minutes} min`;
@@ -54,35 +72,39 @@ const formatTotalTime = (minutes: number): string => {
   return m === 0 ? `${h} timer` : `${h}t ${m}m`;
 };
 
-const formatWorkoutDate = (d: Date) =>
-  d.toLocaleDateString('da-DK', {
-    day: 'numeric',
-    month: 'short',
-    hour: '2-digit',
-    minute: '2-digit',
-  });
-
 const isPrItem = (i: FeedItem): boolean =>
   i.type === 'pr' || ((i.prInfo?.trim()?.length ?? 0) > 0);
 
 type ProfileTab = 'feed' | 'data';
 
 const DATA_PERIOD_OPTIONS: {key: WorkoutPeriod; label: string}[] = [
+  {key: 'all', label: 'I alt'},
   {key: 'week', label: 'Uge'},
   {key: 'month', label: 'Måned'},
   {key: 'year', label: 'År'},
-  {key: 'all', label: 'I alt'},
 ];
 
 const ProfileScreen = () => {
   const navigation = useNavigation<any>();
   const {user} = useAppStore();
-  const {feedItems} = useFeedStore();
+  const {feedItems, deleteFeedItem} = useFeedStore();
   const goals = useGoalStore(s => s.goals);
-  const workouts = useWorkoutStore(s => s.workouts);
   const [tab, setTab] = useState<ProfileTab>('feed');
+  const [tabBarWidth, setTabBarWidth] = useState(0);
   const [dataWorkoutPeriod, setDataWorkoutPeriod] =
     useState<WorkoutPeriod>('week');
+  const trainingStats = useUserTrainingStats(user?.id);
+  const activeSession = useSessionStore(s => s.activeSession);
+  const tabAnim = React.useRef(new Animated.Value(tab === 'feed' ? 0 : 1)).current;
+
+  useEffect(() => {
+    Animated.timing(tabAnim, {
+      toValue: tab === 'feed' ? 0 : 1,
+      duration: 220,
+      easing: Easing.out(Easing.cubic),
+      useNativeDriver: true,
+    }).start();
+  }, [tab, tabAnim]);
 
   const {stats: profileStats, refresh: refreshProfileStats} = useProfileStats(user?.id);
   const {friendCount: friendsListCount, hasSyncedFriendList} = useFriends();
@@ -91,42 +113,50 @@ const ProfileScreen = () => {
     ? (friendsListCount ?? 0)
     : (profileStats?.friendsCount ?? 0);
   const [friendsListOpen, setFriendsListOpen] = useState(false);
-  const {weeklyStats, refresh: refreshWeeklyStats} = useWeeklyStats(user?.id);
-  const {groups: joinedGroupsList} = useJoinedGroups(user?.id);
-  const setDashboardStats = useDashboardStatsStore(s => s.setStats);
-  const dashboardStreak = useDashboardStatsStore(s => s.streak);
-  const dashboardLongestStreak = useDashboardStatsStore(s => s.longestStreak);
-
-  useEffect(() => {
-    if (!profileStats || !weeklyStats) return;
-    const lastCheckIn = user?.id
-      ? useGymStore.getState().getLastUserCheckIn(user.id)
-      : undefined;
-    setDashboardStats({
-      streak: profileStats.currentStreak,
-      longestStreak: profileStats.longestStreak,
-      lastCheckInDateKey: lastCheckIn
-        ? streak.getLocalDateString(lastCheckIn.checkInTime)
-        : null,
-      weeklyCheckins: weeklyStats.checkInsThisWeek,
-      weeklyMinutes: weeklyStats.trainingMinutesThisWeek,
-      lastCheckInAt: lastCheckIn?.checkInTime ?? null,
-    });
-  }, [profileStats, weeklyStats, setDashboardStats, user?.id]);
+  const [feedReactions, setFeedReactions] = useState<
+    Record<string, {liked: boolean; likes: number}>
+  >({});
+  const [bicepsBusyByPost, setBicepsBusyByPost] = useState<Record<string, boolean>>(
+    {},
+  );
+  const [bicepsListVisible, setBicepsListVisible] = useState(false);
+  const [bicepsListLoading, setBicepsListLoading] = useState(false);
+  const [bicepsListUsers, setBicepsListUsers] = useState<PostBicepsUser[]>([]);
+  const [bicepsListPostId, setBicepsListPostId] = useState<string | null>(null);
+  const [commentModalVisible, setCommentModalVisible] = useState(false);
+  const [activeCommentItem, setActiveCommentItem] = useState<string | null>(null);
+  const [commentInput, setCommentInput] = useState('');
+  const [commentsByFeedItem, setCommentsByFeedItem] = useState<
+    Record<string, Array<{author: string; text: string; id: string}>>
+  >({});
 
   useFocusEffect(
     useCallback(() => {
       refreshWorkoutFeedFromServer().catch(() => {});
       refreshProfileStats();
-      refreshWeeklyStats();
+      void trainingStats.refresh();
       if (user?.id) {
         void loadFriendStore(user.id);
       }
-    }, [refreshProfileStats, refreshWeeklyStats, user?.id, loadFriendStore]),
+    }, [
+      refreshProfileStats,
+      user?.id,
+      loadFriendStore,
+      trainingStats.refresh,
+    ]),
   );
 
   const displayName = user?.displayName || 'Bruger';
   const username = user?.username || 'bruger';
+  const activeStatusText = useMemo(() => {
+    if (activeSession?.gymName) {
+      return `🏋️ Træner nu i ${activeSession.gymName}`;
+    }
+    if (trainingStats.activeSessionMinutes > 0) {
+      return 'Aktiv nu';
+    }
+    return 'Sidst set for nylig';
+  }, [activeSession?.gymName, trainingStats.activeSessionMinutes]);
 
   const centerRows = useMemo(() => {
     const ids = user?.favoriteGyms ?? [];
@@ -135,50 +165,16 @@ const ProfileScreen = () => {
       .map(id => danishGyms.find(g => g.id === id))
       .filter(Boolean)
       .map(g => ({
-        name: g!.name,
+        name: formatGymDisplayName(g!),
         city: g!.city,
         brand: g!.brand,
       }));
   }, [user?.favoriteGyms]);
 
   const badgeUnlocks = useBadgeStore(s => s.unlockedByUser[user?.id ?? '']);
-  const badgeCount = badgeUnlocks ? Object.keys(badgeUnlocks).length : 0;
-
-  const stats = [
-    {
-      key: 'checkins',
-      icon: 'checkmark-circle',
-      label: 'Check-ins',
-      value: profileStats?.totalCheckIns ?? 0,
-      onPress: () => navigation.navigate('CheckIn'),
-    },
-    {
-      key: 'time',
-      icon: 'time',
-      label: 'Træningstid',
-      value: formatTotalTime(profileStats?.totalTrainingMinutes ?? 0),
-    },
-    {
-      key: 'friends',
-      icon: 'people',
-      label: 'Venner',
-      value: friendCountDisplay,
-      onPress: () => setFriendsListOpen(true),
-    },
-    {
-      key: 'groups',
-      icon: 'people-circle',
-      label: 'Grupper',
-      value: joinedGroupsList.length,
-      onPress: () => navigation.navigate('Friends', {screen: 'Grupper'} as never),
-    },
-    {
-      key: 'badges',
-      emoji: '🏅',
-      label: 'Badges',
-      value: badgeCount,
-    },
-  ];
+  const badgeCount =
+    trainingStats.unlockedBadgesCount ||
+    (badgeUnlocks ? Object.keys(badgeUnlocks).length : 0);
 
   const myFeedItems = useMemo(() => {
     return feedItems.filter(
@@ -188,17 +184,100 @@ const ProfileScreen = () => {
     );
   }, [feedItems, user?.id, displayName]);
 
-  const userWorkouts = useMemo(() => {
+  useEffect(() => {
+    return subscribeWorkoutFeedRealtime();
+  }, []);
+
+  useEffect(() => {
     const uid = user?.id;
-    return workouts.filter(w =>
-      uid ? w.userId === uid || w.userId === 'current_user' : w.userId === 'current_user',
-    );
-  }, [workouts, user?.id]);
+    const postIds = myFeedItems.map(item => item.id);
+    if (!uid || postIds.length === 0) {
+      setFeedReactions({});
+      return;
+    }
+    let cancelled = false;
+    const load = async () => {
+      try {
+        const states = await fetchPostBicepsStates(postIds, uid);
+        if (cancelled) {
+          return;
+        }
+        setFeedReactions(prev => {
+          const next: Record<string, {liked: boolean; likes: number}> = {};
+          for (const id of postIds) {
+            const state = states[id];
+            next[id] = {
+              liked: state?.reactedByMe ?? false,
+              likes: state?.count ?? 0,
+            };
+          }
+          for (const [id, value] of Object.entries(prev)) {
+            if (!next[id]) {
+              next[id] = value;
+            }
+          }
+          return next;
+        });
+      } catch {
+        // ignore temporary reaction fetch errors
+      }
+    };
+    void load();
+    return () => {
+      cancelled = true;
+    };
+  }, [myFeedItems, user?.id]);
+
+  useEffect(() => {
+    const uid = user?.id;
+    if (!uid) {
+      return;
+    }
+    return subscribePostBicepsRealtime(postId => {
+      if (!myFeedItems.some(item => item.id === postId)) {
+        return;
+      }
+      void (async () => {
+        try {
+          const states = await fetchPostBicepsStates([postId], uid);
+          const state = states[postId];
+          if (state) {
+            setFeedReactions(prev => ({
+              ...prev,
+              [postId]: {liked: state.reactedByMe, likes: state.count},
+            }));
+          }
+          if (bicepsListVisible && bicepsListPostId === postId) {
+            const users = await fetchPostBicepsUsers(postId);
+            setBicepsListUsers(users);
+          }
+        } catch {
+          // ignore transient realtime update errors
+        }
+      })();
+    });
+  }, [user?.id, myFeedItems, bicepsListVisible, bicepsListPostId]);
+
+  const uid = user?.id ?? '';
+  const workoutsFromCheckIns = useMemo(
+    () => completedSessionsToWorkouts(trainingStats.recentSessions, uid),
+    [trainingStats.recentSessions, uid],
+  );
+
+  const feedSessions = useMemo(
+    () => trainingStats.recentSessions.slice(0, 10),
+    [trainingStats.recentSessions],
+  );
 
   const dataTabWorkouts = useMemo(
-    () => filterWorkoutsByPeriod(userWorkouts, dataWorkoutPeriod),
-    [userWorkouts, dataWorkoutPeriod],
+    () => filterWorkoutsByPeriod(workoutsFromCheckIns, dataWorkoutPeriod),
+    [workoutsFromCheckIns, dataWorkoutPeriod],
   );
+
+  const dataTabSessions = useMemo(() => {
+    const ids = new Set(dataTabWorkouts.map(w => w.id));
+    return trainingStats.recentSessions.filter(s => ids.has(s.id));
+  }, [dataTabWorkouts, trainingStats.recentSessions]);
 
   const dataTabWorkoutsSummary = useMemo(() => {
     const n = dataTabWorkouts.length;
@@ -206,65 +285,237 @@ const ProfileScreen = () => {
     return {count: n, minutes: min};
   }, [dataTabWorkouts]);
 
+  const stats = useMemo(
+    () => [
+      {
+        key: 'checkins',
+        icon: 'checkmark-circle',
+        label: 'Check-ins',
+        value: dataTabWorkoutsSummary.count,
+        onPress: () => navigation.navigate('CheckIn'),
+      },
+      {
+        key: 'time',
+        icon: 'time',
+        label: 'Træningstid',
+        value:
+          dataWorkoutPeriod === 'all' &&
+          trainingStats.activeSessionMinutes > 0
+            ? `${formatTotalTime(dataTabWorkoutsSummary.minutes)} (+${trainingStats.activeSessionMinutes} min i gang)`
+            : formatTotalTime(dataTabWorkoutsSummary.minutes),
+      },
+      {
+        key: 'friends',
+        icon: 'people',
+        label: 'Venner',
+        value: trainingStats.friendsCount || friendCountDisplay,
+        onPress: () => setFriendsListOpen(true),
+      },
+      {
+        key: 'groups',
+        icon: 'people-circle',
+        label: 'Grupper',
+        value: trainingStats.groupsCount,
+        onPress: () => navigation.navigate('Friends', {screen: 'Grupper'} as never),
+      },
+      {
+        key: 'badges',
+        emoji: '🏅',
+        label: 'Badges',
+        value: badgeCount,
+      },
+    ],
+    [
+      dataTabWorkoutsSummary.count,
+      dataTabWorkoutsSummary.minutes,
+      dataWorkoutPeriod,
+      trainingStats.activeSessionMinutes,
+      trainingStats.friendsCount,
+      trainingStats.groupsCount,
+      friendCountDisplay,
+      badgeCount,
+      navigation,
+    ],
+  );
+
   const myActiveGoals = useMemo(() => {
-    const uid = user?.id;
+    const goalUserId = user?.id;
     return goals.filter(g => {
-      if (g.isCompleted) return false;
-      if (uid && g.userId === uid) return true;
-      if (g.userId === 'current_user') return true;
+      if (g.isCompleted) {
+        return false;
+      }
+      if (goalUserId && g.userId === goalUserId) {
+        return true;
+      }
+      if (g.userId === 'current_user') {
+        return true;
+      }
       return false;
     });
   }, [goals, user?.id]);
 
-  const renderWorkoutHistoryRow = (w: Workout, isLast?: boolean) => (
+  const renderCompletedSessionRow = (
+    s: ProfileCompletedSession,
+    isLast?: boolean,
+  ) => (
     <View
-      key={w.id}
+      key={s.id}
       style={[styles.workoutHistoryRow, isLast && styles.workoutHistoryRowLast]}>
       <View style={styles.workoutHistoryIcon}>
         <Icon name="barbell-outline" size={22} color={colors.primary} />
       </View>
       <View style={styles.workoutHistoryBody}>
-        <Text style={styles.workoutHistoryTitle} numberOfLines={1}>
-          {w.gymName || 'Træning'}
+        <Text style={styles.workoutHistoryTitle} numberOfLines={2}>
+          {s.gymName}
         </Text>
         <Text style={styles.workoutHistoryMeta} numberOfLines={1}>
-          {formatWorkoutTypeDisplay(w.workoutType)} · {w.duration} min
+          {formatSessionDateAndDurationDa(s.startedAt, s.durationMinutes)}
         </Text>
-        <Text style={styles.workoutHistoryTime}>
-          {formatWorkoutDate(new Date(w.startTime))}
+        <Text style={styles.workoutHistoryTypeLine} numberOfLines={2}>
+          {formatWorkoutTypeDisplay(s.workoutType)}
         </Text>
+        {s.partnerDisplayName ? (
+          <Text style={styles.workoutHistoryWith} numberOfLines={1}>
+            Med: {s.partnerDisplayName}
+          </Text>
+        ) : null}
       </View>
     </View>
   );
 
-  const renderFeedRow = (post: FeedItem, variant: 'workout' | 'pr') => (
-    <View key={post.id} style={styles.feedPreviewRow}>
-      {post.photoUri ? (
-        <Image source={{uri: post.photoUri}} style={styles.feedPreviewThumb} />
-      ) : (
-        <View style={styles.feedPreviewThumbPlaceholder}>
-          <Icon
-            name={variant === 'pr' ? 'trophy-outline' : 'images-outline'}
-            size={20}
-            color={colors.primary}
-          />
-        </View>
-      )}
-      <View style={styles.feedPreviewBody}>
-        <Text style={styles.feedPreviewMeta} numberOfLines={1}>
-          {variant === 'pr'
-            ? post.prInfo || post.workoutInfo || 'PR'
-            : post.workoutInfo || 'Opslag'}
-        </Text>
-        {(post.description?.trim()?.length ?? 0) > 0 ? (
-          <Text style={styles.feedPreviewCaption} numberOfLines={3}>
-            {post.description}
-          </Text>
-        ) : null}
-        <Text style={styles.feedPreviewTime}>{post.timestamp}</Text>
-      </View>
-    </View>
+  const toggleLike = useCallback(
+    async (itemId: string) => {
+      if (bicepsBusyByPost[itemId]) {
+        return;
+      }
+      const previous = feedReactions[itemId] ?? {liked: false, likes: 0};
+      const optimisticLiked = !previous.liked;
+      const optimisticLikes = Math.max(
+        0,
+        previous.likes + (optimisticLiked ? 1 : -1),
+      );
+      setFeedReactions(prev => ({
+        ...prev,
+        [itemId]: {liked: optimisticLiked, likes: optimisticLikes},
+      }));
+      setBicepsBusyByPost(prev => ({...prev, [itemId]: true}));
+      try {
+        const result = await togglePostBicepsReaction(itemId);
+        setFeedReactions(prev => ({
+          ...prev,
+          [itemId]: {liked: result.reacted, likes: result.count},
+        }));
+      } catch {
+        setFeedReactions(prev => ({
+          ...prev,
+          [itemId]: previous,
+        }));
+      } finally {
+        setBicepsBusyByPost(prev => ({...prev, [itemId]: false}));
+      }
+    },
+    [bicepsBusyByPost, feedReactions],
   );
+
+  const openBicepsList = useCallback(async (itemId: string) => {
+    setBicepsListPostId(itemId);
+    setBicepsListVisible(true);
+    setBicepsListLoading(true);
+    try {
+      const users = await fetchPostBicepsUsers(itemId);
+      setBicepsListUsers(users);
+    } catch {
+      setBicepsListUsers([]);
+    } finally {
+      setBicepsListLoading(false);
+    }
+  }, []);
+
+  const closeBicepsList = useCallback(() => {
+    setBicepsListVisible(false);
+    setBicepsListPostId(null);
+    setBicepsListUsers([]);
+    setBicepsListLoading(false);
+  }, []);
+
+  const openComments = useCallback((itemId: string) => {
+    setActiveCommentItem(itemId);
+    setCommentModalVisible(true);
+  }, []);
+
+  const closeComments = useCallback(() => {
+    setCommentModalVisible(false);
+    setActiveCommentItem(null);
+    setCommentInput('');
+  }, []);
+
+  const addComment = useCallback(() => {
+    if (!activeCommentItem) {
+      return;
+    }
+    const text = commentInput.trim();
+    if (!text) {
+      return;
+    }
+    const author = displayName || 'Bruger';
+    const nextComment = {
+      id: `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
+      author,
+      text,
+    };
+    setCommentsByFeedItem(prev => ({
+      ...prev,
+      [activeCommentItem]: [...(prev[activeCommentItem] ?? []), nextComment],
+    }));
+    setCommentInput('');
+  }, [activeCommentItem, commentInput, displayName]);
+
+  const parseWorkoutInfo = useCallback((info?: string) => {
+    const fallback = {
+      gymName: 'Center',
+      duration: '0 min',
+      workoutType: 'fri',
+    };
+    if (!info) {
+      return fallback;
+    }
+    const parts = info
+      .split('·')
+      .map(p => p.trim())
+      .filter(Boolean);
+    if (parts.length >= 3) {
+      return {
+        gymName: parts[0],
+        duration: parts[1],
+        workoutType: parts.slice(2).join(' · '),
+      };
+    }
+    return {
+      gymName: parts[0] ?? fallback.gymName,
+      duration: parts[1] ?? fallback.duration,
+      workoutType: parts[2] ?? fallback.workoutType,
+    };
+  }, []);
+
+  const handleFeedItemMenu = useCallback(
+    (item: FeedItem) => {
+      Alert.alert('Opslag', 'Vælg handling', [
+        {text: 'Annuller', style: 'cancel'},
+        {
+          text: 'Slet opslag',
+          style: 'destructive',
+          onPress: () => {
+            deleteFeedItem(item.id);
+          },
+        },
+      ]);
+    },
+    [deleteFeedItem],
+  );
+
+  const activeComments = activeCommentItem
+    ? commentsByFeedItem[activeCommentItem] ?? []
+    : [];
 
   return (
     <View style={styles.container}>
@@ -278,6 +529,7 @@ const ProfileScreen = () => {
           profileImageUrl={user?.profileImageUrl}
           showBio={false}
           onEditPress={() => navigation.navigate('EditProfile')}
+          activeStatus={activeStatusText}
           followersCount={profileStats?.followersCount ?? 0}
           followingCount={profileStats?.followingCount ?? 0}
           friendsCount={friendCountDisplay}
@@ -303,10 +555,32 @@ const ProfileScreen = () => {
 
         {/* Faner */}
         <View style={styles.tabBar}>
-          <TouchableOpacity
-            style={[styles.tabBtn, tab === 'feed' && styles.tabBtnActive]}
+          <View
+            pointerEvents="none"
+            style={styles.tabBarMeasure}
+            onLayout={e => setTabBarWidth(e.nativeEvent.layout.width)}
+          />
+          <Animated.View
+            pointerEvents="none"
+            style={[
+              styles.tabSlider,
+              {
+                width: Math.max((tabBarWidth - 10) / 2, 0),
+                transform: [
+                  {
+                    translateX: tabAnim.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [0, Math.max((tabBarWidth - 10) / 2, 0)],
+                    }),
+                  },
+                ],
+              },
+            ]}
+          />
+          <Pressable
+            style={styles.tabBtn}
             onPress={() => setTab('feed')}
-            activeOpacity={0.85}>
+            android_ripple={{color: '#00000010'}}>
             <Icon
               name="newspaper-outline"
               size={18}
@@ -316,11 +590,11 @@ const ProfileScreen = () => {
               style={[styles.tabBtnText, tab === 'feed' && styles.tabBtnTextActive]}>
               Feed
             </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[styles.tabBtn, tab === 'data' && styles.tabBtnActive]}
+          </Pressable>
+          <Pressable
+            style={styles.tabBtn}
             onPress={() => setTab('data')}
-            activeOpacity={0.85}>
+            android_ripple={{color: '#00000010'}}>
             <Icon
               name="stats-chart-outline"
               size={18}
@@ -330,7 +604,7 @@ const ProfileScreen = () => {
               style={[styles.tabBtnText, tab === 'data' && styles.tabBtnTextActive]}>
               Data
             </Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
 
         {tab === 'feed' ? (
@@ -340,16 +614,23 @@ const ProfileScreen = () => {
               Historik fra dine sessioner
             </Text>
             <Card variant="outlined" padding="md">
-              {userWorkouts.length > 0 ? (
-                userWorkouts.map((w, i) =>
-                  renderWorkoutHistoryRow(w, i === userWorkouts.length - 1),
+              {trainingStats.loading && trainingStats.recentSessions.length === 0 ? (
+                <View style={styles.sessionsLoadingBox}>
+                  <ActivityIndicator color={colors.primary} />
+                </View>
+              ) : feedSessions.length > 0 ? (
+                feedSessions.map((s, i) =>
+                  renderCompletedSessionRow(
+                    s,
+                    i === feedSessions.length - 1,
+                  ),
                 )
               ) : (
                 <View style={styles.emptyInline}>
                   <Icon name="fitness-outline" size={32} color={colors.textMuted} />
                   <Text style={styles.emptyTitle}>Ingen træninger endnu</Text>
                   <Text style={styles.emptySubtext}>
-                    Tjek ind og afslut en session for at se dem her
+                    Afslut din session (tjek ud) for at se den her
                   </Text>
                 </View>
               )}
@@ -361,49 +642,66 @@ const ProfileScreen = () => {
             <Text style={styles.blockSubtitle}>
               Billeder, PR&apos;s og hvad du har delt til feed
             </Text>
-            <Card variant="outlined" padding="lg">
+            <View style={styles.profileFeedList}>
               {myFeedItems.length > 0 ? (
-                myFeedItems.map(post =>
-                  renderFeedRow(post, isPrItem(post) ? 'pr' : 'workout'),
-                )
+                myFeedItems.map(post => {
+                  const parsedInfo = parseWorkoutInfo(post.workoutInfo);
+                  const reaction = feedReactions[post.id] ?? {liked: false, likes: 0};
+                  const commentCount = commentsByFeedItem[post.id]?.length ?? 0;
+                  return (
+                    <GymlyPostCard
+                      key={post.id}
+                      userId={post.userId ?? ''}
+                      userName={post.user}
+                      userAvatar={post.userAvatarUrl}
+                      gymName={parsedInfo.gymName}
+                      workoutType={parsedInfo.workoutType}
+                      duration={parsedInfo.duration}
+                      mediaUri={post.photoUri ?? post.videoThumbnailUri ?? post.videoUri}
+                      caption={post.description}
+                      timestamp={post.timestamp}
+                      reactions={{bicep: reaction.likes, fire: 0, eyes: 0}}
+                      bicepActive={reaction.liked}
+                      hasPR={isPrItem(post)}
+                      onReaction={type => {
+                        if (type === 'bicep') {
+                          void toggleLike(post.id);
+                        }
+                      }}
+                      onCommentPress={() => openComments(post.id)}
+                      commentCount={commentCount}
+                      onBicepsCountPress={() => void openBicepsList(post.id)}
+                      onMenuPress={
+                        user?.id && post.userId === user.id
+                          ? () => handleFeedItemMenu(post)
+                          : undefined
+                      }
+                    />
+                  );
+                })
               ) : (
                 <View style={styles.emptyInline}>
                   <Icon name="images-outline" size={36} color={colors.textMuted} />
                   <Text style={styles.emptyTitle}>Ingen opslag endnu</Text>
                   <Text style={styles.emptySubtext}>
-                    Del efter træning for at vise billeder og tekst her
+                    Del din første træning 🔥
                   </Text>
                   <TouchableOpacity
                     style={styles.emptyCta}
                     onPress={() => navigation.navigate('CheckIn')}
                     activeOpacity={0.85}>
-                    <Text style={styles.emptyCtaText}>Gå til check-in</Text>
+                    <Text style={styles.emptyCtaText}>Start træning</Text>
                   </TouchableOpacity>
                 </View>
               )}
-            </Card>
+            </View>
           </View>
         ) : (
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Statistik</Text>
-            <View style={styles.streakBlock}>
-              <StreakHighlight
-                currentStreak={dashboardStreak}
-                longestStreak={dashboardLongestStreak}
-                onPress={() => navigation.navigate('CheckIn')}
-              />
-            </View>
-            <Card variant="outlined" padding="lg" style={styles.statsCard}>
-              <ProfileStatGrid stats={stats} />
-            </Card>
-
-            <Text style={styles.recentWorkoutsHeading}>Seneste træninger</Text>
-            <Text style={styles.recentWorkoutsSub}>
-              {dataTabWorkoutsSummary.count === 0
-                ? 'Ingen i valgt periode'
-                : `${dataTabWorkoutsSummary.count} træning${
-                    dataTabWorkoutsSummary.count === 1 ? '' : 'er'
-                  } · ${formatTotalTime(dataTabWorkoutsSummary.minutes)}`}
+            <Text style={styles.dataPeriodHint}>
+              Check-ins og træningstid følger perioden nedenfor. Streak er altid
+              samlet.
             </Text>
             <View style={styles.periodChips}>
               {DATA_PERIOD_OPTIONS.map(({key, label}) => {
@@ -425,17 +723,54 @@ const ProfileScreen = () => {
                 );
               })}
             </View>
+            <View style={styles.streakBlock}>
+              <StreakHighlight
+                currentStreak={trainingStats.currentStreakDays}
+                longestStreak={Math.max(
+                  profileStats?.longestStreak ?? 0,
+                  trainingStats.currentStreakDays,
+                )}
+                onPress={() => navigation.navigate('CheckIn')}
+              />
+              <Text style={styles.streakMicro}>Du er på vej 💪</Text>
+              <Text style={styles.streakMotivation}>
+                {trainingStats.currentStreakDays > 3
+                  ? 'Du er on fire 🔥'
+                  : trainingStats.currentStreakDays === 0
+                  ? 'Start din streak i dag'
+                  : 'Hold momentumet kørende'}
+              </Text>
+            </View>
+            <Card variant="outlined" padding="lg" style={styles.statsCard}>
+              <ProfileStatGrid stats={stats} />
+            </Card>
+
+            <Text style={styles.recentWorkoutsHeading}>Seneste træninger</Text>
+            <Text style={styles.recentWorkoutsSub}>
+              {dataTabWorkoutsSummary.count === 0
+                ? 'Ingen i valgt periode'
+                : `${dataTabWorkoutsSummary.count} træning${
+                    dataTabWorkoutsSummary.count === 1 ? '' : 'er'
+                  } · ${formatTotalTime(dataTabWorkoutsSummary.minutes)}`}
+            </Text>
             <Card variant="outlined" padding="md">
-              {dataTabWorkouts.length > 0 ? (
-                dataTabWorkouts.map((w, i) =>
-                  renderWorkoutHistoryRow(w, i === dataTabWorkouts.length - 1),
+              {trainingStats.loading && trainingStats.recentSessions.length === 0 ? (
+                <View style={styles.sessionsLoadingBox}>
+                  <ActivityIndicator color={colors.primary} />
+                </View>
+              ) : dataTabSessions.length > 0 ? (
+                dataTabSessions.map((s, i) =>
+                  renderCompletedSessionRow(
+                    s,
+                    i === dataTabSessions.length - 1,
+                  ),
                 )
               ) : (
                 <View style={styles.emptyInline}>
                   <Icon name="calendar-outline" size={28} color={colors.textMuted} />
                   <Text style={styles.emptyTitle}>Ingen træninger her</Text>
                   <Text style={styles.emptySubtext}>
-                    Vælg en anden periode eller tjek ind for at bygge historik
+                    Vælg en anden periode eller afslut sessioner for at se historik
                   </Text>
                 </View>
               )}
@@ -477,6 +812,98 @@ const ProfileScreen = () => {
         visible={friendsListOpen}
         onClose={() => setFriendsListOpen(false)}
       />
+      <Modal visible={bicepsListVisible} transparent animationType="slide">
+        <TouchableWithoutFeedback onPress={closeBicepsList}>
+          <View style={styles.bottomSheetOverlay}>
+            <TouchableWithoutFeedback>
+              <View style={styles.bottomSheet}>
+                <View style={styles.commentHandle} />
+                <View style={styles.bottomSheetHeader}>
+                  <Text style={styles.modalTitle}>Biceps</Text>
+                  <TouchableOpacity
+                    onPress={closeBicepsList}
+                    style={styles.commentCloseButton}>
+                    <Icon name="close" size={22} color={colors.text} />
+                  </TouchableOpacity>
+                </View>
+                <ScrollView
+                  style={styles.commentList}
+                  contentContainerStyle={styles.commentListContent}>
+                  {bicepsListLoading ? (
+                    <Text style={styles.commentEmpty}>Henter biceps...</Text>
+                  ) : bicepsListUsers.length === 0 ? (
+                    <Text style={styles.commentEmpty}>Ingen biceps endnu</Text>
+                  ) : (
+                    bicepsListUsers.map(row => (
+                      <TouchableOpacity
+                        key={`${row.userId}_${row.createdAt}`}
+                        style={styles.commentRow}
+                        onPress={() =>
+                          navigation.navigate('FriendProfile', {
+                            friendId: row.userId,
+                            friendName: row.name,
+                          })
+                        }
+                        activeOpacity={0.8}>
+                        <Text style={styles.commentAuthor}>{row.name}</Text>
+                        <Text style={styles.commentBody}>@{row.username}</Text>
+                      </TouchableOpacity>
+                    ))
+                  )}
+                </ScrollView>
+              </View>
+            </TouchableWithoutFeedback>
+          </View>
+        </TouchableWithoutFeedback>
+      </Modal>
+      <Modal visible={commentModalVisible} transparent animationType="slide">
+        <TouchableWithoutFeedback onPress={closeComments}>
+          <View style={styles.bottomSheetOverlay}>
+            <TouchableWithoutFeedback>
+              <View style={styles.bottomSheet}>
+                <View style={styles.commentHandle} />
+                <View style={styles.bottomSheetHeader}>
+                  <Text style={styles.modalTitle}>Kommentarer</Text>
+                  <TouchableOpacity
+                    onPress={closeComments}
+                    style={styles.commentCloseButton}>
+                    <Icon name="close" size={22} color={colors.text} />
+                  </TouchableOpacity>
+                </View>
+                <ScrollView
+                  style={styles.commentList}
+                  contentContainerStyle={styles.commentListContent}>
+                  {activeComments.length === 0 ? (
+                    <Text style={styles.commentEmpty}>Ingen kommentarer endnu</Text>
+                  ) : (
+                    activeComments.map(comment => (
+                      <View key={comment.id} style={styles.commentRow}>
+                        <Text style={styles.commentAuthor}>{comment.author}</Text>
+                        <Text style={styles.commentBody}>{comment.text}</Text>
+                      </View>
+                    ))
+                  )}
+                </ScrollView>
+                <View style={styles.commentComposer}>
+                  <TextInput
+                    value={commentInput}
+                    onChangeText={setCommentInput}
+                    placeholder="Skriv en kommentar..."
+                    placeholderTextColor={colors.textMuted}
+                    style={styles.commentInput}
+                  />
+                  <TouchableOpacity
+                    style={styles.commentSend}
+                    onPress={addComment}
+                    activeOpacity={0.85}>
+                    <Text style={styles.commentSendText}>Send</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </TouchableWithoutFeedback>
+          </View>
+        </TouchableWithoutFeedback>
+      </Modal>
     </View>
   );
 };
@@ -501,14 +928,27 @@ const styles = StyleSheet.create({
   },
   tabBar: {
     flexDirection: 'row',
+    position: 'relative',
     marginHorizontal: spacing.lg,
     marginBottom: spacing.lg,
-    gap: spacing.sm,
-    padding: 4,
-    backgroundColor: colors.surface,
-    borderRadius: radius.lg,
+    padding: 3,
+    backgroundColor: '#F2F2F7',
+    borderRadius: radius.full,
     borderWidth: 1,
     borderColor: colors.border,
+  },
+  tabSlider: {
+    position: 'absolute',
+    top: 3,
+    left: 3,
+    height: '86%',
+    backgroundColor: colors.primary,
+    borderRadius: radius.full,
+    shadowColor: colors.primary,
+    shadowOffset: {width: 0, height: 5},
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    elevation: 3,
   },
   tabBtn: {
     flex: 1,
@@ -517,10 +957,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: spacing.sm,
     paddingVertical: spacing.md,
-    borderRadius: radius.md,
+    borderRadius: radius.full,
   },
-  tabBtnActive: {
-    backgroundColor: colors.primary,
+  tabBarMeasure: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
   },
   tabBtnText: {
     ...typography.bodyBold,
@@ -560,12 +1004,33 @@ const styles = StyleSheet.create({
     flex: 1,
     color: colors.text,
   },
+  dataPeriodHint: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    marginBottom: spacing.sm,
+  },
   streakBlock: {
-    marginTop: spacing.sm,
+    marginTop: 0,
     marginBottom: spacing.md,
+  },
+  streakMicro: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    marginTop: spacing.sm,
+    marginLeft: spacing.xs,
+  },
+  streakMotivation: {
+    ...typography.bodyBold,
+    color: colors.primaryDark,
+    marginTop: 4,
+    marginLeft: spacing.xs,
   },
   statsCard: {
     marginTop: 0,
+    marginBottom: spacing.sm,
+  },
+  profileFeedList: {
+    gap: spacing.md,
   },
   recentWorkoutsHeading: {
     ...typography.bodyBold,
@@ -632,50 +1097,114 @@ const styles = StyleSheet.create({
   workoutHistoryMeta: {
     ...typography.caption,
     color: colors.textSecondary,
-    marginTop: 2,
-  },
-  workoutHistoryTime: {
-    ...typography.caption,
-    color: colors.textMuted,
     marginTop: 4,
   },
-  feedPreviewRow: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    paddingVertical: spacing.sm,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-    gap: spacing.md,
-  },
-  feedPreviewThumb: {
-    width: 72,
-    height: 72,
-    borderRadius: 10,
-    backgroundColor: colors.surface,
-  },
-  feedPreviewThumbPlaceholder: {
-    width: 72,
-    height: 72,
-    borderRadius: 10,
-    backgroundColor: colors.primary + '18',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  feedPreviewBody: {flex: 1, minWidth: 0},
-  feedPreviewMeta: {
+  workoutHistoryTypeLine: {
     ...typography.small,
-    fontWeight: '600',
     color: colors.text,
+    marginTop: 4,
+    fontWeight: '600',
   },
-  feedPreviewCaption: {
+  workoutHistoryWith: {
     ...typography.caption,
     color: colors.textSecondary,
     marginTop: 4,
   },
-  feedPreviewTime: {
+  sessionsLoadingBox: {
+    paddingVertical: spacing.lg,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  bottomSheetOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(15, 23, 42, 0.5)',
+    justifyContent: 'flex-end',
+  },
+  bottomSheet: {
+    backgroundColor: colors.background,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    maxHeight: '70%',
+    paddingBottom: spacing.lg,
+  },
+  commentHandle: {
+    alignSelf: 'center',
+    width: 40,
+    height: 4,
+    borderRadius: 2,
+    backgroundColor: colors.border,
+    marginTop: spacing.sm,
+    marginBottom: spacing.sm,
+  },
+  bottomSheetHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: spacing.lg,
+    paddingBottom: spacing.sm,
+  },
+  modalTitle: {
+    ...typography.bodyBold,
+    color: colors.text,
+  },
+  commentCloseButton: {
+    padding: spacing.xs,
+  },
+  commentList: {
+    maxHeight: 320,
+  },
+  commentListContent: {
+    paddingHorizontal: spacing.lg,
+    paddingBottom: spacing.sm,
+  },
+  commentEmpty: {
     ...typography.caption,
-    color: colors.textMuted,
-    marginTop: 4,
+    color: colors.textSecondary,
+    textAlign: 'center',
+    paddingVertical: spacing.lg,
+  },
+  commentRow: {
+    paddingVertical: spacing.sm,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: colors.border,
+  },
+  commentAuthor: {
+    ...typography.small,
+    color: colors.text,
+    fontWeight: '700',
+  },
+  commentBody: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    marginTop: 2,
+  },
+  commentComposer: {
+    marginTop: spacing.sm,
+    marginHorizontal: spacing.lg,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
+  commentInput: {
+    flex: 1,
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: 10,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    color: colors.text,
+    backgroundColor: colors.surface,
+  },
+  commentSend: {
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    borderRadius: 10,
+    backgroundColor: colors.primary,
+  },
+  commentSendText: {
+    ...typography.small,
+    color: colors.white,
+    fontWeight: '700',
   },
   emptyInline: {
     alignItems: 'center',

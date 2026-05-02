@@ -1,6 +1,6 @@
 import {supabase} from '@/services/supabase/supabaseClient';
 import {getMyFriendIds} from '@/services/supabase/friendService';
-import {findGymById} from '@/utils/gymDisplay';
+import {findGymById, formatGymDisplayName} from '@/utils/gymDisplay';
 import type {GymPresence, UserPresence} from '@/types/gymPresence.types';
 import type {LiveWorkoutSessionRow} from '@/services/supabase/liveWorkoutSessionService';
 import {
@@ -112,7 +112,7 @@ export function buildGymPresenceList(
     seen.add(gymId);
     const gymName =
       gymRows[0]?.gym_name ??
-      findGymById(gymId)?.name ??
+      (findGymById(gymId) ? formatGymDisplayName(findGymById(gymId)!) : undefined) ??
       'Fitness center';
     const total = totalsByGymId.get(gymId) ?? gymRows.length;
     const userList = [...gymRows]
@@ -138,10 +138,11 @@ export function buildGymPresenceList(
     if (count <= 0 || seen.has(gymIdStr)) {
       continue;
     }
-    const nid = parseInt(gymIdStr, 10);
     gyms.push({
       gymId: gymIdStr,
-      gymName: findGymById(Number.isFinite(nid) ? nid : null)?.name ?? 'Fitness center',
+      gymName: findGymById(gymIdStr)
+        ? formatGymDisplayName(findGymById(gymIdStr)!)
+        : 'Fitness center',
       activeUsers: count,
       userList: [],
     });
@@ -149,6 +150,26 @@ export function buildGymPresenceList(
 
   gyms.sort((a, b) => b.activeUsers - a.activeUsers);
   return gyms;
+}
+
+function buildGymPresenceFromLiveSessions(
+  currentUserId: string,
+  friendIds: Set<string>,
+  liveRows: LiveWorkoutSessionRow[],
+  totalsByGymId: Map<string, number>,
+): GymPresence[] {
+  const asCheckins: CheckInRow[] = liveRows.map(r => ({
+    id: r.user_id,
+    user_id: r.user_id,
+    gym_id: r.gym_id,
+    gym_name: r.gym_name,
+    city: r.city,
+    workout_type: r.workout_type,
+    note: null,
+    user_display_name: r.user_display_name,
+    created_at: r.started_at,
+  }));
+  return buildGymPresenceList(currentUserId, friendIds, asCheckins, totalsByGymId);
 }
 
 export async function loadGymPresenceForUser(userId: string): Promise<GymPresence[]> {
@@ -183,6 +204,43 @@ export async function loadMapGymBadges(userId: string): Promise<{
   totalByGymId: Map<string, number>;
 }> {
   const friendIds = await getMyFriendIds(userId);
+
+  const {data: rollups, error: rollupErr} = await supabase
+    .from('gym_active_checkin_rollup')
+    .select('gym_id, active_count');
+  if (!rollupErr && rollups) {
+    const totalByGymId = new Map<string, number>();
+    for (const r of rollups) {
+      const row = r as {gym_id: string; active_count: number | string};
+      totalByGymId.set(String(row.gym_id), Number(row.active_count) || 0);
+    }
+
+    const {data: activeRows, error: cinErr} = await supabase
+      .from('check_ins')
+      .select('gym_id, user_id')
+      .eq('is_active', true)
+      .is('ended_at', null);
+
+    const friendsByGymId = new Map<string, number>();
+    if (!cinErr && activeRows) {
+      for (const r of activeRows) {
+        const row = r as {gym_id: string; user_id: string};
+        if (row.user_id === userId) {
+          continue;
+        }
+        if (!friendIds.has(row.user_id)) {
+          continue;
+        }
+        const gid = String(row.gym_id);
+        if (!gid) {
+          continue;
+        }
+        friendsByGymId.set(gid, (friendsByGymId.get(gid) ?? 0) + 1);
+      }
+    }
+    return {friendsByGymId, totalByGymId};
+  }
+
   let liveRows: LiveWorkoutSessionRow[] = [];
   let totals = new Map<string, number>();
   try {

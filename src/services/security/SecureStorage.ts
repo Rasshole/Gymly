@@ -9,6 +9,26 @@ import {AuthTokens} from '@/types/auth.types';
 import {User} from '@/types/user.types';
 
 class SecureStorageService {
+  private safeParseJson<T>(raw: string | null | undefined): T | null {
+    if (!raw) {
+      return null;
+    }
+    const trimmed = raw.trim();
+    if (
+      !trimmed ||
+      trimmed === 'undefined' ||
+      trimmed === 'null' ||
+      trimmed === '[object Object]'
+    ) {
+      return null;
+    }
+    try {
+      return JSON.parse(trimmed) as T;
+    } catch {
+      return null;
+    }
+  }
+
   private readonly SERVICE_NAME = 'com.test1.Gymly';
   
   // Keys for secure storage
@@ -45,7 +65,7 @@ class SecureStorageService {
       });
       
       if (credentials) {
-        return JSON.parse(credentials.password);
+        return this.safeParseJson<AuthTokens>(credentials.password);
       }
       return null;
     } catch (error) {
@@ -86,7 +106,7 @@ class SecureStorageService {
   async getUserData(): Promise<User | null> {
     try {
       const userData = await AsyncStorage.getItem(this.USER_KEY);
-      return userData ? JSON.parse(userData) : null;
+      return this.safeParseJson<User>(userData);
     } catch (error) {
       console.error('Error retrieving user data:', error);
       return null;

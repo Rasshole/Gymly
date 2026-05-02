@@ -9,6 +9,7 @@ export type FeedItem = {
   /** Bruges til at filtrere egne opslag på profil */
   userId?: string;
   user: string;
+  userAvatarUrl?: string;
   description: string;
   timestamp: string;
   photoUri?: string;

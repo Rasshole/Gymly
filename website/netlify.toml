@@ -23,3 +23,15 @@
   to = "/auth-confirm/index.html"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/reset-password"
+  to = "/reset-password/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/reset-password/"
+  to = "/reset-password/index.html"
+  status = 200
+  force = true

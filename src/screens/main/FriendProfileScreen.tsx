@@ -2,28 +2,37 @@
  * Friend Profile – som egen profil: data, centre, feed/data, uden redigering
  */
 
-import React, {useCallback, useMemo, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {
   View,
   Text,
   StyleSheet,
   ScrollView,
-  Image,
   TouchableOpacity,
   SafeAreaView,
   ActivityIndicator,
   Alert,
+  Modal,
+  TouchableWithoutFeedback,
+  TextInput,
 } from 'react-native';
 import {useNavigation, useRoute, useFocusEffect} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppStore} from '@/store/appStore';
 import {useChatStore} from '@/store/chatStore';
-import {useWorkoutStore} from '@/store/workoutStore';
 import {useFeedStore} from '@/store/feedStore';
 import {useGoalStore} from '@/store/goalStore';
 import {useBadgeStore} from '@/store/badgeStore';
 import {supabase} from '@/services/supabase/supabaseClient';
+import {subscribeWorkoutFeedRealtime} from '@/services/supabase/workoutPostService';
+import {
+  fetchPostBicepsStates,
+  fetchPostBicepsUsers,
+  subscribePostBicepsRealtime,
+  togglePostBicepsReaction,
+  type PostBicepsUser,
+} from '@/services/supabase/workoutReactionService';
 import {getOrCreateDmThread} from '@/services/supabase/dmService';
 import {
   isFriendWith,
@@ -48,7 +57,12 @@ import {
 } from '@/components/profile';
 import {Card} from '@/components/ui/Card';
 import type {FeedItem} from '@/store/feedStore';
-import type {Workout} from '@/types/workout.types';
+import {
+  fetchCompletedCheckInSessionsForUser,
+  completedSessionsToWorkouts,
+  formatSessionDateAndDurationDa,
+  type ProfileCompletedSession,
+} from '@/services/supabase/profileCheckInHistory';
 import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
 import {
   filterWorkoutsByPeriod,
@@ -60,6 +74,7 @@ import {useJoinedGroups} from '@/hooks/useGroupData';
 import colors from '@/theme/colors';
 import {spacing, typography, radius} from '@/theme/designTokens';
 import type {ProfileCenterRow} from '@/components/profile/ProfileCentersList';
+import GymlyPostCard from '@/components/feed/GymlyPostCard';
 
 type FriendProfileRouteParams = {
   friendId?: string;
@@ -94,14 +109,6 @@ const formatTotalTime = (minutes: number): string => {
   return m === 0 ? `${h} timer` : `${h}t ${m}m`;
 };
 
-const formatWorkoutDate = (d: Date) =>
-  d.toLocaleDateString('da-DK', {
-    day: 'numeric',
-    month: 'short',
-    hour: '2-digit',
-    minute: '2-digit',
-  });
-
 const isPrItem = (i: FeedItem): boolean =>
   i.type === 'pr' || ((i.prInfo?.trim()?.length ?? 0) > 0);
 
@@ -127,7 +134,6 @@ const FriendProfileScreen = () => {
   const {user: currentUser} = useAppStore();
   const {getChatByParticipants, upsertChat} = useChatStore();
   const feedItems = useFeedStore(s => s.feedItems);
-  const workouts = useWorkoutStore(s => s.workouts);
   const goals = useGoalStore(s => s.goals);
   const badgeUnlocks = useBadgeStore(
     s => s.unlockedByUser[friendId ?? ''] ?? undefined,
@@ -155,6 +161,26 @@ const FriendProfileScreen = () => {
     null,
   );
   const [requestActionLoading, setRequestActionLoading] = useState(false);
+  const [completedSessions, setCompletedSessions] = useState<
+    ProfileCompletedSession[]
+  >([]);
+  const [sessionsLoading, setSessionsLoading] = useState(true);
+  const [feedReactions, setFeedReactions] = useState<
+    Record<string, {liked: boolean; likes: number}>
+  >({});
+  const [bicepsBusyByPost, setBicepsBusyByPost] = useState<Record<string, boolean>>(
+    {},
+  );
+  const [bicepsListVisible, setBicepsListVisible] = useState(false);
+  const [bicepsListLoading, setBicepsListLoading] = useState(false);
+  const [bicepsListUsers, setBicepsListUsers] = useState<PostBicepsUser[]>([]);
+  const [bicepsListPostId, setBicepsListPostId] = useState<string | null>(null);
+  const [commentModalVisible, setCommentModalVisible] = useState(false);
+  const [activeCommentItem, setActiveCommentItem] = useState<string | null>(null);
+  const [commentInput, setCommentInput] = useState('');
+  const [commentsByFeedItem, setCommentsByFeedItem] = useState<
+    Record<string, Array<{author: string; text: string; id: string}>>
+  >({});
   const loadFriendStore = useFriendStore(s => s.load);
   const removeFriendFromStore = useFriendStore(s => s.removeFriend);
 
@@ -242,15 +268,34 @@ const FriendProfileScreen = () => {
     }
   }, [friendId, currentUser?.id]);
 
+  const loadCompletedSessions = useCallback(async () => {
+    if (!friendId) {
+      setCompletedSessions([]);
+      setSessionsLoading(false);
+      return;
+    }
+    setSessionsLoading(true);
+    try {
+      const rows = await fetchCompletedCheckInSessionsForUser(friendId);
+      setCompletedSessions(rows);
+    } catch {
+      setCompletedSessions([]);
+    } finally {
+      setSessionsLoading(false);
+    }
+  }, [friendId]);
+
   useFocusEffect(
     useCallback(() => {
       void loadProfile();
       void refreshFriendStats();
       void refreshFriendWeekly();
       void loadFriendStatus();
+      void loadCompletedSessions();
     }, [
       loadProfile,
       loadFriendStatus,
+      loadCompletedSessions,
       refreshFriendStats,
       refreshFriendWeekly,
     ]),
@@ -416,9 +461,14 @@ const FriendProfileScreen = () => {
     upsertChat,
   ]);
 
-  const userWorkouts = useMemo(
-    () => workouts.filter(w => w.userId === friendId),
-    [workouts, friendId],
+  const workoutsFromCheckIns = useMemo(
+    () => completedSessionsToWorkouts(completedSessions, friendId),
+    [completedSessions, friendId],
+  );
+
+  const feedSessions = useMemo(
+    () => completedSessions.slice(0, 10),
+    [completedSessions],
   );
 
   const myFeedItems = useMemo(
@@ -431,10 +481,89 @@ const FriendProfileScreen = () => {
     [feedItems, friendId, friendUser],
   );
 
+  useEffect(() => {
+    return subscribeWorkoutFeedRealtime();
+  }, []);
+
+  useEffect(() => {
+    const uid = currentUser?.id;
+    const postIds = myFeedItems.map(item => item.id);
+    if (!uid || postIds.length === 0) {
+      setFeedReactions({});
+      return;
+    }
+    let cancelled = false;
+    const load = async () => {
+      try {
+        const states = await fetchPostBicepsStates(postIds, uid);
+        if (cancelled) {
+          return;
+        }
+        setFeedReactions(prev => {
+          const next: Record<string, {liked: boolean; likes: number}> = {};
+          for (const id of postIds) {
+            const state = states[id];
+            next[id] = {
+              liked: state?.reactedByMe ?? false,
+              likes: state?.count ?? 0,
+            };
+          }
+          for (const [id, value] of Object.entries(prev)) {
+            if (!next[id]) {
+              next[id] = value;
+            }
+          }
+          return next;
+        });
+      } catch {
+        // ignore transient errors
+      }
+    };
+    void load();
+    return () => {
+      cancelled = true;
+    };
+  }, [currentUser?.id, myFeedItems]);
+
+  useEffect(() => {
+    const uid = currentUser?.id;
+    if (!uid) {
+      return;
+    }
+    return subscribePostBicepsRealtime(postId => {
+      if (!myFeedItems.some(item => item.id === postId)) {
+        return;
+      }
+      void (async () => {
+        try {
+          const states = await fetchPostBicepsStates([postId], uid);
+          const state = states[postId];
+          if (state) {
+            setFeedReactions(prev => ({
+              ...prev,
+              [postId]: {liked: state.reactedByMe, likes: state.count},
+            }));
+          }
+          if (bicepsListVisible && bicepsListPostId === postId) {
+            const users = await fetchPostBicepsUsers(postId);
+            setBicepsListUsers(users);
+          }
+        } catch {
+          // ignore transient errors
+        }
+      })();
+    });
+  }, [currentUser?.id, myFeedItems, bicepsListVisible, bicepsListPostId]);
+
   const dataTabWorkouts = useMemo(
-    () => filterWorkoutsByPeriod(userWorkouts, dataWorkoutPeriod),
-    [userWorkouts, dataWorkoutPeriod],
+    () => filterWorkoutsByPeriod(workoutsFromCheckIns, dataWorkoutPeriod),
+    [workoutsFromCheckIns, dataWorkoutPeriod],
   );
+
+  const dataTabSessions = useMemo(() => {
+    const ids = new Set(dataTabWorkouts.map(w => w.id));
+    return completedSessions.filter(s => ids.has(s.id));
+  }, [dataTabWorkouts, completedSessions]);
 
   const dataTabWorkoutsSummary = useMemo(() => {
     const n = dataTabWorkouts.length;
@@ -483,55 +612,143 @@ const FriendProfileScreen = () => {
     [friendStats, friendJoinedGroups.length, badgeCount],
   );
 
-  const renderWorkoutHistoryRow = (w: Workout, isLast?: boolean) => (
+  const renderCompletedSessionRow = (
+    s: ProfileCompletedSession,
+    isLast?: boolean,
+  ) => (
     <View
-      key={w.id}
+      key={s.id}
       style={[styles.workoutHistoryRow, isLast && styles.workoutHistoryRowLast]}>
       <View style={styles.workoutHistoryIcon}>
         <Icon name="barbell-outline" size={22} color={colors.primary} />
       </View>
       <View style={styles.workoutHistoryBody}>
-        <Text style={styles.workoutHistoryTitle} numberOfLines={1}>
-          {w.gymName || 'Træning'}
+        <Text style={styles.workoutHistoryTitle} numberOfLines={2}>
+          {s.gymName}
         </Text>
         <Text style={styles.workoutHistoryMeta} numberOfLines={1}>
-          {formatWorkoutTypeDisplay(w.workoutType)} · {w.duration} min
+          {formatSessionDateAndDurationDa(s.startedAt, s.durationMinutes)}
         </Text>
-        <Text style={styles.workoutHistoryTime}>
-          {formatWorkoutDate(new Date(w.startTime))}
+        <Text style={styles.workoutHistoryTypeLine} numberOfLines={2}>
+          {formatWorkoutTypeDisplay(s.workoutType)}
         </Text>
+        {s.partnerDisplayName ? (
+          <Text style={styles.workoutHistoryWith} numberOfLines={1}>
+            Med: {s.partnerDisplayName}
+          </Text>
+        ) : null}
       </View>
     </View>
   );
 
-  const renderFeedRow = (post: FeedItem, variant: 'workout' | 'pr') => (
-    <View key={post.id} style={styles.feedPreviewRow}>
-      {post.photoUri ? (
-        <Image source={{uri: post.photoUri}} style={styles.feedPreviewThumb} />
-      ) : (
-        <View style={styles.feedPreviewThumbPlaceholder}>
-          <Icon
-            name={variant === 'pr' ? 'trophy-outline' : 'images-outline'}
-            size={20}
-            color={colors.primary}
-          />
-        </View>
-      )}
-      <View style={styles.feedPreviewBody}>
-        <Text style={styles.feedPreviewMeta} numberOfLines={1}>
-          {variant === 'pr'
-            ? post.prInfo || post.workoutInfo || 'PR'
-            : post.workoutInfo || 'Opslag'}
-        </Text>
-        {(post.description?.trim()?.length ?? 0) > 0 ? (
-          <Text style={styles.feedPreviewCaption} numberOfLines={3}>
-            {post.description}
-          </Text>
-        ) : null}
-        <Text style={styles.feedPreviewTime}>{post.timestamp}</Text>
-      </View>
-    </View>
+  const toggleLike = useCallback(
+    async (itemId: string) => {
+      if (bicepsBusyByPost[itemId]) {
+        return;
+      }
+      const previous = feedReactions[itemId] ?? {liked: false, likes: 0};
+      const optimisticLiked = !previous.liked;
+      const optimisticLikes = Math.max(
+        0,
+        previous.likes + (optimisticLiked ? 1 : -1),
+      );
+      setFeedReactions(prev => ({
+        ...prev,
+        [itemId]: {liked: optimisticLiked, likes: optimisticLikes},
+      }));
+      setBicepsBusyByPost(prev => ({...prev, [itemId]: true}));
+      try {
+        const result = await togglePostBicepsReaction(itemId);
+        setFeedReactions(prev => ({
+          ...prev,
+          [itemId]: {liked: result.reacted, likes: result.count},
+        }));
+      } catch {
+        setFeedReactions(prev => ({...prev, [itemId]: previous}));
+      } finally {
+        setBicepsBusyByPost(prev => ({...prev, [itemId]: false}));
+      }
+    },
+    [bicepsBusyByPost, feedReactions],
   );
+
+  const openBicepsList = useCallback(async (itemId: string) => {
+    setBicepsListPostId(itemId);
+    setBicepsListVisible(true);
+    setBicepsListLoading(true);
+    try {
+      const users = await fetchPostBicepsUsers(itemId);
+      setBicepsListUsers(users);
+    } catch {
+      setBicepsListUsers([]);
+    } finally {
+      setBicepsListLoading(false);
+    }
+  }, []);
+
+  const closeBicepsList = useCallback(() => {
+    setBicepsListVisible(false);
+    setBicepsListPostId(null);
+    setBicepsListUsers([]);
+  }, []);
+
+  const openComments = useCallback((itemId: string) => {
+    setActiveCommentItem(itemId);
+    setCommentModalVisible(true);
+  }, []);
+
+  const closeComments = useCallback(() => {
+    setCommentModalVisible(false);
+    setActiveCommentItem(null);
+    setCommentInput('');
+  }, []);
+
+  const addComment = useCallback(() => {
+    if (!activeCommentItem) {
+      return;
+    }
+    const text = commentInput.trim();
+    if (!text) {
+      return;
+    }
+    const nextComment = {
+      id: `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
+      author: currentUser?.displayName || 'Bruger',
+      text,
+    };
+    setCommentsByFeedItem(prev => ({
+      ...prev,
+      [activeCommentItem]: [...(prev[activeCommentItem] ?? []), nextComment],
+    }));
+    setCommentInput('');
+  }, [activeCommentItem, commentInput, currentUser?.displayName]);
+
+  const parseWorkoutInfo = useCallback((info?: string) => {
+    const fallback = {gymName: 'Center', duration: '0 min', workoutType: 'fri'};
+    if (!info) {
+      return fallback;
+    }
+    const parts = info
+      .split('·')
+      .map(p => p.trim())
+      .filter(Boolean);
+    if (parts.length >= 3) {
+      return {
+        gymName: parts[0],
+        duration: parts[1],
+        workoutType: parts.slice(2).join(' · '),
+      };
+    }
+    return {
+      gymName: parts[0] ?? fallback.gymName,
+      duration: parts[1] ?? fallback.duration,
+      workoutType: parts[2] ?? fallback.workoutType,
+    };
+  }, []);
+
+  const activeComments = activeCommentItem
+    ? commentsByFeedItem[activeCommentItem] ?? []
+    : [];
 
   if (!friendId) {
     return (
@@ -747,16 +964,23 @@ const FriendProfileScreen = () => {
             <Text style={styles.blockTitle}>Træninger</Text>
             <Text style={styles.blockSubtitle}>Historik fra sessioner</Text>
             <Card variant="outlined" padding="md">
-              {userWorkouts.length > 0 ? (
-                userWorkouts.map((w, i) =>
-                  renderWorkoutHistoryRow(w, i === userWorkouts.length - 1),
+              {sessionsLoading && completedSessions.length === 0 ? (
+                <View style={styles.sessionsLoadingBox}>
+                  <ActivityIndicator color={colors.primary} />
+                </View>
+              ) : feedSessions.length > 0 ? (
+                feedSessions.map((s, i) =>
+                  renderCompletedSessionRow(
+                    s,
+                    i === feedSessions.length - 1,
+                  ),
                 )
               ) : (
                 <View style={styles.emptyInline}>
                   <Icon name="fitness-outline" size={32} color={colors.textMuted} />
                   <Text style={styles.emptyTitle}>Ingen træninger endnu</Text>
                   <Text style={styles.emptySubtext}>
-                    Synlige sessioner vises her, når de findes
+                    Afsluttede tjek-ind vises her efter endt session
                   </Text>
                 </View>
               )}
@@ -768,21 +992,48 @@ const FriendProfileScreen = () => {
             <Text style={styles.blockSubtitle}>
               Billeder, PR&apos;s og feed fra {dName}
             </Text>
-            <Card variant="outlined" padding="lg">
+            <View style={styles.profileFeedList}>
               {myFeedItems.length > 0 ? (
-                myFeedItems.map(post =>
-                  renderFeedRow(post, isPrItem(post) ? 'pr' : 'workout'),
-                )
+                myFeedItems.map(post => {
+                  const parsedInfo = parseWorkoutInfo(post.workoutInfo);
+                  const reaction = feedReactions[post.id] ?? {liked: false, likes: 0};
+                  const commentCount = commentsByFeedItem[post.id]?.length ?? 0;
+                  return (
+                    <GymlyPostCard
+                      key={post.id}
+                      userId={post.userId ?? ''}
+                      userName={post.user}
+                      userAvatar={post.userAvatarUrl}
+                      gymName={parsedInfo.gymName}
+                      workoutType={parsedInfo.workoutType}
+                      duration={parsedInfo.duration}
+                      mediaUri={post.photoUri ?? post.videoThumbnailUri ?? post.videoUri}
+                      caption={post.description}
+                      timestamp={post.timestamp}
+                      reactions={{bicep: reaction.likes, fire: 0, eyes: 0}}
+                      bicepActive={reaction.liked}
+                      hasPR={isPrItem(post)}
+                      onReaction={type => {
+                        if (type === 'bicep') {
+                          void toggleLike(post.id);
+                        }
+                      }}
+                      onCommentPress={() => openComments(post.id)}
+                      commentCount={commentCount}
+                      onBicepsCountPress={() => void openBicepsList(post.id)}
+                    />
+                  );
+                })
               ) : (
                 <View style={styles.emptyInline}>
                   <Icon name="images-outline" size={36} color={colors.textMuted} />
                   <Text style={styles.emptyTitle}>Ingen opslag endnu</Text>
                   <Text style={styles.emptySubtext}>
-                    {dName} har ikke delt noget endnu
+                    Del en træning efter din næste session.
                   </Text>
                 </View>
               )}
-            </Card>
+            </View>
           </View>
         ) : (
           <View style={styles.section}>
@@ -826,16 +1077,23 @@ const FriendProfileScreen = () => {
               })}
             </View>
             <Card variant="outlined" padding="md">
-              {dataTabWorkouts.length > 0 ? (
-                dataTabWorkouts.map((w, i) =>
-                  renderWorkoutHistoryRow(w, i === dataTabWorkouts.length - 1),
+              {sessionsLoading && completedSessions.length === 0 ? (
+                <View style={styles.sessionsLoadingBox}>
+                  <ActivityIndicator color={colors.primary} />
+                </View>
+              ) : dataTabSessions.length > 0 ? (
+                dataTabSessions.map((s, i) =>
+                  renderCompletedSessionRow(
+                    s,
+                    i === dataTabSessions.length - 1,
+                  ),
                 )
               ) : (
                 <View style={styles.emptyInline}>
                   <Icon name="calendar-outline" size={28} color={colors.textMuted} />
                   <Text style={styles.emptyTitle}>Ingen træninger her</Text>
                   <Text style={styles.emptySubtext}>
-                    Vælg en anden periode, eller når data findes, vises det her
+                    Vælg en anden periode, eller når der findes afsluttede sessioner
                   </Text>
                 </View>
               )}
@@ -878,6 +1136,98 @@ const FriendProfileScreen = () => {
           </View>
         )}
       </ScrollView>
+      <Modal visible={bicepsListVisible} transparent animationType="slide">
+        <TouchableWithoutFeedback onPress={closeBicepsList}>
+          <View style={styles.bottomSheetOverlay}>
+            <TouchableWithoutFeedback>
+              <View style={styles.bottomSheet}>
+                <View style={styles.commentHandle} />
+                <View style={styles.bottomSheetHeader}>
+                  <Text style={styles.modalTitle}>Biceps</Text>
+                  <TouchableOpacity
+                    onPress={closeBicepsList}
+                    style={styles.commentCloseButton}>
+                    <Icon name="close" size={22} color={colors.text} />
+                  </TouchableOpacity>
+                </View>
+                <ScrollView
+                  style={styles.commentList}
+                  contentContainerStyle={styles.commentListContent}>
+                  {bicepsListLoading ? (
+                    <Text style={styles.commentEmpty}>Henter biceps...</Text>
+                  ) : bicepsListUsers.length === 0 ? (
+                    <Text style={styles.commentEmpty}>Ingen biceps endnu</Text>
+                  ) : (
+                    bicepsListUsers.map(row => (
+                      <TouchableOpacity
+                        key={`${row.userId}_${row.createdAt}`}
+                        style={styles.commentRow}
+                        onPress={() =>
+                          navigation.navigate('FriendProfile', {
+                            friendId: row.userId,
+                            friendName: row.name,
+                          })
+                        }
+                        activeOpacity={0.8}>
+                        <Text style={styles.commentAuthor}>{row.name}</Text>
+                        <Text style={styles.commentBody}>@{row.username}</Text>
+                      </TouchableOpacity>
+                    ))
+                  )}
+                </ScrollView>
+              </View>
+            </TouchableWithoutFeedback>
+          </View>
+        </TouchableWithoutFeedback>
+      </Modal>
+      <Modal visible={commentModalVisible} transparent animationType="slide">
+        <TouchableWithoutFeedback onPress={closeComments}>
+          <View style={styles.bottomSheetOverlay}>
+            <TouchableWithoutFeedback>
+              <View style={styles.bottomSheet}>
+                <View style={styles.commentHandle} />
+                <View style={styles.bottomSheetHeader}>
+                  <Text style={styles.modalTitle}>Kommentarer</Text>
+                  <TouchableOpacity
+                    onPress={closeComments}
+                    style={styles.commentCloseButton}>
+                    <Icon name="close" size={22} color={colors.text} />
+                  </TouchableOpacity>
+                </View>
+                <ScrollView
+                  style={styles.commentList}
+                  contentContainerStyle={styles.commentListContent}>
+                  {activeComments.length === 0 ? (
+                    <Text style={styles.commentEmpty}>Ingen kommentarer endnu</Text>
+                  ) : (
+                    activeComments.map(comment => (
+                      <View key={comment.id} style={styles.commentRow}>
+                        <Text style={styles.commentAuthor}>{comment.author}</Text>
+                        <Text style={styles.commentBody}>{comment.text}</Text>
+                      </View>
+                    ))
+                  )}
+                </ScrollView>
+                <View style={styles.commentComposer}>
+                  <TextInput
+                    value={commentInput}
+                    onChangeText={setCommentInput}
+                    placeholder="Skriv en kommentar..."
+                    placeholderTextColor={colors.textMuted}
+                    style={styles.commentInput}
+                  />
+                  <TouchableOpacity
+                    style={styles.commentSend}
+                    onPress={addComment}
+                    activeOpacity={0.85}>
+                    <Text style={styles.commentSendText}>Send</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </TouchableWithoutFeedback>
+          </View>
+        </TouchableWithoutFeedback>
+      </Modal>
     </SafeAreaView>
   );
 };
@@ -1121,6 +1471,9 @@ const styles = StyleSheet.create({
   statsCard: {
     marginTop: 0,
   },
+  profileFeedList: {
+    gap: spacing.md,
+  },
   recentWorkoutsHeading: {
     ...typography.bodyBold,
     color: colors.text,
@@ -1186,50 +1539,114 @@ const styles = StyleSheet.create({
   workoutHistoryMeta: {
     ...typography.caption,
     color: colors.textSecondary,
-    marginTop: 2,
-  },
-  workoutHistoryTime: {
-    ...typography.caption,
-    color: colors.textMuted,
     marginTop: 4,
   },
-  feedPreviewRow: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    paddingVertical: spacing.sm,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-    gap: spacing.md,
-  },
-  feedPreviewThumb: {
-    width: 72,
-    height: 72,
-    borderRadius: 10,
-    backgroundColor: colors.surface,
-  },
-  feedPreviewThumbPlaceholder: {
-    width: 72,
-    height: 72,
-    borderRadius: 10,
-    backgroundColor: colors.primary + '18',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  feedPreviewBody: {flex: 1, minWidth: 0},
-  feedPreviewMeta: {
+  workoutHistoryTypeLine: {
     ...typography.small,
-    fontWeight: '600',
     color: colors.text,
+    marginTop: 4,
+    fontWeight: '600',
   },
-  feedPreviewCaption: {
+  workoutHistoryWith: {
     ...typography.caption,
     color: colors.textSecondary,
     marginTop: 4,
   },
-  feedPreviewTime: {
+  sessionsLoadingBox: {
+    paddingVertical: spacing.lg,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  bottomSheetOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(15, 23, 42, 0.5)',
+    justifyContent: 'flex-end',
+  },
+  bottomSheet: {
+    backgroundColor: colors.background,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    maxHeight: '70%',
+    paddingBottom: spacing.lg,
+  },
+  commentHandle: {
+    alignSelf: 'center',
+    width: 40,
+    height: 4,
+    borderRadius: 2,
+    backgroundColor: colors.border,
+    marginTop: spacing.sm,
+    marginBottom: spacing.sm,
+  },
+  bottomSheetHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: spacing.lg,
+    paddingBottom: spacing.sm,
+  },
+  modalTitle: {
+    ...typography.bodyBold,
+    color: colors.text,
+  },
+  commentCloseButton: {
+    padding: spacing.xs,
+  },
+  commentList: {
+    maxHeight: 320,
+  },
+  commentListContent: {
+    paddingHorizontal: spacing.lg,
+    paddingBottom: spacing.sm,
+  },
+  commentEmpty: {
     ...typography.caption,
-    color: colors.textMuted,
-    marginTop: 4,
+    color: colors.textSecondary,
+    textAlign: 'center',
+    paddingVertical: spacing.lg,
+  },
+  commentRow: {
+    paddingVertical: spacing.sm,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: colors.border,
+  },
+  commentAuthor: {
+    ...typography.small,
+    color: colors.text,
+    fontWeight: '700',
+  },
+  commentBody: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    marginTop: 2,
+  },
+  commentComposer: {
+    marginTop: spacing.sm,
+    marginHorizontal: spacing.lg,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
+  commentInput: {
+    flex: 1,
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: 10,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    color: colors.text,
+    backgroundColor: colors.surface,
+  },
+  commentSend: {
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    borderRadius: 10,
+    backgroundColor: colors.primary,
+  },
+  commentSendText: {
+    ...typography.small,
+    color: colors.white,
+    fontWeight: '700',
   },
   emptyInline: {
     alignItems: 'center',

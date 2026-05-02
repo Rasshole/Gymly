@@ -26,6 +26,7 @@ import {useAppStore} from '@/store/appStore';
 import {listFriendsWithProfiles} from '@/services/supabase/friendService';
 import {getOrCreateDmThread} from '@/services/supabase/dmService';
 import colors from '@/theme/colors';
+import {UserAvatar} from '@/components/ui/UserAvatar';
 
 const NewMessageScreen = ({navigation}: any) => {
   const {getChatByParticipants, addChat, initializeChatMessages, upsertChat} =
@@ -456,15 +457,12 @@ const handleSearchFocus = () => {
                       style={styles.friendItem}
                       onPress={() => handleSelectFriend(friend.id)}
                       activeOpacity={0.7}>
-                      {friend.avatar ? (
-                        <Image source={{uri: friend.avatar}} style={styles.friendAvatarImage} />
-                      ) : (
-                        <View style={styles.friendAvatar}>
-                          <Text style={styles.friendAvatarText}>
-                            {friend.name.charAt(0)}
-                          </Text>
-                        </View>
-                      )}
+                      <UserAvatar
+                        name={friend.name}
+                        imageUrl={friend.avatar}
+                        size="md"
+                        style={styles.friendAvatarImage}
+                      />
                       <Text style={styles.friendName}>{friend.name}</Text>
                       <Icon name="chevron-forward" size={20} color="#C7C7CC" />
                     </TouchableOpacity>

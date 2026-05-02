@@ -7,7 +7,8 @@ export type CheckInEndReason =
   | 'user'
   | 'inactivity'
   | 'geofence_buffer'
-  | 'geofence_outside';
+  | 'geofence_outside'
+  | 'left_geofence';
 
 /** Række fra public.check_ins (session-lifecycle) */
 export interface SupabaseCheckInRow {
@@ -23,6 +24,10 @@ export interface SupabaseCheckInRow {
   last_seen_at?: string | null;
   geofence_grace_started_at?: string | null;
   geofence_grace_kind?: 'buffer' | 'outside' | null;
+  /** Sættes når bruger forlader 400m sikker zone (persist) */
+  away_started_at?: string | null;
+  last_distance_meters?: number | null;
+  auto_checkout_reason?: string | null;
   end_reason?: string | null;
   planned_workout_id?: string | null;
 }

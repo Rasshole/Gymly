@@ -3,7 +3,7 @@
  * Gruppens detaljer – beskrivelse, medlemmer, aktivitet, join/leave/invite
  */
 
-import React, {useState, useMemo} from 'react';
+import React, {useState, useMemo, useEffect, useCallback} from 'react';
 import {
   View,
   Text,
@@ -12,9 +12,28 @@ import {
   TouchableOpacity,
   Image,
   Alert,
+  Modal,
+  FlatList,
+  TextInput,
+  ActivityIndicator,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {useNavigation, useRoute} from '@react-navigation/native';
+import {useNavigation, useRoute, useFocusEffect} from '@react-navigation/native';
+import {supabase} from '@/services/supabase/supabaseClient';
+import {
+  fetchGymlyGroupMessages,
+  leaveGymlyGroup,
+  fetchGymlyGroupMembers,
+  inviteToGymlyGroup,
+  sendGymlyGroupMessage,
+} from '@/services/supabase/gymlyGroupsService';
+import {useFriendStore} from '@/store/friendStore';
+import type {PublicProfile} from '@/services/supabase/friendService';
+import type {GymlyGroupMessageRow} from '@/types/gymlyGroups.types';
+import {useGymlyGroupsStore} from '@/store/gymlyGroupsStore';
+import {useInAppNotificationStore} from '@/store/inAppNotificationStore';
 import ScreenHeader from '@/components/ui/ScreenHeader';
 import {Card} from '@/components/ui/Card';
 import {useAppStore} from '@/store/appStore';
@@ -22,6 +41,7 @@ import {useGroup, useGroupActivity} from '@/hooks/data';
 import {formatRelativeTime} from '@/utils/formatRelativeTime';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
+import type {GroupMember} from '@/types/group.types';
 
 type Group = {
   id: string;
@@ -43,8 +63,21 @@ type Group = {
 const GroupDetailScreen = () => {
   const navigation = useNavigation<any>();
   const route = useRoute();
-  const {group: initialGroup} = (route.params as any) || {};
+  const {group: initialGroup, groupId: routeGroupId} = (route.params as any) || {};
   const {user} = useAppStore();
+  const groupId = (routeGroupId as string) || initialGroup?.id;
+  const refreshGymly = useGymlyGroupsStore(s => s.refresh);
+  const refreshNotif = useInAppNotificationStore(s => s.refresh);
+  const loadFriends = useFriendStore(s => s.load);
+  const friends = useFriendStore(s => s.friends);
+  const [serverMessages, setServerMessages] = useState<GymlyGroupMessageRow[]>([]);
+  const [serverMembers, setServerMembers] = useState(
+    () => initialGroup?.members,
+  );
+  const [inviteModalVisible, setInviteModalVisible] = useState(false);
+  const [invitingId, setInvitingId] = useState<string | null>(null);
+  const [messageDraft, setMessageDraft] = useState('');
+  const [sendingMessage, setSendingMessage] = useState(false);
 
   const {group: groupFromMock} = useGroup(initialGroup?.id, user?.id || 'current_user');
   const groupActivityRaw = useGroupActivity(initialGroup?.id, user?.id || 'current_user');
@@ -52,7 +85,7 @@ const GroupDetailScreen = () => {
   const [isMember, setIsMember] = useState(() => {
     if (!user || !initialGroup?.members) return false;
     return initialGroup.members.some(
-      m => m.id === user.id || m.id === 'current'
+      (m: GroupMember) => m.id === user.id || m.id === 'current',
     );
   });
 
@@ -69,10 +102,102 @@ const GroupDetailScreen = () => {
     [groupActivityRaw]
   );
 
+  const isRealGroup =
+    groupId && typeof groupId === 'string' && !groupId.startsWith('g_');
+
+  const loadMembersOnly = useCallback(async () => {
+    if (!isRealGroup || !user?.id || !groupId) {
+      return;
+    }
+    try {
+      const mem = await fetchGymlyGroupMembers(groupId);
+      const mapped = mem.map(m => ({
+        id: m.user_id,
+        name: m.displayName,
+        avatar: m.avatarUrl ?? undefined,
+        isOnline: false,
+      }));
+      setServerMembers(mapped);
+      if (user?.id) {
+        setIsMember(mapped.some(m => m.id === user.id));
+      }
+    } catch {
+      /* tabel findes muligvis ikke */
+    }
+  }, [isRealGroup, groupId, user?.id]);
+
+  const loadMessagesOnly = useCallback(async () => {
+    if (!isRealGroup || !user?.id || !groupId) {
+      return;
+    }
+    try {
+      const msg = await fetchGymlyGroupMessages(groupId, 50);
+      setServerMessages([...msg].reverse());
+    } catch {
+      /* tabel findes muligvis ikke */
+    }
+  }, [isRealGroup, groupId, user?.id]);
+
+  const loadServerData = useCallback(async () => {
+    await Promise.all([loadMembersOnly(), loadMessagesOnly()]);
+  }, [loadMembersOnly, loadMessagesOnly]);
+
+
+  useFocusEffect(
+    useCallback(() => {
+      void loadServerData();
+    }, [loadServerData]),
+  );
+
+  useEffect(() => {
+    if (!isRealGroup || !groupId) {
+      return;
+    }
+    const ch = supabase
+      .channel(`gymly_gd_msg_${groupId}`)
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'gymly_group_messages',
+          filter: `group_id=eq.${groupId}`,
+        },
+        () => {
+          void loadMessagesOnly();
+        },
+      )
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'gymly_group_members',
+          filter: `group_id=eq.${groupId}`,
+        },
+        () => {
+          void loadMembersOnly();
+        },
+      )
+      .subscribe();
+    return () => {
+      void supabase.removeChannel(ch);
+    };
+  }, [isRealGroup, groupId, loadMessagesOnly, loadMembersOnly]);
+
+  const displayMembers = serverMembers ?? initialGroup?.members;
+
   const isAdmin =
     user && initialGroup?.adminId && (initialGroup.adminId === user.id || initialGroup.adminId === 'current');
 
   const handleJoin = () => {
+    if (isRealGroup) {
+      Alert.alert(
+        'Kun med invitation',
+        'Gruppen er privat. Be et medlem om en invitation for at være med.',
+      );
+      return;
+    }
     setIsMember(true);
     Alert.alert('Velkommen!', `Du er nu medlem af ${initialGroup.name}`);
   };
@@ -87,8 +212,19 @@ const GroupDetailScreen = () => {
           text: 'Forlad',
           style: 'destructive',
           onPress: () => {
-            setIsMember(false);
-            navigation.goBack();
+            void (async () => {
+              if (isRealGroup && user?.id) {
+                try {
+                  await leaveGymlyGroup(groupId);
+                  await refreshGymly(user.id);
+                  await refreshNotif(user.id);
+                } catch (e) {
+                  console.warn('leaveGymlyGroup', e);
+                }
+              }
+              setIsMember(false);
+              navigation.goBack();
+            })();
           },
         },
       ]
@@ -96,9 +232,64 @@ const GroupDetailScreen = () => {
   };
 
   const handleInvite = () => {
-    Alert.alert('Inviter venner', 'Vælg venner at invitere til gruppen', [
-      {text: 'OK'},
-    ]);
+    if (!user?.id) {
+      return;
+    }
+    setInviteModalVisible(true);
+    void loadFriends(user.id);
+  };
+
+  const memberIdSet = useMemo(() => {
+    const s = new Set<string>();
+    (serverMembers ?? initialGroup?.members ?? []).forEach((m: GroupMember) =>
+      s.add(m.id),
+    );
+    return s;
+  }, [serverMembers, initialGroup?.members]);
+
+  const inviteCandidates = useMemo(
+    () =>
+      friends.filter(
+        f => f.id !== user?.id && !memberIdSet.has(f.id),
+      ),
+    [friends, user?.id, memberIdSet],
+  );
+
+  const onPickFriendToInvite = async (p: PublicProfile) => {
+    if (!groupId || !user?.id) {
+      return;
+    }
+    setInvitingId(p.id);
+    try {
+      await inviteToGymlyGroup(groupId, p.id);
+      await refreshGymly(user.id);
+      await refreshNotif(user.id);
+      setInviteModalVisible(false);
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : String(e);
+      Alert.alert('Kunne ikke invitere', msg);
+    } finally {
+      setInvitingId(null);
+    }
+  };
+
+  const handleSendGroupChat = async () => {
+    const t = messageDraft.trim();
+    if (!t || !groupId || !isRealGroup || !user?.id) {
+      return;
+    }
+    setSendingMessage(true);
+    try {
+      await sendGymlyGroupMessage(groupId, t, 'text');
+      setMessageDraft('');
+      await loadMessagesOnly();
+      await refreshGymly(user.id);
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : String(e);
+      Alert.alert('Kunne ikke sende', msg);
+    } finally {
+      setSendingMessage(false);
+    }
   };
 
   if (!initialGroup) {
@@ -127,7 +318,10 @@ const GroupDetailScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 64 : 0}>
       <ScreenHeader
         title={initialGroup.name}
         onBack={() => navigation.goBack()}
@@ -200,7 +394,7 @@ const GroupDetailScreen = () => {
           <View style={styles.statCard}>
             <Icon name="people" size={24} color={colors.primary} />
             <Text style={styles.statValue}>
-              {initialGroup.members?.length ?? 0}
+              {displayMembers?.length ?? initialGroup.members?.length ?? 0}
             </Text>
             <Text style={styles.statLabel}>Medlemmer</Text>
           </View>
@@ -242,6 +436,59 @@ const GroupDetailScreen = () => {
           )}
         </View>
 
+        {isRealGroup && isMember && (
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Gruppechat</Text>
+            {serverMessages.length > 0 ? (
+              <Card variant="outlined" padding="md">
+                {serverMessages.map(m => (
+                  <View key={m.id} style={styles.activityRow}>
+                    <View style={styles.activityContent}>
+                      <Text style={styles.activityText} numberOfLines={8}>
+                        {m.message_type === 'text'
+                          ? m.body
+                          : `${m.message_type}: ${m.body || ''}`}
+                      </Text>
+                      <Text style={styles.activityTime}>
+                        {formatRelativeTime(new Date(m.created_at))}
+                      </Text>
+                    </View>
+                  </View>
+                ))}
+              </Card>
+            ) : (
+              <Text style={styles.emptyChatHint}>Ingen beskeder endnu – sig hej 👋</Text>
+            )}
+            <View style={styles.composerRow}>
+              <TextInput
+                style={styles.composerInput}
+                value={messageDraft}
+                onChangeText={setMessageDraft}
+                placeholder="Skriv til gruppen…"
+                placeholderTextColor={colors.textMuted}
+                multiline
+                maxLength={2000}
+                editable={!sendingMessage}
+              />
+              <TouchableOpacity
+                style={[
+                  styles.composerSend,
+                  (!messageDraft.trim() || sendingMessage) && styles.composerSendDisabled,
+                ]}
+                onPress={() => {
+                  void handleSendGroupChat();
+                }}
+                disabled={!messageDraft.trim() || sendingMessage}>
+                {sendingMessage ? (
+                  <ActivityIndicator color={colors.white} size="small" />
+                ) : (
+                  <Icon name="send" size={20} color={colors.white} />
+                )}
+              </TouchableOpacity>
+            </View>
+          </View>
+        )}
+
         {/* Activity feed preview */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Seneste aktivitet</Text>
@@ -279,10 +526,10 @@ const GroupDetailScreen = () => {
         {/* Members */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>
-            Medlemmer ({initialGroup.members?.length ?? 0})
+            Medlemmer ({displayMembers?.length ?? initialGroup.members?.length ?? 0})
           </Text>
           <View style={styles.membersCard}>
-            {initialGroup.members?.map((member, idx) => {
+            {displayMembers?.map((member: GroupMember, idx: number) => {
               const isCurrentUser =
                 user && (member.id === user.id || member.id === 'current');
               const isGroupAdmin = member.id === initialGroup.adminId;
@@ -291,8 +538,7 @@ const GroupDetailScreen = () => {
                   key={member.id}
                   style={[
                     styles.memberRow,
-                    idx < (initialGroup.members?.length ?? 0) - 1 &&
-                      styles.memberRowBorder,
+                    idx < (displayMembers?.length ?? 0) - 1 && styles.memberRowBorder,
                   ]}
                   onPress={() => {
                     if (!isCurrentUser) {
@@ -355,7 +601,63 @@ const GroupDetailScreen = () => {
           </Text>
         </View>
       </ScrollView>
-    </View>
+
+      <Modal
+        visible={inviteModalVisible}
+        animationType="slide"
+        presentationStyle="pageSheet"
+        onRequestClose={() => setInviteModalVisible(false)}>
+        <View style={styles.inviteModal}>
+          <View style={styles.inviteHeader}>
+            <Text style={styles.inviteTitle}>Inviter ven</Text>
+            <TouchableOpacity
+              onPress={() => setInviteModalVisible(false)}
+              hitSlop={12}>
+              <Text style={styles.inviteClose}>Luk</Text>
+            </TouchableOpacity>
+          </View>
+          <Text style={styles.inviteSub}>
+            Vælg en ven – du skal være venner, og de må ikke allerede være
+            medlem.
+          </Text>
+          {inviteCandidates.length === 0 ? (
+            <View style={styles.inviteEmpty}>
+              <Text style={styles.emptyChatHint}>
+                Ingen venner at invitere lige nu.
+              </Text>
+            </View>
+          ) : (
+            <FlatList
+              data={inviteCandidates}
+              keyExtractor={it => it.id}
+              contentContainerStyle={styles.inviteList}
+              renderItem={({item}) => (
+                <TouchableOpacity
+                  style={styles.inviteRow}
+                  onPress={() => {
+                    void onPickFriendToInvite(item);
+                  }}
+                  disabled={invitingId != null}>
+                  <View style={styles.inviteAvatar}>
+                    <Text style={styles.inviteAvatarText}>
+                      {(item.displayName || item.username || '?').charAt(0)}
+                    </Text>
+                  </View>
+                  <Text style={styles.inviteName}>
+                    {item.displayName?.trim() || item.username || 'Bruger'}
+                  </Text>
+                  {invitingId === item.id ? (
+                    <ActivityIndicator color={colors.primary} />
+                  ) : (
+                    <Icon name="chevron-forward" size={20} color={colors.textMuted} />
+                  )}
+                </TouchableOpacity>
+              )}
+            />
+          )}
+        </View>
+      </Modal>
+    </KeyboardAvoidingView>
   );
 };
 
@@ -537,6 +839,94 @@ const styles = StyleSheet.create({
     ...typography.body,
     color: colors.text,
     marginTop: spacing.sm,
+  },
+  emptyChatHint: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    marginBottom: spacing.md,
+  },
+  composerRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    marginTop: spacing.md,
+    gap: spacing.sm,
+  },
+  composerInput: {
+    flex: 1,
+    minHeight: 44,
+    maxHeight: 120,
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: radius.lg,
+    paddingHorizontal: spacing.md,
+    paddingVertical: Platform.OS === 'ios' ? spacing.md : spacing.sm,
+    ...typography.body,
+    color: colors.text,
+    backgroundColor: colors.backgroundCard,
+  },
+  composerSend: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: colors.primary,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  composerSendDisabled: {
+    opacity: 0.5,
+  },
+  inviteModal: {
+    flex: 1,
+    backgroundColor: colors.background,
+    paddingTop: spacing.xl,
+  },
+  inviteHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: spacing.lg,
+    marginBottom: spacing.sm,
+  },
+  inviteTitle: {
+    ...typography.h4,
+    color: colors.text,
+  },
+  inviteClose: {
+    ...typography.bodyBold,
+    color: colors.primary,
+  },
+  inviteSub: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    paddingHorizontal: spacing.lg,
+    marginBottom: spacing.md,
+  },
+  inviteEmpty: {padding: spacing.xl, alignItems: 'center'},
+  inviteList: {paddingHorizontal: spacing.lg, paddingBottom: spacing.xxxl},
+  inviteRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: spacing.md,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border,
+  },
+  inviteAvatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: colors.primary + '22',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: spacing.md,
+  },
+  inviteAvatarText: {
+    ...typography.bodyBold,
+    color: colors.primary,
+  },
+  inviteName: {
+    ...typography.body,
+    color: colors.text,
+    flex: 1,
   },
   emptyActivitySubtext: {
     ...typography.caption,

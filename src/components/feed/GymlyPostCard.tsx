@@ -42,6 +42,11 @@ export interface GymlyPostCardProps {
   timestamp: string;
   onUserPress?: () => void;
   onReaction?: (type: 'bicep' | 'fire' | 'eyes') => void;
+  commentCount?: number;
+  onCommentPress?: () => void;
+  onMenuPress?: () => void;
+  bicepActive?: boolean;
+  onBicepsCountPress?: () => void;
 }
 
 const WORKOUT_LABELS: Record<string, string> = {
@@ -66,6 +71,11 @@ const GymlyPostCard: React.FC<GymlyPostCardProps> = ({
   timestamp,
   onUserPress,
   onReaction,
+  commentCount = 0,
+  onCommentPress,
+  onMenuPress,
+  bicepActive = false,
+  onBicepsCountPress,
 }) => {
   return (
     <View style={styles.card}>
@@ -95,11 +105,21 @@ const GymlyPostCard: React.FC<GymlyPostCardProps> = ({
             <Text style={styles.metaText}>{duration}</Text>
           </View>
         </View>
-        {hasPR && (
-          <View style={styles.prBadge}>
-            <Text style={styles.prText}>PR</Text>
-          </View>
-        )}
+        <View style={styles.headerRight}>
+          {hasPR ? (
+            <View style={styles.prBadge}>
+              <Text style={styles.prText}>PR</Text>
+            </View>
+          ) : null}
+          {onMenuPress ? (
+            <TouchableOpacity
+              style={styles.menuButton}
+              onPress={onMenuPress}
+              activeOpacity={0.7}>
+              <Icon name="ellipsis-horizontal" size={18} color={colors.textMuted} />
+            </TouchableOpacity>
+          ) : null}
+        </View>
       </TouchableOpacity>
 
       {/* Media */}
@@ -123,31 +143,23 @@ const GymlyPostCard: React.FC<GymlyPostCardProps> = ({
       {/* Reactions */}
       <View style={styles.reactionsRow}>
         <TouchableOpacity
-          style={styles.reactionButton}
+          style={[styles.reactionButton, bicepActive && styles.reactionButtonActive]}
           onPress={() => onReaction?.('bicep')}
           activeOpacity={0.7}>
           <Text style={styles.reactionEmoji}>💪</Text>
-          {reactions.bicep > 0 && (
+          <TouchableOpacity
+            onPress={onBicepsCountPress}
+            disabled={!onBicepsCountPress}
+            activeOpacity={0.7}>
             <Text style={styles.reactionCount}>{reactions.bicep}</Text>
-          )}
+          </TouchableOpacity>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.reactionButton}
-          onPress={() => onReaction?.('fire')}
+          onPress={onCommentPress}
           activeOpacity={0.7}>
-          <Text style={styles.reactionEmoji}>🔥</Text>
-          {reactions.fire > 0 && (
-            <Text style={styles.reactionCount}>{reactions.fire}</Text>
-          )}
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.reactionButton}
-          onPress={() => onReaction?.('eyes')}
-          activeOpacity={0.7}>
-          <Text style={styles.reactionEmoji}>👀</Text>
-          {reactions.eyes > 0 && (
-            <Text style={styles.reactionCount}>{reactions.eyes}</Text>
-          )}
+          <Icon name="chatbubble-outline" size={18} color={colors.textSecondary} />
+          <Text style={styles.reactionCount}>{commentCount}</Text>
         </TouchableOpacity>
         <Text style={styles.timestamp}>{timestamp}</Text>
       </View>
@@ -207,6 +219,18 @@ const styles = StyleSheet.create({
     backgroundColor: colors.rankGold + '30',
     borderRadius: radius.sm,
   },
+  headerRight: {
+    alignItems: 'flex-end',
+    marginLeft: spacing.sm,
+    gap: spacing.xs,
+  },
+  menuButton: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   prText: {
     ...typography.badge,
     color: colors.rankBronze,
@@ -239,6 +263,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 4,
+    paddingHorizontal: 6,
+    paddingVertical: 4,
+    borderRadius: radius.full,
+  },
+  reactionButtonActive: {
+    backgroundColor: colors.primary + '12',
   },
   reactionEmoji: {
     fontSize: 22,

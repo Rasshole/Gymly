@@ -2,12 +2,12 @@
  * ProfileHeader – centreret avatar, navn, @brugernavn, Følgere / Følger / Venner
  */
 
-import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import React, {useRef} from 'react';
+import {View, Text, StyleSheet, TouchableOpacity, Animated} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Avatar from '@/components/ui/Avatar';
 import colors from '@/theme/colors';
-import {spacing, typography} from '@/theme/designTokens';
+import {radius, spacing, typography} from '@/theme/designTokens';
 
 type ProfileHeaderProps = {
   displayName: string;
@@ -18,6 +18,7 @@ type ProfileHeaderProps = {
   bio?: string;
   showBio?: boolean;
   onEditPress?: () => void;
+  activeStatus?: string;
   followersCount?: number;
   followingCount?: number;
   friendsCount?: number;
@@ -39,17 +40,38 @@ const StatColButton = ({
   value: number;
   label: string;
   onPress: () => void;
-}) => (
-  <TouchableOpacity
-    style={styles.statCol}
-    onPress={onPress}
-    activeOpacity={0.7}
-    accessibilityLabel={`${label}: ${value}`}
-    accessibilityRole="button">
-    <Text style={styles.statValue}>{value}</Text>
-    <Text style={styles.statLabel}>{label}</Text>
-  </TouchableOpacity>
-);
+}) => {
+  const scale = useRef(new Animated.Value(1)).current;
+  return (
+    <Animated.View style={[styles.statCol, {transform: [{scale}]}]}>
+      <TouchableOpacity
+        style={styles.statInner}
+        onPress={onPress}
+        onPressIn={() =>
+          Animated.spring(scale, {
+            toValue: 0.97,
+            friction: 7,
+            tension: 300,
+            useNativeDriver: true,
+          }).start()
+        }
+        onPressOut={() =>
+          Animated.spring(scale, {
+            toValue: 1,
+            friction: 7,
+            tension: 260,
+            useNativeDriver: true,
+          }).start()
+        }
+        activeOpacity={0.8}
+        accessibilityLabel={`${label}: ${value}`}
+        accessibilityRole="button">
+        <Text style={styles.statValue}>{value}</Text>
+        <Text style={styles.statLabel}>{label}</Text>
+      </TouchableOpacity>
+    </Animated.View>
+  );
+};
 
 export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   displayName,
@@ -59,14 +81,20 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   bio,
   showBio = false,
   onEditPress,
+  activeStatus,
   followersCount = 0,
   followingCount = 0,
   friendsCount = 0,
   onFriendsPress,
-}) => (
-  <View style={styles.container}>
-    <View style={styles.centered}>
-      <Avatar name={displayName} imageUrl={profileImageUrl} size="xl" />
+}) => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.centered}>
+        <View style={styles.avatarRingOuter}>
+          <View style={styles.avatarRingInner}>
+            <Avatar name={displayName} imageUrl={profileImageUrl} size="xl" />
+          </View>
+        </View>
       <View style={styles.nameRow}>
         <Text style={styles.displayName} numberOfLines={1}>
           {displayName}
@@ -84,6 +112,11 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
         ) : null}
       </View>
       <Text style={styles.username}>@{username}</Text>
+      {activeStatus ? (
+        <Text style={styles.activeStatus} numberOfLines={1}>
+          {activeStatus}
+        </Text>
+      ) : null}
       {primaryCenterLabel ? (
         <View style={styles.locationRow}>
           <Icon name="location-outline" size={14} color={colors.textMuted} />
@@ -121,7 +154,8 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
       </TouchableOpacity>
     ) : null}
   </View>
-);
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -135,6 +169,27 @@ const styles = StyleSheet.create({
   centered: {
     alignItems: 'center',
   },
+  avatarRingOuter: {
+    width: 108,
+    height: 108,
+    borderRadius: 54,
+    padding: 3,
+    backgroundColor: colors.primary + '40',
+    shadowColor: colors.primary,
+    shadowOffset: {width: 0, height: 4},
+    shadowOpacity: 0.24,
+    shadowRadius: 12,
+    elevation: 6,
+  },
+  avatarRingInner: {
+    flex: 1,
+    borderRadius: 52,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.backgroundCard,
+    borderWidth: 1,
+    borderColor: colors.primary + '2A',
+  },
   nameRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -145,19 +200,31 @@ const styles = StyleSheet.create({
     maxWidth: '100%',
   },
   displayName: {
-    ...typography.h4,
+    ...typography.h3,
     color: colors.text,
     textAlign: 'center',
     flexShrink: 1,
+    fontWeight: '800',
   },
   editIconBtn: {
     marginTop: 2,
   },
   username: {
     ...typography.body,
-    color: colors.textSecondary,
+    color: colors.textMuted,
     marginTop: spacing.xs,
     textAlign: 'center',
+  },
+  activeStatus: {
+    ...typography.small,
+    color: colors.primary,
+    fontWeight: '700',
+    marginTop: spacing.xs,
+    backgroundColor: colors.primary + '14',
+    paddingHorizontal: spacing.sm,
+    paddingVertical: 6,
+    borderRadius: radius.full,
+    overflow: 'hidden',
   },
   locationRow: {
     flexDirection: 'row',
@@ -174,12 +241,13 @@ const styles = StyleSheet.create({
   },
   statsRow: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'flex-start',
-    marginTop: spacing.lg,
+    marginTop: spacing.lg + 2,
     paddingTop: spacing.lg,
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: colors.border,
+    gap: spacing.lg,
   },
   statCol: {
     flex: 1,
@@ -188,12 +256,16 @@ const styles = StyleSheet.create({
   },
   statValue: {
     fontSize: 20,
-    fontWeight: '700',
-    color: colors.primary,
+    fontWeight: '800',
+    color: colors.text,
+  },
+  statInner: {
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   statLabel: {
     ...typography.caption,
-    color: colors.textSecondary,
+    color: colors.textMuted,
     marginTop: 4,
     textAlign: 'center',
   },

@@ -43,6 +43,24 @@ export function navigateFromPushData(data: Record<string, string> | undefined): 
     return;
   }
 
+  if (type === 'workout_reaction') {
+    const fromId = data.fromUserId || data.senderId;
+    if (fromId) {
+      navigationRef.navigate('FriendProfile', {
+        friendId: fromId,
+        friendName: data.title,
+      });
+    } else {
+      navigationRef.navigate('Notifications', notifId ? {highlightNotificationId: notifId} : undefined);
+    }
+    return;
+  }
+
+  if (type === 'biceps_reaction') {
+    navigationRef.navigate('Notifications', notifId ? {highlightNotificationId: notifId} : undefined);
+    return;
+  }
+
   if (
     type === 'planned_workout_invite' ||
     type === 'planned_workout_accepted' ||
@@ -55,6 +73,21 @@ export function navigateFromPushData(data: Record<string, string> | undefined): 
       initialTab: 'upcoming',
     });
     return;
+  }
+
+  if (
+    type === 'gymly_group_invite' ||
+    type === 'gymly_group_invite_declined' ||
+    type === 'gymly_group_member_joined' ||
+    type === 'gymly_group_message' ||
+    type === 'gymly_planned_in_group' ||
+    type === 'gymly_group_check_in'
+  ) {
+    const groupId = data.groupId;
+    if (groupId) {
+      navigationRef.navigate('GroupDetail', {groupId});
+      return;
+    }
   }
 
   if (type === 'workout_reminder') {

@@ -10,25 +10,43 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  TextInput,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
 import {Card} from '@/components/ui/Card';
-import {useGroups} from '@/hooks/data';
 import type {Group} from '@/types/group.types';
-import {useGroupStore} from '@/store/groupStore';
+import {useAppStore} from '@/store/appStore';
+import {useGymlyGroupsStore} from '@/store/gymlyGroupsStore';
+import {
+  acceptGymlyGroupInvite,
+  declineGymlyGroupInvite,
+} from '@/services/supabase/gymlyGroupsService';
+import type {GymlyGroupRow} from '@/types/gymlyGroups.types';
+import type {GroupMember} from '@/store/groupStore';
+import {useInAppNotificationStore} from '@/store/inAppNotificationStore';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
+import SocialSearchBar from '@/components/social/SocialSearchBar';
+import SocialPrimaryButton from '@/components/social/SocialPrimaryButton';
+
+function formatGroupCreated(d: Date): string {
+  return d.toLocaleDateString('da-DK', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  });
+}
 
 const GroupCard = ({
   group,
   onPress,
   showJoinButton,
+  lastPreview,
 }: {
   group: Group;
   onPress: () => void;
   showJoinButton?: boolean;
+  lastPreview?: string | null;
 }) => (
   <TouchableOpacity
     activeOpacity={0.8}
@@ -36,7 +54,7 @@ const GroupCard = ({
     style={styles.groupCard}>
     <View style={styles.groupCardHeader}>
       <View style={styles.groupIcon}>
-        <Icon name="people" size={28} color={colors.primary} />
+        <Icon name="people" size={26} color={colors.primary} />
       </View>
       <View style={styles.groupCardInfo}>
         <View style={styles.groupNameRow}>
@@ -59,8 +77,8 @@ const GroupCard = ({
       </View>
       <Icon name="chevron-forward" size={20} color={colors.textMuted} />
     </View>
-    <Text style={styles.groupDescription} numberOfLines={2}>
-      {group.description}
+        <Text style={styles.groupDescription} numberOfLines={2}>
+      {lastPreview?.trim() ? lastPreview : group.description}
     </Text>
     <View style={styles.groupStats}>
       <View style={styles.stat}>
@@ -90,41 +108,49 @@ const GroupCard = ({
   </TouchableOpacity>
 );
 
+function mapRowToGroup(
+  r: GymlyGroupRow & {members: GroupMember[]},
+): Group {
+  const loc = [r.city, r.center_id].filter(Boolean).join(' · ');
+  return {
+    id: r.id,
+    name: r.name,
+    description: r.description ?? '',
+    memberCount: r.member_count,
+    isJoined: true,
+    isPrivate: r.is_private,
+    adminId: r.created_by,
+    members: r.members.map(m => ({...m, isOnline: false})),
+    activityCount: 0,
+    totalCheckIns: 0,
+    imageUrl: r.image_url ?? undefined,
+    location: loc || undefined,
+    focus: r.focus ?? undefined,
+    createdAt: new Date(r.created_at),
+  };
+}
+
 const GroupsScreen = () => {
   const navigation = useNavigation<any>();
+  const userId = useAppStore(s => s.user?.id);
   const [searchQuery, setSearchQuery] = useState('');
-  const storeGroups = useGroupStore(s => s.groups);
-  const {groups: mockGroups} = useGroups('current_user');
+  const serverGroups = useGymlyGroupsStore(s => s.groups);
+  const pendingInvites = useGymlyGroupsStore(s => s.pendingInvites);
+  const loading = useGymlyGroupsStore(s => s.loading);
+  const refreshGymly = useGymlyGroupsStore(s => s.refresh);
+  const refreshNotif = useInAppNotificationStore(s => s.refresh);
 
-  const myGroups = useMemo(() => {
-    const fromMock = mockGroups.filter(g => g.isJoined);
-    const fromStore = storeGroups.map(g => ({
-      id: g.id,
-      name: g.name,
-      description: g.description || '',
-      memberCount: g.members.length,
-      isJoined: true,
-      adminId: 'current',
-      members: g.members.map(m => ({id: m.id, name: m.name, isOnline: false})),
-      activityCount: 0,
-      totalCheckIns: 0,
-      createdAt: new Date(),
-    }));
-    return [...fromMock, ...fromStore];
-  }, [storeGroups]);
+  const rowsById = useMemo(() => {
+    const m = new Map<string, GymlyGroupRow & {members: GroupMember[]}>();
+    for (const g of serverGroups) {
+      m.set(g.id, g);
+    }
+    return m;
+  }, [serverGroups]);
 
-  const suggestedGroups = useMemo(
-    () =>
-      mockGroups
-        .filter(g => !g.isJoined)
-        .filter(
-          g =>
-            !searchQuery.trim() ||
-            g.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            (g.location?.toLowerCase().includes(searchQuery.toLowerCase())) ||
-            (g.focus?.toLowerCase().includes(searchQuery.toLowerCase()))
-        ),
-    [searchQuery]
+  const myGroups = useMemo(
+    () => serverGroups.map(mapRowToGroup),
+    [serverGroups],
   );
 
   const filteredMyGroups = useMemo(
@@ -132,16 +158,17 @@ const GroupsScreen = () => {
       myGroups.filter(
         g =>
           !searchQuery.trim() ||
-          g.name.toLowerCase().includes(searchQuery.toLowerCase())
+          g.name.toLowerCase().includes(searchQuery.toLowerCase()),
       ),
-    [myGroups, searchQuery]
+    [myGroups, searchQuery],
   );
 
   const handleGroupPress = (group: Group) => {
+    const row = rowsById.get(group.id);
     navigation.navigate('GroupDetail', {
       group: {
         ...group,
-        members: (group.members ?? [{id: '1', name: 'Medlem', isOnline: false}]).map(m => ({
+        members: (group.members ?? []).map(m => ({
           ...m,
           isOnline: m.isOnline ?? false,
         })),
@@ -150,10 +177,41 @@ const GroupsScreen = () => {
         biography: group.description,
         createdAt: group.createdAt ?? new Date(),
       },
+      groupId: group.id,
+      lastMessagePreview: row?.last_message_preview,
     });
   };
 
-  const isEmpty = filteredMyGroups.length === 0 && suggestedGroups.length === 0;
+  const onAcceptInvite = async (inviteId: string) => {
+    if (!userId) {
+      return;
+    }
+    try {
+      await acceptGymlyGroupInvite(inviteId);
+      await refreshGymly(userId);
+      await refreshNotif(userId);
+    } catch (e) {
+      console.warn('acceptGymlyGroupInvite', e);
+    }
+  };
+
+  const onDeclineInvite = async (inviteId: string) => {
+    if (!userId) {
+      return;
+    }
+    try {
+      await declineGymlyGroupInvite(inviteId);
+      await refreshGymly(userId);
+      await refreshNotif(userId);
+    } catch (e) {
+      console.warn('declineGymlyGroupInvite', e);
+    }
+  };
+
+  const isEmpty =
+    !loading &&
+    filteredMyGroups.length === 0 &&
+    pendingInvites.length === 0;
 
   return (
     <View style={styles.container}>
@@ -168,21 +226,12 @@ const GroupsScreen = () => {
         </TouchableOpacity>
       </View>
 
-      <View style={styles.searchContainer}>
-        <Icon name="search" size={20} color={colors.textMuted} />
-        <TextInput
-          style={styles.searchInput}
-          placeholder="Søg efter grupper..."
-          placeholderTextColor={colors.textMuted}
-          value={searchQuery}
-          onChangeText={setSearchQuery}
-        />
-        {searchQuery.length > 0 && (
-          <TouchableOpacity onPress={() => setSearchQuery('')}>
-            <Icon name="close-circle" size={20} color={colors.textMuted} />
-          </TouchableOpacity>
-        )}
-      </View>
+      <SocialSearchBar
+        value={searchQuery}
+        onChangeText={setSearchQuery}
+        placeholder="Søg efter grupper..."
+        style={styles.searchOuter}
+      />
 
       <ScrollView
         style={styles.scroll}
@@ -201,13 +250,12 @@ const GroupsScreen = () => {
             </Text>
             {!searchQuery && (
               <>
-                <TouchableOpacity
-                  style={styles.emptyCta}
+                <SocialPrimaryButton
+                  label="Opret din første gruppe"
+                  iconName="add-circle"
                   onPress={() => navigation.navigate('CreateGroup')}
-                  activeOpacity={0.8}>
-                  <Icon name="add-circle" size={24} color={colors.white} />
-                  <Text style={styles.emptyCtaText}>Opret din første gruppe</Text>
-                </TouchableOpacity>
+                  style={styles.emptyCta}
+                />
                 <TouchableOpacity
                   style={styles.emptyCtaSecondary}
                   onPress={() => setSearchQuery('')}
@@ -221,6 +269,31 @@ const GroupsScreen = () => {
           </View>
         ) : (
           <>
+            {pendingInvites.length > 0 && (
+              <View style={styles.section}>
+                <Text style={styles.sectionTitle}>Invitationer</Text>
+                {pendingInvites.map(inv => (
+                  <Card key={inv.id} padding="md" style={styles.inviteCard}>
+                    <Text style={styles.groupName}>{inv.group.name}</Text>
+                    <Text style={styles.groupMeta}>Gruppeinvitation</Text>
+                    <View style={styles.inviteActions}>
+                      <TouchableOpacity
+                        style={styles.inviteAccept}
+                        onPress={() => void onAcceptInvite(inv.id)}
+                        activeOpacity={0.85}>
+                        <Text style={styles.inviteAcceptText}>Acceptér</Text>
+                      </TouchableOpacity>
+                      <TouchableOpacity
+                        style={styles.inviteDecline}
+                        onPress={() => void onDeclineInvite(inv.id)}
+                        activeOpacity={0.85}>
+                        <Text style={styles.inviteDeclineText}>Afvis</Text>
+                      </TouchableOpacity>
+                    </View>
+                  </Card>
+                ))}
+              </View>
+            )}
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>Mine grupper</Text>
               {filteredMyGroups.length === 0 ? (
@@ -236,33 +309,17 @@ const GroupsScreen = () => {
                   </TouchableOpacity>
                 </View>
               ) : (
-                filteredMyGroups.map(group => (
-                  <GroupCard
-                    key={group.id}
-                    group={group}
-                    onPress={() => handleGroupPress(group)}
-                  />
-                ))
-              )}
-            </View>
-
-            <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Foreslåede grupper</Text>
-              {suggestedGroups.length === 0 ? (
-                <View style={styles.emptySection}>
-                  <Text style={styles.emptySectionText}>
-                    {searchQuery ? 'Ingen grupper matcher din søgning' : 'Ingen foreslåede grupper'}
-                  </Text>
-                </View>
-              ) : (
-                suggestedGroups.map(group => (
-                  <GroupCard
-                    key={group.id}
-                    group={group}
-                    onPress={() => handleGroupPress(group)}
-                    showJoinButton
-                  />
-                ))
+                filteredMyGroups.map(group => {
+                  const row = rowsById.get(group.id);
+                  return (
+                    <GroupCard
+                      key={group.id}
+                      group={group}
+                      lastPreview={row?.last_message_preview}
+                      onPress={() => handleGroupPress(group)}
+                    />
+                  );
+                })
               )}
             </View>
           </>
@@ -300,24 +357,9 @@ const styles = StyleSheet.create({
     ...typography.bodyBold,
     color: colors.primary,
   },
-  searchContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  searchOuter: {
     marginHorizontal: spacing.lg,
     marginVertical: spacing.md,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    backgroundColor: colors.backgroundCard,
-    borderRadius: radius.md,
-    borderWidth: 1,
-    borderColor: colors.border,
-    gap: spacing.sm,
-  },
-  searchInput: {
-    flex: 1,
-    ...typography.body,
-    color: colors.text,
-    padding: 0,
   },
   scroll: {flex: 1},
   scrollContent: {paddingBottom: spacing.xxxl},
@@ -333,19 +375,24 @@ const styles = StyleSheet.create({
   groupCard: {
     backgroundColor: colors.backgroundCard,
     borderRadius: radius.lg,
-    padding: spacing.lg,
-    marginBottom: spacing.md,
-    borderWidth: 1,
+    padding: 18,
+    marginBottom: 16,
+    borderWidth: StyleSheet.hairlineWidth,
     borderColor: colors.border,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.06,
+    shadowRadius: 10,
+    elevation: 3,
   },
   groupCardHeader: {
     flexDirection: 'row',
-    alignItems: 'flex-start',
+    alignItems: 'center',
   },
   groupIcon: {
-    width: 48,
-    height: 48,
-    borderRadius: 12,
+    width: 52,
+    height: 52,
+    borderRadius: 14,
     backgroundColor: colors.primary + '15',
     alignItems: 'center',
     justifyContent: 'center',
@@ -362,12 +409,14 @@ const styles = StyleSheet.create({
   },
   groupName: {
     ...typography.bodyBold,
+    fontSize: 17,
+    fontWeight: '700',
     color: colors.text,
   },
   groupMeta: {
     ...typography.caption,
     color: colors.textSecondary,
-    marginTop: 2,
+    marginTop: 4,
   },
   focusBadge: {
     alignSelf: 'flex-start',
@@ -389,13 +438,14 @@ const styles = StyleSheet.create({
   },
   groupStats: {
     flexDirection: 'row',
-    gap: spacing.lg,
+    gap: spacing.xl,
     marginTop: spacing.md,
+    alignItems: 'center',
   },
   stat: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 4,
+    gap: 6,
   },
   statText: {
     ...typography.caption,
@@ -420,29 +470,24 @@ const styles = StyleSheet.create({
   },
   emptyTitle: {
     ...typography.h4,
+    fontWeight: '700',
     color: colors.text,
     textAlign: 'center',
-    marginTop: spacing.lg,
+    marginTop: spacing.md,
   },
   emptyText: {
     ...typography.body,
-    color: colors.textSecondary,
+    color: colors.textTertiary,
     textAlign: 'center',
-    marginTop: spacing.sm,
+    marginTop: 12,
+    lineHeight: 22,
+    paddingHorizontal: spacing.md,
   },
   emptyCta: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.sm,
     marginTop: spacing.xl,
-    paddingVertical: spacing.md,
-    paddingHorizontal: spacing.xl,
-    backgroundColor: colors.primary,
-    borderRadius: radius.lg,
-  },
-  emptyCtaText: {
-    ...typography.bodyBold,
-    color: colors.white,
+    width: '100%',
+    maxWidth: 340,
+    alignSelf: 'center',
   },
   emptyCtaSecondary: {
     marginTop: spacing.md,
@@ -471,6 +516,37 @@ const styles = StyleSheet.create({
   sectionCtaText: {
     ...typography.bodyBold,
     color: colors.primary,
+  },
+  inviteCard: {
+    marginBottom: spacing.md,
+  },
+  inviteActions: {
+    flexDirection: 'row',
+    gap: spacing.md,
+    marginTop: spacing.md,
+  },
+  inviteAccept: {
+    flex: 1,
+    paddingVertical: spacing.sm,
+    borderRadius: radius.md,
+    backgroundColor: colors.primary,
+    alignItems: 'center',
+  },
+  inviteAcceptText: {
+    ...typography.bodyBold,
+    color: colors.white,
+  },
+  inviteDecline: {
+    flex: 1,
+    paddingVertical: spacing.sm,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    alignItems: 'center',
+  },
+  inviteDeclineText: {
+    ...typography.bodyBold,
+    color: colors.textSecondary,
   },
 });
 

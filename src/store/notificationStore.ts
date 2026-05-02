@@ -58,7 +58,7 @@ export const useNotificationStore = create<NotificationState>((set, get) => ({
       read: false,
       checkInTime: notificationData.checkInTime || now,
       isActive: notificationData.isActive !== undefined ? notificationData.isActive : true,
-      joined: notificationData.type === 'workout_invite' || notificationData.type === 'friend_checkin' ? false : undefined,
+      joined: notificationData.type === 'workout_invite' ? false : undefined,
     };
 
     set((state) => ({

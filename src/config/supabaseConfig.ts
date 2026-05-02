@@ -10,4 +10,6 @@ export const SUPABASE_ANON_KEY =
  * Host: web/confirm/index.html at https://gymlyapp.com/confirm
  */
 export const SUPABASE_EMAIL_REDIRECT = 'https://gymlyapp.com/confirm';
+/** Password reset opens app deep link (app-only flow, no web deploy needed). */
+export const SUPABASE_PASSWORD_RESET_REDIRECT = 'gymlyapp://reset-password';
 export const SUPABASE_ALLOW_UNVERIFIED_LOGIN = false;

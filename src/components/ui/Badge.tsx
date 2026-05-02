@@ -14,6 +14,8 @@ type BadgeProps = {
   variant?: BadgeVariant;
   maxCount?: number;
   style?: ViewStyle;
+  /** Smaller badge for dense headers (e.g. main tab bell) */
+  compact?: boolean;
 };
 
 const variantBackground: Record<BadgeVariant, ViewStyle> = {
@@ -29,13 +31,14 @@ const Badge: React.FC<BadgeProps> = ({
   variant = 'primary',
   maxCount = 99,
   style,
+  compact,
 }) => {
   const displayCount = count > maxCount ? `${maxCount}+` : String(count);
   const bg = variantBackground[variant] ?? variantBackground.primary;
 
   return (
-    <View style={[styles.badge, bg, style]}>
-      <Text style={styles.text}>{displayCount}</Text>
+    <View style={[styles.badge, compact && styles.badgeCompact, bg, style]}>
+      <Text style={[styles.text, compact && styles.textCompact]}>{displayCount}</Text>
     </View>
   );
 };
@@ -49,9 +52,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 6,
   },
+  badgeCompact: {
+    minWidth: 17,
+    height: 17,
+    paddingHorizontal: 4,
+  },
   text: {
     color: colors.white,
     ...typography.badge,
+  },
+  textCompact: {
+    fontSize: 10,
+    lineHeight: 12,
   },
 });
 

@@ -9,6 +9,8 @@ export interface WorkoutPlanEntry {
   scheduledAt: Date;
   invitedFriends: string[];
   acceptedFriends: string[]; // Friends who accepted the invitation
+  /** Per invitee: from Supabase or local pending; used for Venter/Accepteret/Afvist */
+  inviteStatusByUserId?: Partial<Record<string, 'pending' | 'accepted' | 'declined'>>;
 }
 
 export interface WorkoutHistoryEntry {
@@ -62,44 +64,62 @@ export const useWorkoutPlanStore = create<WorkoutPlanState>(set => ({
 
   addPlanInvites: (planId, friendIds) =>
     set(state => ({
-      plannedWorkouts: state.plannedWorkouts.map(plan =>
-        plan.id === planId
-          ? {
-              ...plan,
-              invitedFriends: [
-                ...plan.invitedFriends,
-                ...friendIds.filter(id => !plan.invitedFriends.includes(id)),
-              ],
-            }
-          : plan,
-      ),
+      plannedWorkouts: state.plannedWorkouts.map(plan => {
+        if (plan.id !== planId) {
+          return plan;
+        }
+        const newIds = friendIds.filter(id => !plan.invitedFriends.includes(id));
+        if (newIds.length === 0) {
+          return plan;
+        }
+        const nextStatus = {...(plan.inviteStatusByUserId ?? {})};
+        newIds.forEach(id => {
+          nextStatus[id] = 'pending';
+        });
+        return {
+          ...plan,
+          invitedFriends: [...plan.invitedFriends, ...newIds],
+          inviteStatusByUserId: nextStatus,
+        };
+      }),
     })),
 
   removePlanInvites: (planId, friendIds) =>
     set(state => ({
-      plannedWorkouts: state.plannedWorkouts.map(plan =>
-        plan.id === planId
-          ? {
-              ...plan,
-              invitedFriends: plan.invitedFriends.filter(id => !friendIds.includes(id)),
-            }
-          : plan,
-      ),
+      plannedWorkouts: state.plannedWorkouts.map(plan => {
+        if (plan.id !== planId) {
+          return plan;
+        }
+        const setRm = new Set(friendIds);
+        const nextStatus = {...(plan.inviteStatusByUserId ?? {})};
+        friendIds.forEach(id => {
+          delete nextStatus[id];
+        });
+        return {
+          ...plan,
+          invitedFriends: plan.invitedFriends.filter(id => !setRm.has(id)),
+          acceptedFriends: (plan.acceptedFriends ?? []).filter(id => !setRm.has(id)),
+          inviteStatusByUserId: nextStatus,
+        };
+      }),
     })),
 
   acceptPlanInvite: (planId, friendId) =>
     set(state => ({
-      plannedWorkouts: state.plannedWorkouts.map(plan =>
-        plan.id === planId
-          ? {
-              ...plan,
-              acceptedFriends: [
-                ...(plan.acceptedFriends || []),
-                ...((plan.acceptedFriends || []).includes(friendId) ? [] : [friendId]),
-              ],
-            }
-          : plan,
-      ),
+      plannedWorkouts: state.plannedWorkouts.map(plan => {
+        if (plan.id !== planId) {
+          return plan;
+        }
+        const has = (plan.acceptedFriends || []).includes(friendId);
+        return {
+          ...plan,
+          acceptedFriends: has ? plan.acceptedFriends! : [...(plan.acceptedFriends || []), friendId],
+          inviteStatusByUserId: {
+            ...(plan.inviteStatusByUserId ?? {}),
+            [friendId]: 'accepted',
+          },
+        };
+      }),
     })),
 
   removePlannedWorkout: planId =>

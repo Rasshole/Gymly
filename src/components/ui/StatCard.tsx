@@ -31,7 +31,7 @@ export const StatCard: React.FC<StatCardProps> = ({
   compact = false,
   onPress,
 }) => (
-  <Card padding={compact ? 'md' : 'lg'} onPress={onPress}>
+  <Card padding="lg" onPress={onPress}>
     <View style={[styles.content, compact && styles.contentCompact]}>
       <View
         style={[
@@ -48,7 +48,7 @@ export const StatCard: React.FC<StatCardProps> = ({
         ) : (
           <Icon
             name={icon as any}
-            size={compact ? 20 : 24}
+            size={compact ? 22 : 24}
             color={accent ? colors.white : colors.primary}
           />
         )}
@@ -70,7 +70,9 @@ const styles = StyleSheet.create({
     gap: spacing.md,
   },
   contentCompact: {
-    gap: spacing.sm,
+    gap: spacing.md,
+    minHeight: 52,
+    alignItems: 'center',
   },
   iconWrapper: {
     width: 44,
@@ -81,17 +83,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   iconWrapperCompact: {
-    width: 36,
-    height: 36,
-    borderRadius: radius.sm + 2,
+    width: 40,
+    height: 40,
+    borderRadius: radius.md,
   },
   emojiMark: {
     fontSize: 24,
     lineHeight: 28,
   },
   emojiMarkCompact: {
-    fontSize: 20,
-    lineHeight: 24,
+    fontSize: 22,
+    lineHeight: 26,
   },
   iconWrapperAccent: {
     backgroundColor: colors.primary,
@@ -105,8 +107,9 @@ const styles = StyleSheet.create({
   },
   valueCompact: {
     ...typography.h4,
-    fontSize: 17,
-    lineHeight: 22,
+    fontSize: 18,
+    lineHeight: 24,
+    fontWeight: '700',
   },
   valueAccent: {
     color: colors.primary,
@@ -117,8 +120,9 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   labelCompact: {
-    fontSize: 11,
-    lineHeight: 14,
-    marginTop: 1,
+    fontSize: 12,
+    lineHeight: 16,
+    marginTop: 2,
+    color: colors.textSecondary,
   },
 });

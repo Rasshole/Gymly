@@ -44,7 +44,7 @@ const tabLabels: Record<string, string> = {
 const CustomTabBar: React.FC<BottomTabBarProps> = ({state, descriptors, navigation}) => {
   const insets = useSafeAreaInsets();
   const onTabBarHeight = React.useContext(BottomTabBarHeightCallbackContext);
-  const iconSize = 32;
+  const iconSize = 34;
   const chats = useChatStore(s => s.chats);
   const messagesUnread = useMemo(
     () => chats.reduce((sum, c) => sum + (c.unreadCount ?? 0), 0),
@@ -60,7 +60,7 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({state, descriptors, navigati
       onLayout={onLayout}
       style={[
         styles.wrapper,
-        {paddingBottom: Math.max(insets.bottom, spacing.sm)},
+        {paddingBottom: Math.max(insets.bottom, spacing.md)},
         messagesUnread > 0 && styles.wrapperWithBadge,
       ]}>
       <View style={styles.container}>
@@ -118,6 +118,7 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({state, descriptors, navigati
                   numberOfLines={1}>
                   {label}
                 </Text>
+                {isFocused && route.name === 'CheckIn' ? <View style={styles.activeDot} /> : null}
               </View>
             </TouchableOpacity>
           );
@@ -150,8 +151,9 @@ const styles = StyleSheet.create({
   },
   container: {
     flexDirection: 'row',
-    paddingTop: spacing.sm,
-    paddingHorizontal: spacing.xs,
+    paddingTop: spacing.md,
+    paddingHorizontal: spacing.sm,
+    alignItems: 'center',
   },
   tab: {
     flex: 1,
@@ -161,6 +163,13 @@ const styles = StyleSheet.create({
   tabContent: {
     alignItems: 'center',
     justifyContent: 'center',
+    paddingHorizontal: spacing.xs,
+    paddingVertical: spacing.xs,
+    borderRadius: radius.lg,
+    minWidth: 52,
+  },
+  tabContentFocused: {
+    backgroundColor: colors.primary + '14',
   },
   iconWithBadge: {
     position: 'relative',
@@ -168,8 +177,8 @@ const styles = StyleSheet.create({
   },
   messageBadgeWrap: {
     position: 'absolute',
-    top: 0,
-    right: -8,
+    top: -2,
+    right: -6,
     zIndex: 2,
   },
   tabIcon: {
@@ -177,9 +186,20 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 10,
-    fontWeight: '500',
+    fontWeight: '600',
     textAlign: 'center',
     color: colors.text,
+    marginTop: 2,
+  },
+  activeDot: {
+    marginTop: 4,
+    width: 5,
+    height: 5,
+    borderRadius: 999,
+    backgroundColor: colors.primary,
+  },
+  labelFocused: {
+    fontWeight: '700',
   },
 });
 

@@ -17,10 +17,18 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import DateTimePicker, {DateTimePickerEvent} from '@react-native-community/datetimepicker';
 import {useWorkoutPlanStore, WorkoutPlanEntry, WorkoutHistoryEntry} from '@/store/workoutPlanStore';
-import {formatGymDisplayName, findGymById} from '@/utils/gymDisplay';
+import {formatGymDisplayName} from '@/utils/gymDisplay';
+import {loadWorkoutPlanEntriesForUser} from '@/services/supabase/plannedWorkoutService';
 import {
-  fetchPlannedWorkoutsForUser,
-} from '@/services/supabase/plannedWorkoutService';
+  getPublicProfilesByIds,
+  listFriendsWithProfiles,
+  type PublicProfile,
+} from '@/services/supabase/friendService';
+import {
+  PlannedParticipantRow,
+} from '@/components/planned/PlannedParticipantRow';
+import {UserAvatar} from '@/components/ui/UserAvatar';
+import {getPlanInviteeResponseStatus} from '@/utils/plannedInviteeStatus';
 import {MuscleGroup} from '@/types/workout.types';
 import {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
 
@@ -63,9 +71,6 @@ const MUSCLE_GROUPS: {key: MuscleGroup; label: string}[] = [
   {key: 'reformer', label: 'Reformer'},
   {key: 'pilates', label: 'Pilates'},
 ];
-
-const MOCK_FRIENDS: Array<{id: string; name: string}> = [];
-const FRIENDS: Array<{id: string; name: string; initials: string}> = [];
 
 const WorkoutScheduleScreen = () => {
   const route = useRoute<{params?: {openPlannedId?: string; initialTab?: string}}>();
@@ -120,11 +125,16 @@ const WorkoutScheduleScreen = () => {
   // Invite friends modal state
   const [inviteModalVisible, setInviteModalVisible] = useState(false);
   const [inviteSearchQuery, setInviteSearchQuery] = useState('');
-  
+
   // Plan invite friends state
   const [planInvitedFriends, setPlanInvitedFriends] = useState<string[]>([]);
   const [planInviteSectionVisible, setPlanInviteSectionVisible] = useState(false);
   const [planInviteSearchQuery, setPlanInviteSearchQuery] = useState('');
+
+  const [participantProfiles, setParticipantProfiles] = useState<
+    Map<string, PublicProfile>
+  >(() => new Map());
+  const [loadedFriends, setLoadedFriends] = useState<PublicProfile[]>([]);
 
   useFocusEffect(
     useCallback(() => {
@@ -134,27 +144,20 @@ const WorkoutScheduleScreen = () => {
       let alive = true;
       (async () => {
         try {
-          const from = new Date();
-          from.setMonth(from.getMonth() - 1);
-          const list = await fetchPlannedWorkoutsForUser(user.id, from.toISOString());
+          const friends = await listFriendsWithProfiles(user.id);
+          if (alive) {
+            setLoadedFriends(friends);
+          }
+        } catch {
+          if (alive) {
+            setLoadedFriends([]);
+          }
+        }
+        try {
+          const entries = await loadWorkoutPlanEntriesForUser(user.id, true);
           if (!alive) {
             return;
           }
-          const entries: WorkoutPlanEntry[] = list.map(({workout, participants}) => {
-            const g = findGymById(workout.center_id) ?? SCHEDULE_GYMS[0]!;
-            const inv = participants.find(p => p.role === 'invitee');
-            return {
-              id: workout.id,
-              gym: g,
-              muscles: (workout.training_types || []) as MuscleGroup[],
-              scheduledAt: new Date(workout.scheduled_at),
-              invitedFriends: inv ? [inv.user_id] : [],
-              acceptedFriends:
-                inv?.response_status === 'accepted' && inv
-                  ? [inv.user_id]
-                  : [],
-            };
-          });
           mergePlannedFromServer(entries);
         } catch {
           // table/migration
@@ -165,6 +168,37 @@ const WorkoutScheduleScreen = () => {
       };
     }, [user?.id, mergePlannedFromServer]),
   );
+
+  useEffect(() => {
+    if (!detailModalVisible || !selectedWorkout) {
+      return;
+    }
+    const d = selectedWorkout.data;
+    const ids = new Set<string>();
+    (d.invitedFriends ?? []).forEach(i => ids.add(i));
+    (d.acceptedFriends ?? []).forEach(i => ids.add(i));
+    if (ids.size === 0) {
+      setParticipantProfiles(new Map());
+      return;
+    }
+    let cancelled = false;
+    const loadProfiles = async () => {
+      try {
+        const m = await getPublicProfilesByIds([...ids]);
+        if (!cancelled) {
+          setParticipantProfiles(m);
+        }
+      } catch {
+        if (!cancelled) {
+          setParticipantProfiles(new Map());
+        }
+      }
+    };
+    loadProfiles();
+    return () => {
+      cancelled = true;
+    };
+  }, [detailModalVisible, selectedWorkout]);
 
   const openPlannedId = route.params?.openPlannedId;
   const openPlannedHandledRef = useRef<string | null>(null);
@@ -253,8 +287,16 @@ const WorkoutScheduleScreen = () => {
     });
   };
 
-  const formatTime = (date: Date) =>
-    new Date(date).toLocaleTimeString('da-DK', {hour: '2-digit', minute: '2-digit'});
+  /** "kl. 21:00" — bruges ved siden af træningstype, ikke i gym-titlen */
+  const formatClockKl = (date: Date) => {
+    const d = new Date(date);
+    if (Number.isNaN(d.getTime())) {
+      return null;
+    }
+    const h = d.getHours().toString().padStart(2, '0');
+    const m = d.getMinutes().toString().padStart(2, '0');
+    return `kl. ${h}:${m}`;
+  };
 
   const formatDateTime = (date: Date) =>
     new Date(date).toLocaleString('da-DK', {
@@ -264,10 +306,6 @@ const WorkoutScheduleScreen = () => {
       hour: '2-digit',
       minute: '2-digit',
     });
-
-  const getFriendName = (friendId: string) => {
-    return MOCK_FRIENDS.find(f => f.id === friendId)?.name || `Ven ${friendId}`;
-  };
 
   const handleWorkoutPress = (
     workout: WorkoutPlanEntry | WorkoutHistoryEntry,
@@ -384,6 +422,9 @@ const WorkoutScheduleScreen = () => {
       scheduledAt: planDateTime,
       invitedFriends: planInvitedFriends,
       acceptedFriends: [],
+      inviteStatusByUserId: Object.fromEntries(
+        planInvitedFriends.map(id => [id, 'pending' as const]),
+      ),
     });
 
     // Send notifications to invited friends
@@ -478,6 +519,10 @@ const WorkoutScheduleScreen = () => {
           ...plan.invitedFriends,
           ...friendIds.filter(id => !plan.invitedFriends.includes(id)),
         ],
+        inviteStatusByUserId: {
+          ...(plan.inviteStatusByUserId ?? {}),
+          ...Object.fromEntries(friendIds.map(id => [id, 'pending' as const])),
+        },
       },
     });
   };
@@ -492,12 +537,19 @@ const WorkoutScheduleScreen = () => {
     // Remove from invited friends
     removePlanInvites(plan.id, friendIds);
 
+    const rm = new Set(friendIds);
+    const nextStatus = {...(plan.inviteStatusByUserId ?? {})};
+    friendIds.forEach(id => {
+      delete nextStatus[id];
+    });
     // Update selected workout
     setSelectedWorkout({
       type: 'planned',
       data: {
         ...plan,
-        invitedFriends: plan.invitedFriends.filter(id => !friendIds.includes(id)),
+        invitedFriends: plan.invitedFriends.filter(id => !rm.has(id)),
+        acceptedFriends: (plan.acceptedFriends ?? []).filter(id => !rm.has(id)),
+        inviteStatusByUserId: nextStatus,
       },
     });
   };
@@ -529,25 +581,31 @@ const WorkoutScheduleScreen = () => {
 
   // Filter friends based on search query
   const filteredInviteFriends = useMemo(() => {
+    const list = loadedFriends;
     if (!inviteSearchQuery.trim()) {
-      return FRIENDS;
+      return list;
     }
     const query = inviteSearchQuery.trim().toLowerCase();
-    return FRIENDS.filter(friend =>
-      friend.name.toLowerCase().includes(query),
+    return list.filter(
+      f =>
+        f.displayName.toLowerCase().includes(query) ||
+        f.username.toLowerCase().includes(query),
     );
-  }, [inviteSearchQuery]);
+  }, [loadedFriends, inviteSearchQuery]);
 
   // Filter friends for plan invite popup
   const filteredPlanInviteFriends = useMemo(() => {
+    const list = loadedFriends;
     if (!planInviteSearchQuery.trim()) {
-      return FRIENDS;
+      return list;
     }
     const query = planInviteSearchQuery.trim().toLowerCase();
-    return FRIENDS.filter(friend =>
-      friend.name.toLowerCase().includes(query),
+    return list.filter(
+      f =>
+        f.displayName.toLowerCase().includes(query) ||
+        f.username.toLowerCase().includes(query),
     );
-  }, [planInviteSearchQuery]);
+  }, [loadedFriends, planInviteSearchQuery]);
 
   const currentInvitedIds = inviteModalVisible ? getCurrentInvitedIds() : [];
   const remainingInviteCount = inviteModalVisible
@@ -701,15 +759,16 @@ const WorkoutScheduleScreen = () => {
             {selectedUpcoming.length === 0 ? (
               <Text style={styles.emptyDetail}>Ingen kommende træninger denne dag.</Text>
             ) : (
-              selectedUpcoming.map(plan => (
+              selectedUpcoming.map(plan => {
+                const clockKl = formatClockKl(plan.scheduledAt);
+                return (
                 <TouchableOpacity
                   key={plan.id}
                   style={styles.detailCard}
                   onPress={() => handleWorkoutPress(plan, 'planned')}
                   activeOpacity={0.7}>
-                  <View style={styles.detailHeader}>
+                  <View style={styles.detailGymLine}>
                     <Text style={styles.detailGym}>{formatGymDisplayName(plan.gym)}</Text>
-                    <Text style={styles.detailTime}>{formatTime(plan.scheduledAt)}</Text>
                   </View>
                   <View style={styles.detailMuscles}>
                     {plan.muscles.map(muscle => (
@@ -717,6 +776,12 @@ const WorkoutScheduleScreen = () => {
                         <Text style={styles.muscleChipText}>{muscleLabels[muscle]}</Text>
                       </View>
                     ))}
+                    {clockKl ? (
+                      <>
+                        <Text style={styles.muscleTimeSeparator}> · </Text>
+                        <Text style={styles.detailTimeSecondary}>{clockKl}</Text>
+                      </>
+                    ) : null}
                   </View>
                   {plan.invitedFriends.length > 0 && (
                     <Text style={styles.inviteStatus}>
@@ -730,7 +795,8 @@ const WorkoutScheduleScreen = () => {
                     <Ionicons name="chevron-forward" size={16} color="#94A3B8" />
                 </View>
                 </TouchableOpacity>
-              ))
+                );
+              })
             )}
           </View>
         )}
@@ -747,9 +813,8 @@ const WorkoutScheduleScreen = () => {
                   style={styles.detailCard}
                   onPress={() => handleWorkoutPress(entry, 'completed')}
                   activeOpacity={0.7}>
-                  <View style={styles.detailHeader}>
+                  <View style={styles.detailGymLine}>
                     <Text style={styles.detailGym}>{formatGymDisplayName(entry.gym)}</Text>
-                    <Text style={styles.detailTime}>{`${Math.round(entry.durationMs / 60000)} min`}</Text>
                   </View>
                   <View style={styles.detailMuscles}>
                     {entry.muscles.map(muscle => (
@@ -759,6 +824,14 @@ const WorkoutScheduleScreen = () => {
                         </Text>
                       </View>
                     ))}
+                    {entry.durationMs > 0 ? (
+                      <>
+                        <Text style={styles.muscleTimeSeparator}> · </Text>
+                        <Text style={styles.detailTimeSecondary}>
+                          {`${Math.round(entry.durationMs / 60000)} min`}
+                        </Text>
+                      </>
+                    ) : null}
                   </View>
                   {entry.acceptedFriends?.length ? (
                     <Text style={styles.inviteStatus}>
@@ -874,27 +947,14 @@ const WorkoutScheduleScreen = () => {
                         {selectedWorkout.data.invitedFriends.length > 0 ? (
                           <View style={styles.modalFriendsList}>
                             {selectedWorkout.data.invitedFriends.map(friendId => {
-                              const isAccepted = selectedWorkout.data.acceptedFriends?.includes(friendId);
+                              const plan = selectedWorkout.data;
+                              const res = getPlanInviteeResponseStatus(plan, friendId);
                               return (
-                                <View key={friendId} style={styles.modalFriendItem}>
-                                  <View style={styles.modalFriendAvatar}>
-                                    <Text style={styles.modalFriendAvatarText}>
-                                      {getFriendName(friendId).charAt(0)}
-                                    </Text>
-                                  </View>
-                                  <Text style={styles.modalFriendName}>{getFriendName(friendId)}</Text>
-                                  {isAccepted ? (
-                                    <View style={styles.modalFriendStatusAccepted}>
-                                      <Ionicons name="checkmark-circle" size={16} color={colors.success} />
-                                      <Text style={styles.modalFriendStatusTextAccepted}>Accepteret</Text>
-                                    </View>
-                                  ) : (
-                                    <View style={styles.modalFriendStatusPending}>
-                                      <Ionicons name="time-outline" size={16} color={colors.warning} />
-                                      <Text style={styles.modalFriendStatusTextPending}>Venter</Text>
-                                    </View>
-                                  )}
-                                </View>
+                                <PlannedParticipantRow
+                                  key={friendId}
+                                  profile={participantProfiles.get(friendId)}
+                                  right={{mode: 'plan_status', status: res}}
+                                />
                               );
                             })}
                           </View>
@@ -905,31 +965,6 @@ const WorkoutScheduleScreen = () => {
                         )}
                       </View>
 
-                      {/* Accepted Friends Summary */}
-                      {selectedWorkout.data.acceptedFriends &&
-                        selectedWorkout.data.acceptedFriends.length > 0 && (
-                          <View style={styles.modalSection}>
-                            <Text style={styles.modalSectionTitle}>
-                              Har accepteret ({selectedWorkout.data.acceptedFriends.length})
-                            </Text>
-                            <View style={styles.modalFriendsList}>
-                              {selectedWorkout.data.acceptedFriends.map(friendId => (
-                                <View key={friendId} style={styles.modalFriendItem}>
-                                  <View style={styles.modalFriendAvatar}>
-                                    <Text style={styles.modalFriendAvatarText}>
-                                      {getFriendName(friendId).charAt(0)}
-                                    </Text>
-                                  </View>
-                                  <Text style={styles.modalFriendName}>{getFriendName(friendId)}</Text>
-                                  <View style={styles.modalFriendStatusAccepted}>
-                                    <Ionicons name="checkmark-circle" size={16} color={colors.success} />
-                                    <Text style={styles.modalFriendStatusTextAccepted}>Accepteret</Text>
-                                  </View>
-                                </View>
-                              ))}
-                            </View>
-                          </View>
-                        )}
                     </>
                   ) : (
                     /* Completed Workout Friends */
@@ -942,18 +977,11 @@ const WorkoutScheduleScreen = () => {
                             </Text>
                             <View style={styles.modalFriendsList}>
                               {selectedWorkout.data.acceptedFriends.map(friendId => (
-                                <View key={friendId} style={styles.modalFriendItem}>
-                                  <View style={styles.modalFriendAvatar}>
-                                    <Text style={styles.modalFriendAvatarText}>
-                                      {getFriendName(friendId).charAt(0)}
-                                    </Text>
-                                  </View>
-                                  <Text style={styles.modalFriendName}>{getFriendName(friendId)}</Text>
-                                  <View style={styles.modalFriendStatusCompleted}>
-                                    <Ionicons name="fitness" size={16} color={colors.error} />
-                                    <Text style={styles.modalFriendStatusTextCompleted}>Trænede med</Text>
-                                  </View>
-                                </View>
+                                <PlannedParticipantRow
+                                  key={friendId}
+                                  profile={participantProfiles.get(friendId)}
+                                  right={{mode: 'completed_joined'}}
+                                />
                               ))}
                             </View>
                           </View>
@@ -978,18 +1006,11 @@ const WorkoutScheduleScreen = () => {
                                     !selectedWorkout.data.acceptedFriends?.includes(friendId),
                                 )
                                 .map(friendId => (
-                                  <View key={friendId} style={styles.modalFriendItem}>
-                                    <View style={styles.modalFriendAvatar}>
-                                      <Text style={styles.modalFriendAvatarText}>
-                                        {getFriendName(friendId).charAt(0)}
-                                      </Text>
-                                    </View>
-                                    <Text style={styles.modalFriendName}>{getFriendName(friendId)}</Text>
-                                    <View style={styles.modalFriendStatusDeclined}>
-                                      <Ionicons name="close-circle" size={16} color="#94A3B8" />
-                                      <Text style={styles.modalFriendStatusTextDeclined}>Deltog ikke</Text>
-                                    </View>
-                                  </View>
+                                  <PlannedParticipantRow
+                                    key={friendId}
+                                    profile={participantProfiles.get(friendId)}
+                                    right={{mode: 'completed_no_show'}}
+                                  />
                                 ))}
                             </View>
                           </View>
@@ -1268,14 +1289,21 @@ const WorkoutScheduleScreen = () => {
                           <Text style={styles.planInviteSectionTitle}>Venner</Text>
                           {filteredPlanInviteFriends.map(friend => {
                             const hasBeenInvited = planInvitedFriends.includes(friend.id);
+                            const lineName = friend.displayName || friend.username || 'Ukendt bruger';
                             return (
                               <View key={friend.id} style={styles.friendRow}>
                                 <View style={styles.friendInfoWrapper}>
-                                  <View style={styles.friendAvatar}>
-                                    <Text style={styles.friendAvatarText}>{friend.initials}</Text>
-                                  </View>
+                                  <UserAvatar
+                                    name={friend.displayName || friend.username || 'Ukendt bruger'}
+                                    imageUrl={friend.avatarUrl}
+                                    size="md"
+                                    style={styles.friendAvatarImage}
+                                  />
                                   <View style={styles.friendDetails}>
-                                    <Text style={styles.friendName}>{friend.name}</Text>
+                                    <Text style={styles.friendName}>{lineName}</Text>
+                                    {friend.username ? (
+                                      <Text style={styles.friendUsernameLine}>@{friend.username}</Text>
+                                    ) : null}
                                   </View>
                                 </View>
                                 <TouchableOpacity
@@ -1407,14 +1435,21 @@ const WorkoutScheduleScreen = () => {
             ) : (
               filteredInviteFriends.map(friend => {
                 const hasBeenInvited = currentInvitedIds.includes(friend.id);
+                const lineName = friend.displayName || friend.username || 'Ukendt bruger';
                 return (
                   <View key={friend.id} style={styles.friendRow}>
                     <View style={styles.friendInfoWrapper}>
-                      <View style={styles.friendAvatar}>
-                        <Text style={styles.friendAvatarText}>{friend.initials}</Text>
-                      </View>
+                      <UserAvatar
+                        name={friend.displayName || friend.username || 'Ukendt bruger'}
+                        imageUrl={friend.avatarUrl}
+                        size="md"
+                        style={styles.friendAvatarImage}
+                      />
                       <View style={styles.friendDetails}>
-                        <Text style={styles.friendName}>{friend.name}</Text>
+                        <Text style={styles.friendName}>{lineName}</Text>
+                        {friend.username ? (
+                          <Text style={styles.friendUsernameLine}>@{friend.username}</Text>
+                        ) : null}
                       </View>
                     </View>
                     <TouchableOpacity
@@ -1594,24 +1629,35 @@ const styles = StyleSheet.create({
     padding: 12,
     marginBottom: 12,
   },
-  detailHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+  detailGymLine: {
     marginBottom: 8,
   },
   detailGym: {
     fontSize: 15,
     fontWeight: '700',
     color: colors.text,
+    width: '100%',
   },
+  /** @deprecated for plan cards — brug detailTimeSecondary ved siden af type */
   detailTime: {
     fontSize: 14,
     color: '#0369A1',
     fontWeight: '600',
   },
+  detailTimeSecondary: {
+    fontSize: 13,
+    color: colors.textSecondary,
+    fontWeight: '500',
+  },
+  muscleTimeSeparator: {
+    fontSize: 14,
+    color: colors.textMuted,
+    fontWeight: '500',
+  },
   detailMuscles: {
     flexDirection: 'row',
     flexWrap: 'wrap',
+    alignItems: 'center',
     gap: 8,
     marginBottom: 6,
   },
@@ -1825,10 +1871,21 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: colors.text,
   },
+  friendAvatarImage: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: colors.border,
+  },
   friendName: {
     fontSize: 16,
     fontWeight: '600',
     color: colors.text,
+  },
+  friendUsernameLine: {
+    fontSize: 13,
+    color: colors.textSecondary,
+    marginTop: 2,
   },
   invitePill: {
     borderRadius: 999,

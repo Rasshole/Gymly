@@ -22,6 +22,9 @@ import {
   Keyboard,
   ActivityIndicator,
   useWindowDimensions,
+  Animated,
+  Easing,
+  Vibration,
 } from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -46,6 +49,7 @@ import {useInAppNotificationStore} from '@/store/inAppNotificationStore';
 import {useFocusEffect} from '@react-navigation/native';
 import {useChatStore, ChatPlan, ChatMessage} from '@/store/chatStore';
 import {useAppStore} from '@/store/appStore';
+import {useSessionStore} from '@/store/sessionStore';
 import {useNotificationStore} from '@/store/notificationStore';
 import {navigateToFriendProfile} from '@/navigation/rootNavigation';
 import {
@@ -53,10 +57,13 @@ import {
   fetchDmMessages,
   sendDmMessage,
 } from '@/services/supabase/dmService';
+import {getPublicProfilesByIds} from '@/services/supabase/friendService';
 import {uploadDmChatImage} from '@/services/supabase/dmImageUpload';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
 import muscleImg from '@/utils/muscleGroupImages';
+import {safeDisplayName} from '@/utils/displayName';
+import {UserAvatar} from '@/components/ui/UserAvatar';
 
 type ChatScreenProps = {
   route: {
@@ -90,6 +97,72 @@ const CHAT_MEDIA_SHEET = {
 } as const;
 
 const CHAT_IMAGE_MAX_H = 320;
+
+const TypingDotsInline = () => {
+  const anim = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    const loop = Animated.loop(
+      Animated.timing(anim, {
+        toValue: 1,
+        duration: 900,
+        easing: Easing.linear,
+        useNativeDriver: true,
+      }),
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [anim]);
+  return (
+    <View style={styles.typingInline}>
+      <Text style={styles.typingInlineLabel}>Skriver</Text>
+      {[0, 1, 2].map(i => (
+        <Animated.Text
+          key={i}
+          style={[
+            styles.typingInlineDot,
+            {
+              opacity: anim.interpolate({
+                inputRange: [0, 0.33, 0.66, 1],
+                outputRange:
+                  i === 0 ? [0.35, 1, 0.35, 0.35] : i === 1 ? [0.35, 0.35, 1, 0.35] : [0.35, 0.35, 0.35, 1],
+              }),
+            },
+          ]}>
+          .
+        </Animated.Text>
+      ))}
+    </View>
+  );
+};
+
+const AnimatedMessageWrap = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
+  const opacity = useRef(new Animated.Value(0)).current;
+  const scale = useRef(new Animated.Value(0.96)).current;
+  useEffect(() => {
+    Animated.parallel([
+      Animated.timing(opacity, {
+        toValue: 1,
+        duration: 160,
+        useNativeDriver: true,
+      }),
+      Animated.spring(scale, {
+        toValue: 1,
+        friction: 7,
+        tension: 160,
+        useNativeDriver: true,
+      }),
+    ]).start();
+  }, [opacity, scale]);
+  return (
+    <Animated.View style={{opacity, transform: [{scale}]}}>
+      {children}
+    </Animated.View>
+  );
+};
 
 type DmChatMessageImageProps = {
   uri: string;
@@ -193,6 +266,24 @@ function mapServerPlanToChatPlan(r: {
   };
 }
 
+function formatPlannedEmbedDate(iso: string): string {
+  try {
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) {
+      return '';
+    }
+    return d.toLocaleString('da-DK', {
+      weekday: 'short',
+      day: 'numeric',
+      month: 'short',
+      hour: '2-digit',
+      minute: '2-digit',
+    });
+  } catch {
+    return '';
+  }
+}
+
 const ChatScreen = ({route, navigation}: ChatScreenProps) => {
   const {chatId, friendId, friendName, initialMessage, participants: routeParticipants} = route.params;
   const updateChatLastMessage = useChatStore(state => state.updateChatLastMessage);
@@ -205,6 +296,12 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
   const setForegroundOpenChatId = useChatStore(state => state.setForegroundOpenChatId);
   const addMessageToChat = useChatStore(state => state.addMessageToChat);
   const getMessagesForChat = useChatStore(state => state.getMessagesForChat);
+  const upsertDmPresence = useChatStore(state => state.upsertDmPresence);
+  const dmPresenceByUser = useChatStore(state => state.dmPresenceByUser);
+  const setThreadSeenAtByUser = useChatStore(state => state.setThreadSeenAtByUser);
+  const threadSeenAtByUser = useChatStore(
+    useCallback(state => (chatId ? state.threadSeenAtByUser[chatId] ?? {} : {}), [chatId]),
+  );
   const setActivePlanForChat = useChatStore(state => state.setActivePlanForChat);
   const updateActivePlanForChat = useChatStore(state => state.updateActivePlanForChat);
   const messages: ChatMessage[] = useChatStore(
@@ -214,6 +311,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
     useCallback(state => (chatId ? state.activePlansByChat[chatId] ?? null : null), [chatId]),
   );
   const currentUserId = useAppStore(s => s.user?.id) ?? 'current_user';
+  const activeSession = useSessionStore(s => s.activeSession);
   const isDm = useMemo(() => isDmThreadId(chatId), [chatId]);
   const chatParticipants =
     routeParticipants && routeParticipants.length > 0
@@ -223,6 +321,13 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
     {id: currentUserId, name: 'Dig'},
     ...chatParticipants.filter(participant => participant.id !== currentUserId),
   ];
+  const otherParticipantId = useMemo(
+    () => chatParticipants.find(p => p.id !== currentUserId)?.id ?? friendId,
+    [chatParticipants, currentUserId, friendId],
+  );
+  const remotePresence = dmPresenceByUser[otherParticipantId];
+  const remoteTyping = !!(chatId && remotePresence?.typingByThread?.[chatId]);
+  const remoteSeenAt = threadSeenAtByUser[otherParticipantId] ?? 0;
   const [message, setMessage] = useState('');
   const [planModalVisible, setPlanModalVisible] = useState(false);
   const [planDetailVisible, setPlanDetailVisible] = useState(false);
@@ -237,16 +342,76 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
   const [lightboxUri, setLightboxUri] = useState<string | null>(null);
   const [showImagePickerOptions, setShowImagePickerOptions] = useState(false);
   const [planActionBusy, setPlanActionBusy] = useState(false);
+  const [headerDisplayName, setHeaderDisplayName] = useState<string>(
+    safeDisplayName(friendName, 'Ukendt bruger'),
+  );
+  const [headerAvatarUrl, setHeaderAvatarUrl] = useState<string | null>(null);
   const {width: windowWidth} = useWindowDimensions();
   const refreshInAppNotifications = useInAppNotificationStore(s => s.refresh);
   const maxDmImageWidth = useMemo(
     () => Math.min(windowWidth * 0.7, 280),
     [windowWidth],
   );
+  const trainingPulse = useRef(new Animated.Value(1)).current;
   const flatListRef = useRef<FlatList>(null);
   const initialMessageHandledRef = useRef(false);
+  const presenceChannelRef = useRef<any>(null);
   const insets = useSafeAreaInsets();
   const [keyboardOpen, setKeyboardOpen] = useState(false);
+  const [localTyping, setLocalTyping] = useState(false);
+  const headerStatusText = useMemo(() => {
+    if (remotePresence?.trainingNow && remotePresence.trainingGymName) {
+      return `Træner nu i ${remotePresence.trainingGymName}`;
+    }
+    if (remoteTyping) {
+      return 'Skriver...';
+    }
+    if (remotePresence?.isActive) {
+      return 'Aktiv nu';
+    }
+    if (remotePresence?.lastSeenAt) {
+      const mins = Math.max(1, Math.floor((Date.now() - remotePresence.lastSeenAt) / 60000));
+      if (mins < 60) {
+        return `Sidst set for ${mins} min siden`;
+      }
+      const hours = Math.floor(mins / 60);
+      return `Sidst set for ${hours} t siden`;
+    }
+    return 'Aktiv for nylig';
+  }, [remotePresence, remoteTyping]);
+
+  useEffect(() => {
+    if (!remotePresence?.trainingNow) {
+      trainingPulse.stopAnimation();
+      trainingPulse.setValue(1);
+      return;
+    }
+    const loop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(trainingPulse, {
+          toValue: 1.06,
+          duration: 700,
+          useNativeDriver: true,
+          easing: Easing.inOut(Easing.ease),
+        }),
+        Animated.timing(trainingPulse, {
+          toValue: 1,
+          duration: 700,
+          useNativeDriver: true,
+          easing: Easing.inOut(Easing.ease),
+        }),
+      ]),
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [remotePresence?.trainingNow, trainingPulse]);
+
+  useEffect(() => {
+    if (!isDm) {
+      return;
+    }
+    setLocalTyping(message.trim().length > 0);
+  }, [isDm, message]);
 
   useEffect(() => {
     const show = Keyboard.addListener(
@@ -262,6 +427,107 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
       hide.remove();
     };
   }, []);
+
+  useEffect(() => {
+    if (!isDm || !chatId || !currentUserId) {
+      return;
+    }
+    const channel = supabase.channel(`dm_presence_${chatId}`, {
+      config: {presence: {key: currentUserId}},
+    });
+    presenceChannelRef.current = channel;
+
+    const trackSelf = (typing: boolean) => {
+      void channel.track({
+        userId: currentUserId,
+        active: true,
+        typing,
+        lastSeenAt: Date.now(),
+        trainingNow: !!activeSession,
+        trainingGymName: activeSession?.gymName ?? null,
+      });
+    };
+
+    channel
+      .on('presence', {event: 'sync'}, () => {
+        const state = channel.presenceState() as Record<string, Array<Record<string, unknown>>>;
+        const remoteMeta = Object.values(state)
+          .flat()
+          .find(meta => meta.userId === otherParticipantId) as
+          | {
+              typing?: boolean;
+              active?: boolean;
+              lastSeenAt?: number;
+              trainingNow?: boolean;
+              trainingGymName?: string;
+            }
+          | undefined;
+        if (otherParticipantId) {
+          upsertDmPresence(otherParticipantId, {
+            isActive: !!remoteMeta?.active,
+            lastSeenAt:
+              typeof remoteMeta?.lastSeenAt === 'number'
+                ? remoteMeta.lastSeenAt
+                : undefined,
+            trainingNow: !!remoteMeta?.trainingNow,
+            trainingGymName:
+              typeof remoteMeta?.trainingGymName === 'string'
+                ? remoteMeta.trainingGymName
+                : undefined,
+            typingForThread: {threadId: chatId, typing: !!remoteMeta?.typing},
+          });
+          if (typeof remoteMeta?.lastSeenAt === 'number') {
+            setThreadSeenAtByUser(chatId, otherParticipantId, remoteMeta.lastSeenAt);
+          }
+        }
+      })
+      .subscribe(status => {
+        if (status === 'SUBSCRIBED') {
+          trackSelf(false);
+        }
+      });
+
+    return () => {
+      presenceChannelRef.current = null;
+      void channel.untrack();
+      void supabase.removeChannel(channel);
+    };
+  }, [
+    chatId,
+    currentUserId,
+    isDm,
+    otherParticipantId,
+    setThreadSeenAtByUser,
+    upsertDmPresence,
+  ]);
+
+  useEffect(() => {
+    if (!isDm || !chatId || !currentUserId) {
+      return;
+    }
+    const ch = presenceChannelRef.current;
+    if (!ch) {
+      return;
+    }
+    const seenAt = Date.now();
+    setThreadSeenAtByUser(chatId, currentUserId, seenAt);
+    void ch.track({
+      userId: currentUserId,
+      active: true,
+      typing: localTyping,
+      lastSeenAt: seenAt,
+      trainingNow: !!activeSession,
+      trainingGymName: activeSession?.gymName ?? null,
+    });
+  }, [
+    activeSession,
+    chatId,
+    currentUserId,
+    isDm,
+    localTyping,
+    messages.length,
+    setThreadSeenAtByUser,
+  ]);
 
   useEffect(() => {
     if (!isDm || !chatId) {
@@ -349,6 +615,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
       if (isDm) {
         markChatAsRead(chatId);
         markMessageNotificationsForChatRead(chatId);
+        setThreadSeenAtByUser(chatId, currentUserId, Date.now());
       } else {
         initializeChatMessages(chatId, []);
         markChatAsRead(chatId);
@@ -363,6 +630,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
       initializeChatMessages,
       markChatAsRead,
       markMessageNotificationsForChatRead,
+      setThreadSeenAtByUser,
       setForegroundOpenChatId,
     ]),
   );
@@ -430,6 +698,59 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
   ]);
 
   useEffect(() => {
+    setHeaderDisplayName(safeDisplayName(friendName, 'Ukendt bruger'));
+  }, [friendName]);
+
+  useEffect(() => {
+    if (!friendId) {
+      setHeaderAvatarUrl(null);
+      return;
+    }
+    let cancelled = false;
+    const loadProfile = async () => {
+      try {
+        const m = await getPublicProfilesByIds([friendId]);
+        if (cancelled) {
+          return;
+        }
+        const p = m.get(friendId);
+        setHeaderDisplayName(safeDisplayName(p?.displayName, p?.username, friendName, 'Ukendt bruger'));
+        setHeaderAvatarUrl(p?.avatarUrl ?? null);
+      } catch {
+        if (!cancelled) {
+          setHeaderDisplayName(safeDisplayName(friendName, 'Ukendt bruger'));
+          setHeaderAvatarUrl(null);
+        }
+      }
+    };
+    void loadProfile();
+
+    const ch = supabase
+      .channel(`chat_profile_${friendId}`)
+      .on(
+        'postgres_changes',
+        {event: 'UPDATE', schema: 'public', table: 'profiles', filter: `id=eq.${friendId}`},
+        payload => {
+          const next = payload.new as {
+            display_name?: string | null;
+            username?: string | null;
+            avatar_url?: string | null;
+          };
+          setHeaderDisplayName(
+            safeDisplayName(next.display_name, next.username, friendName, 'Ukendt bruger'),
+          );
+          setHeaderAvatarUrl(next.avatar_url ?? null);
+        },
+      )
+      .subscribe();
+
+    return () => {
+      cancelled = true;
+      void supabase.removeChannel(ch);
+    };
+  }, [friendId, friendName]);
+
+  useEffect(() => {
     // Scroll to bottom when messages change
     setTimeout(() => {
       flatListRef.current?.scrollToEnd({animated: true});
@@ -460,6 +781,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
           addMessageToChat(chatId, sent);
           updateChatLastMessage(chatId, sent, {fromCurrentUser: true});
           setMessage('');
+          setLocalTyping(false);
           setSelectedImageUri(null);
           setSelectedImageMime(null);
         } catch (e) {
@@ -485,6 +807,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
         Alert.alert('Kunne ikke sende', (e as Error).message);
       }
       setMessage('');
+      setLocalTyping(false);
       return;
     }
 
@@ -502,6 +825,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
       updateChatLastMessage(chatId, newMessage, {fromCurrentUser: true});
     }
     setMessage('');
+    setLocalTyping(false);
     setSelectedImageUri(null);
     setSelectedImageMime(null);
   };
@@ -511,11 +835,13 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
   };
 
   const handleCameraPress = () => {
+    Vibration.vibrate(10);
     setShowImagePickerOptions(false);
     openCamera();
   };
 
   const handleGalleryPress = () => {
+    Vibration.vibrate(10);
     setShowImagePickerOptions(false);
     openImageLibrary();
   };
@@ -779,13 +1105,62 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
     });
   };
 
+  const respondToPlannedFromDmCard = useCallback(
+    async (plannedWorkoutId: string, accept: boolean) => {
+      if (!chatId) {
+        return;
+      }
+      setPlanActionBusy(true);
+      try {
+        await respondPlannedWorkoutInvite(plannedWorkoutId, accept);
+        const r = await fetchPlannedWorkoutByThread(chatId);
+        if (r) {
+          setActivePlanForChat(chatId, mapServerPlanToChatPlan(r));
+        }
+        if (currentUserId) {
+          void refreshInAppNotifications(currentUserId);
+        }
+      } catch (e) {
+        Alert.alert(
+          accept ? 'Kunne ikke acceptere' : 'Kunne ikke afvise',
+          e instanceof Error ? e.message : 'Prøv igen om lidt.',
+        );
+      } finally {
+        setPlanActionBusy(false);
+      }
+    },
+    [chatId, currentUserId, refreshInAppNotifications, setActivePlanForChat],
+  );
+
+  const openPlannedWorkoutFromDm = useCallback(
+    (plannedWorkoutId: string) => {
+      navigation.navigate('WorkoutSchedule', {openPlannedId: plannedWorkoutId});
+    },
+    [navigation],
+  );
+
   const planParticipants = participantList.map(participant => ({
     ...participant,
     hasJoined: activePlan?.joinedIds.includes(participant.id) ?? false,
   }));
 
+  const latestMyMessageId = useMemo(() => {
+    for (let i = messages.length - 1; i >= 0; i--) {
+      const msg = messages[i];
+      if (msg.senderId === currentUserId) {
+        return msg.id;
+      }
+    }
+    return null;
+  }, [messages, currentUserId]);
+
   const renderMessage = ({item, index}: {item: ChatMessage; index: number}) => {
     const isMe = item.senderId === currentUserId;
+    const isLatestOutgoing = isMe && item.id === latestMyMessageId;
+    const showSeen =
+      isLatestOutgoing &&
+      typeof remoteSeenAt === 'number' &&
+      remoteSeenAt >= item.timestamp.getTime();
     const showDate =
       index === 0 ||
       formatDate(item.timestamp) !== formatDate(messages[index - 1].timestamp);
@@ -802,15 +1177,16 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
             styles.messageContainer,
             isMe ? styles.messageRight : styles.messageLeft,
           ]}>
-          <View
-            style={[
-              styles.messageBubble,
-              isMe ? styles.messageBubbleMe : styles.messageBubbleOther,
-              item.imageUri &&
-                (item.text?.trim()
-                  ? styles.messageBubbleWithImage
-                  : styles.messageBubbleImageOnly),
-            ]}>
+          <AnimatedMessageWrap>
+            <View
+              style={[
+                styles.messageBubble,
+                isMe ? styles.messageBubbleMe : styles.messageBubbleOther,
+                item.imageUri &&
+                  (item.text?.trim()
+                    ? styles.messageBubbleWithImage
+                    : styles.messageBubbleImageOnly),
+              ]}>
             {item.imageUri && (
               <DmChatMessageImage
                 uri={item.imageUri}
@@ -818,6 +1194,89 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                 onPress={() => setLightboxUri(item.imageUri!)}
               />
             )}
+            {item.plannedWorkoutEmbed?.kind === 'invite' ? (
+              <View style={styles.planMessageCard}>
+                <Text style={styles.planMessageCardKicker}>Planlagt træning</Text>
+                <Text style={styles.planMessageCardTitle}>
+                  {item.plannedWorkoutEmbed.centerName}
+                </Text>
+                {item.plannedWorkoutEmbed.scheduledAt ? (
+                  <Text style={styles.planMessageCardSub}>
+                    {formatPlannedEmbedDate(item.plannedWorkoutEmbed.scheduledAt)}
+                  </Text>
+                ) : null}
+                {item.plannedWorkoutEmbed.trainingTypes.length > 0 ? (
+                  <Text style={styles.planMessageCardTypes}>
+                    {item.plannedWorkoutEmbed.trainingTypes.join(', ')}
+                  </Text>
+                ) : null}
+                {isMe ? (
+                  <Text style={styles.planMessageCardHint}>Afventer svar</Text>
+                ) : (() => {
+                    const pid = item.plannedWorkoutEmbed.plannedWorkoutId;
+                    const live =
+                      activePlan?.serverPlannedWorkoutId === pid
+                        ? activePlan.inviteeResponse
+                        : 'pending';
+                    if (live === 'pending') {
+                      return (
+                        <View style={styles.planMessageCardActions}>
+                          <TouchableOpacity
+                            style={styles.planMessageCardDecline}
+                            onPress={() => respondToPlannedFromDmCard(pid, false)}
+                            disabled={planActionBusy}
+                            activeOpacity={0.85}>
+                            <Text style={styles.planMessageCardDeclineText}>Afvis</Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity
+                            style={styles.planMessageCardAccept}
+                            onPress={() => respondToPlannedFromDmCard(pid, true)}
+                            disabled={planActionBusy}
+                            activeOpacity={0.85}>
+                            {planActionBusy ? (
+                              <ActivityIndicator color="#fff" size="small" />
+                            ) : (
+                              <Text style={styles.planMessageCardAcceptText}>Accepter</Text>
+                            )}
+                          </TouchableOpacity>
+                        </View>
+                      );
+                    }
+                    if (live === 'accepted') {
+                      return (
+                        <Text style={styles.planMessageCardStatusOk}>Accepteret</Text>
+                      );
+                    }
+                    if (live === 'declined') {
+                      return (
+                        <Text style={styles.planMessageCardStatusNo}>Afvist</Text>
+                      );
+                    }
+                    return null;
+                  })()}
+                <TouchableOpacity
+                  onPress={() => openPlannedWorkoutFromDm(item.plannedWorkoutEmbed.plannedWorkoutId)}
+                  activeOpacity={0.8}
+                  style={styles.planMessageCardDetail}>
+                  <Text style={styles.planMessageCardDetailText}>Se detaljer</Text>
+                  <Icon name="chevron-forward" size={16} color={colors.primary} />
+                </TouchableOpacity>
+              </View>
+            ) : null}
+            {item.plannedWorkoutEmbed?.kind === 'status' ? (
+              <View style={styles.planMessageStatusBubble}>
+                <Text
+                  style={
+                    item.plannedWorkoutEmbed.status === 'accepted'
+                      ? styles.planMessageCardStatusOk
+                      : styles.planMessageCardStatusNo
+                  }>
+                  {item.plannedWorkoutEmbed.status === 'accepted'
+                    ? 'Accepteret'
+                    : 'Afvist'}
+                </Text>
+              </View>
+            ) : null}
             {item.text?.trim() ? (
             <Text
               style={[
@@ -836,13 +1295,20 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
               ]}>
               {formatTime(item.timestamp)}
             </Text>
-          </View>
+            </View>
+          </AnimatedMessageWrap>
+          {showSeen ? (
+            <Animated.View style={styles.seenRow}>
+              <Text style={styles.seenText}>Set</Text>
+            </Animated.View>
+          ) : null}
         </View>
       </View>
     );
   };
 
   const inputBarBottomPad = keyboardOpen ? 0 : Math.max(insets.bottom, spacing.xs);
+  const showInputActions = message.trim().length === 0 && !selectedImageUri;
 
   return (
     <KeyboardAvoidingView
@@ -862,21 +1328,34 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
             style={styles.headerInfo}
             onPress={() => {
               if (friendId) {
-                navigateToFriendProfile(navigation, {friendId, friendName});
+                navigateToFriendProfile(navigation, {
+                  friendId,
+                  friendName: headerDisplayName,
+                  friendAvatarUrl: headerAvatarUrl ?? undefined,
+                });
               }
             }}
             activeOpacity={0.7}
             disabled={!friendId}
             accessibilityRole="button"
-            accessibilityLabel={`Åbn profil: ${friendName}`}>
-            <View style={styles.headerAvatar}>
-              <Text style={styles.headerAvatarText}>
-                {friendName.charAt(0).toUpperCase()}
-              </Text>
-            </View>
+            accessibilityLabel={`Åbn profil: ${headerDisplayName}`}>
+            <UserAvatar name={headerDisplayName} imageUrl={headerAvatarUrl} size="md" />
             <View style={styles.headerTextWrap}>
-              <Text style={styles.headerName}>{friendName}</Text>
-              <Text style={styles.headerHint}>Aktiv nu</Text>
+              <Text style={styles.headerName}>{headerDisplayName}</Text>
+              <View style={styles.headerStatusRow}>
+                {remotePresence?.trainingNow ? (
+                  <Animated.View style={{transform: [{scale: trainingPulse}]}}>
+                    <Icon name="barbell-outline" size={12} color={colors.primary} />
+                  </Animated.View>
+                ) : null}
+                <Text
+                  style={[
+                    styles.headerHint,
+                    remotePresence?.trainingNow && styles.headerHintTraining,
+                  ]}>
+                  {headerStatusText}
+                </Text>
+              </View>
             </View>
           </TouchableOpacity>
         </View>
@@ -1019,6 +1498,15 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
           renderItem={renderMessage}
           keyExtractor={item => item.id}
           contentContainerStyle={styles.messagesList}
+          ListFooterComponent={
+            remoteTyping ? (
+              <View style={styles.typingBubbleWrap}>
+                <View style={styles.typingBubble}>
+                  <TypingDotsInline />
+                </View>
+              </View>
+            ) : null
+          }
           inverted={false}
           keyboardShouldPersistTaps="handled"
           keyboardDismissMode="interactive"
@@ -1223,54 +1711,58 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
           </TouchableWithoutFeedback>
         )}
         <View style={styles.inputWrapper}>
-          <View style={styles.imagePickerContainer}>
-            {showImagePickerOptions && (
-              <View style={styles.imagePickerOptions}>
-                <Pressable
-                  style={({pressed}) => [
-                    styles.imagePickerCard,
-                    pressed && styles.imagePickerCardPressed,
-                  ]}
-                  onPress={handleCameraPress}
-                  android_ripple={{color: 'rgba(0,0,0,0.06)'}}>
-                  <Icon
-                    name="camera"
-                    size={26}
-                    color={CHAT_MEDIA_SHEET.icon}
-                    style={styles.imagePickerIcon}
-                  />
-                  <Text style={styles.imagePickerLabel}>Kamera</Text>
-                </Pressable>
-                <Pressable
-                  style={({pressed}) => [
-                    styles.imagePickerCard,
-                    pressed && styles.imagePickerCardPressed,
-                  ]}
-                  onPress={handleGalleryPress}
-                  android_ripple={{color: 'rgba(0,0,0,0.06)'}}>
-                  <Icon
-                    name="images"
-                    size={26}
-                    color={CHAT_MEDIA_SHEET.icon}
-                    style={styles.imagePickerIcon}
-                  />
-                  <Text style={styles.imagePickerLabel}>Fotos</Text>
-                </Pressable>
+          {showInputActions ? (
+            <>
+              <View style={styles.imagePickerContainer}>
+                {showImagePickerOptions && (
+                  <View style={styles.imagePickerOptions}>
+                    <Pressable
+                      style={({pressed}) => [
+                        styles.imagePickerCard,
+                        pressed && styles.imagePickerCardPressed,
+                      ]}
+                      onPress={handleCameraPress}
+                      android_ripple={{color: 'rgba(0,0,0,0.06)'}}>
+                      <Icon
+                        name="camera"
+                        size={26}
+                        color={CHAT_MEDIA_SHEET.icon}
+                        style={styles.imagePickerIcon}
+                      />
+                      <Text style={styles.imagePickerLabel}>Kamera</Text>
+                    </Pressable>
+                    <Pressable
+                      style={({pressed}) => [
+                        styles.imagePickerCard,
+                        pressed && styles.imagePickerCardPressed,
+                      ]}
+                      onPress={handleGalleryPress}
+                      android_ripple={{color: 'rgba(0,0,0,0.06)'}}>
+                      <Icon
+                        name="images"
+                        size={26}
+                        color={CHAT_MEDIA_SHEET.icon}
+                        style={styles.imagePickerIcon}
+                      />
+                      <Text style={styles.imagePickerLabel}>Fotos</Text>
+                    </Pressable>
+                  </View>
+                )}
+                <TouchableOpacity
+                  style={styles.inputIconButton}
+                  onPress={handleImagePickerToggle}
+                  activeOpacity={0.7}>
+                  <Icon name="add-circle-outline" size={26} color={colors.primary} />
+                </TouchableOpacity>
               </View>
-            )}
-          <TouchableOpacity
-            style={styles.inputIconButton}
-              onPress={handleImagePickerToggle}
-            activeOpacity={0.7}>
-            <Icon name="add-circle-outline" size={26} color={colors.primary} />
-          </TouchableOpacity>
-          </View>
-          <TouchableOpacity
-            style={styles.inputIconButton}
-            onPress={handleOpenPlanModal}
-            activeOpacity={0.7}>
-            <Icon name="calendar-outline" size={26} color={colors.primary} />
-          </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.inputIconButton}
+                onPress={handleOpenPlanModal}
+                activeOpacity={0.7}>
+                <Icon name="calendar-outline" size={26} color={colors.primary} />
+              </TouchableOpacity>
+            </>
+          ) : null}
           <TextInput
             style={styles.input}
             placeholder="Skriv en besked..."
@@ -1404,6 +1896,16 @@ const styles = StyleSheet.create({
     color: colors.success,
     marginTop: 2,
   },
+  headerStatusRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    marginTop: 2,
+  },
+  headerHintTraining: {
+    color: colors.primary,
+    fontWeight: '600',
+  },
   headerActions: {
     flexDirection: 'row',
     gap: 8,
@@ -1492,6 +1994,91 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 8,
   },
+  planMessageCard: {
+    maxWidth: 260,
+    marginBottom: 6,
+  },
+  planMessageCardKicker: {
+    fontSize: 11,
+    color: colors.textTertiary,
+    fontWeight: '600',
+    textTransform: 'uppercase',
+    marginBottom: 4,
+  },
+  planMessageCardTitle: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: colors.text,
+  },
+  planMessageCardSub: {
+    fontSize: 14,
+    color: colors.textSecondary,
+    marginTop: 2,
+  },
+  planMessageCardTypes: {
+    fontSize: 13,
+    color: colors.text,
+    marginTop: 4,
+  },
+  planMessageCardHint: {
+    fontSize: 13,
+    color: colors.textTertiary,
+    marginTop: 8,
+  },
+  planMessageCardActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginTop: 10,
+  },
+  planMessageCardDecline: {
+    backgroundColor: colors.surface,
+    borderRadius: 999,
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+  },
+  planMessageCardDeclineText: {
+    color: colors.text,
+    fontWeight: '600',
+  },
+  planMessageCardAccept: {
+    backgroundColor: colors.success,
+    borderRadius: 999,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    minWidth: 100,
+    alignItems: 'center',
+  },
+  planMessageCardAcceptText: {
+    color: '#fff',
+    fontWeight: '700',
+  },
+  planMessageCardStatusOk: {
+    fontSize: 14,
+    color: colors.success,
+    fontWeight: '600',
+    marginTop: 8,
+  },
+  planMessageCardStatusNo: {
+    fontSize: 14,
+    color: colors.textTertiary,
+    fontWeight: '600',
+    marginTop: 8,
+  },
+  planMessageCardDetail: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    marginTop: 8,
+  },
+  planMessageCardDetailText: {
+    fontSize: 14,
+    color: colors.primary,
+    fontWeight: '600',
+  },
+  planMessageStatusBubble: {
+    marginBottom: 4,
+  },
   dateContainer: {
     alignItems: 'center',
     marginVertical: spacing.lg,
@@ -1530,6 +2117,11 @@ const styles = StyleSheet.create({
   messageBubbleMe: {
     backgroundColor: colors.primary,
     borderBottomRightRadius: radius.sm,
+    shadowColor: colors.primary,
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+    elevation: 3,
   },
   messageBubbleOther: {
     backgroundColor: colors.surface,
@@ -1567,6 +2159,43 @@ const styles = StyleSheet.create({
   },
   messageTimeOther: {
     color: colors.textMuted,
+  },
+  seenRow: {
+    alignSelf: 'flex-end',
+    marginTop: 2,
+    marginRight: 2,
+  },
+  seenText: {
+    ...typography.caption,
+    color: colors.textMuted,
+    fontSize: 11,
+  },
+  typingBubbleWrap: {
+    alignItems: 'flex-start',
+    marginTop: spacing.xs,
+  },
+  typingBubble: {
+    backgroundColor: colors.surface,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: colors.border,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+  },
+  typingInline: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+  },
+  typingInlineLabel: {
+    ...typography.small,
+    color: colors.textSecondary,
+    fontStyle: 'italic',
+  },
+  typingInlineDot: {
+    ...typography.small,
+    color: colors.textSecondary,
+    marginLeft: 1,
+    fontWeight: '700',
   },
   inputContainer: {
     backgroundColor: colors.backgroundCard,

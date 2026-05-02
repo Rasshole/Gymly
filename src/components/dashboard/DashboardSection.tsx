@@ -12,6 +12,7 @@ type DashboardSectionProps = {
   subtitle?: string;
   onSeeAll?: () => void;
   seeAllLabel?: string;
+  alignSeeAllToTitle?: boolean;
   children: React.ReactNode;
 };
 
@@ -20,6 +21,7 @@ export const DashboardSection: React.FC<DashboardSectionProps> = ({
   subtitle,
   onSeeAll,
   seeAllLabel,
+  alignSeeAllToTitle = false,
   children,
 }) => (
   <View style={styles.container}>
@@ -28,6 +30,7 @@ export const DashboardSection: React.FC<DashboardSectionProps> = ({
       subtitle={subtitle}
       onSeeAll={onSeeAll}
       seeAllLabel={seeAllLabel}
+      alignSeeAllToTitle={alignSeeAllToTitle}
     />
     {children}
   </View>

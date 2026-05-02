@@ -20,6 +20,7 @@ import {useAppStore} from '@/store/appStore';
 import colors from '@/theme/colors';
 import GymLogoView from '@/components/ui/GymLogoView';
 import {LeaderboardEntry, LeaderboardPeriod} from '@/types/leaderboard.types';
+import {formatGymDisplayName} from '@/utils/gymDisplay';
 
 const PERIODS: LeaderboardPeriod[] = ['week', 'month', 'all'];
 
@@ -46,7 +47,7 @@ const LeaderboardItem = ({
         friendId: item.userId,
         friendName: item.displayName,
         mutualFriends: 0,
-        gyms: [gym.name],
+        gyms: [formatGymDisplayName(gym)],
       });
     }
   };
@@ -119,7 +120,7 @@ const GymLeaderboardScreen = () => {
 
   const leaderboard = getGymLeaderboard(
     gymId,
-    gym.name,
+    formatGymDisplayName(gym),
     period,
     user?.id || 'current_user'
   );
@@ -139,12 +140,12 @@ const GymLeaderboardScreen = () => {
 
       <View style={styles.gymHeader}>
         <GymLogoView
-          gymName={gym.name}
+          gymName={formatGymDisplayName(gym)}
           brand={gym.brand}
           size={56}
           style={styles.gymLogo}
         />
-        <Text style={styles.gymName}>{gym.name}</Text>
+        <Text style={styles.gymName}>{formatGymDisplayName(gym)}</Text>
         <Text style={styles.gymSubtitle}>Flest besøg</Text>
         {weeklyChampion && (
           <View style={styles.weeklyChampionBanner}>

@@ -143,15 +143,15 @@ const SelectedCenterCard: React.FC<SelectedCenterCardProps> = ({
 const styles = StyleSheet.create({
   card: {
     backgroundColor: colors.backgroundCard,
-    borderRadius: 20,
-    padding: 20,
-    paddingTop: 18,
+    borderRadius: 24,
+    padding: 22,
+    paddingTop: 20,
     marginHorizontal: 16,
     marginBottom: 24,
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 6},
-    shadowOpacity: 0.15,
-    shadowRadius: 12,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 4},
+    shadowOpacity: 0.1,
+    shadowRadius: 14,
     elevation: 10,
   },
   closeButton: {
@@ -176,12 +176,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '700',
     color: colors.text,
-    marginBottom: 2,
+    marginBottom: 4,
   },
   city: {
     fontSize: 14,
-    color: colors.textMuted,
-    marginBottom: 4,
+    color: colors.textTertiary,
+    marginBottom: 6,
   },
   distanceRow: {
     flexDirection: 'row',
@@ -279,7 +279,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.primary,
-    borderRadius: 14,
+    borderRadius: 26,
+    minHeight: 52,
     paddingVertical: 14,
   },
   detailsButtonText: {

@@ -10,10 +10,12 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
+  Pressable,
   Modal,
   Alert,
   Keyboard,
   Platform,
+  LayoutAnimation,
   TouchableWithoutFeedback,
   TextInput,
   Animated,
@@ -37,35 +39,41 @@ import {
 import muscleImg from '@/utils/muscleGroupImages';
 import {MuscleGroup} from '@/types/workout.types';
 import colors from '@/theme/colors';
-import {spacing, typography} from '@/theme/designTokens';
+import {spacing, typography, radius, shadows} from '@/theme/designTokens';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {getLeaderboardEntriesPreview} from '@/services/data/LeaderboardDataService';
-import type {LeaderboardEntrySimple} from '@/services/data/LeaderboardDataService';
-import {useOnlineUsers} from '@/hooks/useOnlineUsers';
+import {useGymlyActiveNow} from '@/hooks/useGymlyActiveNow';
 import {Card} from '@/components/ui/Card';
 import {StatCard} from '@/components/ui/StatCard';
-import {QuickActionCard} from '@/components/ui/QuickActionCard';
-import {GymPresenceCard} from '@/components/ui/GymPresenceCard';
 import {DashboardSection} from '@/components/dashboard';
-import {useGymPresence} from '@/hooks/useGymPresence';
-import {useProfileStats, useWeeklyStats} from '@/hooks/useProfileData';
-import {useDashboardStatsStore} from '@/store/dashboardStatsStore';
+import {useAppStore} from '@/store/appStore';
+import {useChatStore} from '@/store/chatStore';
+import {getOrCreateDmThread} from '@/services/supabase/dmService';
+import {UserAvatar} from '@/components/ui/UserAvatar';
+import GymLogoView from '@/components/ui/GymLogoView';
+import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
+import {formatDurationIgang} from '@/utils/activeSessionFormat';
+import {useUserTrainingStats} from '@/hooks/useUserTrainingStats';
 import {useBadgeStore} from '@/store/badgeStore';
-import {useGymStore} from '@/store/gymStore';
 import * as streak from '@/utils/streakUtils';
+import {useLocalCentersActivity} from '@/hooks/useLocalCentersActivity';
+import type {LocalCenterActivity} from '@/services/supabase/localCentersActivityService';
+import {findGymById} from '@/utils/gymDisplay';
+import {
+  fetchPostBicepsStates,
+  fetchPostBicepsUsers,
+  subscribePostBicepsRealtime,
+  togglePostBicepsReaction,
+  type PostBicepsUser,
+} from '@/services/supabase/workoutReactionService';
 
 type HomeScreenNavigationProp = StackNavigationProp<any>;
 
+/** Home layout rhythm — 20px screen gutters, 24px between sections */
+const HOME_H_PADDING = 20;
+const SECTION_GAP = 24;
+
 const FRIENDS: Array<{id: string; name: string}> = [];
 const MOST_FREQUENT_FRIENDS: Array<{id: string; name: string; lastMessage?: string}> = [];
-
-type ActiveFriendPreview = {
-  id: string;
-  name: string;
-  gym: string;
-  focus: string;
-  startTimestamp: number;
-};
 
 // Component to render text with clickable mentions
 const RenderTextWithMentions = ({text, mentionedUsers, navigation}: {text: string; mentionedUsers?: string[]; navigation: any}) => {
@@ -326,18 +334,72 @@ const HomeScreen = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
   const user = useAuth();
   const insets = useSafeAreaInsets();
-  const {gyms: activeGyms, refresh: refreshGymPresence} = useGymPresence();
-  const [leaderboardPreview, setLeaderboardPreview] = useState<LeaderboardEntrySimple[]>([]);
-  const {users: onlineUsersList, refresh: refreshOnlineUsers} = useOnlineUsers(user?.id, {
-    filter: 'venner',
-  });
-  const {stats: profileStats, refresh: refreshProfileStats} = useProfileStats(user?.id);
-  const {weeklyStats, refresh: refreshWeeklyStats} = useWeeklyStats(user?.id);
-  const dashboardStreak = useDashboardStatsStore(s => s.streak);
-  const dashboardWeeklyCheckins = useDashboardStatsStore(s => s.weeklyCheckins);
-  const dashboardWeeklyMinutes = useDashboardStatsStore(s => s.weeklyMinutes);
+  const {
+    totalActiveUsers,
+    activeFriends: activeFriendsNow,
+    refresh: refreshGymlyActiveNow,
+    durationNow,
+  } = useGymlyActiveNow(user?.id);
+  const sortedActiveFriendsNow = useMemo(
+    () =>
+      [...activeFriendsNow].sort(
+        (a, b) =>
+          new Date(a.startedAt).getTime() - new Date(b.startedAt).getTime(),
+      ),
+    [activeFriendsNow],
+  );
+  const currentUser = useAppStore(s => s.user);
+  const {
+    localCenters,
+    hasLocalCenters,
+    loading: localCentersLoading,
+  } = useLocalCentersActivity(user?.id);
+  const getChatByParticipants = useChatStore(s => s.getChatByParticipants);
+  const upsertChat = useChatStore(s => s.upsertChat);
+
+  const openDmToFriend = useCallback(
+    async (friendId: string, friendName: string) => {
+      if (!currentUser?.id) {
+        return;
+      }
+      const participantIds = [currentUser.id, friendId].sort();
+      const nameById: Record<string, string> = {
+        [currentUser.id]: currentUser.displayName || 'Dig',
+        [friendId]: friendName,
+      };
+      const participantNames = participantIds.map(id => nameById[id] ?? 'Ven');
+      const existingChat = getChatByParticipants(participantIds);
+      try {
+        const threadId = await getOrCreateDmThread(friendId);
+        upsertChat({
+          id: threadId,
+          participantIds,
+          participantNames,
+          lastActivity: existingChat?.lastActivity ?? new Date(),
+          unreadCount: existingChat?.unreadCount ?? 0,
+          avatar: existingChat?.avatar,
+          avatarInitials: existingChat?.avatarInitials,
+        });
+        navigation.navigate('Chat', {
+          chatId: threadId,
+          friendId,
+          friendName,
+          participants: [{id: friendId, name: friendName}],
+        });
+      } catch (e) {
+        Alert.alert('Besked', (e as Error).message);
+      }
+    },
+    [currentUser, getChatByParticipants, navigation, upsertChat],
+  );
+  const trainingStats = useUserTrainingStats(user?.id);
+  const dashboardStreak = trainingStats.currentStreakDays;
+  const dashboardWeeklyCheckins = trainingStats.totalCheckIns;
+  const dashboardWeeklyMinutes = trainingStats.totalTrainingMinutes;
   const badgeUnlocks = useBadgeStore(s => s.unlockedByUser[user?.id ?? '']);
-  const badgeCount = badgeUnlocks ? Object.keys(badgeUnlocks).length : 0;
+  const badgeCount =
+    trainingStats.unlockedBadgesCount ||
+    (badgeUnlocks ? Object.keys(badgeUnlocks).length : 0);
   const streakDisplayValue = useMemo(() => {
     const icon = streak.getStreakIcon(dashboardStreak);
     return icon ? `${icon} ${dashboardStreak}` : String(dashboardStreak);
@@ -347,16 +409,17 @@ const HomeScreen = () => {
       console.log('[HomeScreen] stats read', {dashboardStreak, dashboardWeeklyCheckins, dashboardWeeklyMinutes});
     }
   }, [dashboardStreak, dashboardWeeklyCheckins, dashboardWeeklyMinutes]);
-  const setDashboardStats = useDashboardStatsStore(s => s.setStats);
   const safeAreaBottom = insets?.bottom ?? 0;
   const {feedItems, deleteFeedItem} = useFeedStore();
   const userBicepsEmoji = user?.bicepsEmoji || '💪🏻';
-  const [activityModalVisible, setActivityModalVisible] = useState(false);
   const [addedFriends, setAddedFriends] = useState<string[]>([]);
   const [now, setNow] = useState(Date.now());
-  const [activeJoinRequests, setActiveJoinRequests] = useState<string[]>([]);
-  const [upcomingJoinRequests, setUpcomingJoinRequests] = useState<string[]>([]);
   const [feedReactions, setFeedReactions] = useState<Record<string, {liked: boolean; likes: number}>>({});
+  const [bicepsBusyByPost, setBicepsBusyByPost] = useState<Record<string, boolean>>({});
+  const [bicepsListVisible, setBicepsListVisible] = useState(false);
+  const [bicepsListLoading, setBicepsListLoading] = useState(false);
+  const [bicepsListUsers, setBicepsListUsers] = useState<PostBicepsUser[]>([]);
+  const [bicepsListPostId, setBicepsListPostId] = useState<string | null>(null);
   const [commentModalVisible, setCommentModalVisible] = useState(false);
   const [activeCommentItem, setActiveCommentItem] = useState<string | null>(null);
   const [commentInput, setCommentInput] = useState('');
@@ -369,6 +432,8 @@ const HomeScreen = () => {
   const [commentedItems, setCommentedItems] = useState<string[]>([]);
   const [commentInputFocused, setCommentInputFocused] = useState(false);
   const [animatingItems, setAnimatingItems] = useState<Record<string, boolean>>({});
+  const activeNowPulseScale = useRef(new Animated.Value(1)).current;
+  const activeNowPulseOpacity = useRef(new Animated.Value(0.6)).current;
   const [videoModalVisible, setVideoModalVisible] = useState(false);
   const [selectedVideoUri, setSelectedVideoUri] = useState<string | null>(null);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
@@ -419,55 +484,134 @@ const HomeScreen = () => {
   }, []);
 
   useEffect(() => {
+    const uid = user?.id;
+    const postIds = feedItems.map(item => item.id);
+    if (!uid || postIds.length === 0) {
+      setFeedReactions({});
+      return;
+    }
+    let cancelled = false;
+    const load = async () => {
+      try {
+        const states = await fetchPostBicepsStates(postIds, uid);
+        if (cancelled) {
+          return;
+        }
+        setFeedReactions(prev => {
+          const next: Record<string, {liked: boolean; likes: number}> = {};
+          for (const id of postIds) {
+            const state = states[id];
+            next[id] = {
+              liked: state?.reactedByMe ?? false,
+              likes: state?.count ?? 0,
+            };
+          }
+          for (const [id, value] of Object.entries(prev)) {
+            if (!next[id]) {
+              next[id] = value;
+            }
+          }
+          return next;
+        });
+      } catch {
+        // ignore temporary reaction fetch errors
+      }
+    };
+    void load();
+    return () => {
+      cancelled = true;
+    };
+  }, [feedItems, user?.id]);
+
+  useEffect(() => {
+    const uid = user?.id;
+    if (!uid) {
+      return;
+    }
+    return subscribePostBicepsRealtime(postId => {
+      if (!feedItems.some(item => item.id === postId)) {
+        return;
+      }
+      void (async () => {
+        try {
+          const states = await fetchPostBicepsStates([postId], uid);
+          const state = states[postId];
+          if (!state) {
+            return;
+          }
+          setFeedReactions(prev => ({
+            ...prev,
+            [postId]: {liked: state.reactedByMe, likes: state.count},
+          }));
+          if (bicepsListVisible && bicepsListPostId === postId) {
+            const users = await fetchPostBicepsUsers(postId);
+            setBicepsListUsers(users);
+          }
+        } catch {
+          // ignore transient realtime update errors
+        }
+      })();
+    });
+  }, [user?.id, feedItems, bicepsListVisible, bicepsListPostId]);
+
+  useEffect(() => {
     const timer = setInterval(() => setNow(Date.now()), 30000);
     return () => clearInterval(timer);
   }, []);
 
-  // Sync dashboard from ProfileService (merges gymStore + mock base)
-  useEffect(() => {
-    if (!profileStats || !weeklyStats) return;
-    const lastCheckIn = user?.id ? useGymStore.getState().getLastUserCheckIn(user.id) : undefined;
-    setDashboardStats({
-      streak: profileStats.currentStreak,
-      longestStreak: profileStats.longestStreak,
-      lastCheckInDateKey: lastCheckIn
-        ? streak.getLocalDateString(lastCheckIn.checkInTime)
-        : null,
-      weeklyCheckins: weeklyStats.checkInsThisWeek,
-      weeklyMinutes: weeklyStats.trainingMinutesThisWeek,
-      lastCheckInAt: lastCheckIn?.checkInTime ?? null,
-    });
-  }, [profileStats, weeklyStats, setDashboardStats, user?.id]);
+  const prevActiveNowCountRef = useRef<number>(activeFriendsNow.length);
 
-  // Refresh stats + workout feed when returning to Home (e.g. after posting)
+  // Subtle list transition when active users appear/disappear.
   useEffect(() => {
-    if (!user?.id) {
-      setLeaderboardPreview([]);
-      return;
+    const prev = prevActiveNowCountRef.current;
+    if (prev !== activeFriendsNow.length) {
+      LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+      prevActiveNowCountRef.current = activeFriendsNow.length;
     }
-    getLeaderboardEntriesPreview(user.id, 3)
-      .then(setLeaderboardPreview)
-      .catch(() => setLeaderboardPreview([]));
-  }, [user?.id]);
+  }, [activeFriendsNow.length]);
 
   useFocusEffect(
     useCallback(() => {
-      refreshProfileStats();
-      refreshWeeklyStats();
+      const pulseLoop = Animated.loop(
+        Animated.parallel([
+          Animated.sequence([
+            Animated.timing(activeNowPulseScale, {
+              toValue: 1.4,
+              duration: 900,
+              useNativeDriver: true,
+            }),
+            Animated.timing(activeNowPulseScale, {
+              toValue: 1,
+              duration: 900,
+              useNativeDriver: true,
+            }),
+          ]),
+          Animated.sequence([
+            Animated.timing(activeNowPulseOpacity, {
+              toValue: 0,
+              duration: 900,
+              useNativeDriver: true,
+            }),
+            Animated.timing(activeNowPulseOpacity, {
+              toValue: 0.6,
+              duration: 900,
+              useNativeDriver: true,
+            }),
+          ]),
+        ]),
+      );
+      pulseLoop.start();
+      void trainingStats.refresh();
       refreshWorkoutFeedFromServer().catch(() => {});
-      void refreshGymPresence();
-      void refreshOnlineUsers();
-      if (user?.id) {
-        getLeaderboardEntriesPreview(user.id, 3)
-          .then(setLeaderboardPreview)
-          .catch(() => setLeaderboardPreview([]));
-      }
+      void refreshGymlyActiveNow();
+      return () => {
+        pulseLoop.stop();
+      };
     }, [
-      refreshProfileStats,
-      refreshWeeklyStats,
-      refreshGymPresence,
-      refreshOnlineUsers,
-      user?.id,
+      activeNowPulseOpacity,
+      activeNowPulseScale,
+      trainingStats.refresh,
+      refreshGymlyActiveNow,
     ])
   );
 
@@ -492,14 +636,6 @@ const HomeScreen = () => {
     };
   }, []);
 
-  const upcomingSessions = useMemo(() => [] as Array<{
-    id: string;
-    name: string;
-    gym: string;
-    focus: string;
-    scheduledAt: number;
-  }>, []);
-
   const formatActiveDuration = (startTimestamp: number) => {
     const diffMinutes = Math.max(1, Math.floor((now - startTimestamp) / 60000));
     if (diffMinutes >= 60) {
@@ -508,17 +644,6 @@ const HomeScreen = () => {
       return `${hours}t ${minutes}m`;
     }
     return `${diffMinutes} min`;
-  };
-
-  const formatUpcomingDate = (timestamp: number) => {
-    const date = new Date(timestamp);
-    const day = date.toLocaleDateString('da-DK', {
-      weekday: 'short',
-      day: 'numeric',
-      month: 'short',
-    });
-    const time = date.toLocaleTimeString('da-DK', {hour: '2-digit', minute: '2-digit'});
-    return `${day} • kl. ${time}`;
   };
 
   // Parse muscle groups from focus string
@@ -555,39 +680,6 @@ const HomeScreen = () => {
     }
 
     return groups.length > 0 ? groups : ['hele_kroppen'];
-  };
-
-  /** Venner med aktiv tjek ind (Supabase) – til "Venner i gym" + modal */
-  const activeFriends = useMemo((): ActiveFriendPreview[] => {
-    return onlineUsersList.map(ou => ({
-      id: ou.userId,
-      name: ou.displayName,
-      gym: (ou.gymName && ou.gymName.trim()) || '—',
-      focus: (ou.muscleGroup && ou.muscleGroup.trim()) || 'Fri træning',
-      startTimestamp: ou.lastActive.getTime(),
-    }));
-  }, [onlineUsersList]);
-
-  const activeCount = activeFriends.length;
-
-  const handleJoinActive = (friendName: string, friendId: string) => {
-    if (activeJoinRequests.includes(friendId)) {
-      // Remove request
-      setActiveJoinRequests(prev => prev.filter(id => id !== friendId));
-    } else {
-      // Add request
-      setActiveJoinRequests(prev => [...prev, friendId]);
-    }
-  };
-
-  const handleJoinUpcoming = (friendName: string, sessionId: string) => {
-    if (upcomingJoinRequests.includes(sessionId)) {
-      // Remove request
-      setUpcomingJoinRequests(prev => prev.filter(id => id !== sessionId));
-    } else {
-      // Add request
-      setUpcomingJoinRequests(prev => [...prev, sessionId]);
-    }
   };
 
   const handleAddFriend = (friendId: string, friendName: string) => {
@@ -731,7 +823,7 @@ const HomeScreen = () => {
     });
   };
 
-  const toggleLike = (itemId: string, skipParticles = false) => {
+  const toggleLikeOptimistic = (itemId: string, skipParticles = false) => {
     setFeedReactions(prev => {
       const existing = prev[itemId] ?? {liked: false, likes: 0};
       const nextLiked = !existing.liked;
@@ -748,22 +840,47 @@ const HomeScreen = () => {
     });
   };
 
+  const toggleLike = useCallback(
+    async (itemId: string, skipParticles = false) => {
+      if (bicepsBusyByPost[itemId]) {
+        return;
+      }
+      const before = feedReactionsRef.current[itemId] ?? {liked: false, likes: 0};
+      setBicepsBusyByPost(prev => ({...prev, [itemId]: true}));
+      toggleLikeOptimistic(itemId, skipParticles);
+      try {
+        const result = await togglePostBicepsReaction(itemId);
+        setFeedReactions(prev => ({
+          ...prev,
+          [itemId]: {liked: result.reacted, likes: result.count},
+        }));
+      } catch {
+        setFeedReactions(prev => ({
+          ...prev,
+          [itemId]: before,
+        }));
+      } finally {
+        setBicepsBusyByPost(prev => {
+          const next = {...prev};
+          delete next[itemId];
+          return next;
+        });
+      }
+    },
+    [bicepsBusyByPost],
+  );
+
   const feedReactionsRef = useRef(feedReactions);
   useEffect(() => {
     feedReactionsRef.current = feedReactions;
   }, [feedReactions]);
 
-  const toggleLikeRef = useRef(toggleLike);
-  useEffect(() => {
-    toggleLikeRef.current = toggleLike;
-  }, [toggleLike]);
-
   const likeOnly = useCallback((itemId: string, skipParticles = false) => {
     const liked = feedReactionsRef.current[itemId]?.liked ?? false;
     if (!liked) {
-      toggleLikeRef.current(itemId, skipParticles);
+      void toggleLike(itemId, skipParticles);
     }
-  }, []);
+  }, [toggleLike]);
 
   const ensureOverlayAnimation = useCallback((itemId: string) => {
     if (!overlayAnimations.current[itemId]) {
@@ -865,12 +982,58 @@ const HomeScreen = () => {
     navigation.navigate('Profile');
   }, [navigation]);
 
+  const openLocalCenterDetail = useCallback((center: LocalCenterActivity) => {
+    const gym = findGymById(center.centerId);
+    const activeFriends = center.activeFriends.map(f => ({
+      checkInId: `${center.centerId}_${f.userId}_${f.startedAt}`,
+      userId: f.userId,
+      displayName: f.displayName,
+      workoutType: f.workoutType,
+      startedAt: f.startedAt,
+      avatarUrl: f.avatarUrl,
+    }));
+    navigation.navigate('GymPresence', {
+      activeCenter: {
+        centerId: center.centerId,
+        displayName: center.displayName,
+        brandLabel: center.brand ?? center.displayName,
+        address: center.address ?? undefined,
+        danishGym: gym ?? null,
+        distanceMeters: null,
+        totalActiveCount: center.totalActiveCount,
+        activeFriendsCount: center.activeFriendsCount,
+        activeFriends,
+        activeSessions: activeFriends,
+      },
+    });
+  }, [navigation]);
+
   const openComments = (itemId: string) => {
     setActiveCommentItem(itemId);
     setCommentInput('');
     setCommentInputFocused(false);
     setCommentModalVisible(true);
   };
+
+  const openBicepsList = useCallback(async (itemId: string) => {
+    setBicepsListPostId(itemId);
+    setBicepsListVisible(true);
+    setBicepsListLoading(true);
+    try {
+      const users = await fetchPostBicepsUsers(itemId);
+      setBicepsListUsers(users);
+    } catch {
+      setBicepsListUsers([]);
+    } finally {
+      setBicepsListLoading(false);
+    }
+  }, []);
+
+  const closeBicepsList = useCallback(() => {
+    setBicepsListVisible(false);
+    setBicepsListUsers([]);
+    setBicepsListPostId(null);
+  }, []);
 
   const closeComments = () => {
     setCommentModalVisible(false);
@@ -1188,7 +1351,7 @@ const HomeScreen = () => {
         onScroll={handleScroll}
         scrollEventThrottle={16}>
         {/* 1. Header / Welcome */}
-        <View style={[styles.welcomeSection, {paddingHorizontal: spacing.lg}]}>
+        <View style={[styles.welcomeSection, {paddingHorizontal: HOME_H_PADDING}]}>
           <Text style={styles.welcomeText}>{greeting}</Text>
           <Text style={styles.subtitle}>
             {new Date().toLocaleDateString('da-DK', {
@@ -1201,7 +1364,7 @@ const HomeScreen = () => {
         </View>
 
         {/* 2. Quick Stats Cards */}
-        <View style={[styles.dashboardSection, {paddingHorizontal: spacing.lg}]}>
+        <View style={[styles.dashboardSection, {paddingHorizontal: HOME_H_PADDING}]}>
           <View style={styles.dashboardStatsRow}>
             <View style={styles.statCardWrapper}>
               <StatCard
@@ -1216,7 +1379,7 @@ const HomeScreen = () => {
               <StatCard
                 compact
                 emoji="✅"
-                label="Check-ins i ugen"
+                label="Check-ins"
                 value={dashboardWeeklyCheckins}
               />
             </View>
@@ -1226,7 +1389,7 @@ const HomeScreen = () => {
               <StatCard
                 compact
                 emoji="⏰"
-                label="Min. trænet i ugen"
+                label="Min. Trænet"
                 value={dashboardWeeklyMinutes}
               />
             </View>
@@ -1241,222 +1404,138 @@ const HomeScreen = () => {
             </View>
           </View>
 
-          {/* 3. Quick Actions – Tjek ind + Ranglister */}
-          <View style={styles.quickActionsGrid}>
-            <View style={styles.quickActionsRow}>
-              <QuickActionCard
-                icon="location"
-                label="Tjek ind"
-                onPress={() => navigation.navigate('CheckIn')}
-              />
-              <QuickActionCard
-                icon="trophy"
-                label="Ranglister"
-                onPress={() => navigation.navigate('Leaderboard')}
-              />
-            </View>
-          </View>
-
-          {/* Aktive gyms lige nu */}
           <DashboardSection
-            title="Aktive gyms lige nu"
-            subtitle="Top 5 centre med flest aktive træninger lige nu"
-            onSeeAll={() => navigation.navigate('GymPresence')}
-            seeAllLabel="Se alle gyms">
-            {activeGyms.length > 0 ? (
-              activeGyms.slice(0, 5).map(gym => (
-                <GymPresenceCard
-                  key={gym.gymId}
-                  gym={gym}
-                  onPress={() => navigation.navigate('GymPresence', {gym})}
-                />
-              ))
-            ) : (
-              <Card padding="lg" style={styles.previewCard}>
-                <View style={styles.emptyPreview}>
-                  <Icon name="people-outline" size={32} color={colors.textMuted} />
-                  <Text style={styles.emptyPreviewText}>
-                    Ingen træner lige nu
-                  </Text>
-                  <Text style={styles.emptyPreviewSubtext}>
-                    Vær den første til at checke ind
-                  </Text>
-                  <TouchableOpacity
-                    style={styles.emptyCta}
-                    onPress={() => navigation.navigate('CheckIn')}
-                    activeOpacity={0.8}>
-                    <Text style={styles.emptyCtaText}>
-                      Vær den første til at checke ind
-                    </Text>
-                  </TouchableOpacity>
-                </View>
-              </Card>
-            )}
-          </DashboardSection>
-
-          {/* 5. Leaderboard Preview – top 3 */}
-          <DashboardSection
-            title="Top 3 denne uge"
-            onSeeAll={() => navigation.navigate('Leaderboard')}
-            seeAllLabel="Se rangliste">
-            <TouchableOpacity
-              onPress={() => navigation.navigate('Leaderboard')}
-              activeOpacity={0.9}>
-              <Card padding="lg" style={styles.previewCard}>
-                <View style={styles.leaderboardPreviewRow}>
-                  {leaderboardPreview.length > 0 ? (
-                    leaderboardPreview.map((entry, idx) => (
-                      <View key={entry.userId} style={styles.leaderboardPreviewItem}>
-                        <View
-                          style={[
-                            styles.leaderboardPreviewRank,
-                            idx === 0 && styles.rankGold,
-                            idx === 1 && styles.rankSilver,
-                            idx === 2 && styles.rankBronze,
-                          ]}>
-                          <Text style={styles.leaderboardPreviewRankText}>{idx + 1}</Text>
-                        </View>
-                        <Text
-                          style={[
-                            styles.leaderboardPreviewName,
-                            entry.isCurrentUser && styles.leaderboardPreviewNameHighlight,
-                          ]}
-                          numberOfLines={1}>
-                          {entry.isCurrentUser ? 'Dig' : entry.displayName}
-                        </Text>
-                        <Text style={styles.leaderboardPreviewValue}>{entry.valueLabel}</Text>
-                      </View>
-                    ))
-                  ) : (
-                    <View style={styles.emptyPreview}>
-                      <Icon name="trophy-outline" size={28} color={colors.textMuted} />
-                      <Text style={styles.emptyPreviewText}>Ingen rangliste endnu</Text>
-                      <Text style={styles.emptyPreviewSubtext}>
-                        Tjek ind og invitér venner — så fylder listen.
+            title="Dine centre"
+            subtitle="Se aktiviteten i dine lokale centre">
+            {hasLocalCenters ? (
+              <View style={styles.localCentersList}>
+                {localCenters.map(center => (
+                  <Pressable
+                    key={center.centerId}
+                    style={({pressed}) => [
+                      styles.localCenterCard,
+                      pressed && styles.localCenterCardPressed,
+                    ]}
+                    onPress={() => openLocalCenterDetail(center)}>
+                    <GymLogoView
+                      gymName={center.displayName}
+                      brand={center.brand ?? undefined}
+                      size={44}
+                    />
+                    <View style={styles.localCenterBody}>
+                      <Text style={styles.localCenterName} numberOfLines={1}>
+                        {center.displayName}
+                      </Text>
+                      <Text style={styles.localCenterCounts} numberOfLines={1}>
+                        {center.totalActiveCount} aktive · {center.activeFriendsCount} venner
                       </Text>
                     </View>
-                  )}
-                </View>
+                    <Icon name="chevron-forward" size={20} color={colors.textMuted} />
+                  </Pressable>
+                ))}
+                {localCentersLoading ? (
+                  <Text style={styles.localCenterLoading}>Opdaterer aktivitet...</Text>
+                ) : null}
+              </View>
+            ) : (
+              <Card padding="lg" style={styles.localCenterEmptyCard}>
+                <Text style={styles.localCenterEmptyTitle}>Tilføj dine centre</Text>
+                <Text style={styles.localCenterEmptyText}>
+                  Vælg op til 3 lokale centre og følg aktiviteten live
+                </Text>
+                <TouchableOpacity
+                  style={styles.localCenterEmptyBtn}
+                  activeOpacity={0.8}
+                  onPress={() => navigation.navigate('EditProfile')}>
+                  <Text style={styles.localCenterEmptyBtnText}>Tilføj center</Text>
+                </TouchableOpacity>
               </Card>
-            </TouchableOpacity>
+            )}
           </DashboardSection>
 
-          {/* 6. Online / Active Users Preview */}
+          {/* 3. Aktive nu — globalt antal + venneliste (check_ins) */}
           <DashboardSection
             title="Aktive nu"
-            subtitle={
-              onlineUsersList.length > 0
-                ? onlineUsersList.length === 1
-                  ? '1 ven med aktiv træning lige nu'
-                  : `${onlineUsersList.length} venner med aktiv træning lige nu`
-                : 'Ingen af dine venner træner lige nu'
-            }
             onSeeAll={() => navigation.navigate('Friends', {screen: 'Online'} as never)}
             seeAllLabel="Se alle">
-            <TouchableOpacity
-              onPress={() => navigation.navigate('Friends', {screen: 'Online'} as never)}
-              activeOpacity={0.9}>
-              <Card padding="lg" style={styles.previewCard}>
-                {onlineUsersList.length > 0 ? (
-                  <View style={styles.onlineUsersListCol}>
-                    {onlineUsersList.slice(0, 5).map(ou => (
-                      <View key={ou.userId} style={styles.onlineUserListRow}>
-                        <View style={styles.onlineUserAvatarList}>
-                          <Text style={styles.onlineUserAvatarText}>
-                            {ou.displayName.charAt(0)}
-                          </Text>
-                          <View style={styles.onlineIndicator} />
-                        </View>
-                        <View style={styles.onlineUserListBody}>
-                          <Text style={styles.onlineUserNameList} numberOfLines={1}>
-                            {ou.displayName}
-                          </Text>
-                          <Text style={styles.onlineUserGymList} numberOfLines={1}>
-                            {ou.gymName || '—'}
-                          </Text>
-                          <Text style={styles.onlineUserSessionList} numberOfLines={2}>
-                            I gang i {formatActiveDuration(ou.lastActive.getTime())} ·{' '}
-                            {ou.muscleGroup?.trim() || 'Træning'}
-                          </Text>
-                        </View>
-                      </View>
-                    ))}
-                  </View>
-                ) : (
-                  <View style={styles.emptyPreview}>
-                    <Icon name="people-outline" size={32} color={colors.textMuted} />
-                    <Text style={styles.emptyPreviewText}>Ingen venner aktive lige nu</Text>
-                    <Text style={styles.emptyPreviewSubtext}>
-                      Tjek ind og få venner til at følge med — så ser du dem her
-                    </Text>
-                  </View>
-                )}
-              </Card>
-            </TouchableOpacity>
-          </DashboardSection>
-        </View>
-
-        {/* Active Friends - vis altid boksen */}
-        <TouchableOpacity
-          style={[styles.activeFriendsCard, {marginHorizontal: spacing.lg}]}
-          activeOpacity={0.85}
-          onPress={() => activeFriends.length > 0 && setActivityModalVisible(true)}>
-          <View style={styles.activeCardHeader}>
-            <View>
-              <Text style={styles.activeTitle}>Venner i gym lige nu</Text>
-              <Text style={styles.activeSubtitleText}>
-                {activeFriends.length > 0 ? 'Tryk for at se flere detaljer' : 'Ingen venner aktive'}
+            <View style={styles.activeNowCounterRow}>
+              <View style={styles.activeNowCounterDotWrap}>
+                <Animated.View
+                  style={[
+                    styles.activeNowCounterPulse,
+                    {
+                      transform: [{scale: activeNowPulseScale}],
+                      opacity: activeNowPulseOpacity,
+                    },
+                  ]}
+                />
+                <View style={styles.activeNowCounterDot} />
+              </View>
+              <Text style={styles.activeNowCounterText}>
+                {totalActiveUsers} aktive på Gymly lige nu
               </Text>
             </View>
-            {activeFriends.length > 0 && (
-              <View style={styles.activeCountBadge}>
-                <Text style={styles.activeCountText}>{activeCount}</Text>
-              </View>
-            )}
-          </View>
-          {activeFriends.length > 0 ? (
-            <View style={styles.activeFriendPreviewRow}>
-              {activeFriends.slice(0, 3).map(friend => (
-                <View key={friend.id} style={styles.activeFriendPreview}>
-                  <View style={styles.activeFriendAvatar}>
-                    <Text style={styles.activeFriendAvatarText}>{friend.name.charAt(0)}</Text>
-                  </View>
-                  <View style={styles.activeFriendInfo}>
-                    <Text style={styles.activeFriendName}>{friend.name}</Text>
-                    <Text style={styles.activeFriendMeta}>
-                      {friend.gym} · {friend.focus} · i gang i {formatActiveDuration(friend.startTimestamp)}
-                    </Text>
-                    <View style={styles.activeFriendMuscleGroups}>
-                      {getMuscleGroupsFromFocus(friend.focus).map((muscleGroup, idx) => (
-                        <Image
-                          key={idx}
-                          source={muscleImg.getMuscleGroupImage(muscleGroup)}
-                          style={styles.activeFriendMuscleIcon}
-                          resizeMode="contain"
+            <Card padding="lg" style={styles.activeNowHighlightCard}>
+              {sortedActiveFriendsNow.length > 0 ? (
+                <View style={styles.onlineUsersListCol}>
+                  {sortedActiveFriendsNow.map(f => (
+                    <View key={f.userId} style={styles.activeNowRow}>
+                      <TouchableOpacity
+                        style={styles.activeNowRowMain}
+                        onPress={() =>
+                          navigation.navigate('FriendProfile', {
+                            friendId: f.userId,
+                            friendName: f.displayName,
+                          })
+                        }
+                        activeOpacity={0.85}>
+                        <UserAvatar
+                          name={f.displayName}
+                          imageUrl={f.avatarUrl ?? undefined}
+                          size="md"
                         />
-                      ))}
+                        <View style={styles.activeNowRowBody}>
+                          <Text style={styles.onlineUserNameList} numberOfLines={1}>
+                            {f.displayName}
+                          </Text>
+                          <Text style={styles.onlineUserGymList} numberOfLines={2}>
+                            {f.gymName} · {formatWorkoutTypeDisplay(f.workoutType)}
+                          </Text>
+                          <Text style={styles.onlineUserSessionList} numberOfLines={1}>
+                            {formatDurationIgang(f.startedAt, durationNow)}
+                          </Text>
+                        </View>
+                      </TouchableOpacity>
+                      <TouchableOpacity
+                        onPress={() => void openDmToFriend(f.userId, f.displayName)}
+                        style={styles.activeNowMessageBtn}
+                        hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
+                        accessibilityLabel="Besked"
+                        activeOpacity={0.75}>
+                        <Icon name="chatbubble-outline" size={22} color={colors.primary} />
+                      </TouchableOpacity>
                     </View>
-                  </View>
-                  <TouchableOpacity
-                    style={[
-                      styles.joinBadge,
-                      activeJoinRequests.includes(friend.id) && styles.joinBadgeDisabled,
-                    ]}
-                    onPress={() => handleJoinActive(friend.name, friend.id)}
-                    activeOpacity={0.8}>
-                    <Text
-                      style={[
-                        styles.joinBadgeText,
-                        activeJoinRequests.includes(friend.id) && styles.joinBadgeTextDisabled,
-                      ]}>
-                      {activeJoinRequests.includes(friend.id) ? 'Anmodet' : 'Deltag'}
-                    </Text>
-                  </TouchableOpacity>
+                  ))}
                 </View>
-              ))}
-            </View>
-          ) : null}
-        </TouchableOpacity>
+              ) : (
+                <View style={styles.emptyPreview}>
+                  <Text style={styles.emptyPreviewText}>Ingen aktive lige nu</Text>
+                  <Text style={styles.emptyPreviewSubtext}>
+                    Vær den første til at tjekke ind 🔥
+                  </Text>
+                  <Pressable
+                    style={({pressed}) => [
+                      styles.emptyCta,
+                      pressed && styles.emptyCtaPressed,
+                    ]}
+                    onPress={() => navigation.navigate('CheckIn')}>
+                    <Text style={styles.emptyCtaText}>Tjek ind</Text>
+                  </Pressable>
+                </View>
+              )}
+            </Card>
+          </DashboardSection>
+        </View>
 
         {/* Feed */}
         <React.Fragment>
@@ -1486,9 +1565,11 @@ const HomeScreen = () => {
                   style={styles.feedHeaderProfile}
                   onPress={openProfile}
                   activeOpacity={0.8}>
-                  <View style={styles.feedAvatar}>
-                    <Text style={styles.feedAvatarText}>{item.user.charAt(0)}</Text>
-                  </View>
+                  <UserAvatar
+                    name={item.user}
+                    imageUrl={item.userAvatarUrl}
+                    size="md"
+                  />
                   <View style={{flex: 1}}>
                     <View style={styles.feedUserRow}>
                       <Text style={styles.feedUser}>{item.user}</Text>
@@ -1555,7 +1636,7 @@ const HomeScreen = () => {
                             // Only like if not already liked
                             const isCurrentlyLiked = feedReactions[item.id]?.liked ?? false;
                             if (!isCurrentlyLiked) {
-                              runOnJS(toggleLike)(item.id);
+                              runOnJS(likeOnly)(item.id);
                             }
                           }),
                         Gesture.Tap()
@@ -1666,7 +1747,7 @@ const HomeScreen = () => {
                       styles.feedLikeButton,
                       isLiked && styles.feedLikeButtonActive,
                     ]}
-                    onPress={() => toggleLike(item.id)}
+                    onPress={() => void toggleLike(item.id)}
                     activeOpacity={0.7}
                     onLayout={event => {
                       likeButtonLayouts.current[item.id] = event.nativeEvent.layout;
@@ -1716,7 +1797,10 @@ const HomeScreen = () => {
                       ))}
                     </View>
                   </TouchableOpacity>
-                  <View style={styles.feedActionTextContainer}>
+                  <TouchableOpacity
+                    style={styles.feedActionTextContainer}
+                    onPress={() => openBicepsList(item.id)}
+                    activeOpacity={0.75}>
                     <Text
                       style={[
                         styles.feedActionText,
@@ -1724,7 +1808,7 @@ const HomeScreen = () => {
                       ]}>
                       {feedReactions[item.id]?.likes ?? 0}
                     </Text>
-                  </View>
+                  </TouchableOpacity>
                 </View>
                 <View style={styles.feedActionGroup}>
                   <TouchableOpacity
@@ -1818,6 +1902,46 @@ const HomeScreen = () => {
         )}
 
       </ScrollView>
+
+      <Modal visible={bicepsListVisible} transparent animationType="slide">
+        <TouchableWithoutFeedback onPress={closeBicepsList}>
+          <View style={styles.bottomSheetOverlay}>
+            <TouchableWithoutFeedback>
+              <View style={styles.bicepsListSheet}>
+                <View style={styles.commentHandle} />
+                <View style={styles.commentHeader}>
+                  <Text style={styles.modalTitle}>Biceps</Text>
+                  <TouchableOpacity onPress={closeBicepsList} style={styles.commentCloseButton}>
+                    <Icon name="close" size={22} color="#0F172A" />
+                  </TouchableOpacity>
+                </View>
+                <ScrollView style={styles.commentList} contentContainerStyle={styles.commentListContent}>
+                  {bicepsListLoading ? (
+                    <Text style={styles.commentEmpty}>Henter biceps...</Text>
+                  ) : bicepsListUsers.length === 0 ? (
+                    <Text style={styles.commentEmpty}>Ingen biceps endnu</Text>
+                  ) : (
+                    bicepsListUsers.map(row => (
+                      <TouchableOpacity
+                        key={`${row.userId}_${row.createdAt}`}
+                        style={styles.bicepsUserRow}
+                        onPress={() => navigation.navigate('FriendProfile', {friendId: row.userId, friendName: row.name})}
+                        activeOpacity={0.75}>
+                        <UserAvatar name={row.name} imageUrl={row.avatarUrl ?? undefined} size="sm" />
+                        <View style={styles.bicepsUserMeta}>
+                          <Text style={styles.commentAuthor}>{row.name}</Text>
+                          <Text style={styles.bicepsUserUsername}>@{row.username}</Text>
+                        </View>
+                        <Text style={styles.bicepsUserCta}>Se profil</Text>
+                      </TouchableOpacity>
+                    ))
+                  )}
+                </ScrollView>
+              </View>
+            </TouchableWithoutFeedback>
+          </View>
+        </TouchableWithoutFeedback>
+      </Modal>
 
       <Modal visible={commentModalVisible} transparent animationType="slide">
         <TouchableWithoutFeedback onPress={closeComments}>
@@ -1925,103 +2049,6 @@ const HomeScreen = () => {
                       </TouchableOpacity>
                     </View>
                   </View>
-              </View>
-            </TouchableWithoutFeedback>
-          </View>
-        </TouchableWithoutFeedback>
-      </Modal>
-
-      <Modal visible={activityModalVisible} transparent animationType="slide">
-        <TouchableWithoutFeedback onPress={() => setActivityModalVisible(false)}>
-          <View style={styles.modalOverlay}>
-            <TouchableWithoutFeedback>
-              <View style={[styles.modalCard, styles.activityModal]}>
-                <Text style={styles.modalTitle}>Venner i gym</Text>
-                <ScrollView style={{width: '100%'}} showsVerticalScrollIndicator={false}>
-              <Text style={styles.modalSectionLabel}>Aktive lige nu</Text>
-              {activeFriends.map(friend => (
-                <View key={friend.id} style={styles.activityFriendRow}>
-                  <View style={styles.activityFriendAvatar}>
-                    <Text style={styles.activityFriendAvatarText}>{friend.name.charAt(0)}</Text>
-                  </View>
-                  <View style={{flex: 1}}>
-                    <Text style={styles.activityFriendName}>{friend.name}</Text>
-                    <Text style={styles.activityFriendGym}>
-                      {friend.gym} · {friend.focus}
-                    </Text>
-                    <View style={styles.activeFriendMuscleGroups}>
-                      {getMuscleGroupsFromFocus(friend.focus).map((muscleGroup, idx) => (
-                        <Image
-                          key={idx}
-                          source={muscleImg.getMuscleGroupImage(muscleGroup)}
-                          style={styles.activeFriendMuscleIcon}
-                          resizeMode="contain"
-                        />
-                      ))}
-                    </View>
-                    <Text style={styles.activityFriendDuration}>
-                      Aktiv i {formatActiveDuration(friend.startTimestamp)}
-                    </Text>
-                  </View>
-                  <TouchableOpacity
-                    style={[
-                      styles.joinButton,
-                      activeJoinRequests.includes(friend.id) && styles.joinButtonDisabled,
-                    ]}
-                    onPress={() => handleJoinActive(friend.name, friend.id)}
-                    activeOpacity={0.85}>
-                    <Text
-                      style={[
-                        styles.joinButtonText,
-                        activeJoinRequests.includes(friend.id) && styles.joinButtonTextDisabled,
-                      ]}>
-                      {activeJoinRequests.includes(friend.id) ? 'Anmodet' : 'Deltag'}
-                    </Text>
-                  </TouchableOpacity>
-                </View>
-              ))}
-
-              <Text style={[styles.modalSectionLabel, {marginTop: 24}]}>Kommende træninger</Text>
-              {upcomingSessions.map(session => (
-                <View key={session.id} style={styles.upcomingRow}>
-                  <View style={{flex: 1}}>
-                    <Text style={styles.upcomingName}>{session.name}</Text>
-                    <Text style={styles.upcomingGym}>{session.gym}</Text>
-                    <View style={styles.upcomingMuscleGroups}>
-                      {getMuscleGroupsFromFocus(session.focus).map((muscleGroup, idx) => (
-                        <Image
-                          key={idx}
-                          source={muscleImg.getMuscleGroupImage(muscleGroup)}
-                          style={styles.upcomingMuscleIcon}
-                          resizeMode="contain"
-                        />
-                      ))}
-                    </View>
-                    <Text style={styles.upcomingTime}>{formatUpcomingDate(session.scheduledAt)}</Text>
-                  </View>
-                  <TouchableOpacity
-                    style={[
-                      styles.joinButtonSecondary,
-                      upcomingJoinRequests.includes(session.id) && styles.joinButtonSecondaryDisabled,
-                    ]}
-                    onPress={() => handleJoinUpcoming(session.name, session.id)}
-                    activeOpacity={0.85}>
-                    <Text
-                      style={[
-                        styles.joinButtonSecondaryText,
-                        upcomingJoinRequests.includes(session.id) && styles.joinButtonSecondaryTextDisabled,
-                      ]}>
-                      {upcomingJoinRequests.includes(session.id) ? 'Anmodet' : 'Deltag'}
-                    </Text>
-                  </TouchableOpacity>
-                </View>
-              ))}
-            </ScrollView>
-                <TouchableOpacity
-                  style={styles.modalCloseButton}
-                  onPress={() => setActivityModalVisible(false)}>
-                  <Text style={styles.modalCloseText}>Luk</Text>
-                </TouchableOpacity>
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -2174,7 +2201,7 @@ const HomeScreen = () => {
                               if (!isCurrentlyLiked) {
                                 // Show heart animation at tap location
                                 runOnJS(showReelsHeartAnimation)(item.id, event.x, event.y);
-                                runOnJS(toggleLike)(item.id);
+                                runOnJS(likeOnly)(item.id);
                               }
                             })}>
                           <View style={StyleSheet.absoluteFill}>
@@ -2219,9 +2246,11 @@ const HomeScreen = () => {
                           {/* Left side content - user info and description */}
                           <View style={styles.reelsContent}>
                             <TouchableOpacity style={styles.reelsProfile}>
-                              <View style={styles.reelsAvatar}>
-                                <Text style={styles.reelsAvatarText}>{item.user.charAt(0)}</Text>
-                              </View>
+                              <UserAvatar
+                                name={item.user}
+                                imageUrl={item.userAvatarUrl}
+                                size="md"
+                              />
                               <Text style={styles.reelsUsername}>{item.user}</Text>
                             </TouchableOpacity>
                             {item.description && (
@@ -2263,15 +2292,17 @@ const HomeScreen = () => {
                           <View style={[styles.reelsActions, {paddingBottom: safeAreaBottom + 60}]}>
                             <TouchableOpacity
                               style={styles.reelsActionButton}
-                              onPress={() => toggleLike(item.id)}>
+                              onPress={() => void toggleLike(item.id)}>
                               <Icon
                                 name={feedReactions[item.id]?.liked ? 'heart' : 'heart-outline'}
                                 size={32}
                                 color={feedReactions[item.id]?.liked ? '#FF3040' : '#fff'}
                               />
-                              <Text style={styles.reelsActionText}>
-                                {feedReactions[item.id]?.likes ?? 0}
-                              </Text>
+                              <TouchableOpacity onPress={() => openBicepsList(item.id)} activeOpacity={0.75}>
+                                <Text style={styles.reelsActionText}>
+                                  {feedReactions[item.id]?.likes ?? 0}
+                                </Text>
+                              </TouchableOpacity>
                             </TouchableOpacity>
                             <TouchableOpacity
                               style={styles.reelsActionButton}
@@ -2623,22 +2654,25 @@ const styles = StyleSheet.create({
   },
   content: {
     paddingHorizontal: 0,
-    paddingVertical: spacing.lg,
+    paddingVertical: spacing.md,
+    paddingBottom: spacing.xxxl,
   },
   welcomeSection: {
-    marginBottom: spacing.lg,
-    paddingTop: spacing.sm,
+    marginBottom: SECTION_GAP,
+    paddingTop: spacing.xs,
   },
   dashboardSection: {
-    marginBottom: spacing.lg,
+    marginBottom: 0,
   },
   dashboardStatsRow: {
     flexDirection: 'row',
-    gap: spacing.xs,
-    marginBottom: spacing.xs,
+    gap: spacing.md,
+    marginBottom: spacing.md,
+    alignItems: 'stretch',
   },
   statCardWrapper: {
     flex: 1,
+    minHeight: 96,
   },
   quickActionsGrid: {
     marginBottom: spacing.xl,
@@ -2651,33 +2685,158 @@ const styles = StyleSheet.create({
   previewCard: {
     marginBottom: spacing.sm,
   },
+  localCentersList: {
+    gap: spacing.sm,
+    marginBottom: spacing.sm,
+  },
+  localCenterCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.backgroundCard,
+    borderRadius: radius.lg,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.border,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.md,
+    gap: spacing.md,
+    ...shadows.sm,
+  },
+  localCenterCardPressed: {
+    opacity: 0.92,
+    transform: [{scale: 0.98}],
+  },
+  localCenterBody: {
+    flex: 1,
+  },
+  localCenterName: {
+    ...typography.body,
+    color: colors.text,
+    fontWeight: '700',
+  },
+  localCenterCounts: {
+    ...typography.small,
+    color: colors.textMuted,
+    marginTop: 4,
+  },
+  localCenterLoading: {
+    ...typography.caption,
+    color: colors.textMuted,
+    marginLeft: spacing.xs,
+  },
+  localCenterEmptyCard: {
+    marginBottom: spacing.sm,
+    alignItems: 'center',
+  },
+  localCenterEmptyTitle: {
+    ...typography.h4,
+    fontWeight: '700',
+    color: colors.text,
+    textAlign: 'center',
+  },
+  localCenterEmptyText: {
+    ...typography.small,
+    color: colors.textMuted,
+    marginTop: spacing.sm,
+    textAlign: 'center',
+    lineHeight: 20,
+    maxWidth: 280,
+  },
+  localCenterEmptyBtn: {
+    marginTop: spacing.lg,
+    alignSelf: 'center',
+    backgroundColor: colors.primary,
+    borderRadius: radius.full,
+    paddingHorizontal: spacing.xl,
+    paddingVertical: spacing.md,
+    ...shadows.glow,
+  },
+  localCenterEmptyBtnPressed: {
+    opacity: 0.88,
+    transform: [{scale: 0.97}],
+  },
+  localCenterEmptyBtnText: {
+    ...typography.bodyBold,
+    fontSize: 15,
+    color: colors.white,
+    fontWeight: '700',
+  },
+  activeNowCounterRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: spacing.md,
+  },
+  activeNowCounterDotWrap: {
+    width: 14,
+    height: 14,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: spacing.md,
+  },
+  activeNowCounterDot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: colors.primary,
+  },
+  activeNowCounterPulse: {
+    position: 'absolute',
+    width: 14,
+    height: 14,
+    borderRadius: 7,
+    backgroundColor: colors.primary,
+  },
+  activeNowCounterText: {
+    ...typography.body,
+    fontSize: 15,
+    color: colors.textSecondary,
+    fontWeight: '600',
+    flexShrink: 1,
+  },
+  activeNowHighlightCard: {
+    marginBottom: spacing.sm,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.primary + '30',
+    ...shadows.sm,
+  },
   activityPreviewCard: {
     marginBottom: spacing.sm,
   },
   emptyPreview: {
     alignItems: 'center',
-    paddingVertical: spacing.xl,
+    justifyContent: 'center',
+    paddingVertical: spacing.xl + spacing.sm,
+    paddingHorizontal: spacing.lg,
   },
   emptyPreviewText: {
-    ...typography.bodyBold,
+    ...typography.h4,
+    fontWeight: '700',
     color: colors.text,
     marginTop: spacing.sm,
+    textAlign: 'center',
   },
   emptyPreviewSubtext: {
     ...typography.small,
-    color: colors.textSecondary,
-    marginTop: spacing.xs,
+    color: colors.textMuted,
+    marginTop: spacing.sm,
+    textAlign: 'center',
+    lineHeight: 20,
+    maxWidth: 280,
   },
   emptyCta: {
-    marginTop: spacing.md,
-    paddingVertical: spacing.sm,
-    paddingHorizontal: spacing.lg,
+    marginTop: spacing.lg,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.xl,
     backgroundColor: colors.primary,
-    borderRadius: 12,
+    borderRadius: radius.full,
+    ...shadows.glow,
+  },
+  emptyCtaPressed: {
+    opacity: 0.9,
+    transform: [{scale: 0.97}],
   },
   emptyCtaText: {
-    fontSize: 14,
-    fontWeight: '600',
+    fontSize: 16,
+    fontWeight: '700',
     color: colors.white,
   },
   rankGold: {backgroundColor: '#FFD700'},
@@ -2743,6 +2902,24 @@ const styles = StyleSheet.create({
   onlineUsersListCol: {
     gap: 10,
   },
+  activeNowRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  activeNowRowMain: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    minWidth: 0,
+  },
+  activeNowRowBody: {
+    flex: 1,
+    marginLeft: 10,
+    minWidth: 0,
+  },
+  activeNowMessageBtn: {
+    padding: 4,
+  },
   onlineUserListRow: {
     flexDirection: 'row',
     alignItems: 'flex-start',
@@ -2806,18 +2983,27 @@ const styles = StyleSheet.create({
     color: colors.text,
   },
   welcomeCta: {
-    ...typography.body,
-    color: colors.textSecondary,
-    marginTop: spacing.xs,
+    ...typography.small,
+    fontSize: 15,
+    color: colors.textMuted,
+    marginTop: spacing.sm,
+    fontWeight: '500',
   },
   welcomeText: {
-    ...typography.h1,
+    fontSize: 30,
+    lineHeight: 38,
+    fontWeight: '800',
     color: colors.text,
     marginBottom: spacing.xs,
+    letterSpacing: -0.3,
   },
   subtitle: {
     ...typography.body,
+    fontSize: 15,
+    lineHeight: 22,
     color: colors.textSecondary,
+    marginTop: 2,
+    fontWeight: '500',
   },
   activeFriendsCard: {
     backgroundColor: colors.backgroundCard,
@@ -2958,18 +3144,17 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   feedCard: {
-    // No background, no border, no margin - continuous feed like Instagram
-    marginBottom: 0,
-    backgroundColor: 'transparent', // Transparent so it blends with background
+    marginBottom: spacing.lg + spacing.xs,
+    backgroundColor: 'transparent',
     overflow: 'visible',
     position: 'relative',
   },
   feedCardHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 6,
-    paddingHorizontal: 16,
-    paddingTop: 6,
+    marginBottom: spacing.sm,
+    paddingHorizontal: HOME_H_PADDING,
+    paddingTop: spacing.sm,
   },
   feedAvatar: {
     width: 40,
@@ -2993,7 +3178,7 @@ const styles = StyleSheet.create({
   },
   feedUser: {
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: '700',
     color: colors.text,
   },
   feedStreakEmoji: {
@@ -3012,7 +3197,9 @@ const styles = StyleSheet.create({
   },
   feedTimestamp: {
     fontSize: 12,
-    color: colors.textTertiary,
+    color: colors.textMuted,
+    marginTop: 2,
+    fontWeight: '500',
   },
   feedImagePlaceholder: {
     // No borderRadius - full edge to edge
@@ -3024,7 +3211,7 @@ const styles = StyleSheet.create({
   },
   feedVideoContainer: {
     width: '100%',
-    marginBottom: 12,
+    marginBottom: spacing.md,
     backgroundColor: '#000',
     position: 'relative',
     alignItems: 'center',
@@ -3087,7 +3274,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 12,
+    marginBottom: spacing.md,
     overflow: 'visible',
     zIndex: 10,
     elevation: 10,
@@ -3135,12 +3322,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 6,
     backgroundColor: colors.warning,
-    borderRadius: 12,
-    paddingHorizontal: 12,
-    paddingVertical: 6,
+    borderRadius: radius.md,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
     alignSelf: 'flex-start',
-    marginBottom: 8,
-    marginLeft: 16,
+    marginBottom: spacing.sm,
+    marginLeft: HOME_H_PADDING,
   },
   feedHighlightText: {
     color: colors.white,
@@ -3149,31 +3336,34 @@ const styles = StyleSheet.create({
   feedSummaryRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
-    marginBottom: 8,
+    gap: spacing.sm,
+    marginBottom: spacing.sm,
     flexWrap: 'wrap',
-    paddingHorizontal: 16,
+    paddingHorizontal: HOME_H_PADDING,
   },
   feedPhotoMoodRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
-    marginTop: 8,
-    marginBottom: 4,
-    paddingHorizontal: 16,
+    gap: spacing.sm,
+    marginTop: spacing.sm,
+    marginBottom: spacing.xs,
+    paddingHorizontal: HOME_H_PADDING,
   },
   feedHighlightSecondary: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
-    backgroundColor: colors.primary, // Purple background for "Session delt"
-    borderRadius: 12,
-    paddingHorizontal: 12,
-    paddingVertical: 6,
+    gap: spacing.sm,
+    backgroundColor: colors.primary + '14',
+    borderRadius: radius.md,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.primary + '35',
   },
   feedHighlightSecondaryText: {
-    color: colors.white,
+    color: colors.primaryDark,
     fontWeight: '600',
+    fontSize: 13,
   },
   feedRatingEmoji: {
     fontSize: 16,
@@ -3188,11 +3378,12 @@ const styles = StyleSheet.create({
     color: colors.secondary, // Green color
   },
   feedWorkoutInfoLine: {
-    fontSize: 12,
-    fontWeight: '500',
+    fontSize: 13,
+    fontWeight: '600',
     color: colors.secondary,
-    marginBottom: 10,
-    paddingHorizontal: 16,
+    marginBottom: spacing.sm,
+    paddingHorizontal: HOME_H_PADDING,
+    lineHeight: 18,
   },
   feedMuscleIconsRow: {
     flexDirection: 'row',
@@ -3207,9 +3398,9 @@ const styles = StyleSheet.create({
   feedDescription: {
     fontSize: 15,
     color: colors.text,
-    lineHeight: 20,
-    marginBottom: 12,
-    paddingHorizontal: 16,
+    lineHeight: 22,
+    marginBottom: spacing.md,
+    paddingHorizontal: HOME_H_PADDING,
   },
   feedCaptionUser: {
     fontWeight: '700',
@@ -3219,14 +3410,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
-    gap: 6,
+    gap: spacing.md,
+    minWidth: 0,
   },
   feedActions: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    paddingBottom: 12,
+    paddingHorizontal: HOME_H_PADDING,
+    paddingTop: spacing.xs,
+    paddingBottom: spacing.md,
     zIndex: 1,
   },
   feedActionGroup: {
@@ -3460,6 +3653,15 @@ const styles = StyleSheet.create({
     paddingBottom: 24,
     maxHeight: '90%',
   },
+  bicepsListSheet: {
+    backgroundColor: colors.backgroundCard,
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
+    paddingHorizontal: 20,
+    paddingTop: 12,
+    paddingBottom: 24,
+    height: '60%',
+  },
   commentSheetCollapsed: {
     height: '55%',
   },
@@ -3502,6 +3704,27 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: colors.border,
     alignItems: 'flex-start',
+  },
+  bicepsUserRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    paddingVertical: 10,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.border,
+  },
+  bicepsUserMeta: {
+    flex: 1,
+  },
+  bicepsUserUsername: {
+    fontSize: 12,
+    color: colors.textMuted,
+    marginTop: 2,
+  },
+  bicepsUserCta: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: colors.primary,
   },
   commentAvatar: {
     width: 36,
@@ -3597,22 +3820,20 @@ const styles = StyleSheet.create({
   },
   suggestedFriendsCard: {
     backgroundColor: colors.backgroundCard,
-    borderRadius: 16,
-    padding: 16,
-    marginBottom: 16,
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 4},
-    shadowOpacity: 0.2,
-    shadowRadius: 12,
+    borderRadius: radius.lg,
+    padding: spacing.lg,
+    marginBottom: SECTION_GAP,
+    marginHorizontal: HOME_H_PADDING,
+    ...shadows.sm,
   },
   suggestedFriendsTitle: {
     fontSize: 18,
     fontWeight: '700',
     color: colors.text,
-    marginBottom: 16,
+    marginBottom: spacing.md,
   },
   suggestedFriendsList: {
-    paddingRight: 16,
+    paddingRight: HOME_H_PADDING,
   },
   suggestedFriendCard: {
     width: 140,

@@ -2,7 +2,7 @@
  * Notifikationer – Supabase public.notifications + lokale (workout, besked)
  */
 
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useMemo, useRef, useState} from 'react';
 import {
   View,
   Text,
@@ -15,6 +15,7 @@ import {
   Platform,
   UIManager,
   LayoutAnimation,
+  ActivityIndicator,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
@@ -46,12 +47,86 @@ import {
 } from '@/utils/friendRequestRpcErrors';
 import {useInAppNotificationStore} from '@/store/inAppNotificationStore';
 import {useFriendStore} from '@/store/friendStore';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {getOrCreateDmThread} from '@/services/supabase/dmService';
+import {sendWorkoutBicepsReaction} from '@/services/supabase/workoutReactionService';
+import {MUSCLE_GROUP_LABELS_DK} from '@/utils/muscleGroupLabels';
+import type {MuscleGroup} from '@/types/workout.types';
+import {BADGE_BY_ID} from '@/config/badgeDefinitions';
+import type {BadgeDefinition} from '@/types/badge.types';
 
 if (
   Platform.OS === 'android' &&
   UIManager.setLayoutAnimationEnabledExperimental
 ) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
+}
+
+const BICEPS_SENT_STORAGE = (userId: string) => `@gymly/biceps_sent_v1_${userId}`;
+
+function bicepsReactionKey(checkInId: string, friendUserId: string): string {
+  return `${checkInId}:${friendUserId}`;
+}
+
+function labelForMuscleToken(raw: string): string {
+  const t = raw.trim().toLowerCase();
+  if (t && t in MUSCLE_GROUP_LABELS_DK) {
+    return MUSCLE_GROUP_LABELS_DK[t as MuscleGroup];
+  }
+  const u = raw.trim();
+  return u || 'Træning';
+}
+
+function friendCheckinTrainingLabel(item: Notification): string {
+  const fromRow = item.muscles?.filter(m => m && String(m).trim().length > 0) ?? [];
+  if (fromRow.length > 0) {
+    return fromRow.map(m => labelForMuscleToken(String(m))).join(' · ');
+  }
+  const bodyLine = item.message || '';
+  const trainerIdx = bodyLine.search(/Træner:\s*/i);
+  if (trainerIdx >= 0) {
+    const part = bodyLine.slice(trainerIdx).replace(/Træner:\s*/i, '').trim();
+    if (part) {
+      return part
+        .split(',')
+        .map(s => labelForMuscleToken(s))
+        .join(' · ');
+    }
+  }
+  return 'Træning';
+}
+
+function friendCheckinLocationTrainingLine(item: Notification): string {
+  const center = (item.gymName || (item.dataPayload?.centerName as string) || '').trim();
+  const train = friendCheckinTrainingLabel(item);
+  if (center && train) {
+    return `${center} · ${train}`;
+  }
+  return center || train || '';
+}
+
+function resolveBadgeDefinition(item: Notification): BadgeDefinition | undefined {
+  const id = item.badgeId || (item.dataPayload?.badgeId as string | undefined);
+  if (!id) {
+    return undefined;
+  }
+  return BADGE_BY_ID[id];
+}
+
+function badgeUnlockDisplayName(item: Notification, def?: BadgeDefinition): string {
+  return def?.name || item.badgeName || (item.dataPayload?.badgeName as string) || 'Badge';
+}
+
+function friendCheckinMetaLine(item: Notification): string {
+  const startedRaw = item.dataPayload?.startedAt as string | undefined;
+  if (startedRaw) {
+    const start = new Date(startedRaw);
+    if (!Number.isNaN(start.getTime())) {
+      const mins = Math.max(0, Math.floor((Date.now() - start.getTime()) / 60000));
+      return `${mins} min i gang`;
+    }
+  }
+  return formatRelativeTime(item.timestamp);
 }
 
 function friendRequestRowIcon(item: Notification): string {
@@ -91,6 +166,9 @@ const getNotificationIcon = (type: Notification['type']) => {
     case 'planned_workout_declined':
     case 'planned_workout_reminder':
       return 'calendar';
+    case 'workout_reaction':
+    case 'biceps_reaction':
+      return 'fitness-outline';
     default:
       return 'notifications';
   }
@@ -142,10 +220,52 @@ const NotificationsScreen = () => {
 
   const pendingInvitations = user ? getPendingInvitations(user.id) : [];
   const [friendReqBusyId, setFriendReqBusyId] = useState<string | null>(null);
+  const [bicepsBusyKey, setBicepsBusyKey] = useState<string | null>(null);
+  const [bicepsSentKeys, setBicepsSentKeys] = useState<Record<string, true>>({});
   const [refreshing, setRefreshing] = useState(false);
   const [profileById, setProfileById] = useState<Record<string, PublicProfile>>(
     {},
   );
+  const prevListCountRef = useRef(0);
+
+  useEffect(() => {
+    const prev = prevListCountRef.current;
+    if (listForUi.length > prev) {
+      LayoutAnimation.configureNext(
+        LayoutAnimation.create(
+          220,
+          LayoutAnimation.Types.easeInEaseOut,
+          LayoutAnimation.Properties.scaleY,
+        ),
+      );
+    }
+    prevListCountRef.current = listForUi.length;
+  }, [listForUi.length]);
+
+  const groupedNotifications = useMemo(() => {
+    const unreadFriendCheckins = listForUi.filter(
+      n => n.type === 'friend_checkin' && !n.read,
+    );
+    if (unreadFriendCheckins.length < 2) {
+      return listForUi;
+    }
+    // Remove all grouped rows from the base list to avoid duplicate keys in FlatList.
+    const keepIds = new Set(unreadFriendCheckins.map(n => n.id));
+    const first = unreadFriendCheckins[0];
+    const groupedFirst: Notification = {
+      ...first,
+      title: `${unreadFriendCheckins.length} venner har tjekket ind`,
+      message: unreadFriendCheckins
+        .slice(0, 3)
+        .map(n => n.friendName || 'Ven')
+        .join(', '),
+      dataPayload: {
+        ...(first.dataPayload ?? {}),
+        groupedFriendCheckins: true,
+      },
+    };
+    return [groupedFirst, ...listForUi.filter(n => !keepIds.has(n.id))];
+  }, [listForUi]);
 
   useEffect(() => {
     const ids = new Set<string>();
@@ -165,6 +285,25 @@ const NotificationsScreen = () => {
       setProfileById(prev => ({...prev, ...o}));
     });
   }, [listForUi]);
+
+  useEffect(() => {
+    if (!user?.id) {
+      return;
+    }
+    AsyncStorage.getItem(BICEPS_SENT_STORAGE(user.id))
+      .then(raw => {
+        if (!raw) {
+          return;
+        }
+        try {
+          const o = JSON.parse(raw) as Record<string, true>;
+          setBicepsSentKeys(o);
+        } catch {
+          /* ignore */
+        }
+      })
+      .catch(() => {});
+  }, [user?.id]);
 
   const onPullRefresh = async () => {
     setRefreshing(true);
@@ -248,7 +387,22 @@ const NotificationsScreen = () => {
       });
       return;
     }
+    if (item.type === 'workout_reaction') {
+      const id = item.friendId || (d?.fromUserId as string);
+      if (id) {
+        goFriendProfile(id, item.friendName || item.title);
+      }
+      return;
+    }
+    if (item.type === 'biceps_reaction') {
+      navigation.navigate('Home');
+      return;
+    }
     if (item.type === 'friend_checkin' || item.type === 'friend_request_accepted') {
+      if (item.dataPayload?.groupedFriendCheckins) {
+        navigation.navigate('Friends', {screen: 'Online'} as never);
+        return;
+      }
       const id = (d?.friendUserId as string) || item.friendId || (d?.targetUserId as string);
       if (id) {
         goFriendProfile(id, item.friendName || item.title);
@@ -267,7 +421,9 @@ const NotificationsScreen = () => {
       item.type === 'streak_milestone' ||
       item.type === 'badge_progress'
     ) {
-      navigation.navigate('Badges');
+      const bid =
+        item.badgeId || (d?.badgeId as string | undefined);
+      navigation.navigate('Badges', bid ? {highlightBadgeId: bid} : {});
       return;
     }
     if (item.type === 'workout_invite' && item.planId) {
@@ -293,10 +449,7 @@ const NotificationsScreen = () => {
   };
 
   const handleJoinWorkout = (notification: Notification) => {
-    if (
-      notification.type !== 'workout_invite' &&
-      notification.type !== 'friend_checkin'
-    ) {
+    if (notification.type !== 'workout_invite') {
       return;
     }
     const joinerName = user?.displayName || 'En ven';
@@ -304,7 +457,7 @@ const NotificationsScreen = () => {
       markInviteJoined(notification.id);
     } else {
       markInviteJoined(notification.id);
-      if (notification.type === 'workout_invite' && notification.planId && user) {
+      if (notification.planId && user) {
         acceptPlanInvite(notification.planId, user.id);
       }
       if (notification.friendName) {
@@ -317,6 +470,70 @@ const NotificationsScreen = () => {
       if (notification.planId) {
         navigation.navigate('WorkoutSchedule', {initialTab: 'upcoming'});
       }
+    }
+  };
+
+  const markBicepsSentPersist = (key: string) => {
+    setBicepsSentKeys(prev => {
+      const next = {...prev, [key]: true};
+      if (user?.id) {
+        AsyncStorage.setItem(
+          BICEPS_SENT_STORAGE(user.id),
+          JSON.stringify(next),
+        ).catch(() => {});
+      }
+      return next;
+    });
+  };
+
+  const handleFriendCheckinBiceps = async (item: Notification) => {
+    const checkInId = String(
+      item.checkInId || (item.dataPayload?.checkInId as string) || '',
+    ).trim();
+    const toUserId = item.friendId;
+    if (!user?.id || !checkInId || !toUserId) {
+      Alert.alert('Kunne ikke sende', 'Manglende tjek-in data.');
+      return;
+    }
+    const key = bicepsReactionKey(checkInId, toUserId);
+    if (bicepsSentKeys[key] || bicepsBusyKey) {
+      return;
+    }
+    setBicepsBusyKey(key);
+    try {
+      await sendWorkoutBicepsReaction(toUserId, checkInId);
+      markBicepsSentPersist(key);
+    } catch (e) {
+      Alert.alert(
+        'Kunne ikke sende',
+        e instanceof Error ? e.message : 'Prøv igen.',
+      );
+    } finally {
+      setBicepsBusyKey(null);
+    }
+  };
+
+  const handleFriendCheckinMessage = async (item: Notification) => {
+    const fid = item.friendId;
+    if (!fid) {
+      return;
+    }
+    readOne(item);
+    try {
+      const threadId = await getOrCreateDmThread(fid);
+      const p = profileById[fid];
+      const name = p?.displayName || item.friendName || 'Ven';
+      navigation.navigate('Chat', {
+        chatId: threadId,
+        friendId: fid,
+        friendName: name,
+        participants: [{id: fid, name}],
+      });
+    } catch (e) {
+      Alert.alert(
+        'Besked',
+        e instanceof Error ? e.message : 'Kunne ikke åbne chat.',
+      );
     }
   };
 
@@ -464,6 +681,59 @@ const NotificationsScreen = () => {
       !!planPid &&
       !item.read;
 
+    const badgeDefRow = resolveBadgeDefinition(item);
+    const isBadgeNotif =
+      item.type === 'badge_unlocked' ||
+      item.type === 'badge_progress' ||
+      item.type === 'streak_milestone';
+    const isGroupedFriendCheckins = Boolean(item.dataPayload?.groupedFriendCheckins);
+
+    const renderRowLeading = () => {
+      if (isBadgeNotif) {
+        if (badgeDefRow) {
+          return (
+            <View style={styles.badgeEarnedIconWrap}>
+              <Text style={styles.badgeEarnedEmoji} accessibilityLabel={badgeDefRow.name}>
+                {badgeDefRow.emoji}
+              </Text>
+            </View>
+          );
+        }
+        if (item.type === 'streak_milestone') {
+          return (
+            <View style={[styles.iconWrapper, {backgroundColor: iconColor + '20'}]}>
+              <Icon name="flame" size={24} color={iconColor} />
+            </View>
+          );
+        }
+        return (
+          <View style={[styles.iconWrapper, {backgroundColor: colors.rankGold + '20'}]}>
+            <Icon name="medal" size={24} color={colors.rankGold} />
+          </View>
+        );
+      }
+      if (
+        prof ||
+        item.type === 'friend_request' ||
+        item.type === 'friend_checkin' ||
+        item.type === 'workout_reaction' ||
+        item.type === 'biceps_reaction'
+      ) {
+        return (
+          <Avatar
+            name={prof?.displayName || item.friendName || item.title}
+            imageUrl={prof?.avatarUrl}
+            size="md"
+          />
+        );
+      }
+      return (
+        <View style={[styles.iconWrapper, {backgroundColor: iconColor + '20'}]}>
+          <Icon name={iconName as 'notifications'} size={24} color={iconColor} />
+        </View>
+      );
+    };
+
     return (
       <View
         style={[
@@ -476,27 +746,73 @@ const NotificationsScreen = () => {
           onPress={() => handleOpenFromNotification(item)}
           style={({pressed}) => [styles.rowMain, pressed && {opacity: 0.85}]}
           android_ripple={{color: '#0001'}}>
-          {prof || item.type === 'friend_request' || item.type === 'friend_checkin' ? (
-            <Avatar
-              name={prof?.displayName || item.friendName || item.title}
-              imageUrl={prof?.avatarUrl}
-              size="md"
-            />
-          ) : (
-            <View style={[styles.iconWrapper, {backgroundColor: iconColor + '20'}]}>
-              <Icon name={iconName as 'notifications'} size={24} color={iconColor} />
-            </View>
-          )}
+          {renderRowLeading()}
           <View style={styles.content}>
-            <Text style={[styles.title, !item.read && styles.titleUnread]}>
-              {item.title}
-            </Text>
-            {item.message ? (
-              <Text style={styles.message} numberOfLines={3}>
-                {item.message}
-              </Text>
-            ) : null}
-            <Text style={styles.time}>{formatRelativeTime(item.timestamp)}</Text>
+            {item.type === 'friend_checkin' ? (
+              <>
+                <Text
+                  style={[styles.title, !item.read && styles.titleUnread]}
+                  numberOfLines={2}
+                  ellipsizeMode="tail">
+                  {item.title}
+                </Text>
+                {friendCheckinLocationTrainingLine(item) ? (
+                  <Text
+                    style={styles.friendCheckinBody}
+                    numberOfLines={2}
+                    ellipsizeMode="tail">
+                    {friendCheckinLocationTrainingLine(item)}
+                  </Text>
+                ) : null}
+                <Text style={styles.friendCheckinMeta} numberOfLines={1}>
+                  {isGroupedFriendCheckins
+                    ? 'Tryk for at se hvem der er aktive nu'
+                    : friendCheckinMetaLine(item)}
+                </Text>
+              </>
+            ) : item.type === 'badge_unlocked' ? (
+              <>
+                <Text
+                  style={[styles.title, !item.read && styles.titleUnread]}
+                  numberOfLines={1}>
+                  Nyt badge
+                </Text>
+                <Text style={styles.message} numberOfLines={2} ellipsizeMode="tail">
+                  {`Du har låst et nyt badge op: ${badgeUnlockDisplayName(
+                    item,
+                    badgeDefRow,
+                  )}`}
+                </Text>
+                <Text style={styles.time}>{formatRelativeTime(item.timestamp)}</Text>
+              </>
+            ) : item.type === 'badge_progress' || item.type === 'streak_milestone' ? (
+              <>
+                <Text
+                  style={[styles.title, !item.read && styles.titleUnread]}
+                  numberOfLines={2}
+                  ellipsizeMode="tail">
+                  {item.title}
+                </Text>
+                {item.message ? (
+                  <Text style={styles.message} numberOfLines={2} ellipsizeMode="tail">
+                    {item.message}
+                  </Text>
+                ) : null}
+                <Text style={styles.time}>{formatRelativeTime(item.timestamp)}</Text>
+              </>
+            ) : (
+              <>
+                <Text style={[styles.title, !item.read && styles.titleUnread]}>
+                  {item.title}
+                </Text>
+                {item.message ? (
+                  <Text style={styles.message} numberOfLines={3}>
+                    {item.message}
+                  </Text>
+                ) : null}
+                <Text style={styles.time}>{formatRelativeTime(item.timestamp)}</Text>
+              </>
+            )}
           </View>
         </Pressable>
         {!item.read && <View style={styles.unreadDot} />}
@@ -550,7 +866,63 @@ const NotificationsScreen = () => {
               <Icon name="close" size={22} color={colors.textMuted} />
             </TouchableOpacity>
           </View>
-        ) : (item.type === 'workout_invite' || item.type === 'friend_checkin') ? (
+        ) : item.type === 'friend_checkin' && item.isFromServer && !isGroupedFriendCheckins ? (
+          <View style={styles.friendCheckinActions}>
+            {(() => {
+              const ck = String(
+                item.checkInId || (item.dataPayload?.checkInId as string) || '',
+              ).trim();
+              const fid = item.friendId || '';
+              const bk = ck && fid ? bicepsReactionKey(ck, fid) : '';
+              const sent = bk ? !!bicepsSentKeys[bk] : false;
+              const busy = bk && bicepsBusyKey === bk;
+              return (
+                <>
+                  <TouchableOpacity
+                    onPress={() => void handleFriendCheckinBiceps(item)}
+                    disabled={sent || busy || !ck || !fid}
+                    style={[
+                      styles.checkinIconBtn,
+                      sent && styles.checkinIconBtnSent,
+                    ]}
+                    activeOpacity={0.8}
+                    accessibilityLabel="Send biceps"
+                    accessibilityState={{disabled: sent || busy || !ck || !fid}}>
+                    {busy ? (
+                      <ActivityIndicator size="small" color={colors.primary} />
+                    ) : (
+                      <View style={styles.checkinBicepsIconInner}>
+                        <Text style={styles.checkinIconEmoji} accessibilityElementsHidden>
+                          💪
+                        </Text>
+                        {sent ? (
+                          <View style={styles.checkinIconSentMark} pointerEvents="none">
+                            <Icon name="checkmark" size={10} color={colors.success} />
+                          </View>
+                        ) : null}
+                      </View>
+                    )}
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() => void handleFriendCheckinMessage(item)}
+                    style={styles.checkinIconBtn}
+                    activeOpacity={0.8}
+                    accessibilityLabel="Send besked">
+                    <Icon name="chatbubble-outline" size={20} color={colors.primary} />
+                  </TouchableOpacity>
+                </>
+              );
+            })()}
+            <TouchableOpacity
+              onPress={() => handleDismissNotification(item)}
+              style={styles.dismissIconBtnTight}
+              hitSlop={{top: 10, bottom: 10, left: 8, right: 8}}
+              accessibilityLabel="Fjern notifikation"
+              activeOpacity={0.7}>
+              <Icon name="close" size={20} color={colors.textMuted} />
+            </TouchableOpacity>
+          </View>
+        ) : item.type === 'workout_invite' ? (
           <View style={styles.actions}>
             <TouchableOpacity
               onPress={() => handleJoinWorkout(item)}
@@ -613,12 +985,12 @@ const NotificationsScreen = () => {
       )}
 
       <FlatList
-        data={listForUi}
+        data={groupedNotifications}
         keyExtractor={item => item.id}
-        extraData={frOutcomeKeys}
+        extraData={`${frOutcomeKeys}|${Object.keys(bicepsSentKeys).join(',')}|${bicepsBusyKey ?? ''}`}
         renderItem={renderNotificationItem}
         contentContainerStyle={
-          listForUi.length === 0 ? styles.emptyContainer : styles.list
+          groupedNotifications.length === 0 ? styles.emptyContainer : styles.list
         }
         ListEmptyComponent={
           <EmptyState
@@ -690,6 +1062,7 @@ const styles = StyleSheet.create({
   },
   list: {
     paddingBottom: spacing.xxxl,
+    paddingTop: spacing.xs,
   },
   emptyContainer: {
     flexGrow: 1,
@@ -701,10 +1074,15 @@ const styles = StyleSheet.create({
     padding: spacing.lg,
     backgroundColor: colors.backgroundCard,
     marginHorizontal: spacing.lg,
-    marginTop: spacing.sm,
+    marginTop: spacing.md,
     borderRadius: radius.lg,
     borderWidth: 1,
     borderColor: colors.border,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 4},
+    shadowOpacity: 0.07,
+    shadowRadius: 10,
+    elevation: 3,
   },
   rowMain: {flex: 1, flexDirection: 'row', alignItems: 'center', minWidth: 0},
   rowUnread: {
@@ -746,6 +1124,31 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   time: {
+    ...typography.caption,
+    color: colors.textMuted,
+    marginTop: 4,
+  },
+  badgeEarnedIconWrap: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: colors.surface,
+    borderWidth: 1,
+    borderColor: colors.border,
+    marginRight: spacing.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  badgeEarnedEmoji: {
+    fontSize: 26,
+    lineHeight: 30,
+  },
+  friendCheckinBody: {
+    ...typography.small,
+    color: colors.textSecondary,
+    marginTop: 4,
+  },
+  friendCheckinMeta: {
     ...typography.caption,
     color: colors.textMuted,
     marginTop: 4,
@@ -817,6 +1220,57 @@ const styles = StyleSheet.create({
   },
   joinBtnTextJoined: {
     color: colors.primary,
+  },
+  friendCheckinActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexShrink: 0,
+    gap: 6,
+  },
+  checkinIconBtn: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: colors.background,
+    borderWidth: 1,
+    borderColor: colors.border,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  checkinIconBtnSent: {
+    opacity: 0.5,
+  },
+  checkinBicepsIconInner: {
+    position: 'relative',
+    width: 36,
+    height: 36,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  checkinIconEmoji: {
+    fontSize: 18,
+    lineHeight: 20,
+  },
+  checkinIconSentMark: {
+    position: 'absolute',
+    right: 2,
+    top: 2,
+    width: 14,
+    height: 14,
+    borderRadius: 7,
+    backgroundColor: colors.background,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.border,
+  },
+  dismissIconBtnTight: {
+    padding: 4,
+    marginLeft: 2,
+    minWidth: 36,
+    minHeight: 36,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

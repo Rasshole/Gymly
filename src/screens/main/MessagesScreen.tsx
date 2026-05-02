@@ -3,15 +3,16 @@
  * Premium conversation list – moderne, clean, social
  */
 
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {
   View,
   Text,
   StyleSheet,
   FlatList,
   TouchableOpacity,
-  Image,
   TextInput,
+  Animated,
+  Easing,
 } from 'react-native';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -20,10 +21,13 @@ import {CURRENT_USER_PLACEHOLDER_ID} from '@/store/groupStore';
 import {useAppStore} from '@/store/appStore';
 import {getInitialChats, getInitialMessages} from '@/services/data';
 import {syncDmInboxToStore} from '@/services/supabase/dmInboxSync';
+import {supabase} from '@/services/supabase/supabaseClient';
 import {formatRelativeTime} from '@/utils/formatRelativeTime';
+import {safeDisplayName} from '@/utils/displayName';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
 import {EmptyState} from '@/components/ui/EmptyState';
+import {UserAvatar} from '@/components/ui/UserAvatar';
 
 type ConversationItem = {
   id: string;
@@ -36,6 +40,7 @@ type ConversationItem = {
   avatar?: string;
   avatarInitials?: string;
   isActive?: boolean;
+  otherUserId?: string;
 };
 
 /** Kun modparten(e) i listen – ikke eget navn */
@@ -63,7 +68,7 @@ function getConversationTitle(
       }
       const label = names[i];
       if (label) {
-        otherNames.push(label);
+        otherNames.push(safeDisplayName(label));
       }
     }
     if (otherNames.length > 0) {
@@ -71,7 +76,9 @@ function getConversationTitle(
     }
   }
   const myLower = (myDisplayName || '').trim().toLowerCase();
-  const filtered = names.filter(
+  const filtered = names
+    .map(name => safeDisplayName(name))
+    .filter(
     name =>
       name &&
       name !== 'Dig' &&
@@ -81,6 +88,53 @@ function getConversationTitle(
 }
 
 const PREVIEW_MAX_LEN = 100;
+const GYM_PLAN_STATUS_PREFIX = '[GYM_PLAN_STATUS]';
+
+function formatGymPlanStatus(status: string | undefined): string {
+  switch (status) {
+    case 'accepted':
+      return 'Accepteret';
+    case 'declined':
+      return 'Afvist';
+    case 'pending':
+      return 'Inviteret';
+    case 'joined':
+      return 'Joinet';
+    case 'left':
+      return 'Forladt';
+    default:
+      return 'Opdateret';
+  }
+}
+
+function parseGymPlanStatusPreview(rawText: string): string | null {
+  const raw = rawText.trim();
+  if (!raw.startsWith(GYM_PLAN_STATUS_PREFIX)) {
+    return null;
+  }
+  try {
+    const payload = JSON.parse(
+      raw.slice(GYM_PLAN_STATUS_PREFIX.length),
+    ) as {status?: string};
+    return formatGymPlanStatus(payload.status);
+  } catch {
+    return 'Opdateret træning';
+  }
+}
+
+function getDisplayMessageText(m: ChatMessage): string {
+  if (m.plannedWorkoutEmbed?.kind === 'status') {
+    return formatGymPlanStatus(m.plannedWorkoutEmbed.status);
+  }
+  if (m.plannedWorkoutEmbed?.kind === 'invite') {
+    return 'Inviteret';
+  }
+  const t = m.text?.trim() ?? '';
+  if (!t) {
+    return '';
+  }
+  return parseGymPlanStatusPreview(t) ?? t;
+}
 
 function previewForListMessage(
   m: ChatMessage | undefined,
@@ -95,7 +149,7 @@ function previewForListMessage(
       m.senderId === 'current_user' ||
       m.senderId === CURRENT_USER_PLACEHOLDER_ID);
   let body = '';
-  const t = m.text?.trim();
+  const t = getDisplayMessageText(m);
   if (t) {
     body = t.length > PREVIEW_MAX_LEN ? `${t.slice(0, PREVIEW_MAX_LEN - 1)}…` : t;
   } else if (m.imageUri) {
@@ -131,6 +185,57 @@ function getChatListPreview(
   return previewForListMessage(last, myId);
 }
 
+function formatLastSeenText(lastSeenAt?: number): string {
+  if (!lastSeenAt) {
+    return 'Sidst set for nylig';
+  }
+  const diffMs = Date.now() - lastSeenAt;
+  const mins = Math.max(1, Math.floor(diffMs / 60000));
+  if (mins < 60) {
+    return `Sidst set for ${mins} min siden`;
+  }
+  const hours = Math.floor(mins / 60);
+  return `Sidst set for ${hours} t siden`;
+}
+
+const TypingDots = () => {
+  const anim = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    const loop = Animated.loop(
+      Animated.timing(anim, {
+        toValue: 1,
+        duration: 900,
+        easing: Easing.linear,
+        useNativeDriver: true,
+      }),
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [anim]);
+
+  return (
+    <View style={styles.typingRow}>
+      <Text style={styles.typingText}>Skriver</Text>
+      {[0, 1, 2].map(i => (
+        <Animated.Text
+          key={i}
+          style={[
+            styles.typingDot,
+            {
+              opacity: anim.interpolate({
+                inputRange: [0, 0.33, 0.66, 1],
+                outputRange:
+                  i === 0 ? [0.35, 1, 0.35, 0.35] : i === 1 ? [0.35, 0.35, 1, 0.35] : [0.35, 0.35, 0.35, 1],
+              }),
+            },
+          ]}>
+          .
+        </Animated.Text>
+      ))}
+    </View>
+  );
+};
+
 const MessagesScreen = () => {
   const navigation = useNavigation<any>();
   const {chats, seedChatsFromInitial, markChatAsRead} = useChatStore();
@@ -138,6 +243,8 @@ const MessagesScreen = () => {
   const totalMessageUnread = useChatStore(s =>
     s.chats.reduce((sum, c) => sum + (c.unreadCount ?? 0), 0),
   );
+  const dmPresenceByUser = useChatStore(s => s.dmPresenceByUser);
+  const upsertDmPresence = useChatStore(s => s.upsertDmPresence);
   const {user} = useAppStore();
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -177,7 +284,7 @@ const MessagesScreen = () => {
     return chats
       .map((chat) => ({
         id: chat.id,
-        name: getConversationTitle(chat, meId, meName),
+        name: safeDisplayName(getConversationTitle(chat, meId, meName)),
         lastMessage: getChatListPreview(chat, messagesByChat, meId),
         timestamp: (() => {
           const last = getLastMessageInThread(chat, messagesByChat);
@@ -191,6 +298,12 @@ const MessagesScreen = () => {
         avatar: chat.avatar,
         avatarInitials: chat.avatarInitials,
         isActive: chat.isActive,
+        otherUserId: (chat.participantIds || []).find(
+          id =>
+            id !== meId &&
+            id !== 'current_user' &&
+            id !== CURRENT_USER_PLACEHOLDER_ID,
+        ),
       }))
       .filter((item) => {
         if (!searchQuery.trim()) return true;
@@ -201,6 +314,66 @@ const MessagesScreen = () => {
         );
       });
   }, [chats, searchQuery, user?.id, user?.displayName, messagesByChat]);
+
+  useEffect(() => {
+    if (!user?.id || conversations.length === 0) {
+      return;
+    }
+    const channels: any[] = [];
+    const activeConversations = conversations.filter(c => c.id && c.otherUserId);
+    activeConversations.forEach(item => {
+      const threadId = item.id;
+      const otherUserId = item.otherUserId!;
+      const channel = supabase
+        .channel(`dm_presence_${threadId}`, {
+          config: {presence: {key: user.id}},
+        })
+        .on('presence', {event: 'sync'}, () => {
+          const state = channel.presenceState() as Record<string, Array<Record<string, unknown>>>;
+          const remoteMeta = Object.values(state)
+            .flat()
+            .find(meta => meta.userId === otherUserId) as
+            | {
+                typing?: boolean;
+                active?: boolean;
+                lastSeenAt?: number;
+                trainingNow?: boolean;
+                trainingGymName?: string;
+              }
+            | undefined;
+          upsertDmPresence(otherUserId, {
+            isActive: !!remoteMeta?.active,
+            lastSeenAt:
+              typeof remoteMeta?.lastSeenAt === 'number'
+                ? remoteMeta.lastSeenAt
+                : undefined,
+            trainingNow: !!remoteMeta?.trainingNow,
+            trainingGymName:
+              typeof remoteMeta?.trainingGymName === 'string'
+                ? remoteMeta.trainingGymName
+                : undefined,
+            typingForThread: {threadId, typing: !!remoteMeta?.typing},
+          });
+        })
+        .subscribe(status => {
+          if (status === 'SUBSCRIBED') {
+            channel.track({
+              userId: user.id,
+              active: true,
+              typing: false,
+              lastSeenAt: Date.now(),
+            });
+          }
+        });
+      channels.push(channel);
+    });
+
+    return () => {
+      channels.forEach(ch => {
+        void supabase.removeChannel(ch);
+      });
+    };
+  }, [conversations, upsertDmPresence, user?.id]);
 
   const handleOpenChat = (item: ConversationItem) => {
     const myId = user?.id;
@@ -214,7 +387,7 @@ const MessagesScreen = () => {
       )
       .map(id => ({
         id,
-        name: item.participants?.[participantIds.indexOf(id)] || 'Ven',
+        name: safeDisplayName(item.participants?.[participantIds.indexOf(id)], 'Ukendt bruger'),
       }));
 
     markChatAsRead(item.id);
@@ -228,21 +401,27 @@ const MessagesScreen = () => {
   };
 
   const renderConversationItem = ({item}: {item: ConversationItem}) => (
+    (() => {
+      const presence = item.otherUserId ? dmPresenceByUser[item.otherUserId] : undefined;
+      const typing = !!presence?.typingByThread?.[item.id];
+      const trainingNow = !!presence?.trainingNow;
+      const statusText = trainingNow
+        ? `🏋️ Træner nu i ${presence?.trainingGymName || 'center'}`
+        : presence?.isActive
+          ? 'Aktiv nu'
+          : formatLastSeenText(presence?.lastSeenAt);
+      return (
     <TouchableOpacity
       style={[styles.row, item.unreadCount > 0 && styles.rowUnread]}
       activeOpacity={0.8}
       onPress={() => handleOpenChat(item)}>
       <View style={styles.avatarWrapper}>
-        {item.avatar ? (
-          <Image source={{uri: item.avatar}} style={styles.avatar} />
-        ) : (
-          <View style={styles.avatarPlaceholder}>
-            <Text style={styles.avatarText}>
-              {item.avatarInitials || item.name.charAt(0).toUpperCase()}
-            </Text>
-          </View>
-        )}
-        {item.isActive && <View style={styles.activeDot} />}
+        <UserAvatar
+          name={safeDisplayName(item.name)}
+          imageUrl={item.avatar}
+          size="lg"
+        />
+        {(presence?.isActive || trainingNow) && <View style={styles.activeDot} />}
         {item.unreadCount > 0 && (
           <View style={styles.unreadBadge}>
             <Text style={styles.unreadText}>
@@ -260,6 +439,12 @@ const MessagesScreen = () => {
           </Text>
           <Text style={styles.timestamp}>{item.timestamp}</Text>
         </View>
+        <Text style={[styles.statusLine, trainingNow && styles.trainingStatus]} numberOfLines={1}>
+          {statusText}
+        </Text>
+        {typing ? (
+          <TypingDots />
+        ) : (
         <Text
           style={[
             styles.preview,
@@ -268,9 +453,12 @@ const MessagesScreen = () => {
           numberOfLines={1}>
           {item.lastMessage || 'Ingen beskeder endnu'}
         </Text>
+        )}
       </View>
       <Icon name="chevron-forward" size={20} color={colors.textMuted} />
     </TouchableOpacity>
+      );
+    })()
   );
 
   return (
@@ -326,7 +514,7 @@ const MessagesScreen = () => {
             icon="chatbubbles-outline"
             title="Ingen beskeder endnu"
             message="Start en samtale med en ven eller find nye træningspartnere. Når du får beskeder, vises de her."
-            actionLabel="Ny besked"
+            actionLabel="Start en samtale"
             onAction={() => navigation.navigate('NewMessage')}
           />
         }
@@ -503,9 +691,33 @@ const styles = StyleSheet.create({
     ...typography.small,
     color: colors.textSecondary,
   },
+  statusLine: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    marginBottom: 2,
+  },
+  trainingStatus: {
+    color: colors.primary,
+    fontWeight: '600',
+  },
   previewUnread: {
     color: colors.text,
     fontWeight: '500',
+  },
+  typingRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+  },
+  typingText: {
+    ...typography.small,
+    color: colors.primary,
+    fontStyle: 'italic',
+  },
+  typingDot: {
+    ...typography.small,
+    color: colors.primary,
+    fontWeight: '700',
+    marginLeft: 1,
   },
   fab: {
     position: 'absolute',

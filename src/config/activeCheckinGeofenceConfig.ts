@@ -18,7 +18,7 @@ export const ACTIVE_CHECKIN_INACTIVITY_WARN_BEFORE_MS = 30 * 60 * 1000;
 export const ACTIVE_CHECKIN_STABLE_CONSECUTIVE_BUFFER = 3;
 export const ACTIVE_CHECKIN_STABLE_CONSECUTIVE_OUTSIDE = 2;
 
-export const ACTIVE_CHECKIN_LOCATION_INTERVAL_MS = 30 * 1000;
+export const ACTIVE_CHECKIN_LOCATION_INTERVAL_MS = 60 * 1000;
 
 /** Hvis nyt rå-afstand ligger over median med så mange m, tælles som udsolgt (støj) */
 export const ACTIVE_CHECKIN_SPIKE_MAX_DELTA_M = 500;

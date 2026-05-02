@@ -5,6 +5,13 @@ import type {
   UserBadgeStats,
 } from '@/types/badge.types';
 
+export function getBadgeStatValue(
+  def: BadgeDefinition,
+  stats: UserBadgeStats,
+): number {
+  return statForRequirement(def, stats);
+}
+
 function statForRequirement(
   def: BadgeDefinition,
   stats: UserBadgeStats,
@@ -34,12 +41,13 @@ export function computeBadgeProgress(
 ): BadgeProgress {
   const target = Math.max(1, def.requirement_value);
   const statVal = statForRequirement(def, stats);
-  const percent = isUnlocked
+  const effectiveUnlocked = isUnlocked || statVal >= target;
+  const percent = effectiveUnlocked
     ? 100
     : Math.min(100, Math.round((statVal / target) * 100));
 
   let status: BadgeProgress['status'] = 'locked';
-  if (isUnlocked) {
+  if (effectiveUnlocked) {
     status = 'unlocked';
   } else if (percent >= 70) {
     status = 'almost_unlocked';
@@ -59,6 +67,14 @@ export function isBadgeRequirementMet(
   stats: UserBadgeStats,
 ): boolean {
   return statForRequirement(def, stats) >= def.requirement_value;
+}
+
+export function calculateBadgeProgress(
+  stats: UserBadgeStats,
+  badge: BadgeDefinition,
+  isUnlocked: boolean,
+): BadgeProgress {
+  return computeBadgeProgress(badge, stats, isUnlocked);
 }
 
 export function evaluateNewUnlocks(

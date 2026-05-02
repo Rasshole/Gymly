@@ -12,3 +12,4 @@ export {
   useWeeklyStats,
   useMilestones,
 } from '../useProfileData';
+export {useUserTrainingStats, calculateCurrentStreak} from '../useUserTrainingStats';

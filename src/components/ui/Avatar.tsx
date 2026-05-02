@@ -2,8 +2,8 @@
  * Avatar – User avatars with fallback initials
  */
 
-import React from 'react';
-import {View, Image, Text, StyleSheet, ViewStyle} from 'react-native';
+import React, {useMemo, useState, useEffect} from 'react';
+import {View, Image, Text, StyleSheet, ViewStyle, ActivityIndicator} from 'react-native';
 import colors from '@/theme/colors';
 
 type AvatarSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
@@ -23,6 +23,16 @@ const Avatar: React.FC<AvatarProps> = ({
   style,
 }) => {
   const dimension = sizeMap[size];
+  const [imageFailed, setImageFailed] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const normalizedUrl = useMemo(() => {
+    const raw = (imageUrl ?? '').trim();
+    return raw.length > 0 ? raw : null;
+  }, [imageUrl]);
+  useEffect(() => {
+    setImageFailed(false);
+    setImageLoaded(false);
+  }, [normalizedUrl]);
   const initials = name
     .split(' ')
     .map(n => n[0])
@@ -30,17 +40,30 @@ const Avatar: React.FC<AvatarProps> = ({
     .toUpperCase()
     .slice(0, 2);
 
-  if (imageUrl) {
+  if (normalizedUrl && !imageFailed) {
     return (
-      <Image
-        source={{uri: imageUrl}}
+      <View
         style={[
-          styles.image,
+          styles.imageWrap,
           {width: dimension, height: dimension, borderRadius: dimension / 2},
           style,
-        ]}
-        resizeMode="cover"
-      />
+        ]}>
+        <Image
+          source={{uri: normalizedUrl}}
+          style={[
+            styles.image,
+            {width: dimension, height: dimension, borderRadius: dimension / 2},
+          ]}
+          resizeMode="cover"
+          onLoadEnd={() => setImageLoaded(true)}
+          onError={() => setImageFailed(true)}
+        />
+        {!imageLoaded ? (
+          <View style={styles.loadingOverlay}>
+            <ActivityIndicator size="small" color={colors.primary} />
+          </View>
+        ) : null}
+      </View>
     );
   }
 
@@ -63,7 +86,19 @@ const Avatar: React.FC<AvatarProps> = ({
 };
 
 const styles = StyleSheet.create({
+  imageWrap: {
+    overflow: 'hidden',
+    backgroundColor: colors.surface,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   image: {},
+  loadingOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.surface,
+  },
   placeholder: {
     backgroundColor: colors.primary,
     alignItems: 'center',

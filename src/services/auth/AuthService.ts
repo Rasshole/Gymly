@@ -15,7 +15,11 @@ import {AuthTokens, AuthResponse} from '@/types/auth.types';
 import {User, UserLogin, UserRegistration} from '@/types/user.types';
 import SecureStorage from '../security/SecureStorage';
 import {supabase} from '@/services/supabase/supabaseClient';
-import {SUPABASE_ALLOW_UNVERIFIED_LOGIN, SUPABASE_EMAIL_REDIRECT} from '@/config/supabaseConfig';
+import {
+  SUPABASE_ALLOW_UNVERIFIED_LOGIN,
+  SUPABASE_EMAIL_REDIRECT,
+  SUPABASE_PASSWORD_RESET_REDIRECT,
+} from '@/config/supabaseConfig';
 import {User as SupabaseUser} from '@supabase/supabase-js';
 import {normalizeDanishPhone} from '@/utils/phoneUtils';
 
@@ -374,7 +378,7 @@ class AuthService {
     try {
       this.validateEmail(email);
       const {error} = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: SUPABASE_EMAIL_REDIRECT || undefined,
+        redirectTo: SUPABASE_PASSWORD_RESET_REDIRECT || undefined,
       });
       if (error) {
         throw new Error(this.humanizeAuthMessage(error.message));

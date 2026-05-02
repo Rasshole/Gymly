@@ -1,8 +1,16 @@
 import {supabase} from '@/services/supabase/supabaseClient';
+import {
+  logRealtimeEvent,
+  logRealtimeStore,
+  logRealtimeSubscribed,
+} from '@/realtime/realtimeDebug';
 import {useFeedStore} from '@/store/feedStore';
 import type {FeedItem} from '@/store/feedStore';
 import type {WorkoutPostRow} from '@/types/post.types';
 import {formatRelativeTime} from '@/utils/formatRelativeTime';
+import {withAvatarCacheBust} from '../../utils/avatar';
+import {formatGymNameWithBrand} from '@/utils/gymDisplay';
+import {detectGymChain} from '@/services/gymLogoService';
 const BUCKET = 'workout-images';
 
 async function readImageForUpload(localUri: string): Promise<ArrayBuffer> {
@@ -14,12 +22,18 @@ async function readImageForUpload(localUri: string): Promise<ArrayBuffer> {
 }
 
 export function mapPostRowToFeedItem(row: WorkoutPostRow): FeedItem {
-  const workoutInfo = `${row.center_name} · ${row.workout_duration} min · ${row.workout_type}`;
+  const centerRaw = (row.center_name ?? '').trim();
+  const centerBrand = centerRaw ? detectGymChain(undefined, centerRaw).displayName : '';
+  const centerLabel = centerRaw
+    ? formatGymNameWithBrand(centerRaw, centerBrand)
+    : 'Center';
+  const workoutInfo = `${centerLabel} · ${row.workout_duration} min · ${row.workout_type}`;
   return {
     id: row.id,
     type: row.image_url ? 'photo' : 'summary',
     userId: row.user_id,
     user: row.author_display_name?.trim() || 'Bruger',
+    userAvatarUrl: row.author_avatar_url || undefined,
     description: row.caption || '',
     timestamp: formatRelativeTime(new Date(row.created_at)),
     photoUri: row.image_url || undefined,
@@ -40,7 +54,24 @@ export async function fetchWorkoutPosts(): Promise<WorkoutPostRow[]> {
   if (error) {
     throw error;
   }
-  return (data ?? []) as WorkoutPostRow[];
+  const rows = (data ?? []) as WorkoutPostRow[];
+  const ids = Array.from(new Set(rows.map(r => r.user_id).filter(Boolean)));
+  if (!ids.length) {
+    return rows;
+  }
+  const {data: profiles} = await supabase
+    .from('profiles')
+    .select('id, avatar_url, updated_at')
+    .in('id', ids);
+  const byId = new Map(
+    ((profiles ?? []) as Array<{id: string; avatar_url: string | null; updated_at: string | null}>).map(
+      p => [p.id, withAvatarCacheBust(p.avatar_url, p.updated_at)],
+    ),
+  );
+  return rows.map(r => ({
+    ...r,
+    author_avatar_url: byId.get(r.user_id) ?? null,
+  }));
 }
 
 export async function refreshWorkoutFeedFromServer(): Promise<void> {
@@ -155,16 +186,22 @@ function ensurePostsFeedChannel() {
       'postgres_changes',
       {event: '*', schema: 'public', table: 'posts'},
       () => {
+        logRealtimeEvent('workout_posts_shared', 'posts', '*', undefined);
         void (async () => {
           try {
             await refreshWorkoutFeedFromServer();
           } finally {
             notifyPostsFeedSideEffects();
+            logRealtimeStore('posts', 'feed_refresh');
           }
         })();
       },
     )
-    .subscribe();
+    .subscribe(status => {
+      if (status === 'SUBSCRIBED') {
+        logRealtimeSubscribed('workout_posts_shared', 'posts');
+      }
+    });
 }
 
 /**

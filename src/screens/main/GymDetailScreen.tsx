@@ -23,6 +23,7 @@ import {useLeaderboardStore} from '@/store/leaderboardStore';
 import {useAppStore} from '@/store/appStore';
 import colors from '@/theme/colors';
 import GymLogoView from '@/components/ui/GymLogoView';
+import {formatGymDisplayName, normalizeGymBrand} from '@/utils/gymDisplay';
 
 const formatDuration = (minutes: number): string => {
   if (minutes < 60) return `${minutes} min`;
@@ -65,6 +66,8 @@ const GymDetailScreen = () => {
   const gymStatus = getGymStatus(gymId);
   const gymHours = getGymHours(gymId);
   const weeklyChampion = getWeeklyChampion(gymId);
+  const centerDisplayName = formatGymDisplayName(gym);
+  const centerBrand = normalizeGymBrand(gym.brand);
   return (
     <View style={styles.container}>
       {/* Header */}
@@ -85,15 +88,15 @@ const GymDetailScreen = () => {
         {/* Gym Header */}
         <View style={styles.gymHeader}>
           <GymLogoView
-            gymName={gym.name}
+            gymName={centerDisplayName}
             brand={gym.brand}
             size={80}
             style={styles.gymHeaderLogo}
           />
-          <Text style={styles.gymHeaderName}>{gym.name}</Text>
-          {gym.brand && (
-            <Text style={styles.gymHeaderBrand}>{gym.brand}</Text>
-          )}
+          <Text style={styles.gymHeaderName}>{centerDisplayName}</Text>
+          {centerBrand ? (
+            <Text style={styles.gymHeaderBrand}>{centerBrand}</Text>
+          ) : null}
         </View>
 
         {/* Address Section */}
@@ -292,7 +295,7 @@ const GymDetailScreen = () => {
           <View style={styles.modalContent} onStartShouldSetResponder={() => true}>
             <View style={styles.modalHeader}>
               <Text style={styles.modalTitle}>
-                {activeUsers} aktive – {gym.name}
+                {activeUsers} aktive – {centerDisplayName}
               </Text>
               <TouchableOpacity
                 onPress={() => setActiveUsersModalVisible(false)}
