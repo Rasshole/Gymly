@@ -3,7 +3,7 @@
  * Hjertet i den sociale oplevelse – check-ins, streaks, badges, grupper
  */
 
-import React, {useState, useMemo} from 'react';
+import React, {useState, useMemo, useEffect} from 'react';
 import {
   View,
   Text,
@@ -28,6 +28,7 @@ import type {ActivityEvent} from '@/types/activity.types';
 import type {ActivityScope} from '@/types/activity.types';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
+import {SURFACE_GROUPS_IN_APP} from '@/config/launchSurfaceConfig';
 
 type FilterScope = 'all' | ActivityScope;
 type TimeFilter = 'today' | 'week';
@@ -83,8 +84,20 @@ const ActivityFeedScreen = () => {
   const currentUser = useAppStore(s => s.user);
   const dashboardStreak = useDashboardStatsStore(s => s.streak);
 
+  const scopeChipOptions = useMemo(
+    () => SCOPE_OPTIONS.filter(o => SURFACE_GROUPS_IN_APP || o.key !== 'groups'),
+    [],
+  );
+
+  useEffect(() => {
+    if (!SURFACE_GROUPS_IN_APP && scopeFilter === 'groups') {
+      setScopeFilter('all');
+    }
+  }, [scopeFilter, SURFACE_GROUPS_IN_APP]);
+
   const {events: activityEvents, error, refresh} = useActivityData('current_user', scopeFilter === 'all' ? undefined : scopeFilter);
   const {groups} = useGroups('current_user');
+  const groupsForSummary = SURFACE_GROUPS_IN_APP ? groups : [];
 
   const filteredEvents = useMemo(() => {
     let filtered = [...activityEvents];
@@ -104,14 +117,16 @@ const ActivityFeedScreen = () => {
     const checkInsToday = activityEvents.filter(
       e => e.type === 'check_in' && isToday(new Date(e.timestamp))
     ).length;
-    const mostActiveGroup = groups.filter(g => g.isJoined).sort((a, b) => (b.memberCount ?? 0) - (a.memberCount ?? 0))[0];
+    const mostActiveGroup = groupsForSummary
+      .filter(g => g.isJoined)
+      .sort((a, b) => (b.memberCount ?? 0) - (a.memberCount ?? 0))[0];
     return {
       activitiesToday: todayEvents.length,
       friendsActive: Math.min(friendsActive, 12),
       newCheckIns: checkInsToday,
       mostActiveGroup: mostActiveGroup?.name || '–',
     };
-  }, [activityEvents, groups]);
+  }, [activityEvents, groupsForSummary]);
 
   const handleUserPress = (userId: string, name: string) => {
     navigation.navigate('FriendProfile', {
@@ -155,7 +170,9 @@ const ActivityFeedScreen = () => {
         <View style={styles.header}>
           <Text style={styles.headerTitle}>Aktivitet</Text>
           <Text style={styles.headerSubtitle}>
-            Se hvad venner, grupper og lokale brugere laver
+            {SURFACE_GROUPS_IN_APP
+              ? 'Se hvad venner, grupper og lokale brugere laver'
+              : 'Se hvad venner og lokale brugere laver'}
           </Text>
           <Text style={styles.headerSummary}>
             {filteredEvents.length} aktiviteter{timeFilter === 'today' ? ' i dag' : ' denne uge'}
@@ -182,12 +199,14 @@ const ActivityFeedScreen = () => {
             label="Nye check-ins"
             color={colors.success}
           />
-          <SummaryCard
-            icon="people-circle"
-            value={summary.mostActiveGroup}
-            label="Mest aktiv gruppe"
-            color={colors.warning}
-          />
+          {SURFACE_GROUPS_IN_APP ? (
+            <SummaryCard
+              icon="people-circle"
+              value={summary.mostActiveGroup}
+              label="Mest aktiv gruppe"
+              color={colors.warning}
+            />
+          ) : null}
         </View>
 
         {/* Scope filter chips */}
@@ -196,7 +215,7 @@ const ActivityFeedScreen = () => {
             horizontal
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.chipRow}>
-            {SCOPE_OPTIONS.map(({key, label}) => (
+            {scopeChipOptions.map(({key, label}) => (
               <TouchableOpacity
                 key={key}
                 style={[styles.chip, scopeFilter === key && styles.chipActive]}
@@ -309,13 +328,15 @@ const ActivityFeedScreen = () => {
               <Icon name="person-add" size={20} color={colors.primary} />
               <Text style={styles.ctaButtonText}>Find venner</Text>
             </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.ctaButton}
-              onPress={() => navigation.navigate('Friends', {screen: 'Grupper'} as never)}
-              activeOpacity={0.8}>
-              <Icon name="people" size={20} color={colors.primary} />
-              <Text style={styles.ctaButtonText}>Opret gruppe</Text>
-            </TouchableOpacity>
+            {SURFACE_GROUPS_IN_APP ? (
+              <TouchableOpacity
+                style={styles.ctaButton}
+                onPress={() => navigation.navigate('Friends', {screen: 'Grupper'} as never)}
+                activeOpacity={0.8}>
+                <Icon name="people" size={20} color={colors.primary} />
+                <Text style={styles.ctaButtonText}>Opret gruppe</Text>
+              </TouchableOpacity>
+            ) : null}
           </View>
         )}
       </ScrollView>

@@ -9,7 +9,7 @@ export type StreakState = {
   lastCheckInDateKey: string | null;
 };
 
-const MILESTONE_DAYS = [1, 3, 7, 14, 30, 60, 100, 365] as const;
+const MILESTONE_DAYS = [3, 7, 14, 30, 100] as const;
 
 /** Local calendar day YYYY-MM-DD */
 export function getLocalDateString(d: Date): string {
@@ -63,18 +63,30 @@ export function updateStreak(prev: StreakState, at: Date = new Date()): StreakSt
   };
 }
 
-/** Threshold order: highest first (>=) */
-export function getStreakIcon(streak: number): string {
-  if (streak <= 0) return '';
-  if (streak >= 365) return '🔱';
-  if (streak >= 100) return '👑';
-  if (streak >= 60) return '🦁';
-  if (streak >= 30) return '🐺';
-  if (streak >= 14) return '🧱';
-  if (streak >= 7) return '💪';
-  if (streak >= 3) return '⚡';
-  if (streak >= 1) return '🔥';
+/** Shared streak badge mapping (single source across app UI) */
+export function getStreakBadge(streak: number): string {
+  if (streak >= 100) return '💎';
+  if (streak >= 30) return '👑';
+  if (streak >= 14) return '🌋';
+  if (streak >= 7) return '⚡';
+  if (streak >= 3) return '🔥';
   return '';
+}
+
+/** Backwards-compatible alias used by existing components */
+export function getStreakIcon(streak: number): string {
+  return getStreakBadge(streak);
+}
+
+export function formatStreakLabel(
+  streak: number,
+  locale: 'da' | 'en' = 'da',
+): string {
+  const safe = Math.max(0, Math.floor(streak));
+  if (locale === 'en') {
+    return safe === 1 ? 'Streak: 1 day' : `Streak: ${safe} days`;
+  }
+  return safe === 1 ? 'Streak: 1 dag' : `Streak: ${safe} dage`;
 }
 
 export type NextMilestone = {

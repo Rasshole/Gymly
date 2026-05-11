@@ -1,6 +1,6 @@
 /**
- * Leaderboard konfiguration
- * Skift til true når Firestore er konfigureret
+ * Leaderboard konfiguration — Reserved for future competitive/social systems.
+ * Skift til true når Firestore er konfigureret til fuld rangliste-backend.
  */
 export const USE_FIRESTORE_LEADERBOARD = true;
 

@@ -9,7 +9,7 @@ import {
   Pressable,
   Easing,
 } from 'react-native';
-import type {BadgeDefinition} from '@/types/badge.types';
+import type {BadgeDefinition, BadgeRarity} from '@/types/badge.types';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
 
@@ -17,6 +17,13 @@ type Props = {
   visible: boolean;
   badge: BadgeDefinition | null;
   onDismiss: () => void;
+};
+
+const RARITY_DK: Record<BadgeRarity, string> = {
+  common: 'Almindelig',
+  rare: 'Sjælden',
+  epic: 'Episk',
+  legendary: 'Legendarisk',
 };
 
 const DURATION_UP = 220;
@@ -57,6 +64,15 @@ export function BadgeUnlockModal({visible, badge, onDismiss}: Props) {
     return null;
   }
 
+  const rarityStyle =
+    badge.rarity === 'legendary'
+      ? styles.cardLegendary
+      : badge.rarity === 'epic'
+        ? styles.cardEpic
+        : badge.rarity === 'rare'
+          ? styles.cardRare
+          : styles.cardCommon;
+
   return (
     <Modal
       visible={visible}
@@ -66,13 +82,16 @@ export function BadgeUnlockModal({visible, badge, onDismiss}: Props) {
       <Pressable style={styles.backdrop} onPress={onDismiss}>
         <Animated.View style={[styles.cardWrap, {opacity, transform: [{scale}]}]}>
           <Pressable onPress={e => e.stopPropagation()}>
-            <View style={styles.card}>
+            <View style={[styles.card, rarityStyle]}>
               <View style={styles.emojiGlow}>
                 <Text style={styles.emoji} accessibilityRole="text">
                   {badge.emoji}
                 </Text>
               </View>
-              <Text style={styles.kicker}>Nyt badge</Text>
+              <Text style={styles.kicker}>Nyt badge låst op</Text>
+              <View style={styles.rarityPill}>
+                <Text style={styles.rarityText}>{RARITY_DK[badge.rarity]}</Text>
+              </View>
               <Text style={styles.name}>{badge.name}</Text>
               <Text style={styles.desc}>{badge.description}</Text>
               <TouchableOpacity
@@ -107,12 +126,31 @@ const styles = StyleSheet.create({
     padding: spacing.xl,
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: 'rgba(139, 92, 246, 0.45)',
-    shadowColor: colors.primary,
     shadowOffset: {width: 0, height: 0},
-    shadowOpacity: 0.45,
-    shadowRadius: 24,
+    shadowOpacity: 0.4,
+    shadowRadius: 22,
     elevation: 14,
+  },
+  cardCommon: {
+    borderColor: colors.border,
+    shadowColor: '#000',
+  },
+  cardRare: {
+    borderColor: 'rgba(139, 92, 246, 0.75)',
+    shadowColor: 'rgb(139, 92, 246)',
+  },
+  cardEpic: {
+    borderColor: 'rgba(167, 139, 250, 0.95)',
+    shadowColor: 'rgb(167, 139, 250)',
+    shadowOpacity: 0.55,
+    shadowRadius: 28,
+  },
+  cardLegendary: {
+    borderWidth: 2,
+    borderColor: 'rgba(250, 204, 21, 0.95)',
+    shadowColor: 'rgb(250, 204, 21)',
+    shadowOpacity: 0.65,
+    shadowRadius: 32,
   },
   emojiGlow: {
     marginBottom: spacing.sm,
@@ -130,6 +168,19 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     letterSpacing: 0.5,
     marginBottom: spacing.xs,
+  },
+  rarityPill: {
+    paddingHorizontal: spacing.md,
+    paddingVertical: 4,
+    borderRadius: radius.full,
+    backgroundColor: 'rgba(139, 92, 246, 0.12)',
+    marginBottom: spacing.sm,
+  },
+  rarityText: {
+    ...typography.caption,
+    fontWeight: '800',
+    color: colors.primaryDark,
+    letterSpacing: 0.3,
   },
   name: {
     fontSize: 22,

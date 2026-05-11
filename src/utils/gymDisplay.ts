@@ -62,4 +62,22 @@ export const findGymById = (id?: string | null): DanishGym | null => {
   return danishGyms.find(gym => gym.id === id) || null;
 };
 
+/** Matcher center_id fra DB (trim/case) når streng ikke er identisk med register */
+export const findGymByIdRelaxed = (id?: string | null): DanishGym | null => {
+  const exact = findGymById(id);
+  if (exact) {
+    return exact;
+  }
+  if (id == null || id === '') {
+    return null;
+  }
+  const t = String(id).trim().toLowerCase();
+  if (!t) {
+    return null;
+  }
+  return (
+    danishGyms.find(g => String(g.id).trim().toLowerCase() === t) || null
+  );
+};
+
 

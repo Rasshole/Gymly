@@ -51,6 +51,8 @@ export function navigateToFriendProfile(
     mutualFriends?: number;
     gyms?: string[];
     friendAvatarUrl?: string;
+    /** Gym-kontekst (fx fra Live / Aktive nu) — ikke præcis GPS */
+    activeCenterName?: string;
   },
 ): void {
   navigateToRootScreen(navigation, 'FriendProfile', params);

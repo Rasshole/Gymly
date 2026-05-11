@@ -1,6 +1,6 @@
 /**
- * Friends Screen
- * Shows list of friends and who is currently online/active at gyms
+ * Friends Screen — launch focus: venneliste, søgning, tilføj ven, status på kort.
+ * Live directory for alle brugere ligger fremtidigt i Online-fanen (FriendsNavigator) + Hjem / tjek ind.
  */
 
 import React, {useState, useCallback} from 'react';
@@ -10,19 +10,20 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
-  Image,
   ActivityIndicator,
   Pressable,
+  Alert,
 } from 'react-native';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppStore} from '@/store/appStore';
 import {useFriendStore} from '@/store/friendStore';
-import NotificationService from '@/services/notifications/NotificationService';
-import EmptyState from '@/components/ui/EmptyState';
+import {useChatStore} from '@/store/chatStore';
+import {getOrCreateDmThread} from '@/services/supabase/dmService';
 import colors from '@/theme/colors';
+import {typography} from '@/theme/designTokens';
 import {MuscleGroup} from '@/types/workout.types';
-import muscleImg from '@/utils/muscleGroupImages';
+import MuscleGroupTileIcon from '@/components/ui/MuscleGroupTileIcon';
 import {
   listFriendsWithProfiles,
   upsertMyProfile,
@@ -53,19 +54,28 @@ const FriendsScreen = () => {
   const navigation = useNavigation<any>();
   const {user} = useAppStore();
   const loadFriendStore = useFriendStore(s => s.load);
+  const getChatByParticipants = useChatStore(s => s.getChatByParticipants);
+  const upsertChat = useChatStore(s => s.upsertChat);
   const [searchQuery, setSearchQuery] = useState('');
-  const [pendingJoinRequests, setPendingJoinRequests] = useState<Set<string>>(new Set());
   const [friends, setFriends] = useState<Friend[]>([]);
   const [loadingFriends, setLoadingFriends] = useState(true);
 
-  const openAddFriend = useCallback(() => {
+  const stackNavigate = useCallback((routeName: string) => {
     const stackNav = navigation.getParent()?.getParent?.();
     if (stackNav && typeof (stackNav as any).navigate === 'function') {
-      (stackNav as any).navigate('AddFriend');
+      (stackNav as any).navigate(routeName);
       return;
     }
-    (navigation as any).navigate?.('AddFriend');
+    (navigation as any).navigate?.(routeName);
   }, [navigation]);
+
+  const openAddFriend = useCallback(() => {
+    stackNavigate('AddFriend');
+  }, [stackNavigate]);
+
+  const openNotifications = useCallback(() => {
+    stackNavigate('Notifications');
+  }, [stackNavigate]);
 
   const openFriendProfile = useCallback(
     (item: Friend) => {
@@ -78,6 +88,42 @@ const FriendsScreen = () => {
       });
     },
     [navigation],
+  );
+
+  const openDmToFriend = useCallback(
+    async (friendId: string, friendName: string) => {
+      if (!user?.id) {
+        return;
+      }
+      const participantIds = [user.id, friendId].sort();
+      const nameById: Record<string, string> = {
+        [user.id]: user.displayName || 'Dig',
+        [friendId]: friendName,
+      };
+      const participantNames = participantIds.map(id => nameById[id] ?? 'Ven');
+      const existingChat = getChatByParticipants(participantIds);
+      try {
+        const threadId = await getOrCreateDmThread(friendId);
+        upsertChat({
+          id: threadId,
+          participantIds,
+          participantNames,
+          lastActivity: existingChat?.lastActivity ?? new Date(),
+          unreadCount: existingChat?.unreadCount ?? 0,
+          avatar: existingChat?.avatar,
+          avatarInitials: existingChat?.avatarInitials,
+        });
+        navigation.navigate('Chat', {
+          chatId: threadId,
+          friendId,
+          friendName,
+          participants: [{id: friendId, name: friendName}],
+        });
+      } catch (e) {
+        Alert.alert('Besked', (e as Error).message);
+      }
+    },
+    [user, getChatByParticipants, navigation, upsertChat],
   );
 
   useFocusEffect(
@@ -182,8 +228,16 @@ const FriendsScreen = () => {
     friend.name.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
-  const formatActiveTime = (time: string) => {
-    return `Aktiv i ${time}`;
+  /** Kort “Aktiv nu” når check-in er frisk; ellers “Aktiv i X min”. */
+  const formatActiveSubtitle = (activeTime: string): string => {
+    const m = /^(\d+)\s*min$/.exec(String(activeTime).trim());
+    if (m) {
+      const mins = Number(m[1]);
+      if (mins <= 12) {
+        return 'Aktiv nu';
+      }
+    }
+    return `Aktiv i ${activeTime}`;
   };
 
   const formatLastSeen = (checkOutTime?: Date): string => {
@@ -215,9 +269,16 @@ const FriendsScreen = () => {
 
   // Get muscle group key based on muscle group name
   const getMuscleGroupKey = (muscleGroup?: string): MuscleGroup => {
-    if (!muscleGroup) return 'hele_kroppen';
-    
+    if (!muscleGroup) return 'cardio';
+
     const lower = muscleGroup.toLowerCase();
+    if (
+      lower.includes('cardio') ||
+      lower.includes('hele kropp') ||
+      lower.includes('hele_kroppen')
+    ) {
+      return 'cardio';
+    }
     if (lower.includes('bryst') || lower.includes('chest')) {
       return 'bryst';
     } else if (lower.includes('triceps')) {
@@ -237,43 +298,28 @@ const FriendsScreen = () => {
     } else if (lower.includes('pilates')) {
       return 'pilates';
     }
-    return 'hele_kroppen';
-  };
-
-  const handleRequestJoin = (friend: Friend) => {
-    if (pendingJoinRequests.has(friend.id)) {
-      // Cancel request
-      setPendingJoinRequests(prev => {
-        const newSet = new Set(prev);
-        newSet.delete(friend.id);
-        return newSet;
-      });
-    } else {
-      // Send join request
-      if (user) {
-        NotificationService.sendJoinRequest(
-          user.displayName || 'En ven',
-          friend.id,
-          friend.name,
-          friend.gymName,
-        );
-        
-        setPendingJoinRequests(prev => new Set(prev).add(friend.id));
-      }
-    }
+    return 'cardio';
   };
 
   const renderEmptyState = () => (
-    <EmptyState
-      icon="people-outline"
-      title="Ingen venner endnu"
-      message="Søg efter dit brugernavn hos hinanden og send en venneanmodning. Du kan også svare under Notifikationer."
-      actionLabel="Tilføj ven"
-      onAction={openAddFriend}
-    />
+    <View style={styles.friendsEmptyOuter}>
+      <View style={styles.friendsEmptyInner}>
+        <View style={styles.friendsEmptyIconWrap}>
+          <Icon name="people-outline" size={52} color={colors.textMuted} />
+        </View>
+        <Text style={styles.friendsEmptyTitle}>Ingen venner endnu</Text>
+        <Text style={styles.friendsEmptyMessage}>
+          Søg efter dit brugernavn hos hinanden og send en venneanmodning. Du kan
+          også svare under Notifikationer.
+        </Text>
+      </View>
+    </View>
   );
 
-  const renderFriendItem = ({item}: {item: Friend}) => (
+  const renderFriendItem = ({item}: {item: Friend}) => {
+    const activeLabel =
+      item.isOnline && item.activeTime ? formatActiveSubtitle(item.activeTime) : '';
+    return (
     <View style={styles.friendItem}>
       <Pressable
         style={({pressed}) => [
@@ -288,31 +334,32 @@ const FriendsScreen = () => {
             name={item.name}
             imageUrl={item.avatar}
             size="lg"
+            showOnlineIndicator={item.isOnline}
+            isOnline={item.isOnline}
           />
-          {item.isOnline && <View style={styles.onlineIndicator} />}
         </View>
         <View style={styles.friendInfo}>
           <View style={styles.friendHeader}>
             <Text style={styles.friendName} numberOfLines={1}>
               {item.name}
             </Text>
-            {item.isOnline && item.activeTime && (
-              <Text style={styles.activeTimeInline} numberOfLines={1}>
-                {formatActiveTime(item.activeTime)}
+            {activeLabel ? (
+              <Text
+                style={[
+                  styles.activeTimeInline,
+                  activeLabel === 'Aktiv nu' && styles.activeNowInline,
+                ]}
+                numberOfLines={1}>
+                {activeLabel}
               </Text>
-            )}
+            ) : null}
             {item.isOnline && item.muscleGroup && (
               <View style={styles.muscleGroupIconContainer}>
-                <Image
-                  source={muscleImg.getMuscleGroupImage(getMuscleGroupKey(item.muscleGroup))}
+                <MuscleGroupTileIcon
+                  group={getMuscleGroupKey(item.muscleGroup)}
+                  size={20}
                   style={styles.muscleGroupImage}
-                  resizeMode="contain"
                 />
-              </View>
-            )}
-            {item.isOnline && (
-              <View style={styles.onlineBadge}>
-                <View style={styles.onlineDot} />
               </View>
             )}
           </View>
@@ -333,23 +380,17 @@ const FriendsScreen = () => {
       </Pressable>
       {item.isOnline && (
         <TouchableOpacity
-          style={[
-            styles.requestButton,
-            pendingJoinRequests.has(item.id) && styles.requestButtonPending,
-          ]}
-          onPress={() => handleRequestJoin(item)}
-          activeOpacity={0.7}>
-          <Text
-            style={[
-              styles.requestButtonText,
-              pendingJoinRequests.has(item.id) && styles.requestButtonTextPending,
-            ]}>
-            {pendingJoinRequests.has(item.id) ? 'Anmodet' : 'Deltag'}
-          </Text>
+          onPress={() => void openDmToFriend(item.id, item.name)}
+          style={styles.activeFriendMessageBtn}
+          hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
+          accessibilityLabel="Besked"
+          activeOpacity={0.75}>
+          <Icon name="chatbubble-outline" size={22} color={colors.primary} />
         </TouchableOpacity>
       )}
     </View>
-  );
+    );
+  };
 
   return (
     <View style={styles.container}>
@@ -378,12 +419,31 @@ const FriendsScreen = () => {
           )
         }
         ListHeaderComponent={
-          <SocialPrimaryButton
-            label="Tilføj ven"
-            iconName="person-add-outline"
-            onPress={openAddFriend}
-            style={styles.addFriendBanner}
-          />
+          <View style={styles.listHeaderWrap}>
+            <SocialPrimaryButton
+              label="Tilføj ven"
+              iconName="person-add-outline"
+              onPress={openAddFriend}
+              style={styles.addFriendBanner}
+            />
+            <Pressable
+              onPress={openNotifications}
+              style={({pressed}) => [
+                styles.friendRequestsRow,
+                pressed && styles.friendRequestsRowPressed,
+              ]}
+              accessibilityRole="button"
+              accessibilityLabel="Åbn notifikationer for venneanmodninger">
+              <Icon name="mail-unread-outline" size={20} color={colors.primary} />
+              <View style={styles.friendRequestsTextCol}>
+                <Text style={styles.friendRequestsTitle}>Venneanmodninger</Text>
+                <Text style={styles.friendRequestsSubtitle}>
+                  Accepter eller afvis under Notifikationer
+                </Text>
+              </View>
+              <Icon name="chevron-forward" size={18} color={colors.textMuted} />
+            </Pressable>
+          </View>
         }
         showsVerticalScrollIndicator={false}
         ItemSeparatorComponent={() => <View style={styles.separator} />}
@@ -402,9 +462,43 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
   },
+  listHeaderWrap: {
+    marginBottom: 4,
+    paddingTop: 2,
+  },
   addFriendBanner: {
     marginHorizontal: 16,
+    marginBottom: 10,
+  },
+  friendRequestsRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginHorizontal: 16,
     marginBottom: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 12,
+    borderRadius: 12,
+    backgroundColor: colors.backgroundCard,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.border,
+    gap: 10,
+  },
+  friendRequestsRowPressed: {
+    opacity: 0.85,
+  },
+  friendRequestsTextCol: {
+    flex: 1,
+    minWidth: 0,
+  },
+  friendRequestsTitle: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: colors.text,
+  },
+  friendRequestsSubtitle: {
+    fontSize: 13,
+    color: colors.textMuted,
+    marginTop: 2,
   },
   list: {
     paddingHorizontal: 16,
@@ -457,17 +551,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#fff',
   },
-  onlineIndicator: {
-    position: 'absolute',
-    bottom: 0,
-    right: 0,
-    width: 16,
-    height: 16,
-    borderRadius: 8,
-    backgroundColor: '#34C759',
-    borderWidth: 2,
-    borderColor: '#fff',
-  },
   friendInfo: {
     flex: 1,
     minWidth: 0, // Allow text to shrink
@@ -489,6 +572,10 @@ const styles = StyleSheet.create({
     color: '#8E8E93',
     marginRight: 8,
   },
+  activeNowInline: {
+    color: colors.success,
+    fontWeight: '600',
+  },
   muscleGroupIconContainer: {
     marginLeft: 4,
     marginRight: 4,
@@ -498,17 +585,6 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
   },
-  onlineBadge: {
-    marginLeft: 4,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  onlineDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    backgroundColor: '#34C759',
-  },
   activeText: {
     fontSize: 14,
     color: colors.textMuted,
@@ -517,29 +593,43 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: colors.textMuted,
   },
-  requestButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.primary,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderRadius: 20,
+  /** Match Home “Aktive nu” `activeNowMessageBtn` (+ trailing margin for card row). */
+  activeFriendMessageBtn: {
+    padding: 4,
     marginLeft: 8,
-  },
-  requestButtonPending: {
-    backgroundColor: '#F0F0F0',
-  },
-  requestButtonText: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: colors.white,
-    marginLeft: 4,
-  },
-  requestButtonTextPending: {
-    color: colors.textMuted,
   },
   emptyList: {
     flexGrow: 1,
+    paddingBottom: 24,
+  },
+  friendsEmptyOuter: {
+    flexGrow: 1,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 24,
+    paddingVertical: 16,
+  },
+  friendsEmptyInner: {
+    alignItems: 'center',
+    transform: [{translateY: -40}],
+  },
+  friendsEmptyIconWrap: {
+    marginBottom: 16,
+  },
+  friendsEmptyTitle: {
+    ...typography.h4,
+    fontWeight: '700',
+    color: colors.text,
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+  friendsEmptyMessage: {
+    ...typography.body,
+    color: colors.textTertiary,
+    textAlign: 'center',
+    maxWidth: 300,
+    lineHeight: 22,
   },
   loadingEmpty: {
     paddingVertical: 48,

@@ -10,6 +10,7 @@ import {
   evaluateNewUnlocks,
   computeBadgeProgress,
   getBadgeStatValue,
+  isBadgeRequirementMet,
 } from '@/services/badgeEngine';
 import {
   insertBadgeUnlockedNotification,
@@ -113,6 +114,165 @@ function sortRecordsByDateDesc(records: UnlockedBadgeRecord[]): UnlockedBadgeRec
   );
 }
 
+function logBadgeEngine(...args: unknown[]) {
+  if (__DEV__) {
+    console.log('[BadgeEngine]', ...args);
+  }
+}
+
+/** Én kø pr. bruger så parallel kald ikke dobbelt-unlock eller dobbelt modal-kø. */
+const badgeSyncChainByUser = new Map<string, Promise<void>>();
+
+/**
+ * Genberegner stats, opdaterer fremskridt i `user_badges`, låser op én gang pr. badge
+ * (animation/notif kun for nye unlocks). Kør efter handlinger der kan ændre badge-data.
+ */
+export async function checkAndUnlockBadges(
+  userId: string | undefined,
+  displayName?: string,
+): Promise<void> {
+  if (!userId) {
+    return;
+  }
+  const uid = userId;
+  const prev = badgeSyncChainByUser.get(uid) ?? Promise.resolve();
+  const job = prev
+    .catch(() => {})
+    .then(() =>
+      runCheckAndUnlockBadgesBody(uid, (displayName ?? '').trim() || 'Bruger'),
+    );
+  badgeSyncChainByUser.set(uid, job);
+  await job.finally(() => {
+    if (badgeSyncChainByUser.get(uid) === job) {
+      badgeSyncChainByUser.delete(uid);
+    }
+  });
+}
+
+async function runCheckAndUnlockBadgesBody(uid: string, dn: string): Promise<void> {
+  try {
+    logBadgeEngine('checking badges for user', uid);
+    const stats = await buildUserBadgeStats(uid);
+    useBadgeStore.setState(state => ({
+      statsByUser: {
+        ...state.statsByUser,
+        [uid]: stats,
+      },
+    }));
+
+    let server: Awaited<ReturnType<typeof fetchUserBadges>> = [];
+    try {
+      server = await fetchUserBadges(uid);
+    } catch {
+      server = [];
+    }
+
+    const prevLocal = useBadgeStore.getState().unlockedByUser[uid] ?? {};
+    const afterServer = mergeUnlockedFromServer(prevLocal, server);
+    const unlockedSet = new Set(Object.keys(afterServer));
+
+    for (const def of BADGE_DEFINITIONS) {
+      if (isBadgeRequirementMet(def, stats) && unlockedSet.has(def.id)) {
+        logBadgeEngine('skipped already unlocked badge:', def.name);
+      }
+    }
+
+    const newly = evaluateNewUnlocks(stats, unlockedSet);
+
+    if (newly.length > 0) {
+      const nextUserMap = {...afterServer};
+      newly.forEach((def, i) => {
+        const existing = nextUserMap[def.id];
+        const t = new Date(Date.now() + i).toISOString();
+        nextUserMap[def.id] = existing ? pickEarlierIso(existing, t) : t;
+        logBadgeEngine('unlocked badge:', def.name);
+      });
+      useBadgeStore.setState(state => ({
+        unlockedByUser: {
+          ...state.unlockedByUser,
+          [uid]: nextUserMap,
+        },
+        unlockModalQueue: [...state.unlockModalQueue, ...newly],
+      }));
+      useBadgeStore.getState().persist().catch(() => {});
+
+      const addBadge = useActivityStore.getState().addBadgeUnlockedActivity;
+      for (const def of newly) {
+        addBadge({
+          userId: uid,
+          displayName: dn,
+          badgeEmoji: def.emoji,
+          badgeName: def.name,
+        });
+      }
+      for (const def of newly) {
+        if (def.category === 'streak') {
+          insertStreakMilestoneNotification(
+            uid,
+            def.requirement_value,
+            def,
+          ).catch(() => {});
+        } else {
+          insertBadgeUnlockedNotification(uid, def).catch(() => {});
+        }
+      }
+      useInAppNotificationStore.getState().refresh(uid).catch(() => {});
+    } else if (!unlockMapsEqual(afterServer, prevLocal)) {
+      useBadgeStore.setState(state => ({
+        unlockedByUser: {
+          ...state.unlockedByUser,
+          [uid]: afterServer,
+        },
+      }));
+      useBadgeStore.getState().persist().catch(() => {});
+    }
+
+    const finalMap = useBadgeStore.getState().unlockedByUser[uid] ?? {};
+    const postStats = await buildUserBadgeStats(uid);
+    useBadgeStore.setState(state => ({
+      statsByUser: {
+        ...state.statsByUser,
+        [uid]: postStats,
+      },
+    }));
+
+    for (const def of BADGE_DEFINITIONS) {
+      const unlocked = Boolean(finalMap[def.id]);
+      const prog = computeBadgeProgress(def, postStats, unlocked);
+      if (
+        prog.status === 'almost_unlocked' &&
+        prog.percent >= 80 &&
+        !unlocked
+      ) {
+        tryInsertBadgeProgressNotification(uid, def, prog.percent).catch(() => {});
+      }
+    }
+
+    const upserts = BADGE_DEFINITIONS.map(def => {
+      const st = getBadgeStatValue(def, postStats);
+      const t = def.requirement_value;
+      const progress = Math.min(Math.max(0, st), t);
+      const unlockedAt = finalMap[def.id] ?? null;
+      return {
+        user_id: uid,
+        badge_id: def.id,
+        progress,
+        unlocked_at: unlockedAt,
+      };
+    });
+    try {
+      await upsertUserBadges(upserts);
+      logBadgeEngine('progress updated');
+    } catch {
+      /* offline / tabel findes ikke */
+    }
+  } catch (e) {
+    if (__DEV__) {
+      console.warn('[BadgeEngine] check failed', e);
+    }
+  }
+}
+
 export const useBadgeStore = create<BadgeStoreState>((set, get) => ({
   unlockedByUser: {},
   statsByUser: {},
@@ -198,120 +358,7 @@ export const useBadgeStore = create<BadgeStoreState>((set, get) => ({
   },
 
   syncBadgesForUser: (userId, displayName) => {
-    if (!userId) {
-      return;
-    }
-    (async () => {
-      const uid = userId;
-      const stats = await buildUserBadgeStats(uid);
-      set(state => ({
-        statsByUser: {
-          ...state.statsByUser,
-          [uid]: stats,
-        },
-      }));
-      let server: Awaited<ReturnType<typeof fetchUserBadges>> = [];
-      try {
-        server = await fetchUserBadges(uid);
-      } catch {
-        server = [];
-      }
-
-      const prevLocal = get().unlockedByUser[uid] ?? {};
-      const afterServer = mergeUnlockedFromServer(prevLocal, server);
-      const unlockedSet = new Set(Object.keys(afterServer));
-      const newly = evaluateNewUnlocks(stats, unlockedSet);
-      if (newly.length > 0) {
-        const nextUserMap = {...afterServer};
-        newly.forEach((def, i) => {
-          const existing = nextUserMap[def.id];
-          const t = new Date(Date.now() + i).toISOString();
-          nextUserMap[def.id] = existing
-            ? pickEarlierIso(existing, t)
-            : t;
-        });
-        set(state => ({
-          unlockedByUser: {
-            ...state.unlockedByUser,
-            [uid]: nextUserMap,
-          },
-          unlockModalQueue: [...state.unlockModalQueue, ...newly],
-        }));
-        get().persist().catch(() => {});
-
-        const addBadge = useActivityStore.getState().addBadgeUnlockedActivity;
-        for (const def of newly) {
-          addBadge({
-            userId: uid,
-            displayName,
-            badgeEmoji: def.emoji,
-            badgeName: def.name,
-          });
-        }
-        for (const def of newly) {
-          if (def.category === 'streak') {
-            insertStreakMilestoneNotification(
-              uid,
-              def.requirement_value,
-              def,
-            ).catch(() => {});
-          } else {
-            insertBadgeUnlockedNotification(uid, def).catch(() => {});
-          }
-        }
-        useInAppNotificationStore.getState().refresh(uid).catch(() => {});
-      } else if (!unlockMapsEqual(afterServer, prevLocal)) {
-        set(state => ({
-          unlockedByUser: {
-            ...state.unlockedByUser,
-            [uid]: afterServer,
-          },
-        }));
-        get().persist().catch(() => {});
-      }
-
-      const finalMap = get().unlockedByUser[uid] ?? {};
-      const postStats = await buildUserBadgeStats(uid);
-      set(state => ({
-        statsByUser: {
-          ...state.statsByUser,
-          [uid]: postStats,
-        },
-      }));
-      for (const def of BADGE_DEFINITIONS) {
-        const unlocked = Boolean(finalMap[def.id]);
-        const prog = computeBadgeProgress(def, postStats, unlocked);
-        if (
-          prog.status === 'almost_unlocked' &&
-          prog.percent >= 80 &&
-          !unlocked
-        ) {
-          tryInsertBadgeProgressNotification(
-            uid,
-            def,
-            prog.percent,
-          ).catch(() => {});
-        }
-      }
-
-      const upserts = BADGE_DEFINITIONS.map(def => {
-        const st = getBadgeStatValue(def, stats);
-        const t = def.requirement_value;
-        const progress = Math.min(Math.max(0, st), t);
-        const unlockedAt = finalMap[def.id] ?? null;
-        return {
-          user_id: uid,
-          badge_id: def.id,
-          progress,
-          unlocked_at: unlockedAt,
-        };
-      });
-      try {
-        await upsertUserBadges(upserts);
-      } catch {
-        /* offline / tabel findes ikke */
-      }
-    })().catch(() => {});
+    void checkAndUnlockBadges(userId, displayName);
   },
 
   dismissUnlockModal: () => {
@@ -332,9 +379,17 @@ export function getBadgeProgressList(userId: string) {
     total_training_time_minutes: 0,
     total_sessions: 0,
     current_streak_days: 0,
+    longest_streak_days: 0,
     longest_session_minutes: 0,
+    total_check_ins: 0,
     friends_trained_with_count: 0,
     unique_gyms_count: 0,
+    total_messages_sent: 0,
+    unique_dm_recipients: 0,
+    planned_workouts_created: 0,
+    planned_workouts_completed_valid: 0,
+    early_check_ins: 0,
+    late_check_ins: 0,
   };
   return BADGE_DEFINITIONS.map(def => {
     const unlocked = store.isUnlocked(userId, def.id);

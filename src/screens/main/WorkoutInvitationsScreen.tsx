@@ -28,7 +28,7 @@ const MUSCLE_GROUP_LABELS: Record<string, string> = {
   biceps: 'Biceps',
   mave: 'Mave',
   ryg: 'Ryg',
-  hele_kroppen: 'Hele kroppen',
+  cardio: 'Cardio',
 };
 
 const WorkoutInvitationsScreen = () => {

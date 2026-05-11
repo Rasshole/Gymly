@@ -4,6 +4,8 @@ import {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
 
 export interface WorkoutPlanEntry {
   id: string;
+  /** Opretter (Supabase); valgfri for ældre lokale plan_* poster */
+  creatorUserId?: string;
   gym: DanishGym;
   muscles: MuscleGroup[];
   scheduledAt: Date;

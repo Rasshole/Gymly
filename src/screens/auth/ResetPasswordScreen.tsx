@@ -8,6 +8,8 @@ import {
   Alert,
   KeyboardAvoidingView,
   Platform,
+  ScrollView,
+  Animated,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
@@ -16,6 +18,11 @@ import {spacing, typography, radius} from '@/theme/designTokens';
 import {supabase} from '@/services/supabase/supabaseClient';
 import AuthService from '@/services/auth/AuthService';
 import {useAppStore} from '@/store/appStore';
+import safeArea from '@/safeAreaContext';
+import Svg, {Defs, LinearGradient, Rect, Stop} from 'react-native-svg';
+import GymlyLogo from '@/components/GymlyLogo';
+
+const {SafeAreaView} = safeArea;
 
 const MIN_LEN = 8;
 
@@ -26,6 +33,19 @@ export default function ResetPasswordScreen() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [saving, setSaving] = useState(false);
+  const logoFloat = React.useRef(new Animated.Value(0)).current;
+  const primaryPress = React.useRef(new Animated.Value(1)).current;
+
+  React.useEffect(() => {
+    const loop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(logoFloat, {toValue: 1, duration: 2000, useNativeDriver: true}),
+        Animated.timing(logoFloat, {toValue: 0, duration: 2000, useNativeDriver: true}),
+      ]),
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [logoFloat]);
 
   const isValidLen = useMemo(() => password.length >= MIN_LEN, [password.length]);
   const passwordsMatch = useMemo(
@@ -77,10 +97,34 @@ export default function ResetPasswordScreen() {
   };
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-      style={styles.container}>
-      <View style={styles.card}>
+    <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
+      <View style={styles.bgGradientWrap} pointerEvents="none">
+        <Svg width="100%" height="100%">
+          <Defs>
+            <LinearGradient id="resetBg" x1="0" y1="0" x2="0" y2="1">
+              <Stop offset="0" stopColor="#F7F5FF" stopOpacity="1" />
+              <Stop offset="1" stopColor="#FFFFFF" stopOpacity="1" />
+            </LinearGradient>
+          </Defs>
+          <Rect x="0" y="0" width="100%" height="100%" fill="url(#resetBg)" />
+        </Svg>
+      </View>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        style={styles.container}>
+        <ScrollView contentContainerStyle={styles.content}>
+          <Animated.View
+            style={[
+              styles.logoWrap,
+              {
+                transform: [
+                  {translateY: logoFloat.interpolate({inputRange: [0, 1], outputRange: [0, -5]})},
+                ],
+              },
+            ]}>
+            <GymlyLogo size={72} />
+          </Animated.View>
+          <View style={styles.card}>
         <Text style={styles.title}>Ny adgangskode</Text>
         <Text style={styles.subtitle}>
           Vælg en ny adgangskode for din konto.
@@ -129,44 +173,67 @@ export default function ResetPasswordScreen() {
           style={[styles.primaryButton, saving && styles.primaryButtonDisabled]}
           onPress={handleSave}
           disabled={saving || !isValidLen || !passwordsMatch}
+          onPressIn={() =>
+            Animated.spring(primaryPress, {toValue: 0.98, useNativeDriver: true}).start()
+          }
+          onPressOut={() =>
+            Animated.spring(primaryPress, {toValue: 1, useNativeDriver: true}).start()
+          }
           activeOpacity={0.85}>
-          <Text style={styles.primaryButtonText}>
+          <Animated.Text style={[styles.primaryButtonText, {transform: [{scale: primaryPress}]}]}>
             {saving ? 'Opdaterer...' : 'Opdater kodeord'}
-          </Text>
+          </Animated.Text>
         </TouchableOpacity>
-      </View>
-    </KeyboardAvoidingView>
+          </View>
+        </ScrollView>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background,
+    backgroundColor: '#FFFFFF',
+  },
+  bgGradientWrap: {...StyleSheet.absoluteFillObject},
+  content: {
+    flexGrow: 1,
     justifyContent: 'center',
     padding: spacing.lg,
   },
+  logoWrap: {
+    alignItems: 'center',
+    marginBottom: spacing.md,
+  },
   card: {
-    backgroundColor: colors.backgroundCard,
-    borderRadius: radius.xl,
+    backgroundColor: '#FCFCFF',
+    borderRadius: 28,
     padding: spacing.lg,
+    borderWidth: 1,
+    borderColor: '#EBE7F7',
+    width: '100%',
+    maxWidth: 460,
+    alignSelf: 'center',
   },
   title: {
-    ...typography.h3,
+    ...typography.h2,
+    fontWeight: '800',
+    letterSpacing: -0.4,
     color: colors.text,
     marginBottom: spacing.xs,
   },
   subtitle: {
-    ...typography.body,
-    color: colors.textSecondary,
+    ...typography.caption,
+    color: colors.textMuted,
     marginBottom: spacing.lg,
   },
   input: {
     borderWidth: 1,
     borderColor: colors.border,
-    borderRadius: radius.md,
+    borderRadius: radius.lg,
     paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
+    paddingVertical: 14,
     color: colors.text,
     marginBottom: spacing.sm,
     backgroundColor: colors.white,
@@ -174,9 +241,10 @@ const styles = StyleSheet.create({
   primaryButton: {
     marginTop: spacing.sm,
     backgroundColor: colors.primary,
-    borderRadius: radius.md,
+    borderRadius: radius.lg,
     alignItems: 'center',
     justifyContent: 'center',
+    minHeight: 56,
     paddingVertical: spacing.sm,
   },
   primaryButtonDisabled: {

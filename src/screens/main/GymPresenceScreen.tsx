@@ -151,6 +151,8 @@ const GymPresenceScreen = () => {
                     name={f.displayName}
                     imageUrl={f.avatarUrl ?? undefined}
                     size="md"
+                    showOnlineIndicator
+                    isOnline
                   />
                   <View style={styles.friendText}>
                     <Text style={styles.friendName}>{f.displayName}</Text>

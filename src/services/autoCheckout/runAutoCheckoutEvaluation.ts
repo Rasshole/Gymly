@@ -14,13 +14,11 @@ import {getGymLatLngForCheckIn} from '@/utils/gymCoordinatesForCheckIn';
 import {getDistanceInMeters} from '@/utils/geoUtils';
 import {pushDistanceSample} from '@/logic/activeCheckinGeofenceEngine';
 import {
-  endActiveCheckInInSupabase,
   getActiveCheckInForUser,
   getLatestAutoCheckoutEventForUser,
   patchCheckInAwayState,
   updateCheckInLastSeenAt,
 } from '@/services/supabase/checkInService';
-import {deleteMyLiveWorkoutSession} from '@/services/supabase/liveWorkoutSessionService';
 import {activeSessionFromSupabaseRow, useSessionStore} from '@/store/sessionStore';
 import {useCheckInUIStore} from '@/store/checkInUIStore';
 import {
@@ -33,6 +31,7 @@ import {
   shouldForceCheckoutInactivity,
 } from '@/services/autoCheckout/evaluateAutoCheckout';
 import type {CheckInEndReason, SupabaseCheckInRow} from '@/types/checkIn.types';
+import {finishWorkoutSession} from '@/services/session/finishWorkoutSession';
 
 const GEO_OPTIONS = {enableHighAccuracy: true, timeout: 20000, maximumAge: 60000};
 
@@ -93,9 +92,11 @@ export async function runAutoCheckoutEvaluation(params: {
 
   const row = await getActiveCheckInForUser(userId).catch(() => null);
   if (!row) {
-    if (useSessionStore.getState().activeSession?.checkInId) {
-      useSessionStore.getState().endSession();
-    }
+    await finishWorkoutSession({
+      reason: 'stale',
+      userId,
+      skipSupabaseEnd: true,
+    });
     useCheckInUIStore.getState().setShowAwayZoneWarning(false);
     if (__DEV__) {
       console.log('[AutoCheckout] active session: none (DB empty)');
@@ -326,30 +327,14 @@ async function performAutoEnd(
   if (row.id) {
     inactivityPrewarned.delete(row.id);
   }
-  const auto =
-    reason === 'inactivity' ? 'inactivity' : reason === 'left_geofence' ? 'left_geofence' : null;
-  try {
-    await endActiveCheckInInSupabase(
-      row.id,
-      userId,
-      reason,
-      auto
-        ? {autoCheckoutReason: auto as 'inactivity' | 'left_geofence'}
-        : undefined,
-    );
-  } catch (e) {
-    if (__DEV__) {
-      console.warn('[AutoCheckout] end failed', e);
-    }
-    return;
-  }
-  try {
-    await deleteMyLiveWorkoutSession(userId);
-  } catch {
-    /* ignore */
-  }
-  useSessionStore.getState().endSession();
-  useCheckInUIStore.getState().setShowAwayZoneWarning(false);
+  await finishWorkoutSession({
+    reason: 'auto',
+    userId,
+    checkInId: row.id,
+    endReason: reason,
+    autoCheckoutReason:
+      reason === 'inactivity' || reason === 'left_geofence' ? reason : undefined,
+  });
   const title = 'Du blev automatisk tjekket ud';
   if (__DEV__) {
     console.log('[AutoCheckout] reason:', reason);

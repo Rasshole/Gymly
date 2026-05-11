@@ -28,7 +28,7 @@ import {
   ImagePickerResponse,
 } from 'react-native-image-picker';
 import colors from '@/theme/colors';
-import {spacing, radius, typography} from '@/theme/designTokens';
+import {spacing, radius, typography, shadows} from '@/theme/designTokens';
 import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
 
 const MOODS = [
@@ -69,7 +69,8 @@ const WORKOUT_LABELS: Record<string, string> = {
   biceps: 'Biceps',
   mave: 'Mave',
   ryg: 'Ryg',
-  hele_kroppen: 'Hele kroppen',
+  cardio: 'Cardio',
+  hele_kroppen: 'Cardio',
   reformer: 'Reformer',
   pilates: 'Pilates',
 };
@@ -199,6 +200,7 @@ const WorkoutSummaryModal: React.FC<WorkoutSummaryModalProps> = ({
   };
 
   const primaryLabel = shareToFeed ? 'Del træning' : 'Gem og afslut';
+  const centerShort = summary.gymName.replace(/\s*-\s*Falkoner$/i, '');
 
   return (
     <Modal
@@ -219,26 +221,47 @@ const WorkoutSummaryModal: React.FC<WorkoutSummaryModalProps> = ({
             contentContainerStyle={styles.scrollContent}
             showsVerticalScrollIndicator={false}
             keyboardShouldPersistTaps="handled">
+            <View style={styles.heroHeader}>
+              <Text style={styles.heroTitle}>Tjekket ind 🔥</Text>
+              <Text style={styles.heroCenter} numberOfLines={1}>
+                {centerShort}
+              </Text>
+              <Text style={styles.heroWorkout} numberOfLines={1}>
+                {workoutTypeLabel}
+              </Text>
+            </View>
+
+            <View style={styles.heroTimerCard}>
+              <View style={styles.heroCircleTop} />
+              <View style={styles.heroCircleBottom} />
+              <Text style={styles.heroTimerValue}>{formatDuration(summary.durationMinutes)}</Text>
+              <Text style={styles.heroTimerSub}>Session i gang</Text>
+            </View>
+
             <Text style={styles.title}>Opsummer din træning</Text>
-            <Text style={styles.subtitle}>
-              Billede, tekst og deling på feed (startside og profil)
-            </Text>
+            <Text style={styles.subtitle}>Billede, tekst og deling på feed (startside og profil)</Text>
 
             <View style={styles.summaryCard}>
               <View style={styles.summaryRow}>
-                <Icon name="time-outline" size={22} color={colors.primary} />
+                <View style={styles.summaryIconWrap}>
+                  <Icon name="time-outline" size={18} color={colors.primaryDark} />
+                </View>
                 <Text style={styles.summaryValue}>{formatDuration(summary.durationMinutes)}</Text>
                 <Text style={styles.summaryLabel}>Varighed</Text>
               </View>
               <View style={styles.summaryRow}>
-                <Icon name="business-outline" size={22} color={colors.primary} />
+                <View style={styles.summaryIconWrap}>
+                  <Icon name="business-outline" size={18} color={colors.primaryDark} />
+                </View>
                 <Text style={styles.summaryValue} numberOfLines={1}>
-                  {summary.gymName}
+                  {centerShort}
                 </Text>
                 <Text style={styles.summaryLabel}>Center</Text>
               </View>
               <View style={styles.summaryRow}>
-                <Icon name="barbell-outline" size={22} color={colors.primary} />
+                <View style={styles.summaryIconWrap}>
+                  <Icon name="barbell-outline" size={18} color={colors.primaryDark} />
+                </View>
                 <Text style={styles.summaryValue}>{workoutTypeLabel}</Text>
                 <Text style={styles.summaryLabel}>Træningstype</Text>
               </View>
@@ -263,7 +286,7 @@ const WorkoutSummaryModal: React.FC<WorkoutSummaryModalProps> = ({
                   onPress={openCamera}
                   activeOpacity={0.8}
                   disabled={submitting}>
-                  <Icon name="camera-outline" size={20} color={colors.primary} />
+                  <Icon name="camera-outline" size={20} color={colors.primaryDark} />
                   <Text style={styles.mediaHalfButtonText}>Tag billede</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -271,7 +294,7 @@ const WorkoutSummaryModal: React.FC<WorkoutSummaryModalProps> = ({
                   onPress={openLibrary}
                   activeOpacity={0.8}
                   disabled={submitting}>
-                  <Icon name="images-outline" size={20} color={colors.primary} />
+                  <Icon name="images-outline" size={20} color={colors.primaryDark} />
                   <Text style={styles.mediaHalfButtonText}>Vælg fra bibliotek</Text>
                 </TouchableOpacity>
               </View>
@@ -394,32 +417,105 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     paddingHorizontal: spacing.lg,
-    paddingBottom: spacing.xxxl,
+    paddingBottom: spacing.xxxl + spacing.sm,
+  },
+  heroHeader: {
+    alignItems: 'center',
+    marginBottom: spacing.md,
+  },
+  heroTitle: {
+    ...typography.h2,
+    color: colors.text,
+    fontWeight: '800',
+    marginBottom: 4,
+  },
+  heroCenter: {
+    ...typography.bodyBold,
+    color: colors.textSecondary,
+  },
+  heroWorkout: {
+    ...typography.small,
+    color: colors.primaryDark,
+    fontWeight: '700',
+    marginTop: 2,
+  },
+  heroTimerCard: {
+    minHeight: 170,
+    borderRadius: radius.xl + 4,
+    backgroundColor: colors.primaryDark,
+    marginBottom: spacing.lg,
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+    ...shadows.glow,
+  },
+  heroCircleTop: {
+    position: 'absolute',
+    top: -34,
+    right: -20,
+    width: 126,
+    height: 126,
+    borderRadius: 63,
+    backgroundColor: colors.primaryLight + '44',
+  },
+  heroCircleBottom: {
+    position: 'absolute',
+    left: -26,
+    bottom: -36,
+    width: 110,
+    height: 110,
+    borderRadius: 55,
+    backgroundColor: '#C4B5FD2E',
+  },
+  heroTimerValue: {
+    fontSize: 50,
+    lineHeight: 56,
+    fontWeight: '900',
+    color: colors.white,
+    fontVariant: ['tabular-nums'],
+    letterSpacing: 0.5,
+  },
+  heroTimerSub: {
+    marginTop: 6,
+    ...typography.small,
+    color: '#F3E8FF',
+    fontWeight: '700',
   },
   title: {
     ...typography.h3,
     color: colors.text,
-    marginBottom: spacing.xs,
+    marginBottom: 2,
     textAlign: 'center',
   },
   subtitle: {
     ...typography.caption,
     color: colors.textMuted,
     textAlign: 'center',
-    marginBottom: spacing.lg,
+    marginBottom: spacing.md + 2,
     paddingHorizontal: spacing.sm,
   },
   summaryCard: {
-    backgroundColor: colors.surfaceLight,
-    borderRadius: radius.lg,
+    backgroundColor: colors.backgroundLight,
+    borderRadius: radius.xl,
     padding: spacing.lg,
     marginBottom: spacing.lg,
+    borderWidth: 1,
+    borderColor: colors.border + '99',
+    ...shadows.sm,
   },
   summaryRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: spacing.md,
+    marginBottom: spacing.sm + 2,
     gap: spacing.md,
+  },
+  summaryIconWrap: {
+    width: 30,
+    height: 30,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.primary + '18',
   },
   summaryValue: {
     ...typography.bodyBold,
@@ -428,7 +524,7 @@ const styles = StyleSheet.create({
   },
   summaryLabel: {
     ...typography.caption,
-    color: colors.textMuted,
+    color: colors.textTertiary,
   },
   section: {
     marginBottom: spacing.lg,
@@ -471,20 +567,21 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.sm,
     borderRadius: radius.lg,
     borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: colors.surfaceLight,
+    borderColor: colors.border + 'CC',
+    backgroundColor: colors.backgroundLight,
+    ...shadows.sm,
   },
   mediaHalfButtonText: {
     ...typography.small,
-    color: colors.primary,
+    color: colors.primaryDark,
     fontWeight: '600',
   },
   captionInput: {
-    backgroundColor: colors.surfaceLight,
-    borderRadius: radius.md,
-    padding: spacing.md,
+    backgroundColor: '#F8F8FC',
+    borderRadius: radius.lg,
+    padding: spacing.md + 1,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: colors.border + 'CC',
     ...typography.body,
     color: colors.text,
     minHeight: 88,
@@ -495,17 +592,19 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   moodButton: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
+    width: 50,
+    height: 50,
+    borderRadius: 25,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: colors.surface,
+    backgroundColor: '#F0F1F6',
   },
   moodButtonActive: {
-    backgroundColor: colors.primary + '25',
+    backgroundColor: colors.primary + '22',
     borderWidth: 2,
     borderColor: colors.primary,
+    transform: [{scale: 1.06}],
+    ...shadows.sm,
   },
   moodEmoji: {
     fontSize: 24,
@@ -529,16 +628,18 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   buttons: {
-    marginTop: spacing.md,
+    marginTop: spacing.md + 2,
     gap: spacing.sm,
+    paddingBottom: spacing.sm,
   },
   primaryButton: {
     paddingVertical: spacing.lg,
-    backgroundColor: colors.primary,
-    borderRadius: radius.lg,
+    backgroundColor: colors.primaryDark,
+    borderRadius: radius.lg + 2,
     alignItems: 'center',
     minHeight: 52,
     justifyContent: 'center',
+    ...shadows.glow,
   },
   primaryButtonDisabled: {
     opacity: 0.75,
@@ -552,6 +653,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.backgroundCard,
     borderWidth: 1,
     borderColor: colors.primary,
+    shadowOpacity: 0,
+    elevation: 0,
   },
   discardShareButtonText: {
     ...typography.bodyBold,

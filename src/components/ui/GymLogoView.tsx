@@ -1,6 +1,6 @@
 /**
  * GymLogoView – officielle, bundtede mærke-PNG'er (via gymLogoService).
- * Ingen lilla/hjerte; ukendt mærke → Gymly-ikon + initialer.
+ * Ukendt mærke: standard Gymly-ikon + initialer, eller kun Gymly (`unknownFallback="gymly-only"`).
  */
 
 import React, {useState} from 'react';
@@ -21,6 +21,14 @@ import colors from '@/theme/colors';
 
 export type GymLogoViewVariant = 'contained' | 'plain';
 
+/** Ukendt kæde / intet bundtet logo */
+export type GymLogoUnknownFallback = 'initials' | 'gymly-only';
+
+/** `lavender`: lys lilla slot + blød skygge (fx “Dine centre” på forsiden) */
+export type GymLogoSurface = 'default' | 'lavender';
+
+const LAVENDER_SLOT_BG = '#F3F0FF';
+
 export interface GymLogoViewProps {
   gymName: string;
   brand?: string;
@@ -31,6 +39,10 @@ export interface GymLogoViewProps {
   /** Kort: hvid boks, skygge, padding. plain: kun billede (fx indeni rund markør). */
   variant?: GymLogoViewVariant;
   fallbackStyle?: 'default' | 'minimal';
+  /** Når intet officielt logo: initialer under Gymly, eller kun Gymly-kettlebell */
+  unknownFallback?: GymLogoUnknownFallback;
+  /** Kun `variant="contained"`: lys lilla baggrund + blødere skygge */
+  surface?: GymLogoSurface;
 }
 
 const GymLogoView: React.FC<GymLogoViewProps> = ({
@@ -41,6 +53,8 @@ const GymLogoView: React.FC<GymLogoViewProps> = ({
   style,
   variant = 'contained',
   fallbackStyle = 'default',
+  unknownFallback = 'initials',
+  surface = 'default',
 }) => {
   const [loadError, setLoadError] = useState(false);
   const source = getLogoSource(brand, gymName);
@@ -50,6 +64,8 @@ const GymLogoView: React.FC<GymLogoViewProps> = ({
   const isOfficial =
     source.type === 'local' && source.localAsset != null && !loadError;
 
+  const gymlyOnlySize = size * 0.55;
+
   const renderInner = () => {
     if (isOfficial && source.type === 'local' && source.localAsset != null) {
       return (
@@ -58,6 +74,15 @@ const GymLogoView: React.FC<GymLogoViewProps> = ({
           style={styles.logoFill}
           resizeMode="contain"
           onError={() => setLoadError(true)}
+        />
+      );
+    }
+    if (unknownFallback === 'gymly-only') {
+      return (
+        <Image
+          source={defaultGymly as ImageSourcePropType}
+          style={{width: gymlyOnlySize, height: gymlyOnlySize}}
+          resizeMode="contain"
         />
       );
     }
@@ -97,6 +122,18 @@ const GymLogoView: React.FC<GymLogoViewProps> = ({
             resizeMode="contain"
             onError={() => setLoadError(true)}
           />
+        ) : unknownFallback === 'gymly-only' ? (
+          <View
+            style={[
+              styles.plainUnknown,
+              {width: '100%', height: '100%', borderRadius: size / 2},
+            ]}>
+            <Image
+              source={defaultGymly as ImageSourcePropType}
+              style={{width: size * 0.52, height: size * 0.52}}
+              resizeMode="contain"
+            />
+          </View>
         ) : (
           <View
             style={[
@@ -117,13 +154,23 @@ const GymLogoView: React.FC<GymLogoViewProps> = ({
     );
   }
 
-  const pad = size * 0.1;
+  const isLavender = surface === 'lavender';
+  const pad = isLavender ? size * 0.12 : size * 0.1;
+  const borderRadius = isLavender
+    ? Math.min(16, Math.max(12, Math.round(size * 0.35)))
+    : Math.max(10, size * 0.18);
+
   return (
     <View
       style={[
         styles.card,
-        cardShadow,
-        {width: size, height: size, borderRadius: Math.max(10, size * 0.18)},
+        isLavender ? lavenderCardShadow : cardShadow,
+        {
+          width: size,
+          height: size,
+          borderRadius,
+          backgroundColor: isLavender ? LAVENDER_SLOT_BG : '#FFFFFF',
+        },
         style,
       ]}>
       <View style={[styles.cardInner, {padding: pad}]}>{renderInner()}</View>
@@ -140,6 +187,16 @@ const cardShadow =
         shadowRadius: 2,
       }
     : {elevation: 2};
+
+const lavenderCardShadow =
+  Platform.OS === 'ios'
+    ? {
+        shadowColor: '#000',
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 0.08,
+        shadowRadius: 6,
+      }
+    : {elevation: 3};
 
 const styles = StyleSheet.create({
   card: {

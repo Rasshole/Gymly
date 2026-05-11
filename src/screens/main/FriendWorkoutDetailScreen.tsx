@@ -17,6 +17,7 @@ import {useNavigation, useRoute, RouteProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '@/theme/colors';
+import {LiveTrainingDot} from '@/components/ui/LiveTrainingDot';
 
 type FriendWorkoutDetailRouteParams = {
   friendId: string;
@@ -61,11 +62,15 @@ const FriendWorkoutDetailScreen = () => {
                 {friendName?.charAt(0).toUpperCase() || '?'}
               </Text>
             </View>
-            <View style={styles.onlineIndicator} />
+            <LiveTrainingDot
+              size={20}
+              borderColor={colors.backgroundCard}
+              style={styles.avatarLiveDot}
+            />
           </View>
           <Text style={styles.friendName}>{friendName}</Text>
           <View style={styles.onlineBadge}>
-            <View style={styles.onlineDot} />
+            <LiveTrainingDot size={8} borderColor="#E8F5E9" />
             <Text style={styles.onlineText}>Online</Text>
           </View>
         </View>
@@ -171,6 +176,11 @@ const styles = StyleSheet.create({
     position: 'relative',
     marginBottom: 16,
   },
+  avatarLiveDot: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+  },
   avatarPlaceholder: {
     width: 80,
     height: 80,
@@ -183,17 +193,6 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: 'bold',
     color: '#fff',
-  },
-  onlineIndicator: {
-    position: 'absolute',
-    bottom: 0,
-    right: 0,
-    width: 20,
-    height: 20,
-    borderRadius: 10,
-    backgroundColor: '#34C759',
-    borderWidth: 3,
-    borderColor: '#fff',
   },
   friendName: {
     fontSize: 24,
@@ -208,13 +207,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 16,
-  },
-  onlineDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    backgroundColor: '#34C759',
-    marginRight: 6,
+    gap: 6,
   },
   onlineText: {
     fontSize: 14,

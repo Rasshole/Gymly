@@ -29,8 +29,8 @@ const MuscleIcon: React.FC<MuscleIconProps> = ({
         return require('@/assets/images/muscle-mave.png');
       case 'ryg':
         return require('@/assets/images/muscle-ryg.png');
-      case 'hele_kroppen':
-        return require('@/assets/images/muscle-hele-kroppen.png');
+      case 'cardio':
+        return require('@/assets/muscleGroups/cardio.png');
       default:
         return null;
     }
@@ -48,7 +48,12 @@ const MuscleIcon: React.FC<MuscleIconProps> = ({
   const imageStyle: ImageStyle = {
     width: finalSize,
     height: finalSize,
-    tintColor: color !== '#007AFF' && color !== '#fff' ? color : undefined,
+    tintColor:
+      muscle === 'cardio'
+        ? undefined
+        : color !== '#007AFF' && color !== '#fff'
+          ? color
+          : undefined,
     resizeMode: 'contain',
   };
 

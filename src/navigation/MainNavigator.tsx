@@ -3,7 +3,7 @@
  * Main app screens after authentication
  */
 
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import {TouchableOpacity, View, StyleSheet} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -103,11 +103,13 @@ import AddFriendScreen from '@/screens/main/AddFriendScreen';
 import {useInAppNotifications} from '@/hooks/useInAppNotifications';
 import {InAppNotificationBootstrap} from '@/components/inApp/InAppNotificationBootstrap';
 import CustomTabBar from '@/components/CustomTabBar';
+import {useAppStore} from '@/store/appStore';
 import NotificationBadge from '@/components/ui/Badge';
 import {CheckInSessionController} from '@/components/checkin/CheckInSessionController';
 import {PushNotificationBootstrap} from '@/components/push/PushNotificationBootstrap';
 import {UserBadgesRealtimeSync} from '@/components/badges/UserBadgesRealtimeSync';
 import {GymlyRealtimeHub} from '@/realtime/gymlyRealtimeHub';
+import {SURFACE_LEADERBOARD_IN_MAIN_CHROME} from '@/config/launchSurfaceConfig';
 import type {ActiveCenter} from '@/types/activeCenter.types';
 import type {GymPresence} from '@/types/gymPresence.types';
 export type CheckInStackParamList = {
@@ -116,7 +118,7 @@ export type CheckInStackParamList = {
 
 export type MainTabParamList = {
   Home: undefined;
-  Friends: {screen?: 'Online' | 'Grupper' | 'Centre' | 'Kort'};
+  Friends: {screen?: 'Venner' | 'Online' | 'Grupper' | 'Centre' | 'Kort'};
   Badges: {highlightBadgeId?: string} | undefined;
   Messages: undefined;
   Profile: undefined;
@@ -199,8 +201,9 @@ export type MainStackParamList = {
     mutualFriends?: number;
     gyms?: string[];
     friendAvatarUrl?: string;
+    activeCenterName?: string;
   };
-  EditProfile: undefined;
+  EditProfile: {forceUsernameChange?: boolean} | undefined;
   PushNotifications: undefined;
   FeedSorting: undefined;
   ActivityFeed: undefined;
@@ -209,6 +212,22 @@ export type MainStackParamList = {
     | undefined;
   AddFriend: undefined;
 };
+
+function UsernameChangeGate() {
+  const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
+  const usernameRequiresChange = useAppStore(s => s.user?.usernameRequiresChange);
+  const gateOpened = useRef(false);
+  useEffect(() => {
+    if (usernameRequiresChange && !gateOpened.current) {
+      gateOpened.current = true;
+      navigation.navigate('EditProfile', {forceUsernameChange: true});
+    }
+    if (!usernameRequiresChange) {
+      gateOpened.current = false;
+    }
+  }, [usernameRequiresChange, navigation]);
+  return null;
+}
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 const Stack = createStackNavigator<MainStackParamList>();
@@ -258,13 +277,14 @@ const UpcomingButton = () => {
       onPress={() => navigation.navigate('WorkoutSchedule', {initialTab: 'upcoming'})}
       style={tabHeaderStyles.iconTap}
       activeOpacity={0.75}
-      accessibilityLabel="Kalender">
+      accessibilityLabel="Planlagte sessions">
       <Icon name="calendar-outline" size={HEADER_ICON} color={colors.text} />
     </TouchableOpacity>
   );
 };
 
-const LeaderboardButton = () => {
+/** Reserved for future competitive/social systems — gated by launchSurfaceConfig. */
+const LeaderboardHeaderButton = () => {
   const navigation = useNavigation<CompositeNavigationProp<
     BottomTabNavigationProp<MainTabParamList>,
     StackNavigationProp<MainStackParamList>
@@ -338,7 +358,7 @@ const MainTabs = () => {
         headerLeft: () => <NotificationsButton />,
         headerRight: () => (
           <View style={tabHeaderStyles.headerSideRight}>
-            <LeaderboardButton />
+            {SURFACE_LEADERBOARD_IN_MAIN_CHROME ? <LeaderboardHeaderButton /> : null}
             <UpcomingButton />
             <SettingsButton />
           </View>
@@ -352,7 +372,7 @@ const MainTabs = () => {
       <Tab.Screen
         name="Friends"
         component={FriendsNavigator}
-        options={{title: 'Online'}}
+        options={{title: 'Venner'}}
       />
       <Tab.Screen
         name="CheckIn"
@@ -381,6 +401,7 @@ const MainTabs = () => {
 const MainNavigator = () => {
   return (
     <>
+      <UsernameChangeGate />
       <GymlyRealtimeHub />
       <InAppNotificationBootstrap />
       <PushNotificationBootstrap />
@@ -453,6 +474,7 @@ const MainNavigator = () => {
                 headerShown: false,
               }}
             />
+            {/* Reserved for future competitive/social systems — screens stay registered. */}
             <Stack.Screen
               name="GymLeaderboard"
               component={GymLeaderboardScreen}
@@ -502,6 +524,7 @@ const MainNavigator = () => {
                 headerShown: false,
               }}
             />
+            {/* Grupper: skærme registreret; primær UI styres af launchSurfaceConfig */}
             <Stack.Screen
               name="GroupDetail"
               component={GroupDetailScreen}
@@ -598,7 +621,7 @@ const MainNavigator = () => {
         name="UpcomingWorkouts"
         component={UpcomingWorkoutsScreen}
         options={{
-          title: 'Kommende træninger',
+          title: 'Planlagte sessions',
           headerBackTitle: 'Tilbage',
         }}
       />
@@ -606,7 +629,7 @@ const MainNavigator = () => {
         name="WorkoutSchedule"
         component={WorkoutScheduleScreen}
         options={{
-          title: 'Træningsplan',
+          title: 'Planlagte sessions',
           headerBackTitle: 'Tilbage',
         }}
       />

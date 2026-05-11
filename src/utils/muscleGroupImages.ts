@@ -15,7 +15,7 @@ const muscleGroupImages: Record<MuscleGroup, ImageSourcePropType> = {
   biceps: require('@/assets/muscleGroups/biceps.png'),
   mave: require('@/assets/muscleGroups/mave.png'),
   ryg: require('@/assets/muscleGroups/ryg.png'),
-  hele_kroppen: require('@/assets/muscleGroups/hele_kroppen.png'),
+  cardio: require('@/assets/muscleGroups/cardio.png'),
   reformer: require('@/assets/muscleGroups/reformer.png'),
   pilates: require('@/assets/muscleGroups/pilates.png'),
 };
@@ -32,7 +32,11 @@ export const getMuscleGroupImage = (muscleGroup: MuscleGroup): ImageSourcePropTy
  */
 export const getMuscleGroupImageFromString = (muscleGroup: string): ImageSourcePropType | null => {
   const first = muscleGroup.split(',')[0]?.trim() ?? muscleGroup;
-  const key = first.toLowerCase().replace(/\s+/g, '_') as MuscleGroup;
+  let raw = first.toLowerCase().replace(/\s+/g, '_');
+  if (raw === 'hele_kroppen') {
+    raw = 'cardio';
+  }
+  const key = raw as MuscleGroup;
   return muscleGroupImages[key] || null;
 };
 

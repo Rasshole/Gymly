@@ -48,7 +48,13 @@ export const GymPresenceCard: React.FC<GymPresenceCardProps> = ({
       <View style={styles.avatarsRow}>
         {avatarsToShow.map((user, idx) => (
           <View key={user.id} style={[styles.avatarWrap, {marginLeft: idx > 0 ? -8 : 0}]}>
-            <UserAvatar name={user.name} imageUrl={user.avatar} size="sm" />
+            <UserAvatar
+              name={user.name}
+              imageUrl={user.avatar}
+              size="sm"
+              showOnlineIndicator
+              isOnline
+            />
           </View>
         ))}
       </View>

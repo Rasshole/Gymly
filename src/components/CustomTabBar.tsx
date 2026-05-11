@@ -1,6 +1,7 @@
 /**
  * Custom tab bar – faner med ikoner og labels
  * Rapporterer faktisk højde til navigatoren så useBottomTabBarHeight() er korrekt.
+ * Launch: lidt mere horisontal luft + `minWidth: 0` så seks faner forbliver balancerede.
  */
 
 import React, {useMemo} from 'react';
@@ -152,11 +153,13 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     paddingTop: spacing.md,
-    paddingHorizontal: spacing.sm,
+    paddingHorizontal: spacing.lg,
     alignItems: 'center',
+    justifyContent: 'space-between',
   },
   tab: {
     flex: 1,
+    minWidth: 0,
     alignItems: 'center',
     justifyContent: 'center',
   },

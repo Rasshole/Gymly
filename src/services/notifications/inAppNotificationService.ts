@@ -97,6 +97,23 @@ export async function markInAppNotificationRead(
   }
 }
 
+/** Ulæste plan-invitationer for denne session (fx efter Afvis i appen) */
+export async function markPlannedWorkoutInviteNotificationsRead(
+  userId: string,
+  plannedWorkoutId: string,
+): Promise<void> {
+  const {error} = await supabase
+    .from('notifications')
+    .update({is_read: true})
+    .eq('user_id', userId)
+    .eq('is_read', false)
+    .eq('type', 'planned_workout_invite')
+    .filter('data->>plannedWorkoutId', 'eq', plannedWorkoutId);
+  if (error) {
+    throw error;
+  }
+}
+
 export async function markAllInAppRead(userId: string): Promise<void> {
   const {error} = await supabase
     .from('notifications')
@@ -165,9 +182,14 @@ export async function insertBadgeUnlockedNotification(
   const {error} = await supabase.from('notifications').insert({
     user_id: userId,
     type: 'badge_unlocked',
-    title: '🔥 Nyt badge unlocked!',
-    body: `Du har låst '${def.name}' op`,
-    data: {badgeId: def.id, badgeName: def.name, icon: def.emoji},
+    title: 'Nyt badge',
+    body: `Du har låst ${def.name} op`,
+    data: {
+      badgeId: def.id,
+      badgeName: def.name,
+      icon: def.emoji,
+      target_id: def.id,
+    },
   });
   if (error && error.code !== '23505') {
   }

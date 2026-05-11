@@ -22,6 +22,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppStore} from '@/store/appStore';
 import colors from '@/theme/colors';
+import {LiveTrainingDot} from '@/components/ui/LiveTrainingDot';
 import {
   launchCamera,
   launchImageLibrary,
@@ -252,7 +253,13 @@ const EditGroupScreen = () => {
                 </Text>
               </View>
             )}
-            {member.isOnline && <View style={styles.onlineIndicator} />}
+            {member.isOnline ? (
+              <LiveTrainingDot
+                size={14}
+                borderColor="#fff"
+                style={styles.avatarLiveDot}
+              />
+            ) : null}
           </View>
           <View style={styles.memberInfo}>
             <Text style={styles.memberName}>{member.name}</Text>
@@ -313,7 +320,13 @@ const EditGroupScreen = () => {
                 </Text>
               </View>
             )}
-            {friend.isOnline && <View style={styles.onlineIndicator} />}
+            {friend.isOnline ? (
+              <LiveTrainingDot
+                size={14}
+                borderColor="#fff"
+                style={styles.avatarLiveDot}
+              />
+            ) : null}
           </View>
           <View style={styles.memberInfo}>
             <Text style={styles.memberName}>{friend.name}</Text>
@@ -677,6 +690,11 @@ const styles = StyleSheet.create({
     position: 'relative',
     marginRight: 12,
   },
+  avatarLiveDot: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+  },
   avatar: {
     width: 48,
     height: 48,
@@ -694,17 +712,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     color: '#fff',
-  },
-  onlineIndicator: {
-    position: 'absolute',
-    bottom: 0,
-    right: 0,
-    width: 14,
-    height: 14,
-    borderRadius: 7,
-    backgroundColor: '#34C759',
-    borderWidth: 2,
-    borderColor: '#fff',
   },
   memberInfo: {
     flex: 1,

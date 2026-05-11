@@ -1,9 +1,10 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {AppState} from 'react-native';
+import {Alert, AppState, Linking} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useAppStore} from '@/store/appStore';
 import {
   getFcmToken,
+  getPushPermissionStatus,
   getMessaging,
   requestUserPermission,
   savePushTokenToSupabase,
@@ -24,9 +25,31 @@ export function PushNotificationBootstrap() {
 
   const registerToken = useCallback(
     async (uid: string) => {
-      const token = await getFcmToken();
-      if (token) {
-        await savePushTokenToSupabase(uid, token);
+      try {
+        const permission = await getPushPermissionStatus();
+        if (__DEV__) {
+          console.log('[push] permission status on register:', permission);
+        }
+        if (permission === 'denied' || permission === 'unavailable') {
+          if (__DEV__) {
+            console.log('[push] skip token registration', {permission});
+          }
+          return;
+        }
+        const token = await getFcmToken();
+        if (__DEV__) {
+          console.log('[push] token generated:', Boolean(token));
+        }
+        if (token) {
+          await savePushTokenToSupabase(uid, token);
+          if (__DEV__) {
+            console.log('[push] token saved to user_push_tokens:', true);
+          }
+        }
+      } catch (error) {
+        if (__DEV__) {
+          console.log('[push] registerToken failed:', error);
+        }
       }
     },
     [],
@@ -44,7 +67,14 @@ export function PushNotificationBootstrap() {
 
     registerToken(userId).catch(() => {});
     const unsub = subscribeToTokenRefresh(t => {
-      savePushTokenToSupabase(userId, t).catch(() => {});
+      if (__DEV__) {
+        console.log('[push] token refresh received');
+      }
+      savePushTokenToSupabase(userId, t).catch(error => {
+        if (__DEV__) {
+          console.log('[push] token refresh save failed:', error);
+        }
+      });
     });
 
     const unsubOpen = msg.onNotificationOpenedApp(remote => {
@@ -85,7 +115,20 @@ export function PushNotificationBootstrap() {
   const onAllow = useCallback(async () => {
     setShowPrompt(false);
     await AsyncStorage.setItem(PROMPT_KEY, '1');
-    await requestUserPermission();
+    const granted = await requestUserPermission();
+    if (__DEV__) {
+      console.log('[push] request permission result:', granted);
+    }
+    if (!granted) {
+      Alert.alert(
+        'Notifikationer er slået fra',
+        'Du kan slå dem til i Indstillinger for at modtage beskeder og venne-notifikationer.',
+        [
+          {text: 'Ikke nu'},
+          {text: 'Åbn indstillinger', onPress: () => Linking.openSettings()},
+        ],
+      );
+    }
     if (userId) {
       await registerToken(userId);
     }
@@ -95,6 +138,29 @@ export function PushNotificationBootstrap() {
     setShowPrompt(false);
     await AsyncStorage.setItem(PROMPT_KEY, '1');
   }, []);
+
+  useEffect(() => {
+    if (!userId) {
+      return;
+    }
+    getPushPermissionStatus()
+      .then(status => {
+        if (__DEV__) {
+          console.log('[push] app start permission status:', status);
+        }
+        if (status === 'denied') {
+          Alert.alert(
+            'Notifikationer er slået fra',
+            'Gymly kan ikke sende push-notifikationer. Du kan slå dem til i enhedsindstillinger.',
+            [
+              {text: 'Ikke nu'},
+              {text: 'Åbn indstillinger', onPress: () => Linking.openSettings()},
+            ],
+          );
+        }
+      })
+      .catch(() => {});
+  }, [userId]);
 
   useEffect(() => {
     const sub = AppState.addEventListener('change', state => {

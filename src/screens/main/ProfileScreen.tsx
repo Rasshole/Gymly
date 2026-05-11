@@ -21,11 +21,11 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation, useFocusEffect} from '@react-navigation/native';
 import {useAppStore} from '@/store/appStore';
+import {fetchFeaturedBadgeIdsForUser} from '@/services/supabase/profileFeaturedBadgesService';
 import {useFeedStore} from '@/store/feedStore';
 import {useGoalStore} from '@/store/goalStore';
 import {refreshWorkoutFeedFromServer} from '@/services/supabase/workoutPostService';
 import {subscribeWorkoutFeedRealtime} from '@/services/supabase/workoutPostService';
-import danishGyms from '@/data/danishGyms';
 import {
   ProfileHeader,
   ProfileCentersList,
@@ -43,6 +43,8 @@ import {
   type ProfileCompletedSession,
 } from '@/services/supabase/profileCheckInHistory';
 import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
+import * as streak from '@/utils/streakUtils';
+import {SURFACE_GROUPS_IN_APP} from '@/config/launchSurfaceConfig';
 import {
   filterWorkoutsByPeriod,
   sumWorkoutMinutes,
@@ -52,7 +54,10 @@ import {useProfileStats} from '@/hooks/useProfileData';
 import {useFriends} from '@/hooks/useFriends';
 import {useBadgeStore} from '@/store/badgeStore';
 import {useUserTrainingStats} from '@/hooks/useUserTrainingStats';
-import {formatGymDisplayName} from '@/utils/gymDisplay';
+import {formatGymNameWithBrand} from '@/utils/gymDisplay';
+import {loadProfileCentersForUser} from '@/services/supabase/profileCentersPublicService';
+import type {ProfileCenterRow} from '@/components/profile/ProfileCentersList';
+import {useGymStore} from '@/store/gymStore';
 import {useSessionStore} from '@/store/sessionStore';
 import colors from '@/theme/colors';
 import {spacing, typography, radius} from '@/theme/designTokens';
@@ -86,7 +91,7 @@ const DATA_PERIOD_OPTIONS: {key: WorkoutPeriod; label: string}[] = [
 
 const ProfileScreen = () => {
   const navigation = useNavigation<any>();
-  const {user} = useAppStore();
+  const {user, setUser} = useAppStore();
   const {feedItems, deleteFeedItem} = useFeedStore();
   const goals = useGoalStore(s => s.goals);
   const [tab, setTab] = useState<ProfileTab>('feed');
@@ -95,7 +100,9 @@ const ProfileScreen = () => {
     useState<WorkoutPeriod>('week');
   const trainingStats = useUserTrainingStats(user?.id);
   const activeSession = useSessionStore(s => s.activeSession);
+  const getActiveUsersCount = useGymStore(s => s.getActiveUsersCount);
   const tabAnim = React.useRef(new Animated.Value(tab === 'feed' ? 0 : 1)).current;
+  const [centerRows, setCenterRows] = useState<ProfileCenterRow[]>([]);
 
   useEffect(() => {
     Animated.timing(tabAnim, {
@@ -137,12 +144,26 @@ const ProfileScreen = () => {
       void trainingStats.refresh();
       if (user?.id) {
         void loadFriendStore(user.id);
+        void refreshProfileCenters();
+        void fetchFeaturedBadgeIdsForUser(user.id).then(ids => {
+          const cur = useAppStore.getState().user;
+          if (!cur || cur.id !== user.id) {
+            return;
+          }
+          const a = (cur.featuredBadgeIds ?? []).join(',');
+          const b = ids.join(',');
+          if (a !== b) {
+            setUser({...cur, featuredBadgeIds: ids});
+          }
+        });
       }
     }, [
       refreshProfileStats,
       user?.id,
       loadFriendStore,
       trainingStats.refresh,
+      setUser,
+      refreshProfileCenters,
     ]),
   );
 
@@ -158,18 +179,28 @@ const ProfileScreen = () => {
     return 'Sidst set for nylig';
   }, [activeSession?.gymName, trainingStats.activeSessionMinutes]);
 
-  const centerRows = useMemo(() => {
-    const ids = user?.favoriteGyms ?? [];
-    return ids
-      .slice(0, 3)
-      .map(id => danishGyms.find(g => g.id === id))
-      .filter(Boolean)
-      .map(g => ({
-        name: formatGymDisplayName(g!),
-        city: g!.city,
-        brand: g!.brand,
-      }));
-  }, [user?.favoriteGyms]);
+  const primaryCenterLabel = useMemo(() => {
+    const first = centerRows[0];
+    if (!first) {
+      return undefined;
+    }
+    const nameLine = formatGymNameWithBrand(first.name, first.brand);
+    const tail = first.city?.trim();
+    return tail ? `Træner ofte i ${nameLine} — ${tail}` : `Træner ofte i ${nameLine}`;
+  }, [centerRows]);
+
+  const refreshProfileCenters = useCallback(async () => {
+    if (!user?.id) {
+      setCenterRows([]);
+      return;
+    }
+    try {
+      const rows = await loadProfileCentersForUser(user.id);
+      setCenterRows(rows);
+    } catch {
+      setCenterRows([]);
+    }
+  }, [user?.id]);
 
   const badgeUnlocks = useBadgeStore(s => s.unlockedByUser[user?.id ?? '']);
   const badgeCount =
@@ -285,18 +316,30 @@ const ProfileScreen = () => {
     return {count: n, minutes: min};
   }, [dataTabWorkouts]);
 
-  const stats = useMemo(
-    () => [
+  const stats = useMemo(() => {
+    const rows = [
+      {
+        key: 'current-streak',
+        emoji: streak.getStreakBadge(trainingStats.currentStreakDays) || '🔥',
+        label: 'Current streak',
+        value: `${trainingStats.currentStreakDays} dage`,
+      },
+      {
+        key: 'longest-streak',
+        emoji: streak.getStreakBadge(profileStats?.longestStreak ?? 0) || '👑',
+        label: 'Longest streak',
+        value: `${profileStats?.longestStreak ?? 0} dage`,
+      },
       {
         key: 'checkins',
-        icon: 'checkmark-circle',
+        emoji: '💪',
         label: 'Check-ins',
         value: dataTabWorkoutsSummary.count,
         onPress: () => navigation.navigate('CheckIn'),
       },
       {
         key: 'time',
-        icon: 'time',
+        emoji: '⏱',
         label: 'Træningstid',
         value:
           dataWorkoutPeriod === 'all' &&
@@ -324,19 +367,21 @@ const ProfileScreen = () => {
         label: 'Badges',
         value: badgeCount,
       },
-    ],
-    [
-      dataTabWorkoutsSummary.count,
-      dataTabWorkoutsSummary.minutes,
-      dataWorkoutPeriod,
-      trainingStats.activeSessionMinutes,
-      trainingStats.friendsCount,
-      trainingStats.groupsCount,
-      friendCountDisplay,
-      badgeCount,
-      navigation,
-    ],
-  );
+    ];
+    return SURFACE_GROUPS_IN_APP ? rows : rows.filter(r => r.key !== 'groups');
+  }, [
+    dataTabWorkoutsSummary.count,
+    dataTabWorkoutsSummary.minutes,
+    dataWorkoutPeriod,
+    trainingStats.activeSessionMinutes,
+    trainingStats.currentStreakDays,
+    trainingStats.friendsCount,
+    trainingStats.groupsCount,
+    friendCountDisplay,
+    badgeCount,
+    profileStats?.longestStreak,
+    navigation,
+  ]);
 
   const myActiveGoals = useMemo(() => {
     const goalUserId = user?.id;
@@ -530,16 +575,25 @@ const ProfileScreen = () => {
           showBio={false}
           onEditPress={() => navigation.navigate('EditProfile')}
           activeStatus={activeStatusText}
+          primaryCenterLabel={primaryCenterLabel}
           followersCount={profileStats?.followersCount ?? 0}
           followingCount={profileStats?.followingCount ?? 0}
           friendsCount={friendCountDisplay}
           onFriendsPress={() => setFriendsListOpen(true)}
         />
 
-        {user?.id ? <ProfileBadgeStrip userId={user.id} /> : null}
+        {user?.id ? (
+          <ProfileBadgeStrip
+            userId={user.id}
+            featuredBadgeIds={user.featuredBadgeIds ?? null}
+          />
+        ) : null}
 
         {centerRows.length > 0 ? (
-          <ProfileCentersList centers={centerRows} />
+          <ProfileCentersList
+            centers={centerRows}
+            activeCountForId={id => getActiveUsersCount(id)}
+          />
         ) : (
           <TouchableOpacity
             style={styles.noCentersHint}
@@ -547,7 +601,7 @@ const ProfileScreen = () => {
             activeOpacity={0.85}>
             <Icon name="location-outline" size={18} color={colors.primary} />
             <Text style={styles.noCentersHintText}>
-              Tilføj dit lokale center under Rediger profil
+              Har ikke valgt primært center endnu — tryk for at vælge under Rediger profil
             </Text>
             <Icon name="chevron-forward" size={18} color={colors.textMuted} />
           </TouchableOpacity>

@@ -6,6 +6,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {useAppStore} from '@/store/appStore';
+import colors from '@/theme/colors';
 
 import AuthNavigator from './AuthNavigator';
 import MainNavigator from './MainNavigator';
@@ -29,7 +30,11 @@ const RootNavigator = () => {
   }
 
   return (
-    <Stack.Navigator screenOptions={{headerShown: false}}>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+        cardStyle: {flex: 1, backgroundColor: colors.background},
+      }}>
       {!isAuthenticated ? (
         <Stack.Screen name="Auth" component={AuthNavigator} />
       ) : (

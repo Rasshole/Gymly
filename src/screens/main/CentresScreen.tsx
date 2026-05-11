@@ -1,169 +1,180 @@
 /**
- * Centres Screen
- * Shows all fitness centres in Denmark
+ * Centres Screen — “live fitness energy” frem for ren database.
+ * Live-tællinger fra `useActiveCentersRealtime` (rollup + venner); søgning uændret.
+ * Plads til senere: venne-avatars, center-vibes, events (kun struktur/kommentarer her).
  */
 
-import React, {useState, useMemo, useEffect} from 'react';
+import React, {useState, useMemo, useEffect, useCallback} from 'react';
 import {
   View,
   Text,
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  Pressable,
   Platform,
   PermissionsAndroid,
-  Modal,
-  FlatList,
 } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 import Icon from 'react-native-vector-icons/Ionicons';
 import danishGyms, {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
 import {useAppStore} from '@/store/appStore';
 import {useGymStore} from '@/store/gymStore';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useFocusEffect} from '@react-navigation/native';
 import GymLogoView from '@/components/ui/GymLogoView';
 import {formatGymDisplayName, normalizeGymBrand} from '@/utils/gymDisplay';
 import {StackNavigationProp} from '@react-navigation/stack';
 import colors from '@/theme/colors';
+import {spacing, radius, typography} from '@/theme/designTokens';
 import SocialSearchBar from '@/components/social/SocialSearchBar';
+import {useActiveCentersRealtime} from '@/hooks/useActiveCentersRealtime';
+import type {ActiveCenter} from '@/types/activeCenter.types';
 
-const formatDuration = (minutes: number): string => {
-  if (minutes < 60) return `${minutes} min`;
-  const h = Math.floor(minutes / 60);
-  const m = minutes % 60;
-  return m > 0 ? `${h}t ${m} min` : `${h}t`;
-};
+type LiveStats = {total: number; friends: number};
 
-type ActiveUser = { id: string; name: string; durationMinutes: number };
-const getActiveUsers = (_count: number): ActiveUser[] => [];
+function buildLiveByGymId(centers: ActiveCenter[]): Map<string, LiveStats> {
+  const m = new Map<string, LiveStats>();
+  for (const ac of centers) {
+    m.set(ac.centerId, {
+      total: ac.totalActiveCount,
+      friends: ac.activeFriendsCount,
+    });
+  }
+  return m;
+}
 
-// Calculate distance between two coordinates using Haversine formula
+function liveStatsForGym(
+  gymId: string,
+  liveMap: Map<string, LiveStats>,
+  getActiveUsersCount: (id: string) => number,
+): LiveStats {
+  const hit = liveMap.get(gymId);
+  if (hit) {
+    return hit;
+  }
+  return {total: getActiveUsersCount(gymId), friends: 0};
+}
+
 const calculateDistance = (
   lat1: number,
   lon1: number,
   lat2: number,
   lon2: number,
 ): number => {
-  const R = 6371e3; // Earth's radius in meters
+  const R = 6371e3;
   const φ1 = (lat1 * Math.PI) / 180;
   const φ2 = (lat2 * Math.PI) / 180;
   const Δφ = ((lat2 - lat1) * Math.PI) / 180;
   const Δλ = ((lon2 - lon1) * Math.PI) / 180;
-
   const a =
     Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
     Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-
-  return R * c; // Distance in meters
+  return R * c;
 };
 
-// Component for rendering favorite gym with logo
-const FavoriteGymItemWithLogo = ({
+function formatDistanceMeters(distanceM: number): string {
+  if (distanceM < 1000) {
+    return `${Math.round(distanceM)} m`;
+  }
+  return `${(distanceM / 1000).toFixed(1)} km`;
+}
+
+function LiveActivityLine({live}: {live: LiveStats}) {
+  if (live.total <= 0) {
+    return (
+      <Text style={styles.liveLineMuted} numberOfLines={1}>
+        Ingen aktive lige nu
+      </Text>
+    );
+  }
+  const people = `${live.total} aktiv${live.total > 1 ? 'e' : ''}`;
+  const friendsPart =
+    live.friends > 0
+      ? ` · ${live.friends} ven${live.friends > 1 ? 'ner' : ''}`
+      : '';
+  return (
+    <Text style={styles.liveLine} numberOfLines={1}>
+      👥 {people}
+      {friendsPart}
+    </Text>
+  );
+}
+
+function OpenClosedChip({isOpen}: {isOpen: boolean}) {
+  return (
+    <View
+      style={[
+        styles.statusChip,
+        isOpen ? styles.statusChipOpen : styles.statusChipClosed,
+      ]}>
+      <View
+        style={[styles.statusDot, isOpen ? styles.statusDotOpen : styles.statusDotClosed]}
+      />
+      <Text
+        style={[styles.statusChipText, isOpen ? styles.statusChipTextOpen : styles.statusChipTextClosed]}
+        numberOfLines={1}>
+        {isOpen ? 'Åbent nu' : 'Lukket nu'}
+      </Text>
+    </View>
+  );
+}
+
+/** “Mine lokale centre” — uden gul rang-badge; soft “Dit center” på første favorit. */
+const FavoriteGymCard = ({
   gym,
   index,
-  onActiveUsersPress,
+  distanceText,
+  live,
+  gymStatus,
 }: {
   gym: DanishGym;
   index: number;
-  onActiveUsersPress?: (gym: DanishGym, count: number) => void;
+  distanceText: string;
+  live: LiveStats;
+  gymStatus: {isOpen: boolean};
 }) => {
   const navigation = useNavigation<StackNavigationProp<any>>();
-  const {getActiveUsersCount, getGymStatus} = useGymStore();
-  const activeUsers = getActiveUsersCount(gym.id);
-  const gymStatus = getGymStatus(gym.id);
+  const showDitCenterChip = index === 0;
 
   return (
-    <View style={styles.favoriteGymItem} collapsable={false}>
-      <TouchableOpacity
-        style={styles.favoriteGymItemTouchable}
-        activeOpacity={0.7}
-        onPress={() => {
-          navigation.navigate('GymDetail', {
-            gymId: gym.id,
-            gym: gym,
-          });
-        }}>
-        <View style={styles.favoriteGymNumber}>
-          <Text style={styles.favoriteGymNumberText}>{index + 1}</Text>
-        </View>
-        <View style={styles.favoriteGymLogoContainer}>
-          <GymLogoView gymName={gym.name} brand={gym.brand} size={48} />
-        </View>
-        <View style={styles.gymInfo}>
-          <View style={styles.gymNameRow}>
-            <Text style={styles.gymName} numberOfLines={1}>
+    <TouchableOpacity
+      style={styles.favoriteCard}
+      activeOpacity={0.72}
+      onPress={() =>
+        navigation.navigate('GymDetail', {
+          gymId: gym.id,
+          gym,
+        })
+      }>
+      <View style={styles.favoriteCardInner}>
+        <GymLogoView gymName={gym.name} brand={gym.brand} size={44} />
+        <View style={styles.favoriteCardBody}>
+          <View style={styles.titleRow}>
+            <Text style={styles.cardTitle} numberOfLines={2}>
               {formatGymDisplayName(gym)}
             </Text>
+            {showDitCenterChip ? (
+              <View style={styles.ditCenterChip}>
+                <Text style={styles.ditCenterChipText}>Dit center</Text>
+              </View>
+            ) : null}
           </View>
-          <View style={styles.gymDetails}>
-            {gym.brand && (
-              <Text style={styles.gymBrand} numberOfLines={1}>
-                  {normalizeGymBrand(gym.brand)}
-              </Text>
-            )}
-            {gym.city && (
-              <Text style={styles.gymLocation} numberOfLines={1}>
-                {gym.city}
-              </Text>
-            )}
+          <View style={styles.primaryMetaRow}>
+            <OpenClosedChip isOpen={gymStatus.isOpen} />
+            <LiveActivityLine live={live} />
           </View>
-          {gym.address && (
-            <Text style={styles.gymAddress} numberOfLines={1}>
+          <Text style={styles.cityDistanceLine} numberOfLines={1}>
+            {[gym.city, distanceText].filter(Boolean).join(' · ')}
+          </Text>
+          {gym.address ? (
+            <Text style={styles.addressTertiary} numberOfLines={1}>
               {gym.address}
             </Text>
-          )}
-          <View style={styles.statusRow}>
-            <View
-              style={[
-                styles.statusBadge,
-                gymStatus.isOpen ? styles.statusBadgeOpen : styles.statusBadgeClosed,
-              ]}>
-              <View
-                style={[
-                  styles.statusDot,
-                  gymStatus.isOpen ? styles.statusDotOpen : styles.statusDotClosed,
-                ]}
-              />
-              <Text
-                style={[
-                  styles.statusText,
-                  gymStatus.isOpen ? styles.statusTextOpen : styles.statusTextClosed,
-                ]}>
-                {gymStatus.isOpen ? 'Åbent nu' : 'Lukket nu'}
-              </Text>
-            </View>
-            <View style={styles.activeUsersContainer}>
-              {activeUsers > 0 ? (
-                <View style={styles.activeUsersTouchable}>
-                  <View style={styles.activeUsersDot} />
-                  <Text style={styles.activeUsersText}>
-                    {activeUsers} aktiv{activeUsers > 1 ? 'e' : ''}
-                  </Text>
-                </View>
-              ) : (
-                <Text style={styles.activeUsersTextInactive}>0 aktive</Text>
-              )}
-            </View>
-          </View>
+          ) : null}
         </View>
-        <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-      </TouchableOpacity>
-      {activeUsers > 0 && (
-        <Pressable
-          style={styles.favoriteActiveUsersOverlay}
-          onPress={() => onActiveUsersPress?.(gym, activeUsers)}
-          hitSlop={{top: 12, bottom: 12, left: 12, right: 12}}>
-          <View style={styles.activeUsersTouchable}>
-            <View style={styles.activeUsersDot} />
-            <Text style={styles.activeUsersText}>
-              {activeUsers} aktiv{activeUsers > 1 ? 'e' : ''}
-            </Text>
-          </View>
-        </Pressable>
-      )}
-    </View>
+        <Icon name="chevron-forward" size={20} color={colors.textMuted} style={styles.rowChevron} />
+      </View>
+    </TouchableOpacity>
   );
 };
 
@@ -172,19 +183,22 @@ const CentresScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const {user} = useAppStore();
   const {getActiveUsersCount, getGymStatus} = useGymStore();
-  const [activeUsersModal, setActiveUsersModal] = useState<{
-    gym: DanishGym;
-    count: number;
-  } | null>(null);
+  const {activeCenters, refresh: refreshActiveCenters} = useActiveCentersRealtime();
   const [userLocation, setUserLocation] = useState<{
     latitude: number;
     longitude: number;
   } | null>(null);
-  const [isLoadingLocation, setIsLoadingLocation] = useState(true);
   const [showScrollToTop, setShowScrollToTop] = useState(false);
   const scrollViewRef = React.useRef<ScrollView>(null);
 
-  // Request location permission and get current location
+  const liveByGymId = useMemo(() => buildLiveByGymId(activeCenters), [activeCenters]);
+
+  useFocusEffect(
+    useCallback(() => {
+      void refreshActiveCenters();
+    }, [refreshActiveCenters]),
+  );
+
   useEffect(() => {
     requestLocationPermission();
   }, []);
@@ -204,36 +218,28 @@ const CentresScreen = () => {
         );
         if (granted === PermissionsAndroid.RESULTS.GRANTED) {
           getCurrentLocation();
-        } else {
-          setIsLoadingLocation(false);
         }
       } catch (err) {
         console.warn(err);
-        setIsLoadingLocation(false);
       }
     } else {
-      // iOS
       getCurrentLocation();
     }
   };
 
   const getCurrentLocation = () => {
-    setIsLoadingLocation(true);
     Geolocation.getCurrentPosition(
       position => {
         const {latitude, longitude} = position.coords;
         setUserLocation({latitude, longitude});
-        setIsLoadingLocation(false);
       },
       error => {
         console.warn('Location error:', error);
-        setIsLoadingLocation(false);
       },
       {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
     );
   };
 
-  // Get favorite gyms
   const favoriteGymIds = user?.favoriteGyms || [];
   const favoriteGyms = useMemo(() => {
     return favoriteGymIds
@@ -242,10 +248,7 @@ const CentresScreen = () => {
   }, [favoriteGymIds]);
 
   const allCentres = useMemo(
-    () => [
-      ...getActiveDanishGyms(),
-      ...danishGyms.filter(g => g._center.is_coming_soon),
-    ],
+    () => [...getActiveDanishGyms(), ...danishGyms.filter(g => g._center.is_coming_soon)],
     [],
   );
 
@@ -258,28 +261,25 @@ const CentresScreen = () => {
       (gym.address?.toLowerCase().includes(qLower) ?? false),
   );
 
-  // Separate favorite gyms from filtered gyms
-  const favoriteGymsFiltered = favoriteGyms.filter(gym =>
-    gym.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    gym.city?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    gym.brand?.toLowerCase().includes(searchQuery.toLowerCase()),
+  const favoriteGymsFiltered = favoriteGyms.filter(
+    gym =>
+      gym.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      gym.city?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      gym.brand?.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
-  const otherGymsFiltered = filteredGyms.filter(
-    gym => !favoriteGymIds.includes(gym.id),
-  );
+  const otherGymsFiltered = filteredGyms.filter(gym => !favoriteGymIds.includes(gym.id));
 
-  // Sort gyms: open nearby first, then closed nearby (both sorted by distance)
   const sortedGyms = useMemo(() => {
-    const allGyms = searchQuery.length > 0
-      ? [...favoriteGymsFiltered, ...otherGymsFiltered]
-      : [...favoriteGyms, ...otherGymsFiltered];
+    const allGyms =
+      searchQuery.length > 0
+        ? [...favoriteGymsFiltered, ...otherGymsFiltered]
+        : [...favoriteGyms, ...otherGymsFiltered];
 
     return allGyms
       .map(gym => {
         const status = getGymStatus(gym.id);
         let distance = Infinity;
-
         if (userLocation) {
           distance = calculateDistance(
             userLocation.latitude,
@@ -288,31 +288,46 @@ const CentresScreen = () => {
             gym.longitude,
           );
         }
-
-        return {
-          gym,
-          isOpen: status.isOpen,
-          distance,
-        };
+        return {gym, isOpen: status.isOpen, distance};
       })
       .sort((a, b) => {
-        // First: Open gyms before closed gyms
         if (a.isOpen && !b.isOpen) return -1;
         if (!a.isOpen && b.isOpen) return 1;
-
-        // Second: Within same status (both open or both closed), sort by distance (closest first)
         return a.distance - b.distance;
       })
       .map(item => item.gym);
-  }, [favoriteGyms, favoriteGymsFiltered, otherGymsFiltered, searchQuery, userLocation, getGymStatus]);
+  }, [
+    favoriteGyms,
+    favoriteGymsFiltered,
+    otherGymsFiltered,
+    searchQuery,
+    userLocation,
+    getGymStatus,
+  ]);
 
   const isFavorite = (gymId: string) => favoriteGymIds.includes(gymId);
+
+  const distanceForGym = useCallback(
+    (gym: DanishGym): string => {
+      if (!userLocation) {
+        return '';
+      }
+      const d = calculateDistance(
+        userLocation.latitude,
+        userLocation.longitude,
+        gym.latitude,
+        gym.longitude,
+      );
+      return formatDistanceMeters(d);
+    },
+    [userLocation],
+  );
 
   const GymIcon = ({gym, favorite}: {gym: DanishGym; favorite: boolean}) => {
     if (favorite) {
       return (
         <View style={[styles.gymIcon, styles.gymIconFavorite]}>
-          <Icon name="star" size={24} color="#FFD700" />
+          <Icon name="star" size={22} color={colors.primaryLight} />
         </View>
       );
     }
@@ -320,7 +335,7 @@ const CentresScreen = () => {
       <GymLogoView
         gymName={formatGymDisplayName(gym)}
         brand={gym.brand}
-        size={48}
+        size={44}
         style={styles.gymLogoSlot}
       />
     );
@@ -328,128 +343,57 @@ const CentresScreen = () => {
 
   const renderGymItem = (item: DanishGym) => {
     const favorite = isFavorite(item.id);
-    const activeUsers = getActiveUsersCount(item.id);
     const gymStatus = getGymStatus(item.id);
-    
-    // Calculate distance if we have user location
-    let distanceText = '';
-    if (userLocation) {
-      const distance = calculateDistance(
-        userLocation.latitude,
-        userLocation.longitude,
-        item.latitude,
-        item.longitude,
-      );
-      if (distance < 1000) {
-        distanceText = `${Math.round(distance)} m`;
-      } else {
-        distanceText = `${(distance / 1000).toFixed(1)} km`;
-      }
-    }
-    
+    const distanceText = distanceForGym(item);
+    const live = liveStatsForGym(item.id, liveByGymId, getActiveUsersCount);
+
     return (
-      <View key={item.id} style={styles.gymItem} collapsable={false}>
-        <TouchableOpacity
-          style={styles.gymItemTouchable}
-          activeOpacity={0.7}
-          onPress={() => {
-            navigation.navigate('GymDetail', {
-              gymId: item.id,
-              gym: item,
-            });
-          }}>
+      <TouchableOpacity
+        key={item.id}
+        style={styles.gymCard}
+        activeOpacity={0.72}
+        onPress={() => {
+          navigation.navigate('GymDetail', {
+            gymId: item.id,
+            gym: item,
+          });
+        }}>
+        <View style={styles.gymCardInner}>
           <GymIcon gym={item} favorite={favorite} />
-          <View style={styles.gymInfo}>
-            <View style={styles.gymNameRow}>
-              <Text style={styles.gymName} numberOfLines={1}>
-                {item.name}
-              </Text>
-              {favorite && (
-                <View style={styles.favoriteBadge}>
-                  <Text style={styles.favoriteBadgeText}>
-                    #{favoriteGymIds.indexOf(item.id) + 1}
-                  </Text>
-                </View>
-              )}
+          <View style={styles.gymCardBody}>
+            <Text style={styles.cardTitle} numberOfLines={2}>
+              {item.name}
+            </Text>
+            <View style={styles.primaryMetaRow}>
+              <OpenClosedChip isOpen={gymStatus.isOpen} />
+              <LiveActivityLine live={live} />
             </View>
-            <View style={styles.gymDetails}>
-              {item.brand && (
-                <Text style={styles.gymBrand} numberOfLines={1}>
-                  {item.brand}
-                </Text>
-              )}
-              {item.city && (
-                <Text style={styles.gymLocation} numberOfLines={1}>
-                  {item.city}
-                </Text>
-              )}
-              {distanceText && (
-                <Text style={styles.distanceText} numberOfLines={1}>
-                  • {distanceText}
-                </Text>
-              )}
-            </View>
-            {item.address && (
-              <Text style={styles.gymAddress} numberOfLines={1}>
+            <Text style={styles.cityDistanceLine} numberOfLines={1}>
+              {[
+                item.brand ? normalizeGymBrand(item.brand) : null,
+                item.city,
+                distanceText,
+              ]
+                .filter(Boolean)
+                .join(' · ')}
+            </Text>
+            {item.address ? (
+              <Text style={styles.addressTertiary} numberOfLines={1}>
                 {item.address}
               </Text>
-            )}
-            <View style={styles.gymMetaRow}>
-              <View
-                style={[
-                  styles.statusBadge,
-                  gymStatus.isOpen ? styles.statusBadgeOpen : styles.statusBadgeClosed,
-                ]}>
-                <View
-                  style={[
-                    styles.statusDot,
-                    gymStatus.isOpen ? styles.statusDotOpen : styles.statusDotClosed,
-                  ]}
-                />
-                <Text
-                  style={[
-                    styles.statusText,
-                    gymStatus.isOpen ? styles.statusTextOpen : styles.statusTextClosed,
-                  ]}>
-                  {gymStatus.isOpen ? 'Åbent nu' : 'Lukket nu'}
-                </Text>
-              </View>
-              <View style={styles.activeUsersContainer}>
-                {activeUsers > 0 ? (
-                  <View style={styles.activeUsersTouchable}>
-                    <View style={styles.activeUsersDot} />
-                    <Text style={styles.activeUsersText}>
-                      {activeUsers} aktiv{activeUsers > 1 ? 'e' : ''}
-                    </Text>
-                  </View>
-                ) : (
-                  <Text style={styles.activeUsersTextInactive}>0 aktive</Text>
-                )}
-              </View>
-            </View>
+            ) : null}
           </View>
-          <Icon name="chevron-forward" size={22} color="#C7C7CC" style={styles.rowChevron} />
-        </TouchableOpacity>
-        {activeUsers > 0 && (
-          <Pressable
-            style={styles.activeUsersOverlay}
-            onPress={() => setActiveUsersModal({gym: item, count: activeUsers})}
-            hitSlop={{top: 12, bottom: 12, left: 12, right: 12}}>
-            <View style={styles.activeUsersTouchable}>
-              <View style={styles.activeUsersDot} />
-              <Text style={styles.activeUsersText}>
-                {activeUsers} aktiv{activeUsers > 1 ? 'e' : ''}
-              </Text>
-            </View>
-          </Pressable>
-        )}
-      </View>
+          <Icon name="chevron-forward" size={20} color={colors.textMuted} style={styles.rowChevron} />
+        </View>
+      </TouchableOpacity>
     );
   };
 
-  // Separate favorite gyms from sorted gyms
   const favoriteGymsSorted = sortedGyms.filter(gym => favoriteGymIds.includes(gym.id));
   const otherGymsSorted = sortedGyms.filter(gym => !favoriteGymIds.includes(gym.id));
+
+  const showEmptyLocalOnboarding =
+    Boolean(user?.id) && favoriteGymIds.length === 0 && searchQuery.length === 0;
 
   return (
     <View style={styles.container}>
@@ -460,108 +404,64 @@ const CentresScreen = () => {
         style={styles.searchOuter}
       />
 
-      {/* Scrollable Content */}
       <ScrollView
         ref={scrollViewRef}
         style={styles.scrollView}
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
-        onScroll={(event) => {
-          const offsetY = event.nativeEvent.contentOffset.y;
-          // Show button when scrolled more than 500 pixels
-          setShowScrollToTop(offsetY > 500);
+        onScroll={event => {
+          setShowScrollToTop(event.nativeEvent.contentOffset.y > 500);
         }}
         scrollEventThrottle={16}>
-        {/* Favorite Gyms Section */}
+        {showEmptyLocalOnboarding ? (
+          <View style={styles.emptyLocalWrap}>
+            <Text style={styles.emptyLocalTitle}>Ingen gemte centre endnu</Text>
+            <Text style={styles.emptyLocalBody}>
+              Find centre og se hvem der træner lige nu 👀 Søg ovenfor eller tjek ind på et center — det
+              gemmes som dit lokale spot.
+            </Text>
+          </View>
+        ) : null}
+
         {favoriteGymsSorted.length > 0 && searchQuery.length === 0 && (
-          <View style={styles.favoriteSectionContainer}>
-            <Text style={styles.favoriteSectionTitle}>Mine lokale centre</Text>
-            <View style={styles.favoriteGymsList}>
+          <View style={styles.favoriteSection}>
+            <Text style={styles.sectionTitle}>Mine lokale centre</Text>
+            <View style={styles.favoriteStack}>
               {favoriteGymsSorted.map((gym, index) => (
-                <FavoriteGymItemWithLogo
+                <FavoriteGymCard
                   key={gym.id}
                   gym={gym}
                   index={index}
-                  onActiveUsersPress={(g, count) => setActiveUsersModal({gym: g, count})}
+                  distanceText={distanceForGym(gym)}
+                  live={liveStatsForGym(gym.id, liveByGymId, getActiveUsersCount)}
+                  gymStatus={getGymStatus(gym.id)}
                 />
               ))}
             </View>
           </View>
         )}
 
-        {/* Stats */}
-        <View style={styles.statsContainer}>
-          <Text style={styles.statsText}>
-            Centre I Nærheden
-          </Text>
+        <View style={styles.nearbyHeader}>
+          <Text style={styles.nearbyHeaderText}>Centre i nærheden</Text>
         </View>
 
-        {/* Gyms List */}
         <View style={styles.list}>
           {otherGymsSorted.map(gym => (
-            <View key={gym.id}>{renderGymItem(gym)}</View>
+            <View key={gym.id} style={styles.listRowGap}>
+              {renderGymItem(gym)}
+            </View>
           ))}
         </View>
       </ScrollView>
 
-      {/* Scroll to Top Button */}
       {showScrollToTop && (
         <TouchableOpacity
           style={styles.scrollToTopButton}
-          onPress={() => {
-            scrollViewRef.current?.scrollTo({y: 0, animated: true});
-          }}
+          onPress={() => scrollViewRef.current?.scrollTo({y: 0, animated: true})}
           activeOpacity={0.9}>
           <Icon name="arrow-up" size={28} color="#fff" />
         </TouchableOpacity>
       )}
-
-      {/* Active Users Modal */}
-      <Modal
-        visible={activeUsersModal !== null}
-        transparent
-        animationType="fade">
-        <TouchableOpacity
-          style={styles.modalOverlay}
-          activeOpacity={1}
-          onPress={() => setActiveUsersModal(null)}>
-          <View
-            style={styles.modalContent}
-            onStartShouldSetResponder={() => true}>
-            <View style={styles.modalHeader}>
-              <Text style={styles.modalTitle}>
-                {activeUsersModal?.count} aktive
-                {activeUsersModal?.gym ? ` – ${formatGymDisplayName(activeUsersModal.gym)}` : ''}
-              </Text>
-              <TouchableOpacity
-                onPress={() => setActiveUsersModal(null)}
-                hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}>
-                <Icon name="close" size={24} color={colors.textMuted} />
-              </TouchableOpacity>
-            </View>
-            <FlatList
-              data={activeUsersModal ? getActiveUsers(activeUsersModal.count) : []}
-              keyExtractor={(item) => item.id}
-              renderItem={({item}) => (
-                <View style={styles.modalUserItem}>
-                  <View style={styles.modalAvatar}>
-                    <Text style={styles.modalAvatarText}>
-                      {item.name.charAt(0)}
-                    </Text>
-                  </View>
-                  <View style={styles.modalUserInfo}>
-                    <Text style={styles.modalUserName}>{item.name}</Text>
-                    <Text style={styles.modalUserDuration}>
-                      I gang i {formatDuration(item.durationMinutes)}
-                    </Text>
-                  </View>
-                </View>
-              )}
-              style={styles.modalList}
-            />
-          </View>
-        </TouchableOpacity>
-      </Modal>
     </View>
   );
 };
@@ -571,341 +471,207 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.background,
   },
-  scrollView: {
-    flex: 1,
-  },
+  scrollView: {flex: 1},
   scrollContent: {
-    paddingBottom: 16,
+    paddingBottom: spacing.xl,
   },
   searchOuter: {
-    marginHorizontal: 16,
+    marginHorizontal: spacing.lg,
     marginTop: 10,
     marginBottom: 10,
   },
-  rowChevron: {
-    alignSelf: 'center',
-  },
-  statsContainer: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-  },
-  statsText: {
-    fontSize: 14,
-    color: colors.textMuted,
-  },
-  list: {
-    paddingHorizontal: 16,
-    paddingBottom: 16,
-  },
-  gymItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  rowChevron: {alignSelf: 'center', marginLeft: spacing.sm},
+  emptyLocalWrap: {
+    marginHorizontal: spacing.lg,
+    marginBottom: spacing.md,
+    padding: spacing.lg,
+    borderRadius: radius.lg,
     backgroundColor: colors.backgroundCard,
-    padding: 16,
-    borderRadius: 12,
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 1},
-    shadowOpacity: 0.05,
-    shadowRadius: 4,
-    elevation: 2,
-    position: 'relative',
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.border,
   },
-  gymItemTouchable: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  activeUsersOverlay: {
-    position: 'absolute',
-    right: 44,
-    bottom: 16,
-    zIndex: 10,
-  },
-  gymIcon: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: '#FFF9E6',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 12,
-  },
-  gymIconFavorite: {
-    backgroundColor: '#FFF9E6',
-  },
-  /** Afstand når listepunkt bruger `GymLogoView` (ikke favorit-stjerne) */
-  gymLogoSlot: {
-    marginRight: 12,
-  },
-  gymNameRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 4,
-  },
-  favoriteBadge: {
-    backgroundColor: '#FFD700',
-    borderRadius: 8,
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    marginLeft: 8,
-  },
-  favoriteBadgeText: {
-    fontSize: 10,
-    fontWeight: 'bold',
+  emptyLocalTitle: {
+    ...typography.h4,
+    fontWeight: '700',
     color: colors.text,
+    marginBottom: spacing.sm,
   },
-  favoriteSectionContainer: {
-    backgroundColor: colors.backgroundCard,
-    paddingHorizontal: 16,
-    paddingTop: 16,
-    paddingBottom: 16,
-    marginTop: 8,
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
-    borderColor: '#EFEFF4',
+  emptyLocalBody: {
+    ...typography.body,
+    color: colors.textTertiary,
+    lineHeight: 22,
   },
-  favoriteSectionTitle: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: colors.text,
-    marginBottom: 12,
+  favoriteSection: {
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.sm,
+    paddingBottom: spacing.md,
   },
-  favoriteGymsList: {
-    gap: 12,
-  },
-  favoriteGymItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.background,
-    padding: 16,
-    borderRadius: 12,
-    position: 'relative',
-  },
-  favoriteGymItemTouchable: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  favoriteActiveUsersOverlay: {
-    position: 'absolute',
-    right: 40,
-    bottom: 12,
-    zIndex: 10,
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-  },
-  favoriteGymNumber: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: '#FFD700',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 12,
-  },
-  favoriteGymNumberText: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: colors.text,
-  },
-  favoriteGymLogoContainer: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: colors.background,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 12,
-    overflow: 'hidden',
-  },
-  favoriteGymLogo: {
-    width: 40,
-    height: 40,
-  },
-  favoriteGymIconPlaceholder: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: colors.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 12,
-  },
-  favoriteGymIconLetter: {
-    fontSize: 20,
-    fontWeight: '600',
-    color: '#fff',
-  },
-  gymInfo: {
-    flex: 1,
-  },
-  gymName: {
+  sectionTitle: {
     fontSize: 17,
     fontWeight: '700',
     color: colors.text,
-    marginBottom: 4,
+    marginBottom: spacing.md,
   },
-  gymDetails: {
+  favoriteStack: {
+    gap: spacing.md,
+  },
+  favoriteCard: {
+    borderRadius: radius.lg,
+    backgroundColor: colors.backgroundCard,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.border,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.04,
+    shadowRadius: 8,
+    elevation: 1,
+  },
+  favoriteCardInner: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 4,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.md,
+    gap: spacing.md,
   },
-  gymBrand: {
-    fontSize: 14,
-    color: colors.secondary,
-    marginRight: 8,
+  favoriteCardBody: {
+    flex: 1,
+    minWidth: 0,
   },
-  gymLocation: {
-    fontSize: 14,
-    color: colors.textMuted,
+  gymCard: {
+    borderRadius: radius.lg,
+    backgroundColor: colors.backgroundCard,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.border,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.04,
+    shadowRadius: 8,
+    elevation: 1,
   },
-  gymAddress: {
+  gymCardInner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.md,
+    gap: spacing.md,
+  },
+  gymCardBody: {
+    flex: 1,
+    minWidth: 0,
+  },
+  list: {
+    paddingHorizontal: spacing.lg,
+  },
+  listRowGap: {
+    marginBottom: spacing.md,
+  },
+  nearbyHeader: {
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.sm,
+    paddingBottom: spacing.sm,
+  },
+  nearbyHeaderText: {
     fontSize: 13,
-    color: colors.textTertiary,
-  },
-  activeUsersContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 4,
-  },
-  activeUsersTouchable: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  activeUsersDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    backgroundColor: '#34C759',
-    marginRight: 6,
-  },
-  activeUsersText: {
-    fontSize: 12,
-    color: '#34C759',
     fontWeight: '600',
-  },
-  activeUsersTextInactive: {
-    fontSize: 12,
     color: colors.textMuted,
-    fontWeight: '500',
+    letterSpacing: 0.2,
   },
-  gymMetaRow: {
+  titleRow: {
     flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 4,
-    gap: 8,
     flexWrap: 'wrap',
+    alignItems: 'center',
+    gap: spacing.sm,
+    marginBottom: spacing.xs,
   },
-  distanceText: {
-    fontSize: 12,
-    color: colors.textTertiary,
-    fontWeight: '500',
+  cardTitle: {
+    fontSize: 17,
+    fontWeight: '700',
+    color: colors.text,
+    flex: 1,
+    minWidth: 0,
   },
-  statusRow: {
-    marginTop: 4,
+  ditCenterChip: {
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: radius.full,
+    backgroundColor: colors.primary + '14',
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.primary + '35',
   },
-  statusBadge: {
+  ditCenterChipText: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: colors.primaryDark,
+    letterSpacing: 0.2,
+  },
+  primaryMetaRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    gap: spacing.sm,
+    marginBottom: 6,
+  },
+  statusChip: {
     flexDirection: 'row',
     alignItems: 'center',
-    alignSelf: 'flex-start',
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 12,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: radius.full,
+    gap: 6,
   },
-  statusBadgeOpen: {
-    backgroundColor: '#E8F5E9',
+  statusChipOpen: {
+    backgroundColor: colors.success + '18',
   },
-  statusBadgeClosed: {
-    backgroundColor: '#FFEBEE',
+  statusChipClosed: {
+    backgroundColor: colors.errorLight + '22',
   },
   statusDot: {
-    width: 6,
-    height: 6,
-    borderRadius: 3,
-    marginRight: 4,
+    width: 7,
+    height: 7,
+    borderRadius: 4,
   },
-  statusDotOpen: {
-    backgroundColor: '#34C759',
-  },
-  statusDotClosed: {
-    backgroundColor: '#FF3B30',
-  },
-  statusText: {
+  statusDotOpen: {backgroundColor: colors.success},
+  statusDotClosed: {backgroundColor: colors.error},
+  statusChipText: {
     fontSize: 12,
     fontWeight: '600',
   },
-  statusTextOpen: {
-    color: '#059669',
+  statusChipTextOpen: {color: colors.secondaryDark},
+  statusChipTextClosed: {color: colors.error},
+  liveLine: {
+    fontSize: 14,
     fontWeight: '600',
+    color: colors.textSecondary,
+    flexShrink: 1,
   },
-  statusTextClosed: {
-    color: '#FF3B30',
-  },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 24,
-  },
-  modalContent: {
-    backgroundColor: colors.backgroundCard,
-    borderRadius: 16,
-    width: '100%',
-    maxHeight: '70%',
-    overflow: 'hidden',
-  },
-  modalHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-  },
-  modalTitle: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: colors.text,
-    flex: 1,
-  },
-  modalList: {
-    maxHeight: 300,
-    paddingVertical: 8,
-  },
-  modalUserItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-  },
-  modalAvatar: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: colors.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 12,
-  },
-  modalAvatarText: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#fff',
-  },
-  modalUserInfo: {
-    flex: 1,
-  },
-  modalUserName: {
-    fontSize: 16,
-    fontWeight: '500',
-    color: colors.text,
-  },
-  modalUserDuration: {
+  liveLineMuted: {
     fontSize: 13,
+    fontWeight: '500',
     color: colors.textMuted,
+    fontStyle: 'italic',
+  },
+  cityDistanceLine: {
+    fontSize: 14,
+    color: colors.textMuted,
+    marginBottom: 2,
+  },
+  addressTertiary: {
+    fontSize: 12,
+    color: colors.textTertiary,
     marginTop: 2,
   },
+  gymIcon: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: colors.primary + '12',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  gymIconFavorite: {
+    backgroundColor: colors.primary + '14',
+  },
+  gymLogoSlot: {},
   scrollToTopButton: {
     position: 'absolute',
     bottom: 80,
@@ -916,15 +682,14 @@ const styles = StyleSheet.create({
     backgroundColor: colors.secondary,
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: colors.primary,
+    shadowColor: '#000',
     shadowOffset: {width: 0, height: 4},
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 8,
+    shadowOpacity: 0.12,
+    shadowRadius: 10,
+    elevation: 6,
     borderWidth: 2,
     borderColor: '#fff',
   },
 });
 
 export default CentresScreen;
-

@@ -8,6 +8,7 @@ create table if not exists public.user_push_tokens (
   user_id uuid not null references auth.users (id) on delete cascade,
   token text not null,
   platform text not null default 'ios' check (platform in ('ios', 'android')),
+  device_id text,
   enabled boolean not null default true,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
@@ -19,6 +20,10 @@ create unique index if not exists user_push_tokens_user_token_uidx
 create index if not exists user_push_tokens_user_idx
   on public.user_push_tokens (user_id)
   where enabled = true;
+
+create index if not exists user_push_tokens_device_idx
+  on public.user_push_tokens (user_id, device_id)
+  where device_id is not null;
 
 alter table public.user_push_tokens enable row level security;
 

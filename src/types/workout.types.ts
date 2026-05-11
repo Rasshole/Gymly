@@ -37,7 +37,8 @@ export type MuscleGroup =
   | 'biceps'
   | 'mave'
   | 'ryg'
-  | 'hele_kroppen'
+  /** Cardio (løb, cykel, stairmaster m.m.) — tidligere `hele_kroppen` i data/UI */
+  | 'cardio'
   | 'reformer'
   | 'pilates';
 

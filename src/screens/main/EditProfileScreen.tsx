@@ -3,7 +3,7 @@
  * Screen for editing user profile: bio, image, privacy settings, name, username
  */
 
-import React, {useState, useCallback, useRef} from 'react';
+import React, {useState, useCallback, useRef, useEffect, useMemo} from 'react';
 import {
   View,
   Text,
@@ -20,10 +20,18 @@ import {
   Pressable,
 } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppStore} from '@/store/appStore';
+import {upsertMyProfile} from '@/services/supabase/friendService';
+import {supabase} from '@/services/supabase/supabaseClient';
+import {
+  getUsernameFormatErrorDa,
+  normalizeUsernameForStorage,
+  normalizeUsernameInput,
+} from '@/utils/usernameRules';
+import {useUsernameAvailability} from '@/hooks/useUsernameAvailability';
 import {GymSlotsEditor} from '@/components/profile/GymSlotsEditor';
 import {ProfileVisibility} from '@/types/user.types';
 import {
@@ -44,10 +52,14 @@ type EditProfileNavigationProp = StackNavigationProp<any>;
 
 const EditProfileScreen = () => {
   const navigation = useNavigation<EditProfileNavigationProp>();
+  const route = useRoute() as {params?: {forceUsernameChange?: boolean}};
   const {user, setUser} = useAppStore();
+  const forceUsernameChange = route.params?.forceUsernameChange === true;
 
   const [displayName, setDisplayName] = useState(user?.displayName || '');
-  const [username, setUsername] = useState(user?.username || '');
+  const [username, setUsername] = useState(() =>
+    normalizeUsernameForStorage(user?.username ?? ''),
+  );
   const [bio, setBio] = useState(user?.bio || '');
   const [profileImageUrl, setProfileImageUrl] = useState(user?.profileImageUrl || '');
   const [weight, setWeight] = useState(user?.weight ? user.weight.toString() : '');
@@ -62,9 +74,12 @@ const EditProfileScreen = () => {
   const [bicepsEmoji, setBicepsEmoji] = useState(user?.bicepsEmoji || '💪🏻');
   const [showGenderPicker, setShowGenderPicker] = useState(false);
   const photoScale = useRef(new Animated.Value(1)).current;
+  /** Ved tvungen omdøbning: kræv at brugeren faktisk ændrer væk fra DB-værdien. */
+  const forcedRenameStartNorm = useRef<string | null>(null);
   const [profileVisibility, setProfileVisibility] = useState<ProfileVisibility>(
     user?.privacySettings.profileVisibility || 'private'
   );
+  const [isSaving, setIsSaving] = useState(false);
   const [gymIdsDraft, setGymIdsDraft] = useState<string[]>(
     () => (user?.favoriteGyms?.filter(Boolean) as string[] | undefined) ?? [],
   );
@@ -89,8 +104,127 @@ const EditProfileScreen = () => {
     return daysSinceChange >= 14;
   };
 
-  const handleSave = () => {
+  const unchangedUsernameNorm = useMemo(
+    () => (user?.username ? normalizeUsernameForStorage(user.username) : null),
+    [user?.username],
+  );
+
+  const usernameAvailability = useUsernameAvailability({
+    rawUsername: username,
+    excludeUserId: user?.id,
+    unchangedNormalized: unchangedUsernameNorm,
+  });
+
+  const usernameNormChanged = useMemo(() => {
+    if (!user) {
+      return false;
+    }
+    return (
+      normalizeUsernameForStorage(username) !== normalizeUsernameForStorage(user.username)
+    );
+  }, [username, user]);
+
+  const stuckOnForcedUsername =
+    forceUsernameChange &&
+    forcedRenameStartNorm.current != null &&
+    normalizeUsernameForStorage(username) === forcedRenameStartNorm.current;
+
+  const saveBlockedByUsername =
+    stuckOnForcedUsername ||
+    ((forceUsernameChange || usernameNormChanged) && !usernameAvailability.canProceed) ||
+    isSaving;
+
+  const PROFILE_AVATAR_BUCKET = 'workout-images';
+
+  function userFacingSaveError(err: unknown): string {
+    const msg = ((err as {message?: string})?.message ?? '').toLowerCase();
+    const code = ((err as {code?: string})?.code ?? '').toString();
+    if (
+      code === '23505' ||
+      msg.includes('brugernavnet er allerede taget') ||
+      msg.includes('duplicate') ||
+      msg.includes('unique')
+    ) {
+      return 'Brugernavnet er allerede taget';
+    }
+    if (
+      msg.includes('kun bogstaver, tal, punktum og _') ||
+      msg.includes('invalid username')
+    ) {
+      return 'Brugernavn må kun indeholde bogstaver, tal, punktum og _';
+    }
+    if (
+      msg.includes('network') ||
+      msg.includes('fetch') ||
+      msg.includes('offline') ||
+      msg.includes('connection')
+    ) {
+      return 'Kunne ikke få forbindelse';
+    }
+    if (msg.includes('row-level security') || msg.includes('rls')) {
+      return 'Kunne ikke gemme profil (mangler rettighed til egen profil).';
+    }
+    return 'Kunne ikke gemme profil';
+  }
+
+  async function uploadAvatarIfNeeded(currentUserId: string): Promise<string> {
+    const raw = profileImageUrl.trim();
+    if (!raw) {
+      return '';
+    }
+    const isLocal =
+      raw.startsWith('file://') ||
+      raw.startsWith('content://') ||
+      raw.startsWith('ph://');
+    if (!isLocal) {
+      return raw;
+    }
+    const response = await fetch(raw);
+    if (!response.ok) {
+      throw new Error('Kunne ikke læse valgt billede');
+    }
+    const body = await response.arrayBuffer();
+    const path = `${currentUserId}/avatar-${Date.now()}.jpg`;
+    const {error: uploadError} = await supabase.storage
+      .from(PROFILE_AVATAR_BUCKET)
+      .upload(path, body, {contentType: 'image/jpeg', upsert: true});
+    if (uploadError) {
+      throw new Error('Kunne ikke uploade profilbillede');
+    }
+    const {data: pub} = supabase.storage.from(PROFILE_AVATAR_BUCKET).getPublicUrl(path);
+    if (!pub?.publicUrl) {
+      throw new Error('Kunne ikke hente avatar-url');
+    }
+    return pub.publicUrl;
+  }
+
+  useEffect(() => {
+    if (forceUsernameChange && user?.usernameRequiresChange && user.username) {
+      forcedRenameStartNorm.current = normalizeUsernameForStorage(user.username);
+    }
+  }, [forceUsernameChange, user?.usernameRequiresChange, user?.username]);
+
+  useEffect(() => {
+    if (!forceUsernameChange || !user?.usernameRequiresChange) {
+      return;
+    }
+    const sub = navigation.addListener('beforeRemove', e => {
+      if (!useAppStore.getState().user?.usernameRequiresChange) {
+        return;
+      }
+      e.preventDefault();
+      Alert.alert(
+        'Brugernavn påkrævet',
+        'Vælg et nyt brugernavn for at fortsætte med Gymly.',
+        [{text: 'OK'}],
+      );
+    });
+    return sub;
+  }, [forceUsernameChange, navigation, user?.usernameRequiresChange]);
+
+  const handleSave = async () => {
     if (!user) return;
+    if (isSaving) return;
 
     if (gymIdsDraft.length < 1) {
       Alert.alert(
@@ -113,49 +247,86 @@ const EditProfileScreen = () => {
       }
     }
 
-    // Validate username change
-    if (username !== user.username) {
+    const nextUsernameNorm = normalizeUsernameForStorage(username);
+    const uFmt = getUsernameFormatErrorDa(nextUsernameNorm);
+    if (uFmt) {
+      Alert.alert('Brugernavn', uFmt);
+      return;
+    }
+
+    if (stuckOnForcedUsername) {
+      Alert.alert(
+        'Brugernavn',
+        'Vælg et nyt brugernavn — det midlertidige skal skiftes.',
+      );
+      return;
+    }
+
+    if (usernameNormChanged) {
       if (!canChangeUsername()) {
         const daysUntil = Math.ceil(14 - ((Date.now() - lastUsernameChange!.getTime()) / (1000 * 60 * 60 * 24)));
         Alert.alert(
           'Kan ikke ændre brugernavn',
           `Du kan ændre dit brugernavn igen om ${daysUntil} dag${daysUntil !== 1 ? 'e' : ''}. Du kan kun ændre dit brugernavn hver 14. dag.`
         );
-        setUsername(user.username);
+        setUsername(normalizeUsernameForStorage(user.username));
+        return;
+      }
+      if (!usernameAvailability.canProceed) {
+        if (usernameAvailability.checking) {
+          Alert.alert('Brugernavn', 'Vent et øjeblik …');
+        } else if (usernameAvailability.available === false) {
+          Alert.alert('Brugernavn', 'Brugernavn er allerede taget');
+        } else {
+          Alert.alert('Brugernavn', 'Tjek brugernavnet og prøv igen.');
+        }
         return;
       }
     }
 
-    // Update user
-    const updatedUser = {
-      ...user,
-      displayName: displayName.trim(),
-      username: username.trim(),
-      profileImageUrl: profileImageUrl.trim() || undefined,
-      bio: bio.trim() || undefined,
-      weight: weight.trim() ? parseFloat(weight.trim()) : undefined,
-      gender: gender || undefined,
-      dateOfBirth: dateOfBirth || undefined,
-      city: city.trim() || undefined,
-      bicepsEmoji: bicepsEmoji,
-      favoriteGyms: gymIdsDraft.slice(0, 3),
-      privacySettings: {
-        ...user.privacySettings,
-        profileVisibility,
-      },
-      updatedAt: new Date(),
-    };
+    setIsSaving(true);
+    try {
+      const avatarUrl = await uploadAvatarIfNeeded(user.id);
+      const updatedUser = {
+        ...user,
+        id: user.id, // always own user id for profile upsert
+        displayName: displayName.trim(),
+        username: nextUsernameNorm,
+        usernameRequiresChange: false,
+        profileImageUrl: avatarUrl || undefined,
+        bio: bio.trim() || undefined,
+        weight: weight.trim() ? parseFloat(weight.trim()) : undefined,
+        gender: gender || undefined,
+        dateOfBirth: dateOfBirth || undefined,
+        city: city.trim() || undefined,
+        bicepsEmoji: bicepsEmoji,
+        favoriteGyms: gymIdsDraft.slice(0, 3),
+        privacySettings: {
+          ...user.privacySettings,
+          profileVisibility,
+        },
+        updatedAt: new Date(),
+      };
 
-    if (displayName !== user.displayName) {
-      setLastDisplayNameChange(new Date());
-    }
-    if (username !== user.username) {
-      setLastUsernameChange(new Date());
-    }
+      await upsertMyProfile(updatedUser);
 
-    setUser(updatedUser);
-    Alert.alert('Profil opdateret', 'Dine ændringer er blevet gemt.');
-    navigation.goBack();
+      if (displayName !== user.displayName) {
+        setLastDisplayNameChange(new Date());
+      }
+      if (usernameNormChanged) {
+        setLastUsernameChange(new Date());
+      }
+
+      setUser(updatedUser, {skipProfileSync: true});
+      Alert.alert('Profil opdateret', 'Dine ændringer er blevet gemt.');
+      navigation.goBack();
+    } catch (err) {
+      console.log('Profile save error:', err);
+      Alert.alert('Profil', userFacingSaveError(err));
+      return;
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   const getProfileVisibilityLabel = (visibility: ProfileVisibility): string => {
@@ -243,12 +414,21 @@ const EditProfileScreen = () => {
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Rediger Profil</Text>
         <TouchableOpacity
-          onPress={handleSave}
-          style={styles.saveButton}
-          activeOpacity={0.7}>
-          <Text style={styles.saveButtonText}>Gem</Text>
+          onPress={() => void handleSave()}
+          style={[styles.saveButton, saveBlockedByUsername && styles.saveButtonDisabled]}
+          activeOpacity={0.7}
+          disabled={saveBlockedByUsername}>
+          <Text style={styles.saveButtonText}>{isSaving ? 'Gemmer…' : 'Gem'}</Text>
         </TouchableOpacity>
       </View>
+
+      {forceUsernameChange ? (
+        <View style={styles.forceBanner}>
+          <Text style={styles.forceBannerText}>
+            Dit brugernavn skal være unikt. Vælg et nyt — det gemmes med små bogstaver.
+          </Text>
+        </View>
+      ) : null}
 
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.content}>
         {/* Profile Image */}
@@ -310,13 +490,42 @@ const EditProfileScreen = () => {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Brugernavn</Text>
           <TextInput
-            style={styles.input}
+            style={[
+              styles.input,
+              usernameAvailability.formatError || usernameAvailability.available === false
+                ? styles.inputUsernameErr
+                : usernameAvailability.available === true && !usernameAvailability.formatError
+                  ? styles.inputUsernameOk
+                  : null,
+            ]}
             value={username}
-            onChangeText={setUsername}
+            onChangeText={t => setUsername(normalizeUsernameInput(t))}
             placeholder="Dit brugernavn"
             placeholderTextColor="#8E8E93"
+            autoCapitalize="none"
+            autoCorrect={false}
+            maxLength={20}
           />
-          {!canChangeUsername() && username !== user?.username && (
+          <Text style={styles.helperMuted}>Bogstaver, tal, punktum og _ · 3–20 tegn</Text>
+          {usernameAvailability.formatError ? (
+            <View style={styles.usernameStatusRow}>
+              <Icon name="close-circle" size={16} color={colors.error} />
+              <Text style={styles.hintErr}>{usernameAvailability.formatError}</Text>
+            </View>
+          ) : usernameAvailability.checking && normalizeUsernameForStorage(username).length > 0 ? (
+            <Text style={styles.helperMuted}>Tjekker …</Text>
+          ) : usernameAvailability.available === false ? (
+            <View style={styles.usernameStatusRow}>
+              <Icon name="close-circle" size={16} color={colors.error} />
+              <Text style={styles.hintErr}>Brugernavn er allerede taget</Text>
+            </View>
+          ) : usernameAvailability.available === true && usernameNormChanged ? (
+            <View style={styles.usernameStatusRow}>
+              <Icon name="checkmark-circle" size={16} color={colors.primary} />
+              <Text style={styles.hintOk}>Brugernavn er ledigt</Text>
+            </View>
+          ) : null}
+          {!canChangeUsername() && usernameNormChanged && (
             <Text style={styles.warningText}>
               Du kan kun ændre dit brugernavn hver 14. dag
             </Text>
@@ -566,6 +775,21 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: colors.primary,
   },
+  saveButtonDisabled: {
+    opacity: 0.35,
+  },
+  forceBanner: {
+    backgroundColor: colors.primary + '14',
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: colors.border,
+  },
+  forceBannerText: {
+    fontSize: 14,
+    color: colors.text,
+    lineHeight: 20,
+  },
   scrollView: {
     flex: 1,
   },
@@ -627,6 +851,35 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: colors.text,
     backgroundColor: '#F4F5F8',
+  },
+  inputUsernameOk: {
+    borderColor: colors.primary,
+    borderWidth: 1.5,
+  },
+  inputUsernameErr: {
+    borderColor: colors.error,
+    borderWidth: 1.5,
+  },
+  helperMuted: {
+    fontSize: 12,
+    color: colors.textMuted,
+    marginTop: 6,
+  },
+  hintOk: {
+    fontSize: 13,
+    color: colors.primary,
+    fontWeight: '600',
+  },
+  hintErr: {
+    fontSize: 13,
+    color: colors.error,
+    flex: 1,
+  },
+  usernameStatusRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    marginTop: 8,
   },
   bioInput: {
     height: 100,

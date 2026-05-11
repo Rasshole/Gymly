@@ -1,4 +1,6 @@
 import {supabase} from '@/services/supabase/supabaseClient';
+import {checkAndUnlockBadges} from '@/store/badgeStore';
+import {updateUserStatsAfterSession} from '@/services/supabase/userStatsService';
 import type {
   CheckInEndReason,
   CheckInSubmitResult,
@@ -73,6 +75,13 @@ export async function endActiveCheckInInSupabase(
   options?: {autoCheckoutReason?: AutoCheckoutKind},
 ): Promise<void> {
   const now = new Date().toISOString();
+  const nowDate = new Date(now);
+  const {data: existingCheckIn} = await supabase
+    .from('check_ins')
+    .select('started_at')
+    .eq('id', checkInId)
+    .eq('user_id', userId)
+    .maybeSingle();
   const auto =
     options?.autoCheckoutReason != null
       ? options.autoCheckoutReason
@@ -127,6 +136,19 @@ export async function endActiveCheckInInSupabase(
           throw new Error(err3.message ?? 'Kunne ikke tjekke ud i databasen.');
         }
       }
+      const startedAt = existingCheckIn?.started_at
+        ? new Date(String(existingCheckIn.started_at))
+        : nowDate;
+      try {
+        await updateUserStatsAfterSession(userId, {
+          startedAt,
+          endedAt: nowDate,
+          hasValidCheckIn: true,
+        });
+      } catch (statsErr) {
+        console.warn('[CheckInService] stats update failed after checkout fallback:', statsErr);
+      }
+      void checkAndUnlockBadges(userId);
       return;
     }
     const {error: err2} = await supabase
@@ -138,6 +160,19 @@ export async function endActiveCheckInInSupabase(
       throw new Error(err2.message ?? 'Kunne ikke tjekke ud i databasen.');
     }
   }
+  const startedAt = existingCheckIn?.started_at
+    ? new Date(String(existingCheckIn.started_at))
+    : nowDate;
+  try {
+    await updateUserStatsAfterSession(userId, {
+      startedAt,
+      endedAt: nowDate,
+      hasValidCheckIn: true,
+    });
+  } catch (statsErr) {
+    console.warn('[CheckInService] stats update failed after checkout:', statsErr);
+  }
+  void checkAndUnlockBadges(userId);
 }
 
 export async function updateCheckInLastSeenAt(
@@ -390,6 +425,7 @@ export async function submitCheckInSupabase(
   if (!data) {
     throw new Error('Kunne ikke gemme tjek-ind (ingen række returneret).');
   }
+  void checkAndUnlockBadges(user.id, params.displayName);
   return {
     id: data.id,
     startedAt: new Date(data.started_at ?? startedAt),

@@ -21,6 +21,14 @@ function notify() {
   }
 }
 
+/** Efter auto-checkout el.l. — tving alle abonnenter til refetch uden at vente på næste realtime-event. */
+export function notifyCheckInsPresenceSubscribers(): void {
+  if (__DEV__) {
+    console.log('[ActiveSessions] notifyCheckInsPresenceSubscribers (imperativ refresh)');
+  }
+  notify();
+}
+
 function logPresenceEvent(
   table: string,
   payload: {eventType?: string; new?: unknown; old?: unknown},

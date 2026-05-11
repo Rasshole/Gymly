@@ -3,8 +3,9 @@
  */
 
 import {supabase} from '@/services/supabase/supabaseClient';
+import {checkAndUnlockBadges} from '@/store/badgeStore';
 import type {WorkoutPlanEntry} from '@/store/workoutPlanStore';
-import {MuscleGroup} from '@/types/workout.types';
+import {coerceMuscleGroup} from '@/utils/muscleGroupLabels';
 import {findGymById} from '@/utils/gymDisplay';
 import {getActiveDanishGyms} from '@/data/danishGyms';
 
@@ -22,6 +23,7 @@ export type PlannedWorkoutRow = {
   thread_id: string | null;
   created_at: string;
   completed_at: string | null;
+  reminder_sent_at?: string | null;
 };
 
 export type PlannedParticipantRow = {
@@ -41,6 +43,9 @@ function rpcError(msg: string): string {
   if (/not_friends/i.test(m)) {
     return 'I skal være venner for at planlægge sammen.';
   }
+  if (/cannot_invite_self/i.test(m)) {
+    return 'Du kan ikke invitere dig selv.';
+  }
   if (/not_invitee/i.test(m)) {
     return 'Du er ikke modtager af denne invitation.';
   }
@@ -53,6 +58,44 @@ function rpcError(msg: string): string {
   return 'Noget gik galt. Prøv igen om lidt.';
 }
 
+/**
+ * Én delt session: valgfri liste af venner (tom = solo). Opretter notifikation pr. inviteret.
+ */
+export async function createPlannedSession(params: {
+  centerId: string;
+  centerName: string;
+  scheduledAt: Date;
+  trainingTypes: string[];
+  note?: string | null;
+  inviteeIds: string[];
+  threadId?: string | null;
+}): Promise<string> {
+  const ids = [...new Set(params.inviteeIds.filter(Boolean))];
+  const {data, error} = await supabase.rpc('create_planned_session', {
+    p_center_id: params.centerId,
+    p_center_name: params.centerName,
+    p_scheduled_at: params.scheduledAt.toISOString(),
+    p_training_types: params.trainingTypes,
+    p_note: params.note ?? null,
+    p_invitee_ids: ids,
+    p_thread_id: params.threadId ?? null,
+  });
+  if (error) {
+    throw new Error(rpcError(error.message));
+  }
+  const id = data == null ? '' : String(data);
+  if (!id) {
+    throw new Error('Uventet svar');
+  }
+  const {
+    data: {user},
+  } = await supabase.auth.getUser();
+  if (user?.id) {
+    void checkAndUnlockBadges(user.id);
+  }
+  return id;
+}
+
 export async function createPlannedWorkoutInvite(params: {
   inviteeId: string;
   centerId: string;
@@ -62,22 +105,15 @@ export async function createPlannedWorkoutInvite(params: {
   note?: string | null;
   threadId: string | null;
 }): Promise<string> {
-  const {data, error} = await supabase.rpc('create_planned_workout_invite', {
-    p_invitee_id: params.inviteeId,
-    p_center_id: params.centerId,
-    p_center_name: params.centerName,
-    p_scheduled_at: params.scheduledAt.toISOString(),
-    p_training_types: params.trainingTypes,
-    p_note: params.note ?? null,
-    p_thread_id: params.threadId,
+  return createPlannedSession({
+    centerId: params.centerId,
+    centerName: params.centerName,
+    scheduledAt: params.scheduledAt,
+    trainingTypes: params.trainingTypes,
+    note: params.note,
+    inviteeIds: [params.inviteeId],
+    threadId: params.threadId,
   });
-  if (error) {
-    throw new Error(rpcError(error.message));
-  }
-  if (typeof data !== 'string') {
-    throw new Error('Uventet svar');
-  }
-  return data;
 }
 
 export async function respondPlannedWorkoutInvite(
@@ -90,6 +126,12 @@ export async function respondPlannedWorkoutInvite(
   });
   if (error) {
     throw new Error(rpcError(error.message));
+  }
+  const {
+    data: {user},
+  } = await supabase.auth.getUser();
+  if (user?.id) {
+    void checkAndUnlockBadges(user.id);
   }
 }
 
@@ -105,6 +147,39 @@ export async function fetchPlannedWorkoutByThread(
     .in('status', ['active'])
     .order('scheduled_at', {ascending: false})
     .limit(1)
+    .maybeSingle();
+
+  if (error) {
+    throw new Error(error.message);
+  }
+  if (!pw) {
+    return null;
+  }
+
+  const {data: parts, error: pErr} = await supabase
+    .from('planned_workout_participants')
+    .select('id, planned_workout_id, user_id, role, response_status, responded_at')
+    .eq('planned_workout_id', pw.id);
+
+  if (pErr) {
+    throw new Error(pErr.message);
+  }
+
+  return {
+    workout: pw as PlannedWorkoutRow,
+    participants: (parts ?? []) as PlannedParticipantRow[],
+  };
+}
+
+export async function fetchPlannedWorkoutById(
+  plannedWorkoutId: string,
+): Promise<{workout: PlannedWorkoutRow; participants: PlannedParticipantRow[]} | null> {
+  const {data: pw, error} = await supabase
+    .from('planned_workouts')
+    .select(
+      'id, creator_user_id, center_id, center_name, scheduled_at, training_types, note, status, thread_id, created_at, completed_at',
+    )
+    .eq('id', plannedWorkoutId)
     .maybeSingle();
 
   if (error) {
@@ -227,8 +302,9 @@ export async function loadWorkoutPlanEntriesForUser(
     });
     return {
       id: workout.id,
+      creatorUserId: workout.creator_user_id,
       gym: g,
-      muscles: (workout.training_types || []) as MuscleGroup[],
+      muscles: (workout.training_types || []).map(coerceMuscleGroup),
       scheduledAt: new Date(workout.scheduled_at),
       invitedFriends,
       acceptedFriends,
@@ -238,7 +314,7 @@ export async function loadWorkoutPlanEntriesForUser(
 }
 
 /** Tidsvindue til fælles tjek-ind (minutter før/efter planlagt tid) */
-export const PLANNED_CHECKIN_WINDOW_BEFORE_MIN = 60;
+export const PLANNED_CHECKIN_WINDOW_BEFORE_MIN = 90;
 export const PLANNED_CHECKIN_WINDOW_AFTER_MIN = 90;
 
 export function findLinkablePlannedWorkoutId(params: {

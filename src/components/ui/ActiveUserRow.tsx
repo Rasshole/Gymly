@@ -52,7 +52,13 @@ export const ActiveUserRow: React.FC<ActiveUserRowProps> = ({
 
   const content = (
     <>
-      <UserAvatar name={user.name} imageUrl={user.avatar} size="md" />
+      <UserAvatar
+        name={user.name}
+        imageUrl={user.avatar}
+        size="md"
+        showOnlineIndicator
+        isOnline
+      />
       <View style={styles.content}>
         <Text style={styles.name} numberOfLines={1}>
           {user.name}

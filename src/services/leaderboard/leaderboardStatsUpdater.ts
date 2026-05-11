@@ -1,5 +1,5 @@
 /**
- * Leaderboard Stats Updater
+ * Leaderboard Stats Updater — Reserved for future competitive/social systems.
  * Kaldes når check-in, workout, PR eller social workout sker.
  * I produktion: Cloud Functions opdaterer Firestore.
  * Lokalt: Kan bruges til at invalidere cache eller trigge client-side opdatering.

@@ -1,8 +1,11 @@
 /**
  * Ranglister — data fra Firestore (leaderboardStats / gym underlister)
+ *
+ * Reserved for future competitive/social systems: screen + services stay in-repo;
+ * primary navigation is gated via `src/config/launchSurfaceConfig.ts`.
  */
 
-import React, {useState, useMemo, useEffect} from 'react';
+import React, {useState, useMemo, useEffect, useRef, useCallback} from 'react';
 import {
   View,
   Text,
@@ -11,32 +14,28 @@ import {
   TouchableOpacity,
   TextInput,
   ActivityIndicator,
+  Animated,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useFocusEffect} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import ScreenHeader from '@/components/ui/ScreenHeader';
 import {Card} from '@/components/ui/Card';
 import {EmptyState} from '@/components/ui/EmptyState';
-import Chip from '@/components/ui/Chip';
 import {LeaderboardRow} from '@/components/ui/LeaderboardRow';
 import {getActiveDanishGyms} from '@/data/danishGyms';
 import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows} from '@/theme/designTokens';
 import {useAppStore} from '@/store/appStore';
-import {
-  fetchGlobalLeaderboard,
-  fetchFriendsLeaderboard,
-  fetchGymLeaderboard,
-} from '@/services/leaderboard/leaderboardService';
-import {getHomeLeaderboardCenterIdForUser, resolveGymNameForLeaderboard} from '@/utils/leaderboardCenterFromGym';
+import {supabase} from '@/services/supabase/supabaseClient';
+import {getStreakBadge} from '@/utils/streakUtils';
+import {fetchGymLiveSessionTotals} from '@/services/supabase/liveWorkoutSessionService';
+import {fetchGymlyLeaderboard} from '@/services/supabase/gymlyLeaderboardService';
+import {getHomeLeaderboardCenterIdForUser} from '@/utils/leaderboardCenterFromGym';
 import {findGymById} from '@/utils/gymDisplay';
-import type {
-  LeaderboardCategory,
-  LeaderboardEntry,
-  LeaderboardPeriod,
-} from '@/types/leaderboard.types';
+import type {LeaderboardEntry} from '@/types/leaderboard.types';
+import {UserAvatar} from '@/components/ui/UserAvatar';
 
 type Period = 'week' | 'month' | 'all';
 type LeaderboardMetric = 'checkins' | 'minutes' | 'streak';
@@ -44,7 +43,7 @@ type CategoryTab = 'gymly' | 'friends' | 'center';
 
 const METRIC_OPTIONS: {key: LeaderboardMetric; label: string}[] = [
   {key: 'checkins', label: 'Check-ins'},
-  {key: 'minutes', label: 'Tid trænet'},
+  {key: 'minutes', label: 'Tid'},
   {key: 'streak', label: 'Streak'},
 ];
 
@@ -61,18 +60,147 @@ const PERIOD_OPTIONS: {key: Period; label: string}[] = [
 ];
 
 const TOP_PREVIEW_COUNT = 10;
+const EMPTY_CENTER_TITLE = 'Ingen centerdata endnu';
+const EMPTY_CENTER_MESSAGE = 'Tjek ind i dit center for at komme på ranglisten.';
 
-function metricToCategory(m: LeaderboardMetric): LeaderboardCategory {
-  switch (m) {
-    case 'checkins':
-      return 'checkIns';
-    case 'minutes':
-      return 'trainingTime';
-    case 'streak':
-      return 'streak';
-    default:
-      return 'checkIns';
+/** Supabase/PostgREST fejl er ofte plain objects — ikke `instanceof Error`. */
+function stringifyLeaderboardError(e: unknown): string {
+  if (e instanceof Error && e.message.trim()) {
+    return e.message.trim();
   }
+  if (typeof e === 'string' && e.trim()) {
+    return e.trim();
+  }
+  if (e && typeof e === 'object') {
+    const o = e as Record<string, unknown>;
+    const parts: string[] = [];
+    if (typeof o.message === 'string' && o.message.trim()) {
+      parts.push(o.message.trim());
+    }
+    if (typeof o.details === 'string' && o.details.trim()) {
+      parts.push(o.details.trim());
+    }
+    if (typeof o.hint === 'string' && o.hint.trim()) {
+      parts.push(o.hint.trim());
+    }
+    if (typeof o.code === 'string' && o.code.trim()) {
+      parts.push(`(${o.code.trim()})`);
+    }
+    if (parts.length > 0) {
+      return parts.join(' ');
+    }
+  }
+  return 'Ukendt fejl';
+}
+
+function normalizeLeaderboardEntries(input: unknown): LeaderboardEntry[] {
+  const rows = Array.isArray(input) ? input : [];
+  const normalized = rows
+    .map((raw, idx): LeaderboardEntry | null => {
+      if (!raw || typeof raw !== 'object') {
+        return null;
+      }
+      const entry = raw as Partial<LeaderboardEntry> & {
+        userId?: unknown;
+        displayName?: unknown;
+        value?: unknown;
+        rank?: unknown;
+        isCurrentUser?: unknown;
+      };
+      const userId = typeof entry.userId === 'string' ? entry.userId.trim() : '';
+      if (!userId) {
+        return null;
+      }
+      const displayName =
+        typeof entry.displayName === 'string' && entry.displayName.trim().length > 0
+          ? entry.displayName.trim()
+          : 'Bruger';
+      const value = Number(entry.value ?? 0);
+      const rank = Number(entry.rank ?? idx + 1);
+      return {
+        ...entry,
+        userId,
+        displayName,
+        value: Number.isFinite(value) ? value : 0,
+        rank: Number.isFinite(rank) && rank > 0 ? rank : idx + 1,
+        isCurrentUser: Boolean(entry.isCurrentUser),
+        isFriend: Boolean(entry.isFriend),
+        valueLabel:
+          typeof entry.valueLabel === 'string' ? entry.valueLabel : `${Number.isFinite(value) ? value : 0}`,
+        username: typeof entry.username === 'string' ? entry.username : undefined,
+        aliveSubtitle: typeof entry.aliveSubtitle === 'string' ? entry.aliveSubtitle : undefined,
+        leaderboardCheckIns:
+          typeof entry.leaderboardCheckIns === 'number' ? entry.leaderboardCheckIns : undefined,
+        leaderboardMinutes:
+          typeof entry.leaderboardMinutes === 'number' ? entry.leaderboardMinutes : undefined,
+        leaderboardStreak:
+          typeof entry.leaderboardStreak === 'number' ? entry.leaderboardStreak : undefined,
+      } as LeaderboardEntry;
+    })
+    .filter((entry): entry is LeaderboardEntry => entry !== null);
+
+  const deduped = Array.from(
+    new Map(normalized.map(entry => [entry.userId, entry])).values(),
+  );
+
+  return deduped.map((entry, idx) => ({
+    ...entry,
+    rank: idx + 1,
+  }));
+}
+
+function formatMetricValue(value: number, metric: LeaderboardMetric): string {
+  if (metric === 'checkins') return `${value} check-ins`;
+  if (metric === 'minutes') return `${value} min`;
+  return `${value} dages streak`;
+}
+
+function AnimatedMetricValue({
+  value,
+  metric,
+  style,
+}: {
+  value: number;
+  metric: LeaderboardMetric;
+  style?: any;
+}) {
+  const [display, setDisplay] = useState(value);
+  const prevRef = useRef(value);
+  const opacity = useRef(new Animated.Value(1)).current;
+  const translateY = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    const from = prevRef.current;
+    const to = value;
+    if (from === to) return;
+
+    opacity.setValue(0.84);
+    translateY.setValue(5);
+    Animated.parallel([
+      Animated.timing(opacity, {toValue: 1, duration: 260, useNativeDriver: true}),
+      Animated.timing(translateY, {toValue: 0, duration: 260, useNativeDriver: true}),
+    ]).start();
+
+    const frames = 24;
+    const stepMs = 18;
+    let frame = 0;
+    const timer = setInterval(() => {
+      frame += 1;
+      const t = Math.min(1, frame / frames);
+      const eased = 1 - Math.pow(1 - t, 3);
+      setDisplay(Math.round(from + (to - from) * eased));
+      if (t >= 1) clearInterval(timer);
+    }, stepMs);
+
+    prevRef.current = to;
+    return () => clearInterval(timer);
+  }, [value, opacity, translateY]);
+
+  return (
+    <Animated.Text style={[style, {opacity, transform: [{translateY}]}]}>
+      {formatMetricValue(display, metric)}
+    </Animated.Text>
+  );
 }
 
 function getMotivationText(
@@ -95,33 +223,79 @@ function YourPlacementCard({
   entry,
   rank,
   motivation,
+  streakText,
+  checkInText,
+  timeText,
+  movementText,
+  metric,
+  periodLabel,
 }: {
   entry: LeaderboardEntry;
   rank: number;
   motivation: string;
+  streakText: string;
+  checkInText: string;
+  timeText: string;
+  movementText: string;
+  metric: LeaderboardMetric;
+  periodLabel: string;
 }) {
   return (
-    <Card variant="elevated" padding="lg">
+    <View style={styles.yourCard}>
       <View style={styles.yourCardHeader}>
         <Text style={styles.yourCardTitle}>Din placering</Text>
         <View style={styles.rankBadge}>
           <Text style={styles.rankBadgeText}>#{rank}</Text>
         </View>
       </View>
-      <Text style={styles.yourStatValue}>{entry.valueLabel}</Text>
+      <Text style={styles.yourStatValue}>
+        #{rank} · {periodLabel}
+      </Text>
+      <View style={styles.yourStatsRow}>
+        <Text style={styles.yourStatPill}>{streakText}</Text>
+        <Text style={styles.yourStatPill}>{checkInText}</Text>
+        <Text style={styles.yourStatPill}>{timeText}</Text>
+      </View>
+      <Text style={styles.yourMovement}>{movementText}</Text>
       <Text style={styles.motivationText}>{motivation}</Text>
-    </Card>
+      <View style={styles.yourHintWrap}>
+        <Text style={styles.yourHintPrefix}>Nuværende måling:</Text>
+        <AnimatedMetricValue value={entry.value} metric={metric} style={styles.yourHint} />
+      </View>
+    </View>
   );
 }
 
 function TopThreePodium({
   users,
   onUserPress,
+  metric,
 }: {
   users: LeaderboardEntry[];
   onUserPress: (id: string, name: string) => void;
+  metric: LeaderboardMetric;
 }) {
   const order = [1, 0, 2];
+  const crownPulse = useRef(new Animated.Value(1)).current;
+  useEffect(() => {
+    const loop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(crownPulse, {
+          toValue: 1.06,
+          duration: 1400,
+          useNativeDriver: true,
+        }),
+        Animated.timing(crownPulse, {
+          toValue: 1,
+          duration: 1400,
+          useNativeDriver: true,
+        }),
+      ]),
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [crownPulse]);
+
   return (
     <View style={styles.podium}>
       {order.map(idx => {
@@ -130,34 +304,57 @@ function TopThreePodium({
           return null;
         }
         const rank = idx + 1;
-        const podiumPad =
-          rank === 1 ? styles.podium1 : rank === 2 ? styles.podium2 : styles.podium3;
+        const podiumPad = rank === 1 ? styles.podium1 : styles.podium23;
+        const streakValue = Number(u.leaderboardStreak ?? 0);
+        const streakBadge = getStreakBadge(streakValue);
         return (
           <TouchableOpacity
             key={u.userId}
-            style={[styles.podiumItem, podiumPad]}
+            style={[
+              styles.podiumItem,
+              podiumPad,
+              rank === 1 ? styles.podiumWinner : rank === 2 ? styles.podiumSecond : styles.podiumThird,
+            ]}
             onPress={() => !u.isCurrentUser && onUserPress(u.userId, u.displayName)}
             activeOpacity={0.8}>
-            <View style={[styles.podiumRank, rank === 1 && styles.podiumRank1]}>
-              <Text style={styles.podiumRankText}>{rank}</Text>
+            <View
+              style={[
+                styles.podiumRank,
+                rank === 1 && styles.podiumRank1,
+                rank === 2 && styles.podiumRank2,
+                rank === 3 && styles.podiumRank3,
+              ]}>
+              {rank === 1 ? (
+                <Animated.View style={{transform: [{scale: crownPulse}]}}>
+                  <Text
+                    style={[styles.podiumRankText, styles.podiumRankTextCrown]}
+                    allowFontScaling={false}>
+                    👑
+                  </Text>
+                </Animated.View>
+              ) : (
+                <Text style={styles.podiumRankText}>#{rank}</Text>
+              )}
             </View>
-            <View style={styles.podiumAvatar}>
-              <Text style={styles.podiumAvatarText}>
-                {u.displayName
-                  .split(' ')
-                  .map(n => n[0])
-                  .join('')
-                  .toUpperCase()
-                  .slice(0, 2) || '?'}
-              </Text>
+            <View style={styles.podiumAvatarWrap}>
+              <UserAvatar
+                name={u.isCurrentUser ? 'Dig' : u.displayName}
+                imageUrl={u.profileImageUrl}
+                size="lg"
+              />
             </View>
             <Text style={styles.podiumName} numberOfLines={1}>
               {u.isCurrentUser ? 'Dig' : u.displayName}
             </Text>
             <Text style={styles.podiumGym} numberOfLines={1}>
-              {u.gymName ?? '—'}
+              {u.aliveSubtitle ?? (u.username ? `@${u.username}` : '—')}
             </Text>
-            <Text style={styles.podiumScore}>{u.valueLabel}</Text>
+            <AnimatedMetricValue value={u.value} metric={metric} style={styles.podiumScore} />
+            {streakBadge ? (
+              <Text style={styles.podiumStreak}>
+                {streakBadge} {streakValue}
+              </Text>
+            ) : null}
           </TouchableOpacity>
         );
       })}
@@ -183,7 +380,7 @@ function LeaderboardSearchBar({
       <Icon name="search" size={20} color={colors.textMuted} />
       <TextInput
         style={styles.searchInput}
-        placeholder="Søg efter navn eller brugernavn..."
+        placeholder="Søg navn, @brugernavn …"
         placeholderTextColor={colors.textMuted}
         value={value}
         onChangeText={onChangeText}
@@ -217,6 +414,21 @@ const LeaderboardScreen = () => {
   const [centerSearchQuery, setCenterSearchQuery] = useState('');
   const [entries, setEntries] = useState<LeaderboardEntry[]>([]);
   const [loading, setLoading] = useState(true);
+  const [centerError, setCenterError] = useState<string | null>(null);
+  const [fetchError, setFetchError] = useState<string | null>(null);
+  const [realtimeRevision, setRealtimeRevision] = useState(0);
+  const [liveCountByGymId, setLiveCountByGymId] = useState<Record<string, number>>({});
+  const previousRankByUserRef = useRef<Record<string, number>>({});
+  const realtimeDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const scheduleLeaderboardRefresh = useCallback(() => {
+    if (realtimeDebounceRef.current) {
+      clearTimeout(realtimeDebounceRef.current);
+    }
+    realtimeDebounceRef.current = setTimeout(() => {
+      realtimeDebounceRef.current = null;
+      setRealtimeRevision(v => v + 1);
+    }, 650);
+  }, []);
 
   useEffect(() => {
     setSelectedCenterId(homeCenterId);
@@ -226,11 +438,12 @@ const LeaderboardScreen = () => {
     const q = centerSearchQuery.trim().toLowerCase();
     let list = getActiveDanishGyms();
     if (q) {
-      list = getActiveDanishGyms().filter(
-        c =>
-          c.name.toLowerCase().includes(q) ||
-          (c.city?.toLowerCase().includes(q) ?? false),
-      );
+      list = getActiveDanishGyms().filter(c => {
+        const name = c.name.toLowerCase();
+        const city = (c.city ?? '').toLowerCase();
+        const brand = (c.brand ?? '').toLowerCase();
+        return name.includes(q) || city.includes(q) || brand.includes(q);
+      });
     }
     return list.slice(0, 200);
   }, [centerSearchQuery]);
@@ -262,38 +475,69 @@ const LeaderboardScreen = () => {
 
     let cancelled = false;
     setLoading(true);
-    const cat = metricToCategory(metric);
-    const periodLb = period as LeaderboardPeriod;
+    setFetchError(null);
+    if (category === 'center') {
+      setCenterError(null);
+    }
 
     (async () => {
       try {
-        let result;
-        if (category === 'gymly') {
-          result = await fetchGlobalLeaderboard(cat, periodLb, user.id);
-        } else if (category === 'friends') {
-          result = await fetchFriendsLeaderboard(cat, periodLb, user.id);
-        } else {
-          if (!selectedCenterId) {
-            if (!cancelled) {
-              setEntries([]);
-              setLoading(false);
-            }
-            return;
+        if (category === 'center' && !selectedCenterId) {
+          if (!cancelled) {
+            setEntries([]);
+            setLoading(false);
           }
-          const g = findGymById(selectedCenterId);
-          result = await fetchGymLeaderboard(
-            selectedCenterId,
-            g?.name ?? resolveGymNameForLeaderboard(selectedCenterId),
-            periodLb,
-            user.id,
-          );
+          return;
+        }
+        const scope =
+          category === 'gymly'
+            ? 'global'
+            : category === 'friends'
+              ? 'friends'
+              : 'center';
+        if (__DEV__) {
+          console.warn('[Leaderboard] fetch', {
+            category,
+            metric,
+            period,
+            scope,
+            selectedCenterId: category === 'center' ? selectedCenterId : null,
+            viewerId: user.id,
+          });
+        }
+        const list = await fetchGymlyLeaderboard({
+          metric,
+          period,
+          scope,
+          centerGymId: category === 'center' ? selectedCenterId : null,
+          viewerId: user.id,
+        });
+        if (__DEV__) {
+          console.warn('[Leaderboard] rows', list?.length ?? 0);
         }
         if (!cancelled) {
-          setEntries(result.entries);
+          const safeEntries = normalizeLeaderboardEntries(list);
+          setEntries(safeEntries);
+          const rankMap: Record<string, number> = {};
+          safeEntries.forEach((e, idx) => {
+            rankMap[e.userId] = e.rank ?? idx + 1;
+          });
+          previousRankByUserRef.current = {
+            ...previousRankByUserRef.current,
+            ...rankMap,
+          };
         }
-      } catch {
+      } catch (e) {
+        const msg = stringifyLeaderboardError(e);
+        if (__DEV__) {
+          console.warn('[Leaderboard] fetch error', JSON.stringify(e, null, 2), e);
+        }
         if (!cancelled) {
           setEntries([]);
+          setFetchError(msg);
+          if (category === 'center') {
+            setCenterError('Kunne ikke hente centerdata lige nu.');
+          }
         }
       } finally {
         if (!cancelled) {
@@ -305,32 +549,100 @@ const LeaderboardScreen = () => {
     return () => {
       cancelled = true;
     };
-  }, [user?.id, category, metric, period, selectedCenterId]);
+  }, [user?.id, category, metric, period, selectedCenterId, realtimeRevision]);
+
+  useEffect(() => {
+    if (category !== 'center') return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const totals = await fetchGymLiveSessionTotals();
+        if (cancelled) return;
+        const next: Record<string, number> = {};
+        totals.forEach((count, gymId) => {
+          next[gymId] = count;
+        });
+        setLiveCountByGymId(next);
+      } catch {
+        if (!cancelled) setLiveCountByGymId({});
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [category, selectedCenterId]);
+
+  useFocusEffect(
+    useCallback(() => {
+      if (!user?.id) {
+        return undefined;
+      }
+      const channel = supabase
+        .channel(`leaderboard-live-${user.id}`)
+        .on(
+          'postgres_changes',
+          {event: '*', schema: 'public', table: 'profiles'},
+          () => scheduleLeaderboardRefresh(),
+        )
+        .on(
+          'postgres_changes',
+          {event: '*', schema: 'public', table: 'check_ins'},
+          () => scheduleLeaderboardRefresh(),
+        )
+        .subscribe();
+
+      return () => {
+        if (realtimeDebounceRef.current) {
+          clearTimeout(realtimeDebounceRef.current);
+          realtimeDebounceRef.current = null;
+        }
+        void supabase.removeChannel(channel);
+      };
+    }, [user?.id, scheduleLeaderboardRefresh]),
+  );
 
   const filtered = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
     if (!q) {
       return entries;
     }
-    return entries.filter(e => e.displayName.toLowerCase().includes(q));
+    return entries.filter(e => {
+      const name = (e.displayName ?? '').toLowerCase();
+      const un = (e.username ?? '').toLowerCase();
+      return name.includes(q) || un.includes(q);
+    });
   }, [entries, searchQuery]);
 
   const hasMoreThanPreview = filtered.length > TOP_PREVIEW_COUNT;
 
-  const currentUserEntry = useMemo(
-    () => filtered.find(e => e.isCurrentUser),
+  const placementEntry = useMemo(
+    () => entries.find(e => e.isCurrentUser),
+    [entries],
+  );
+  const placementRank = placementEntry?.rank ?? 0;
+
+  const movementText = useMemo(() => {
+    if (!placementEntry || placementRank <= 0) {
+      return 'Ranglisten opdateres live når folk træner.';
+    }
+    const prev = previousRankByUserRef.current[placementEntry.userId];
+    if (prev == null || prev === placementRank) {
+      return 'Ranglisten opdateres live når folk træner.';
+    }
+    const delta = prev - placementRank;
+    if (delta > 0) {
+      return `⬆️ +${delta} placering${delta === 1 ? '' : 'er'} siden sidst`;
+    }
+    return `⬇️ ${Math.abs(delta)} placering${Math.abs(delta) === 1 ? '' : 'er'} siden sidst`;
+  }, [placementEntry, placementRank]);
+
+  const topThree = useMemo(
+    () => normalizeLeaderboardEntries(filtered).slice(0, 3),
     [filtered],
   );
 
-  const currentRank = useMemo(() => {
-    const idx = filtered.findIndex(e => e.isCurrentUser);
-    return idx >= 0 ? idx + 1 : 0;
-  }, [filtered]);
-
-  const topThree = useMemo(() => filtered.slice(0, 3), [filtered]);
-
   const listAfterPodium = useMemo(() => {
-    const afterThree = filtered.slice(3);
+    const afterThree = normalizeLeaderboardEntries(filtered).slice(3);
     if (!showFullList && hasMoreThanPreview) {
       return afterThree.slice(0, TOP_PREVIEW_COUNT - 3);
     }
@@ -338,8 +650,18 @@ const LeaderboardScreen = () => {
   }, [filtered, showFullList, hasMoreThanPreview]);
 
   const motivation = useMemo(
-    () => getMotivationText(currentUserEntry, currentRank),
-    [currentUserEntry, currentRank],
+    () => getMotivationText(placementEntry, placementRank),
+    [placementEntry, placementRank],
+  );
+
+  const periodLabelDa = useMemo(
+    () =>
+      period === 'week'
+        ? 'denne uge'
+        : period === 'month'
+          ? 'denne måned'
+          : 'alt tid',
+    [period],
   );
 
   const handleUserPress = (userId: string, name: string) => {
@@ -351,7 +673,15 @@ const LeaderboardScreen = () => {
     });
   };
 
-  const isEmpty = !loading && filtered.length === 0;
+  const handleCategoryPress = (key: CategoryTab) => {
+    setFetchError(null);
+    setCategory(key);
+  };
+
+  const isEmpty = !loading && !fetchError && filtered.length === 0;
+  const isCenterCategory = category === 'center';
+  const showCenterEmpty =
+    isCenterCategory && !loading && !fetchError && !centerError && filtered.length === 0;
   const listSectionTitle =
     hasMoreThanPreview && !showFullList ? 'Top 10' : 'Rangliste';
 
@@ -364,6 +694,27 @@ const LeaderboardScreen = () => {
           <ActivityIndicator color={colors.primary} />
         </View>
       )}
+
+      {fetchError && !loading ? (
+        <View style={styles.fetchErrorBanner}>
+          <Icon name="warning-outline" size={20} color={colors.error} />
+          <Text style={styles.fetchErrorText} numberOfLines={4}>
+            Kunne ikke hente ranglisten: {fetchError}
+          </Text>
+          <TouchableOpacity
+            onPress={() => {
+              setFetchError(null);
+              setRealtimeRevision(v => v + 1);
+            }}
+            hitSlop={12}
+            accessibilityLabel="Prøv igen">
+            <Text style={styles.fetchErrorRetry}>Prøv igen</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => setFetchError(null)} hitSlop={12}>
+            <Icon name="close" size={22} color={colors.textMuted} />
+          </TouchableOpacity>
+        </View>
+      ) : null}
 
       <ScrollView
         style={styles.scroll}
@@ -379,7 +730,7 @@ const LeaderboardScreen = () => {
               <TouchableOpacity
                 key={key}
                 style={[styles.categoryTab, selected && styles.categoryTabSelected]}
-                onPress={() => setCategory(key)}
+                onPress={() => handleCategoryPress(key)}
                 activeOpacity={0.85}>
                 <Text
                   style={[styles.categoryTabText, selected && styles.categoryTabTextSelected]}
@@ -398,26 +749,29 @@ const LeaderboardScreen = () => {
             'Rangliste for det valgte center (baseret på backend-data for centeret).'}
         </Text>
 
-        {category === 'center' && (
-          <Text style={[styles.categoryHint, {marginTop: -spacing.md}]}>
-            Måling gælder globalt for Gymly og Venner; center-visning følger centerets rangliste.
-          </Text>
-        )}
-
         <View style={styles.filterSection}>
           <Text style={styles.filterLabel}>Måling</Text>
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.chipRow}>
-            {METRIC_OPTIONS.map(({key, label}) => (
-              <Chip
-                key={key}
-                label={label}
-                selected={metric === key}
-                onPress={() => setMetric(key)}
-              />
-            ))}
+            {METRIC_OPTIONS.map(({key, label}) => {
+              const selected = metric === key;
+              return (
+                <TouchableOpacity
+                  key={key}
+                  onPress={() => {
+                    setFetchError(null);
+                    setMetric(key);
+                  }}
+                  activeOpacity={0.86}
+                  style={[styles.premiumChip, selected && styles.premiumChipSelected]}>
+                  <Text style={[styles.premiumChipText, selected && styles.premiumChipTextSelected]}>
+                    {label}
+                  </Text>
+                </TouchableOpacity>
+              );
+            })}
           </ScrollView>
         </View>
 
@@ -427,14 +781,23 @@ const LeaderboardScreen = () => {
             horizontal
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.chipRow}>
-            {PERIOD_OPTIONS.map(({key, label}) => (
-              <Chip
-                key={key}
-                label={label}
-                selected={period === key}
-                onPress={() => setPeriod(key)}
-              />
-            ))}
+            {PERIOD_OPTIONS.map(({key, label}) => {
+              const selected = period === key;
+              return (
+                <TouchableOpacity
+                  key={key}
+                  onPress={() => {
+                    setFetchError(null);
+                    setPeriod(key);
+                  }}
+                  activeOpacity={0.86}
+                  style={[styles.premiumChip, selected && styles.premiumChipSelected]}>
+                  <Text style={[styles.premiumChipText, selected && styles.premiumChipTextSelected]}>
+                    {label}
+                  </Text>
+                </TouchableOpacity>
+              );
+            })}
           </ScrollView>
         </View>
 
@@ -446,6 +809,10 @@ const LeaderboardScreen = () => {
                 <View style={styles.selectedCenterTextWrap}>
                   <Text style={styles.selectedCenterName}>{selectedCenter.name}</Text>
                   <Text style={styles.selectedCenterCity}>{selectedCenter.city ?? ''}</Text>
+                  <Text style={styles.selectedCenterLive}>
+                    {liveCountByGymId[selectedCenter.id] ?? 0} aktive nu
+                  </Text>
+                  <Text style={styles.selectedCenterMomentum}>🔥 Mest aktive center denne uge</Text>
                 </View>
                 {selectedCenterId === homeCenterId && (
                   <View style={styles.homeBadge}>
@@ -505,16 +872,6 @@ const LeaderboardScreen = () => {
           </View>
         )}
 
-        {currentUserEntry && currentRank > 0 && (
-          <View style={styles.section}>
-            <YourPlacementCard
-              entry={currentUserEntry}
-              rank={currentRank}
-              motivation={motivation}
-            />
-          </View>
-        )}
-
         {!hasMoreThanPreview && !loading && (
           <LeaderboardSearchBar value={searchQuery} onChangeText={setSearchQuery} />
         )}
@@ -522,7 +879,7 @@ const LeaderboardScreen = () => {
         {!isEmpty && topThree.length > 0 && (
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Top 3</Text>
-            <TopThreePodium users={topThree} onUserPress={handleUserPress} />
+            <TopThreePodium users={topThree} onUserPress={handleUserPress} metric={metric} />
           </View>
         )}
 
@@ -547,7 +904,17 @@ const LeaderboardScreen = () => {
                   rank={item.rank ?? idx + 4}
                   name={item.isCurrentUser ? 'Dig' : item.displayName}
                   value={item.valueLabel}
-                  valueLabel={item.gymName ?? ''}
+                  valueLabel={
+                    item.aliveSubtitle ||
+                    (item.username ? `@${item.username}` : undefined)
+                  }
+                  streak={
+                    (item.leaderboardStreak ?? 0) >= 3
+                      ? `${getStreakBadge(item.leaderboardStreak ?? 0)} ${
+                          item.leaderboardStreak ?? 0
+                        }`
+                      : undefined
+                  }
                   imageUrl={item.profileImageUrl}
                   isCurrentUser={item.isCurrentUser}
                   isFriend={item.isFriend}
@@ -582,31 +949,75 @@ const LeaderboardScreen = () => {
           </View>
         )}
 
-        {isEmpty && !loading && (
+        {placementEntry && placementRank > 0 && (
+          <View style={styles.section}>
+            <YourPlacementCard
+              entry={placementEntry}
+              rank={placementRank}
+              motivation={motivation}
+              streakText={`${
+                getStreakBadge(placementEntry.leaderboardStreak ?? 0) || '🔥'
+              } ${placementEntry.leaderboardStreak ?? 0} dages streak`}
+              checkInText={`${placementEntry.leaderboardCheckIns ?? 0} check-ins`}
+              timeText={`${placementEntry.leaderboardMinutes ?? 0} min træning`}
+              movementText={movementText}
+              metric={metric}
+              periodLabel={periodLabelDa}
+            />
+          </View>
+        )}
+
+        {loading && (
+          <View style={styles.section}>
+            {[0, 1, 2].map(i => (
+              <Animated.View key={`skeleton-${i}`} style={styles.skeletonCard}>
+                <ActivityIndicator color={colors.primary} />
+              </Animated.View>
+            ))}
+          </View>
+        )}
+
+        {isCenterCategory && centerError && !loading && (
+          <EmptyState
+            icon="alert-circle-outline"
+            title="Center utilgængelig"
+            message={centerError}
+          />
+        )}
+
+        {showCenterEmpty && (
+          <EmptyState
+            icon="barbell-outline"
+            title={EMPTY_CENTER_TITLE}
+            message={EMPTY_CENTER_MESSAGE}
+          />
+        )}
+
+        {isEmpty && !loading && !fetchError && !showCenterEmpty && !centerError && (
           <EmptyState
             icon="trophy-outline"
             title={
               category === 'center' && !selectedCenterId
                 ? 'Vælg et center'
                 : category === 'center'
-                  ? 'Ingen på ranglisten for dette center endnu'
+                  ? 'Ingen placeringer endnu 👀'
                   : category === 'friends'
-                    ? 'Ingen venner på ranglisten endnu'
-                    : 'Ingen rangliste endnu'
+                    ? 'Ingen placeringer endnu 👀'
+                    : 'Ingen placeringer endnu 👀'
             }
             message={
               category === 'center' && !selectedCenterId
                 ? 'Vælg et center på listen for at se ranglisten.'
                 : category === 'center'
-                  ? 'Kom tilbage når der er data, eller prøv et andet center.'
+                  ? 'Bliv den første til at sætte standarden i denne uge.'
                   : category === 'friends'
-                    ? 'Tilføj venner for at se jeres fælles rangliste.'
-                    : 'Når brugere træner og registrerer aktivitet, vises de her.'
+                    ? 'Inviter venner og byg jeres egen liga.'
+                    : 'Bliv den første til at sætte standarden denne uge.'
             }
             actionLabel={category === 'friends' ? 'Inviter venner' : undefined}
             onAction={
               category === 'friends'
-                ? () => navigation.navigate('Friends', {screen: 'Grupper'} as never)
+                ? () => navigation.navigate('AddFriend')
                 : undefined
             }
           />
@@ -624,6 +1035,29 @@ const styles = StyleSheet.create({
   loadingBar: {
     paddingVertical: spacing.sm,
   },
+  fetchErrorBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    marginHorizontal: spacing.lg,
+    marginBottom: spacing.sm,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.md,
+    borderRadius: radius.md,
+    backgroundColor: colors.error + '12',
+    borderWidth: 1,
+    borderColor: colors.error + '35',
+  },
+  fetchErrorText: {
+    flex: 1,
+    ...typography.small,
+    color: colors.text,
+  },
+  fetchErrorRetry: {
+    ...typography.small,
+    fontWeight: '700',
+    color: colors.primary,
+  },
   scroll: {
     flex: 1,
   },
@@ -635,15 +1069,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.lg,
     paddingTop: spacing.lg,
     gap: spacing.sm,
-    marginBottom: spacing.lg,
+    marginBottom: spacing.md,
   },
   categoryTab: {
     flex: 1,
     minHeight: 52,
-    borderRadius: radius.sm,
+    borderRadius: radius.lg,
     borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: colors.backgroundCard,
+    borderColor: '#E6E8F0',
+    backgroundColor: '#FFFFFFDD',
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: spacing.sm,
@@ -651,8 +1085,8 @@ const styles = StyleSheet.create({
   },
   categoryTabSelected: {
     borderColor: colors.primary,
-    backgroundColor: colors.primary,
-    ...shadows.sm,
+    backgroundColor: colors.primaryDark,
+    ...shadows.glow,
   },
   categoryTabText: {
     ...typography.small,
@@ -680,8 +1114,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     padding: spacing.md,
     marginBottom: spacing.md,
-    backgroundColor: colors.backgroundCard,
-    borderRadius: radius.md,
+    backgroundColor: '#F8F5FF',
+    borderRadius: radius.lg,
     borderWidth: 1,
     borderColor: colors.primary,
     ...shadows.sm,
@@ -694,6 +1128,17 @@ const styles = StyleSheet.create({
     color: colors.text,
   },
   selectedCenterCity: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    marginTop: 2,
+  },
+  selectedCenterLive: {
+    ...typography.caption,
+    color: colors.primaryDark,
+    marginTop: spacing.xs,
+    fontWeight: '700',
+  },
+  selectedCenterMomentum: {
     ...typography.caption,
     color: colors.textSecondary,
     marginTop: 2,
@@ -807,6 +1252,29 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: spacing.sm,
   },
+  premiumChip: {
+    minHeight: 38,
+    borderRadius: radius.full,
+    backgroundColor: '#FFFFFFD8',
+    borderWidth: 1,
+    borderColor: '#E4E8F2',
+    paddingHorizontal: spacing.md,
+    justifyContent: 'center',
+    ...shadows.sm,
+  },
+  premiumChipSelected: {
+    backgroundColor: colors.primaryDark,
+    borderColor: colors.primary,
+    ...shadows.glow,
+  },
+  premiumChipText: {
+    ...typography.small,
+    color: colors.textSecondary,
+    fontWeight: '700',
+  },
+  premiumChipTextSelected: {
+    color: colors.white,
+  },
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -814,11 +1282,12 @@ const styles = StyleSheet.create({
     marginBottom: spacing.xl,
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.md,
-    backgroundColor: colors.backgroundCard,
-    borderRadius: radius.md,
+    backgroundColor: '#FFFFFF',
+    borderRadius: radius.lg,
     gap: spacing.sm,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: '#E8EAF3',
+    ...shadows.sm,
   },
   searchInSection: {
     marginHorizontal: 0,
@@ -835,6 +1304,14 @@ const styles = StyleSheet.create({
     ...typography.body,
     color: colors.text,
     padding: 0,
+  },
+  yourCard: {
+    borderRadius: radius.xl,
+    backgroundColor: '#F7F3FF',
+    borderWidth: 1,
+    borderColor: '#E9DCFF',
+    padding: spacing.lg,
+    ...shadows.card,
   },
   yourCardHeader: {
     flexDirection: 'row',
@@ -857,14 +1334,50 @@ const styles = StyleSheet.create({
     color: colors.white,
   },
   yourStatValue: {
-    ...typography.h3,
+    ...typography.h4,
     color: colors.primary,
-    marginBottom: spacing.md,
+    marginBottom: spacing.sm,
+  },
+  yourStatsRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.sm,
+    marginBottom: spacing.sm,
+  },
+  yourStatPill: {
+    ...typography.caption,
+    color: colors.primaryDark,
+    backgroundColor: '#EFE5FF',
+    borderRadius: radius.full,
+    paddingHorizontal: spacing.md,
+    paddingVertical: 6,
+    fontWeight: '700',
+  },
+  yourMovement: {
+    ...typography.small,
+    color: colors.success,
+    fontWeight: '700',
+    marginBottom: spacing.xs,
   },
   motivationText: {
     ...typography.small,
     color: colors.textSecondary,
     fontStyle: 'italic',
+  },
+  yourHint: {
+    ...typography.caption,
+    color: colors.textMuted,
+    marginTop: spacing.xs,
+  },
+  yourHintWrap: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    marginTop: spacing.xs,
+  },
+  yourHintPrefix: {
+    ...typography.caption,
+    color: colors.textMuted,
   },
   podium: {
     flexDirection: 'row',
@@ -877,18 +1390,34 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: spacing.lg,
     paddingHorizontal: spacing.sm,
-    borderRadius: radius.lg,
-    backgroundColor: colors.backgroundCard,
+    borderRadius: radius.xl,
+    backgroundColor: '#FFFFFF',
     ...shadows.card,
+    borderWidth: 1,
+    borderColor: '#ECE9F7',
   },
   podium1: {
-    paddingTop: spacing.xl,
+    paddingTop: spacing.lg,
   },
-  podium2: {
+  podium23: {
     paddingTop: spacing.xxl,
   },
-  podium3: {
-    paddingTop: spacing.xxl,
+  podiumWinner: {
+    backgroundColor: '#FFFBF5',
+    borderColor: colors.rankGold + 'AA',
+    shadowColor: colors.rankGold,
+    shadowOffset: {width: 0, height: 6},
+    shadowOpacity: 0.22,
+    shadowRadius: 14,
+    elevation: 5,
+  },
+  podiumSecond: {
+    backgroundColor: '#F8FAFC',
+    borderColor: '#C8CED9',
+  },
+  podiumThird: {
+    backgroundColor: '#FFFCFA',
+    borderColor: '#D4A574',
   },
   podiumRank: {
     width: 32,
@@ -902,23 +1431,28 @@ const styles = StyleSheet.create({
   podiumRank1: {
     backgroundColor: colors.primary,
   },
+  podiumRank2: {
+    borderWidth: 2,
+    borderColor: '#C0C0C8',
+    backgroundColor: '#FFFFFF',
+  },
+  podiumRank3: {
+    borderWidth: 2,
+    borderColor: '#CD7F32',
+    backgroundColor: '#FFFFFF',
+  },
   podiumRankText: {
     ...typography.bodyBold,
     color: colors.text,
   },
-  podiumAvatar: {
-    width: 64,
-    height: 64,
-    borderRadius: 32,
-    backgroundColor: colors.primary,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: spacing.sm,
+  podiumRankTextCrown: {
+    color: '#FFFFFF',
+    textShadowColor: 'rgba(0,0,0,0.15)',
+    textShadowOffset: {width: 0, height: 1},
+    textShadowRadius: 2,
   },
-  podiumAvatarText: {
-    ...typography.h4,
-    color: '#fff',
-    fontWeight: '600',
+  podiumAvatarWrap: {
+    marginTop: spacing.sm,
   },
   podiumName: {
     ...typography.bodyBold,
@@ -934,6 +1468,20 @@ const styles = StyleSheet.create({
     ...typography.h4,
     color: colors.primary,
     marginTop: spacing.sm,
+  },
+  podiumStreak: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    marginTop: 4,
+    fontWeight: '700',
+  },
+  skeletonCard: {
+    height: 72,
+    borderRadius: radius.lg,
+    backgroundColor: '#F0F2F7',
+    marginBottom: spacing.md,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

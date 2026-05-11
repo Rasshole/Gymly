@@ -1,5 +1,5 @@
 /**
- * Shared visual tokens for Online / Social section (Venner, Online, Grupper, Centre, Kort).
+ * Shared visual tokens for Venner-stack (Venner, [Online], [Grupper], Centre, Kort).
  */
 
 export const SOCIAL_SEARCH_HEIGHT = 46;

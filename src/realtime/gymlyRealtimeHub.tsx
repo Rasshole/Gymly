@@ -169,7 +169,7 @@ export function GymlyRealtimeHub() {
       try {
         const {data, error} = await supabase
           .from('profiles')
-          .select('id, username, display_name, avatar_url')
+          .select('id, username, display_name, avatar_url, featured_badge_ids')
           .eq('id', userId)
           .maybeSingle();
         if (error || !data) {
@@ -183,12 +183,18 @@ export function GymlyRealtimeHub() {
           username?: string;
           display_name?: string | null;
           avatar_url?: string | null;
+          featured_badge_ids?: unknown;
         };
+        const rawFeatured = row.featured_badge_ids;
+        const featuredBadgeIds = Array.isArray(rawFeatured)
+          ? rawFeatured.map(x => String(x)).filter(Boolean).slice(0, 3)
+          : u.featuredBadgeIds;
         useAppStore.getState().setUser({
           ...u,
           username: row.username?.trim() || u.username,
           displayName: (row.display_name ?? '').trim() || u.displayName,
           profileImageUrl: row.avatar_url ?? u.profileImageUrl,
+          featuredBadgeIds,
           updatedAt: new Date(),
         });
         logRealtimeStore('profiles', 'merge_self');
@@ -234,6 +240,12 @@ export function GymlyRealtimeHub() {
         const msg = messageFromDmRow(row as DmMessageRow);
         const fromMe = row.sender_id === userId;
         useChatStore.getState().mergeIncomingMessage(threadId, msg, fromMe, userId);
+        if (fromMe) {
+          debounce('badges_dm', 280, () => {
+            runBadgeSync();
+            logRealtimeStore('dm_messages', 'badges');
+          });
+        }
         logRealtimeStore('dm_messages', 'merge_message');
       },
     );
@@ -284,6 +296,7 @@ export function GymlyRealtimeHub() {
           debounce('fs_a', 120, () => {
             refreshFriends();
             emitProfileStatsSelf(userId);
+            debounce('badges_fs', 200, () => runBadgeSync());
             logRealtimeStore('friendships', 'refresh');
           });
         },
@@ -301,6 +314,7 @@ export function GymlyRealtimeHub() {
           debounce('fs_b', 120, () => {
             refreshFriends();
             emitProfileStatsSelf(userId);
+            debounce('badges_fs', 200, () => runBadgeSync());
             logRealtimeStore('friendships', 'refresh');
           });
         },
@@ -427,6 +441,7 @@ export function GymlyRealtimeHub() {
           bumpHealth('planned_workouts', '*');
           debounce('pw', 160, () => {
             refreshGroupsAndPlan();
+            debounce('badges_pw', 220, () => runBadgeSync());
             logRealtimeStore('planned_workouts', 'refresh');
           });
         },
@@ -438,6 +453,7 @@ export function GymlyRealtimeHub() {
           bumpHealth('planned_workout_participants', '*');
           debounce('pwp', 160, () => {
             refreshGroupsAndPlan();
+            debounce('badges_pwp', 220, () => runBadgeSync());
             logRealtimeStore('planned_workout_participants', 'refresh');
           });
         },

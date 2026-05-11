@@ -3,6 +3,10 @@ import {AppState} from 'react-native';
 import {supabase} from '@/services/supabase/supabaseClient';
 import {subscribeProfileStatsSelf} from '@/realtime/profileStatsSelfBridge';
 import {fetchUserBadges} from '@/services/supabase/userBadgesService';
+import {
+  getUserStats as fetchUserStatsFromProfile,
+  subscribeUserStats,
+} from '@/services/supabase/userStatsService';
 import type {ProfileCompletedSession} from '@/services/supabase/profileCheckInHistory';
 
 type TrainingStats = {
@@ -38,51 +42,6 @@ const EMPTY: Omit<TrainingStats, 'loading' | 'error' | 'refresh'> = {
   recentSessions: [],
   activeSessionMinutes: 0,
 };
-
-export function calculateCurrentStreak(
-  completedSessions: Array<{endedAt: Date}>,
-): number {
-  if (completedSessions.length === 0) {
-    return 0;
-  }
-  const daySet = new Set<string>();
-  for (const s of completedSessions) {
-    daySet.add(toLocalDateKey(s.endedAt));
-  }
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const yesterday = new Date(today);
-  yesterday.setDate(yesterday.getDate() - 1);
-
-  let cursor: Date | null = null;
-  if (daySet.has(toLocalDateKey(today))) {
-    cursor = today;
-  } else if (daySet.has(toLocalDateKey(yesterday))) {
-    cursor = yesterday;
-  } else {
-    return 0;
-  }
-
-  let streak = 0;
-  while (cursor) {
-    const key = toLocalDateKey(cursor);
-    if (!daySet.has(key)) {
-      break;
-    }
-    streak += 1;
-    const prevDay: Date = new Date(cursor.getTime());
-    prevDay.setDate(prevDay.getDate() - 1);
-    cursor = prevDay;
-  }
-  return streak;
-}
-
-function toLocalDateKey(d: Date): string {
-  const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, '0');
-  const day = String(d.getDate()).padStart(2, '0');
-  return `${y}-${m}-${day}`;
-}
 
 function rowToCompletedSession(row: CheckInRow): ProfileCompletedSession | null {
   if (!row.started_at || !row.ended_at) {
@@ -157,10 +116,6 @@ export function useUserTrainingStats(userId: string | undefined): TrainingStats 
       const recentSessions = completedRows
         .map(rowToCompletedSession)
         .filter((x): x is ProfileCompletedSession => x != null);
-      const totalTrainingMinutes = recentSessions.reduce(
-        (sum, s) => sum + s.durationMinutes,
-        0,
-      );
       const activeSessionMinutes = rows
         .filter(r => r.is_active && r.started_at && !r.ended_at)
         .reduce((mx, r) => {
@@ -173,12 +128,13 @@ export function useUserTrainingStats(userId: string | undefined): TrainingStats 
       const unlockedBadgesCount = badges.filter(b => Boolean(b.unlocked_at)).length;
       const friendsCount = friendsRes.error ? 0 : friendsRes.count ?? 0;
       const groupsCount = groupsRes.error ? 0 : groupsRes.count ?? 0;
-      const currentStreakDays = calculateCurrentStreak(recentSessions);
+      const stats = await fetchUserStatsFromProfile(userId);
+      const currentStreakDays = stats.currentStreak;
 
       setState(prev => ({
         ...prev,
-        totalCheckIns: recentSessions.length,
-        totalTrainingMinutes,
+        totalCheckIns: stats.totalCheckIns,
+        totalTrainingMinutes: stats.totalTrainingMinutes,
         currentStreakDays,
         unlockedBadgesCount,
         friendsCount,
@@ -212,6 +168,7 @@ export function useUserTrainingStats(userId: string | undefined): TrainingStats 
       void load();
     };
     const unsubBridge = subscribeProfileStatsSelf(userId, run);
+    const unsubStats = subscribeUserStats(userId, run);
     const appSub = AppState.addEventListener('change', next => {
       if (next === 'active') {
         void load();
@@ -219,6 +176,7 @@ export function useUserTrainingStats(userId: string | undefined): TrainingStats 
     });
     return () => {
       unsubBridge();
+      unsubStats();
       appSub.remove();
     };
   }, [userId, load]);

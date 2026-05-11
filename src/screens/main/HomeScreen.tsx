@@ -27,16 +27,16 @@ import {Gesture, GestureDetector} from 'react-native-gesture-handler';
 import Reanimated, {useSharedValue, useAnimatedStyle, withTiming, withDelay, runOnJS, Easing as ReanimatedEasing} from 'react-native-reanimated';
 import Video from 'react-native-video';
 import {useAuth} from '@/hooks/useAuth';
-import {useNavigation, useFocusEffect} from '@react-navigation/native';
+import {useNavigation, useFocusEffect, useIsFocused} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import NotificationService from '@/services/notifications/NotificationService';
 import {useFeedStore, FeedItem} from '@/store/feedStore';
 import {
-  refreshWorkoutFeedFromServer,
-  subscribeWorkoutFeedRealtime,
+  refreshWorkoutFeedFromServerForHome,
+  subscribeWorkoutFeedRealtimeForHome,
 } from '@/services/supabase/workoutPostService';
-import muscleImg from '@/utils/muscleGroupImages';
+import MuscleGroupTileIcon from '@/components/ui/MuscleGroupTileIcon';
 import {MuscleGroup} from '@/types/workout.types';
 import colors from '@/theme/colors';
 import {spacing, typography, radius, shadows} from '@/theme/designTokens';
@@ -46,12 +46,19 @@ import {Card} from '@/components/ui/Card';
 import {StatCard} from '@/components/ui/StatCard';
 import {DashboardSection} from '@/components/dashboard';
 import {useAppStore} from '@/store/appStore';
+import {useFriendStore} from '@/store/friendStore';
 import {useChatStore} from '@/store/chatStore';
 import {getOrCreateDmThread} from '@/services/supabase/dmService';
 import {UserAvatar} from '@/components/ui/UserAvatar';
+import UserProfileModal from '@/components/checkin/UserProfileModal';
+import type {ActiveUser} from '@/components/checkin/ActiveUsersList';
 import GymLogoView from '@/components/ui/GymLogoView';
-import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
+import {
+  coerceMuscleGroup,
+  formatWorkoutTypeDisplay,
+} from '@/utils/muscleGroupLabels';
 import {formatDurationIgang} from '@/utils/activeSessionFormat';
+import {sortActiveNowFriendRows} from '@/utils/sortActiveUsersForDisplay';
 import {useUserTrainingStats} from '@/hooks/useUserTrainingStats';
 import {useBadgeStore} from '@/store/badgeStore';
 import * as streak from '@/utils/streakUtils';
@@ -65,6 +72,11 @@ import {
   togglePostBicepsReaction,
   type PostBicepsUser,
 } from '@/services/supabase/workoutReactionService';
+import {
+  getUserStatsMap,
+  subscribeUserStats,
+  type UserStats,
+} from '@/services/supabase/userStatsService';
 
 type HomeScreenNavigationProp = StackNavigationProp<any>;
 
@@ -200,9 +212,21 @@ type FeedPhotoProps = {
 const FeedPhoto = memo(
   ({item, onDoubleTapLike, onLayoutMeasured, userBicepsEmoji}: FeedPhotoProps) => {
     if (!item.photoUri) {
+      const workoutParts = (item.workoutInfo ?? '')
+        .split('·')
+        .map(part => part.trim())
+        .filter(Boolean);
+      const centerText = workoutParts[0] ?? 'Gymly center';
+      const durationText = workoutParts[1] ?? 'Session';
+      const workoutText = workoutParts[2] ?? 'Træning';
       return (
-        <View style={styles.feedImagePlaceholder}>
-          <Text style={styles.feedImageText}>Foto fra træning</Text>
+        <View style={styles.feedNoImageCard}>
+          <Text style={styles.feedNoImageEyebrow}>🔥 SESSION DELT</Text>
+          <Text style={styles.feedNoImageDuration}>{durationText.toUpperCase()}</Text>
+          <Text style={styles.feedNoImageWorkout}>{workoutText}</Text>
+          <Text style={styles.feedNoImageCenter} numberOfLines={1}>
+            {centerText}
+          </Text>
         </View>
       );
     }
@@ -304,7 +328,7 @@ const FeedPhoto = memo(
               <Image
                 source={{uri: item.photoUri}}
                 style={styles.feedPhoto}
-                resizeMode="contain"
+                resizeMode="cover"
               />
             </Reanimated.View>
           </View>
@@ -332,23 +356,33 @@ const FeedPhoto = memo(
 
 const HomeScreen = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
+  const isHomeFocused = useIsFocused();
   const user = useAuth();
   const insets = useSafeAreaInsets();
   const {
     totalActiveUsers,
     activeFriends: activeFriendsNow,
+    currentUserActive: currentUserActiveNow,
     refresh: refreshGymlyActiveNow,
     durationNow,
   } = useGymlyActiveNow(user?.id);
-  const sortedActiveFriendsNow = useMemo(
-    () =>
-      [...activeFriendsNow].sort(
-        (a, b) =>
-          new Date(a.startedAt).getTime() - new Date(b.startedAt).getTime(),
-      ),
-    [activeFriendsNow],
-  );
   const currentUser = useAppStore(s => s.user);
+  const friendIds = useFriendStore(s => s.friendIds);
+  const loadFriendStore = useFriendStore(s => s.load);
+
+  useEffect(() => {
+    if (user?.id) {
+      void loadFriendStore(user.id);
+    }
+  }, [user?.id, loadFriendStore]);
+
+  const socialActiveNowList = useMemo(() => {
+    const combined = [
+      ...(currentUserActiveNow ? [currentUserActiveNow] : []),
+      ...activeFriendsNow,
+    ];
+    return sortActiveNowFriendRows(combined, user?.id, friendIds);
+  }, [currentUserActiveNow, activeFriendsNow, user?.id, friendIds]);
   const {
     localCenters,
     hasLocalCenters,
@@ -415,7 +449,9 @@ const HomeScreen = () => {
   const [addedFriends, setAddedFriends] = useState<string[]>([]);
   const [now, setNow] = useState(Date.now());
   const [feedReactions, setFeedReactions] = useState<Record<string, {liked: boolean; likes: number}>>({});
+  const [authorStatsByUserId, setAuthorStatsByUserId] = useState<Record<string, UserStats>>({});
   const [bicepsBusyByPost, setBicepsBusyByPost] = useState<Record<string, boolean>>({});
+  const [selectedActiveNowUser, setSelectedActiveNowUser] = useState<ActiveUser | null>(null);
   const [bicepsListVisible, setBicepsListVisible] = useState(false);
   const [bicepsListLoading, setBicepsListLoading] = useState(false);
   const [bicepsListUsers, setBicepsListUsers] = useState<PostBicepsUser[]>([]);
@@ -480,8 +516,11 @@ const HomeScreen = () => {
   const feedPhotoLayouts = useRef<Record<string, {x: number; y: number; width: number; height: number}>>({});
 
   useEffect(() => {
-    return subscribeWorkoutFeedRealtime();
-  }, []);
+    if (!user?.id) {
+      return;
+    }
+    return subscribeWorkoutFeedRealtimeForHome(user.id);
+  }, [user?.id]);
 
   useEffect(() => {
     const uid = user?.id;
@@ -555,20 +594,50 @@ const HomeScreen = () => {
   }, [user?.id, feedItems, bicepsListVisible, bicepsListPostId]);
 
   useEffect(() => {
+    const authorIds = [...new Set(feedItems.map(item => item.userId).filter(Boolean) as string[])];
+    if (authorIds.length === 0) {
+      setAuthorStatsByUserId({});
+      return;
+    }
+    let mounted = true;
+    const load = async () => {
+      try {
+        const next = await getUserStatsMap(authorIds);
+        if (mounted) {
+          setAuthorStatsByUserId(next);
+        }
+      } catch {
+        if (mounted) {
+          setAuthorStatsByUserId({});
+        }
+      }
+    };
+    void load();
+    const unsubs = authorIds.map(id => subscribeUserStats(id, () => void load()));
+    return () => {
+      mounted = false;
+      unsubs.forEach(fn => fn());
+    };
+  }, [feedItems]);
+
+  useEffect(() => {
     const timer = setInterval(() => setNow(Date.now()), 30000);
     return () => clearInterval(timer);
   }, []);
 
-  const prevActiveNowCountRef = useRef<number>(activeFriendsNow.length);
+  const prevActiveNowCountRef = useRef<number>(socialActiveNowList.length);
 
-  // Subtle list transition when active users appear/disappear.
+  // Subtle list transition when active users appear/disappear (only while Home is focused).
+  // Global LayoutAnimation while another stack screen mounts (e.g. Notifications) can crash Fabric iOS.
   useEffect(() => {
     const prev = prevActiveNowCountRef.current;
-    if (prev !== activeFriendsNow.length) {
-      LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-      prevActiveNowCountRef.current = activeFriendsNow.length;
+    if (prev !== socialActiveNowList.length) {
+      if (isHomeFocused) {
+        LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+      }
+      prevActiveNowCountRef.current = socialActiveNowList.length;
     }
-  }, [activeFriendsNow.length]);
+  }, [socialActiveNowList.length, isHomeFocused]);
 
   useFocusEffect(
     useCallback(() => {
@@ -602,7 +671,9 @@ const HomeScreen = () => {
       );
       pulseLoop.start();
       void trainingStats.refresh();
-      refreshWorkoutFeedFromServer().catch(() => {});
+      if (user?.id) {
+        refreshWorkoutFeedFromServerForHome(user.id).catch(() => {});
+      }
       void refreshGymlyActiveNow();
       return () => {
         pulseLoop.stop();
@@ -612,6 +683,7 @@ const HomeScreen = () => {
       activeNowPulseScale,
       trainingStats.refresh,
       refreshGymlyActiveNow,
+      user?.id,
     ])
   );
 
@@ -678,8 +750,24 @@ const HomeScreen = () => {
     if (lower.includes('pilates')) {
       groups.push('pilates');
     }
+    if (
+      lower.includes('cardio') ||
+      lower.includes('kondi') ||
+      lower.includes('løb') ||
+      lower.includes('løbet') ||
+      lower.includes('run') ||
+      lower.includes('bike') ||
+      lower.includes('cykel') ||
+      lower.includes('stair') ||
+      lower.includes('treadmill') ||
+      lower.includes('hiit') ||
+      lower.includes('hele kropp') ||
+      lower.includes('hele_kroppen')
+    ) {
+      groups.push('cardio');
+    }
 
-    return groups.length > 0 ? groups : ['hele_kroppen'];
+    return groups.length > 0 ? groups : ['cardio'];
   };
 
   const handleAddFriend = (friendId: string, friendName: string) => {
@@ -1420,7 +1508,9 @@ const HomeScreen = () => {
                     <GymLogoView
                       gymName={center.displayName}
                       brand={center.brand ?? undefined}
-                      size={44}
+                      size={40}
+                      unknownFallback="gymly-only"
+                      surface="lavender"
                     />
                     <View style={styles.localCenterBody}>
                       <Text style={styles.localCenterName} numberOfLines={1}>
@@ -1454,10 +1544,7 @@ const HomeScreen = () => {
           </DashboardSection>
 
           {/* 3. Aktive nu — globalt antal + venneliste (check_ins) */}
-          <DashboardSection
-            title="Aktive nu"
-            onSeeAll={() => navigation.navigate('Friends', {screen: 'Online'} as never)}
-            seeAllLabel="Se alle">
+          <DashboardSection title="Aktive nu">
             <View style={styles.activeNowCounterRow}>
               <View style={styles.activeNowCounterDotWrap}>
                 <Animated.View
@@ -1476,23 +1563,31 @@ const HomeScreen = () => {
               </Text>
             </View>
             <Card padding="lg" style={styles.activeNowHighlightCard}>
-              {sortedActiveFriendsNow.length > 0 ? (
+              {socialActiveNowList.length > 0 ? (
                 <View style={styles.onlineUsersListCol}>
-                  {sortedActiveFriendsNow.map(f => (
+                  {socialActiveNowList.map(f => (
                     <View key={f.userId} style={styles.activeNowRow}>
+                      {(() => {
+                        const modalUser: ActiveUser = {
+                          id: f.userId,
+                          name: f.displayName,
+                          avatar: f.avatarUrl ?? null,
+                          isFriend: f.userId !== currentUser?.id,
+                          workoutType: f.workoutType ?? undefined,
+                          centerName: f.gymName,
+                          startedAt: f.startedAt,
+                        };
+                        return (
                       <TouchableOpacity
                         style={styles.activeNowRowMain}
-                        onPress={() =>
-                          navigation.navigate('FriendProfile', {
-                            friendId: f.userId,
-                            friendName: f.displayName,
-                          })
-                        }
+                        onPress={() => setSelectedActiveNowUser(modalUser)}
                         activeOpacity={0.85}>
                         <UserAvatar
                           name={f.displayName}
                           imageUrl={f.avatarUrl ?? undefined}
                           size="md"
+                          showOnlineIndicator
+                          isOnline
                         />
                         <View style={styles.activeNowRowBody}>
                           <Text style={styles.onlineUserNameList} numberOfLines={1}>
@@ -1506,22 +1601,28 @@ const HomeScreen = () => {
                           </Text>
                         </View>
                       </TouchableOpacity>
-                      <TouchableOpacity
-                        onPress={() => void openDmToFriend(f.userId, f.displayName)}
-                        style={styles.activeNowMessageBtn}
-                        hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
-                        accessibilityLabel="Besked"
-                        activeOpacity={0.75}>
-                        <Icon name="chatbubble-outline" size={22} color={colors.primary} />
-                      </TouchableOpacity>
+                        );
+                      })()}
+                      {f.userId !== currentUser?.id ? (
+                        <TouchableOpacity
+                          onPress={() => void openDmToFriend(f.userId, f.displayName)}
+                          style={styles.activeNowMessageBtn}
+                          hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
+                          accessibilityLabel="Besked"
+                          activeOpacity={0.75}>
+                          <Icon name="chatbubble-outline" size={22} color={colors.primary} />
+                        </TouchableOpacity>
+                      ) : null}
                     </View>
                   ))}
                 </View>
               ) : (
                 <View style={styles.emptyPreview}>
-                  <Text style={styles.emptyPreviewText}>Ingen aktive lige nu</Text>
+                  <Text style={styles.emptyPreviewText}>Ingen venner aktive lige nu</Text>
                   <Text style={styles.emptyPreviewSubtext}>
-                    Vær den første til at tjekke ind 🔥
+                    {totalActiveUsers > 0
+                      ? 'Start en session eller se når dine venner tjekker ind.'
+                      : 'Vær den første til at tjekke ind 🔥'}
                   </Text>
                   <Pressable
                     style={({pressed}) => [
@@ -1539,7 +1640,19 @@ const HomeScreen = () => {
 
         {/* Feed */}
         <React.Fragment>
-        {feedItems.map(item => {
+        {feedItems.length === 0 ? (
+          <View style={styles.emptyPreview}>
+            <Text style={styles.emptyPreviewText}>Intet på feedet endnu</Text>
+            <Text style={styles.emptyPreviewSubtext}>
+              Tilføj venner og del din træning for at se aktivitet her.
+            </Text>
+            <Pressable
+              style={({pressed}) => [styles.emptyCta, pressed && styles.emptyCtaPressed]}
+              onPress={() => navigation.navigate('Friends')}>
+              <Text style={styles.emptyCtaText}>Find venner</Text>
+            </Pressable>
+          </View>
+        ) : feedItems.map(item => {
             // Ensure animation is initialized
             const likeAnim = ensureBicepsAnimation(item.id);
             const overlayAnim = ensureOverlayAnimation(item.id);
@@ -1573,21 +1686,25 @@ const HomeScreen = () => {
                   <View style={{flex: 1}}>
                     <View style={styles.feedUserRow}>
                       <Text style={styles.feedUser}>{item.user}</Text>
-                      {item.userId &&
-                      user?.id &&
-                      item.userId === user.id &&
-                      streak.getStreakIcon(dashboardStreak) ? (
-                        <Text
-                          style={[
-                            styles.feedStreakEmoji,
-                            streak.getStreakEmphasisLevel(dashboardStreak) === 1 &&
-                              styles.feedStreakEmojiEmphasis,
-                            streak.getStreakEmphasisLevel(dashboardStreak) === 2 &&
-                              styles.feedStreakEmojiStrong,
-                          ]}>
-                          {streak.getStreakIcon(dashboardStreak)}
-                        </Text>
-                      ) : null}
+                      {(() => {
+                        const authorStreak = item.userId
+                          ? (authorStatsByUserId[item.userId]?.currentStreak ?? 0)
+                          : 0;
+                        const badge = streak.getStreakBadge(authorStreak);
+                        if (!badge) {
+                          return null;
+                        }
+                        return (
+                          <TouchableOpacity
+                            onLongPress={() => Alert.alert(streak.formatStreakLabel(authorStreak))}
+                            delayLongPress={220}
+                            activeOpacity={0.85}
+                            style={styles.feedStreakBadgePill}>
+                            <Text style={styles.feedStreakEmoji}>{badge}</Text>
+                            <Text style={styles.feedStreakCount}>{authorStreak}</Text>
+                          </TouchableOpacity>
+                        );
+                      })()}
                     </View>
                     <Text style={styles.feedTimestamp}>{item.timestamp}</Text>
                   </View>
@@ -1598,9 +1715,14 @@ const HomeScreen = () => {
                   <Icon name="ellipsis-horizontal" size={18} color="#94A3B8" />
                 </TouchableOpacity>
               </View>
-              {item.workoutInfo && (
-                <Text style={styles.feedWorkoutInfoLine}>{item.workoutInfo}</Text>
-              )}
+              {item.workoutInfo ? (
+                <View style={styles.feedWorkoutChip}>
+                  <Text style={styles.feedWorkoutChipIcon}>📍</Text>
+                  <Text style={styles.feedWorkoutChipText} numberOfLines={1}>
+                    {item.workoutInfo}
+                  </Text>
+                </View>
+              ) : null}
               {item.type === 'photo' && (
                 <>
                   <FeedPhoto
@@ -1685,30 +1807,32 @@ const HomeScreen = () => {
                 </>
               )}
               {item.type === 'summary' && (
-                <View style={styles.feedSummaryRow}>
-                  <View style={styles.feedHighlightSecondary}>
-                    {item.rating && item.rating >= 1 && item.rating <= 5 ? (
-                      <Text style={styles.feedRatingEmoji}>
-                        {['☹️', '🙁', '😐', '😁', '🤩'][item.rating - 1]}
-                      </Text>
-                    ) : (
-                      <Text style={styles.feedRatingEmoji}>{userBicepsEmoji}</Text>
-                    )}
-                    <Text style={styles.feedHighlightSecondaryText}>Session delt</Text>
+                <>
+                  <View style={styles.feedNoImageCard}>
+                    <Text style={styles.feedNoImageEyebrow}>SESSION DELT</Text>
+                    <Text style={styles.feedNoImageDuration}>
+                      {(item.workoutInfo?.split('·')[1] ?? 'Session').trim().toUpperCase()}
+                    </Text>
+                    <Text style={styles.feedNoImageWorkout}>
+                      {(item.workoutInfo?.split('·')[2] ?? 'Træning').trim()}
+                    </Text>
+                    <Text style={styles.feedNoImageCenter} numberOfLines={1}>
+                      {(item.workoutInfo?.split('·')[0] ?? 'Gymly center').trim()}
+                    </Text>
                   </View>
                   {item.muscles && item.muscles.length > 0 && (
                     <View style={styles.feedMuscleIconsRow}>
                       {item.muscles.map(muscle => (
-                        <Image
+                        <MuscleGroupTileIcon
                           key={muscle}
-                          source={muscleImg.getMuscleGroupImage(muscle)}
+                          group={coerceMuscleGroup(String(muscle))}
+                          size={20}
                           style={styles.feedMuscleIcon}
-                          resizeMode="contain"
                         />
                       ))}
                     </View>
                   )}
-                </View>
+                </>
               )}
               {item.description &&
                 item.description.trim().length > 0 &&
@@ -1744,8 +1868,9 @@ const HomeScreen = () => {
                 <View style={styles.feedActionGroup}>
                   <TouchableOpacity
                     style={[
+                      styles.feedSocialPill,
                       styles.feedLikeButton,
-                      isLiked && styles.feedLikeButtonActive,
+                      isLiked && styles.feedSocialPillActive,
                     ]}
                     onPress={() => void toggleLike(item.id)}
                     activeOpacity={0.7}
@@ -1798,12 +1923,12 @@ const HomeScreen = () => {
                     </View>
                   </TouchableOpacity>
                   <TouchableOpacity
-                    style={styles.feedActionTextContainer}
+                    style={styles.feedSocialCountTap}
                     onPress={() => openBicepsList(item.id)}
                     activeOpacity={0.75}>
                     <Text
                       style={[
-                        styles.feedActionText,
+                        styles.feedSocialPillText,
                         isLiked && styles.feedActionTextLiked,
                       ]}>
                       {feedReactions[item.id]?.likes ?? 0}
@@ -1812,22 +1937,30 @@ const HomeScreen = () => {
                 </View>
                 <View style={styles.feedActionGroup}>
                   <TouchableOpacity
-                    style={styles.feedActionButton}
+                    style={styles.feedSocialPill}
                     onPress={() => openComments(item.id)}
                     activeOpacity={0.8}>
-                    <Icon name="chatbubble-outline" size={20} color={commentColor} />
-                  </TouchableOpacity>
-                  <View style={styles.feedActionTextContainer}>
+                    <Icon name="chatbubble-outline" size={16} color={commentColor} />
                     <Text
                       style={[
-                        styles.feedActionText,
+                        styles.feedSocialPillText,
                         hasCommented && styles.feedActionTextLiked,
                       ]}>
                       {commentsByFeedItem[item.id]?.length ?? 0}
                     </Text>
-                  </View>
+                  </TouchableOpacity>
                 </View>
               </View>
+              {commentsByFeedItem[item.id] && commentsByFeedItem[item.id].length > 0 ? (
+                <View style={styles.feedCommentPreview}>
+                  <Text style={styles.feedCommentPreviewAuthor}>
+                    {commentsByFeedItem[item.id][commentsByFeedItem[item.id].length - 1]?.author}:
+                  </Text>
+                  <Text style={styles.feedCommentPreviewText} numberOfLines={2}>
+                    “{commentsByFeedItem[item.id][commentsByFeedItem[item.id].length - 1]?.text}”
+                  </Text>
+                </View>
+              ) : null}
               </View>
             );
           })}
@@ -1902,6 +2035,15 @@ const HomeScreen = () => {
         )}
 
       </ScrollView>
+
+      <UserProfileModal
+        user={selectedActiveNowUser}
+        visible={!!selectedActiveNowUser}
+        onClose={() => setSelectedActiveNowUser(null)}
+        viewerUserId={currentUser?.id}
+        viewerName={currentUser?.displayName || 'Dig'}
+        activitySubtitle="Aktiv lige nu"
+      />
 
       <Modal visible={bicepsListVisible} transparent animationType="slide">
         <TouchableWithoutFeedback onPress={closeBicepsList}>
@@ -2654,7 +2796,7 @@ const styles = StyleSheet.create({
   },
   content: {
     paddingHorizontal: 0,
-    paddingVertical: spacing.md,
+    paddingTop: spacing.sm,
     paddingBottom: spacing.xxxl,
   },
   welcomeSection: {
@@ -2875,17 +3017,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '700',
     color: colors.primary,
-  },
-  onlineIndicator: {
-    position: 'absolute',
-    bottom: 2,
-    right: 2,
-    width: 10,
-    height: 10,
-    borderRadius: 5,
-    backgroundColor: colors.secondary,
-    borderWidth: 2,
-    borderColor: colors.backgroundCard,
   },
   onlineUserName: {
     fontSize: 12,
@@ -3144,17 +3275,20 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   feedCard: {
-    marginBottom: spacing.lg + spacing.xs,
-    backgroundColor: 'transparent',
-    overflow: 'visible',
+    marginBottom: spacing.xl,
+    marginHorizontal: HOME_H_PADDING,
+    backgroundColor: colors.backgroundCard,
+    borderRadius: 28,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.lg,
+    overflow: 'hidden',
     position: 'relative',
+    ...shadows.card,
   },
   feedCardHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: spacing.sm,
-    paddingHorizontal: HOME_H_PADDING,
-    paddingTop: spacing.sm,
+    marginBottom: spacing.md,
   },
   feedAvatar: {
     width: 40,
@@ -3185,6 +3319,20 @@ const styles = StyleSheet.create({
     fontSize: 15,
     lineHeight: 18,
   },
+  feedStreakBadgePill: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: radius.full,
+    backgroundColor: colors.primary + '14',
+  },
+  feedStreakCount: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: colors.primaryDark,
+  },
   feedStreakEmojiEmphasis: {
     textShadowColor: colors.primary + '44',
     textShadowOffset: {width: 0, height: 0},
@@ -3196,23 +3344,57 @@ const styles = StyleSheet.create({
     textShadowRadius: 8,
   },
   feedTimestamp: {
-    fontSize: 12,
+    fontSize: 13,
     color: colors.textMuted,
-    marginTop: 2,
-    fontWeight: '500',
+    marginTop: 4,
+    fontWeight: '400',
   },
-  feedImagePlaceholder: {
-    // No borderRadius - full edge to edge
-    backgroundColor: colors.surface,
-    height: 180,
+  feedNoImageCard: {
+    borderRadius: 22,
+    backgroundColor: '#7C3AED',
+    minHeight: 196,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.lg + 2,
+    marginBottom: spacing.md,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 0,
+    shadowColor: '#7C3AED',
+    shadowOffset: {width: 0, height: 8},
+    shadowOpacity: 0.26,
+    shadowRadius: 18,
+    elevation: 6,
+  },
+  feedNoImageEyebrow: {
+    fontSize: 13,
+    fontWeight: '800',
+    color: '#EDE9FE',
+    letterSpacing: 0.8,
+    marginBottom: spacing.sm,
+  },
+  feedNoImageDuration: {
+    fontSize: 30,
+    fontWeight: '900',
+    color: colors.white,
+    letterSpacing: 0.4,
+  },
+  feedNoImageWorkout: {
+    marginTop: 4,
+    fontSize: 18,
+    fontWeight: '700',
+    color: colors.white,
+  },
+  feedNoImageCenter: {
+    marginTop: spacing.sm,
+    fontSize: 14,
+    color: '#DDD6FE',
+    fontWeight: '600',
   },
   feedVideoContainer: {
     width: '100%',
     marginBottom: spacing.md,
     backgroundColor: '#000',
+    borderRadius: 22,
+    overflow: 'hidden',
     position: 'relative',
     alignItems: 'center',
     justifyContent: 'center',
@@ -3270,7 +3452,8 @@ const styles = StyleSheet.create({
   },
   feedPhotoContainer: {
     width: '100%',
-    backgroundColor: '#000',
+    backgroundColor: '#0B1220',
+    borderRadius: 22,
     position: 'relative',
     alignItems: 'center',
     justifyContent: 'center',
@@ -3282,6 +3465,7 @@ const styles = StyleSheet.create({
   feedPhotoMask: {
     width: '100%',
     height: '100%',
+    borderRadius: 22,
     overflow: 'hidden',
     backgroundColor: '#000',
   },
@@ -3339,7 +3523,6 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
     marginBottom: spacing.sm,
     flexWrap: 'wrap',
-    paddingHorizontal: HOME_H_PADDING,
   },
   feedPhotoMoodRow: {
     flexDirection: 'row',
@@ -3347,7 +3530,6 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
     marginTop: spacing.sm,
     marginBottom: spacing.xs,
-    paddingHorizontal: HOME_H_PADDING,
   },
   feedHighlightSecondary: {
     flexDirection: 'row',
@@ -3378,12 +3560,27 @@ const styles = StyleSheet.create({
     color: colors.secondary, // Green color
   },
   feedWorkoutInfoLine: {
+    display: 'none',
+  },
+  feedWorkoutChip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    alignSelf: 'flex-start',
+    backgroundColor: '#DCFCE7',
+    borderRadius: radius.full,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    marginBottom: spacing.md,
+  },
+  feedWorkoutChipIcon: {
+    fontSize: 14,
+  },
+  feedWorkoutChipText: {
     fontSize: 13,
-    fontWeight: '600',
-    color: colors.secondary,
-    marginBottom: spacing.sm,
-    paddingHorizontal: HOME_H_PADDING,
     lineHeight: 18,
+    fontWeight: '600',
+    color: '#065F46',
   },
   feedMuscleIconsRow: {
     flexDirection: 'row',
@@ -3400,7 +3597,6 @@ const styles = StyleSheet.create({
     color: colors.text,
     lineHeight: 22,
     marginBottom: spacing.md,
-    paddingHorizontal: HOME_H_PADDING,
   },
   feedCaptionUser: {
     fontWeight: '700',
@@ -3416,25 +3612,40 @@ const styles = StyleSheet.create({
   feedActions: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: HOME_H_PADDING,
-    paddingTop: spacing.xs,
+    flexWrap: 'wrap',
+    gap: spacing.sm,
+    paddingTop: 2,
     paddingBottom: spacing.md,
     zIndex: 1,
   },
   feedActionGroup: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 4,
+    marginRight: 2,
+  },
+  feedSocialPill: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    borderRadius: radius.full,
+    backgroundColor: '#F1F5F9',
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+  },
+  feedSocialPillActive: {
+    backgroundColor: colors.primary + '20',
+  },
+  feedSocialPillEmoji: {
+    fontSize: 14,
+  },
+  feedSocialPillText: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: colors.text,
   },
   feedLikeButton: {
-    padding: 4,
-    backgroundColor: 'transparent',
-  },
-  feedLikeButtonActive: {
-    backgroundColor: 'transparent',
-    borderWidth: 0,
-    borderColor: 'transparent',
+    paddingHorizontal: 10,
+    paddingVertical: 7,
   },
   likeButtonCircle: {
     width: 26,
@@ -3448,8 +3659,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  feedActionTextContainer: {
-    marginLeft: 0,
+  feedSocialCountTap: {
+    paddingHorizontal: 2,
   },
   likeButtonInner: {
     position: 'relative',
@@ -3473,7 +3684,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   bicepsEmoji: {
-    fontSize: 24,
+    fontSize: 19,
     textDecorationLine: 'none',
     borderBottomWidth: 0,
     borderBottomColor: 'transparent',
@@ -3501,6 +3712,24 @@ const styles = StyleSheet.create({
   },
   feedActionTextLiked: {
     color: colors.secondary,
+  },
+  feedCommentPreview: {
+    backgroundColor: '#F8FAFC',
+    borderRadius: 16,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    marginBottom: spacing.xs,
+  },
+  feedCommentPreviewAuthor: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: colors.textSecondary,
+    marginBottom: 2,
+  },
+  feedCommentPreviewText: {
+    fontSize: 14,
+    lineHeight: 20,
+    color: colors.text,
   },
   modalOverlay: {
     flex: 1,

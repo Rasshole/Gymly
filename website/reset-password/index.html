@@ -4,175 +4,314 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex,nofollow" />
-  <title>Gymly | Nyt kodeord</title>
+  <title>Gymly | Skift adgangskode</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
   <style>
     :root {
       --purple: #8b5cf6;
-      --purple-dark: #7c3aed;
-      --text: #111827;
-      --muted: #6b7280;
-      --bg: #f3f4f6;
+      --purple-deep: #6d28d9;
+      --purple-soft: rgba(139, 92, 246, 0.12);
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
       --card: #ffffff;
-      --border: #e5e7eb;
-      --ok: #059669;
-      --err: #dc2626;
+      --ok: #0d9488;
+      --warn: #c2410c;
+      --warn-bg: #fff7ed;
+      --shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.06), 0 24px 48px -12px rgba(99, 102, 241, 0.18);
     }
     * { box-sizing: border-box; }
-    body {
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    html, body {
       margin: 0;
-      min-height: 100vh;
+      min-height: 100%;
       font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--bg);
       color: var(--text);
-      display: grid;
-      place-items: center;
-      padding: 16px;
+      background: linear-gradient(165deg, #f5f3ff 0%, #f8fafc 38%, #eef2ff 100%);
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      min-height: 100vh;
     }
     .card {
       width: 100%;
-      max-width: 420px;
+      max-width: 400px;
       background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 24px 20px;
-      box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      animation: fadeIn 0.45s ease-out both;
+    }
+    .brand {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .brand img {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 8px rgba(109, 40, 217, 0.2));
     }
     h1 {
-      margin: 0 0 8px;
-      font-size: 28px;
+      margin: 0 0 10px;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       line-height: 1.2;
+      text-align: center;
     }
     .subtitle {
-      margin: 0 0 16px;
+      margin: 0 0 24px;
       color: var(--muted);
       font-size: 15px;
-      line-height: 1.45;
+      line-height: 1.5;
+      text-align: center;
+      font-weight: 400;
     }
     .status {
       font-size: 14px;
       border-radius: 12px;
-      padding: 10px 12px;
-      margin: 0 0 14px;
+      padding: 12px 14px;
+      margin: 0 0 16px;
       display: none;
+      font-weight: 500;
     }
     .status.show { display: block; }
-    .status.loading { background: #ede9fe; color: #5b21b6; }
-    .status.error { background: #fef2f2; color: var(--err); }
-    .status.success { background: #ecfdf5; color: var(--ok); }
+    .status.loading {
+      background: var(--purple-soft);
+      color: var(--purple-deep);
+    }
+    .status.error {
+      background: var(--warn-bg);
+      color: var(--warn);
+      border: 1px solid rgba(194, 65, 12, 0.15);
+    }
+    .status.success {
+      background: #ecfdf5;
+      color: #047857;
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+    .field {
+      margin-bottom: 18px;
+    }
     label {
       display: block;
-      margin: 10px 0 6px;
-      font-size: 14px;
+      margin: 0 0 8px;
+      font-size: 13px;
       font-weight: 600;
+      color: #334155;
+      letter-spacing: 0.01em;
     }
     input {
       width: 100%;
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px 13px;
+      border-radius: 14px;
+      padding: 14px 16px;
       font-size: 16px;
       outline: none;
+      background: #fafafa;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    input:hover {
+      background: #fff;
     }
     input:focus {
       border-color: var(--purple);
-      box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+      background: #fff;
+      box-shadow: 0 0 0 3px var(--purple-soft);
     }
-    .hint {
-      margin-top: 6px;
-      color: var(--muted);
+    .feedback {
+      margin-top: 8px;
       font-size: 13px;
+      min-height: 1.25em;
     }
-    button {
-      margin-top: 16px;
+    .feedback.ok { color: var(--ok); }
+    .feedback.err { color: #9a3412; }
+    .feedback.muted { color: var(--muted); }
+    button.primary {
+      margin-top: 8px;
       width: 100%;
       border: 0;
-      border-radius: 12px;
-      background: linear-gradient(180deg, var(--purple), var(--purple-dark));
-      color: white;
+      border-radius: 16px;
+      padding: 15px 16px;
       font-size: 16px;
       font-weight: 700;
-      padding: 12px 14px;
+      font-family: inherit;
+      color: #fff;
       cursor: pointer;
+      background: linear-gradient(180deg, #a78bfa 0%, var(--purple) 45%, var(--purple-deep) 100%);
+      box-shadow: 0 4px 14px rgba(109, 40, 217, 0.35);
+      transition: transform 0.15s ease, box-shadow 0.2s ease, opacity 0.2s;
     }
-    button:disabled {
-      opacity: 0.65;
-      cursor: wait;
+    button.primary:hover:not(:disabled) {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 22px rgba(109, 40, 217, 0.4);
+    }
+    button.primary:active:not(:disabled) {
+      transform: translateY(0);
+    }
+    button.primary:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+    button.primary.is-loading {
+      pointer-events: none;
+      opacity: 0.85;
     }
     .links {
-      margin-top: 14px;
+      margin-top: 16px;
       display: flex;
-      gap: 10px;
+      gap: 12px;
       flex-wrap: wrap;
+      justify-content: center;
     }
     .link-btn {
-      color: var(--purple-dark);
+      color: var(--purple-deep);
       text-decoration: none;
       font-size: 14px;
       font-weight: 600;
     }
-    .success-wrap { display: none; }
+    .link-btn:hover { text-decoration: underline; }
+    .success-wrap { display: none; text-align: center; }
     .success-wrap.show { display: block; }
-    .form-wrap.hide { display: none; }
-    .session-wrap { display: none; margin-top: 8px; }
-    .session-wrap.show { display: block; }
-    .feedback {
-      margin-top: 6px;
-      font-size: 13px;
+    .success-mark {
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #d1fae5, #a7f3d0);
+      color: #047857;
+      font-size: 26px;
+      line-height: 52px;
+      font-weight: 700;
     }
-    .feedback.ok { color: var(--ok); }
-    .feedback.err { color: var(--err); }
-    .feedback.muted { color: var(--muted); }
+    .success-wrap h2 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .success-wrap .success-body {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+    .form-wrap { display: none; }
+    .form-wrap.show { display: block; }
+    .session-wrap { display: none; text-align: center; }
+    .session-wrap.show { display: block; }
+    .session-wrap h2 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      font-weight: 700;
+    }
+    .session-wrap .session-detail {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+      text-align: center;
+    }
     .secondary-btn {
-      margin-top: 10px;
       width: 100%;
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 14px;
       background: #fff;
       color: var(--text);
       font-size: 15px;
       font-weight: 600;
-      padding: 11px 14px;
+      font-family: inherit;
+      padding: 14px 16px;
       cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .secondary-btn:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+    }
+    .noscript-box {
+      padding: 16px;
+      background: #fef3c7;
+      color: #92400e;
+      border-radius: 12px;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
-  <main class="card">
-    <h1>Nyt kodeord</h1>
-    <p class="subtitle">Indtast nyt kodeord og bekræft for at opdatere din konto.</p>
+  <main class="card" id="shell">
+    <div class="brand">
+      <img src="./gymly-kettlebell-transparent.png" width="56" height="56" alt="Gymly" />
+    </div>
 
-    <div id="status" class="status loading show">Kontrollerer reset-link...</div>
+    <h1 id="page-heading">Skift adgangskode</h1>
+    <p id="page-lead" class="subtitle">
+      Indtast din nye adgangskode nedenfor. Linket virker kun i en begrænset periode.
+    </p>
+
+    <noscript>
+      <div class="noscript-box">Aktivér JavaScript i browseren for at nulstille din adgangskode.</div>
+    </noscript>
+
+    <div id="status" class="status loading show">Tjekker link…</div>
 
     <section id="form-wrap" class="form-wrap">
-      <label for="password">Nyt kodeord</label>
-      <input id="password" type="password" autocomplete="new-password" />
-      <div id="len-feedback" class="feedback muted">Minimum 8 tegn.</div>
-
-      <label for="password-confirm">Gentag kodeord</label>
-      <input id="password-confirm" type="password" autocomplete="new-password" />
-      <div id="match-feedback" class="feedback muted">Skriv begge felter for validering.</div>
-
-      <button id="save-btn" type="button">Opdater kodeord</button>
+      <div class="field">
+        <label for="password">Ny adgangskode</label>
+        <input id="password" type="password" autocomplete="new-password" />
+        <div id="len-feedback" class="feedback muted">Minimum 8 tegn.</div>
+      </div>
+      <div class="field">
+        <label for="password-confirm">Gentag adgangskode</label>
+        <input id="password-confirm" type="password" autocomplete="new-password" />
+        <div id="match-feedback" class="feedback muted">Skriv begge felter for validering.</div>
+      </div>
+      <button id="save-btn" class="primary" type="button" disabled>Gem ny adgangskode</button>
     </section>
 
     <section id="success-wrap" class="success-wrap">
-      <div class="status success show">Kodeord opdateret</div>
-      <p class="subtitle" style="margin-top: 8px;">Du bliver sendt tilbage til appen...</p>
-      <div class="links">
-        <a id="open-app-link" class="link-btn" href="gymlyapp://home">Åbn app</a>
-        <a class="link-btn" href="https://gymly.dk/download">Hent app</a>
-      </div>
+      <div class="success-mark" aria-hidden="true">✓</div>
+      <h2>Adgangskode opdateret ✅</h2>
+      <p class="success-body">
+        Din adgangskode er blevet ændret. Du kan nu logge ind i Gymly.
+      </p>
     </section>
 
     <section id="session-wrap" class="session-wrap">
+      <h2 id="session-heading">Linket er udløbet</h2>
+      <p id="session-detail" class="session-detail">
+        Anmod om et nyt link for at nulstille din adgangskode.
+      </p>
       <button id="send-new-link-btn" class="secondary-btn" type="button">Send nyt link</button>
+      <div id="session-app-links" class="links">
+        <a class="link-btn" href="gymlyapp://">Åbn Gymly</a>
+        <a class="link-btn" href="https://gymlyapp.com">gymlyapp.com</a>
+      </div>
     </section>
   </main>
 
   <script type="module">
+    /** Must match src/config/supabaseConfig.ts (Gymly app). */
     const SUPABASE_URL = 'https://ykantlsuszpauddasqvz.supabase.co';
     const SUPABASE_ANON_KEY =
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlrYW50bHN1c3pwYXVkZGFzcXZ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI4NzI4MzEsImV4cCI6MjA4ODQ0ODgzMX0.vungVzubJCR68aSSusjtmoGNQgLaIOkdQN8ipo9bt-I';
+
+    const RESET_PUBLIC_URL = 'https://gymlyapp.com/reset-password';
+    /** App håndterer dette i App.tsx (logout → login). */
+    const SUCCESS_DEEP_LINK = 'gymlyapp://reset-password-success';
+    const SITE_FALLBACK = 'https://gymlyapp.com';
 
     const statusEl = document.getElementById('status');
     const formWrap = document.getElementById('form-wrap');
@@ -184,10 +323,221 @@
     const confirmEl = document.getElementById('password-confirm');
     const lenFeedbackEl = document.getElementById('len-feedback');
     const matchFeedbackEl = document.getElementById('match-feedback');
-    const openAppLinkEl = document.getElementById('open-app-link');
 
     let supabase;
     let recoveryEmail = '';
+
+    const pageHeading = document.getElementById('page-heading');
+    const pageLead = document.getElementById('page-lead');
+    const sessionHeading = document.getElementById('session-heading');
+    const sessionDetail = document.getElementById('session-detail');
+    const sessionAppLinks = document.getElementById('session-app-links');
+    const brandEl = document.querySelector('.brand');
+
+    function parseFragmentParams(hash) {
+      const h = String(hash || '').replace(/^#/, '');
+      /** @type {Record<string, string>} */
+      const out = {};
+      if (!h) {
+        return out;
+      }
+      for (const pair of h.split('&')) {
+        const idx = pair.indexOf('=');
+        if (idx < 1) {
+          continue;
+        }
+        const rawKey = pair.slice(0, idx);
+        const rawVal = pair.slice(idx + 1);
+        let key = rawKey;
+        let val = rawVal;
+        try {
+          key = decodeURIComponent(rawKey);
+        } catch {
+          /* keep raw */
+        }
+        try {
+          val = decodeURIComponent(rawVal);
+        } catch {
+          /* keep raw */
+        }
+        out[key] = val;
+      }
+      return out;
+    }
+
+    function readSupabaseCallbackError() {
+      const u = new URL(window.location.href);
+      const frag = parseFragmentParams(u.hash);
+      const error = frag.error || u.searchParams.get('error');
+      const errorCode = frag.error_code || u.searchParams.get('error_code');
+      if (!error && !errorCode) {
+        return null;
+      }
+      const desc =
+        frag.error_description || u.searchParams.get('error_description') || '';
+      if (errorCode === 'otp_expired') {
+        return {kind: 'otp_expired', desc};
+      }
+      if (error === 'access_denied') {
+        return {kind: 'access_denied', code: errorCode, desc};
+      }
+      return {kind: 'other', code: errorCode, desc};
+    }
+
+    function parseResetUrl() {
+      const u = new URL(window.location.href);
+      const hashBody = u.hash.replace(/^#/, '');
+      const params = new URLSearchParams(hashBody);
+      const access_token_usp = params.get('access_token');
+      const refresh_token_usp = params.get('refresh_token');
+      const type_usp = params.get('type');
+
+      const frag = parseFragmentParams(u.hash);
+      const accessToken = frag.access_token || access_token_usp || '';
+      const refreshToken = frag.refresh_token || refresh_token_usp || '';
+      const hashTypeRaw = frag.type ?? type_usp ?? '';
+      const hashType =
+        hashTypeRaw != null && hashTypeRaw !== ''
+          ? String(hashTypeRaw).trim().toLowerCase()
+          : '';
+
+      return {
+        u,
+        frag,
+        params,
+        accessToken,
+        refreshToken,
+        hashType,
+        queryCode: u.searchParams.get('code'),
+        tokenHash: u.searchParams.get('token_hash') || u.searchParams.get('token'),
+        queryType: u.searchParams.get('type'),
+        _uspLens: {
+          at: access_token_usp ? access_token_usp.length : 0,
+          rt: refresh_token_usp ? refresh_token_usp.length : 0,
+        },
+      };
+    }
+
+    async function readSessionAfterAuth() {
+      const {
+        data: {session},
+      } = await supabase.auth.getSession();
+      return session?.user ? session : null;
+    }
+
+    async function attemptRecoverySession() {
+      const p = parseResetUrl();
+      console.log('Hash params found', Object.keys(p.frag));
+
+      const hasRecoveryHash =
+        p.hashType === 'recovery' &&
+        Boolean(p.accessToken) &&
+        Boolean(p.refreshToken);
+
+      if (hasRecoveryHash) {
+        console.log('Recovery tokens found');
+        console.log('Calling setSession');
+        const {data, error} = await supabase.auth.setSession({
+          access_token: p.accessToken,
+          refresh_token: p.refreshToken,
+        });
+        console.log('SET SESSION RESULT:', {
+          hasSession: !!(data && data.session && data.session.user),
+          error: error
+            ? {message: error.message, name: error.name, status: error.status}
+            : null,
+        });
+        if (error) {
+          console.log('setSession failed', error.message || error);
+        } else {
+          console.log('setSession success');
+          const session = data?.session?.user ? data.session : await readSessionAfterAuth();
+          if (session?.user) {
+            return session;
+          }
+          console.log('setSession failed', 'no session in response');
+        }
+      } else if (p.accessToken || p.refreshToken) {
+        console.log(
+          'setSession skipped',
+          'need type=recovery plus access_token and refresh_token',
+          {hashType: p.hashType || null, hasAt: !!p.accessToken, hasRt: !!p.refreshToken},
+        );
+      }
+
+      if (p.queryCode) {
+        console.log('Trying exchangeCodeForSession');
+        const {data, error} = await supabase.auth.exchangeCodeForSession(p.queryCode);
+        if (error) {
+          console.log('exchangeCodeForSession failed', error.message || error);
+        } else {
+          const session = data?.session?.user ? data.session : await readSessionAfterAuth();
+          if (session?.user) {
+            return session;
+          }
+        }
+      }
+
+      if (p.tokenHash && p.queryType === 'recovery') {
+        console.log('Trying verifyOtp recovery');
+        const {data, error} = await supabase.auth.verifyOtp({
+          type: 'recovery',
+          token_hash: p.tokenHash,
+        });
+        if (error) {
+          console.log('verifyOtp failed', error.message || error);
+        } else {
+          const session = data?.session?.user ? data.session : await readSessionAfterAuth();
+          if (session?.user) {
+            return session;
+          }
+        }
+      }
+
+      console.log('Recovery session failed');
+      return null;
+    }
+
+    function showInvalidLinkUi(kind) {
+      clearStatus();
+      pageHeading.style.display = 'none';
+      pageLead.style.display = 'none';
+      if (brandEl) {
+        brandEl.style.display = 'none';
+      }
+      formWrap.classList.remove('show');
+      successWrap.classList.remove('show');
+
+      if (kind === 'otp_expired') {
+        sessionHeading.textContent = 'Linket er udløbet';
+        sessionDetail.textContent = 'Anmod om et nyt link for at nulstille din adgangskode.';
+      } else {
+        sessionHeading.textContent = 'Noget gik galt';
+        sessionDetail.textContent =
+          'Vi kunne ikke bekræfte linket. Anmod om et nyt link i Gymly-appen.';
+      }
+
+      sendNewLinkBtn.style.display = recoveryEmail ? 'block' : 'none';
+      sessionAppLinks.style.display = 'flex';
+
+      sessionWrap.classList.add('show');
+    }
+
+    async function ensureSupabaseClient() {
+      if (supabase) {
+        return;
+      }
+      const {createClient} = await loadSupabaseModule();
+      supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+        auth: {
+          flowType: 'implicit',
+          detectSessionInUrl: false,
+          persistSession: true,
+          storage: localStorage,
+          autoRefreshToken: true,
+        },
+      });
+    }
 
     function setStatus(kind, text) {
       statusEl.className = `status ${kind} show`;
@@ -204,6 +554,22 @@
       el.textContent = text;
     }
 
+    async function loadSupabaseModule() {
+      const urls = [
+        'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.1/+esm',
+        'https://esm.sh/@supabase/supabase-js@2.49.1',
+      ];
+      let lastErr;
+      for (const u of urls) {
+        try {
+          return await import(/* webpackIgnore: true */ u);
+        } catch (e) {
+          lastErr = e;
+        }
+      }
+      throw lastErr || new Error('Kunne ikke indlæse Supabase');
+    }
+
     function validateInputs() {
       const password = passwordEl.value.trim();
       const confirm = confirmEl.value.trim();
@@ -211,107 +577,73 @@
       const matchOk = confirm.length > 0 && password === confirm;
       setFeedback(
         lenFeedbackEl,
-        lenOk ? 'ok' : 'err',
-        lenOk ? 'Minimum 8 tegn opfyldt' : 'Kodeordet skal være mindst 8 tegn',
+        lenOk ? 'ok' : password.length ? 'err' : 'muted',
+        lenOk ? 'Minimum 8 tegn' : password.length ? 'Mindst 8 tegn' : 'Minimum 8 tegn',
       );
       if (!confirm.length) {
-        setFeedback(matchFeedbackEl, 'muted', 'Skriv begge felter for validering.');
+        setFeedback(matchFeedbackEl, 'muted', 'Gentag adgangskoden her.');
       } else if (!matchOk) {
-        setFeedback(matchFeedbackEl, 'err', 'Kodeordene matcher ikke.');
+        setFeedback(matchFeedbackEl, 'err', 'Adgangskoderne skal matche.');
       } else {
-        setFeedback(matchFeedbackEl, 'ok', 'Kodeordene matcher.');
+        setFeedback(matchFeedbackEl, 'ok', 'Matcher.');
       }
       saveBtn.disabled = !lenOk || !matchOk;
     }
 
-    async function establishRecoverySession() {
+    function cleanUrlFromSecrets() {
       const u = new URL(window.location.href);
-      const code = u.searchParams.get('code');
-      const hash = u.hash.replace(/^#/, '');
-      const hp = new URLSearchParams(hash);
-      const at = hp.get('access_token');
-      const rt = hp.get('refresh_token');
-      const type = hp.get('type') || u.searchParams.get('type');
-
-      if (code) {
-        const { error } = await supabase.auth.exchangeCodeForSession(code);
-        if (error) throw new Error('invalid-link');
-      } else if (at && rt && type === 'recovery') {
-        const { error } = await supabase.auth.setSession({
-          access_token: at,
-          refresh_token: rt,
-        });
-        if (error) throw new Error('invalid-link');
-      }
-
-      const { data } = await supabase.auth.getSession();
-      if (!data?.session) throw new Error('invalid-link');
-      recoveryEmail = data.session.user?.email || '';
-
-      // Clean URL from sensitive params/tokens.
       u.searchParams.delete('code');
       u.searchParams.delete('type');
+      u.searchParams.delete('token_hash');
+      u.searchParams.delete('token');
+      u.searchParams.delete('error');
+      u.searchParams.delete('error_code');
+      u.searchParams.delete('error_description');
       u.hash = '';
       const qs = u.searchParams.toString();
       history.replaceState(null, '', u.pathname + (qs ? `?${qs}` : ''));
     }
 
-    async function init() {
-      try {
-        const { createClient } = await import('https://esm.sh/@supabase/supabase-js@2.49.1');
-        supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
-          auth: {
-            flowType: 'pkce',
-            detectSessionInUrl: true,
-            persistSession: true,
-            storage: localStorage,
-            autoRefreshToken: true,
-          },
-        });
-        await establishRecoverySession();
-        clearStatus();
-        sessionWrap.classList.remove('show');
-        validateInputs();
-      } catch {
-        setStatus('error', 'Linket er udløbet.');
-        formWrap.classList.add('hide');
-        sessionWrap.classList.add('show');
-      }
-    }
-
     async function sendNewLink() {
       if (!recoveryEmail) {
-        setStatus('error', 'Kunne ikke finde email. Bed om nyt link fra appen.');
+        setStatus(
+          'error',
+          'Åbn Gymly-appen og anmod om et nyt link derfra.',
+        );
         return;
       }
+      await ensureSupabaseClient();
       sendNewLinkBtn.disabled = true;
-      setStatus('loading', 'Sender nyt link...');
+      setStatus('loading', 'Sender…');
       try {
-        const { error } = await supabase.auth.resetPasswordForEmail(recoveryEmail, {
-          redirectTo: window.location.origin + '/reset-password',
+        const {error} = await supabase.auth.resetPasswordForEmail(recoveryEmail, {
+          redirectTo: RESET_PUBLIC_URL,
         });
-        if (error) throw error;
-        setStatus('success', 'Nyt link er sendt til din email.');
+        if (error) {
+          throw error;
+        }
+        setStatus('success', 'Tjek din email for et nyt link.');
       } catch {
-        setStatus('error', 'Kunne ikke sende nyt link. Prøv igen.');
+        setStatus('error', 'Kunne ikke sende lige nu. Prøv fra appen.');
       } finally {
         sendNewLinkBtn.disabled = false;
       }
     }
 
-    function redirectToAppWithFallback() {
-      let hidden = false;
-      const onHidden = () => {
-        hidden = true;
+    function redirectAfterSuccess() {
+      let left = false;
+      const onVis = () => {
+        left = true;
       };
-      document.addEventListener('visibilitychange', onHidden, { once: true });
-      openAppLinkEl.setAttribute('href', 'gymlyapp://home');
-      window.location.href = 'gymlyapp://home';
+      document.addEventListener('visibilitychange', onVis, {once: true});
       setTimeout(() => {
-        if (!hidden && !document.hidden) {
-          window.location.href = 'https://gymly.dk/download';
-        }
+        window.location.href = SUCCESS_DEEP_LINK;
       }, 1800);
+      setTimeout(() => {
+        if (!left && !document.hidden) {
+          window.location.href = SITE_FALLBACK;
+        }
+      }, 3000);
     }
 
     passwordEl.addEventListener('input', validateInputs);
@@ -323,33 +655,108 @@
       const confirm = confirmEl.value.trim();
 
       if (password.length < 8) {
-        setStatus('error', 'Kodeordet skal være mindst 8 tegn.');
+        setStatus('error', 'Brug mindst 8 tegn.');
         return;
       }
       if (password !== confirm) {
-        setStatus('error', 'Kodeordene matcher ikke.');
+        setStatus('error', 'Adgangskoderne skal matche.');
         return;
       }
 
       saveBtn.disabled = true;
-      setStatus('loading', 'Gemmer nyt kodeord...');
+      saveBtn.classList.add('is-loading');
+      saveBtn.textContent = 'Gemmer…';
+      setStatus('loading', 'Gemmer…');
       try {
-        const { error } = await supabase.auth.updateUser({ password });
-        if (error) throw error;
-        const { data } = await supabase.auth.getSession();
-        if (!data?.session) throw new Error('session-missing');
+        const {error} = await supabase.auth.updateUser({password});
+        if (error) {
+          throw error;
+        }
+        const {data} = await supabase.auth.getSession();
+        if (!data?.session) {
+          throw new Error('session-missing');
+        }
         clearStatus();
-        formWrap.classList.add('hide');
+        pageHeading.style.display = 'none';
+        pageLead.style.display = 'none';
+        if (brandEl) {
+          brandEl.style.display = 'none';
+        }
+        formWrap.classList.remove('show');
         successWrap.classList.add('show');
-        setTimeout(() => {
-          redirectToAppWithFallback();
-        }, 1000);
+        redirectAfterSuccess();
       } catch {
-        setStatus('error', 'Kunne ikke gemme nyt kodeord. Prøv igen.');
+        setStatus('error', 'Kunne ikke gemme. Prøv igen.');
       } finally {
+        saveBtn.classList.remove('is-loading');
+        saveBtn.textContent = 'Gem ny adgangskode';
         saveBtn.disabled = false;
+        validateInputs();
       }
     });
+
+    async function init() {
+      console.log('RESET HASH:', window.location.hash);
+      const hashNorm = window.location.hash.replace(/^#/, '');
+      const params = new URLSearchParams(hashNorm);
+      console.log('URLSearchParams parse', {
+        type: params.get('type'),
+        access_token_len: params.get('access_token') ? params.get('access_token').length : 0,
+        refresh_token_len: params.get('refresh_token') ? params.get('refresh_token').length : 0,
+      });
+      try {
+        setStatus('loading', 'Tjekker link…');
+        const {createClient} = await loadSupabaseModule();
+        if (!String(SUPABASE_URL).startsWith('https://ykantlsuszpauddasqvz.supabase.co')) {
+          console.error('Wrong Supabase URL in reset page — must match app project.');
+        }
+        supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+          auth: {
+            flowType: 'implicit',
+            detectSessionInUrl: false,
+            persistSession: true,
+            storage: localStorage,
+            autoRefreshToken: true,
+          },
+        });
+
+        const session = await attemptRecoverySession();
+        if (!session?.user) {
+          const urlErr = readSupabaseCallbackError();
+          cleanUrlFromSecrets();
+          showInvalidLinkUi(urlErr?.kind === 'otp_expired' ? 'otp_expired' : 'other');
+          return;
+        }
+
+        recoveryEmail = session.user.email || '';
+        cleanUrlFromSecrets();
+
+        pageHeading.textContent = 'Skift adgangskode';
+        pageHeading.style.display = 'block';
+        pageLead.style.display = 'block';
+        pageLead.textContent =
+          'Indtast din nye adgangskode nedenfor. Linket virker kun i en begrænset periode.';
+        if (brandEl) {
+          brandEl.style.display = 'flex';
+        }
+        clearStatus();
+        sessionWrap.classList.remove('show');
+        sendNewLinkBtn.style.display = 'block';
+        formWrap.classList.add('show');
+        console.log('Showing reset form');
+        validateInputs();
+      } catch (e) {
+        console.error('[reset-password]', e);
+        console.log('Recovery session failed', e);
+        const urlErr = readSupabaseCallbackError();
+        try {
+          cleanUrlFromSecrets();
+        } catch {
+          /* ignore */
+        }
+        showInvalidLinkUi(urlErr?.kind === 'otp_expired' ? 'otp_expired' : 'other');
+      }
+    }
 
     init();
   </script>

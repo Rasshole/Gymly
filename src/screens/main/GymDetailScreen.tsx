@@ -22,6 +22,7 @@ import {useGymStore} from '@/store/gymStore';
 import {useLeaderboardStore} from '@/store/leaderboardStore';
 import {useAppStore} from '@/store/appStore';
 import colors from '@/theme/colors';
+import {SURFACE_LEADERBOARD_IN_GYM_DETAIL} from '@/config/launchSurfaceConfig';
 import GymLogoView from '@/components/ui/GymLogoView';
 import {formatGymDisplayName, normalizeGymBrand} from '@/utils/gymDisplay';
 
@@ -237,31 +238,32 @@ const GymDetailScreen = () => {
           </View>
         )}
 
-        {/* Weekly Champion Banner */}
-        {weeklyChampion && (
+        {/* Reserved for future competitive/social systems (launchSurfaceConfig). */}
+        {SURFACE_LEADERBOARD_IN_GYM_DETAIL && weeklyChampion ? (
           <View style={styles.weeklyChampionSection}>
             <Text style={styles.weeklyChampionEmoji}>🏆</Text>
             <Text style={styles.weeklyChampionLabel}>Ugens mester</Text>
             <Text style={styles.weeklyChampionName}>{weeklyChampion.displayName}</Text>
           </View>
-        )}
+        ) : null}
 
-        {/* Gym Leaderboard Section */}
-        <TouchableOpacity
-          style={styles.section}
-          onPress={() =>
-            navigation.navigate('GymLeaderboard', {gymId, gym})
-          }
-          activeOpacity={0.8}>
-          <View style={styles.sectionHeader}>
-            <Icon name="trophy" size={20} color="#FFD700" />
-            <Text style={styles.sectionTitle}>Rangliste</Text>
-            <Icon name="chevron-forward" size={18} color={colors.textMuted} style={styles.sectionChevron} />
-          </View>
-          <Text style={styles.leaderboardSubtitle}>
-            Se hvem der har flest besøg her
-          </Text>
-        </TouchableOpacity>
+        {SURFACE_LEADERBOARD_IN_GYM_DETAIL ? (
+          <TouchableOpacity
+            style={styles.section}
+            onPress={() =>
+              navigation.navigate('GymLeaderboard', {gymId, gym})
+            }
+            activeOpacity={0.8}>
+            <View style={styles.sectionHeader}>
+              <Icon name="trophy" size={20} color="#FFD700" />
+              <Text style={styles.sectionTitle}>Rangliste</Text>
+              <Icon name="chevron-forward" size={18} color={colors.textMuted} style={styles.sectionChevron} />
+            </View>
+            <Text style={styles.leaderboardSubtitle}>
+              Se hvem der har flest besøg her
+            </Text>
+          </TouchableOpacity>
+        ) : null}
 
       </ScrollView>
 

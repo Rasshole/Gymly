@@ -10,6 +10,11 @@ import {detectGymChain} from '@/services/gymLogoService';
 import {calculateDistance} from '@/utils/geoUtils';
 import type {ActiveCenter, ActiveCenterSession} from '@/types/activeCenter.types';
 import type {GymPresence, UserPresence} from '@/types/gymPresence.types';
+import {
+  dedupeCheckInRowsByUserId,
+  isEffectiveActiveCheckIn,
+  runStaleActiveSessionCleanup,
+} from '@/services/supabase/activeSessionsSync';
 
 type CheckInActiveRow = {
   id: string;
@@ -19,6 +24,9 @@ type CheckInActiveRow = {
   workout_type: string | null;
   started_at: string;
   user_display_name: string;
+  last_seen_at?: string | null;
+  is_active?: boolean;
+  ended_at?: string | null;
 };
 
 function toSession(
@@ -91,13 +99,15 @@ export async function loadActiveCentersData(
   currentUserId: string,
   options?: {userLatitude?: number; userLongitude?: number},
 ): Promise<ActiveCenter[]> {
+  const staleCleaned = await runStaleActiveSessionCleanup();
+  const now = Date.now();
   const [friendIdSet, rollupRes, checkInsRes] = await Promise.all([
     getMyFriendIds(currentUserId),
     supabase.from('gym_active_checkin_rollup').select('gym_id, active_count'),
     supabase
       .from('check_ins')
       .select(
-        'id, user_id, gym_id, gym_name, workout_type, started_at, user_display_name',
+        'id, user_id, gym_id, gym_name, workout_type, started_at, last_seen_at, is_active, ended_at, user_display_name',
       )
       .eq('is_active', true)
       .is('ended_at', null),
@@ -111,7 +121,17 @@ export async function loadActiveCentersData(
   }
 
   const byGym = new Map<string, CheckInActiveRow[]>();
-  const rows = (checkInsRes.data ?? []) as CheckInActiveRow[];
+  const rawRows = (checkInsRes.data ?? []) as CheckInActiveRow[];
+  const fresh = rawRows.filter(r => isEffectiveActiveCheckIn(r, now));
+  const rows = dedupeCheckInRowsByUserId(fresh);
+  if (__DEV__) {
+    console.log('[ActiveSessions] loadActiveCentersData', {
+      staleCleaned,
+      rawCount: rawRows.length,
+      filteredCount: fresh.length,
+      uniqueUsers: rows.length,
+    });
+  }
   for (const r of rows) {
     const gid = r.gym_id ? String(r.gym_id) : '';
     if (!gid) {

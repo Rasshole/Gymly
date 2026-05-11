@@ -6,7 +6,7 @@ import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet, ViewStyle} from 'react-native';
 import {UserAvatar} from './UserAvatar';
 import colors from '@/theme/colors';
-import {spacing, radius, typography} from '@/theme/designTokens';
+import {spacing, radius, typography, shadows} from '@/theme/designTokens';
 
 type LeaderboardRowProps = {
   rank: number;
@@ -14,6 +14,7 @@ type LeaderboardRowProps = {
   value: string;
   valueLabel?: string;
   badge?: string;
+  streak?: string;
   imageUrl?: string | null;
   isCurrentUser?: boolean;
   isFriend?: boolean;
@@ -29,6 +30,7 @@ export const LeaderboardRow: React.FC<LeaderboardRowProps> = ({
   value,
   valueLabel,
   badge,
+  streak,
   imageUrl,
   isCurrentUser = false,
   isFriend = false,
@@ -61,6 +63,7 @@ export const LeaderboardRow: React.FC<LeaderboardRowProps> = ({
       </View>
       <View style={styles.rightSection}>
         <Text style={styles.value}>{value}</Text>
+        {streak ? <Text style={styles.streak}>{streak}</Text> : null}
         {badge && (
           <View style={styles.badgeWrap}>
             <Text style={styles.badgeText}>{badge}</Text>
@@ -95,16 +98,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     padding: spacing.lg,
-    backgroundColor: colors.backgroundCard,
-    borderRadius: radius.lg,
+    backgroundColor: '#FFFFFF',
+    borderRadius: radius.xl,
     marginBottom: spacing.sm,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: '#ECE7FF',
     gap: spacing.md,
+    ...shadows.card,
   },
   rowCurrentUser: {
-    borderColor: colors.primary + '50',
-    backgroundColor: colors.primary + '08',
+    borderColor: colors.primary + '55',
+    backgroundColor: '#F7F3FF',
   },
   rank: {
     ...typography.bodyBold,
@@ -144,10 +148,17 @@ const styles = StyleSheet.create({
   },
   rightSection: {
     alignItems: 'flex-end',
+    minWidth: 90,
   },
   value: {
     ...typography.bodyBold,
-    color: colors.text,
+    color: colors.primaryDark,
+  },
+  streak: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    marginTop: 2,
+    fontWeight: '600',
   },
   badgeWrap: {
     marginTop: 2,

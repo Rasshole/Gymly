@@ -21,6 +21,7 @@ import {
   Dimensions,
   PermissionsAndroid,
   Linking,
+  Pressable,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
@@ -49,10 +50,17 @@ import {gymSearchMatchesTokens} from '@/utils/gymSearch';
 import {formatGymDisplayName} from '@/utils/gymDisplay';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import * as streak from '@/utils/streakUtils';
+import {
+  getUsernameFormatErrorDa,
+  normalizeUsernameForStorage,
+  normalizeUsernameInput,
+} from '@/utils/usernameRules';
+import {useUsernameAvailability} from '@/hooks/useUsernameAvailability';
 import Geolocation, {
   type GeolocationError,
   type GeolocationResponse,
 } from '@react-native-community/geolocation';
+import Svg, {Defs, LinearGradient, Rect, Stop} from 'react-native-svg';
 
 const SPLASH_KETTLEBELL = require('@/assets/images/splash-kettlebell.png');
 
@@ -68,6 +76,7 @@ type Step =
 
 const FLOW_STEPS: Step[] = ['entry', 'profile', 'gym', 'social', 'privacy'];
 const PROGRESS_TOTAL = 5;
+const BICEPS_OPTIONS = ['💪🏻', '💪🏼', '💪🏽', '💪🏾', '💪🏿', '🦾'];
 
 const regionOptions: DanishRegion[] = ['København', 'Sjælland', 'Fyn', 'Jylland'];
 
@@ -130,8 +139,15 @@ const RegisterScreen = () => {
   const splashRingScale = useRef(new Animated.Value(0.6)).current;
   const splashRingOpacity = useRef(new Animated.Value(0)).current;
   const splashFinishTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const bicepsOptions = ['💪🏻', '💪🏼', '💪🏽', '💪🏾', '💪🏿', '🦾'];
+  const contentFade = useRef(new Animated.Value(1)).current;
+  const logoFloat = useRef(new Animated.Value(0)).current;
+  const progressAnim = useRef(new Animated.Value(1 / PROGRESS_TOTAL)).current;
+  const primaryPress = useRef(new Animated.Value(1)).current;
+  const subtlePress = useRef(new Animated.Value(1)).current;
+  const passwordToggleAnim = useRef(new Animated.Value(1)).current;
+  const bicepsScaleRef = useRef<Record<string, Animated.Value>>(
+    Object.fromEntries(BICEPS_OPTIONS.map(key => [key, new Animated.Value(1)])),
+  ).current;
 
   const fullName = `${firstName.trim()} ${lastName.trim()}`.trim();
 
@@ -189,6 +205,30 @@ const RegisterScreen = () => {
     return null;
   };
 
+  const usernameAvailability = useUsernameAvailability({
+    rawUsername: username,
+    excludeUserId: null,
+  });
+
+  const profileContinueEnabled = useMemo(() => {
+    const dobErr = validateBirthDate(dateOfBirth);
+    return (
+      Boolean(firstName.trim() && lastName.trim()) &&
+      dobErr === null &&
+      usernameAvailability.canProceed &&
+      isValidDanishMobile(phoneNumber)
+    );
+  }, [
+    firstName,
+    lastName,
+    dateOfBirth,
+    usernameAvailability.canProceed,
+    phoneNumber,
+  ]);
+
+  const progressIndex = FLOW_STEPS.indexOf(step);
+  const showProgress = progressIndex >= 0;
+
   const handleEntryContinue = () => {
     if (!email.trim()) {
       Alert.alert('Email', 'Indtast din email.');
@@ -216,16 +256,21 @@ const RegisterScreen = () => {
       Alert.alert('Fødselsdato', dobErr);
       return;
     }
-    if (!username.trim()) {
-      Alert.alert('Brugernavn', 'Vælg et brugernavn.');
+    const uFmt = getUsernameFormatErrorDa(normalizeUsernameForStorage(username));
+    if (uFmt) {
+      Alert.alert('Brugernavn', uFmt);
       return;
     }
-    if (username.trim().length < 3) {
-      Alert.alert('Brugernavn', 'Mindst 3 tegn.');
-      return;
-    }
-    if (!/^[a-zA-Z0-9_]+$/.test(username.trim())) {
-      Alert.alert('Brugernavn', 'Kun bogstaver, tal og _.');
+    if (!usernameAvailability.canProceed) {
+      if (usernameAvailability.checking) {
+        Alert.alert('Brugernavn', 'Vent et øjeblik …');
+        return;
+      }
+      if (usernameAvailability.available === false) {
+        Alert.alert('Brugernavn', 'Brugernavn er allerede taget');
+        return;
+      }
+      Alert.alert('Brugernavn', 'Tjek brugernavnet og prøv igen.');
       return;
     }
     if (!isValidDanishMobile(phoneNumber)) {
@@ -439,7 +484,7 @@ const RegisterScreen = () => {
 
       const {user, tokens, needsEmailConfirmation} = await AuthService.register({
         email: email.trim(),
-        username: username.trim(),
+        username: normalizeUsernameForStorage(username),
         phoneNumber: phoneNormalized,
         displayName: fullName || email.trim(),
         password,
@@ -494,6 +539,61 @@ const RegisterScreen = () => {
     },
     [],
   );
+
+  useEffect(() => {
+    const loop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(logoFloat, {toValue: 1, duration: 2000, useNativeDriver: true}),
+        Animated.timing(logoFloat, {toValue: 0, duration: 2000, useNativeDriver: true}),
+      ]),
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [logoFloat]);
+
+  useEffect(() => {
+    Animated.sequence([
+      Animated.timing(contentFade, {toValue: 0, duration: 120, useNativeDriver: true}),
+      Animated.timing(contentFade, {toValue: 1, duration: 220, useNativeDriver: true}),
+    ]).start();
+  }, [contentFade, step]);
+
+  useEffect(() => {
+    if (progressIndex < 0) return;
+    const target = (progressIndex + 1) / PROGRESS_TOTAL;
+    Animated.timing(progressAnim, {
+      toValue: target,
+      duration: 280,
+      easing: Easing.out(Easing.cubic),
+      useNativeDriver: false,
+    }).start();
+  }, [progressAnim, progressIndex]);
+
+  useEffect(() => {
+    passwordToggleAnim.setValue(0.6);
+    Animated.timing(passwordToggleAnim, {
+      toValue: 1,
+      duration: 180,
+      easing: Easing.out(Easing.quad),
+      useNativeDriver: true,
+    }).start();
+  }, [passwordToggleAnim, showPassword]);
+
+  const handlePrimaryPressIn = useCallback(() => {
+    Animated.spring(primaryPress, {toValue: 0.98, useNativeDriver: true}).start();
+  }, [primaryPress]);
+
+  const handlePrimaryPressOut = useCallback(() => {
+    Animated.spring(primaryPress, {toValue: 1, useNativeDriver: true}).start();
+  }, [primaryPress]);
+
+  const handleSubtlePressIn = useCallback(() => {
+    Animated.spring(subtlePress, {toValue: 0.97, useNativeDriver: true}).start();
+  }, [subtlePress]);
+
+  const handleSubtlePressOut = useCallback(() => {
+    Animated.spring(subtlePress, {toValue: 1, useNativeDriver: true}).start();
+  }, [subtlePress]);
 
   const startVerificationSplashThenLogin = useCallback(
     (user: User, tokens: AuthTokens) => {
@@ -563,9 +663,6 @@ const RegisterScreen = () => {
       .finally(() => setIsLoading(false));
   };
 
-  const progressIndex = FLOW_STEPS.indexOf(step);
-  const showProgress = progressIndex >= 0;
-
   const handleBackPress = () => {
     if (step === 'done') return;
     if (step === 'verification') {
@@ -613,15 +710,24 @@ const RegisterScreen = () => {
 
   const renderProgress = () => {
     if (!showProgress) return null;
-    const pct = ((progressIndex + 1) / PROGRESS_TOTAL) * 100;
     return (
       <View style={styles.progressWrap}>
+        <View style={styles.progressTrack}>
+          <Animated.View
+            style={[
+              styles.progressFill,
+              {
+                width: progressAnim.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: ['0%', '100%'],
+                }),
+              },
+            ]}
+          />
+        </View>
         <Text style={styles.progressLabel}>
           Trin {progressIndex + 1} af {PROGRESS_TOTAL}
         </Text>
-        <View style={styles.progressTrack}>
-          <View style={[styles.progressFill, {width: `${pct}%`}]} />
-        </View>
       </View>
     );
   };
@@ -655,7 +761,23 @@ const RegisterScreen = () => {
             style={styles.passwordToggle}
             onPress={() => setShowPassword(p => !p)}
             hitSlop={12}>
-            <Text style={styles.passwordToggleText}>{showPassword ? 'Skjul' : 'Vis'}</Text>
+            <Animated.Text
+              style={[
+                styles.passwordToggleText,
+                {
+                  opacity: passwordToggleAnim,
+                  transform: [
+                    {
+                      scale: passwordToggleAnim.interpolate({
+                        inputRange: [0.6, 1],
+                        outputRange: [0.94, 1],
+                      }),
+                    },
+                  ],
+                },
+              ]}>
+              {showPassword ? 'Skjul' : 'Vis'}
+            </Animated.Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -676,8 +798,18 @@ const RegisterScreen = () => {
           )}
         </View>
       )}
-      <TouchableOpacity style={styles.primaryBtn} onPress={handleEntryContinue} activeOpacity={0.9}>
-        <Text style={styles.primaryBtnText}>Fortsæt</Text>
+      <TouchableOpacity
+        style={[
+          styles.primaryBtn,
+          password.length > 0 && passwordErrors.length === 0 && email.trim() && styles.primaryBtnEnabled,
+        ]}
+        onPress={handleEntryContinue}
+        onPressIn={handlePrimaryPressIn}
+        onPressOut={handlePrimaryPressOut}
+        activeOpacity={0.9}>
+        <Animated.Text style={[styles.primaryBtnText, {transform: [{scale: primaryPress}]}]}>
+          Fortsæt
+        </Animated.Text>
       </TouchableOpacity>
       <View style={styles.inlineLogin}>
         <Text style={styles.muted}>Har du allerede en konto? </Text>
@@ -772,17 +904,44 @@ const RegisterScreen = () => {
           </>
         )}
         <TextInput
-          style={styles.input}
+          style={[
+            styles.input,
+            usernameAvailability.formatError || usernameAvailability.available === false
+              ? styles.inputUsernameErr
+              : usernameAvailability.available === true && !usernameAvailability.formatError
+                ? styles.inputUsernameOk
+                : null,
+          ]}
           placeholder="Brugernavn"
           placeholderTextColor={colors.textMuted}
           value={username}
-          onChangeText={t => setUsername(t.replace(/\s/g, ''))}
+          onChangeText={t => setUsername(normalizeUsernameInput(t))}
           autoCapitalize="none"
           autoCorrect={false}
           textContentType="username"
           maxLength={20}
         />
-        <Text style={styles.helperMuted}>Bogstaver, tal og _ · synligt for andre</Text>
+        <Text style={styles.helperMuted}>
+          Bogstaver, tal, punktum og _ · 3–20 tegn · gemmes som små bogstaver
+        </Text>
+        {usernameAvailability.formatError ? (
+          <View style={styles.usernameStatusRow}>
+            <Icon name="close-circle" size={16} color={colors.error} />
+            <Text style={styles.hintErr}>{usernameAvailability.formatError}</Text>
+          </View>
+        ) : usernameAvailability.checking && normalizeUsernameForStorage(username).length > 0 ? (
+          <Text style={styles.helperMuted}>Tjekker …</Text>
+        ) : usernameAvailability.available === false ? (
+          <View style={styles.usernameStatusRow}>
+            <Icon name="close-circle" size={16} color={colors.error} />
+            <Text style={styles.hintErr}>Brugernavn er allerede taget</Text>
+          </View>
+        ) : usernameAvailability.available === true ? (
+          <View style={styles.usernameStatusRow}>
+            <Icon name="checkmark-circle" size={16} color={colors.primary} />
+            <Text style={styles.hintOk}>Brugernavn er ledigt</Text>
+          </View>
+        ) : null}
         <TextInput
           style={styles.input}
           placeholder="Mobilnummer (påkrævet)"
@@ -797,8 +956,20 @@ const RegisterScreen = () => {
           Dansk mobil — 8 cifre (fx 12 34 56 78 eller +45 12 34 56 78)
         </Text>
       </View>
-      <TouchableOpacity style={styles.primaryBtn} onPress={handleProfileContinue} activeOpacity={0.9}>
-        <Text style={styles.primaryBtnText}>Fortsæt</Text>
+      <TouchableOpacity
+        style={[
+          styles.primaryBtn,
+          profileContinueEnabled && styles.primaryBtnEnabled,
+          !profileContinueEnabled && styles.primaryBtnDisabled,
+        ]}
+        onPress={handleProfileContinue}
+        onPressIn={handlePrimaryPressIn}
+        onPressOut={handlePrimaryPressOut}
+        activeOpacity={0.9}
+        disabled={!profileContinueEnabled}>
+        <Animated.Text style={[styles.primaryBtnText, {transform: [{scale: primaryPress}]}]}>
+          Fortsæt
+        </Animated.Text>
       </TouchableOpacity>
     </View>
   );
@@ -874,18 +1045,43 @@ const RegisterScreen = () => {
       })}
       <Text style={styles.sectionMiniTitle}>Din biceps</Text>
       <View style={styles.bicepsRow}>
-        {bicepsOptions.map(emoji => (
-          <TouchableOpacity
+        {BICEPS_OPTIONS.map(emoji => (
+          <Pressable
             key={emoji}
-            style={[styles.bicepsChip, selectedBiceps === emoji && styles.bicepsChipActive]}
-            onPress={() => setSelectedBiceps(emoji)}
-            activeOpacity={0.85}>
-            <Text style={styles.bicepsEmoji}>{emoji}</Text>
-          </TouchableOpacity>
+            style={styles.bicepsPress}
+            onPressIn={() =>
+              Animated.spring(bicepsScaleRef[emoji], {
+                toValue: 0.94,
+                useNativeDriver: true,
+              }).start()
+            }
+            onPressOut={() =>
+              Animated.spring(bicepsScaleRef[emoji], {
+                toValue: 1,
+                useNativeDriver: true,
+              }).start()
+            }
+            onPress={() => setSelectedBiceps(emoji)}>
+            <Animated.View
+              style={[
+                styles.bicepsChip,
+                selectedBiceps === emoji && styles.bicepsChipActive,
+                {transform: [{scale: bicepsScaleRef[emoji]}]},
+              ]}>
+              <Text style={styles.bicepsEmoji}>{emoji}</Text>
+            </Animated.View>
+          </Pressable>
         ))}
       </View>
-      <TouchableOpacity style={styles.primaryBtn} onPress={handleGymContinue} activeOpacity={0.9}>
-        <Text style={styles.primaryBtnText}>Fortsæt</Text>
+      <TouchableOpacity
+        style={styles.primaryBtn}
+        onPress={handleGymContinue}
+        onPressIn={handlePrimaryPressIn}
+        onPressOut={handlePrimaryPressOut}
+        activeOpacity={0.9}>
+        <Animated.Text style={[styles.primaryBtnText, {transform: [{scale: primaryPress}]}]}>
+          Fortsæt
+        </Animated.Text>
       </TouchableOpacity>
     </View>
   );
@@ -923,11 +1119,24 @@ const RegisterScreen = () => {
           multiline
         />
       </View>
-      <TouchableOpacity style={styles.primaryBtn} onPress={handleSocialContinue} activeOpacity={0.9}>
-        <Text style={styles.primaryBtnText}>Fortsæt</Text>
+      <TouchableOpacity
+        style={styles.primaryBtn}
+        onPress={handleSocialContinue}
+        onPressIn={handlePrimaryPressIn}
+        onPressOut={handlePrimaryPressOut}
+        activeOpacity={0.9}>
+        <Animated.Text style={[styles.primaryBtnText, {transform: [{scale: primaryPress}]}]}>
+          Fortsæt
+        </Animated.Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={handleSocialContinue} style={styles.skipBtn}>
-        <Text style={styles.skipText}>Spring over</Text>
+      <TouchableOpacity
+        onPress={handleSocialContinue}
+        onPressIn={handleSubtlePressIn}
+        onPressOut={handleSubtlePressOut}
+        style={styles.skipBtn}>
+        <Animated.Text style={[styles.skipText, {transform: [{scale: subtlePress}]}]}>
+          Spring over
+        </Animated.Text>
       </TouchableOpacity>
     </View>
   );
@@ -1003,12 +1212,16 @@ const RegisterScreen = () => {
                   ]}
                   onPress={requestOnboardingLocation}
                   disabled={locationRequesting}
+                  onPressIn={handlePrimaryPressIn}
+                  onPressOut={handlePrimaryPressOut}
                   activeOpacity={0.9}>
-                  {locationRequesting ? (
-                    <ActivityIndicator color={colors.white} />
-                  ) : (
-                    <Text style={styles.locationAllowBtnText}>Tillad lokation</Text>
-                  )}
+                  <Animated.View style={{transform: [{scale: primaryPress}]}}>
+                    {locationRequesting ? (
+                      <ActivityIndicator color={colors.white} />
+                    ) : (
+                      <Text style={styles.locationAllowBtnText}>Tillad lokation</Text>
+                    )}
+                  </Animated.View>
                 </TouchableOpacity>
                 {locationPermissionStatus === 'denied' ? (
                   <TouchableOpacity
@@ -1034,7 +1247,7 @@ const RegisterScreen = () => {
           <Switch
             value={marketingConsent}
             onValueChange={setMarketingConsent}
-            trackColor={{false: colors.surface, true: colors.primaryLight}}
+            trackColor={{false: colors.surface, true: colors.primary}}
             thumbColor={colors.white}
             ios_backgroundColor={colors.surface}
           />
@@ -1047,7 +1260,7 @@ const RegisterScreen = () => {
           <Switch
             value={analyticsConsent}
             onValueChange={setAnalyticsConsent}
-            trackColor={{false: colors.surface, true: colors.primaryLight}}
+            trackColor={{false: colors.surface, true: colors.primary}}
             thumbColor={colors.white}
             ios_backgroundColor={colors.surface}
           />
@@ -1058,29 +1271,35 @@ const RegisterScreen = () => {
           Under GDPR har du bl.a. ret til indsigt, sletning og dataportabilitet.
         </Text>
       </View>
-      <TouchableOpacity
-        style={[
-          styles.primaryBtn,
-          (!privacyAccepted ||
+      <View style={styles.privacyCtaDock}>
+        <TouchableOpacity
+          style={[
+            styles.primaryBtn,
+            (!privacyAccepted ||
+              !termsAccepted ||
+              locationPermissionStatus !== 'granted' ||
+              isLoading) &&
+              styles.primaryBtnDisabled,
+          ]}
+          onPress={handleCompleteRegistration}
+          disabled={
+            !privacyAccepted ||
             !termsAccepted ||
             locationPermissionStatus !== 'granted' ||
-            isLoading) &&
-            styles.primaryBtnDisabled,
-        ]}
-        onPress={handleCompleteRegistration}
-        disabled={
-          !privacyAccepted ||
-          !termsAccepted ||
-          locationPermissionStatus !== 'granted' ||
-          isLoading
-        }
-        activeOpacity={0.9}>
-        {isLoading ? (
-          <ActivityIndicator color={colors.white} />
-        ) : (
-          <Text style={styles.primaryBtnText}>Accepter og fortsæt</Text>
-        )}
-      </TouchableOpacity>
+            isLoading
+          }
+          onPressIn={handlePrimaryPressIn}
+          onPressOut={handlePrimaryPressOut}
+          activeOpacity={0.9}>
+          <Animated.View style={{transform: [{scale: primaryPress}]}}>
+            {isLoading ? (
+              <ActivityIndicator color={colors.white} />
+            ) : (
+              <Text style={styles.primaryBtnText}>Accepter og fortsæt</Text>
+            )}
+          </Animated.View>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 
@@ -1091,8 +1310,15 @@ const RegisterScreen = () => {
       </View>
       <Text style={styles.doneTitle}>Du er klar</Text>
       <Text style={styles.doneSub}>Lad os åbne Gymly sammen.</Text>
-      <TouchableOpacity style={styles.primaryBtn} onPress={handleEnterGymly} activeOpacity={0.9}>
-        <Text style={styles.primaryBtnText}>Åbn Gymly</Text>
+      <TouchableOpacity
+        style={styles.primaryBtn}
+        onPress={handleEnterGymly}
+        onPressIn={handlePrimaryPressIn}
+        onPressOut={handlePrimaryPressOut}
+        activeOpacity={0.9}>
+        <Animated.Text style={[styles.primaryBtnText, {transform: [{scale: primaryPress}]}]}>
+          Åbn Gymly
+        </Animated.Text>
       </TouchableOpacity>
     </View>
   );
@@ -1128,12 +1354,16 @@ const RegisterScreen = () => {
         ]}
         onPress={handleVerificationContinue}
         disabled={isLoading}
+        onPressIn={handlePrimaryPressIn}
+        onPressOut={handlePrimaryPressOut}
         activeOpacity={0.9}>
-        {isLoading ? (
-          <ActivityIndicator color={colors.white} />
-        ) : (
-          <Text style={styles.primaryBtnText}>Jeg har bekræftet</Text>
-        )}
+        <Animated.View style={{transform: [{scale: primaryPress}]}}>
+          {isLoading ? (
+            <ActivityIndicator color={colors.white} />
+          ) : (
+            <Text style={styles.primaryBtnText}>Jeg har bekræftet</Text>
+          )}
+        </Animated.View>
       </TouchableOpacity>
     </View>
   );
@@ -1163,6 +1393,17 @@ const RegisterScreen = () => {
 
   return (
     <View style={styles.screen}>
+      <View style={styles.bgGradientWrap} pointerEvents="none">
+        <Svg width="100%" height="100%">
+          <Defs>
+            <LinearGradient id="registerBg" x1="0" y1="0" x2="0" y2="1">
+              <Stop offset="0" stopColor="#F7F5FF" stopOpacity="1" />
+              <Stop offset="1" stopColor="#FFFFFF" stopOpacity="1" />
+            </LinearGradient>
+          </Defs>
+          <Rect x="0" y="0" width="100%" height="100%" fill="url(#registerBg)" />
+        </Svg>
+      </View>
       {verificationSplashVisible ? (
         <Animated.View
           style={[styles.verificationSplashOverlay, {opacity: splashOpacity}]}
@@ -1205,22 +1446,49 @@ const RegisterScreen = () => {
               justifyContent: 'center',
               minHeight:
                 Dimensions.get('window').height - insets.top - insets.bottom - 8,
-              paddingTop: insets.top + 48,
+              paddingTop: insets.top + 16,
               paddingBottom: Math.max(insets.bottom, spacing.xl) + spacing.lg,
             },
           ]}
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}>
-          {step !== 'done' ? (
-            <View style={styles.logoWrap}>
-              {/* ~20% mindre end 72; hvid skærm så PNG’ets hvide felt smelter sammen */}
-              <GymlyLogo size={58} />
+          <Animated.View
+            style={{
+              opacity: contentFade,
+              transform: [
+                {
+                  translateY: contentFade.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: [8, 0],
+                  }),
+                },
+              ],
+            }}>
+            {step !== 'done' ? (
+              <Animated.View
+                style={[
+                  styles.logoWrap,
+                  {
+                    transform: [
+                      {
+                        translateY: logoFloat.interpolate({
+                          inputRange: [0, 1],
+                          outputRange: [0, -5],
+                        }),
+                      },
+                    ],
+                  },
+                ]}>
+                <GymlyLogo size={72} />
+              </Animated.View>
+            ) : null}
+            <View style={styles.formMax}>
+              {renderProgress()}
+              <Text style={styles.title}>{titles[step].title}</Text>
+              <Text style={styles.subtitle}>{titles[step].sub}</Text>
+              {renderBody()}
             </View>
-          ) : null}
-          {renderProgress()}
-          <Text style={styles.title}>{titles[step].title}</Text>
-          <Text style={styles.subtitle}>{titles[step].sub}</Text>
-          {renderBody()}
+          </Animated.View>
         </ScrollView>
       </KeyboardAvoidingView>
     </View>
@@ -1228,7 +1496,8 @@ const RegisterScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  screen: {flex: 1, backgroundColor: colors.backgroundLight},
+  screen: {flex: 1, backgroundColor: '#FFFFFF'},
+  bgGradientWrap: {...StyleSheet.absoluteFillObject},
   verificationSplashOverlay: {
     ...StyleSheet.absoluteFillObject,
     zIndex: 200,
@@ -1251,6 +1520,11 @@ const styles = StyleSheet.create({
   scrollContent: {
     paddingHorizontal: spacing.xl,
   },
+  formMax: {
+    width: '100%',
+    maxWidth: 460,
+    alignSelf: 'center',
+  },
   backBtn: {
     position: 'absolute',
     left: spacing.sm,
@@ -1260,56 +1534,73 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  logoWrap: {alignItems: 'center', marginBottom: spacing.xl + 4},
-  progressWrap: {marginBottom: spacing.lg},
+  logoWrap: {alignItems: 'center', marginBottom: spacing.md},
+  progressWrap: {marginBottom: spacing.md},
   progressLabel: {
     textAlign: 'center',
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: '600',
-    color: colors.primary,
-    marginBottom: spacing.sm,
+    color: colors.textSecondary,
+    marginTop: spacing.xs,
   },
   progressTrack: {
-    height: 4,
+    height: 3,
     borderRadius: 2,
-    backgroundColor: colors.surface,
+    backgroundColor: '#E7E3F7',
     overflow: 'hidden',
   },
   progressFill: {height: '100%', borderRadius: 2, backgroundColor: colors.primary},
   title: {
-    fontSize: 26,
-    fontWeight: '700',
+    fontSize: 32,
+    fontWeight: '800',
+    letterSpacing: -0.5,
     color: colors.text,
     textAlign: 'center',
-    marginBottom: spacing.sm,
+    marginBottom: spacing.xs,
   },
   subtitle: {
-    fontSize: 15,
-    color: colors.textSecondary,
+    fontSize: 14,
+    color: colors.textMuted,
     textAlign: 'center',
-    lineHeight: 22,
-    marginBottom: spacing.xl,
+    lineHeight: 20,
+    marginBottom: spacing.lg,
+    maxWidth: 300,
+    alignSelf: 'center',
     paddingHorizontal: spacing.sm,
   },
-  section: {gap: spacing.lg},
+  section: {gap: spacing.md},
   card: {
-    backgroundColor: colors.backgroundCard,
-    borderRadius: radius.lg,
+    backgroundColor: '#FCFCFF',
+    borderRadius: 28,
     padding: spacing.lg,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: '#EBE7F7',
     gap: spacing.md,
   },
   rowInputs: {flexDirection: 'row', gap: spacing.md},
   input: {
-    backgroundColor: colors.backgroundCardLight,
-    borderRadius: radius.md,
+    backgroundColor: '#FFFFFF',
+    borderRadius: radius.lg,
     paddingHorizontal: spacing.lg,
-    paddingVertical: spacing.md + 2,
+    paddingVertical: 15,
     fontSize: 16,
     color: colors.text,
     borderWidth: 1,
     borderColor: colors.border,
+  },
+  inputUsernameOk: {
+    borderColor: colors.primary,
+    borderWidth: 1.5,
+  },
+  inputUsernameErr: {
+    borderColor: colors.error,
+    borderWidth: 1.5,
+  },
+  usernameStatusRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    marginTop: 2,
   },
   inputHalf: {flex: 1},
   inputLabel: {
@@ -1328,20 +1619,27 @@ const styles = StyleSheet.create({
   hintRow: {flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 4},
   hintErr: {fontSize: 13, color: colors.error},
   hintOk: {fontSize: 13, color: colors.primary, fontWeight: '600'},
-  helperMuted: {fontSize: 13, color: colors.textMuted, marginTop: -4},
+  helperMuted: {fontSize: 12, color: colors.textMuted, marginTop: -2},
   primaryBtn: {
     backgroundColor: colors.primary,
-    paddingVertical: spacing.lg,
+    minHeight: 56,
+    paddingVertical: spacing.md,
     borderRadius: radius.lg,
     alignItems: 'center',
     ...shadows.card,
   },
   primaryBtnDisabled: {opacity: 0.45},
+  primaryBtnEnabled: {
+    shadowColor: colors.primary,
+    shadowOpacity: 0.28,
+    shadowRadius: 12,
+    shadowOffset: {width: 0, height: 6},
+  },
   primaryBtnText: {color: colors.white, fontSize: 17, fontWeight: '700'},
   inlineLogin: {flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: spacing.sm},
   muted: {color: colors.textSecondary, fontSize: 15},
   link: {color: colors.primary, fontSize: 15, fontWeight: '700'},
-  blockTitle: {fontSize: 16, fontWeight: '700', color: colors.text, marginBottom: spacing.sm},
+  blockTitle: {fontSize: 16, fontWeight: '700', color: colors.text, marginBottom: spacing.xs},
   consentLocationSection: {
     marginTop: spacing.md,
     paddingTop: spacing.md,
@@ -1350,11 +1648,11 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
   },
   locationCardInner: {
-    backgroundColor: colors.surface,
+    backgroundColor: '#F7F3FF',
     borderRadius: radius.md,
     padding: spacing.md,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: '#E4D9FF',
     gap: spacing.md,
   },
   locationStatusRow: {flexDirection: 'row', alignItems: 'center', gap: spacing.md},
@@ -1371,7 +1669,7 @@ const styles = StyleSheet.create({
   locationRetryBtn: {alignSelf: 'center', paddingVertical: spacing.xs},
   locationRetryText: {color: colors.primary, fontSize: 15, fontWeight: '600'},
   blockTitleSmall: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '700',
     color: colors.text,
     marginTop: spacing.sm,
@@ -1406,11 +1704,11 @@ const styles = StyleSheet.create({
   chipWrap: {flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm},
   chip: {
     paddingHorizontal: spacing.lg,
-    paddingVertical: spacing.sm + 2,
+    paddingVertical: 10,
     borderRadius: radius.full,
     borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: colors.backgroundCard,
+    borderColor: '#E9E2FA',
+    backgroundColor: '#FAF9FF',
   },
   chipActive: {
     borderColor: colors.primary,
@@ -1419,13 +1717,14 @@ const styles = StyleSheet.create({
   chipText: {fontSize: 15, color: colors.text, fontWeight: '500'},
   chipTextActive: {color: colors.primaryDark, fontWeight: '700'},
   bicepsRow: {flexDirection: 'row', flexWrap: 'wrap', gap: spacing.md, justifyContent: 'center'},
+  bicepsPress: {borderRadius: 28},
   bicepsChip: {
-    width: 56,
-    height: 56,
-    borderRadius: 28,
-    backgroundColor: colors.backgroundCard,
+    width: 58,
+    height: 58,
+    borderRadius: 29,
+    backgroundColor: '#FAF9FF',
     borderWidth: 2,
-    borderColor: colors.border,
+    borderColor: '#E7E2F5',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -1446,10 +1745,10 @@ const styles = StyleSheet.create({
   gymInput: {flex: 1},
   suggestions: {
     marginTop: spacing.sm,
-    borderRadius: radius.md,
+    borderRadius: radius.lg,
     borderWidth: 1,
     borderColor: colors.border,
-    backgroundColor: colors.backgroundCard,
+    backgroundColor: '#FFFFFF',
     overflow: 'hidden',
   },
   suggestionRow: {
@@ -1484,21 +1783,22 @@ const styles = StyleSheet.create({
     height: 152,
     borderRadius: 76,
     borderWidth: 3,
-    borderColor: colors.primaryLight,
+    borderColor: colors.primary + '55',
     overflow: 'hidden',
-    backgroundColor: colors.backgroundCard,
+    backgroundColor: '#F8F5FF',
+    ...shadows.card,
   },
   photoImg: {width: '100%', height: '100%'},
   photoPlaceholder: {flex: 1, justifyContent: 'center', alignItems: 'center', padding: spacing.md},
   photoHint: {marginTop: spacing.sm, fontSize: 13, color: colors.textSecondary, textAlign: 'center'},
   skipBtn: {alignItems: 'center', paddingVertical: spacing.sm},
-  skipText: {color: colors.primary, fontSize: 15, fontWeight: '600'},
+  skipText: {color: colors.textMuted, fontSize: 13, fontWeight: '500'},
   consentBlock: {
-    backgroundColor: colors.backgroundCard,
-    borderRadius: radius.lg,
+    backgroundColor: '#FCFCFF',
+    borderRadius: 28,
     padding: spacing.lg,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: '#EBE7F7',
     gap: spacing.md,
   },
   consentBlockTitle: {
@@ -1535,9 +1835,16 @@ const styles = StyleSheet.create({
     gap: spacing.md,
     paddingVertical: spacing.sm,
     borderTopWidth: 1,
-    borderTopColor: colors.border,
+    borderTopColor: '#EEEAF9',
   },
   gdprMini: {paddingHorizontal: spacing.xs},
+  privacyCtaDock: {
+    paddingTop: spacing.sm,
+    paddingBottom: spacing.sm,
+    backgroundColor: '#FFFFFFE8',
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: '#EEEAF9',
+  },
   gdprMiniText: {fontSize: 12, color: colors.textMuted, lineHeight: 18},
   doneSection: {alignItems: 'center', paddingTop: spacing.md},
   doneLogo: {marginBottom: spacing.lg},

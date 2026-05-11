@@ -7,6 +7,7 @@ import React from 'react';
 import {View, StyleSheet, ViewStyle} from 'react-native';
 import Avatar from './Avatar';
 import colors from '@/theme/colors';
+import {LiveTrainingDot} from './LiveTrainingDot';
 
 type UserAvatarProps = {
   name: string;
@@ -43,25 +44,32 @@ export const UserAvatar: React.FC<UserAvatarProps> = ({
     name;
   const resolvedImage = user?.avatar_url ?? user?.avatarUrl ?? imageUrl;
 
+  const indicatorSize = Math.max(10, Math.round(dimension * 0.3));
+
   return (
     <View style={[styles.wrapper, style]}>
       <Avatar name={resolvedName} imageUrl={resolvedImage} size={size} />
-      {showOnlineIndicator && (
-        <View
-          style={[
-            styles.indicator,
-            {
-              width: dimension * 0.3,
-              height: dimension * 0.3,
-              borderRadius: (dimension * 0.3) / 2,
-              bottom: 0,
-              right: 0,
-              borderWidth: Math.max(2, dimension * 0.05),
-            },
-            isOnline ? styles.indicatorOnline : styles.indicatorOffline,
-          ]}
-        />
-      )}
+      {showOnlineIndicator &&
+        (isOnline ? (
+          <LiveTrainingDot
+            size={indicatorSize}
+            borderColor={colors.backgroundCard}
+            style={styles.indicatorCorner}
+          />
+        ) : (
+          <View
+            style={[
+              styles.indicatorCorner,
+              styles.indicatorOffline,
+              {
+                width: indicatorSize,
+                height: indicatorSize,
+                borderRadius: indicatorSize / 2,
+                borderWidth: Math.max(2, dimension * 0.05),
+              },
+            ]}
+          />
+        ))}
     </View>
   );
 };
@@ -70,14 +78,13 @@ const styles = StyleSheet.create({
   wrapper: {
     position: 'relative',
   },
-  indicator: {
+  indicatorCorner: {
     position: 'absolute',
-    borderColor: colors.backgroundCard,
-  },
-  indicatorOnline: {
-    backgroundColor: colors.success,
+    bottom: 0,
+    right: 0,
   },
   indicatorOffline: {
     backgroundColor: colors.textMuted,
+    borderColor: colors.backgroundCard,
   },
 });

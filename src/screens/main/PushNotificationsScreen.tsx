@@ -20,7 +20,13 @@ import {
   upsertNotificationPreferences,
 } from '@/services/push/notificationPreferencesService';
 import {spacing, typography, radius} from '@/theme/designTokens';
-import {requestUserPermission, getFcmToken, savePushTokenToSupabase} from '@/services/push/pushTokenService';
+import {
+  requestUserPermission,
+  getFcmToken,
+  getPushPermissionStatus,
+  savePushTokenToSupabase,
+  setPushTokenEnabledForUser,
+} from '@/services/push/pushTokenService';
 
 const PushNotificationsScreen = () => {
   const userId = useAppStore(s => s.user?.id);
@@ -99,12 +105,35 @@ const PushNotificationsScreen = () => {
                 setPushEnabled(v);
                 if (v) {
                   const ok = await requestUserPermission();
+                  const status = await getPushPermissionStatus();
+                  if (__DEV__) {
+                    console.log('[push] settings permission status:', status);
+                  }
+                  if (!ok) {
+                    Alert.alert(
+                      'Notifikationer er slået fra',
+                      'Du kan slå notifikationer til i enhedsindstillinger for Gymly.',
+                      [
+                        {text: 'Ikke nu'},
+                        {text: 'Åbn indstillinger', onPress: () => Linking.openSettings()},
+                      ],
+                    );
+                  }
                   if (ok && userId) {
                     const t = await getFcmToken();
+                    if (__DEV__) {
+                      console.log('[push] settings token generated:', Boolean(t));
+                    }
                     if (t) {
                       await savePushTokenToSupabase(userId, t);
+                      if (__DEV__) {
+                        console.log('[push] settings token saved:', true);
+                      }
                     }
                   }
+                }
+                if (userId) {
+                  await setPushTokenEnabledForUser(userId, v);
                 }
                 await persist({push_enabled: v});
               }}
@@ -120,7 +149,7 @@ const PushNotificationsScreen = () => {
             {label: 'Venneanmodninger & accept', value: friendReq, on: setFriendReq, key: 'friend_requests_enabled' as const},
             {label: 'Når venner tjekker ind', value: checkins, on: setCheckins, key: 'check_ins_enabled' as const},
             {label: 'Badges & streaks', value: badges, on: setBadges, key: 'badges_streaks_enabled' as const},
-            {label: 'Planlagt træning (invit m.m.)', value: planned, on: setPlanned, key: 'planned_workouts_enabled' as const},
+            {label: 'Planlagte sessions (invitationer)', value: planned, on: setPlanned, key: 'planned_workouts_enabled' as const},
             {label: 'Træningspåmindelser', value: reminders, on: setReminders, key: 'workout_reminders_enabled' as const},
           ].map(r => (
             <View key={r.key} style={styles.row}>

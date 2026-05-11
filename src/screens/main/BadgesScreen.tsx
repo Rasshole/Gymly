@@ -13,9 +13,12 @@ import {
   Pressable,
   Animated,
   Easing,
+  Switch,
+  Alert,
 } from 'react-native';
 import {useFocusEffect, useRoute, useNavigation} from '@react-navigation/native';
 import {useAppStore} from '@/store/appStore';
+import {updateMyFeaturedBadgeIds} from '@/services/supabase/profileFeaturedBadgesService';
 import {useDashboardStatsStore} from '@/store/dashboardStatsStore';
 import {
   useBadgeStore,
@@ -23,33 +26,50 @@ import {
 } from '@/store/badgeStore';
 import {BADGE_DEFINITIONS} from '@/config/badgeDefinitions';
 import {progressLabel} from '@/services/badgeEngine';
-import type {BadgeCategory} from '@/types/badge.types';
+import type {BadgeCategory, BadgeRarity} from '@/types/badge.types';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
 
 type BadgeStatus = 'locked' | 'almost_unlocked' | 'unlocked';
 
 const SECTION_ORDER: BadgeCategory[] = [
+  'checkin',
   'streak',
-  'time',
   'sessions',
+  'time',
+  'messaging',
   'social',
+  'planned',
+  'habits',
+  'elite',
 ];
 
 const SECTION_TITLE: Record<BadgeCategory, string> = {
   streak: 'Streak',
+  checkin: 'Tjek-ind',
   time: 'Tid',
   sessions: 'Sessioner',
+  messaging: 'Beskeder',
   social: 'Social',
+  planned: 'Planlagt',
+  habits: 'Vaner',
   records: 'Rekorder',
   exploration: 'Udforskning',
   elite: 'Elite',
+};
+
+const RARITY_DK: Record<BadgeRarity, string> = {
+  common: 'Almindelig',
+  rare: 'Sjælden',
+  epic: 'Episk',
+  legendary: 'Legendarisk',
 };
 
 export default function BadgesScreen() {
   const route = useRoute();
   const navigation = useNavigation();
   const user = useAppStore(s => s.user);
+  const setUser = useAppStore(s => s.setUser);
   const userId = user?.id;
   const displayName = user?.displayName ?? 'Bruger';
   const syncBadges = useBadgeStore(s => s.syncBadgesForUser);
@@ -231,13 +251,14 @@ export default function BadgesScreen() {
             <Text style={styles.sectionTitle}>Næsten der</Text>
             <View style={styles.sectionDivider} />
           </View>
-          <Text style={styles.sectionHint}>>= 70% fremskridt</Text>
+          <Text style={styles.sectionHint}>≥ 70% fremskridt</Text>
           <View style={styles.grid}>
             {almost.map(({def, progress}) => (
               <BadgeCard
                 key={def.id}
                 emoji={def.emoji}
                 name={def.name}
+                rarity={def.rarity}
                 progressText={progressLabel(def, progress)}
                 progressPercent={progress.percent}
                 status="almost_unlocked"
@@ -266,6 +287,7 @@ export default function BadgesScreen() {
                   key={def.id}
                   emoji={def.emoji}
                   name={def.name}
+                  rarity={def.rarity}
                   progressText={progressLabel(def, progress)}
                   progressPercent={progress.percent}
                   status={progress.status as BadgeStatus}
@@ -289,11 +311,57 @@ export default function BadgesScreen() {
               {detail ? (
                 <>
                   <Text style={styles.modalEmoji}>{detail.def.emoji}</Text>
+                  <View style={styles.modalRarityPill}>
+                    <Text style={styles.modalRarityText}>
+                      {RARITY_DK[detail.def.rarity]}
+                    </Text>
+                  </View>
                   <Text style={styles.modalName}>{detail.def.name}</Text>
                   <Text style={styles.modalDesc}>{detail.def.description}</Text>
                   <Text style={styles.modalMeta}>
                     {progressLabel(detail.def, detail.progress)}
                   </Text>
+                  {detail.progress.status === 'unlocked' && user ? (
+                    <View style={styles.featuredRow}>
+                      <Text style={styles.featuredLabel}>Vis på profil</Text>
+                      <Switch
+                        value={(user.featuredBadgeIds ?? []).includes(detail.def.id)}
+                        onValueChange={async on => {
+                          if (!userId) {
+                            return;
+                          }
+                          const cur = [...(user.featuredBadgeIds ?? [])];
+                          if (on) {
+                            if (cur.includes(detail.def.id)) {
+                              return;
+                            }
+                            if (cur.length >= 3) {
+                              Alert.alert(
+                                '',
+                                'Du kan kun fremhæve 3 badges på profilen',
+                              );
+                              return;
+                            }
+                            cur.push(detail.def.id);
+                          } else {
+                            const i = cur.indexOf(detail.def.id);
+                            if (i >= 0) {
+                              cur.splice(i, 1);
+                            }
+                          }
+                          try {
+                            const saved = await updateMyFeaturedBadgeIds(
+                              userId,
+                              cur,
+                            );
+                            setUser({...user, featuredBadgeIds: saved});
+                          } catch {
+                            Alert.alert('', 'Kunne ikke gemme. Prøv igen.');
+                          }
+                        }}
+                      />
+                    </View>
+                  ) : null}
                   <TouchableOpacity
                     onPress={() => setDetail(null)}
                     style={styles.modalBtn}
@@ -334,6 +402,7 @@ function MiniProgressBar({percent}: {percent: number}) {
 function BadgeCard({
   emoji,
   name,
+  rarity,
   progressText,
   progressPercent = 0,
   status,
@@ -342,6 +411,7 @@ function BadgeCard({
 }: {
   emoji: string;
   name: string;
+  rarity: BadgeRarity;
   progressText: string;
   progressPercent?: number;
   status: BadgeStatus;
@@ -352,6 +422,17 @@ function BadgeCard({
   const isUnlocked = status === 'unlocked';
   const isAlmost = status === 'almost_unlocked';
 
+  const rarityStyle =
+    !isLocked && (isUnlocked || isAlmost)
+      ? rarity === 'legendary'
+        ? styles.cardRarityLegendary
+        : rarity === 'epic'
+          ? styles.cardRarityEpic
+          : rarity === 'rare'
+            ? styles.cardRarityRare
+            : styles.cardRarityCommon
+      : null;
+
   return (
     <Pressable
       style={({pressed}) => [
@@ -359,6 +440,7 @@ function BadgeCard({
         isLocked && styles.cardLocked,
         isUnlocked && styles.cardUnlocked,
         isAlmost && styles.cardAlmost,
+        rarityStyle,
         pulsingHighlight && styles.cardFromNotif,
         pressed && styles.cardPressed,
       ]}
@@ -529,13 +611,39 @@ const styles = StyleSheet.create({
     borderWidth: 2,
   },
   cardUnlocked: {
-    borderColor: 'rgba(139, 92, 246, 0.65)',
     transform: [{scale: 1.03}],
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 0},
-    shadowOpacity: 0.32,
-    shadowRadius: 12,
     elevation: 4,
+  },
+  cardRarityCommon: {
+    borderColor: colors.border,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.06,
+    shadowRadius: 6,
+  },
+  cardRarityRare: {
+    borderColor: 'rgba(139, 92, 246, 0.85)',
+    shadowColor: 'rgb(139, 92, 246)',
+    shadowOffset: {width: 0, height: 0},
+    shadowOpacity: 0.35,
+    shadowRadius: 10,
+  },
+  cardRarityEpic: {
+    borderColor: 'rgba(167, 139, 250, 0.95)',
+    shadowColor: 'rgb(167, 139, 250)',
+    shadowOffset: {width: 0, height: 0},
+    shadowOpacity: 0.45,
+    shadowRadius: 16,
+    elevation: 6,
+  },
+  cardRarityLegendary: {
+    borderWidth: 2,
+    borderColor: 'rgba(250, 204, 21, 0.9)',
+    shadowColor: 'rgb(250, 204, 21)',
+    shadowOffset: {width: 0, height: 0},
+    shadowOpacity: 0.5,
+    shadowRadius: 18,
+    elevation: 8,
   },
   cardAlmost: {
     borderColor: 'rgba(139, 92, 246, 0.4)',
@@ -623,7 +731,19 @@ const styles = StyleSheet.create({
   },
   modalEmoji: {
     fontSize: 60,
-    marginBottom: spacing.md,
+    marginBottom: spacing.sm,
+  },
+  modalRarityPill: {
+    paddingHorizontal: spacing.md,
+    paddingVertical: 4,
+    borderRadius: radius.full,
+    backgroundColor: 'rgba(139, 92, 246, 0.1)',
+    marginBottom: spacing.sm,
+  },
+  modalRarityText: {
+    ...typography.caption,
+    fontWeight: '800',
+    color: colors.primaryDark,
   },
   modalName: {
     fontSize: 24,
@@ -641,7 +761,20 @@ const styles = StyleSheet.create({
   modalMeta: {
     ...typography.bodyBold,
     color: colors.primaryDark,
+    marginBottom: spacing.md,
+  },
+  featuredRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100%',
     marginBottom: spacing.lg,
+    paddingVertical: spacing.xs,
+  },
+  featuredLabel: {
+    ...typography.body,
+    color: colors.text,
+    fontWeight: '600',
   },
   modalBtn: {
     backgroundColor: colors.primary,

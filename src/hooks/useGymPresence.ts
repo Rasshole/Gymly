@@ -4,6 +4,7 @@
 
 import {useState, useEffect, useCallback} from 'react';
 import {AppState} from 'react-native';
+import {useIsFocused} from '@react-navigation/native';
 import {useAppStore} from '@/store/appStore';
 import type {GymPresence} from '@/types/gymPresence.types';
 import {
@@ -14,6 +15,7 @@ import {subscribeCheckInsPresence} from '@/realtime/checkInsPresenceSubscription
 import {useOptionalUserCoords} from '@/hooks/useOptionalUserCoords';
 
 export function useGymPresence() {
+  const isFocused = useIsFocused();
   const userId = useAppStore(s => s.user?.id);
   const coords = useOptionalUserCoords();
   const [gyms, setGyms] = useState<GymPresence[]>([]);
@@ -43,8 +45,15 @@ export function useGymPresence() {
   }, [userId, coords?.latitude, coords?.longitude]);
 
   useEffect(() => {
+    if (!userId) {
+      void refresh();
+      return;
+    }
+    if (!isFocused) {
+      return;
+    }
     void refresh();
-  }, [refresh]);
+  }, [userId, isFocused, refresh]);
 
   useEffect(() => {
     if (!userId) {

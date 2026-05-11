@@ -3,6 +3,7 @@
  */
 
 import {supabase} from '@/services/supabase/supabaseClient';
+import {checkAndUnlockBadges} from '@/store/badgeStore';
 import type {Chat, ChatMessage, PlannedWorkoutDmEmbed} from '@/store/chatStore';
 import {withAvatarCacheBust} from '../../utils/avatar';
 import {safeDisplayName} from '@/utils/displayName';
@@ -182,6 +183,68 @@ export async function sendDmMessage(
     throw new Error(error.message || 'Kunne ikke sende besked');
   }
   const row = data as DmMessageRow;
+  // Trigger on dm_messages should create a `notifications` row for recipient.
+  // Fallback: if row exists, call send-push directly to avoid missing webhook dispatch.
+  setTimeout(async () => {
+    try {
+      const {data: notification, error: notificationError} = await supabase
+        .from('notifications')
+        .select('id, user_id, actor_user_id, type, title, body, data')
+        .eq('type', 'dm_message')
+        .filter('data->>messageId', 'eq', row.id)
+        .order('created_at', {ascending: false})
+        .limit(1)
+        .maybeSingle();
+
+      if (notificationError) {
+        if (__DEV__) {
+          console.log('[notify] dm_message notification lookup failed:', notificationError.message);
+        }
+        return;
+      }
+
+      if (!notification?.id) {
+        if (__DEV__) {
+          console.log('[notify] dm_message notification created:', false, {messageId: row.id});
+        }
+        return;
+      }
+
+      if (__DEV__) {
+        console.log('[notify] dm_message notification created:', true, {
+          notification_id: notification.id,
+          recipient_id: notification.user_id,
+        });
+      }
+
+      const {data: pushResult, error: pushError} = await supabase.functions.invoke('send-push', {
+        body: {
+          notification_id: notification.id,
+        },
+      });
+
+      if (__DEV__) {
+        if (pushError) {
+          console.log('[notify] send-push called:', false, {
+            notification_id: notification.id,
+            recipient_id: notification.user_id,
+            error: pushError.message,
+          });
+        } else {
+          console.log('[notify] send-push called:', true, {
+            notification_id: notification.id,
+            recipient_id: notification.user_id,
+            response: pushResult,
+          });
+        }
+      }
+    } catch (error) {
+      if (__DEV__) {
+        console.log('[notify] dm send-push fallback failed:', error);
+      }
+    }
+  }, 450);
+  void checkAndUnlockBadges(uid);
   return {message: mapRowToMessage(row), row};
 }
 

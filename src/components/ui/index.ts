@@ -15,6 +15,7 @@ export {ActiveUserRow} from './ActiveUserRow';
 export {FilterChips} from './FilterChips';
 export {PrimaryButton} from './PrimaryButton';
 export {UserAvatar} from './UserAvatar';
+export {LiveTrainingDot} from './LiveTrainingDot';
 
 export {default as Avatar} from './Avatar';
 export {default as Badge} from './Badge';

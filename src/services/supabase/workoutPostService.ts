@@ -74,8 +74,116 @@ export async function fetchWorkoutPosts(): Promise<WorkoutPostRow[]> {
   }));
 }
 
+async function fetchAcceptedFriendIds(currentUserId: string): Promise<Set<string>> {
+  const ids = new Set<string>();
+  const {data, error} = await supabase
+    .from('friendships')
+    .select('user_a, user_b')
+    .or(`user_a.eq.${currentUserId},user_b.eq.${currentUserId}`);
+  if (error) {
+    return ids;
+  }
+  for (const row of data ?? []) {
+    const a = row.user_a as string;
+    const b = row.user_b as string;
+    ids.add(a === currentUserId ? b : a);
+  }
+  return ids;
+}
+
+async function fetchBlockedUserIds(currentUserId: string): Promise<Set<string>> {
+  const blocked = new Set<string>();
+  const candidates: Array<{table: string; from: string; to: string}> = [
+    {table: 'user_blocks', from: 'blocker_id', to: 'blocked_user_id'},
+    {table: 'user_blocks', from: 'blocker_id', to: 'blocked_id'},
+    {table: 'blocked_users', from: 'user_id', to: 'blocked_user_id'},
+    {table: 'blocks', from: 'blocker_id', to: 'blocked_id'},
+  ];
+
+  for (const candidate of candidates) {
+    const {data, error} = await supabase
+      .from(candidate.table)
+      .select(`${candidate.from}, ${candidate.to}`)
+      .or(`${candidate.from}.eq.${currentUserId},${candidate.to}.eq.${currentUserId}`)
+      .limit(500);
+    if (error || !data) {
+      continue;
+    }
+    for (const row of data as Array<Record<string, unknown>>) {
+      const fromId = row[candidate.from];
+      const toId = row[candidate.to];
+      if (fromId === currentUserId && typeof toId === 'string' && toId) {
+        blocked.add(toId);
+      }
+      if (toId === currentUserId && typeof fromId === 'string' && fromId) {
+        blocked.add(fromId);
+      }
+    }
+  }
+  return blocked;
+}
+
+async function buildHomeFeedAllowedUserIds(currentUserId: string): Promise<Set<string>> {
+  const [friends, blocked] = await Promise.all([
+    fetchAcceptedFriendIds(currentUserId),
+    fetchBlockedUserIds(currentUserId),
+  ]);
+  const allowed = new Set<string>([currentUserId, ...friends]);
+  blocked.forEach(id => allowed.delete(id));
+  return allowed;
+}
+
+export async function fetchWorkoutPostsForHomeFeed(
+  currentUserId: string,
+): Promise<WorkoutPostRow[]> {
+  const allowed = await buildHomeFeedAllowedUserIds(currentUserId);
+  const allowedIds = [...allowed];
+  if (!allowedIds.length) {
+    return [];
+  }
+  const {data, error} = await supabase
+    .from('posts')
+    .select('*')
+    .in('user_id', allowedIds)
+    .order('created_at', {ascending: false});
+
+  if (error) {
+    throw error;
+  }
+  const rows = (data ?? []) as WorkoutPostRow[];
+  const ids = Array.from(new Set(rows.map(r => r.user_id).filter(Boolean)));
+  if (!ids.length) {
+    return rows;
+  }
+  const {data: profiles} = await supabase
+    .from('profiles')
+    .select('id, avatar_url, updated_at')
+    .in('id', ids);
+  const byId = new Map(
+    ((profiles ?? []) as Array<{id: string; avatar_url: string | null; updated_at: string | null}>).map(
+      p => [p.id, withAvatarCacheBust(p.avatar_url, p.updated_at)],
+    ),
+  );
+  return rows.map(r => ({
+    ...r,
+    author_avatar_url: byId.get(r.user_id) ?? null,
+  }));
+}
+
 export async function refreshWorkoutFeedFromServer(): Promise<void> {
   const rows = await fetchWorkoutPosts();
+  const items = rows.map(mapPostRowToFeedItem);
+  useFeedStore.getState().setFeedItems(items);
+}
+
+export async function refreshWorkoutFeedFromServerForHome(
+  currentUserId: string,
+): Promise<void> {
+  if (!currentUserId) {
+    useFeedStore.getState().setFeedItems([]);
+    return;
+  }
+  const rows = await fetchWorkoutPostsForHomeFeed(currentUserId);
   const items = rows.map(mapPostRowToFeedItem);
   useFeedStore.getState().setFeedItems(items);
 }
@@ -222,6 +330,97 @@ export function subscribeWorkoutFeedRealtime(onUpdate?: () => void): () => void 
     if (postsFeedRefCount <= 0 && postsFeedChannel) {
       void supabase.removeChannel(postsFeedChannel);
       postsFeedChannel = null;
+    }
+  };
+}
+
+const homeFeedListeners = new Set<() => void>();
+let homePostsChannel: ReturnType<typeof supabase.channel> | null = null;
+let homeFeedRefCount = 0;
+let homeFeedUserId: string | null = null;
+let homeFeedAllowedIds = new Set<string>();
+
+function notifyHomeFeedSideEffects() {
+  for (const fn of homeFeedListeners) {
+    try {
+      fn();
+    } catch (e) {
+      console.warn('[home workout feed realtime]', e);
+    }
+  }
+}
+
+async function refreshHomeAllowedIds(): Promise<void> {
+  if (!homeFeedUserId) {
+    homeFeedAllowedIds = new Set<string>();
+    return;
+  }
+  homeFeedAllowedIds = await buildHomeFeedAllowedUserIds(homeFeedUserId);
+}
+
+function ensureHomePostsChannel(currentUserId: string) {
+  homeFeedUserId = currentUserId;
+  if (homePostsChannel) {
+    return;
+  }
+  void refreshHomeAllowedIds();
+  homePostsChannel = supabase
+    .channel('workout_posts_home_only')
+    .on(
+      'postgres_changes',
+      {event: '*', schema: 'public', table: 'posts'},
+      payload => {
+        const candidateIds = [
+          (payload.new as {user_id?: string} | null)?.user_id,
+          (payload.old as {user_id?: string} | null)?.user_id,
+        ].filter(Boolean) as string[];
+        const shouldRefresh =
+          candidateIds.length === 0 ||
+          candidateIds.some(id => homeFeedAllowedIds.has(id));
+        if (!shouldRefresh || !homeFeedUserId) {
+          return;
+        }
+        logRealtimeEvent('workout_posts_home_only', 'posts', '*', homeFeedUserId);
+        void (async () => {
+          try {
+            await refreshHomeAllowedIds();
+            await refreshWorkoutFeedFromServerForHome(homeFeedUserId!);
+          } finally {
+            notifyHomeFeedSideEffects();
+            logRealtimeStore('posts', 'home_feed_refresh');
+          }
+        })();
+      },
+    )
+    .subscribe(status => {
+      if (status === 'SUBSCRIBED') {
+        logRealtimeSubscribed('workout_posts_home_only', 'posts');
+      }
+    });
+}
+
+export function subscribeWorkoutFeedRealtimeForHome(
+  currentUserId: string,
+  onUpdate?: () => void,
+): () => void {
+  if (!currentUserId) {
+    return () => {};
+  }
+  homeFeedRefCount += 1;
+  if (onUpdate) {
+    homeFeedListeners.add(onUpdate);
+  }
+  ensureHomePostsChannel(currentUserId);
+  return () => {
+    homeFeedRefCount -= 1;
+    if (onUpdate) {
+      homeFeedListeners.delete(onUpdate);
+    }
+    if (homeFeedRefCount <= 0 && homePostsChannel) {
+      void supabase.removeChannel(homePostsChannel);
+      homePostsChannel = null;
+      homeFeedUserId = null;
+      homeFeedAllowedIds = new Set<string>();
     }
   };
 }

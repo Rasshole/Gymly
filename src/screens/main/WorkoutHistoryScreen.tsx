@@ -13,7 +13,7 @@ const MUSCLE_LABELS: Record<MuscleGroup, string> = {
   biceps: 'Biceps',
   mave: 'Mave',
   ryg: 'Ryg',
-  hele_kroppen: 'Hele kroppen',
+  cardio: 'Cardio',
   reformer: 'Reformer',
   pilates: 'Pilates',
 };

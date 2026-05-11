@@ -2,6 +2,8 @@
  * @format
  */
 
+import 'react-native-get-random-values';
+import 'react-native-gesture-handler';
 import './src/theme/colors';
 import {AppRegistry} from 'react-native';
 import App from './App';

@@ -9,11 +9,11 @@ import {AuthTokens} from '@/types/auth.types';
 import SecureStorage from '@/services/security/SecureStorage';
 import AuthService from '@/services/auth/AuthService';
 import {supabase} from '@/services/supabase/supabaseClient';
-import {upsertMyProfile} from '@/services/supabase/friendService';
+import {mergeProfileUsernameIntoUser, upsertMyProfile} from '@/services/supabase/friendService';
 import {useFriendStore} from '@/store/friendStore';
 import {useInAppNotificationStore} from '@/store/inAppNotificationStore';
-import {useSessionStore} from '@/store/sessionStore';
 import {useBadgeStore} from '@/store/badgeStore';
+import {finishWorkoutSession} from '@/services/session/finishWorkoutSession';
 
 function syncPublicProfileToSupabase(user: User) {
   upsertMyProfile(user).catch(err => {
@@ -35,7 +35,7 @@ interface AppState {
   login: (user: User, tokens: AuthTokens) => void;
   logout: () => Promise<void>;
   deleteAccount: () => Promise<void>;
-  setUser: (user: User) => void;
+  setUser: (user: User, options?: {skipProfileSync?: boolean}) => void;
   setLoading: (loading: boolean) => void;
   setFavoriteGyms: (gymIds: string[]) => void;
 }
@@ -44,7 +44,8 @@ export const useAppStore = create<AppState>((set, get) => ({
   isAuthenticated: false,
   user: null,
   tokens: null,
-  isLoading: false,
+  /** true indtil første `initialize()` — undgår ét frame med forkert stack (kan give tom/hvid UI). */
+  isLoading: true,
 
   /**
    * Initialize app - check for existing session
@@ -61,7 +62,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       if (session?.user && session.access_token && session.refresh_token) {
         const fromAuth = AuthService.getMappedUser(session.user);
         const storedUser = await SecureStorage.getUserData();
-        const mergedUser = (() => {
+        let mergedUser = (() => {
           if (!storedUser) {
             return fromAuth;
           }
@@ -80,6 +81,7 @@ export const useAppStore = create<AppState>((set, get) => ({
             favoriteGyms: fallbackGyms,
           };
         })();
+        mergedUser = await mergeProfileUsernameIntoUser(mergedUser);
         const tokens: AuthTokens = {
           accessToken: session.access_token,
           refreshToken: session.refresh_token,
@@ -174,8 +176,14 @@ export const useAppStore = create<AppState>((set, get) => ({
    */
   logout: async () => {
     try {
+      const currentUserId = get().user?.id;
+      if (currentUserId) {
+        await finishWorkoutSession({
+          reason: 'logout',
+          userId: currentUserId,
+        });
+      }
       await AuthService.logout();
-      useSessionStore.getState().endSession();
       useFriendStore.getState().reset();
       useInAppNotificationStore.getState().reset();
       set({
@@ -193,8 +201,14 @@ export const useAppStore = create<AppState>((set, get) => ({
    */
   deleteAccount: async () => {
     try {
+      const currentUserId = get().user?.id;
+      if (currentUserId) {
+        await finishWorkoutSession({
+          reason: 'logout',
+          userId: currentUserId,
+        });
+      }
       await AuthService.deleteAccount();
-      useSessionStore.getState().endSession();
       useFriendStore.getState().reset();
       useInAppNotificationStore.getState().reset();
       set({
@@ -204,7 +218,6 @@ export const useAppStore = create<AppState>((set, get) => ({
       });
     } catch (error) {
       console.error('Delete account error:', error);
-      useSessionStore.getState().endSession();
       useFriendStore.getState().reset();
       useInAppNotificationStore.getState().reset();
       set({
@@ -218,10 +231,12 @@ export const useAppStore = create<AppState>((set, get) => ({
   /**
    * Update user data
    */
-  setUser: (user: User) => {
+  setUser: (user: User, options?: {skipProfileSync?: boolean}) => {
     set({user});
     SecureStorage.saveUserData(user);
-    syncPublicProfileToSupabase(user);
+    if (!options?.skipProfileSync) {
+      syncPublicProfileToSupabase(user);
+    }
   },
 
   /**

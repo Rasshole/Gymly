@@ -61,7 +61,7 @@ import {getPublicProfilesByIds} from '@/services/supabase/friendService';
 import {uploadDmChatImage} from '@/services/supabase/dmImageUpload';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
-import muscleImg from '@/utils/muscleGroupImages';
+import MuscleGroupTileIcon from '@/components/ui/MuscleGroupTileIcon';
 import {safeDisplayName} from '@/utils/displayName';
 import {UserAvatar} from '@/components/ui/UserAvatar';
 
@@ -86,7 +86,7 @@ const MUSCLE_GROUPS: {key: MuscleGroup; label: string}[] = [
   {key: 'biceps', label: 'Biceps'},
   {key: 'mave', label: 'Mave'},
   {key: 'ryg', label: 'Ryg'},
-  {key: 'hele_kroppen', label: 'Hele kroppen'},
+  {key: 'cardio', label: 'Cardio'},
   {key: 'reformer', label: 'Reformer'},
   {key: 'pilates', label: 'Pilates'},
 ];
@@ -968,7 +968,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
       return;
     }
     if (planMuscles.length === 0) {
-      Alert.alert('Vælg muskelgrupper', 'Vælg mindst én muskelgruppe for din planlagte træning.');
+      Alert.alert('Vælg træningstype', 'Vælg mindst én type til sessionen.');
       return;
     }
     if (!chatId) {
@@ -1567,10 +1567,11 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                       style={[styles.muscleCard, isActive && styles.muscleCardActive]}
                       onPress={() => togglePlanMuscle(item.key)}
                       activeOpacity={0.85}>
-                      <Image
-                        source={muscleImg.getMuscleGroupImage(item.key)}
-                        style={[styles.muscleImage, isActive && styles.muscleImageActive]}
-                        resizeMode="contain"
+                      <MuscleGroupTileIcon
+                        group={item.key}
+                        size={40}
+                        color={isActive ? '#fff' : colors.textMuted}
+                        tintColor={isActive ? '#fff' : undefined}
                       />
                       <Text style={[styles.muscleLabel, isActive && styles.muscleLabelActive]}>
                         {item.label}
@@ -1645,7 +1646,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
       <Modal visible={planDetailVisible && !!activePlan} transparent animationType="fade">
         <View style={styles.planDetailOverlay}>
           <View style={styles.planDetailCard}>
-            <Text style={styles.planModalTitle}>Træningsplan</Text>
+            <Text style={styles.planModalTitle}>Planlagte sessions</Text>
             {activePlan && (
               <>
                 <Text style={styles.planDetailTitle}>{formatGymDisplayName(activePlan.gym)}</Text>

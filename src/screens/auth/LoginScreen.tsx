@@ -2,7 +2,7 @@
  * Login — email only (no Apple/Google). Gymly purple branding.
  */
 
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
   View,
   Text,
@@ -14,6 +14,8 @@ import {
   Alert,
   ActivityIndicator,
   ScrollView,
+  Animated,
+  Pressable,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import safeArea from '@/safeAreaContext';
@@ -26,6 +28,7 @@ import AuthService from '@/services/auth/AuthService';
 import GymlyLogo from '@/components/GymlyLogo';
 import colors from '@/theme/colors';
 import {spacing, radius, shadows} from '@/theme/designTokens';
+import Svg, {Defs, LinearGradient, Rect, Stop} from 'react-native-svg';
 
 type LoginScreenNavigationProp = StackNavigationProp<AuthStackParamList, 'Login'>;
 
@@ -36,6 +39,26 @@ const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const logoFloat = useRef(new Animated.Value(0)).current;
+  const fadeIn = useRef(new Animated.Value(0)).current;
+  const secondaryPress = useRef(new Animated.Value(1)).current;
+  const primaryPress = useRef(new Animated.Value(1)).current;
+
+  useEffect(() => {
+    Animated.timing(fadeIn, {
+      toValue: 1,
+      duration: 260,
+      useNativeDriver: true,
+    }).start();
+    const loop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(logoFloat, {toValue: 1, duration: 1800, useNativeDriver: true}),
+        Animated.timing(logoFloat, {toValue: 0, duration: 1800, useNativeDriver: true}),
+      ]),
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [fadeIn, logoFloat]);
 
   const handleLogin = async () => {
     if (!email?.trim() || !password) {
@@ -60,6 +83,17 @@ const LoginScreen = () => {
 
   return (
     <SafeAreaView style={styles.safe} edges={['top', 'bottom']}>
+      <View style={styles.bgGradientWrap} pointerEvents="none">
+        <Svg width="100%" height="100%">
+          <Defs>
+            <LinearGradient id="authBg" x1="0" y1="0" x2="0" y2="1">
+              <Stop offset="0" stopColor="#F7F5FF" stopOpacity="1" />
+              <Stop offset="1" stopColor="#FFFFFF" stopOpacity="1" />
+            </LinearGradient>
+          </Defs>
+          <Rect x="0" y="0" width="100%" height="100%" fill="url(#authBg)" />
+        </Svg>
+      </View>
       <KeyboardAvoidingView
         style={styles.flex}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -70,14 +104,29 @@ const LoginScreen = () => {
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
           bounces={false}>
-          <View style={styles.logoWrap}>
-            <GymlyLogo size={80} />
-          </View>
+          <Animated.View style={{opacity: fadeIn}}>
+            <Animated.View
+              style={[
+                styles.logoWrap,
+                {
+                  transform: [
+                    {
+                      translateY: logoFloat.interpolate({
+                        inputRange: [0, 1],
+                        outputRange: [0, -5],
+                      }),
+                    },
+                  ],
+                },
+              ]}>
+              <GymlyLogo size={92} />
+            </Animated.View>
 
-          <Text style={styles.title}>Log ind</Text>
-          <Text style={styles.subtitle}>Velkommen tilbage. Kun email og adgangskode.</Text>
+            <Text style={styles.title}>Log ind</Text>
+            <Text style={styles.subtitle}>Velkommen tilbage. Kun email og adgangskode.</Text>
+          </Animated.View>
 
-          <View style={[styles.card, shadows.sm]}>
+          <View style={[styles.card, shadows.sm, styles.formMax]}>
             <TextInput
               style={styles.input}
               placeholder="Email"
@@ -110,23 +159,38 @@ const LoginScreen = () => {
               style={[styles.cta, isLoading && styles.ctaDisabled]}
               onPress={handleLogin}
               disabled={isLoading}
+              onPressIn={() =>
+                Animated.spring(primaryPress, {toValue: 0.98, useNativeDriver: true}).start()
+              }
+              onPressOut={() =>
+                Animated.spring(primaryPress, {toValue: 1, useNativeDriver: true}).start()
+              }
               activeOpacity={0.9}>
-              {isLoading ? (
-                <ActivityIndicator color={colors.white} />
-              ) : (
-                <Text style={styles.ctaText}>Log ind</Text>
-              )}
+              <Animated.View style={{transform: [{scale: primaryPress}]}}>
+                {isLoading ? (
+                  <ActivityIndicator color={colors.white} />
+                ) : (
+                  <Text style={styles.ctaText}>Log ind</Text>
+                )}
+              </Animated.View>
             </TouchableOpacity>
           </View>
 
           <View style={styles.footerSignup}>
             <Text style={styles.footerQ}>Ny hos Gymly?</Text>
-            <TouchableOpacity
+            <Pressable
               onPress={() => navigation.navigate('Register')}
-              style={styles.linkBtn}
-              activeOpacity={0.85}>
-              <Text style={styles.linkBtnText}>Opret konto</Text>
-            </TouchableOpacity>
+              onPressIn={() =>
+                Animated.spring(secondaryPress, {toValue: 0.97, useNativeDriver: true}).start()
+              }
+              onPressOut={() =>
+                Animated.spring(secondaryPress, {toValue: 1, useNativeDriver: true}).start()
+              }
+              style={styles.linkBtn}>
+              <Animated.Text style={[styles.linkBtnText, {transform: [{scale: secondaryPress}]}]}>
+                Opret konto
+              </Animated.Text>
+            </Pressable>
           </View>
 
           <Text style={styles.legal}>
@@ -149,7 +213,10 @@ const LoginScreen = () => {
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
-    backgroundColor: '#F3F4F6',
+    backgroundColor: '#FFFFFF',
+  },
+  bgGradientWrap: {
+    ...StyleSheet.absoluteFillObject,
   },
   flex: {
     flex: 1,
@@ -161,32 +228,40 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'center',
     paddingHorizontal: spacing.xl,
-    paddingVertical: spacing.xl,
+    paddingVertical: spacing.lg,
   },
   logoWrap: {
     alignItems: 'center',
-    marginBottom: spacing.xl,
+    marginBottom: spacing.lg,
   },
   title: {
-    fontSize: 28,
-    fontWeight: '700',
+    fontSize: 32,
+    fontWeight: '800',
+    letterSpacing: -0.5,
     color: colors.text,
     textAlign: 'center',
-    marginBottom: spacing.sm,
+    marginBottom: spacing.xs,
   },
   subtitle: {
-    fontSize: 16,
+    fontSize: 14,
     color: colors.textSecondary,
     textAlign: 'center',
+    maxWidth: 300,
+    alignSelf: 'center',
     marginBottom: spacing.lg,
   },
   card: {
-    backgroundColor: colors.backgroundCard,
-    borderRadius: radius.lg,
+    backgroundColor: '#FCFCFF',
+    borderRadius: 28,
     padding: spacing.lg,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: '#EBE7F7',
     gap: spacing.md,
+  },
+  formMax: {
+    width: '100%',
+    maxWidth: 460,
+    alignSelf: 'center',
   },
   input: {
     backgroundColor: colors.backgroundCardLight,
@@ -209,7 +284,8 @@ const styles = StyleSheet.create({
   },
   cta: {
     backgroundColor: colors.primary,
-    paddingVertical: spacing.lg,
+    minHeight: 56,
+    paddingVertical: spacing.md,
     borderRadius: radius.lg,
     alignItems: 'center',
     marginTop: spacing.sm,
@@ -223,8 +299,8 @@ const styles = StyleSheet.create({
   },
   footerSignup: {
     alignItems: 'center',
-    marginTop: spacing.xl,
-    gap: spacing.md,
+    marginTop: spacing.lg,
+    gap: spacing.sm,
   },
   footerQ: {
     fontSize: 15,
@@ -232,11 +308,14 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   linkBtn: {
-    borderWidth: 1.5,
+    borderWidth: 1,
     borderColor: colors.primary,
-    paddingVertical: 12,
+    minHeight: 50,
+    justifyContent: 'center',
+    paddingVertical: 10,
     paddingHorizontal: spacing.xxl,
     borderRadius: radius.full,
+    backgroundColor: '#F6F1FF',
   },
   linkBtnText: {
     color: colors.primary,

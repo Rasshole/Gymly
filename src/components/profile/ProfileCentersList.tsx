@@ -10,6 +10,8 @@ import GymLogoView from '@/components/ui/GymLogoView';
 import {formatGymNameWithBrand} from '@/utils/gymDisplay';
 
 export type ProfileCenterRow = {
+  /** Stabilt center-id fra register — valgfrit for ældre navigations-fallback uden id */
+  centerId?: string;
   name: string;
   city?: string;
   brand?: string;
@@ -19,11 +21,14 @@ type ProfileCentersListProps = {
   centers: ProfileCenterRow[];
   /** Default: "Dine centre" — brug fx "Lokale centre" på andres profil */
   sectionTitle?: string;
+  /** Aktive brugere på centeret lige nu (fx fra gymStore) */
+  activeCountForId?: (centerId: string) => number;
 };
 
 export const ProfileCentersList: React.FC<ProfileCentersListProps> = ({
   centers,
   sectionTitle = 'Dine centre',
+  activeCountForId,
 }) => {
   if (centers.length === 0) {
     return null;
@@ -31,34 +36,44 @@ export const ProfileCentersList: React.FC<ProfileCentersListProps> = ({
   return (
     <View style={styles.wrap}>
       <Text style={styles.title}>{sectionTitle}</Text>
-      {centers.map((c, i) => (
-        <View
-          key={`${c.name}_${i}`}
-          style={[styles.row, i > 0 && styles.rowDivider]}>
-          <Text style={styles.badge}>{i + 1}</Text>
-          <GymLogoView
-            gymName={c.name}
-            brand={c.brand}
-            size={40}
-            style={styles.rowLogo}
-          />
-          <View style={styles.textCol}>
-            {i === 0 ? (
-              <View style={styles.primaryBadge}>
-                <Text style={styles.primaryBadgeText}>Primært center</Text>
-              </View>
-            ) : null}
-            <Text style={styles.name} numberOfLines={2}>
-              {formatGymNameWithBrand(c.name, c.brand)}
-            </Text>
-            {c.city ? (
-              <Text style={styles.city} numberOfLines={1}>
-                {c.city}
+      {centers.map((c, i) => {
+        const active =
+          c.centerId && activeCountForId ? activeCountForId(c.centerId) : 0;
+        return (
+          <View
+            key={`${c.centerId ?? 'noid'}_${c.name}_${i}`}
+            style={[styles.row, i > 0 && styles.rowDivider]}>
+            <GymLogoView
+              gymName={c.name}
+              brand={c.brand}
+              size={40}
+              unknownFallback="gymly-only"
+              surface="lavender"
+              style={styles.rowLogo}
+            />
+            <View style={styles.textCol}>
+              {i === 0 ? (
+                <View style={styles.primaryBadge}>
+                  <Text style={styles.primaryBadgeText}>Primært center</Text>
+                </View>
+              ) : null}
+              <Text style={styles.name} numberOfLines={2}>
+                {formatGymNameWithBrand(c.name, c.brand)}
               </Text>
-            ) : null}
+              {c.city ? (
+                <Text style={styles.city} numberOfLines={1}>
+                  {c.city}
+                </Text>
+              ) : null}
+              {active > 0 ? (
+                <Text style={styles.activeLine} numberOfLines={1}>
+                  👥 {active} aktiv{active > 1 ? 'e' : ''} nu
+                </Text>
+              ) : null}
+            </View>
           </View>
-        </View>
-      ))}
+        );
+      })}
     </View>
   );
 };
@@ -66,7 +81,7 @@ export const ProfileCentersList: React.FC<ProfileCentersListProps> = ({
 const styles = StyleSheet.create({
   wrap: {
     marginHorizontal: spacing.lg,
-    marginBottom: spacing.lg,
+    marginBottom: spacing.xl,
     padding: spacing.md,
     backgroundColor: colors.backgroundCard,
     borderRadius: 16,
@@ -92,12 +107,6 @@ const styles = StyleSheet.create({
     borderTopColor: colors.border,
     marginTop: spacing.xs,
     paddingTop: spacing.sm,
-  },
-  badge: {
-    ...typography.small,
-    fontWeight: '700',
-    color: colors.primary,
-    width: 18,
   },
   rowLogo: {
     marginRight: 4,
@@ -132,5 +141,11 @@ const styles = StyleSheet.create({
     ...typography.caption,
     color: colors.textSecondary,
     marginTop: 2,
+  },
+  activeLine: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    marginTop: 4,
+    fontWeight: '500',
   },
 });

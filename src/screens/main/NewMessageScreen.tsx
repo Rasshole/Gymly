@@ -3,7 +3,7 @@
  * Screen to compose and send a new message to a friend
  */
 
-import React, {useRef, useState, useMemo, useCallback} from 'react';
+import React, {useRef, useState, useMemo, useCallback, useEffect} from 'react';
 import {useFocusEffect} from '@react-navigation/native';
 import {
   View,
@@ -27,6 +27,7 @@ import {listFriendsWithProfiles} from '@/services/supabase/friendService';
 import {getOrCreateDmThread} from '@/services/supabase/dmService';
 import colors from '@/theme/colors';
 import {UserAvatar} from '@/components/ui/UserAvatar';
+import {SURFACE_GROUPS_IN_APP} from '@/config/launchSurfaceConfig';
 
 const NewMessageScreen = ({navigation}: any) => {
   const {getChatByParticipants, addChat, initializeChatMessages, upsertChat} =
@@ -43,6 +44,12 @@ const NewMessageScreen = ({navigation}: any) => {
     Array<{id: string; name: string; avatar: string | null}>
   >([]);
   const [friendsLoading, setFriendsLoading] = useState(false);
+
+  useEffect(() => {
+    if (!SURFACE_GROUPS_IN_APP) {
+      setSelectedGroup(null);
+    }
+  }, []);
   const searchInputRef = useRef<TextInput>(null);
   const messageInputRef = useRef<TextInput>(null);
 
@@ -129,7 +136,12 @@ const NewMessageScreen = ({navigation}: any) => {
 
   const handleSend = async () => {
     if (selectedFriends.length === 0 && !selectedGroup) {
-      Alert.alert('Vælg modtager', 'Vælg venligst en ven eller gruppe at sende beskeden til');
+      Alert.alert(
+        'Vælg modtager',
+        SURFACE_GROUPS_IN_APP
+          ? 'Vælg venligst en ven eller gruppe at sende beskeden til'
+          : 'Vælg venligst en ven at sende beskeden til',
+      );
       return;
     }
     if (!message.trim()) {
@@ -139,8 +151,8 @@ const NewMessageScreen = ({navigation}: any) => {
 
     const trimmedMessage = message.trim();
 
-    // Handle group chat
-    if (selectedGroup) {
+    // Handle group chat (kun når grupper er aktiveret i UI)
+    if (SURFACE_GROUPS_IN_APP && selectedGroup) {
       const members = normalizedGroupMembers(selectedGroup);
       const participantIds = Array.from(
         new Set([...members.map(member => member.id), currentUserId]),
@@ -409,8 +421,7 @@ const handleSearchFocus = () => {
           {/* Friends and Groups List */}
           {searchActive && (
             <View style={styles.friendsList}>
-              {/* Groups Section */}
-              {filteredGroups.length > 0 && (
+              {SURFACE_GROUPS_IN_APP && filteredGroups.length > 0 ? (
                 <View style={styles.groupsSection}>
                   <Text style={styles.sectionSubtitle}>Grupper</Text>
                   {filteredGroups.map(group => {
@@ -445,7 +456,7 @@ const handleSearchFocus = () => {
                     );
                   })}
                 </View>
-              )}
+              ) : null}
 
               {/* Friends Section */}
               {filteredFriends.length > 0 && (
@@ -471,7 +482,7 @@ const handleSearchFocus = () => {
               )}
 
               {friendsLoading &&
-                filteredGroups.length === 0 &&
+                (!SURFACE_GROUPS_IN_APP || filteredGroups.length === 0) &&
                 filteredFriends.length === 0 && (
                   <View style={styles.emptyState}>
                     <ActivityIndicator size="large" color={colors.primary} />
@@ -481,7 +492,7 @@ const handleSearchFocus = () => {
 
               {!friendsLoading &&
                 friends.length === 0 &&
-                filteredGroups.length === 0 &&
+                (!SURFACE_GROUPS_IN_APP || filteredGroups.length === 0) &&
                 filteredFriends.length === 0 &&
                 searchQuery.trim().length === 0 && (
                   <View style={styles.emptyState}>
@@ -496,7 +507,7 @@ const handleSearchFocus = () => {
               {/* Empty State — søgning uden match */}
               {!friendsLoading &&
                 filteredFriends.length === 0 &&
-                filteredGroups.length === 0 &&
+                (!SURFACE_GROUPS_IN_APP || filteredGroups.length === 0) &&
                 searchQuery.trim().length > 0 && (
                   <View style={styles.emptyState}>
                     <Icon name="people-outline" size={48} color="#C7C7CC" />

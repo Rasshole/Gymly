@@ -1,5 +1,6 @@
 import {useState, useEffect, useCallback, useRef} from 'react';
 import {AppState} from 'react-native';
+import {useIsFocused} from '@react-navigation/native';
 import {subscribeCheckInsPresence} from '@/realtime/checkInsPresenceSubscription';
 import {
   loadGymlyActiveNowData,
@@ -12,8 +13,10 @@ const DURATION_TICK_MS = 60_000;
  * Home "Aktive nu": global tælling (rollup) + venneliste (aktive check_ins), realtime.
  */
 export function useGymlyActiveNow(userId: string | undefined) {
+  const isFocused = useIsFocused();
   const [totalActiveUsers, setTotalActiveUsers] = useState(0);
   const [activeFriends, setActiveFriends] = useState<ActiveNowFriendRow[]>([]);
+  const [currentUserActive, setCurrentUserActive] = useState<ActiveNowFriendRow | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
   const [durationNow, setDurationNow] = useState(() => Date.now());
@@ -23,14 +26,17 @@ export function useGymlyActiveNow(userId: string | undefined) {
     if (!userId) {
       setTotalActiveUsers(0);
       setActiveFriends([]);
+      setCurrentUserActive(null);
       setError(null);
       return;
     }
     setLoading(true);
     try {
-      const {totalActive, friends} = await loadGymlyActiveNowData(userId);
+      const {totalActive, friends, currentUserActive: selfActive} =
+        await loadGymlyActiveNowData(userId);
       setTotalActiveUsers(totalActive);
       setActiveFriends(friends);
+      setCurrentUserActive(selfActive);
       setDurationNow(Date.now());
       setError(null);
     } catch (e) {
@@ -41,14 +47,24 @@ export function useGymlyActiveNow(userId: string | undefined) {
   }, [userId]);
 
   useEffect(() => {
+    if (!userId) {
+      void refresh();
+      return;
+    }
+    if (!isFocused) {
+      return;
+    }
     void refresh();
-  }, [refresh]);
+  }, [userId, isFocused, refresh]);
 
   useEffect(() => {
     if (!userId) {
       return;
     }
     return subscribeCheckInsPresence(() => {
+      if (__DEV__) {
+        console.log('[ActiveSessions] realtime event received → refresh');
+      }
       void refresh();
     });
   }, [userId, refresh]);
@@ -78,6 +94,7 @@ export function useGymlyActiveNow(userId: string | undefined) {
   return {
     totalActiveUsers,
     activeFriends,
+    currentUserActive,
     loading,
     error,
     refresh,

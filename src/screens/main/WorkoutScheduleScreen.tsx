@@ -11,14 +11,22 @@ import {
   TextInput,
   Alert,
   Platform,
-  KeyboardAvoidingView,
   TouchableWithoutFeedback,
+  ActivityIndicator,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import DateTimePicker, {DateTimePickerEvent} from '@react-native-community/datetimepicker';
 import {useWorkoutPlanStore, WorkoutPlanEntry, WorkoutHistoryEntry} from '@/store/workoutPlanStore';
 import {formatGymDisplayName} from '@/utils/gymDisplay';
-import {loadWorkoutPlanEntriesForUser} from '@/services/supabase/plannedWorkoutService';
+import {
+  createPlannedSession,
+  loadWorkoutPlanEntriesForUser,
+  respondPlannedWorkoutInvite,
+} from '@/services/supabase/plannedWorkoutService';
+import {markPlannedWorkoutInviteNotificationsRead} from '@/services/notifications/inAppNotificationService';
+import {
+  isPendingInviteeSession,
+  isWorkoutOnUserCalendar,
+} from '@/utils/plannedCalendarFilter';
 import {
   getPublicProfilesByIds,
   listFriendsWithProfiles,
@@ -36,7 +44,10 @@ const SCHEDULE_GYMS = getActiveDanishGyms();
 import colors from '@/theme/colors';
 import NotificationService from '@/services/notifications/NotificationService';
 import {useAppStore} from '@/store/appStore';
-import muscleImg from '@/utils/muscleGroupImages';
+import TrainingCenterPicker from '@/components/planned/TrainingCenterPicker';
+import PlanSessionCenterPickerSheet from '@/components/planned/PlanSessionCenterPickerSheet';
+import TrainingTypeMuscleGrid from '@/components/planned/TrainingTypeMuscleGrid';
+import TimePickerSheet from '@/components/ui/TimePickerSheet';
 
 const WEEKDAYS = ['Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør', 'Søn'];
 
@@ -54,23 +65,10 @@ const muscleLabels: Record<MuscleGroup, string> = {
   biceps: 'Biceps',
   mave: 'Mave',
   ryg: 'Ryg',
-  hele_kroppen: 'Hele kroppen',
+  cardio: 'Cardio',
   reformer: 'Reformer',
   pilates: 'Pilates',
 };
-
-const MUSCLE_GROUPS: {key: MuscleGroup; label: string}[] = [
-  {key: 'bryst', label: 'Bryst'},
-  {key: 'triceps', label: 'Triceps'},
-  {key: 'skulder', label: 'Skulder'},
-  {key: 'ben', label: 'Ben'},
-  {key: 'biceps', label: 'Biceps'},
-  {key: 'mave', label: 'Mave'},
-  {key: 'ryg', label: 'Ryg'},
-  {key: 'hele_kroppen', label: 'Hele kroppen'},
-  {key: 'reformer', label: 'Reformer'},
-  {key: 'pilates', label: 'Pilates'},
-];
 
 const WorkoutScheduleScreen = () => {
   const route = useRoute<{params?: {openPlannedId?: string; initialTab?: string}}>();
@@ -81,7 +79,6 @@ const WorkoutScheduleScreen = () => {
   const userBicepsEmoji = rawBicepsEmoji.replace(/💛|❤️|♥️/g, '');
   const plannedWorkouts = useWorkoutPlanStore(state => state.plannedWorkouts);
   const completedWorkouts = useWorkoutPlanStore(state => state.completedWorkouts);
-  const addPlannedWorkout = useWorkoutPlanStore(state => state.addPlannedWorkout);
   const mergePlannedFromServer = useWorkoutPlanStore(
     state => state.mergePlannedFromServer,
   );
@@ -110,9 +107,12 @@ const WorkoutScheduleScreen = () => {
 
   // Plan workout modal state
   const [planModalVisible, setPlanModalVisible] = useState(false);
+  /** Center-sheet uden for ScrollView (undgår nested Modal under scroll på iOS). */
+  const [planCenterSheetOpen, setPlanCenterSheetOpen] = useState(false);
   const [planSelectedGym, setPlanSelectedGym] = useState<DanishGym | null>(null);
   const [planCenterQuery, setPlanCenterQuery] = useState('');
-  const [planMuscles, setPlanMuscles] = useState<MuscleGroup[]>([]);
+  /** Én træningstype pr. session — enkelt og socialt (array bevares for bagudkompatibilitet). */
+  const [planMuscle, setPlanMuscle] = useState<MuscleGroup>('bryst');
   const [planDateTime, setPlanDateTime] = useState(new Date());
   const [planTimePickerVisible, setPlanTimePickerVisible] = useState(false);
   const [planCalendarMonth, setPlanCalendarMonth] = useState(() => {
@@ -135,6 +135,83 @@ const WorkoutScheduleScreen = () => {
     Map<string, PublicProfile>
   >(() => new Map());
   const [loadedFriends, setLoadedFriends] = useState<PublicProfile[]>([]);
+  const [sessionFriendNames, setSessionFriendNames] = useState<Map<string, string>>(
+    () => new Map(),
+  );
+  const [sessionProfilesById, setSessionProfilesById] = useState<
+    Map<string, PublicProfile>
+  >(() => new Map());
+  const [planSaving, setPlanSaving] = useState(false);
+  const [inviteRespondPlanId, setInviteRespondPlanId] = useState<string | null>(
+    null,
+  );
+
+  const calendarPlans = useMemo(
+    () => plannedWorkouts.filter(p => isWorkoutOnUserCalendar(p, user?.id)),
+    [plannedWorkouts, user?.id],
+  );
+
+  const pendingInvitePlans = useMemo(() => {
+    const list = plannedWorkouts.filter(p =>
+      isPendingInviteeSession(p, user?.id),
+    );
+    list.sort((a, b) => a.scheduledAt.getTime() - b.scheduledAt.getTime());
+    return list;
+  }, [plannedWorkouts, user?.id]);
+
+  const refetchPlansFromServer = useCallback(async () => {
+    if (!user?.id) {
+      return;
+    }
+    const entries = await loadWorkoutPlanEntriesForUser(user.id, true);
+    mergePlannedFromServer(entries);
+  }, [user?.id, mergePlannedFromServer]);
+
+  const handleInviteAccept = async (planId: string) => {
+    if (!user?.id) {
+      return;
+    }
+    setInviteRespondPlanId(planId);
+    try {
+      await respondPlannedWorkoutInvite(planId, true);
+      await markPlannedWorkoutInviteNotificationsRead(user.id, planId);
+      await refetchPlansFromServer();
+    } catch (e) {
+      Alert.alert(
+        'Kunne ikke svare',
+        e instanceof Error ? e.message : 'Prøv igen om lidt.',
+      );
+    } finally {
+      setInviteRespondPlanId(null);
+    }
+  };
+
+  const handleInviteDecline = async (planId: string) => {
+    if (!user?.id) {
+      return;
+    }
+    setInviteRespondPlanId(planId);
+    try {
+      await respondPlannedWorkoutInvite(planId, false);
+      await markPlannedWorkoutInviteNotificationsRead(user.id, planId);
+      await refetchPlansFromServer();
+      if (
+        detailModalVisible &&
+        selectedWorkout?.type === 'planned' &&
+        selectedWorkout.data.id === planId
+      ) {
+        setDetailModalVisible(false);
+        setSelectedWorkout(null);
+      }
+    } catch (e) {
+      Alert.alert(
+        'Kunne ikke afvise',
+        e instanceof Error ? e.message : 'Prøv igen om lidt.',
+      );
+    } finally {
+      setInviteRespondPlanId(null);
+    }
+  };
 
   useFocusEffect(
     useCallback(() => {
@@ -170,6 +247,51 @@ const WorkoutScheduleScreen = () => {
   );
 
   useEffect(() => {
+    if (!planModalVisible) {
+      setPlanCenterSheetOpen(false);
+    }
+  }, [planModalVisible]);
+
+  useEffect(() => {
+    const ids = new Set<string>();
+    plannedWorkouts.forEach(p => {
+      (p.acceptedFriends ?? []).forEach(i => ids.add(i));
+      (p.invitedFriends ?? []).forEach(i => ids.add(i));
+      if (user?.id && isPendingInviteeSession(p, user.id) && p.creatorUserId) {
+        ids.add(p.creatorUserId);
+      }
+    });
+    if (ids.size === 0) {
+      setSessionFriendNames(new Map());
+      setSessionProfilesById(new Map());
+      return;
+    }
+    let cancelled = false;
+    (async () => {
+      try {
+        const m = await getPublicProfilesByIds([...ids]);
+        if (cancelled) {
+          return;
+        }
+        const names = new Map<string, string>();
+        m.forEach((profile, id) => {
+          names.set(id, profile.displayName || profile.username || 'Ven');
+        });
+        setSessionFriendNames(names);
+        setSessionProfilesById(m);
+      } catch {
+        if (!cancelled) {
+          setSessionFriendNames(new Map());
+          setSessionProfilesById(new Map());
+        }
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [plannedWorkouts, user?.id]);
+
+  useEffect(() => {
     if (!detailModalVisible || !selectedWorkout) {
       return;
     }
@@ -177,6 +299,14 @@ const WorkoutScheduleScreen = () => {
     const ids = new Set<string>();
     (d.invitedFriends ?? []).forEach(i => ids.add(i));
     (d.acceptedFriends ?? []).forEach(i => ids.add(i));
+    if (
+      selectedWorkout.type === 'planned' &&
+      user?.id &&
+      isPendingInviteeSession(d as WorkoutPlanEntry, user.id) &&
+      (d as WorkoutPlanEntry).creatorUserId
+    ) {
+      ids.add((d as WorkoutPlanEntry).creatorUserId!);
+    }
     if (ids.size === 0) {
       setParticipantProfiles(new Map());
       return;
@@ -198,7 +328,7 @@ const WorkoutScheduleScreen = () => {
     return () => {
       cancelled = true;
     };
-  }, [detailModalVisible, selectedWorkout]);
+  }, [detailModalVisible, selectedWorkout, user?.id]);
 
   const openPlannedId = route.params?.openPlannedId;
   const openPlannedHandledRef = useRef<string | null>(null);
@@ -225,7 +355,7 @@ const WorkoutScheduleScreen = () => {
 
   const upcomingByDay = useMemo(() => {
     const map = new Map<string, WorkoutPlanEntry[]>();
-    plannedWorkouts.forEach(plan => {
+    calendarPlans.forEach(plan => {
       const key = formatDateKey(plan.scheduledAt);
       if (!map.has(key)) {
         map.set(key, []);
@@ -233,7 +363,7 @@ const WorkoutScheduleScreen = () => {
       map.get(key)!.push(plan);
     });
     return map;
-  }, [plannedWorkouts]);
+  }, [calendarPlans]);
 
   const completedByDay = useMemo(() => {
     const map = new Map<string, WorkoutHistoryEntry[]>();
@@ -323,7 +453,7 @@ const WorkoutScheduleScreen = () => {
 
   const planMarkers = useMemo(() => {
     const map = new Map<string, {hasUpcoming: boolean; hasHistory: boolean}>();
-    plannedWorkouts.forEach(plan => {
+    calendarPlans.forEach(plan => {
       const key = dayKey(plan.scheduledAt);
       const entry = map.get(key) || {hasUpcoming: false, hasHistory: false};
       entry.hasUpcoming = true;
@@ -336,7 +466,7 @@ const WorkoutScheduleScreen = () => {
       map.set(key, meta);
     });
     return map;
-  }, [plannedWorkouts, completedWorkouts]);
+  }, [calendarPlans, completedWorkouts]);
 
   const planCalendarDays = useMemo(() => {
     const monthStart = new Date(planCalendarMonth);
@@ -359,23 +489,6 @@ const WorkoutScheduleScreen = () => {
     return days;
   }, [planCalendarMonth, planMarkers]);
 
-  const planSuggestions = useMemo(() => {
-    const query = planCenterQuery.trim().toLowerCase();
-    if (!query) {
-      return [];
-    }
-    return SCHEDULE_GYMS
-      .filter(gym => {
-        const haystack = `${gym.name} ${gym.city ?? ''} ${gym.brand ?? ''} ${gym.postalCode ?? ''}`
-          .toLowerCase()
-          .replace(/,/g, ' ');
-        return query
-          .split(/\s+/)
-          .every(token => haystack.includes(token));
-      })
-      .slice(0, 6);
-  }, [planCenterQuery]);
-
   const formattedPlanTime = useMemo(
     () =>
       planDateTime.toLocaleTimeString('da-DK', {
@@ -389,7 +502,6 @@ const WorkoutScheduleScreen = () => {
     const defaultGym = planSelectedGym || SCHEDULE_GYMS[0];
     setPlanSelectedGym(defaultGym);
     setPlanCenterQuery(defaultGym ? formatGymDisplayName(defaultGym) : '');
-    setPlanMuscles(planMuscles.length > 0 ? planMuscles : [MUSCLE_GROUPS[0].key]);
     const nextHour = new Date();
     nextHour.setMinutes(0);
     nextHour.setSeconds(0);
@@ -400,55 +512,72 @@ const WorkoutScheduleScreen = () => {
     calendarMonth.setDate(1);
     calendarMonth.setHours(0, 0, 0, 0);
     setPlanCalendarMonth(calendarMonth);
+    setPlanCenterSheetOpen(false);
     setPlanModalVisible(true);
   };
 
-  const handlePlanWorkout = () => {
+  const planMuscles = useMemo(() => [planMuscle], [planMuscle]);
+
+  const applyPlanQuickDate = (addDays: number) => {
+    const base = new Date();
+    base.setHours(0, 0, 0, 0);
+    base.setDate(base.getDate() + addDays);
+    base.setHours(planDateTime.getHours(), planDateTime.getMinutes(), 0, 0);
+    setPlanDateTime(base);
+    setPlanCalendarMonth(new Date(base.getFullYear(), base.getMonth(), 1));
+  };
+
+  const handlePlanWorkout = async () => {
     const resolvedGym = planSelectedGym || findGymByQuery(planCenterQuery);
     if (!resolvedGym) {
-      Alert.alert('Vælg center', 'Vælg venligst hvilket center træningen skal foregå i.');
-      return;
-    }
-    if (planMuscles.length === 0) {
-      Alert.alert('Vælg muskelgrupper', 'Vælg mindst én muskelgruppe for din planlagte træning.');
+      Alert.alert('Vælg center', 'Hvor skal I mødes?');
       return;
     }
 
-    const planId = `plan_${Date.now()}`;
-    addPlannedWorkout({
-      id: planId,
-      gym: resolvedGym,
-      muscles: planMuscles,
-      scheduledAt: planDateTime,
-      invitedFriends: planInvitedFriends,
-      acceptedFriends: [],
-      inviteStatusByUserId: Object.fromEntries(
-        planInvitedFriends.map(id => [id, 'pending' as const]),
-      ),
-    });
+    if (!user?.id) {
+      Alert.alert('Log ind', 'Log ind for at planlægge en session.');
+      return;
+    }
 
-    // Send notifications to invited friends
-    if (planInvitedFriends.length > 0) {
-      const musclesDescription = formatMuscleSelection(planMuscles);
-      NotificationService.sendWorkoutInvite(
-        user?.displayName || user?.username || 'Nogen',
-        resolvedGym,
-        musclesDescription,
-        planInvitedFriends,
-        planId,
-        planDateTime,
-        planMuscles,
+    const trainingTypes = planMuscles.map(m => String(m));
+    const centerLabel = formatGymDisplayName(resolvedGym);
+    const inviteeCount = planInvitedFriends.length;
+
+    setPlanSaving(true);
+    try {
+      await createPlannedSession({
+        centerId: resolvedGym.id,
+        centerName: centerLabel,
+        scheduledAt: planDateTime,
+        trainingTypes,
+        note: null,
+        inviteeIds: planInvitedFriends,
+        threadId: null,
+      });
+      const entries = await loadWorkoutPlanEntriesForUser(user.id, true);
+      mergePlannedFromServer(entries);
+      setPlanModalVisible(false);
+      setPlanSelectedGym(null);
+      setPlanCenterQuery('');
+      setPlanMuscle('bryst');
+      setPlanInvitedFriends([]);
+      setPlanInviteSectionVisible(false);
+      setPlanInviteSearchQuery('');
+      const inviteMsg =
+        inviteeCount === 0
+          ? 'Vi minder dig før sessionen.'
+          : inviteeCount === 1
+            ? 'Din ven får besked — I kan holde hinanden accountable og få en påmindelse før tid.'
+            : 'Dine venner får besked — I kan holde hinanden accountable og få en påmindelse før tid.';
+      Alert.alert('Session oprettet', inviteMsg);
+    } catch (e) {
+      Alert.alert(
+        'Kunne ikke oprette',
+        e instanceof Error ? e.message : 'Prøv igen om lidt.',
       );
+    } finally {
+      setPlanSaving(false);
     }
-
-    setPlanModalVisible(false);
-    setPlanSelectedGym(null);
-    setPlanCenterQuery('');
-    setPlanMuscles([]);
-    setPlanInvitedFriends([]);
-    setPlanInviteSectionVisible(false);
-    setPlanInviteSearchQuery('');
-    Alert.alert('Træning planlagt', 'Din træning er blevet planlagt!');
   };
 
   const findGymByQuery = (query: string): DanishGym | null => {
@@ -463,9 +592,9 @@ const WorkoutScheduleScreen = () => {
   };
 
   const formatMuscleSelection = (muscles: MuscleGroup[]): string => {
-    if (muscles.length === 0) return '';
-    if (muscles.length === 1) return muscleLabels[muscles[0]];
-    if (muscles.length === 2) return `${muscleLabels[muscles[0]]} & ${muscleLabels[muscles[1]]}`;
+    if (muscles.length === 0) {return '';}
+    if (muscles.length === 1) {return muscleLabels[muscles[0]];}
+    if (muscles.length === 2) {return `${muscleLabels[muscles[0]]} & ${muscleLabels[muscles[1]]}`;}
     return `${muscleLabels[muscles[0]]} + ${muscles.length - 1} flere`;
   };
 
@@ -478,7 +607,14 @@ const WorkoutScheduleScreen = () => {
 
   const handleInviteFriends = () => {
     if (!selectedWorkout || selectedWorkout.type !== 'planned') {
-      Alert.alert('Fejl', 'Ingen planlagt træning valgt');
+      Alert.alert('Fejl', 'Ingen session valgt');
+      return;
+    }
+    if (!selectedWorkout.data.id.startsWith('plan_')) {
+      Alert.alert(
+        'Inviter fra chat',
+        'Sessioner med Gymly-invitation åbner bedst i beskeder med din ven — dér kan I svare og holde styr på aftalen.',
+      );
       return;
     }
     // Close detail modal first, then open invite modal
@@ -495,7 +631,7 @@ const WorkoutScheduleScreen = () => {
     }
 
     const plan = selectedWorkout.data;
-    
+
     // Send notifications
     NotificationService.sendWorkoutInvite(
       user?.displayName || 'Din ven',
@@ -533,7 +669,7 @@ const WorkoutScheduleScreen = () => {
     }
 
     const plan = selectedWorkout.data;
-    
+
     // Remove from invited friends
     removePlanInvites(plan.id, friendIds);
 
@@ -612,23 +748,13 @@ const WorkoutScheduleScreen = () => {
     ? filteredInviteFriends.filter(friend => !currentInvitedIds.includes(friend.id)).length
     : 0;
 
-  const handlePlanCenterInput = (value: string) => {
-    setPlanCenterQuery(value);
-    setPlanSelectedGym(null);
-  };
-
   const handleSelectPlanGym = (gym: DanishGym) => {
     setPlanSelectedGym(gym);
     setPlanCenterQuery(formatGymDisplayName(gym));
   };
 
-  const togglePlanMuscle = (group: MuscleGroup) => {
-    setPlanMuscles(prev => {
-      if (prev.includes(group)) {
-        return prev.filter(item => item !== group);
-      }
-      return [...prev, group];
-    });
+  const selectPlanMuscle = (group: MuscleGroup) => {
+    setPlanMuscle(group);
   };
 
   const handleCalendarNav = (direction: -1 | 1) => {
@@ -671,23 +797,98 @@ const WorkoutScheduleScreen = () => {
     return rounded;
   };
 
-  const handlePlanTimeChange = (event: DateTimePickerEvent, date?: Date) => {
-    if (event.type === 'dismissed') {
-      setPlanTimePickerVisible(false);
-      return;
-    }
-    if (Platform.OS === 'android') {
-      setPlanTimePickerVisible(false);
-    }
-    if (date) {
-      const rounded = roundToQuarterHour(date);
-      setPlanDateTime(rounded);
-    }
-  };
-
   return (
     <>
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      <Text style={styles.screenIntro}>
+        Aftal hurtigt med venner, hold streaken — uden tung planlægning.
+      </Text>
+
+      {user?.id ? (
+        <View style={styles.inviteSection}>
+          <Text style={styles.inviteSectionTitle}>Invitationer</Text>
+          {pendingInvitePlans.length === 0 ? (
+            <Text style={styles.inviteSectionEmpty}>
+              Ingen afventende invitationer — når en ven inviterer dig, vises den her.
+            </Text>
+          ) : (
+            pendingInvitePlans.map(plan => {
+              const creatorId = plan.creatorUserId;
+              const inviterName = creatorId
+                ? sessionFriendNames.get(creatorId) ||
+                  'Din ven'
+                : 'Din ven';
+              const clockKl = formatClockKl(plan.scheduledAt);
+              const dateLine = plan.scheduledAt.toLocaleDateString('da-DK', {
+                weekday: 'short',
+                day: 'numeric',
+                month: 'short',
+              });
+              const busy = inviteRespondPlanId === plan.id;
+              return (
+                <View key={plan.id} style={styles.inviteCard}>
+                  <View style={styles.inviteCardTop}>
+                    {creatorId ? (
+                      <UserAvatar
+                        name={inviterName}
+                        imageUrl={
+                          sessionProfilesById.get(creatorId)?.avatarUrl ?? undefined
+                        }
+                        size="md"
+                        style={styles.inviteAvatar}
+                      />
+                    ) : (
+                      <View style={styles.inviteAvatarFallback}>
+                        <Ionicons name="person" size={20} color={colors.textTertiary} />
+                      </View>
+                    )}
+                    <View style={styles.inviteCardBody}>
+                      <Text style={styles.inviteInviterName} numberOfLines={1}>
+                        {inviterName}
+                      </Text>
+                      <Text style={styles.inviteMetaLine} numberOfLines={1}>
+                        💪 {formatMuscleSelection(plan.muscles)}
+                      </Text>
+                      <Text style={styles.inviteMetaLine} numberOfLines={2}>
+                        📍 {formatGymDisplayName(plan.gym)}
+                      </Text>
+                      <Text style={styles.inviteMetaLineMuted} numberOfLines={1}>
+                        📅 {dateLine}
+                        {clockKl ? ` · 🕒 ${clockKl}` : ''}
+                      </Text>
+                    </View>
+                  </View>
+                  <View style={styles.inviteActionsRow}>
+                    {busy ? (
+                      <ActivityIndicator
+                        size="small"
+                        color={colors.primary}
+                        style={styles.inviteActionsSpinner}
+                      />
+                    ) : (
+                      <>
+                        <TouchableOpacity
+                          style={styles.inviteBtnDecline}
+                          onPress={() => handleInviteDecline(plan.id)}
+                          activeOpacity={0.75}>
+                          <Text style={styles.inviteBtnDeclineText}>Afvis</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                          style={styles.inviteBtnAccept}
+                          onPress={() => handleInviteAccept(plan.id)}
+                          activeOpacity={0.75}>
+                          <Text style={styles.inviteBtnAcceptText}>Deltag</Text>
+                        </TouchableOpacity>
+                      </>
+                    )}
+                  </View>
+                </View>
+              );
+            })
+          )}
+        </View>
+      ) : null}
+
       <View style={styles.calendarCard}>
         <View style={styles.calendarHeader}>
           <TouchableOpacity onPress={() => handleMonthNav(-1)} style={styles.calendarNavButton}>
@@ -755,44 +956,45 @@ const WorkoutScheduleScreen = () => {
 
         {!isPastDay && (
           <View style={styles.detailGroup}>
-            <Text style={styles.detailGroupTitle}>Kommende træninger</Text>
+            <Text style={styles.detailGroupTitle}>Kommende sessions</Text>
             {selectedUpcoming.length === 0 ? (
-              <Text style={styles.emptyDetail}>Ingen kommende træninger denne dag.</Text>
+              <Text style={styles.emptyDetail}>
+                Ingen sessions denne dag — tryk + for at aftale én.
+              </Text>
             ) : (
               selectedUpcoming.map(plan => {
                 const clockKl = formatClockKl(plan.scheduledAt);
+                const typeLine = formatMuscleSelection(plan.muscles);
+                const acceptedNames = (plan.acceptedFriends ?? [])
+                  .map(id => sessionFriendNames.get(id))
+                  .filter((n): n is string => Boolean(n));
+                const socialLine =
+                  acceptedNames.length > 0
+                    ? `👥 ${acceptedNames.join(', ')} deltager`
+                    : plan.invitedFriends.length > 0
+                      ? '👥 Afventer svar'
+                      : null;
                 return (
                 <TouchableOpacity
                   key={plan.id}
-                  style={styles.detailCard}
+                  style={styles.sessionCard}
                   onPress={() => handleWorkoutPress(plan, 'planned')}
-                  activeOpacity={0.7}>
-                  <View style={styles.detailGymLine}>
-                    <Text style={styles.detailGym}>{formatGymDisplayName(plan.gym)}</Text>
-                  </View>
-                  <View style={styles.detailMuscles}>
-                    {plan.muscles.map(muscle => (
-                      <View key={`${plan.id}-${muscle}`} style={styles.muscleChip}>
-                        <Text style={styles.muscleChipText}>{muscleLabels[muscle]}</Text>
-                      </View>
-                    ))}
-                    {clockKl ? (
-                      <>
-                        <Text style={styles.muscleTimeSeparator}> · </Text>
-                        <Text style={styles.detailTimeSecondary}>{clockKl}</Text>
-                      </>
-                    ) : null}
-                  </View>
-                  {plan.invitedFriends.length > 0 && (
-                    <Text style={styles.inviteStatus}>
-                      {`${plan.invitedFriends.length} inviteret ven${
-                        plan.invitedFriends.length > 1 ? 'ner' : ''
-                      }`}
-                    </Text>
-                  )}
+                  activeOpacity={0.72}>
+                  <Text style={styles.sessionCardType}>
+                    💪 {typeLine}
+                  </Text>
+                  <Text style={styles.sessionCardMeta}>
+                    📍 {formatGymDisplayName(plan.gym)}
+                  </Text>
+                  {clockKl ? (
+                    <Text style={styles.sessionCardMeta}>🕒 {clockKl}</Text>
+                  ) : null}
+                  {socialLine ? (
+                    <Text style={styles.sessionCardSocial}>{socialLine}</Text>
+                  ) : null}
                   <View style={styles.moreInfoHint}>
-                    <Text style={styles.moreInfoText}>Tryk for mere info</Text>
-                    <Ionicons name="chevron-forward" size={16} color="#94A3B8" />
+                    <Text style={styles.moreInfoText}>Detaljer</Text>
+                    <Ionicons name="chevron-forward" size={16} color={colors.textMuted} />
                 </View>
                 </TouchableOpacity>
                 );
@@ -803,46 +1005,37 @@ const WorkoutScheduleScreen = () => {
 
         {!isFutureDay && (
           <View style={styles.detailGroup}>
-            <Text style={styles.detailGroupTitle}>Tidligere træninger</Text>
+            <Text style={styles.detailGroupTitle}>Tidligere sessions</Text>
             {selectedHistory.length === 0 ? (
-              <Text style={styles.emptyDetail}>Ingen træninger registreret denne dag.</Text>
+              <Text style={styles.emptyDetail}>Ingen gennemførte sessions denne dag.</Text>
             ) : (
               selectedHistory.map(entry => (
                 <TouchableOpacity
                   key={entry.id}
-                  style={styles.detailCard}
+                  style={[styles.sessionCard, styles.sessionCardHistory]}
                   onPress={() => handleWorkoutPress(entry, 'completed')}
-                  activeOpacity={0.7}>
-                  <View style={styles.detailGymLine}>
-                    <Text style={styles.detailGym}>{formatGymDisplayName(entry.gym)}</Text>
-                  </View>
-                  <View style={styles.detailMuscles}>
-                    {entry.muscles.map(muscle => (
-                      <View key={`${entry.id}-${muscle}`} style={[styles.muscleChip, styles.muscleChipHistory]}>
-                        <Text style={[styles.muscleChipText, styles.muscleChipHistoryText]}>
-                          {muscleLabels[muscle]}
-                        </Text>
-                      </View>
-                    ))}
-                    {entry.durationMs > 0 ? (
-                      <>
-                        <Text style={styles.muscleTimeSeparator}> · </Text>
-                        <Text style={styles.detailTimeSecondary}>
-                          {`${Math.round(entry.durationMs / 60000)} min`}
-                        </Text>
-                      </>
-                    ) : null}
-                  </View>
+                  activeOpacity={0.72}>
+                  <Text style={styles.sessionCardType}>
+                    💪 {formatMuscleSelection(entry.muscles)}
+                  </Text>
+                  <Text style={styles.sessionCardMeta}>
+                    📍 {formatGymDisplayName(entry.gym)}
+                  </Text>
+                  {entry.durationMs > 0 ? (
+                    <Text style={styles.sessionCardMeta}>
+                      ⏱ {Math.round(entry.durationMs / 60000)} min
+                    </Text>
+                  ) : null}
                   {entry.acceptedFriends?.length ? (
-                    <Text style={styles.inviteStatus}>
-                      {`Du trænede med ${entry.acceptedFriends.length} ${
+                    <Text style={styles.sessionCardSocial}>
+                      {`👥 Trænede med ${entry.acceptedFriends.length} ${
                         entry.acceptedFriends.length === 1 ? 'ven' : 'venner'
                       }`}
                     </Text>
                   ) : null}
                   <View style={styles.moreInfoHint}>
-                    <Text style={styles.moreInfoText}>Tryk for mere info</Text>
-                    <Ionicons name="chevron-forward" size={16} color="#94A3B8" />
+                    <Text style={styles.moreInfoText}>Detaljer</Text>
+                    <Ionicons name="chevron-forward" size={16} color={colors.textMuted} />
                 </View>
                 </TouchableOpacity>
               ))
@@ -850,6 +1043,7 @@ const WorkoutScheduleScreen = () => {
           </View>
         )}
       </View>
+    </ScrollView>
 
       {/* Workout Detail Modal */}
       <Modal
@@ -862,7 +1056,7 @@ const WorkoutScheduleScreen = () => {
             <View style={styles.modalContent}>
             <View style={styles.modalHeader}>
               <Text style={styles.modalTitle}>
-                {selectedWorkout?.type === 'planned' ? 'Kommende træning' : 'Tidligere træning'}
+                {selectedWorkout?.type === 'planned' ? 'Kommende session' : 'Tidligere session'}
               </Text>
               <TouchableOpacity
                 onPress={() => setDetailModalVisible(false)}
@@ -893,6 +1087,44 @@ const WorkoutScheduleScreen = () => {
                       </Text>
                     )}
                   </View>
+
+                  {selectedWorkout.type === 'planned' &&
+                    user?.id &&
+                    isPendingInviteeSession(selectedWorkout.data, user.id) && (
+                      <View style={styles.modalPendingInviteStrip}>
+                        <Text style={styles.modalPendingInviteHint}>
+                          Du er inviteret — svar her eller i listen øverst.
+                        </Text>
+                        <View style={styles.modalPendingInviteActions}>
+                          {inviteRespondPlanId === selectedWorkout.data.id ? (
+                            <ActivityIndicator color={colors.primary} />
+                          ) : (
+                            <>
+                              <TouchableOpacity
+                                style={styles.modalPendingBtnDecline}
+                                onPress={() =>
+                                  handleInviteDecline(selectedWorkout.data.id)
+                                }
+                                activeOpacity={0.75}>
+                                <Text style={styles.modalPendingBtnDeclineText}>
+                                  Afvis
+                                </Text>
+                              </TouchableOpacity>
+                              <TouchableOpacity
+                                style={styles.modalPendingBtnAccept}
+                                onPress={() =>
+                                  handleInviteAccept(selectedWorkout.data.id)
+                                }
+                                activeOpacity={0.75}>
+                                <Text style={styles.modalPendingBtnAcceptText}>
+                                  Deltag
+                                </Text>
+                              </TouchableOpacity>
+                            </>
+                          )}
+                        </View>
+                      </View>
+                    )}
 
                   {/* Photo (if completed workout has one) */}
                   {selectedWorkout.type === 'completed' && selectedWorkout.data.photoUri && (
@@ -937,12 +1169,15 @@ const WorkoutScheduleScreen = () => {
                           <Text style={styles.modalSectionTitle}>
                             Inviterede venner ({selectedWorkout.data.invitedFriends.length})
                           </Text>
-                          <TouchableOpacity
-                            style={styles.inviteAddButton}
-                            onPress={handleInviteFriends}
-                            activeOpacity={0.7}>
-                            <Ionicons name="add-circle" size={24} color={colors.primary} />
-                          </TouchableOpacity>
+                          {user?.id &&
+                          !isPendingInviteeSession(selectedWorkout.data, user.id) ? (
+                            <TouchableOpacity
+                              style={styles.inviteAddButton}
+                              onPress={handleInviteFriends}
+                              activeOpacity={0.7}>
+                              <Ionicons name="add-circle" size={24} color={colors.primary} />
+                            </TouchableOpacity>
+                          ) : null}
                         </View>
                         {selectedWorkout.data.invitedFriends.length > 0 ? (
                           <View style={styles.modalFriendsList}>
@@ -960,7 +1195,7 @@ const WorkoutScheduleScreen = () => {
                           </View>
                         ) : (
                           <Text style={styles.emptyInvitesText}>
-                            Ingen venner inviteret endnu. Tryk på + for at invitere.
+                            Ingen endnu — tryk + for at sende en let invitation.
                           </Text>
                         )}
                       </View>
@@ -1026,7 +1261,12 @@ const WorkoutScheduleScreen = () => {
       </Modal>
 
       {/* Plan Workout Modal */}
-      <Modal visible={planModalVisible} transparent animationType="slide">
+      <Modal
+        visible={planModalVisible}
+        transparent
+        animationType="slide"
+        presentationStyle={Platform.OS === 'ios' ? 'overFullScreen' : undefined}
+        onRequestClose={() => setPlanModalVisible(false)}>
         <View style={styles.modalOverlay}>
           <TouchableWithoutFeedback onPress={() => setPlanModalVisible(false)}>
             <View style={styles.modalBackdrop} />
@@ -1034,68 +1274,26 @@ const WorkoutScheduleScreen = () => {
 
           <View style={[styles.modalCard, styles.planModal]}>
             <ScrollView
-              style={{width: '100%'}}
+              style={styles.planModalScroll}
               contentContainerStyle={styles.planModalContent}
               keyboardShouldPersistTaps="handled">
-              <Text style={styles.modalTitle}>Planlæg træning</Text>
+              <Text style={styles.modalTitle}>Ny session</Text>
               <Text style={styles.modalText}>
-                Vælg center, muskelgrupper og tidspunkt for din næste session.
+                Center, træningstype og tid — inviter en ven hvis du vil holde hinanden accountable.
               </Text>
 
-              <Text style={styles.sectionLabel}>Center</Text>
-              <TextInput
-                style={styles.planCenterInput}
-                placeholder="Fx PureGym Vanløse Torv"
-                value={planCenterQuery}
-                onChangeText={handlePlanCenterInput}
-                autoCapitalize="words"
-                autoCorrect={false}
+              <TrainingCenterPicker
+                variant="scheduleRow"
+                value={planSelectedGym}
+                onChange={handleSelectPlanGym}
+                sheetMode="detached"
+                onSheetOpenChange={setPlanCenterSheetOpen}
               />
-              {planCenterQuery.trim().length > 0 &&
-                planSuggestions.length > 0 &&
-                !planSelectedGym && (
-                  <View style={styles.planSuggestionList}>
-                    {planSuggestions.map(option => (
-                      <TouchableOpacity
-                        key={option.id}
-                        style={styles.planSuggestionItem}
-                        onPress={() => handleSelectPlanGym(option)}>
-                        <View>
-                          <Text style={styles.planSuggestionTitle}>
-                            {formatGymDisplayName(option)}
-                          </Text>
-                          <Text style={styles.planSuggestionSubtitle}>
-                            {[option.city, option.region].filter(Boolean).join(' • ')}
-                          </Text>
-                        </View>
-                        <Ionicons name="location-outline" size={18} color="#007AFF" />
-                      </TouchableOpacity>
-                    ))}
-                  </View>
-                )}
 
-              <Text style={[styles.sectionLabel, {marginTop: 20}]}>Muskelgrupper</Text>
-              <View style={styles.muscleGrid}>
-                {MUSCLE_GROUPS.map(item => {
-                  const isActive = planMuscles.includes(item.key);
-                  return (
-                    <TouchableOpacity
-                      key={item.key}
-                      style={[styles.muscleCard, isActive && styles.muscleCardActive]}
-                      onPress={() => togglePlanMuscle(item.key)}
-                      activeOpacity={0.85}>
-                      <Image
-                        source={muscleImg.getMuscleGroupImage(item.key)}
-                        style={[styles.muscleImage, isActive && styles.muscleImageActive]}
-                        resizeMode="contain"
-                      />
-                      <Text style={[styles.muscleLabel, isActive && styles.muscleLabelActive]}>
-                        {item.label}
-                      </Text>
-                    </TouchableOpacity>
-                  );
-                })}
-              </View>
+              <Text style={[styles.sectionLabel, styles.sectionLabelSpacingTop20]}>
+                Træningstype
+              </Text>
+              <TrainingTypeMuscleGrid value={planMuscle} onChange={selectPlanMuscle} />
 
               {/* Inviter venner knap */}
               <TouchableOpacity
@@ -1103,35 +1301,49 @@ const WorkoutScheduleScreen = () => {
                 onPress={() => {
                   const resolvedGym = planSelectedGym || findGymByQuery(planCenterQuery);
                   if (!resolvedGym) {
-                    Alert.alert('Vælg center', 'Vælg venligst hvilket center træningen skal foregå i først.');
-                    return;
-                  }
-                  if (planMuscles.length === 0) {
-                    Alert.alert('Vælg muskelgrupper', 'Vælg mindst én muskelgruppe først.');
+                    Alert.alert('Vælg center', 'Vælg center først — så ved venner hvor I mødes.');
                     return;
                   }
                   setPlanInviteSectionVisible(!planInviteSectionVisible);
                 }}
                 activeOpacity={0.85}>
-                <Ionicons 
-                  name={planInviteSectionVisible ? "chevron-up" : "people-outline"} 
-                  size={18} 
-                  color={colors.secondary} 
+                <Ionicons
+                  name={planInviteSectionVisible ? 'chevron-up' : 'people-outline'}
+                  size={18}
+                  color={colors.secondary}
                 />
                 <Text style={styles.planInviteButtonText}>
-                  Inviter venner{planInvitedFriends.length > 0 ? ` (${planInvitedFriends.length})` : ''}
+                  Inviter venner (valgfrit){planInvitedFriends.length > 0 ? ` · ${planInvitedFriends.length}` : ''}
                 </Text>
               </TouchableOpacity>
 
-              <Text style={[styles.sectionLabel, {marginTop: 8}]}>Dato</Text>
+              <Text style={[styles.sectionLabel, styles.sectionLabelSpacingTop8]}>Dag</Text>
+              <View style={styles.planQuickDates}>
+                <TouchableOpacity
+                  style={styles.planQuickDateChip}
+                  onPress={() => applyPlanQuickDate(0)}
+                  activeOpacity={0.85}>
+                  <Text style={styles.planQuickDateChipText}>I dag</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.planQuickDateChip}
+                  onPress={() => applyPlanQuickDate(1)}
+                  activeOpacity={0.85}>
+                  <Text style={styles.planQuickDateChipText}>I morgen</Text>
+                </TouchableOpacity>
+              </View>
+
+              <Text style={[styles.sectionLabel, styles.sectionLabelSpacingTop12]}>
+                Dato i kalender
+              </Text>
               <View style={styles.calendarContainer}>
-                <View style={styles.calendarHeader}>
+                <View style={styles.planInlineCalendarHeader}>
                   <TouchableOpacity
                     onPress={() => handleCalendarNav(-1)}
                     style={styles.calendarNavButton}>
                     <Ionicons name="chevron-back" size={18} color="#0F172A" />
                   </TouchableOpacity>
-                  <Text style={styles.calendarHeaderText}>
+                  <Text style={styles.planInlineCalendarHeaderText}>
                     {planCalendarMonth.toLocaleDateString('da-DK', {
                       month: 'long',
                       year: 'numeric',
@@ -1192,16 +1404,25 @@ const WorkoutScheduleScreen = () => {
                 <Text style={styles.timeButtonText}>Kl. {formattedPlanTime}</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style={styles.primaryButton} onPress={handlePlanWorkout}>
-                <Text style={styles.primaryButtonText}>Planlæg træning</Text>
+              <TouchableOpacity
+                style={[styles.primaryButton, planSaving && styles.primaryButtonDisabled]}
+                onPress={() => {
+                  handlePlanWorkout();
+                }}
+                disabled={planSaving}>
+                <Text style={styles.primaryButtonText}>
+                  {planSaving ? 'Opretter…' : 'Opret session'}
+                </Text>
               </TouchableOpacity>
               <TouchableOpacity
-                style={[styles.modalClose, {marginTop: 12}]}
+                style={[styles.modalClose, styles.modalCloseAfterPrimary]}
                 onPress={() => {
+                  setPlanCenterSheetOpen(false);
                   setPlanModalVisible(false);
                   setPlanInvitedFriends([]);
                   setPlanInviteSectionVisible(false);
                   setPlanInviteSearchQuery('');
+                  setPlanMuscle('bryst');
                 }}>
                 <Text style={styles.modalCloseText}>Luk</Text>
               </TouchableOpacity>
@@ -1220,7 +1441,7 @@ const WorkoutScheduleScreen = () => {
                   <View style={styles.planInvitePopupContent}>
                     {/* Header */}
                     <View style={styles.planInvitePopupHeader}>
-                      <Text style={styles.planInvitePopupTitle}>Inviter venner og grupper</Text>
+                      <Text style={styles.planInvitePopupTitle}>Inviter venner</Text>
                       <TouchableOpacity
                         onPress={() => {
                           setPlanInviteSectionVisible(false);
@@ -1260,7 +1481,7 @@ const WorkoutScheduleScreen = () => {
                       ]}
                       onPress={() => {
                         const notInvited = filteredPlanInviteFriends.filter(f => !planInvitedFriends.includes(f.id));
-                        if (notInvited.length === 0) return;
+                        if (notInvited.length === 0) {return;}
                         setPlanInvitedFriends(prev => [...prev, ...notInvited.map(f => f.id)]);
                       }}
                       disabled={filteredPlanInviteFriends.filter(f => !planInvitedFriends.includes(f.id)).length === 0}>
@@ -1275,7 +1496,7 @@ const WorkoutScheduleScreen = () => {
                     </TouchableOpacity>
 
                     {/* Scrollable content */}
-                    <ScrollView 
+                    <ScrollView
                       style={styles.planInviteScrollContent}
                       contentContainerStyle={styles.planInviteScrollContentContainer}
                       showsVerticalScrollIndicator={true}
@@ -1345,45 +1566,29 @@ const WorkoutScheduleScreen = () => {
             </TouchableWithoutFeedback>
           )}
 
-          {Platform.OS === 'ios' && planTimePickerVisible && (
-            <View style={styles.iosTimePickerOverlay} pointerEvents="box-none">
-              <TouchableOpacity
-                style={styles.iosTimePickerBackdrop}
-                activeOpacity={1}
-                onPress={handlePlanTimePickerClose}
-              />
-              <View style={styles.iosTimePickerCard}>
-                <DateTimePicker
-                  value={planDateTime}
-                  mode="time"
-                  display="spinner"
-                  minuteInterval={15}
-                  onChange={handlePlanTimeChange}
-                  style={styles.iosTimePickerControl}
-                />
-                <TouchableOpacity style={styles.modalClose} onPress={handlePlanTimePickerClose}>
-                  <Text style={styles.modalCloseText}>Færdig</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          )}
+          <PlanSessionCenterPickerSheet
+            visible={planCenterSheetOpen}
+            onClose={() => setPlanCenterSheetOpen(false)}
+            onSelect={gym => {
+              handleSelectPlanGym(gym);
+              setPlanCenterSheetOpen(false);
+            }}
+          />
         </View>
       </Modal>
 
-      {planTimePickerVisible && Platform.OS === 'android' && (
-        <DateTimePicker
-          value={planDateTime}
-          mode="time"
-          display="default"
-          onChange={handlePlanTimeChange}
-        />
-      )}
-    </ScrollView>
+      <TimePickerSheet
+        visible={planTimePickerVisible}
+        value={planDateTime}
+        onClose={handlePlanTimePickerClose}
+        onConfirm={d => setPlanDateTime(roundToQuarterHour(d))}
+        minuteInterval={15}
+      />
 
     {/* Invite Friends Modal - Copied from CheckInScreen */}
-    <Modal 
-      visible={inviteModalVisible} 
-      transparent 
+    <Modal
+      visible={inviteModalVisible}
+      transparent
       animationType="fade"
       onRequestClose={() => {
         setInviteModalVisible(false);
@@ -1393,7 +1598,7 @@ const WorkoutScheduleScreen = () => {
       <View style={styles.inviteModalOverlay}>
         <View style={[styles.modalCard, styles.friendModal]}>
           <Text style={styles.modalTitle}>Inviter venner</Text>
-          
+
           {/* Search Bar */}
           <View style={styles.inviteSearchContainer}>
             <Ionicons name="search" size={20} color={colors.textTertiary} style={styles.inviteSearchIcon} />
@@ -1488,6 +1693,157 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: 16,
+    paddingBottom: 32,
+  },
+  screenIntro: {
+    fontSize: 15,
+    lineHeight: 22,
+    color: colors.textSecondary,
+    marginBottom: 14,
+    maxWidth: 520,
+  },
+  inviteSection: {
+    marginBottom: 16,
+  },
+  inviteSectionTitle: {
+    fontSize: 17,
+    fontWeight: '700',
+    color: colors.text,
+    marginBottom: 10,
+  },
+  inviteSectionEmpty: {
+    fontSize: 14,
+    color: colors.textTertiary,
+    lineHeight: 20,
+    paddingVertical: 4,
+  },
+  inviteCard: {
+    backgroundColor: colors.backgroundCard,
+    borderRadius: 16,
+    padding: 14,
+    marginBottom: 10,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.border,
+  },
+  inviteCardTop: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 12,
+    marginBottom: 12,
+  },
+  inviteAvatar: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+  },
+  inviteAvatarFallback: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: colors.surface,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  inviteCardBody: {
+    flex: 1,
+    minWidth: 0,
+  },
+  inviteInviterName: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: colors.text,
+    marginBottom: 4,
+  },
+  inviteMetaLine: {
+    fontSize: 14,
+    color: colors.textSecondary,
+    marginTop: 2,
+  },
+  inviteMetaLineMuted: {
+    fontSize: 13,
+    color: colors.textTertiary,
+    marginTop: 4,
+  },
+  inviteActionsRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 10,
+  },
+  inviteActionsSpinner: {
+    paddingVertical: 10,
+  },
+  inviteBtnDecline: {
+    flex: 1,
+    paddingVertical: 11,
+    borderRadius: 12,
+    backgroundColor: colors.surface,
+    borderWidth: 1,
+    borderColor: colors.border,
+    alignItems: 'center',
+  },
+  inviteBtnDeclineText: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: colors.textSecondary,
+  },
+  inviteBtnAccept: {
+    flex: 1,
+    paddingVertical: 11,
+    borderRadius: 12,
+    backgroundColor: colors.primary,
+    alignItems: 'center',
+  },
+  inviteBtnAcceptText: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: '#fff',
+  },
+  modalPendingInviteStrip: {
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border,
+    backgroundColor: colors.surfaceLight,
+  },
+  modalPendingInviteHint: {
+    fontSize: 14,
+    color: colors.textSecondary,
+    marginBottom: 12,
+    textAlign: 'center',
+  },
+  modalPendingInviteActions: {
+    flexDirection: 'row',
+    gap: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    minHeight: 44,
+  },
+  modalPendingBtnDecline: {
+    flex: 1,
+    paddingVertical: 12,
+    borderRadius: 12,
+    backgroundColor: colors.backgroundCard,
+    borderWidth: 1,
+    borderColor: colors.border,
+    alignItems: 'center',
+  },
+  modalPendingBtnDeclineText: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: colors.textSecondary,
+  },
+  modalPendingBtnAccept: {
+    flex: 1,
+    paddingVertical: 12,
+    borderRadius: 12,
+    backgroundColor: colors.primary,
+    alignItems: 'center',
+  },
+  modalPendingBtnAcceptText: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: '#fff',
   },
   calendarCard: {
     backgroundColor: colors.backgroundCard,
@@ -1567,7 +1923,7 @@ const styles = StyleSheet.create({
     opacity: 0.4,
   },
   dayCellSelected: {
-    backgroundColor: '#E0F2FE',
+    backgroundColor: colors.primary + '22',
     borderRadius: 12,
   },
   dayNumber: {
@@ -1580,7 +1936,7 @@ const styles = StyleSheet.create({
     color: colors.textTertiary,
   },
   dayNumberSelected: {
-    color: '#0369A1',
+    color: colors.primaryDark,
   },
   dayMarkers: {
     flexDirection: 'row',
@@ -1605,12 +1961,14 @@ const styles = StyleSheet.create({
   },
   detailGroup: {
     backgroundColor: colors.backgroundCard,
-    borderRadius: 18,
-    padding: 16,
+    borderRadius: 20,
+    padding: 18,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.border,
     shadowColor: colors.primary,
-    shadowOpacity: 0.04,
-    shadowRadius: 10,
-    shadowOffset: {width: 0, height: 6},
+    shadowOpacity: 0.06,
+    shadowRadius: 16,
+    shadowOffset: {width: 0, height: 8},
   },
   detailGroupTitle: {
     fontSize: 16,
@@ -2004,6 +2362,8 @@ const styles = StyleSheet.create({
     padding: 24,
     width: '100%',
     alignItems: 'center',
+    zIndex: 2,
+    elevation: 8,
   },
   planModal: {
     alignItems: 'stretch',
@@ -2019,79 +2379,17 @@ const styles = StyleSheet.create({
     marginTop: 12,
     marginBottom: 6,
   },
-  planCenterInput: {
-    borderWidth: 1,
-    borderColor: '#CBD5F5',
-    borderRadius: 14,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    fontSize: 15,
-  },
-  planSuggestionList: {
-    borderWidth: 1,
-    borderColor: colors.border,
-    borderRadius: 16,
+  sectionLabelSpacingTop8: {
     marginTop: 8,
   },
-  planSuggestionItem: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: 14,
-    paddingVertical: 12,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderColor: colors.border,
+  sectionLabelSpacingTop12: {
+    marginTop: 12,
   },
-  planSuggestionTitle: {
-    fontSize: 15,
-    fontWeight: '600',
-    color: colors.text,
+  sectionLabelSpacingTop20: {
+    marginTop: 20,
   },
-  planSuggestionSubtitle: {
-    fontSize: 13,
-    color: colors.textTertiary,
-  },
-  muscleGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    gap: 8,
-  },
-  muscleCard: {
-    width: '46%',
-    borderRadius: 14,
-    borderWidth: 1,
-    borderColor: colors.border,
-    paddingVertical: 10,
-    paddingHorizontal: 8,
-    marginBottom: 8,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.backgroundCard,
-  },
-  muscleCardActive: {
-    backgroundColor: colors.primary,
-    borderColor: colors.primary,
-    shadowColor: colors.primary,
-    shadowOpacity: 0.25,
-    shadowRadius: 10,
-    shadowOffset: {width: 0, height: 6},
-  },
-  muscleImage: {
-    width: 40,
-    height: 40,
-  },
-  muscleImageActive: {
-    tintColor: '#fff',
-  },
-  muscleLabel: {
-    marginTop: 6,
-    fontSize: 14,
-    fontWeight: '600',
-    color: colors.text,
-  },
-  muscleLabelActive: {
-    color: '#fff',
+  planModalScroll: {
+    width: '100%',
   },
   calendarContainer: {
     borderWidth: 1,
@@ -2101,13 +2399,13 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     backgroundColor: colors.backgroundCard,
   },
-  calendarHeader: {
+  planInlineCalendarHeader: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: 8,
   },
-  calendarHeaderText: {
+  planInlineCalendarHeaderText: {
     fontSize: 16,
     fontWeight: '600',
     color: colors.text,
@@ -2144,7 +2442,7 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
   calendarDaySelected: {
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.primary,
   },
   calendarDayText: {
     fontSize: 15,
@@ -2172,7 +2470,7 @@ const styles = StyleSheet.create({
   },
   timeButton: {
     marginTop: 12,
-    backgroundColor: '#E0F2FE',
+    backgroundColor: colors.primary + '14',
     borderRadius: 14,
     flexDirection: 'row',
     alignItems: 'center',
@@ -2187,17 +2485,38 @@ const styles = StyleSheet.create({
   },
   primaryButton: {
     flex: 1,
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.primary,
     paddingVertical: 14,
     borderRadius: 16,
     marginRight: 8,
     alignItems: 'center',
     marginTop: 12,
   },
+  primaryButtonDisabled: {
+    opacity: 0.55,
+  },
   primaryButtonText: {
     color: '#fff',
     fontSize: 16,
     fontWeight: '600',
+  },
+  planQuickDates: {
+    flexDirection: 'row',
+    gap: 10,
+    marginTop: 8,
+  },
+  planQuickDateChip: {
+    paddingVertical: 8,
+    paddingHorizontal: 14,
+    borderRadius: 999,
+    backgroundColor: colors.surface,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.border,
+  },
+  planQuickDateChipText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: colors.text,
   },
   modalClose: {
     marginTop: 20,
@@ -2208,35 +2527,13 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
   },
+  modalCloseAfterPrimary: {
+    marginTop: 12,
+  },
   modalCloseText: {
     fontSize: 15,
     color: colors.text,
     fontWeight: '600',
-  },
-  iosTimePickerOverlay: {
-    ...StyleSheet.absoluteFillObject,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 24,
-  },
-  iosTimePickerBackdrop: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(0,0,0,0.35)',
-  },
-  iosTimePickerCard: {
-    backgroundColor: colors.backgroundCard,
-    borderRadius: 20,
-    padding: 16,
-    width: '100%',
-    maxWidth: 360,
-    alignItems: 'stretch',
-    shadowColor: colors.primary,
-    shadowOpacity: 0.15,
-    shadowRadius: 20,
-    shadowOffset: {width: 0, height: 10},
-  },
-  iosTimePickerControl: {
-    width: '100%',
   },
   planInviteButton: {
     flexDirection: 'row',

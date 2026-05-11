@@ -19,6 +19,8 @@ type EmptyStateProps = {
   icon?: string;
   title: string;
   message?: string;
+  /** Shown under message (e.g. point to a header CTA). No button. */
+  hint?: string;
   actionLabel?: string;
   onAction?: () => void;
 };
@@ -27,6 +29,7 @@ const EmptyStateComponent: React.FC<EmptyStateProps> = ({
   icon = 'folder-open-outline',
   title,
   message,
+  hint,
   actionLabel,
   onAction,
 }) => {
@@ -57,6 +60,7 @@ const EmptyStateComponent: React.FC<EmptyStateProps> = ({
       </View>
       <Text style={styles.title}>{title}</Text>
       {message ? <Text style={styles.message}>{message}</Text> : null}
+      {hint ? <Text style={styles.hint}>{hint}</Text> : null}
       {actionLabel && onAction ? (
         <Animated.View style={[styles.buttonWrap, {transform: [{scale}]}]}>
           <Pressable
@@ -86,22 +90,31 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.xl,
   },
   iconWrapper: {
-    marginBottom: SOCIAL_EMPTY_GAP,
+    marginBottom: 28,
   },
   title: {
     ...typography.h4,
     fontWeight: '700',
     color: colors.text,
     textAlign: 'center',
-    marginBottom: SOCIAL_EMPTY_GAP,
+    marginBottom: 14,
   },
   message: {
     ...typography.body,
     color: colors.textTertiary,
     textAlign: 'center',
-    marginBottom: SOCIAL_EMPTY_GAP,
+    marginBottom: 0,
     maxWidth: 320,
     lineHeight: 22,
+  },
+  hint: {
+    ...typography.caption,
+    fontSize: 14,
+    lineHeight: 20,
+    color: colors.textMuted,
+    textAlign: 'center',
+    marginTop: 18,
+    maxWidth: 300,
   },
   buttonWrap: {
     marginTop: SOCIAL_EMPTY_GAP,

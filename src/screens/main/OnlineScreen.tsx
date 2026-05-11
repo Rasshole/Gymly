@@ -1,5 +1,6 @@
 /**
- * Online Screen
+ * Online Screen — Reserved for future scaling (dedicated live directory under Venner).
+ * Skjult som egen fane ved launch (`SURFACE_ONLINE_SUBTAB_IN_FRIENDS`); kode og hooks bevares.
  * Premium active users – træner nu, online nu, aktiv for X min
  */
 
@@ -106,6 +107,7 @@ const OnlineScreen = () => {
       friendName: u.displayName,
       mutualFriends: 0,
       gyms: u.gymName ? [u.gymName] : [],
+      activeCenterName: u.gymName?.trim() || undefined,
     });
   };
 
@@ -140,7 +142,7 @@ const OnlineScreen = () => {
   };
 
   const handleInviterTilGruppe = (u: OnlineUser) => {
-    navigation.navigate('Friends', {screen: 'Grupper'} as never);
+    navigation.navigate('Friends', {screen: 'Venner'} as never);
   };
 
   const handleSeGym = (u: OnlineUser) => {

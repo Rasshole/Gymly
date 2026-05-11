@@ -1,6 +1,6 @@
 /**
- * Groups Screen
- * Community – mine grupper, foreslåede, opret, join
+ * Groups Screen — skjult fra Venner-navigation ved launch (`SURFACE_GROUPS_IN_APP`).
+ * Bevares modulært til genaktivering; Supabase + stack-ruter uændret.
  */
 
 import React, {useState, useMemo} from 'react';

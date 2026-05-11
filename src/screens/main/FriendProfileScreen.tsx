@@ -15,6 +15,7 @@ import {
   Modal,
   TouchableWithoutFeedback,
   TextInput,
+  Pressable,
 } from 'react-native';
 import {useNavigation, useRoute, useFocusEffect} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
@@ -47,7 +48,6 @@ import {
   isFriendRequestStaleError,
 } from '@/utils/friendRequestRpcErrors';
 import {useFriendStore} from '@/store/friendStore';
-import danishGyms from '@/data/danishGyms';
 import {
   ProfileHeader,
   ProfileCentersList,
@@ -63,7 +63,21 @@ import {
   formatSessionDateAndDurationDa,
   type ProfileCompletedSession,
 } from '@/services/supabase/profileCheckInHistory';
+import {getActiveCheckInForUser} from '@/services/supabase/checkInService';
+import {
+  getUserStats as fetchUserStatsFromSupabase,
+  type UserStats as SupabaseUserStats,
+} from '@/services/supabase/userStatsService';
+import {
+  fetchSentWorkoutVibeEmojis,
+  sendWorkoutVibeRpc,
+} from '@/services/supabase/workoutVibeService';
+import {getProfileDisplay} from '@/services/data/ProfileService';
+import type {SupabaseCheckInRow} from '@/types/checkIn.types';
 import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
+import {formatGymNameWithBrand} from '@/utils/gymDisplay';
+import {loadProfileCentersForUser} from '@/services/supabase/profileCentersPublicService';
+import {useGymStore} from '@/store/gymStore';
 import {
   filterWorkoutsByPeriod,
   sumWorkoutMinutes,
@@ -71,8 +85,10 @@ import {
 } from '@/utils/workoutPeriodFilter';
 import {useProfileStats, useWeeklyStats} from '@/hooks/useProfileData';
 import {useJoinedGroups} from '@/hooks/useGroupData';
+import {SURFACE_GROUPS_IN_APP} from '@/config/launchSurfaceConfig';
 import colors from '@/theme/colors';
-import {spacing, typography, radius} from '@/theme/designTokens';
+import {spacing, typography, radius, shadows} from '@/theme/designTokens';
+import {PurpleGradientButton} from '@/components/ui/PurpleGradientButton';
 import type {ProfileCenterRow} from '@/components/profile/ProfileCentersList';
 import GymlyPostCard from '@/components/feed/GymlyPostCard';
 
@@ -83,6 +99,8 @@ type FriendProfileRouteParams = {
   mutualFriends?: number;
   gyms?: string[];
   friendAvatarUrl?: string;
+  /** Gym-kontekst fra navigation (fx Live / Aktive nu) */
+  activeCenterName?: string;
 };
 
 type FriendProfileUser = {
@@ -91,6 +109,7 @@ type FriendProfileUser = {
   username: string;
   profileImageUrl: string | null;
   favoriteGymIds: string[];
+  featuredBadgeIds: string[];
 };
 
 type ProfileTab = 'feed' | 'data';
@@ -101,6 +120,53 @@ const DATA_PERIOD_OPTIONS: {key: WorkoutPeriod; label: string}[] = [
   {key: 'year', label: 'År'},
   {key: 'all', label: 'I alt'},
 ];
+
+const NON_FRIEND_VIBE_OPTIONS = [
+  {emoji: '💪', label: 'Respekt'},
+  {emoji: '🔥', label: 'On fire'},
+  {emoji: '👋', label: 'Hey'},
+] as const;
+
+function computeSessionInsights(sessions: ProfileCompletedSession[]) {
+  const typeCounts = new Map<string, number>();
+  const gymCounts = new Map<string, number>();
+  for (const s of sessions) {
+    const wt = s.workoutType?.trim();
+    if (wt) {
+      typeCounts.set(wt, (typeCounts.get(wt) ?? 0) + 1);
+    }
+    const g = s.gymName?.trim();
+    if (g) {
+      gymCounts.set(g, (gymCounts.get(g) ?? 0) + 1);
+    }
+  }
+  let topWorkoutType: string | null = null;
+  let topWorkoutScore = 0;
+  for (const [k, v] of typeCounts) {
+    if (v > topWorkoutScore) {
+      topWorkoutScore = v;
+      topWorkoutType = k;
+    }
+  }
+  let topGymName: string | null = null;
+  let topGymScore = 0;
+  for (const [k, v] of gymCounts) {
+    if (v > topGymScore) {
+      topGymScore = v;
+      topGymName = k;
+    }
+  }
+  const last = sessions[0];
+  const lastEnded = last?.endedAt ?? null;
+  const recentlyActive =
+    lastEnded != null && Date.now() - lastEnded.getTime() < 7 * 86400000;
+  return {
+    topWorkoutType,
+    topGymName,
+    lastEndedAt: lastEnded,
+    recentlyActive,
+  };
+}
 
 const formatTotalTime = (minutes: number): string => {
   if (minutes < 60) return `${minutes} min`;
@@ -181,8 +247,25 @@ const FriendProfileScreen = () => {
   const [commentsByFeedItem, setCommentsByFeedItem] = useState<
     Record<string, Array<{author: string; text: string; id: string}>>
   >({});
+  const [supabaseFriendStats, setSupabaseFriendStats] =
+    useState<SupabaseUserStats | null>(null);
+  const [friendLiveCheckIn, setFriendLiveCheckIn] =
+    useState<SupabaseCheckInRow | null>(null);
+  const [profileBio, setProfileBio] = useState<string | null>(null);
+  const [vibeSheetVisible, setVibeSheetVisible] = useState(false);
+  const [vibeBusy, setVibeBusy] = useState(false);
+  const [vibeDelivered, setVibeDelivered] = useState<Set<string>>(
+    () => new Set(),
+  );
+  const [vibeHint, setVibeHint] = useState<string | null>(null);
+  const [vibeError, setVibeError] = useState<string | null>(null);
   const loadFriendStore = useFriendStore(s => s.load);
   const removeFriendFromStore = useFriendStore(s => s.removeFriend);
+  const getActiveUsersCount = useGymStore(s => s.getActiveUsersCount);
+
+  const [profileCenterRows, setProfileCenterRows] = useState<ProfileCenterRow[]>(
+    [],
+  );
 
   const loadProfile = useCallback(async () => {
     if (!friendId) {
@@ -211,6 +294,13 @@ const FriendProfileScreen = () => {
           .filter((s): s is string => s.length > 0);
       })();
 
+      const featuredRaw = !error && data
+        ? (data as Record<string, unknown>).featured_badge_ids
+        : null;
+      const featuredBadgeIds = Array.isArray(featuredRaw)
+        ? featuredRaw.map(x => String(x)).filter(Boolean).slice(0, 3)
+        : [];
+
       if (error || !data) {
         setFriendUser({
           id: friendId,
@@ -218,6 +308,7 @@ const FriendProfileScreen = () => {
           username: 'bruger',
           profileImageUrl: params.friendAvatarUrl ?? null,
           favoriteGymIds: [],
+          featuredBadgeIds: [],
         });
       } else {
         setFriendUser({
@@ -230,6 +321,7 @@ const FriendProfileScreen = () => {
           profileImageUrl:
             (data.avatar_url as string | null) ?? params.friendAvatarUrl ?? null,
           favoriteGymIds: gymIds,
+          featuredBadgeIds,
         });
       }
     } catch {
@@ -239,6 +331,7 @@ const FriendProfileScreen = () => {
         username: 'bruger',
         profileImageUrl: params.friendAvatarUrl ?? null,
         favoriteGymIds: [],
+        featuredBadgeIds: [],
       });
     } finally {
       setLoading(false);
@@ -285,6 +378,51 @@ const FriendProfileScreen = () => {
     }
   }, [friendId]);
 
+  const refreshProfileCenters = useCallback(async () => {
+    if (!friendId) {
+      setProfileCenterRows([]);
+      return;
+    }
+    try {
+      let rows = await loadProfileCentersForUser(friendId);
+      if (rows.length === 0 && (params.gyms ?? []).length > 0) {
+        rows = centersFromGymNameStrings(params.gyms ?? []);
+      }
+      setProfileCenterRows(rows);
+    } catch {
+      setProfileCenterRows([]);
+    }
+  }, [friendId, params.gyms]);
+
+  const loadFriendPublicContext = useCallback(async () => {
+    if (!friendId) {
+      setSupabaseFriendStats(null);
+      setFriendLiveCheckIn(null);
+      setProfileBio(null);
+      return;
+    }
+    try {
+      const [s, display, activeRow] = await Promise.all([
+        fetchUserStatsFromSupabase(friendId),
+        getProfileDisplay(friendId),
+        (async (): Promise<SupabaseCheckInRow | null> => {
+          try {
+            return await getActiveCheckInForUser(friendId);
+          } catch {
+            return null;
+          }
+        })(),
+      ]);
+      setSupabaseFriendStats(s);
+      setProfileBio(display.bio?.trim() ? display.bio.trim() : null);
+      setFriendLiveCheckIn(activeRow);
+    } catch {
+      setSupabaseFriendStats(null);
+      setFriendLiveCheckIn(null);
+      setProfileBio(null);
+    }
+  }, [friendId]);
+
   useFocusEffect(
     useCallback(() => {
       void loadProfile();
@@ -292,26 +430,116 @@ const FriendProfileScreen = () => {
       void refreshFriendWeekly();
       void loadFriendStatus();
       void loadCompletedSessions();
+      void loadFriendPublicContext();
+      void refreshProfileCenters();
     }, [
       loadProfile,
       loadFriendStatus,
       loadCompletedSessions,
+      loadFriendPublicContext,
       refreshFriendStats,
       refreshFriendWeekly,
+      refreshProfileCenters,
     ]),
   );
 
-  const centerRows = useMemo((): ProfileCenterRow[] => {
-    const fromIds = (friendUser?.favoriteGymIds ?? [])
-      .slice(0, 3)
-      .map(id => danishGyms.find(g => g.id === id))
-      .filter(Boolean)
-      .map(g => ({name: g!.name, city: g!.city, brand: g!.brand}));
-    if (fromIds.length > 0) {
-      return fromIds;
+  useEffect(() => {
+    if (!friendId) {
+      return;
     }
-    return centersFromGymNameStrings(params.gyms ?? []);
-  }, [friendUser?.favoriteGymIds, params.gyms]);
+    const channel = supabase
+      .channel(`friend-profile-centers-${friendId}`)
+      .on(
+        'postgres_changes',
+        {
+          event: 'UPDATE',
+          schema: 'public',
+          table: 'profiles',
+          filter: `id=eq.${friendId}`,
+        },
+        () => {
+          void refreshProfileCenters();
+        },
+      )
+      .subscribe();
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [friendId, refreshProfileCenters]);
+
+  const sessionInsights = useMemo(
+    () => computeSessionInsights(completedSessions),
+    [completedSessions],
+  );
+
+  const mergedDisplayStats = useMemo(() => {
+    const f = friendStats;
+    const s = supabaseFriendStats;
+    if (!f && !s) {
+      return null;
+    }
+    return {
+      totalCheckIns: s?.totalCheckIns ?? f?.totalCheckIns ?? 0,
+      currentStreak: s?.currentStreak ?? f?.currentStreak ?? 0,
+      longestStreak: Math.max(
+        s?.longestStreak ?? 0,
+        f?.longestStreak ?? 0,
+      ),
+      totalTrainingMinutes: s?.totalTrainingMinutes ?? f?.totalTrainingMinutes ?? 0,
+      badgesCount: f?.badgesCount ?? 0,
+      friendsCount: f?.friendsCount ?? 0,
+      followersCount: f?.followersCount ?? 0,
+      followingCount: f?.followingCount ?? 0,
+    };
+  }, [friendStats, supabaseFriendStats]);
+
+  const favoriteTypeLabel = useMemo(() => {
+    if (!sessionInsights.topWorkoutType) {
+      return '—';
+    }
+    return formatWorkoutTypeDisplay(sessionInsights.topWorkoutType);
+  }, [sessionInsights.topWorkoutType]);
+
+  const headerActiveStatus = useMemo(() => {
+    if (friendLiveCheckIn?.gym_name?.trim()) {
+      return `Træner nu i ${friendLiveCheckIn.gym_name.trim()}`;
+    }
+    if (sessionInsights.recentlyActive && sessionInsights.lastEndedAt) {
+      return 'Aktiv for nylig';
+    }
+    return undefined;
+  }, [
+    friendLiveCheckIn,
+    sessionInsights.lastEndedAt,
+    sessionInsights.recentlyActive,
+  ]);
+
+  const headerPrimaryCenterLabel = useMemo(() => {
+    if (friendLiveCheckIn) {
+      return undefined;
+    }
+    const hint = params.activeCenterName?.trim();
+    if (hint) {
+      return hint;
+    }
+    const first = profileCenterRows[0];
+    if (first) {
+      const nameLine = formatGymNameWithBrand(first.name, first.brand);
+      const tail = first.city?.trim();
+      return tail
+        ? `Træner ofte i ${nameLine} — ${tail}`
+        : `Træner ofte i ${nameLine}`;
+    }
+    if (sessionInsights.topGymName) {
+      return `Træner ofte i ${sessionInsights.topGymName}`;
+    }
+    return undefined;
+  }, [
+    friendLiveCheckIn,
+    params.activeCenterName,
+    profileCenterRows,
+    sessionInsights.topGymName,
+  ]);
 
   const handleRemoveFriend = useCallback(() => {
     if (!currentUser?.id || !friendUser) {
@@ -420,6 +648,103 @@ const FriendProfileScreen = () => {
       setRequestActionLoading(false);
     }
   }, [currentUser?.id, pendingBetween?.incoming]);
+
+  const openVibeSheet = useCallback(async () => {
+    if (!friendId || !friendUser) {
+      return;
+    }
+    if (!friendLiveCheckIn) {
+      Alert.alert(
+        'Send vibe',
+        'Personen skal være aktiv på et center for at du kan sende en vibe. Tjek ind og find dem under Live i centret.',
+      );
+      return;
+    }
+    setVibeHint(null);
+    setVibeError(null);
+    setVibeSheetVisible(true);
+    try {
+      const emojis = await fetchSentWorkoutVibeEmojis(
+        friendId,
+        friendLiveCheckIn.id,
+      );
+      setVibeDelivered(new Set(emojis));
+    } catch {
+      setVibeDelivered(new Set());
+    }
+  }, [friendId, friendUser, friendLiveCheckIn]);
+
+  const closeVibeSheet = useCallback(() => {
+    setVibeSheetVisible(false);
+    setVibeBusy(false);
+    setVibeHint(null);
+    setVibeError(null);
+  }, []);
+
+  const sendVibeFromProfile = useCallback(
+    async (emoji: string) => {
+      if (
+        !currentUser?.id ||
+        !friendUser ||
+        !friendLiveCheckIn ||
+        vibeBusy
+      ) {
+        return;
+      }
+      if (vibeDelivered.has(emoji)) {
+        setVibeHint('Du har allerede sendt den vibe');
+        return;
+      }
+      const center =
+        friendLiveCheckIn.gym_name?.trim() ||
+        params.activeCenterName?.trim() ||
+        'centeret';
+      const workoutType = formatWorkoutTypeDisplay(
+        friendLiveCheckIn.workout_type ?? 'cardio',
+      );
+      setVibeBusy(true);
+      setVibeHint(null);
+      setVibeError(null);
+      try {
+        const rpc = await sendWorkoutVibeRpc({
+          recipientId: friendUser.id,
+          emoji,
+          recipientCheckInId: friendLiveCheckIn.id,
+          centerName: center,
+          workoutType,
+          threadId: null,
+          routeChat: false,
+        });
+        if (rpc.duplicate) {
+          setVibeDelivered(prev => new Set(prev).add(emoji));
+          setVibeHint('Du har allerede sendt den vibe');
+          return;
+        }
+        if (!rpc.ok) {
+          throw new Error(rpc.error || 'send_workout_vibe failed');
+        }
+        setVibeDelivered(prev => new Set(prev).add(emoji));
+        setVibeHint('Vibe sendt');
+        setTimeout(() => {
+          closeVibeSheet();
+        }, 700);
+      } catch (e) {
+        const msg = e instanceof Error ? e.message : String(e);
+        setVibeError(msg.length > 160 ? `${msg.slice(0, 157)}…` : msg);
+      } finally {
+        setVibeBusy(false);
+      }
+    },
+    [
+      currentUser?.id,
+      friendUser,
+      friendLiveCheckIn,
+      params.activeCenterName,
+      vibeBusy,
+      vibeDelivered,
+      closeVibeSheet,
+    ],
+  );
 
   const openChatWithFriend = useCallback(async () => {
     if (!friendUser || !currentUser?.id) {
@@ -576,25 +901,25 @@ const FriendProfileScreen = () => {
     [goals, friendId],
   );
 
-  const stats = useMemo(
-    () => [
+  const stats = useMemo(() => {
+    const rows = [
       {
         key: 'checkins',
         icon: 'checkmark-circle',
         label: 'Check-ins',
-        value: friendStats?.totalCheckIns ?? 0,
+        value: mergedDisplayStats?.totalCheckIns ?? 0,
       },
       {
         key: 'time',
         icon: 'time',
         label: 'Træningstid',
-        value: formatTotalTime(friendStats?.totalTrainingMinutes ?? 0),
+        value: formatTotalTime(mergedDisplayStats?.totalTrainingMinutes ?? 0),
       },
       {
         key: 'friends',
         icon: 'people',
         label: 'Venner',
-        value: friendStats?.friendsCount ?? 0,
+        value: mergedDisplayStats?.friendsCount ?? 0,
       },
       {
         key: 'groups',
@@ -608,8 +933,38 @@ const FriendProfileScreen = () => {
         label: 'Badges',
         value: badgeCount,
       },
+    ];
+    return SURFACE_GROUPS_IN_APP ? rows : rows.filter(r => r.key !== 'groups');
+  }, [mergedDisplayStats, friendJoinedGroups.length, badgeCount]);
+
+  const statsPreviewItems = useMemo(
+    () => [
+      {
+        key: 'checkins',
+        icon: 'checkmark-circle',
+        label: 'Check-ins',
+        value: mergedDisplayStats?.totalCheckIns ?? 0,
+      },
+      {
+        key: 'time',
+        icon: 'time',
+        label: 'Træningstid',
+        value: formatTotalTime(mergedDisplayStats?.totalTrainingMinutes ?? 0),
+      },
+      {
+        key: 'favtype',
+        icon: 'barbell-outline',
+        label: 'Foretrukken type',
+        value: favoriteTypeLabel,
+      },
+      {
+        key: 'badges',
+        emoji: '🏅',
+        label: 'Badges',
+        value: badgeCount,
+      },
     ],
-    [friendStats, friendJoinedGroups.length, badgeCount],
+    [mergedDisplayStats, favoriteTypeLabel, badgeCount],
   );
 
   const renderCompletedSessionRow = (
@@ -811,31 +1166,51 @@ const FriendProfileScreen = () => {
           displayName={dName}
           username={friendUser.username}
           profileImageUrl={friendUser.profileImageUrl}
-          showBio={false}
-          followersCount={friendStats?.followersCount ?? 0}
-          followingCount={friendStats?.followingCount ?? 0}
-          friendsCount={friendStats?.friendsCount ?? 0}
+          bio={profileBio ?? undefined}
+          showBio={Boolean(profileBio?.trim())}
+          activeStatus={headerActiveStatus}
+          primaryCenterLabel={headerPrimaryCenterLabel}
+          followersCount={mergedDisplayStats?.followersCount ?? 0}
+          followingCount={mergedDisplayStats?.followingCount ?? 0}
+          friendsCount={mergedDisplayStats?.friendsCount ?? 0}
         />
 
-        <ProfileBadgeStrip
-          userId={friendUser.id}
-          viewingOtherUser
-          otherUserDisplayName={dName}
-        />
+        <View style={styles.statsPreviewWrap}>
+          <Text style={styles.statsPreviewTitle}>Aktivitet</Text>
+          <Card variant="outlined" padding="lg" style={styles.statsPreviewCard}>
+            <View style={styles.streakBlockCompact}>
+              <StreakHighlight
+                currentStreak={mergedDisplayStats?.currentStreak ?? 0}
+                longestStreak={mergedDisplayStats?.longestStreak ?? 0}
+              />
+            </View>
+            <ProfileStatGrid stats={statsPreviewItems} />
+          </Card>
+        </View>
 
-        {centerRows.length > 0 ? (
-          <ProfileCentersList
-            sectionTitle="Lokale centre"
-            centers={centerRows}
+        <View style={styles.midProfileStack}>
+          <ProfileBadgeStrip
+            userId={friendUser.id}
+            featuredBadgeIds={friendUser.featuredBadgeIds}
+            viewingOtherUser
+            otherUserDisplayName={dName}
           />
-        ) : (
-          <View style={styles.noCentersBox}>
-            <Text style={styles.noCentersTitle}>Lokale centre</Text>
-            <Text style={styles.noCentersSub}>
-              {dName} har ikke tilføjet centre endnu
-            </Text>
-          </View>
-        )}
+
+          {profileCenterRows.length > 0 ? (
+            <ProfileCentersList
+              sectionTitle="Lokale centre"
+              centers={profileCenterRows}
+              activeCountForId={id => getActiveUsersCount(id)}
+            />
+          ) : (
+            <View style={styles.noCentersBox}>
+              <Text style={styles.noCentersTitle}>Lokale centre</Text>
+              <Text style={styles.noCentersSub}>
+                Har ikke valgt primært center endnu
+              </Text>
+            </View>
+          )}
+        </View>
 
         {!isCurrentUser && !friendStatusLoading && (
           <View style={styles.friendRequestSection}>
@@ -867,61 +1242,77 @@ const FriendProfileScreen = () => {
             {Boolean(pendingBetween?.outgoing) &&
             !isFriend &&
             !pendingBetween?.incoming ? (
-              <View style={styles.requestSentPill}>
-                <Icon
-                  name="time-outline"
-                  size={18}
-                  color={colors.textSecondary}
-                />
-                <Text style={styles.requestSentPillText}>Anmodning sendt</Text>
-              </View>
+              <>
+                <View style={styles.requestSentPill}>
+                  <Icon
+                    name="time-outline"
+                    size={18}
+                    color={colors.textSecondary}
+                  />
+                  <Text style={styles.requestSentPillText}>Anmodning sendt</Text>
+                </View>
+                <TouchableOpacity
+                  style={styles.sendVibeOutlineFull}
+                  onPress={() => void openVibeSheet()}
+                  activeOpacity={0.85}>
+                  <Text style={styles.emojiInline}>✨</Text>
+                  <Text style={styles.sendVibeOutlineText}>Send vibe</Text>
+                </TouchableOpacity>
+              </>
             ) : null}
             {!isFriend &&
             !pendingBetween?.incoming &&
             !pendingBetween?.outgoing ? (
-              <TouchableOpacity
-                style={styles.addFriendRow}
-                onPress={handleAddFriend}
-                disabled={requestActionLoading}
-                activeOpacity={0.85}>
-                {requestActionLoading ? (
-                  <ActivityIndicator color="#fff" />
-                ) : (
-                  <>
-                    <Icon
-                      name="person-add-outline"
-                      size={20}
-                      color="#fff"
-                    />
-                    <Text style={styles.addFriendRowText}>Tilføj ven</Text>
-                  </>
-                )}
-              </TouchableOpacity>
+              <View style={styles.socialRow}>
+                <TouchableOpacity
+                  style={[styles.addFriendRow, styles.socialRowBtn]}
+                  onPress={handleAddFriend}
+                  disabled={requestActionLoading}
+                  activeOpacity={0.85}>
+                  {requestActionLoading ? (
+                    <ActivityIndicator color="#fff" />
+                  ) : (
+                    <>
+                      <Icon
+                        name="person-add-outline"
+                        size={20}
+                        color="#fff"
+                      />
+                      <Text style={styles.addFriendRowText}>Tilføj ven</Text>
+                    </>
+                  )}
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={[styles.sendVibeOutline, styles.socialRowBtn]}
+                  onPress={() => void openVibeSheet()}
+                  activeOpacity={0.85}>
+                  <Text style={styles.emojiInline}>✨</Text>
+                  <Text style={styles.sendVibeOutlineText}>Send vibe</Text>
+                </TouchableOpacity>
+              </View>
             ) : null}
           </View>
         )}
 
         {!isCurrentUser && isFriend && (
           <View style={styles.actionButtons}>
-            <TouchableOpacity
-              style={styles.messageButton}
-              onPress={openChatWithFriend}
-              activeOpacity={0.8}>
+            <PurpleGradientButton
+              style={styles.ctaButtonWrap}
+              onPress={openChatWithFriend}>
               <Icon name="chatbubble-outline" size={20} color="#fff" />
               <Text style={styles.messageButtonText}>Skriv besked</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.inviteButton}
+            </PurpleGradientButton>
+            <PurpleGradientButton
+              style={styles.ctaButtonWrap}
               onPress={() =>
                 navigation.navigate('InviteToWorkout', {
                   friendId: friendUser.id,
                   friendName: friendUser.displayName,
                 })
-              }
-              activeOpacity={0.8}>
-              <Icon name="fitness-outline" size={20} color="#fff" />
+              }>
+              <Icon name="calendar-outline" size={20} color="#fff" />
               <Text style={styles.messageButtonText}>Inviter til træning</Text>
-            </TouchableOpacity>
+            </PurpleGradientButton>
           </View>
         )}
 
@@ -1040,8 +1431,8 @@ const FriendProfileScreen = () => {
             <Text style={styles.sectionTitle}>Statistik</Text>
             <View style={styles.streakBlock}>
               <StreakHighlight
-                currentStreak={friendStats?.currentStreak ?? 0}
-                longestStreak={friendStats?.longestStreak ?? 0}
+                currentStreak={mergedDisplayStats?.currentStreak ?? 0}
+                longestStreak={mergedDisplayStats?.longestStreak ?? 0}
               />
             </View>
             <Card variant="outlined" padding="lg" style={styles.statsCard}>
@@ -1136,6 +1527,73 @@ const FriendProfileScreen = () => {
           </View>
         )}
       </ScrollView>
+      <Modal
+        visible={vibeSheetVisible}
+        transparent
+        animationType="slide"
+        onRequestClose={closeVibeSheet}>
+        <TouchableWithoutFeedback onPress={closeVibeSheet}>
+          <View style={styles.bottomSheetOverlay}>
+            <TouchableWithoutFeedback>
+              <View style={styles.vibeSheet}>
+                <View style={styles.commentHandle} />
+                <View style={styles.bottomSheetHeader}>
+                  <Text style={styles.modalTitle}>Send vibe til {dName}</Text>
+                  <TouchableOpacity
+                    onPress={closeVibeSheet}
+                    style={styles.commentCloseButton}>
+                    <Icon name="close" size={22} color={colors.text} />
+                  </TouchableOpacity>
+                </View>
+                {friendLiveCheckIn?.gym_name ? (
+                  <Text style={styles.vibeSheetSub} numberOfLines={2}>
+                    {friendLiveCheckIn.gym_name.trim()} ·{' '}
+                    {formatWorkoutTypeDisplay(
+                      friendLiveCheckIn.workout_type ?? 'cardio',
+                    )}
+                  </Text>
+                ) : null}
+                <View style={styles.vibeEmojiRow}>
+                  {NON_FRIEND_VIBE_OPTIONS.map(({emoji, label}) => {
+                    const sent = vibeDelivered.has(emoji);
+                    return (
+                      <Pressable
+                        key={emoji}
+                        style={({pressed}) => [
+                          styles.vibeEmojiChip,
+                          sent && styles.vibeEmojiChipSent,
+                          pressed && styles.vibeEmojiChipPressed,
+                        ]}
+                        onPress={() => void sendVibeFromProfile(emoji)}
+                        disabled={vibeBusy || sent}>
+                        <Text style={styles.vibeEmojiLarge}>{emoji}</Text>
+                        <Text style={styles.vibeEmojiLabel}>{label}</Text>
+                        {sent ? (
+                          <View style={styles.vibeSentDot}>
+                            <Icon name="checkmark" size={10} color="#fff" />
+                          </View>
+                        ) : null}
+                      </Pressable>
+                    );
+                  })}
+                </View>
+                {vibeBusy ? (
+                  <ActivityIndicator
+                    style={styles.vibeBusy}
+                    color={colors.primary}
+                  />
+                ) : null}
+                {vibeHint ? (
+                  <Text style={styles.vibeHint}>{vibeHint}</Text>
+                ) : null}
+                {vibeError ? (
+                  <Text style={styles.vibeErrorText}>{vibeError}</Text>
+                ) : null}
+              </View>
+            </TouchableWithoutFeedback>
+          </View>
+        </TouchableWithoutFeedback>
+      </Modal>
       <Modal visible={bicepsListVisible} transparent animationType="slide">
         <TouchableWithoutFeedback onPress={closeBicepsList}>
           <View style={styles.bottomSheetOverlay}>
@@ -1276,14 +1734,18 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: colors.textMuted,
   },
+  midProfileStack: {
+    gap: spacing.xl,
+    marginBottom: spacing.xxl,
+  },
   noCentersBox: {
     marginHorizontal: spacing.lg,
-    marginBottom: spacing.lg,
-    padding: spacing.md,
-    backgroundColor: colors.backgroundCard,
-    borderRadius: 12,
-    borderWidth: 1,
-    borderColor: colors.border,
+    marginBottom: 0,
+    padding: spacing.lg,
+    backgroundColor: colors.backgroundCardLight,
+    borderRadius: radius.lg,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: 'rgba(139, 92, 246, 0.12)',
   },
   noCentersTitle: {
     ...typography.small,
@@ -1296,6 +1758,131 @@ const styles = StyleSheet.create({
   noCentersSub: {
     ...typography.caption,
     color: colors.textSecondary,
+  },
+  statsPreviewWrap: {
+    paddingHorizontal: spacing.lg,
+    marginBottom: spacing.xl,
+  },
+  statsPreviewTitle: {
+    ...typography.bodyBold,
+    color: colors.text,
+    marginBottom: spacing.sm,
+  },
+  statsPreviewCard: {
+    marginBottom: 0,
+  },
+  streakBlockCompact: {
+    marginBottom: spacing.md,
+  },
+  socialRow: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  socialRowBtn: {
+    flex: 1,
+    minWidth: 0,
+  },
+  sendVibeOutline: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    paddingVertical: 14,
+    borderRadius: 12,
+    borderWidth: 2,
+    borderColor: colors.primary,
+    backgroundColor: colors.backgroundCard,
+  },
+  sendVibeOutlineFull: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+    paddingVertical: 14,
+    borderRadius: 12,
+    borderWidth: 2,
+    borderColor: colors.primary,
+    backgroundColor: colors.background,
+  },
+  sendVibeOutlineText: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: colors.primary,
+  },
+  emojiInline: {
+    fontSize: 18,
+  },
+  vibeSheet: {
+    backgroundColor: colors.background,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    paddingBottom: spacing.xl,
+  },
+  vibeSheetSub: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    paddingHorizontal: spacing.lg,
+    marginBottom: spacing.md,
+  },
+  vibeEmojiRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingHorizontal: spacing.md,
+    paddingBottom: spacing.md,
+  },
+  vibeEmojiChip: {
+    position: 'relative',
+    alignItems: 'center',
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.sm,
+    borderRadius: radius.lg,
+    backgroundColor: colors.surface,
+    borderWidth: 1,
+    borderColor: colors.border,
+    minWidth: 92,
+  },
+  vibeEmojiChipSent: {
+    opacity: 0.55,
+  },
+  vibeEmojiChipPressed: {
+    opacity: 0.85,
+  },
+  vibeEmojiLarge: {
+    fontSize: 36,
+    lineHeight: 42,
+  },
+  vibeEmojiLabel: {
+    ...typography.small,
+    color: colors.textSecondary,
+    marginTop: 4,
+    fontWeight: '600',
+  },
+  vibeSentDot: {
+    position: 'absolute',
+    top: 8,
+    right: 8,
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    backgroundColor: colors.success,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  vibeBusy: {
+    marginVertical: spacing.sm,
+  },
+  vibeHint: {
+    ...typography.caption,
+    color: colors.primary,
+    textAlign: 'center',
+    paddingHorizontal: spacing.lg,
+  },
+  vibeErrorText: {
+    ...typography.caption,
+    color: colors.error,
+    textAlign: 'center',
+    paddingHorizontal: spacing.lg,
+    marginTop: spacing.xs,
   },
   friendRequestSection: {
     marginHorizontal: spacing.lg,
@@ -1360,29 +1947,13 @@ const styles = StyleSheet.create({
   },
   actionButtons: {
     flexDirection: 'row',
-    gap: 12,
+    gap: spacing.md,
     marginHorizontal: spacing.lg,
-    marginBottom: spacing.lg,
+    marginTop: spacing.sm,
+    marginBottom: spacing.xxl,
   },
-  messageButton: {
+  ctaButtonWrap: {
     flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.primary,
-    paddingVertical: 12,
-    borderRadius: 12,
-    gap: 8,
-  },
-  inviteButton: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.secondaryDark,
-    paddingVertical: 12,
-    borderRadius: 12,
-    gap: 8,
   },
   removeFriendFooter: {
     paddingTop: spacing.lg,
@@ -1423,13 +1994,15 @@ const styles = StyleSheet.create({
   tabBar: {
     flexDirection: 'row',
     marginHorizontal: spacing.lg,
+    marginTop: spacing.xs,
     marginBottom: spacing.lg,
     gap: spacing.sm,
-    padding: 4,
-    backgroundColor: colors.surface,
+    padding: 5,
+    backgroundColor: colors.backgroundCardLight,
     borderRadius: radius.lg,
-    borderWidth: 1,
-    borderColor: colors.border,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: 'rgba(139, 92, 246, 0.08)',
+    ...shadows.sm,
   },
   tabBtn: {
     flex: 1,

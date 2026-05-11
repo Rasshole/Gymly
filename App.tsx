@@ -8,7 +8,7 @@
 import './src/theme/colors';
 
 import React, {useCallback, useEffect, useMemo} from 'react';
-import {StatusBar, StyleSheet, Linking} from 'react-native';
+import {StatusBar, StyleSheet, Linking, Alert} from 'react-native';
 import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import safeArea from '@/safeAreaContext';
@@ -43,7 +43,7 @@ const App = () => {
   );
 
   const consumeRecoveryUrl = useCallback(async (url: string) => {
-    if (!url.includes('reset-password')) {
+    if (!url.includes('reset-password') || url.includes('reset-password-success')) {
       return;
     }
     const hash = url.split('#')[1] ?? '';
@@ -74,6 +74,26 @@ const App = () => {
     }
   }, [setUser]);
 
+  const showPasswordResetSuccess = useCallback(async () => {
+    await supabase.auth.signOut().catch(() => {});
+    await logout().catch(() => {});
+    const goLogin = () => {
+      if (navigationRef.isReady()) {
+        navigationRef.reset({
+          index: 0,
+          routes: [
+            {
+              name: 'Auth',
+              state: {routes: [{name: 'Login'}], index: 0},
+            },
+          ],
+        });
+      }
+    };
+    Alert.alert('Gymly', 'Din adgangskode er ændret', [{text: 'OK', onPress: goLogin}]);
+    setTimeout(goLogin, 2000);
+  }, [logout]);
+
   const handleHomeDeepLink = useCallback(async () => {
     try {
       const {
@@ -100,6 +120,10 @@ const App = () => {
 
   useEffect(() => {
     const handleUrl = ({url}: {url: string}) => {
+      if (url.includes('reset-password-success')) {
+        void showPasswordResetSuccess();
+        return;
+      }
       if (url.includes('gymlyapp://home')) {
         handleHomeDeepLink().catch(() => {});
         return;
@@ -110,6 +134,10 @@ const App = () => {
     Linking.getInitialURL()
       .then(url => {
         if (url) {
+          if (url.includes('reset-password-success')) {
+            void showPasswordResetSuccess();
+            return;
+          }
           if (url.includes('gymlyapp://home')) {
             handleHomeDeepLink().catch(() => {});
             return;
@@ -119,7 +147,7 @@ const App = () => {
       })
       .catch(() => {});
     return () => sub.remove();
-  }, [consumeRecoveryUrl, handleHomeDeepLink]);
+  }, [consumeRecoveryUrl, handleHomeDeepLink, showPasswordResetSuccess]);
 
   return (
     <StartupErrorBoundary>

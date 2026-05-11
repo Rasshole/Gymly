@@ -20,7 +20,7 @@ export const StreakHighlight: React.FC<StreakHighlightProps> = ({
   onPress,
 }) => {
   const icon = streak.getStreakIcon(currentStreak);
-  const displayIcon = icon || '🔥';
+  const displayIcon = icon || '💪';
   const next = streak.getNextMilestone(currentStreak);
   const emphasis = streak.getStreakEmphasisLevel(currentStreak);
   const milestoneHint =

@@ -22,6 +22,12 @@ import {
 } from '@/config/supabaseConfig';
 import {User as SupabaseUser} from '@supabase/supabase-js';
 import {normalizeDanishPhone} from '@/utils/phoneUtils';
+import {
+  getUsernameFormatErrorDa,
+  normalizeUsernameForStorage,
+} from '@/utils/usernameRules';
+import {isUsernameAvailableInSupabase} from '@/services/supabase/usernameAvailabilityService';
+import {mergeProfileUsernameIntoUser} from '@/services/supabase/friendService';
 
 class AuthService {
   private readonly API_URL = 'https://api.gymly.app'; // TODO: Replace with actual API URL
@@ -136,6 +142,30 @@ class AuthService {
         'Bekræftelsesmailen kunne ikke sendes. Tjek Supabase (samme projekt som i appen: ykantlsuszpauddasqvz) under Authentication → Emails → SMTP: host, port (587+TLS eller 465+SSL), bruger og app-adgangskode. Slå custom SMTP fra for at teste med Supabase-standard.';
       return m ? `${hint}\n\nDetalje: ${m}` : hint;
     }
+    if (
+      lower.includes('redirect') &&
+      (lower.includes('not allowed') ||
+        lower.includes('invalid') ||
+        lower.includes('whitelist') ||
+        lower.includes('configured'))
+    ) {
+      return `Reset-mail kunne ikke sendes, fordi redirect-URL ikke er godkendt i Supabase.\n\nTilføj præcis denne URL under Authentication → URL Configuration → Redirect URLs:\n${SUPABASE_PASSWORD_RESET_REDIRECT}`;
+    }
+    if (
+      lower.includes('rate limit') ||
+      lower.includes('only request this') ||
+      lower.includes('too many') ||
+      lower.includes('email rate')
+    ) {
+      return 'Der er sendt for mange mails på kort tid. Vent et øjeblik og prøv igen.';
+    }
+    if (
+      lower.includes('duplicate key') ||
+      lower.includes('unique constraint') ||
+      lower.includes('profiles_username_lower')
+    ) {
+      return 'Brugernavnet er allerede taget';
+    }
     return m;
   }
 
@@ -147,6 +177,12 @@ class AuthService {
       // Validate input
       this.validateRegistration(data);
 
+      const normalizedUsername = normalizeUsernameForStorage(data.username);
+      const usernameFree = await isUsernameAvailableInSupabase(normalizedUsername, null);
+      if (!usernameFree) {
+        throw new Error('Brugernavn er allerede taget');
+      }
+
       const signUpOnce = () =>
         supabase.auth.signUp({
           email: data.email,
@@ -154,7 +190,7 @@ class AuthService {
           options: {
             emailRedirectTo: SUPABASE_EMAIL_REDIRECT || undefined,
             data: {
-              username: data.username,
+              username: normalizedUsername,
               phoneNumber: data.phoneNumber,
               displayName: data.displayName,
               bicepsEmoji: data.bicepsEmoji || '💪🏻',
@@ -197,39 +233,44 @@ class AuthService {
         throw new Error(this.humanizeAuthMessage(error.message));
       }
 
-      const user = signupData.user ? this.mapSupabaseUser(signupData.user) : {
-        id: Date.now().toString(),
-        email: data.email,
-        username: data.username,
-        phoneNumber: data.phoneNumber,
-        displayName: data.displayName,
-        profileImageUrl: data.profileImageUrl,
-        bicepsEmoji: data.bicepsEmoji || '💪🏻',
-        birthYear: data.birthYear,
-        dateOfBirth: data.dateOfBirth ? new Date(data.dateOfBirth) : undefined,
-        favoriteGyms: data.favoriteGyms,
-        privacySettings: {
-          profileVisibility: 'friends',
-          locationSharingEnabled: true,
-          showWorkoutHistory: true,
-          allowFriendRequests: true,
-          showOnlineStatus: true,
-        },
-        gdprConsent: {
-          privacyPolicyAccepted: data.gdprConsent.privacyPolicyAccepted,
-          termsOfServiceAccepted: data.gdprConsent.termsOfServiceAccepted,
-          dataRetentionConsent: true,
-          marketingConsent: data.gdprConsent.marketingConsent,
-          analyticsConsent: data.gdprConsent.analyticsConsent,
-          locationTrackingConsent: false,
-          consentDate: new Date(),
-          privacyPolicyVersion: '1.0.0',
-          termsOfServiceVersion: '1.0.0',
-          consentHistory: [],
-        },
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      };
+      let user: User;
+      if (signupData.user) {
+        user = await mergeProfileUsernameIntoUser(this.mapSupabaseUser(signupData.user));
+      } else {
+        user = {
+          id: Date.now().toString(),
+          email: data.email,
+          username: normalizedUsername,
+          phoneNumber: data.phoneNumber,
+          displayName: data.displayName,
+          profileImageUrl: data.profileImageUrl,
+          bicepsEmoji: data.bicepsEmoji || '💪🏻',
+          birthYear: data.birthYear,
+          dateOfBirth: data.dateOfBirth ? new Date(data.dateOfBirth) : undefined,
+          favoriteGyms: data.favoriteGyms,
+          privacySettings: {
+            profileVisibility: 'friends',
+            locationSharingEnabled: true,
+            showWorkoutHistory: true,
+            allowFriendRequests: true,
+            showOnlineStatus: true,
+          },
+          gdprConsent: {
+            privacyPolicyAccepted: data.gdprConsent.privacyPolicyAccepted,
+            termsOfServiceAccepted: data.gdprConsent.termsOfServiceAccepted,
+            dataRetentionConsent: true,
+            marketingConsent: data.gdprConsent.marketingConsent,
+            analyticsConsent: data.gdprConsent.analyticsConsent,
+            locationTrackingConsent: false,
+            consentDate: new Date(),
+            privacyPolicyVersion: '1.0.0',
+            termsOfServiceVersion: '1.0.0',
+            consentHistory: [],
+          },
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        };
+      }
 
       if (!signupData.session) {
         await SecureStorage.saveUserData(user);
@@ -314,7 +355,8 @@ class AuthService {
         throw new Error('Login fejlede. Prøv igen.');
       }
 
-      const user = this.mapSupabaseUser(data.user);
+      let user = this.mapSupabaseUser(data.user);
+      user = await mergeProfileUsernameIntoUser(user);
       const tokens = this.mapSessionTokens(data.session);
 
       await SecureStorage.saveTokens(tokens);
@@ -375,20 +417,23 @@ class AuthService {
    * Request password reset
    */
   async requestPasswordReset(email: string): Promise<void> {
+    this.validateEmail(email);
+    console.log('Calling resetPasswordForEmail', email);
     try {
-      this.validateEmail(email);
-      const {error} = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: SUPABASE_PASSWORD_RESET_REDIRECT || undefined,
+      const {data, error} = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: SUPABASE_PASSWORD_RESET_REDIRECT,
       });
+      console.log('Reset response:', error ?? null, data ?? null);
       if (error) {
         throw new Error(this.humanizeAuthMessage(error.message));
       }
-    } catch (error) {
-      logAuthDebug('[AuthService] password reset request failed', error);
-      if (error instanceof Error) {
-        throw new Error(this.humanizeAuthMessage(error.message));
+    } catch (e) {
+      console.log('Network error:', e);
+      logAuthDebug('[AuthService] password reset request failed', e);
+      if (e instanceof Error) {
+        throw new Error(this.humanizeAuthMessage(e.message));
       }
-      throw error;
+      throw e;
     }
   }
 
@@ -471,16 +516,10 @@ class AuthService {
    * Validate username
    */
   private validateUsername(username: string): void {
-    if (username.length < 3) {
-      throw new Error('Brugernavn skal være mindst 3 tegn');
-    }
-
-    if (username.length > 20) {
-      throw new Error('Brugernavn må højst være 20 tegn');
-    }
-
-    if (!/^[a-zA-Z0-9_]+$/.test(username)) {
-      throw new Error('Brugernavn må kun indeholde bogstaver, tal og underscore');
+    const u = normalizeUsernameForStorage(username);
+    const err = getUsernameFormatErrorDa(u);
+    if (err) {
+      throw new Error(err);
     }
   }
 

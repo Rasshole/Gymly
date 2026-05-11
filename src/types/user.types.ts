@@ -30,15 +30,27 @@ export interface User {
   
   // Favorite gyms (top 3 local training centers)
   favoriteGyms?: string[]; // Stabile center-ids (max 3)
-  
+
+  /** Fremhævede badges på profil (max 3 badge_id), synket fra Supabase */
+  featuredBadgeIds?: string[];
+
+  /** Sættes af Supabase efter dublet-oprydning — tvinger nyt brugernavn ved login */
+  usernameRequiresChange?: boolean;
+
   // Account timestamps
   createdAt: Date;
   updatedAt: Date;
   lastLoginAt?: Date;
 }
 
+export type ProfileVisibility =
+  | 'everyone'
+  | 'friends'
+  | 'friends_and_gyms'
+  | 'private';
+
 export interface PrivacySettings {
-  profileVisibility: 'everyone' | 'friends' | 'friends_and_gyms' | 'private';
+  profileVisibility: ProfileVisibility;
   locationSharingEnabled: boolean;
   showWorkoutHistory: boolean;
   allowFriendRequests: boolean;

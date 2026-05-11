@@ -21,8 +21,7 @@ import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useAppStore} from '@/store/appStore';
 import {usePrivacyStore} from '@/store/privacyStore';
-import {supabase} from '@/services/supabase/supabaseClient';
-import {SUPABASE_PASSWORD_RESET_REDIRECT} from '@/config/supabaseConfig';
+import AuthService from '@/services/auth/AuthService';
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '@/theme/colors';
 
@@ -131,16 +130,14 @@ const SettingsScreen = () => {
         {
           text: 'Send link',
           onPress: async () => {
+            console.log('UI: Skift adgangskode → Send link pressed', user.email);
             try {
-              const {error} = await supabase.auth.resetPasswordForEmail(user.email, {
-                redirectTo: SUPABASE_PASSWORD_RESET_REDIRECT || undefined,
-              });
-              if (error) {
-                throw error;
-              }
+              await AuthService.requestPasswordReset(user.email);
               Alert.alert('Skift adgangskode', 'Vi har sendt et link til din email.');
-            } catch {
-              Alert.alert('Skift adgangskode', 'Kunne ikke sende link. Prøv igen.');
+            } catch (e) {
+              const msg =
+                e instanceof Error ? e.message : 'Kunne ikke sende link. Prøv igen.';
+              Alert.alert('Skift adgangskode', msg);
             }
           },
         },

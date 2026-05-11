@@ -1,6 +1,55 @@
 import {supabase} from '@/services/supabase/supabaseClient';
+import {checkAndUnlockBadges} from '@/store/badgeStore';
 import type {User} from '@/types/user.types';
 import {withAvatarCacheBust} from '../../utils/avatar';
+
+const USERNAME_TAKEN_DA = 'Brugernavnet er allerede taget';
+
+async function invokeSendPushForNotification(notificationId: string): Promise<void> {
+  const {error} = await supabase.functions.invoke('send-push', {
+    body: {notification_id: notificationId},
+  });
+  if (__DEV__) {
+    if (error) {
+      console.log('[notify] send-push called:', false, {notification_id: notificationId, error: error.message});
+    } else {
+      console.log('[notify] send-push called:', true, {notification_id: notificationId});
+    }
+  }
+}
+
+export async function mergeProfileUsernameIntoUser(user: User): Promise<User> {
+  const row = await fetchMyProfileUsernameFields(user.id);
+  if (!row?.username) {
+    return user;
+  }
+  return {
+    ...user,
+    username: row.username,
+    usernameRequiresChange: row.usernameRequiresChange,
+  };
+}
+
+export async function fetchMyProfileUsernameFields(
+  userId: string,
+): Promise<{username: string; usernameRequiresChange: boolean} | null> {
+  const {data, error} = await supabase
+    .from('profiles')
+    .select('username, username_requires_change')
+    .eq('id', userId)
+    .maybeSingle();
+  if (error || !data) {
+    return null;
+  }
+  const row = data as {
+    username?: string;
+    username_requires_change?: boolean;
+  };
+  return {
+    username: String(row.username ?? ''),
+    usernameRequiresChange: Boolean(row.username_requires_change),
+  };
+}
 
 export type PublicProfile = {
   id: string;
@@ -42,20 +91,60 @@ export async function upsertMyProfile(user: User): Promise<void> {
   const gymIds = (user.favoriteGyms ?? [])
     .filter((id): id is string => typeof id === 'string' && id.length > 0)
     .slice(0, 3);
-  const {error} = await supabase.from('profiles').upsert(
+  const baseRow = {
+    id: user.id,
+    username,
+    display_name: (user.displayName || username).trim(),
+    avatar_url: user.profileImageUrl ?? null,
+    updated_at: new Date().toISOString(),
+  };
+
+  const attempts: Array<Record<string, unknown>> = [
     {
-      id: user.id,
-      username,
-      display_name: (user.displayName || username).trim(),
-      avatar_url: user.profileImageUrl ?? null,
+      ...baseRow,
       favorite_gym_ids: gymIds,
-      updated_at: new Date().toISOString(),
+      username_requires_change: user.usernameRequiresChange === true,
     },
-    {onConflict: 'id'},
-  );
-  if (error) {
-    throw error;
+    {
+      ...baseRow,
+      username_requires_change: user.usernameRequiresChange === true,
+    },
+    baseRow,
+  ];
+
+  let lastError: unknown = null;
+  for (const row of attempts) {
+    const {error} = await supabase.from('profiles').upsert(row, {onConflict: 'id'});
+    if (!error) {
+      return;
+    }
+    lastError = error;
+    const code = (error as {code?: string}).code;
+    const msg = (error.message || '').toLowerCase();
+    if (
+      code === '23505' ||
+      msg.includes('duplicate') ||
+      msg.includes('unique') ||
+      msg.includes('profiles_username')
+    ) {
+      throw new Error(USERNAME_TAKEN_DA);
+    }
+    // Retry only for schema mismatch style errors; otherwise fail fast.
+    const recoverable =
+      msg.includes('column') ||
+      msg.includes('favorite_gym_ids') ||
+      msg.includes('username_requires_change') ||
+      msg.includes('invalid input syntax') ||
+      msg.includes('type');
+    if (!recoverable) {
+      throw error;
+    }
+    if (__DEV__) {
+      console.warn('[upsertMyProfile] retrying with reduced payload:', msg);
+    }
   }
+
+  throw lastError instanceof Error ? lastError : new Error('Kunne ikke gemme profil');
 }
 
 export async function searchProfiles(
@@ -273,17 +362,47 @@ export async function sendFriendRequest(
   if (friends.has(toUserId)) {
     throw new Error('I er allerede venner.');
   }
-  const {error} = await supabase.from('friend_requests').insert({
-    from_user_id: fromUserId,
-    to_user_id: toUserId,
-    status: 'pending',
-  });
+  const {data, error} = await supabase
+    .from('friend_requests')
+    .insert({
+      from_user_id: fromUserId,
+      to_user_id: toUserId,
+      status: 'pending',
+    })
+    .select('id')
+    .single();
   if (error) {
     if (error.code === '23505') {
       throw new Error('Der ligger allerede en afventende anmodning.');
     }
     throw error;
   }
+  const requestId = data?.id as string | undefined;
+  if (!requestId) {
+    return;
+  }
+  setTimeout(async () => {
+    try {
+      const {data: notification} = await supabase
+        .from('notifications')
+        .select('id')
+        .eq('type', 'friend_request')
+        .filter('data->>friendRequestId', 'eq', requestId)
+        .order('created_at', {ascending: false})
+        .limit(1)
+        .maybeSingle();
+      const notificationId = notification?.id as string | undefined;
+      if (notificationId) {
+        await invokeSendPushForNotification(notificationId);
+      } else if (__DEV__) {
+        console.log('[notify] friend_request notification created:', false, {requestId});
+      }
+    } catch (e) {
+      if (__DEV__) {
+        console.log('[notify] friend_request push fallback failed:', e);
+      }
+    }
+  }, 450);
 }
 
 export async function listFriendsWithProfiles(
@@ -356,11 +475,53 @@ export async function listPendingIncomingRequests(
 }
 
 export async function acceptFriendRequest(requestId: string): Promise<void> {
+  const {data: reqBefore} = await supabase
+    .from('friend_requests')
+    .select('from_user_id, to_user_id')
+    .eq('id', requestId)
+    .maybeSingle();
   const {error} = await supabase.rpc('accept_friend_request', {
     p_request_id: requestId,
   });
   if (error) {
     throw error;
+  }
+  const fromUserId = (reqBefore?.from_user_id as string | undefined) ?? null;
+  const toUserId = (reqBefore?.to_user_id as string | undefined) ?? null;
+  if (fromUserId && toUserId) {
+    setTimeout(async () => {
+      try {
+        const {data: notification} = await supabase
+          .from('notifications')
+          .select('id')
+          .eq('type', 'friend_request_accepted')
+          .eq('user_id', fromUserId)
+          .eq('actor_user_id', toUserId)
+          .order('created_at', {ascending: false})
+          .limit(1)
+          .maybeSingle();
+        const notificationId = notification?.id as string | undefined;
+        if (notificationId) {
+          await invokeSendPushForNotification(notificationId);
+        } else if (__DEV__) {
+          console.log('[notify] friend_request_accepted notification created:', false, {
+            requestId,
+            fromUserId,
+            toUserId,
+          });
+        }
+      } catch (e) {
+        if (__DEV__) {
+          console.log('[notify] friend_request_accepted push fallback failed:', e);
+        }
+      }
+    }, 450);
+  }
+  const {
+    data: {user},
+  } = await supabase.auth.getUser();
+  if (user?.id) {
+    void checkAndUnlockBadges(user.id);
   }
 }
 

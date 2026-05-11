@@ -1,6 +1,11 @@
 import {supabase} from '@/services/supabase/supabaseClient';
 import {getMyFriendIds, getPublicProfilesByIds} from '@/services/supabase/friendService';
 import {findGymById, formatGymDisplayName, normalizeGymBrand} from '@/utils/gymDisplay';
+import {
+  dedupeCheckInRowsByUserId,
+  isEffectiveActiveCheckIn,
+  runStaleActiveSessionCleanup,
+} from '@/services/supabase/activeSessionsSync';
 
 type ActiveCheckInRow = {
   user_id: string;
@@ -9,6 +14,9 @@ type ActiveCheckInRow = {
   workout_type: string | null;
   started_at: string;
   user_display_name: string;
+  last_seen_at?: string | null;
+  is_active?: boolean;
+  ended_at?: string | null;
 };
 
 export type LocalCenterFriend = {
@@ -38,11 +46,15 @@ export async function loadLocalCentersActivity(
     return [];
   }
 
+  const staleCleaned = await runStaleActiveSessionCleanup();
+  const now = Date.now();
   const [friendIds, checkInsRes] = await Promise.all([
     getMyFriendIds(userId),
     supabase
       .from('check_ins')
-      .select('user_id, gym_id, gym_name, workout_type, started_at, user_display_name')
+      .select(
+        'user_id, gym_id, gym_name, workout_type, started_at, last_seen_at, is_active, ended_at, user_display_name',
+      )
       .in('gym_id', ids)
       .eq('is_active', true)
       .is('ended_at', null),
@@ -50,7 +62,17 @@ export async function loadLocalCentersActivity(
   if (checkInsRes.error) {
     throw checkInsRes.error;
   }
-  const rows = (checkInsRes.data ?? []) as ActiveCheckInRow[];
+  const rawRows = (checkInsRes.data ?? []) as ActiveCheckInRow[];
+  const fresh = rawRows.filter(r => isEffectiveActiveCheckIn(r, now));
+  const rows = dedupeCheckInRowsByUserId(fresh);
+  if (__DEV__) {
+    console.log('[ActiveSessions] loadLocalCentersActivity', {
+      staleCleaned,
+      rawCount: rawRows.length,
+      filteredCount: fresh.length,
+      uniqueUsers: rows.length,
+    });
+  }
   const byCenter = new Map<string, ActiveCheckInRow[]>();
   for (const id of ids) {
     byCenter.set(id, []);

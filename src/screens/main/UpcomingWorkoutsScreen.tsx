@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {useWorkoutPlanStore} from '@/store/workoutPlanStore';
 import {MuscleGroup} from '@/types/workout.types';
 import {formatGymDisplayName} from '@/utils/gymDisplay';
 import colors from '@/theme/colors';
+import {useAppStore} from '@/store/appStore';
+import {isWorkoutOnUserCalendar} from '@/utils/plannedCalendarFilter';
 
 const MUSCLE_LABELS: Record<MuscleGroup, string> = {
   bryst: 'Bryst',
@@ -13,7 +15,7 @@ const MUSCLE_LABELS: Record<MuscleGroup, string> = {
   biceps: 'Biceps',
   mave: 'Mave',
   ryg: 'Ryg',
-  hele_kroppen: 'Hele kroppen',
+  cardio: 'Cardio',
   reformer: 'Reformer',
   pilates: 'Pilates',
 };
@@ -28,13 +30,19 @@ const formatDateTime = (date: Date) =>
   });
 
 const UpcomingWorkoutsScreen = () => {
+  const {user} = useAppStore();
   const plannedWorkouts = useWorkoutPlanStore(state => state.plannedWorkouts);
   const removePlannedWorkout = useWorkoutPlanStore(state => state.removePlannedWorkout);
+
+  const calendarList = useMemo(
+    () => plannedWorkouts.filter(p => isWorkoutOnUserCalendar(p, user?.id)),
+    [plannedWorkouts, user?.id],
+  );
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={plannedWorkouts}
+        data={calendarList}
         keyExtractor={item => item.id}
         contentContainerStyle={styles.listContent}
         renderItem={({item}) => (
@@ -62,10 +70,10 @@ const UpcomingWorkoutsScreen = () => {
                 {item.acceptedFriends && item.acceptedFriends.length > 0
                   ? `${item.acceptedFriends.length} ${
                       item.acceptedFriends.length === 1 ? 'ven' : 'venner'
-                    } har accepteret`
-                  : `${item.invitedFriends.length} inviteret ${
+                    } deltager`
+                  : `${item.invitedFriends.length} ${
                       item.invitedFriends.length === 1 ? 'ven' : 'venner'
-                    } (venter på svar)`}
+                    } har ikke svaret endnu`}
               </Text>
             )}
           </View>
@@ -73,9 +81,9 @@ const UpcomingWorkoutsScreen = () => {
         ListEmptyComponent={
           <View style={styles.emptyState}>
             <Text style={styles.emptyEmoji}>📅</Text>
-            <Text style={styles.emptyTitle}>Ingen planlagte træninger</Text>
+            <Text style={styles.emptyTitle}>Ingen planlagte sessions</Text>
             <Text style={styles.emptySubtitle}>
-              Brug “Planlæg træning” i tjek ind for at sætte den næste session.
+              Åbn “Planlagte sessions” fra tjek ind og aftal næste træning med venner.
             </Text>
           </View>
         }

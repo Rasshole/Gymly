@@ -77,6 +77,17 @@ export function applyLocalFriendRequestResolution(
 }
 
 export function mapRowToViewNotification(row: NotificationRow): Notification {
+  const createdRaw =
+    row.created_at != null && String(row.created_at).trim().length > 0
+      ? String(row.created_at)
+      : new Date().toISOString();
+  const createdAt = new Date(createdRaw);
+  const safeCreated = Number.isFinite(createdAt.getTime()) ? createdAt : new Date();
+  const rowId =
+    row.id != null && String(row.id).length > 0
+      ? String(row.id)
+      : `notif_${safeCreated.getTime()}`;
+
   const data = row.data ?? {};
   const fId = (data.friendRequestId as string) || undefined;
   const actorName =
@@ -100,18 +111,18 @@ export function mapRowToViewNotification(row: NotificationRow): Notification {
     ? formatGymNameWithBrand(centerNameRaw, inferredBrand)
     : undefined;
   return {
-    id: row.id,
+    id: rowId,
     type: mapType(row.type),
-    title: row.title,
-    message: row.body,
+    title: (row.title ?? 'Notifikation').trim() || 'Notifikation',
+    message: row.body ?? '',
     read: row.is_read,
-    timestamp: new Date(row.created_at),
+    timestamp: safeCreated,
     groupId,
     groupName,
     friendName: actorName,
     friendId: row.actor_user_id || (data.friendUserId as string) || undefined,
     friendRequestId: fId,
-    checkInTime: new Date(row.created_at),
+    checkInTime: safeCreated,
     gymName: formattedCenterName,
     gymId: (data.centerId as string) || undefined,
     planId: plannedWorkoutId,

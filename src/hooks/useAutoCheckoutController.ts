@@ -5,6 +5,7 @@ import {
   runAutoCheckoutEvaluation,
   AUTO_CHECKOUT_INTERVAL_MS,
 } from '@/services/autoCheckout/runAutoCheckoutEvaluation';
+import {runStaleActiveSessionCleanup} from '@/services/supabase/activeSessionsSync';
 import {useOptionalUserCoords} from '@/hooks/useOptionalUserCoords';
 
 /**
@@ -22,10 +23,14 @@ export function useAutoCheckoutController(): void {
     const sub = AppState.addEventListener('change', next => {
       appStateRef.current = next;
       if (next === 'active') {
-        runAutoCheckoutEvaluation({
-          userId,
-          appState: 'active',
-        }).catch(() => {});
+        void runStaleActiveSessionCleanup()
+          .catch(() => {})
+          .finally(() => {
+            runAutoCheckoutEvaluation({
+              userId,
+              appState: 'active',
+            }).catch(() => {});
+          });
       }
     });
     return () => sub.remove();
@@ -45,10 +50,14 @@ export function useAutoCheckoutController(): void {
     if (!userId) {
       return;
     }
-    runAutoCheckoutEvaluation({
-      userId,
-      appState: appStateRef.current,
-    }).catch(() => {});
+    void runStaleActiveSessionCleanup()
+      .catch(() => {})
+      .finally(() => {
+        runAutoCheckoutEvaluation({
+          userId,
+          appState: appStateRef.current,
+        }).catch(() => {});
+      });
     const id = setInterval(() => {
       runAutoCheckoutEvaluation({
         userId,

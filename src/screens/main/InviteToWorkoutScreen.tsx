@@ -1,74 +1,99 @@
 /**
- * Invite To Workout Screen
- * Screen for inviting a friend to a workout
+ * Inviter til træning fra profil — samme backend som Planlagte sessions (create_planned_session).
+ * UI: blød Gymly-lilla, luftige kort, diskrete animationer.
  */
 
-import React, {useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity,
   ScrollView,
   Platform,
   Alert,
-  Image,
+  Pressable,
+  ActivityIndicator,
+  useColorScheme,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import {useNavigation, useRoute} from '@react-navigation/native';
-import {useWorkoutInvitationStore} from '@/store/workoutInvitationStore';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import Animated, {FadeInDown} from 'react-native-reanimated';
 import {useAppStore} from '@/store/appStore';
+import {useWorkoutPlanStore} from '@/store/workoutPlanStore';
 import {MuscleGroup} from '@/types/workout.types';
 import colors from '@/theme/colors';
-import muscleImg from '@/utils/muscleGroupImages';
+import {spacing, radius, shadows, typography} from '@/theme/designTokens';
+import {PurpleGradientButton} from '@/components/ui/PurpleGradientButton';
+import TrainingTypeMuscleGrid from '@/components/planned/TrainingTypeMuscleGrid';
+import {
+  createPlannedSession,
+  loadWorkoutPlanEntriesForUser,
+} from '@/services/supabase/plannedWorkoutService';
+import {formatGymDisplayName, findGymByIdRelaxed} from '@/utils/gymDisplay';
+import {getActiveDanishGyms, type DanishGym} from '@/data/danishGyms';
+import TrainingCenterPicker from '@/components/planned/TrainingCenterPicker';
+import TimePickerSheet from '@/components/ui/TimePickerSheet';
 
-const MUSCLE_GROUPS: {key: MuscleGroup; label: string}[] = [
-  {key: 'bryst', label: 'Bryst'},
-  {key: 'triceps', label: 'Triceps'},
-  {key: 'skulder', label: 'Skulder'},
-  {key: 'ben', label: 'Ben'},
-  {key: 'biceps', label: 'Biceps'},
-  {key: 'mave', label: 'Mave'},
-  {key: 'ryg', label: 'Ryg'},
-  {key: 'hele_kroppen', label: 'Hele kroppen'},
-  {key: 'reformer', label: 'Reformer'},
-  {key: 'pilates', label: 'Pilates'},
-];
+const FALLBACK_GYMS = getActiveDanishGyms();
 
-type InviteToWorkoutScreenProps = {
-  route: {
-    params: {
-      friendId: string;
-      friendName: string;
-    };
-  };
-};
+const SCREEN_TINT = '#F7F5FC';
+const CARD_LINE = 'rgba(139, 92, 246, 0.1)';
+const PURPLE_MIST = 'rgba(139, 92, 246, 0.09)';
+
+function defaultScheduleParts(): {date: Date; time: Date} {
+  const next = new Date();
+  next.setSeconds(0, 0);
+  next.setMinutes(0);
+  next.setHours(next.getHours() + 1);
+  const dateOnly = new Date(next);
+  dateOnly.setHours(0, 0, 0, 0);
+  const timeOnly = new Date();
+  timeOnly.setHours(next.getHours(), next.getMinutes(), 0, 0);
+  return {date: dateOnly, time: timeOnly};
+}
 
 const InviteToWorkoutScreen = () => {
   const navigation = useNavigation();
   const route = useRoute();
-  const {friendId, friendName} = (route.params as any) || {};
+  const insets = useSafeAreaInsets();
+  const {friendId, friendName} = (route.params as {friendId?: string; friendName?: string}) || {};
   const {user} = useAppStore();
-  const {sendInvitation} = useWorkoutInvitationStore();
+  const mergePlannedFromServer = useWorkoutPlanStore(s => s.mergePlannedFromServer);
 
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [selectedTime, setSelectedTime] = useState(new Date());
+  const displayName = (friendName || 'din ven').trim() || 'din ven';
+  const colorScheme = useColorScheme();
+  const datePickerIsDark = colorScheme === 'dark';
+
+  const [selectedDate, setSelectedDate] = useState(() => defaultScheduleParts().date);
+  const [selectedTime, setSelectedTime] = useState(() => defaultScheduleParts().time);
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [showTimePicker, setShowTimePicker] = useState(false);
-  const [selectedMuscleGroups, setSelectedMuscleGroups] = useState<MuscleGroup[]>([]);
+  const [planMuscle, setPlanMuscle] = useState<MuscleGroup>('bryst');
+  const [planSelectedGym, setPlanSelectedGym] = useState<DanishGym | null>(null);
+  const [saving, setSaving] = useState(false);
+  const gymInitRef = useRef(false);
 
-  const toggleMuscleGroup = (group: MuscleGroup) => {
-    setSelectedMuscleGroups(prev => {
-      if (prev.includes(group)) {
-        return prev.filter(g => g !== group);
-      } else {
-        return [...prev, group];
-      }
-    });
-  };
+  useEffect(() => {
+    if (gymInitRef.current || !user) {
+      return;
+    }
+    gymInitRef.current = true;
+    const primaryId = user.favoriteGyms?.[0];
+    const fromProfile = primaryId ? findGymByIdRelaxed(primaryId) : null;
+    setPlanSelectedGym(fromProfile ?? FALLBACK_GYMS[0] ?? null);
+  }, [user]);
 
-  const handleDateChange = (event: any, date?: Date) => {
+  const combineDateTime = useCallback(() => {
+    const scheduled = new Date(selectedDate);
+    scheduled.setHours(selectedTime.getHours(), selectedTime.getMinutes(), 0, 0);
+    return scheduled;
+  }, [selectedDate, selectedTime]);
+
+  const scheduledPreview = useMemo(() => combineDateTime(), [combineDateTime]);
+
+  const handleDateChange = (event: {type?: string}, date?: Date) => {
     if (Platform.OS === 'android') {
       setShowDatePicker(false);
     }
@@ -80,214 +105,192 @@ const InviteToWorkoutScreen = () => {
     }
   };
 
-  const handleTimeChange = (event: any, time?: Date) => {
-    if (Platform.OS === 'android') {
-      setShowTimePicker(false);
+  const handleSendInvitation = async () => {
+    if (!friendId?.trim()) {
+      Alert.alert('Fejl', 'Kunne ikke finde brugeren.');
+      return;
     }
-    if (time) {
-      setSelectedTime(time);
+    if (user?.id && friendId === user.id) {
+      Alert.alert('Fejl', 'Du kan ikke invitere dig selv.');
+      return;
     }
-    if (Platform.OS === 'ios' && event.type === 'dismissed') {
-      setShowTimePicker(false);
+    if (!user?.id) {
+      Alert.alert('Log ind', 'Log ind for at sende en invitation.');
+      return;
     }
-  };
-
-  const handleDatePickerConfirm = () => {
-    setShowDatePicker(false);
-  };
-
-  const handleTimePickerConfirm = () => {
-    setShowTimePicker(false);
-  };
-
-  const handleSendInvitation = () => {
-    if (selectedMuscleGroups.length === 0) {
-      Alert.alert('Vælg muskelgrupper', 'Vælg venligst mindst én muskelgruppe');
+    if (!planSelectedGym) {
+      Alert.alert('Vælg center', 'Vælg hvor I skal mødes — som i Planlagte sessions.');
       return;
     }
 
-    if (!friendId || !user) {
-      Alert.alert('Fejl', 'Ven eller bruger ikke fundet');
+    const scheduledDateTime = combineDateTime();
+    const now = new Date();
+    if (scheduledDateTime.getTime() <= now.getTime()) {
+      Alert.alert('Ugyldigt tidspunkt', 'Vælg et tidspunkt i fremtiden.');
       return;
     }
 
-    // Combine date and time
-    const scheduledDateTime = new Date(selectedDate);
-    scheduledDateTime.setHours(selectedTime.getHours());
-    scheduledDateTime.setMinutes(selectedTime.getMinutes());
-    scheduledDateTime.setSeconds(0);
-    scheduledDateTime.setMilliseconds(0);
-
-    // Check if date is in the past
-    if (scheduledDateTime < new Date()) {
-      Alert.alert('Ugyldigt tidspunkt', 'Vælg venligst et tidspunkt i fremtiden');
-      return;
+    setSaving(true);
+    try {
+      await createPlannedSession({
+        centerId: planSelectedGym.id,
+        centerName: formatGymDisplayName(planSelectedGym),
+        scheduledAt: scheduledDateTime,
+        trainingTypes: [String(planMuscle)],
+        note: null,
+        inviteeIds: [friendId],
+        threadId: null,
+      });
+      try {
+        const entries = await loadWorkoutPlanEntriesForUser(user.id, true);
+        mergePlannedFromServer(entries);
+      } catch {
+        // Plan opdateres ved næste åbning
+      }
+      Alert.alert(
+        'Invitation sendt',
+        `${displayName} får besked og kan svare under Planlagte sessions → Invitationer.`,
+        [{text: 'OK', onPress: () => navigation.goBack()}],
+      );
+    } catch (e) {
+      const message = e instanceof Error ? e.message : 'Prøv igen om lidt.';
+      Alert.alert('Kunne ikke oprette', message);
+    } finally {
+      setSaving(false);
     }
-
-    sendInvitation({
-      fromUserId: user.id,
-      fromUserName: user.displayName,
-      toUserId: friendId,
-      toUserName: friendName,
-      scheduledTime: scheduledDateTime,
-      muscleGroups: selectedMuscleGroups,
-    });
-
-    Alert.alert(
-      'Invitation sendt',
-      `Du har inviteret ${friendName} til træning`,
-      [
-        {
-          text: 'OK',
-          onPress: () => navigation.goBack(),
-        },
-      ]
-    );
   };
 
-  const formatDateTime = () => {
-    const dateStr = selectedDate.toLocaleDateString('da-DK', {
+  const formatDateLine = () =>
+    selectedDate.toLocaleDateString('da-DK', {
       weekday: 'long',
       day: 'numeric',
       month: 'long',
     });
-    const timeStr = selectedTime.toLocaleTimeString('da-DK', {
+
+  const formatTimeLine = () =>
+    selectedTime.toLocaleTimeString('da-DK', {
       hour: '2-digit',
       minute: '2-digit',
     });
-    return `${dateStr} kl. ${timeStr}`;
+
+  const formatPreviewLine = () => {
+    const dateStr = scheduledPreview.toLocaleDateString('da-DK', {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+    });
+    const timeStr = scheduledPreview.toLocaleTimeString('da-DK', {
+      hour: '2-digit',
+      minute: '2-digit',
+    });
+    return `${dateStr} · kl. ${timeStr}`;
   };
+
+  const sendDisabled = saving || !planSelectedGym;
 
   return (
     <View style={styles.container}>
-      {/* Header */}
-      <View style={styles.header}>
-        <TouchableOpacity
+      <View style={[styles.header, {paddingTop: Math.max(insets.top, 10) + 6}]}>
+        <Pressable
           onPress={() => navigation.goBack()}
-          style={styles.backButton}>
-          <Icon name="arrow-back" size={24} color="#000" />
-        </TouchableOpacity>
+          style={({pressed}) => [styles.headerBackPill, pressed && styles.headerBackPillPressed]}
+          hitSlop={12}>
+          <Icon name="chevron-back" size={22} color={colors.text} />
+        </Pressable>
         <Text style={styles.headerTitle}>Inviter til træning</Text>
         <View style={styles.headerRight} />
       </View>
 
-      <ScrollView style={styles.content} contentContainerStyle={styles.contentContainer}>
-        {/* Friend Info */}
-        <View style={styles.friendInfo}>
-          <View style={styles.friendAvatar}>
-            <Text style={styles.friendAvatarText}>
-              {friendName?.charAt(0).toUpperCase() || '?'}
-            </Text>
+      <ScrollView
+        style={styles.scroll}
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}>
+        <Animated.View entering={FadeInDown.duration(240)}>
+          <View style={styles.hero}>
+            <View style={styles.avatarRing}>
+              <View style={styles.avatarInner}>
+                <Text style={styles.avatarLetter}>{displayName.charAt(0).toUpperCase()}</Text>
+              </View>
+            </View>
+            <Text style={styles.heroTitle}>Træn med {displayName}</Text>
+            <Text style={styles.heroSubtitle}>Planlæg en session sammen</Text>
           </View>
-          <Text style={styles.friendName}>{friendName || 'Ven'}</Text>
-        </View>
+        </Animated.View>
 
-        {/* Date & Time Selection */}
-          <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Tidspunkt</Text>
-          
-          <TouchableOpacity
-            style={styles.dateTimeButton}
-            onPress={() => setShowDatePicker(true)}>
-            <Icon name="calendar-outline" size={20} color="#007AFF" />
-            <Text style={styles.dateTimeText}>
-              {selectedDate.toLocaleDateString('da-DK', {
-                weekday: 'long',
-                day: 'numeric',
-                month: 'long',
-              })}
-            </Text>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.dateTimeButton}
-            onPress={() => setShowTimePicker(true)}>
-            <Icon name="time-outline" size={20} color="#007AFF" />
-            <Text style={styles.dateTimeText}>
-              {selectedTime.toLocaleTimeString('da-DK', {
-                hour: '2-digit',
-                minute: '2-digit',
-              })}
-            </Text>
-            <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-          </TouchableOpacity>
-
-          <View style={styles.selectedDateTime}>
-            <Text style={styles.selectedDateTimeText}>
-              {formatDateTime()}
-            </Text>
+        <Animated.View entering={FadeInDown.duration(260).delay(50)}>
+          <View style={styles.card}>
+            <Text style={styles.cardLabel}>Tidspunkt</Text>
+            <Pressable
+              onPress={() => setShowDatePicker(true)}
+              style={({pressed}) => [styles.timeRow, pressed && styles.rowPressed]}
+              android_ripple={{color: PURPLE_MIST}}>
+              <View style={styles.timeIconWrap}>
+                <Icon name="calendar-outline" size={18} color={colors.primary} />
+              </View>
+              <Text style={styles.timeRowText}>{formatDateLine()}</Text>
+              <Icon name="chevron-forward" size={18} color={colors.textMuted} />
+            </Pressable>
+            <View style={styles.hairline} />
+            <Pressable
+              onPress={() => setShowTimePicker(true)}
+              style={({pressed}) => [styles.timeRow, pressed && styles.rowPressed]}
+              android_ripple={{color: PURPLE_MIST}}>
+              <View style={styles.timeIconWrap}>
+                <Icon name="time-outline" size={18} color={colors.primary} />
+              </View>
+              <Text style={styles.timeRowText}>{formatTimeLine()}</Text>
+              <Icon name="chevron-forward" size={18} color={colors.textMuted} />
+            </Pressable>
+            <View style={styles.previewPill}>
+              <Text style={styles.previewPillText}>{formatPreviewLine()}</Text>
+            </View>
           </View>
-        </View>
+        </Animated.View>
 
-        {/* Muscle Groups Selection */}
-          <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Muskelgrupper</Text>
-          <Text style={styles.sectionSubtitle}>
-            Vælg hvilke muskelgrupper I skal træne (flere valg muligt)
-          </Text>
+        <Animated.View entering={FadeInDown.duration(260).delay(90)}>
+          <TrainingCenterPicker
+            variant="inviteCard"
+            value={planSelectedGym}
+            onChange={setPlanSelectedGym}
+          />
+        </Animated.View>
 
-          <View style={styles.muscleGroupsGrid}>
-            {MUSCLE_GROUPS.map(group => {
-              const isSelected = selectedMuscleGroups.includes(group.key);
-              return (
-                <TouchableOpacity
-                  key={group.key}
-                  style={[
-                    styles.muscleGroupButton,
-                    isSelected && styles.muscleGroupButtonSelected,
-                  ]}
-                  onPress={() => toggleMuscleGroup(group.key)}
-                  activeOpacity={0.7}>
-                  <Image
-                    source={muscleImg.getMuscleGroupImage(group.key)}
-                    style={[styles.muscleGroupImage, isSelected && styles.muscleGroupImageSelected]}
-                    resizeMode="contain"
-                  />
-                  <Text
-                    style={[
-                      styles.muscleGroupText,
-                      isSelected && styles.muscleGroupTextSelected,
-                    ]}>
-                    {group.label}
-                  </Text>
-                  {isSelected && (
-                    <Icon name="checkmark-circle" size={20} color="#fff" />
-                  )}
-                </TouchableOpacity>
-              );
-            })}
+        <Animated.View entering={FadeInDown.duration(260).delay(130)}>
+          <View style={styles.card}>
+            <Text style={styles.cardLabel}>Træningstype</Text>
+            <Text style={styles.cardHint}>Én type — som i Planlagte sessions</Text>
+            <TrainingTypeMuscleGrid value={planMuscle} onChange={setPlanMuscle} />
           </View>
-        </View>
+        </Animated.View>
 
-        {/* Send Button */}
-        <TouchableOpacity
-          style={[
-            styles.sendButton,
-            selectedMuscleGroups.length === 0 && styles.sendButtonDisabled,
-          ]}
-          onPress={handleSendInvitation}
-          disabled={selectedMuscleGroups.length === 0}>
-          <Text style={styles.sendButtonText}>Send invitation</Text>
-        </TouchableOpacity>
+        <Animated.View entering={FadeInDown.duration(280).delay(160)}>
+          <PurpleGradientButton
+            onPress={() => {
+              handleSendInvitation();
+            }}
+            disabled={sendDisabled}
+            style={styles.sendCta}>
+            {saving ? (
+              <ActivityIndicator color={colors.white} />
+            ) : (
+              <Text style={styles.sendCtaText}>Send invitation</Text>
+            )}
+          </PurpleGradientButton>
+        </Animated.View>
       </ScrollView>
 
-      {/* Date Picker Modal for iOS */}
       {showDatePicker && Platform.OS === 'ios' && (
         <View style={styles.pickerModal}>
+          <Pressable style={StyleSheet.absoluteFill} onPress={() => setShowDatePicker(false)} />
           <View style={styles.pickerModalContent}>
             <View style={styles.pickerModalHeader}>
-              <TouchableOpacity
-                onPress={() => setShowDatePicker(false)}
-                style={styles.pickerModalCancelButton}>
-                <Text style={styles.pickerModalCancelText}>Annuller</Text>
-              </TouchableOpacity>
-              <Text style={styles.pickerModalTitle}>Vælg dato</Text>
-              <TouchableOpacity
-                onPress={handleDatePickerConfirm}
-                style={styles.pickerModalConfirmButton}>
-                <Text style={styles.pickerModalConfirmText}>OK</Text>
-              </TouchableOpacity>
+              <Pressable onPress={() => setShowDatePicker(false)} style={styles.pickerHeaderBtn}>
+                <Text style={styles.pickerCancel}>Annuller</Text>
+              </Pressable>
+              <Text style={styles.pickerTitle}>Dato</Text>
+              <Pressable onPress={() => setShowDatePicker(false)} style={styles.pickerHeaderBtn}>
+                <Text style={styles.pickerOk}>OK</Text>
+              </Pressable>
             </View>
             <DateTimePicker
               value={selectedDate}
@@ -295,41 +298,23 @@ const InviteToWorkoutScreen = () => {
               display="spinner"
               onChange={handleDateChange}
               minimumDate={new Date()}
+              locale="da_DK"
+              themeVariant={datePickerIsDark ? 'dark' : 'light'}
+              textColor={datePickerIsDark ? '#F9FAFB' : '#111827'}
               style={styles.picker}
             />
           </View>
         </View>
       )}
 
-      {/* Time Picker Modal for iOS */}
-      {showTimePicker && Platform.OS === 'ios' && (
-        <View style={styles.pickerModal}>
-          <View style={styles.pickerModalContent}>
-            <View style={styles.pickerModalHeader}>
-              <TouchableOpacity
-                onPress={() => setShowTimePicker(false)}
-                style={styles.pickerModalCancelButton}>
-                <Text style={styles.pickerModalCancelText}>Annuller</Text>
-              </TouchableOpacity>
-              <Text style={styles.pickerModalTitle}>Vælg tid</Text>
-              <TouchableOpacity
-                onPress={handleTimePickerConfirm}
-                style={styles.pickerModalConfirmButton}>
-                <Text style={styles.pickerModalConfirmText}>OK</Text>
-              </TouchableOpacity>
-            </View>
-            <DateTimePicker
-              value={selectedTime}
-              mode="time"
-              display="spinner"
-              onChange={handleTimeChange}
-              style={styles.picker}
-            />
-          </View>
-        </View>
-      )}
+      <TimePickerSheet
+        visible={showTimePicker}
+        value={selectedTime}
+        onClose={() => setShowTimePicker(false)}
+        onConfirm={d => setSelectedTime(d)}
+        minuteInterval={15}
+      />
 
-      {/* Date Picker for Android */}
       {showDatePicker && Platform.OS === 'android' && (
         <DateTimePicker
           value={selectedDate}
@@ -340,15 +325,6 @@ const InviteToWorkoutScreen = () => {
         />
       )}
 
-      {/* Time Picker for Android */}
-      {showTimePicker && Platform.OS === 'android' && (
-        <DateTimePicker
-          value={selectedTime}
-          mode="time"
-          display="default"
-          onChange={handleTimeChange}
-        />
-      )}
     </View>
   );
 };
@@ -356,207 +332,206 @@ const InviteToWorkoutScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background,
+    backgroundColor: SCREEN_TINT,
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingHorizontal: spacing.md,
+    paddingBottom: spacing.sm,
     backgroundColor: colors.backgroundCard,
-    borderBottomWidth: 1,
-    borderBottomColor: '#EFEFF4',
-    paddingTop: 50,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: 'rgba(15, 23, 42, 0.06)',
   },
-  backButton: {
-    padding: 4,
+  headerBackPill: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: colors.backgroundCardLight,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  headerBackPillPressed: {
+    opacity: 0.75,
+    transform: [{scale: 0.96}],
   },
   headerTitle: {
-    fontSize: 18,
-    fontWeight: '600',
+    ...typography.bodyBold,
+    fontSize: 17,
     color: colors.text,
   },
   headerRight: {
-    width: 32,
+    width: 36,
   },
-  content: {
-    flex: 1,
+  scroll: {flex: 1},
+  scrollContent: {
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.lg,
+    paddingBottom: spacing.xxxl,
   },
-  contentContainer: {
-    padding: 16,
-  },
-  friendInfo: {
+  hero: {
     alignItems: 'center',
-    paddingVertical: 24,
+    paddingBottom: spacing.xl,
   },
-  friendAvatar: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    backgroundColor: colors.secondary,
+  avatarRing: {
+    width: 76,
+    height: 76,
+    borderRadius: 38,
+    padding: 3,
+    backgroundColor: colors.white,
+    borderWidth: 2,
+    borderColor: colors.primaryLight,
+    marginBottom: spacing.md,
+    ...shadows.card,
+  },
+  avatarInner: {
+    flex: 1,
+    borderRadius: 34,
+    backgroundColor: PURPLE_MIST,
+    alignItems: 'center',
     justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 12,
   },
-  friendAvatarText: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    color: '#fff',
+  avatarLetter: {
+    fontSize: 28,
+    fontWeight: '700',
+    color: colors.primaryDark,
   },
-  friendName: {
-    fontSize: 20,
-    fontWeight: '600',
+  heroTitle: {
+    fontSize: 22,
+    fontWeight: '700',
     color: colors.text,
+    textAlign: 'center',
+    letterSpacing: -0.3,
   },
-  section: {
-    backgroundColor: colors.backgroundCard,
-    padding: 20,
-    borderRadius: 16,
-    marginBottom: 16,
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 1},
-    shadowOpacity: 0.05,
-    shadowRadius: 4,
-    elevation: 2,
-  },
-  sectionTitle: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: colors.text,
-    marginBottom: 4,
-  },
-  sectionSubtitle: {
+  heroSubtitle: {
+    marginTop: spacing.xs,
+    ...typography.caption,
     fontSize: 14,
-    color: colors.textMuted,
-    marginBottom: 16,
-  },
-  dateTimeButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.background,
-    padding: 16,
-    borderRadius: 12,
-    marginBottom: 12,
-  },
-  dateTimeText: {
-    flex: 1,
-    fontSize: 16,
-    color: colors.text,
-    marginLeft: 12,
-  },
-  selectedDateTime: {
-    marginTop: 8,
-    padding: 12,
-    backgroundColor: colors.primary,
-    borderRadius: 10,
-  },
-  selectedDateTimeText: {
-    fontSize: 14,
-    color: colors.white,
-    fontWeight: '600',
+    color: colors.textSecondary,
     textAlign: 'center',
   },
-  muscleGroupsGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 12,
+  card: {
+    backgroundColor: colors.white,
+    borderRadius: radius.lg,
+    padding: spacing.lg,
+    marginBottom: spacing.lg,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: CARD_LINE,
+    ...shadows.sm,
   },
-  muscleGroupButton: {
+  cardLabel: {
+    ...typography.small,
+    fontWeight: '700',
+    color: colors.textMuted,
+    textTransform: 'uppercase',
+    letterSpacing: 0.6,
+    marginBottom: spacing.md,
+  },
+  cardHint: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    marginTop: -spacing.sm,
+    marginBottom: spacing.md,
+  },
+  timeRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: colors.background,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    borderRadius: 12,
-    borderWidth: 2,
-    borderColor: colors.border,
-    minWidth: '45%',
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.xs,
   },
-  muscleGroupButtonSelected: {
-    backgroundColor: colors.primary,
-    borderColor: colors.primary,
+  rowPressed: {
+    opacity: 0.88,
   },
-  muscleGroupImage: {
-    width: 32,
-    height: 32,
+  timeIconWrap: {
+    width: 36,
+    height: 36,
+    borderRadius: 10,
+    backgroundColor: PURPLE_MIST,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: spacing.md,
   },
-  muscleGroupImageSelected: {
-    tintColor: '#fff',
-  },
-  muscleGroupText: {
+  timeRowText: {
     flex: 1,
     fontSize: 16,
     fontWeight: '600',
     color: colors.text,
-    marginLeft: 8,
+    letterSpacing: -0.2,
   },
-  muscleGroupTextSelected: {
-    color: '#fff',
+  hairline: {
+    height: StyleSheet.hairlineWidth,
+    backgroundColor: 'rgba(17, 24, 39, 0.07)',
+    marginLeft: 36 + spacing.md,
   },
-  sendButton: {
-    backgroundColor: colors.secondary,
-    padding: 16,
-    borderRadius: 12,
-    alignItems: 'center',
-    marginTop: 8,
+  previewPill: {
+    marginTop: spacing.md,
+    paddingVertical: spacing.sm + 2,
+    paddingHorizontal: spacing.md,
+    borderRadius: radius.md,
+    backgroundColor: PURPLE_MIST,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: 'rgba(139, 92, 246, 0.14)',
   },
-  sendButtonDisabled: {
-    backgroundColor: '#C7C7CC',
-  },
-  sendButtonText: {
-    fontSize: 18,
+  previewPillText: {
+    fontSize: 14,
     fontWeight: '600',
-    color: '#fff',
+    color: colors.primaryDark,
+    textAlign: 'center',
+  },
+  sendCta: {
+    marginTop: spacing.sm,
+    minHeight: 54,
+  },
+  sendCtaText: {
+    fontSize: 17,
+    fontWeight: '700',
+    color: colors.white,
+    letterSpacing: -0.2,
   },
   pickerModal: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    ...StyleSheet.absoluteFillObject,
     justifyContent: 'flex-end',
+    backgroundColor: 'rgba(15, 23, 42, 0.35)',
   },
   pickerModalContent: {
-    backgroundColor: colors.backgroundCard,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    paddingBottom: 20,
+    backgroundColor: colors.white,
+    borderTopLeftRadius: radius.xl,
+    borderTopRightRadius: radius.xl,
+    paddingBottom: spacing.lg,
   },
   pickerModalHeader: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: '#EFEFF4',
+    justifyContent: 'space-between',
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: colors.border,
   },
-  pickerModalCancelButton: {
-    padding: 8,
+  pickerHeaderBtn: {
+    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.sm,
+    minWidth: 64,
   },
-  pickerModalCancelText: {
-    fontSize: 16,
+  pickerCancel: {
+    ...typography.body,
     color: colors.textMuted,
   },
-  pickerModalTitle: {
-    fontSize: 18,
-    fontWeight: '600',
+  pickerTitle: {
+    ...typography.bodyBold,
+    fontSize: 16,
     color: colors.text,
   },
-  pickerModalConfirmButton: {
-    padding: 8,
-  },
-  pickerModalConfirmText: {
+  pickerOk: {
+    ...typography.bodyBold,
     fontSize: 16,
-    fontWeight: '600',
-    color: colors.secondary,
+    color: colors.primary,
+    textAlign: 'right',
   },
   picker: {
-    height: 200,
+    height: 216,
   },
 });
 
 export default InviteToWorkoutScreen;
-

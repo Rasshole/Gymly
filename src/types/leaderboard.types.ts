@@ -1,7 +1,6 @@
 /**
- * Leaderboard Types
- * Skalerbar struktur – nem at tilføje nye kategorier
- * Data struktur kompatibel med Firestore
+ * Leaderboard Types — Reserved for future competitive/social systems.
+ * Skalerbar struktur – nem at tilføje nye kategorier; kompatibel med Firestore.
  */
 
 export type LeaderboardPeriod = 'week' | 'month' | 'all';
@@ -54,6 +53,8 @@ export interface LeaderboardEntry {
   rank: number;
   userId: string;
   displayName: string;
+  /** Til søgning (@username) */
+  username?: string;
   profileImageUrl?: string;
   value: number;
   valueLabel: string;
@@ -62,6 +63,12 @@ export interface LeaderboardEntry {
   isCurrentUser?: boolean;
   isFriend?: boolean;
   isWeeklyChampion?: boolean;
+  /** Rå tal fra backend for valgt periode (til “din placering”-kort m.m.) */
+  leaderboardCheckIns?: number;
+  leaderboardMinutes?: number;
+  leaderboardStreak?: number;
+  /** Kort social indikator (fx ⚡ Aktiv i dag) */
+  aliveSubtitle?: string;
 }
 
 /** Konfiguration for en leaderboard-kategori – nem at tilføje nye */

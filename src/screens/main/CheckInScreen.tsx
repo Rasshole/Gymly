@@ -12,7 +12,6 @@ import {
   TouchableOpacity,
   Pressable,
   Modal,
-  Image,
   ActivityIndicator,
   Alert,
   Switch,
@@ -37,7 +36,6 @@ const CHECKIN_GYMS = getActiveDanishGyms();
 import {useAppStore} from '@/store/appStore';
 import {SKIP_CHECK_IN_LOCATION_RADIUS} from '@/config/dataConfig';
 import {useDashboardStatsStore} from '@/store/dashboardStatsStore';
-import {useBadgeStore} from '@/store/badgeStore';
 import * as streak from '@/utils/streakUtils';
 import {
   activeSessionFromSupabaseRow,
@@ -46,19 +44,21 @@ import {
 import {useWorkoutStore} from '@/store/workoutStore';
 import {submitCheckIn} from '@/services/firestore/CheckinService';
 import {
-  endActiveCheckInInSupabase,
   getActiveCheckInForUser,
 } from '@/services/supabase/checkInService';
 import {runAutoCheckoutEvaluation} from '@/services/autoCheckout/runAutoCheckoutEvaluation';
+import {runStaleActiveSessionCleanup} from '@/services/supabase/activeSessionsSync';
 import {notifyFriendsOfCheckIn} from '@/services/firestore/FriendCheckInNotificationService';
 import {formatGymDisplayName, findGymById} from '@/utils/gymDisplay';
 import {
   fetchPlannedWorkoutsForUser,
   findLinkablePlannedWorkoutId,
+  loadWorkoutPlanEntriesForUser,
 } from '@/services/supabase/plannedWorkoutService';
+import {useWorkoutPlanStore} from '@/store/workoutPlanStore';
 import {calculateDistance, formatDistance} from '@/utils/geoUtils';
 import GymLogoView from '@/components/ui/GymLogoView';
-import muscleImg from '@/utils/muscleGroupImages';
+import MuscleGroupTileIcon from '@/components/ui/MuscleGroupTileIcon';
 import {
   encodeMuscleGroupsForSession,
   MUSCLE_GROUP_LABELS_DK,
@@ -79,11 +79,14 @@ import {
   refreshWorkoutFeedFromServer,
 } from '@/services/supabase/workoutPostService';
 import {
-  deleteMyLiveWorkoutSession,
   LIVE_HEARTBEAT_INTERVAL_MS,
   touchMyLiveWorkoutSession,
   upsertLiveWorkoutSession,
 } from '@/services/supabase/liveWorkoutSessionService';
+import {
+  startWorkoutLiveActivity,
+} from '@/services/ios/workoutLiveActivity';
+import {finishWorkoutSession} from '@/services/session/finishWorkoutSession';
 
 const MOOD_TO_RATING: Record<string, number> = {
   angry: 1,
@@ -101,7 +104,7 @@ const MUSCLE_GROUPS: {key: MuscleGroup; label: string}[] = [
   {key: 'biceps', label: MUSCLE_GROUP_LABELS_DK.biceps},
   {key: 'mave', label: MUSCLE_GROUP_LABELS_DK.mave},
   {key: 'ryg', label: MUSCLE_GROUP_LABELS_DK.ryg},
-  {key: 'hele_kroppen', label: MUSCLE_GROUP_LABELS_DK.hele_kroppen},
+  {key: 'cardio', label: MUSCLE_GROUP_LABELS_DK.cardio},
   {key: 'reformer', label: MUSCLE_GROUP_LABELS_DK.reformer},
   {key: 'pilates', label: MUSCLE_GROUP_LABELS_DK.pilates},
 ];
@@ -212,7 +215,7 @@ const CheckInScreen = () => {
   } | null>(null);
   const [showSummaryModal, setShowSummaryModal] = useState(false);
   const [selectedMuscleGroups, setSelectedMuscleGroups] = useState<MuscleGroup[]>([
-    'hele_kroppen',
+    'cardio',
   ]);
   const [soloTraining, setSoloTraining] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -228,6 +231,15 @@ const CheckInScreen = () => {
 
   const currentUserId = user?.id || 'current_user';
   const [linkablePlannedId, setLinkablePlannedId] = useState<string | null>(null);
+  const [plannedLinkPromptVisible, setPlannedLinkPromptVisible] = useState(false);
+  const plannedWorkouts = useWorkoutPlanStore(s => s.plannedWorkouts);
+
+  const linkablePlanPreview = useMemo(() => {
+    if (!linkablePlannedId) {
+      return null;
+    }
+    return plannedWorkouts.find(w => w.id === linkablePlannedId) ?? null;
+  }, [linkablePlannedId, plannedWorkouts]);
 
   const favoriteGym = useMemo(
     () => findGymById(user?.favoriteGyms?.[0] ?? null),
@@ -503,6 +515,25 @@ const CheckInScreen = () => {
     }, [GEO_OPTIONS_FRESH, applyGeolocationSuccess]),
   );
 
+  useFocusEffect(
+    useCallback(() => {
+      if (!user?.id) {
+        return;
+      }
+      let alive = true;
+      void loadWorkoutPlanEntriesForUser(user.id, true)
+        .then(entries => {
+          if (alive) {
+            useWorkoutPlanStore.getState().mergePlannedFromServer(entries);
+          }
+        })
+        .catch(() => {});
+      return () => {
+        alive = false;
+      };
+    }, [user?.id]),
+  );
+
   useEffect(() => {
     logCheckInDebug('stateSnapshot', {
       locationPermission: locationPermissionStatus,
@@ -520,9 +551,21 @@ const CheckInScreen = () => {
   }, [locationPermissionStatus, userLocation, nearestGym, selectedGym]);
 
   const doCheckInAndStartSession = useCallback(
-    async (gym: DanishGym, groups: MuscleGroup[]) => {
+    async (
+      gym: DanishGym,
+      groups: MuscleGroup[],
+      options?: {plannedWorkoutId?: string | null},
+    ) => {
       const encoded = encodeMuscleGroupsForSession(groups);
       const centerDisplayName = formatGymDisplayName(gym);
+      const hasPlannedOverride =
+        options !== undefined &&
+        Object.prototype.hasOwnProperty.call(options, 'plannedWorkoutId');
+      const plannedWorkoutId = hasPlannedOverride
+        ? options!.plannedWorkoutId ?? null
+        : linkablePlannedId && gym.id === selectedGym?.id
+          ? linkablePlannedId
+          : null;
       try {
         const result = await submitCheckIn({
           userId: currentUserId,
@@ -532,16 +575,9 @@ const CheckInScreen = () => {
           workoutType: workoutTypeForFirestoreCheckIn(encoded),
           displayName: user?.displayName ?? 'Bruger',
           userInitials: user?.displayName?.charAt(0)?.toUpperCase(),
-          plannedWorkoutId:
-            linkablePlannedId && gym.id === selectedGym?.id ? linkablePlannedId : null,
+          plannedWorkoutId,
         });
         onStatsCheckIn();
-        useBadgeStore
-          .getState()
-          .syncBadgesForUser(
-            currentUserId,
-            user?.displayName ?? 'Bruger',
-          );
         startSession({
           checkInId: result.id,
           gymId: gym.id,
@@ -550,6 +586,11 @@ const CheckInScreen = () => {
           startTime: result.startedAt,
           workoutType: encoded,
         });
+        void startWorkoutLiveActivity(
+          formatWorkoutTypeDisplay(encoded),
+          centerDisplayName,
+          result.startedAt,
+        );
         if (user?.id) {
           try {
             await upsertLiveWorkoutSession({
@@ -596,6 +637,11 @@ const CheckInScreen = () => {
         if (row) {
           const session = activeSessionFromSupabaseRow(row);
           startSession(session);
+          void startWorkoutLiveActivity(
+            formatWorkoutTypeDisplay(session.workoutType || ''),
+            session.gymName,
+            session.startTime,
+          );
           try {
             await upsertLiveWorkoutSession({
               userId: user.id,
@@ -646,10 +692,14 @@ const CheckInScreen = () => {
       if (!user?.id) {
         return;
       }
-      runAutoCheckoutEvaluation({
-        userId: user.id,
-        appState: AppState.currentState,
-      }).catch(() => {});
+      void runStaleActiveSessionCleanup()
+        .catch(() => {})
+        .finally(() => {
+          runAutoCheckoutEvaluation({
+            userId: user.id,
+            appState: AppState.currentState,
+          }).catch(() => {});
+        });
     }, [user?.id]),
   );
 
@@ -694,11 +744,34 @@ const CheckInScreen = () => {
       );
       return;
     }
+    if (linkablePlannedId) {
+      setPlannedLinkPromptVisible(true);
+      return;
+    }
     setShowGymlySplash(true);
     setIsSubmitting(true);
     await doCheckInAndStartSession(selectedGym, selectedMuscleGroups);
     setIsSubmitting(false);
   };
+
+  const completeCheckInWithPlannedChoice = useCallback(
+    async (plannedWorkoutId: string | null) => {
+      if (!selectedGym) {
+        return;
+      }
+      setPlannedLinkPromptVisible(false);
+      setShowGymlySplash(true);
+      setIsSubmitting(true);
+      try {
+        await doCheckInAndStartSession(selectedGym, selectedMuscleGroups, {
+          plannedWorkoutId,
+        });
+      } finally {
+        setIsSubmitting(false);
+      }
+    },
+    [selectedGym, selectedMuscleGroups, doCheckInAndStartSession],
+  );
 
   const handleEndSession = () => {
     setShowSummaryModal(true);
@@ -709,7 +782,7 @@ const CheckInScreen = () => {
     setShowGymlySplash(false);
     hasManuallySelectedGym.current = false;
     setSelectedGym(null);
-    setSelectedMuscleGroups(['hele_kroppen']);
+    setSelectedMuscleGroups(['cardio']);
     const tabNav = navigation.getParent();
     if (tabNav) {
       tabNav.navigate('CheckIn' as never, {screen: 'CheckInMain'} as never);
@@ -725,15 +798,6 @@ const CheckInScreen = () => {
     }) => {
       setShowSummaryModal(false);
       setShowGymlySplash(true);
-      if (user?.id && activeSession?.checkInId) {
-        try {
-          await endActiveCheckInInSupabase(activeSession.checkInId, user.id, 'user');
-        } catch (e) {
-          if (__DEV__) {
-            console.warn('[CheckIn] endActiveCheckInInSupabase', e);
-          }
-        }
-      }
       const elapsed = getElapsedSeconds();
       const durationMinutes = Math.floor(elapsed / 60) || 1;
       if (activeSession) {
@@ -746,12 +810,6 @@ const CheckInScreen = () => {
           workoutType: activeSession.workoutType,
           notes: data.caption || undefined,
         });
-        useBadgeStore
-          .getState()
-          .syncBadgesForUser(
-            currentUserId,
-            user?.displayName ?? 'Bruger',
-          );
         if (data.shareToFeed) {
           if (!user?.id) {
             Alert.alert(
@@ -781,15 +839,14 @@ const CheckInScreen = () => {
         }
       }
       if (user?.id) {
-        try {
-          await deleteMyLiveWorkoutSession(user.id);
-        } catch (e) {
-          if (__DEV__) {
-            console.warn('[CheckIn] delete live session', e);
-          }
-        }
+        await finishWorkoutSession({
+          reason: 'manual',
+          userId: user.id,
+          checkInId: activeSession?.checkInId ?? null,
+        });
+      } else {
+        endSession();
       }
-      endSession();
       returnToCheckInMain();
     },
     [
@@ -1003,7 +1060,7 @@ const CheckInScreen = () => {
           <View style={styles.sectionHeader}>
             <Text style={styles.sectionLabel}>Dit center</Text>
             <TouchableOpacity onPress={goToWorkoutSchedule} activeOpacity={0.8}>
-              <Text style={styles.planLink}>Planlæg træning</Text>
+              <Text style={styles.planLink}>Planlagte sessions</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.gymCard}>
@@ -1101,10 +1158,12 @@ const CheckInScreen = () => {
                         );
                         setSelectedMuscleGroups(prev => toggleCheckInMuscleGroup(prev, key));
                       }}>
-                      <Image
-                        source={muscleImg.getMuscleGroupImage(key)}
-                        style={[styles.muscleIconLeft, isSelected && styles.muscleImageSelected]}
-                        resizeMode="contain"
+                      <MuscleGroupTileIcon
+                        group={key}
+                        size={MUSCLE_ICON_SIZE}
+                        style={{marginRight: MUSCLE_ICON_MARGIN_RIGHT}}
+                        color={isSelected ? colors.white : colors.textMuted}
+                        tintColor={isSelected ? colors.white : undefined}
                       />
                       <Text
                         style={[
@@ -1207,6 +1266,69 @@ const CheckInScreen = () => {
           )}
         </View>
       </View>
+
+      <Modal
+        visible={plannedLinkPromptVisible}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setPlannedLinkPromptVisible(false)}>
+        <View style={styles.plannedPromptOverlay}>
+          <Pressable
+            style={StyleSheet.absoluteFill}
+            accessibilityRole="button"
+            accessibilityLabel="Luk"
+            onPress={() => setPlannedLinkPromptVisible(false)}
+          />
+          <View style={styles.plannedPromptCard}>
+            <Text style={styles.plannedPromptTitle}>Planlagt session?</Text>
+            <Text style={styles.plannedPromptSub}>
+              Var dette din planlagte session — så kobler vi den til dit tjek-ind.
+            </Text>
+            {linkablePlanPreview ? (
+              <View style={styles.plannedPromptMeta}>
+                <Text style={styles.plannedPromptMetaLine}>
+                  {linkablePlanPreview.muscles
+                    .map(m => MUSCLE_GROUP_LABELS_DK[m])
+                    .join(' · ')}
+                </Text>
+                <Text style={styles.plannedPromptMetaLine}>
+                  {formatGymDisplayName(linkablePlanPreview.gym)}
+                </Text>
+                <Text style={styles.plannedPromptMetaLine}>
+                  {new Date(linkablePlanPreview.scheduledAt).toLocaleTimeString('da-DK', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                  })}
+                </Text>
+              </View>
+            ) : (
+              <Text style={styles.plannedPromptHint}>
+                Vi har matchet tid og center med en kommende session.
+              </Text>
+            )}
+            <View style={styles.plannedPromptActions}>
+              <TouchableOpacity
+                style={[styles.plannedPromptBtn, styles.plannedPromptBtnMuted]}
+                onPress={() => {
+                  completeCheckInWithPlannedChoice(null);
+                }}
+                activeOpacity={0.85}>
+                <Text style={styles.plannedPromptBtnTextMuted}>Ikke nu</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[styles.plannedPromptBtn, styles.plannedPromptBtnPrimary]}
+                onPress={() => {
+                  if (linkablePlannedId) {
+                    completeCheckInWithPlannedChoice(linkablePlannedId);
+                  }
+                }}
+                activeOpacity={0.85}>
+                <Text style={styles.plannedPromptBtnTextPrimary}>Ja</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Modal>
 
       {/* Gym picker modal */}
       <Modal
@@ -1690,6 +1812,71 @@ const styles = StyleSheet.create({
   modalGymCity: {...typography.caption, color: colors.textSecondary, marginTop: 2},
   modalEmpty: {alignItems: 'center', paddingVertical: spacing.xxl},
   modalEmptyText: {...typography.body, color: colors.text, marginTop: spacing.md},
+  plannedPromptOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(15, 23, 42, 0.45)',
+    justifyContent: 'center',
+    paddingHorizontal: spacing.lg,
+  },
+  plannedPromptCard: {
+    backgroundColor: colors.backgroundCard,
+    borderRadius: radius.xl,
+    paddingVertical: spacing.lg + 4,
+    paddingHorizontal: spacing.lg,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.border,
+  },
+  plannedPromptTitle: {
+    ...typography.h3,
+    color: colors.text,
+    marginBottom: spacing.sm,
+  },
+  plannedPromptSub: {
+    ...typography.body,
+    color: colors.textSecondary,
+    lineHeight: 22,
+    marginBottom: spacing.md,
+  },
+  plannedPromptMeta: {
+    marginBottom: spacing.lg,
+    gap: spacing.xs,
+  },
+  plannedPromptMetaLine: {
+    ...typography.body,
+    color: colors.text,
+    fontWeight: '600',
+  },
+  plannedPromptHint: {
+    ...typography.caption,
+    color: colors.textMuted,
+    marginBottom: spacing.lg,
+  },
+  plannedPromptActions: {
+    flexDirection: 'row',
+    gap: spacing.md,
+  },
+  plannedPromptBtn: {
+    flex: 1,
+    paddingVertical: spacing.md,
+    borderRadius: radius.lg,
+    alignItems: 'center',
+  },
+  plannedPromptBtnMuted: {
+    backgroundColor: colors.surface,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.border,
+  },
+  plannedPromptBtnPrimary: {
+    backgroundColor: colors.primary,
+  },
+  plannedPromptBtnTextMuted: {
+    ...typography.bodyBold,
+    color: colors.textSecondary,
+  },
+  plannedPromptBtnTextPrimary: {
+    ...typography.bodyBold,
+    color: colors.white,
+  },
 });
 
 export default CheckInScreen;
