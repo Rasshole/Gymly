@@ -159,3 +159,40 @@ export function progressLabel(
   }
   return `${progress.percent}%`;
 }
+
+/** Kort motivator-tekst til profil (fx "3 dage til 🔥"). */
+export function upcomingBadgeHint(
+  def: BadgeDefinition,
+  progress: BadgeProgress,
+): string {
+  const left = Math.max(0, progress.target - progress.current);
+  const emoji = def.emoji;
+  if (def.requirement_type === 'streak_days') {
+    if (left <= 0) {
+      return emoji;
+    }
+    return left === 1 ? `1 dag til ${emoji}` : `${left} dage til ${emoji}`;
+  }
+  if (def.requirement_type === 'total_check_ins') {
+    if (left <= 0) {
+      return emoji;
+    }
+    return left === 1 ? `1 tjek-ind til ${emoji}` : `${left} tjek-ind til ${emoji}`;
+  }
+  if (def.requirement_type === 'total_time_minutes') {
+    if (left <= 0) {
+      return emoji;
+    }
+    return left === 1 ? `1 min til ${emoji}` : `${left} min til ${emoji}`;
+  }
+  if (def.requirement_type === 'total_sessions') {
+    if (left <= 0) {
+      return emoji;
+    }
+    return left === 1 ? `1 session til ${emoji}` : `${left} sessioner til ${emoji}`;
+  }
+  if (left <= 0) {
+    return emoji;
+  }
+  return left === 1 ? `1 til ${emoji}` : `${left} til ${emoji}`;
+}

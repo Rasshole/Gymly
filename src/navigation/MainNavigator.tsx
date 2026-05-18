@@ -91,6 +91,7 @@ import AboutGymlyScreen from '@/screens/main/AboutGymlyScreen';
 import TermsScreen from '@/screens/main/TermsScreen';
 import PrivacyPolicyScreen from '@/screens/main/PrivacyPolicyScreen';
 import WorkoutHistoryScreen from '@/screens/main/WorkoutHistoryScreen';
+import AllTrainingsScreen from '@/screens/main/AllTrainingsScreen';
 import UpcomingWorkoutsScreen from '@/screens/main/UpcomingWorkoutsScreen';
 import WorkoutScheduleScreen from '@/screens/main/WorkoutScheduleScreen';
 import FriendProfileScreen from '@/screens/main/FriendProfileScreen';
@@ -106,6 +107,7 @@ import CustomTabBar from '@/components/CustomTabBar';
 import {useAppStore} from '@/store/appStore';
 import NotificationBadge from '@/components/ui/Badge';
 import {CheckInSessionController} from '@/components/checkin/CheckInSessionController';
+import {DemoContentOrchestrator} from '@/demo/DemoContentOrchestrator';
 import {PushNotificationBootstrap} from '@/components/push/PushNotificationBootstrap';
 import {UserBadgesRealtimeSync} from '@/components/badges/UserBadgesRealtimeSync';
 import {GymlyRealtimeHub} from '@/realtime/gymlyRealtimeHub';
@@ -189,6 +191,7 @@ export type MainStackParamList = {
   Terms: undefined;
   PrivacyPolicy: undefined;
   WorkoutHistory: undefined;
+  AllTrainings: undefined;
   UpcomingWorkouts: undefined;
   WorkoutSchedule: {
     initialTab?: 'upcoming' | 'history';
@@ -618,6 +621,14 @@ const MainNavigator = () => {
         }}
       />
       <Stack.Screen
+        name="AllTrainings"
+        component={AllTrainingsScreen}
+        options={{
+          title: 'Alle træninger',
+          headerBackTitle: 'Tilbage',
+        }}
+      />
+      <Stack.Screen
         name="UpcomingWorkouts"
         component={UpcomingWorkoutsScreen}
         options={{
@@ -685,6 +696,7 @@ const MainNavigator = () => {
         }}
       />
     </Stack.Navigator>
+      <DemoContentOrchestrator />
     </>
   );
 };

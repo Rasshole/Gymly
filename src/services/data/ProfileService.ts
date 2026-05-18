@@ -3,8 +3,11 @@
  */
 
 import {BADGE_BY_ID} from '@/config/badgeDefinitions';
-import {getUserStats} from '@/services/firestore/UserService';
+import {isFirebaseNativeAvailable} from '@/services/firebase/nativeAvailability';
+import {getUserStats as getFirestoreUserStats} from '@/services/firestore/UserService';
 import {getMyFriendIds} from '@/services/supabase/friendService';
+import {fetchUserBadges} from '@/services/supabase/userBadgesService';
+import {getUserStats as getSupabaseUserStats} from '@/services/supabase/userStatsService';
 import {useBadgeStore} from '@/store/badgeStore';
 import type {
   ProfileStats,
@@ -15,35 +18,57 @@ import type {
 } from '@/types/profile.types';
 
 export async function getProfileStats(userId: string): Promise<ProfileStats> {
-  const fromDb = await getUserStats(userId);
-  let friendsCount = fromDb?.friendsCount ?? 0;
+  let friendsCount = 0;
   try {
     const ids = await getMyFriendIds(userId);
     friendsCount = ids.size;
   } catch {
-    /* Supabase ikke tilgængelig — behold Firestore */
+    /* ignore */
   }
-  if (fromDb) {
-    return {
-      totalCheckIns: fromDb.totalCheckIns ?? 0,
-      currentStreak: fromDb.streak ?? 0,
-      longestStreak: fromDb.longestStreak ?? fromDb.streak ?? 0,
-      totalTrainingMinutes: fromDb.totalTrainingMinutes ?? 0,
-      badgesCount: fromDb.badgesCount ?? 0,
-      friendsCount,
-      followersCount: fromDb.followersCount ?? 0,
-      followingCount: fromDb.followingCount ?? 0,
+
+  let trainingFromSupabase: Awaited<ReturnType<typeof getSupabaseUserStats>> | null =
+    null;
+  try {
+    trainingFromSupabase = await getSupabaseUserStats(userId);
+  } catch {
+    trainingFromSupabase = null;
+  }
+
+  let fromFirestore: Awaited<ReturnType<typeof getFirestoreUserStats>> | null = null;
+  if (isFirebaseNativeAvailable()) {
+    try {
+      fromFirestore = await getFirestoreUserStats(userId);
+    } catch {
+      fromFirestore = null;
+    }
+  }
+
+  let badgesCount = 0;
+  try {
+    const badges = await fetchUserBadges(userId);
+    badgesCount = badges.filter(b => Boolean(b.unlocked_at)).length;
+  } catch {
+    badgesCount = fromFirestore?.badgesCount ?? 0;
+  }
+
+  const training =
+    trainingFromSupabase ??
+    {
+      totalCheckIns: fromFirestore?.totalCheckIns ?? 0,
+      currentStreak: fromFirestore?.streak ?? 0,
+      longestStreak: fromFirestore?.longestStreak ?? fromFirestore?.streak ?? 0,
+      totalTrainingMinutes: fromFirestore?.totalTrainingMinutes ?? 0,
     };
-  }
+
   return {
-    totalCheckIns: 0,
-    currentStreak: 0,
-    longestStreak: 0,
-    totalTrainingMinutes: 0,
-    badgesCount: 0,
+    totalCheckIns: training.totalCheckIns,
+    currentStreak: training.currentStreak,
+    longestStreak: training.longestStreak,
+    totalTrainingMinutes: training.totalTrainingMinutes,
+    badgesCount: badgesCount || fromFirestore?.badgesCount || 0,
     friendsCount,
-    followersCount: 0,
-    followingCount: 0,
+    followersCount: fromFirestore?.followersCount ?? 0,
+    followingCount: fromFirestore?.followingCount ?? 0,
   };
 }
 
@@ -68,7 +93,9 @@ export async function getProfileBadges(userId: string): Promise<ProfileBadge[]> 
 }
 
 export async function getProfileDisplay(userId: string): Promise<ProfileDisplay> {
-  const fromDb = await getUserStats(userId);
+  const fromDb = isFirebaseNativeAvailable()
+    ? await getFirestoreUserStats(userId).catch(() => null)
+    : null;
   if (!fromDb) {
     return {};
   }
@@ -80,7 +107,9 @@ export async function getProfileDisplay(userId: string): Promise<ProfileDisplay>
 }
 
 export async function getWeeklyStats(userId: string): Promise<WeeklyStats> {
-  const fromDb = await getUserStats(userId);
+  const fromDb = isFirebaseNativeAvailable()
+    ? await getFirestoreUserStats(userId).catch(() => null)
+    : null;
   return {
     checkInsThisWeek: fromDb?.weeklyCheckins ?? 0,
     trainingMinutesThisWeek: fromDb?.weeklyMinutes ?? 0,

@@ -6,6 +6,9 @@
 import {getMyFriendIds} from '@/services/supabase/friendService';
 import {fetchVisibleLiveSessions} from '@/services/supabase/liveWorkoutSessionService';
 import type {OnlineUser} from '@/types/online.types';
+import {isDemoContentMode} from '@/demo/demoContentGate';
+import {buildDemoPayload} from '@/demo/buildDemoPayload';
+import {buildDemoOnlineUsersFromActiveFriends} from '@/demo/demoMapAndOnline';
 
 export interface GetOnlineUsersOptions {
   filter?: 'alle' | 'venner';
@@ -16,6 +19,18 @@ export async function getOnlineUsers(
   options: GetOnlineUsersOptions = {},
 ): Promise<OnlineUser[]> {
   const filter = options.filter ?? 'venner';
+  if (isDemoContentMode()) {
+    const d = buildDemoPayload(userId);
+    const list = buildDemoOnlineUsersFromActiveFriends(
+      d.activeFriends,
+      userId,
+      d.localCenters,
+    );
+    if (filter === 'alle') {
+      return list;
+    }
+    return list.filter(u => u.isFriend !== false);
+  }
   const friendIds = await getMyFriendIds(userId);
   let liveRows: Awaited<ReturnType<typeof fetchVisibleLiveSessions>> = [];
   try {

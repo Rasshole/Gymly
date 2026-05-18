@@ -94,7 +94,6 @@ export async function fetchCompletedCheckInSessionsForUser(
       'id, gym_name, workout_type, started_at, ended_at, is_active, planned_workout_id',
     )
     .eq('user_id', userId)
-    .eq('is_active', false)
     .not('ended_at', 'is', null)
     .not('started_at', 'is', null)
     .order('ended_at', {ascending: false})

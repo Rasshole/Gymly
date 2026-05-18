@@ -3,16 +3,17 @@
  * Live directory for alle brugere ligger fremtidigt i Online-fanen (FriendsNavigator) + Hjem / tjek ind.
  */
 
-import React, {useState, useCallback} from 'react';
+import React, {useState, useCallback, useEffect, useRef} from 'react';
 import {
   View,
   Text,
   StyleSheet,
   FlatList,
-  TouchableOpacity,
   ActivityIndicator,
   Pressable,
   Alert,
+  Animated,
+  Platform,
 } from 'react-native';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -21,7 +22,7 @@ import {useFriendStore} from '@/store/friendStore';
 import {useChatStore} from '@/store/chatStore';
 import {getOrCreateDmThread} from '@/services/supabase/dmService';
 import colors from '@/theme/colors';
-import {typography} from '@/theme/designTokens';
+import {spacing, radius, typography, shadows} from '@/theme/designTokens';
 import {MuscleGroup} from '@/types/workout.types';
 import MuscleGroupTileIcon from '@/components/ui/MuscleGroupTileIcon';
 import {
@@ -37,6 +38,10 @@ import {
 import {navigateToFriendProfile} from '@/navigation/rootNavigation';
 import SocialSearchBar from '@/components/social/SocialSearchBar';
 import SocialPrimaryButton from '@/components/social/SocialPrimaryButton';
+import {isDemoContentMode} from '@/demo/demoContentGate';
+import {buildDemoFriendsScreenList} from '@/demo/demoFriendsList';
+import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
+import {formatTrainingDurationDa} from '@/utils/socialTrainingLive';
 
 type Friend = {
   id: string;
@@ -59,15 +64,24 @@ const FriendsScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [friends, setFriends] = useState<Friend[]>([]);
   const [loadingFriends, setLoadingFriends] = useState(true);
+  const [liveDurationTick, setLiveDurationTick] = useState(0);
 
-  const stackNavigate = useCallback((routeName: string) => {
-    const stackNav = navigation.getParent()?.getParent?.();
-    if (stackNav && typeof (stackNav as any).navigate === 'function') {
-      (stackNav as any).navigate(routeName);
-      return;
-    }
-    (navigation as any).navigate?.(routeName);
-  }, [navigation]);
+  useEffect(() => {
+    const id = setInterval(() => setLiveDurationTick(n => n + 1), 30_000);
+    return () => clearInterval(id);
+  }, []);
+
+  const stackNavigate = useCallback(
+    (routeName: string) => {
+      const stackNav = navigation.getParent()?.getParent?.();
+      if (stackNav && typeof (stackNav as any).navigate === 'function') {
+        (stackNav as any).navigate(routeName);
+        return;
+      }
+      (navigation as any).navigate?.(routeName);
+    },
+    [navigation],
+  );
 
   const openAddFriend = useCallback(() => {
     stackNavigate('AddFriend');
@@ -128,6 +142,7 @@ const FriendsScreen = () => {
 
   useFocusEffect(
     useCallback(() => {
+      setLiveDurationTick(n => n + 1);
       if (!user) {
         setFriends([]);
         setLoadingFriends(false);
@@ -137,6 +152,11 @@ const FriendsScreen = () => {
       void (async () => {
         setLoadingFriends(true);
         try {
+          if (isDemoContentMode()) {
+            await upsertMyProfile(user);
+            void loadFriendStore(user.id);
+            setFriends(buildDemoFriendsScreenList(user.id) as Friend[]);
+          } else {
           await upsertMyProfile(user);
           void loadFriendStore(user.id);
           const profiles = await listFriendsWithProfiles(user.id);
@@ -185,6 +205,7 @@ const FriendsScreen = () => {
               };
             }),
           );
+          }
         } catch {
           if (!cancelled) {
             setFriends([]);
@@ -316,81 +337,18 @@ const FriendsScreen = () => {
     </View>
   );
 
-  const renderFriendItem = ({item}: {item: Friend}) => {
-    const activeLabel =
-      item.isOnline && item.activeTime ? formatActiveSubtitle(item.activeTime) : '';
-    return (
-    <View style={styles.friendItem}>
-      <Pressable
-        style={({pressed}) => [
-          styles.friendInfoContainer,
-          pressed && styles.friendInfoContainerPressed,
-        ]}
-        onPress={() => openFriendProfile(item)}
-        accessibilityRole="button"
-        accessibilityLabel={`${item.name}, se profil`}>
-        <View style={styles.avatarContainer}>
-          <UserAvatar
-            name={item.name}
-            imageUrl={item.avatar}
-            size="lg"
-            showOnlineIndicator={item.isOnline}
-            isOnline={item.isOnline}
-          />
-        </View>
-        <View style={styles.friendInfo}>
-          <View style={styles.friendHeader}>
-            <Text style={styles.friendName} numberOfLines={1}>
-              {item.name}
-            </Text>
-            {activeLabel ? (
-              <Text
-                style={[
-                  styles.activeTimeInline,
-                  activeLabel === 'Aktiv nu' && styles.activeNowInline,
-                ]}
-                numberOfLines={1}>
-                {activeLabel}
-              </Text>
-            ) : null}
-            {item.isOnline && item.muscleGroup && (
-              <View style={styles.muscleGroupIconContainer}>
-                <MuscleGroupTileIcon
-                  group={getMuscleGroupKey(item.muscleGroup)}
-                  size={20}
-                  style={styles.muscleGroupImage}
-                />
-              </View>
-            )}
-          </View>
-          {item.isOnline && item.gymName && (
-            <Text
-              style={styles.activeText}
-              numberOfLines={1}
-              ellipsizeMode="tail">
-              {item.gymName}
-            </Text>
-          )}
-          {!item.isOnline && (
-            <Text style={styles.offlineText} numberOfLines={1}>
-              {formatLastSeen(item.checkOutTime)}
-            </Text>
-          )}
-        </View>
-      </Pressable>
-      {item.isOnline && (
-        <TouchableOpacity
-          onPress={() => void openDmToFriend(item.id, item.name)}
-          style={styles.activeFriendMessageBtn}
-          hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
-          accessibilityLabel="Besked"
-          activeOpacity={0.75}>
-          <Icon name="chatbubble-outline" size={22} color={colors.primary} />
-        </TouchableOpacity>
-      )}
-    </View>
-    );
-  };
+  const renderFriendItem = ({item}: {item: Friend}) => (
+    <FriendListRow
+      item={item}
+      formatActiveSubtitle={formatActiveSubtitle}
+      formatLastSeen={formatLastSeen}
+      formatTrainingDurationDa={formatTrainingDurationDa}
+      formatWorkoutTypeDisplay={formatWorkoutTypeDisplay}
+      getMuscleGroupKey={getMuscleGroupKey}
+      onOpenProfile={() => openFriendProfile(item)}
+      onMessage={() => void openDmToFriend(item.id, item.name)}
+    />
+  );
 
   return (
     <View style={styles.container}>
@@ -404,6 +362,7 @@ const FriendsScreen = () => {
       {/* Friends List */}
       <FlatList
         data={filteredFriends}
+        extraData={liveDurationTick}
         renderItem={renderFriendItem}
         keyExtractor={item => item.id}
         contentContainerStyle={
@@ -424,33 +383,428 @@ const FriendsScreen = () => {
               label="Tilføj ven"
               iconName="person-add-outline"
               onPress={openAddFriend}
+              variant="premium"
               style={styles.addFriendBanner}
             />
-            <Pressable
-              onPress={openNotifications}
-              style={({pressed}) => [
-                styles.friendRequestsRow,
-                pressed && styles.friendRequestsRowPressed,
-              ]}
-              accessibilityRole="button"
-              accessibilityLabel="Åbn notifikationer for venneanmodninger">
-              <Icon name="mail-unread-outline" size={20} color={colors.primary} />
-              <View style={styles.friendRequestsTextCol}>
-                <Text style={styles.friendRequestsTitle}>Venneanmodninger</Text>
-                <Text style={styles.friendRequestsSubtitle}>
-                  Accepter eller afvis under Notifikationer
-                </Text>
-              </View>
-              <Icon name="chevron-forward" size={18} color={colors.textMuted} />
-            </Pressable>
+            <FriendRequestsCard onPress={openNotifications} />
           </View>
         }
         showsVerticalScrollIndicator={false}
-        ItemSeparatorComponent={() => <View style={styles.separator} />}
       />
     </View>
   );
 };
+
+type FriendListRowProps = {
+  item: Friend;
+  formatActiveSubtitle: (activeTime: string) => string;
+  formatLastSeen: (checkOutTime?: Date) => string;
+  formatTrainingDurationDa: (checkInTime: Date) => string;
+  formatWorkoutTypeDisplay: (encoded: string) => string;
+  getMuscleGroupKey: (muscleGroup?: string) => MuscleGroup;
+  onOpenProfile: () => void;
+  onMessage: () => void;
+};
+
+const FriendListRow = ({
+  item,
+  formatActiveSubtitle,
+  formatLastSeen,
+  formatTrainingDurationDa,
+  formatWorkoutTypeDisplay,
+  getMuscleGroupKey,
+  onOpenProfile,
+  onMessage,
+}: FriendListRowProps) => {
+  const scale = useRef(new Animated.Value(1)).current;
+  const activeLabel =
+    item.isOnline && item.activeTime ? formatActiveSubtitle(item.activeTime) : '';
+
+  let trainingLiveLine: string | null = null;
+  if (item.isOnline) {
+    if (item.checkInTime) {
+      trainingLiveLine = formatTrainingDurationDa(item.checkInTime);
+    } else if (item.activeTime) {
+      const mm = /^(\d+)\s*min$/.exec(String(item.activeTime).trim());
+      trainingLiveLine = mm ? `${mm[1]} min i gang` : `${item.activeTime} i gang`;
+    }
+  }
+
+  const muscleLabel =
+    item.muscleGroup && item.muscleGroup.trim().length > 0
+      ? formatWorkoutTypeDisplay(item.muscleGroup)
+      : '';
+  const gymMuscleLine = [item.gymName, muscleLabel].filter(Boolean).join(' · ');
+
+  const pressIn = () => {
+    Animated.spring(scale, {
+      toValue: 0.985,
+      friction: 9,
+      tension: 280,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const pressOut = () => {
+    Animated.spring(scale, {
+      toValue: 1,
+      friction: 5,
+      tension: 140,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  return (
+    <Animated.View
+      style={[
+        rowStyles.card,
+        item.isOnline && rowStyles.cardOnline,
+        {transform: [{scale}]},
+      ]}>
+      <Pressable
+        onPress={onOpenProfile}
+        onPressIn={pressIn}
+        onPressOut={pressOut}
+        style={rowStyles.profileTap}
+        accessibilityRole="button"
+        accessibilityLabel={`${item.name}, se profil`}>
+        <View style={rowStyles.avatarWrapper}>
+          <View style={[rowStyles.avatarRing, item.isOnline && rowStyles.avatarRingOnline]}>
+            <UserAvatar
+              name={item.name}
+              imageUrl={item.avatar}
+              size="lg"
+              showOnlineIndicator={false}
+              isOnline={item.isOnline}
+            />
+            <View style={rowStyles.avatarSheen} pointerEvents="none" />
+          </View>
+          {item.isOnline ? <View style={rowStyles.activeDot} /> : null}
+        </View>
+
+        <View style={rowStyles.content}>
+          <View style={rowStyles.nameRow}>
+            <Text style={rowStyles.name} numberOfLines={1}>
+              {item.name}
+            </Text>
+            {activeLabel ? (
+              <Text
+                style={[
+                  rowStyles.activePill,
+                  activeLabel === 'Aktiv nu' && rowStyles.activePillNow,
+                ]}
+                numberOfLines={1}>
+                {activeLabel}
+              </Text>
+            ) : null}
+            {item.isOnline && item.muscleGroup ? (
+              <View style={rowStyles.muscleIcon}>
+                <MuscleGroupTileIcon
+                  group={getMuscleGroupKey(item.muscleGroup)}
+                  size={18}
+                  style={rowStyles.muscleImage}
+                />
+              </View>
+            ) : null}
+          </View>
+          {item.isOnline && gymMuscleLine ? (
+            <Text style={rowStyles.gymLine} numberOfLines={1}>
+              {gymMuscleLine}
+            </Text>
+          ) : null}
+          {item.isOnline && trainingLiveLine ? (
+            <Text style={rowStyles.liveLine} numberOfLines={1}>
+              {trainingLiveLine}
+            </Text>
+          ) : null}
+          {!item.isOnline ? (
+            <Text style={rowStyles.offlineLine} numberOfLines={1}>
+              {formatLastSeen(item.checkOutTime)}
+            </Text>
+          ) : null}
+        </View>
+      </Pressable>
+
+      {item.isOnline ? (
+        <Pressable
+          onPress={onMessage}
+          style={({pressed}) => [
+            rowStyles.messageBtn,
+            pressed && rowStyles.messageBtnPressed,
+          ]}
+          hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
+          accessibilityLabel="Besked">
+          <Icon name="chatbubble" size={20} color={colors.primary} />
+        </Pressable>
+      ) : (
+        <Icon name="chevron-forward" size={18} color={colors.textMuted} />
+      )}
+    </Animated.View>
+  );
+};
+
+const FriendRequestsCard = ({onPress}: {onPress: () => void}) => {
+  const scale = useRef(new Animated.Value(1)).current;
+
+  const pressIn = () => {
+    Animated.spring(scale, {
+      toValue: 0.985,
+      friction: 9,
+      tension: 280,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const pressOut = () => {
+    Animated.spring(scale, {
+      toValue: 1,
+      friction: 5,
+      tension: 140,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  return (
+    <Pressable
+      onPress={onPress}
+      onPressIn={pressIn}
+      onPressOut={pressOut}
+      accessibilityRole="button"
+      accessibilityLabel="Åbn notifikationer for venneanmodninger">
+      <Animated.View style={[rowStyles.requestsCard, {transform: [{scale}]}]}>
+        <View style={rowStyles.requestsIconWrap}>
+          <Icon name="mail-unread" size={20} color={colors.primary} />
+        </View>
+        <View style={rowStyles.requestsTextCol}>
+          <Text style={rowStyles.requestsTitle}>Venneanmodninger</Text>
+          <Text style={rowStyles.requestsSubtitle}>
+            Accepter eller afvis under Notifikationer
+          </Text>
+        </View>
+        <View style={rowStyles.chevronWrap}>
+          <Icon name="chevron-forward" size={16} color={colors.textMuted} />
+        </View>
+      </Animated.View>
+    </Pressable>
+  );
+};
+
+const rowStyles = StyleSheet.create({
+  card: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.md,
+    backgroundColor: colors.backgroundCard,
+    borderRadius: radius.xl,
+    borderWidth: 1,
+    borderColor: colors.border + 'CC',
+    marginBottom: spacing.sm,
+    ...shadows.sm,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#0F172A',
+        shadowOffset: {width: 0, height: 3},
+        shadowOpacity: 0.06,
+        shadowRadius: 10,
+      },
+      android: {elevation: 2},
+    }),
+  },
+  cardOnline: {
+    backgroundColor: colors.primary + '06',
+    borderColor: colors.primary + '28',
+    ...Platform.select({
+      ios: {
+        shadowColor: colors.primary,
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 0.1,
+        shadowRadius: 12,
+      },
+      android: {elevation: 3},
+    }),
+  },
+  avatarWrapper: {
+    position: 'relative',
+    marginRight: spacing.md,
+  },
+  avatarRing: {
+    borderRadius: radius.full,
+    padding: 2,
+    overflow: 'hidden',
+    backgroundColor: colors.primaryLight,
+    ...Platform.select({
+      ios: {
+        shadowColor: colors.primary,
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 0.16,
+        shadowRadius: 6,
+      },
+      android: {elevation: 2},
+    }),
+  },
+  avatarRingOnline: {
+    backgroundColor: colors.primary,
+  },
+  avatarSheen: {
+    position: 'absolute',
+    top: 4,
+    left: 8,
+    right: 8,
+    height: 14,
+    borderRadius: 10,
+    backgroundColor: 'rgba(255,255,255,0.22)',
+  },
+  activeDot: {
+    position: 'absolute',
+    bottom: 1,
+    right: 1,
+    width: 11,
+    height: 11,
+    borderRadius: 6,
+    backgroundColor: colors.success,
+    borderWidth: 2,
+    borderColor: colors.backgroundCard,
+  },
+  profileTap: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    minWidth: 0,
+  },
+  content: {
+    flex: 1,
+    minWidth: 0,
+    marginRight: spacing.xs,
+  },
+  nameRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    marginBottom: 2,
+  },
+  name: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: colors.text,
+    letterSpacing: -0.25,
+    marginRight: spacing.sm,
+    flexShrink: 1,
+  },
+  activePill: {
+    fontSize: 12,
+    color: colors.textMuted,
+    fontWeight: '600',
+    marginRight: spacing.xs,
+  },
+  activePillNow: {
+    color: colors.success,
+  },
+  muscleIcon: {
+    padding: 2,
+  },
+  muscleImage: {
+    width: 18,
+    height: 18,
+  },
+  gymLine: {
+    fontSize: 14,
+    color: colors.text,
+    fontWeight: '600',
+    marginTop: 1,
+    lineHeight: 19,
+  },
+  liveLine: {
+    fontSize: 13,
+    color: colors.primary,
+    fontWeight: '600',
+    marginTop: 2,
+    lineHeight: 17,
+  },
+  offlineLine: {
+    ...typography.small,
+    color: colors.textMuted,
+    marginTop: 2,
+    lineHeight: 18,
+  },
+  messageBtn: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: colors.primary + '12',
+    borderWidth: 1,
+    borderColor: colors.primary + '28',
+    alignItems: 'center',
+    justifyContent: 'center',
+    ...Platform.select({
+      ios: {
+        shadowColor: colors.primary,
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 0.12,
+        shadowRadius: 6,
+      },
+      android: {elevation: 2},
+    }),
+  },
+  messageBtnPressed: {
+    opacity: 0.82,
+    transform: [{scale: 0.96}],
+  },
+  requestsCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginHorizontal: spacing.lg,
+    marginBottom: spacing.md,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.md,
+    borderRadius: radius.xl,
+    backgroundColor: colors.backgroundCard,
+    borderWidth: 1,
+    borderColor: colors.primary + '22',
+    gap: spacing.md,
+    ...Platform.select({
+      ios: {
+        shadowColor: colors.primary,
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 0.1,
+        shadowRadius: 10,
+      },
+      android: {elevation: 2},
+    }),
+  },
+  requestsIconWrap: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: colors.primary + '14',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  requestsTextCol: {
+    flex: 1,
+    minWidth: 0,
+  },
+  requestsTitle: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: colors.text,
+    letterSpacing: -0.2,
+  },
+  requestsSubtitle: {
+    ...typography.small,
+    color: colors.textSecondary,
+    marginTop: 3,
+    lineHeight: 18,
+  },
+  chevronWrap: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    backgroundColor: colors.background,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 
 const styles = StyleSheet.create({
   container: {
@@ -458,171 +812,57 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
   },
   searchOuter: {
-    marginHorizontal: 16,
-    marginTop: 10,
-    marginBottom: 10,
+    marginHorizontal: spacing.lg,
+    marginTop: spacing.sm,
+    marginBottom: spacing.md,
   },
   listHeaderWrap: {
-    marginBottom: 4,
-    paddingTop: 2,
+    marginBottom: spacing.xs,
+    paddingTop: spacing.xs,
   },
   addFriendBanner: {
-    marginHorizontal: 16,
-    marginBottom: 10,
-  },
-  friendRequestsRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginHorizontal: 16,
-    marginBottom: 12,
-    paddingVertical: 12,
-    paddingHorizontal: 12,
-    borderRadius: 12,
-    backgroundColor: colors.backgroundCard,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: colors.border,
-    gap: 10,
-  },
-  friendRequestsRowPressed: {
-    opacity: 0.85,
-  },
-  friendRequestsTextCol: {
-    flex: 1,
-    minWidth: 0,
-  },
-  friendRequestsTitle: {
-    fontSize: 15,
-    fontWeight: '600',
-    color: colors.text,
-  },
-  friendRequestsSubtitle: {
-    fontSize: 13,
-    color: colors.textMuted,
-    marginTop: 2,
+    marginHorizontal: spacing.lg,
+    marginBottom: spacing.md,
   },
   list: {
-    paddingHorizontal: 16,
-    paddingBottom: 16,
-  },
-  friendItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.backgroundCard,
-    padding: 12,
-    borderRadius: 12,
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 1},
-    shadowOpacity: 0.05,
-    shadowRadius: 4,
-    elevation: 2,
-  },
-  friendInfoContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-  },
-  friendInfoContainerPressed: {
-    opacity: 0.75,
-  },
-  separator: {
-    height: 1,
-    backgroundColor: '#E5E5EA',
-    marginLeft: 80,
-  },
-  avatarContainer: {
-    position: 'relative',
-    marginRight: 12,
-  },
-  avatar: {
-    width: 56,
-    height: 56,
-    borderRadius: 28,
-  },
-  avatarPlaceholder: {
-    width: 56,
-    height: 56,
-    borderRadius: 28,
-    backgroundColor: colors.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  avatarText: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#fff',
-  },
-  friendInfo: {
-    flex: 1,
-    minWidth: 0, // Allow text to shrink
-  },
-  friendHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 4,
-    flexWrap: 'wrap',
-  },
-  friendName: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#000',
-    marginRight: 8,
-  },
-  activeTimeInline: {
-    fontSize: 14,
-    color: '#8E8E93',
-    marginRight: 8,
-  },
-  activeNowInline: {
-    color: colors.success,
-    fontWeight: '600',
-  },
-  muscleGroupIconContainer: {
-    marginLeft: 4,
-    marginRight: 4,
-    padding: 4,
-  },
-  muscleGroupImage: {
-    width: 20,
-    height: 20,
-  },
-  activeText: {
-    fontSize: 14,
-    color: colors.textMuted,
-  },
-  offlineText: {
-    fontSize: 14,
-    color: colors.textMuted,
-  },
-  /** Match Home “Aktive nu” `activeNowMessageBtn` (+ trailing margin for card row). */
-  activeFriendMessageBtn: {
-    padding: 4,
-    marginLeft: 8,
+    paddingHorizontal: spacing.lg,
+    paddingBottom: spacing.xl,
+    paddingTop: spacing.xs,
   },
   emptyList: {
     flexGrow: 1,
-    paddingBottom: 24,
+    paddingBottom: spacing.xl,
   },
   friendsEmptyOuter: {
     flexGrow: 1,
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 24,
-    paddingVertical: 16,
+    paddingHorizontal: spacing.xl,
+    paddingVertical: spacing.lg,
   },
   friendsEmptyInner: {
     alignItems: 'center',
     transform: [{translateY: -40}],
   },
   friendsEmptyIconWrap: {
-    marginBottom: 16,
+    width: 88,
+    height: 88,
+    borderRadius: 44,
+    backgroundColor: colors.backgroundCard,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: spacing.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
+    ...shadows.sm,
   },
   friendsEmptyTitle: {
     ...typography.h4,
     fontWeight: '700',
     color: colors.text,
     textAlign: 'center',
-    marginBottom: 10,
+    marginBottom: spacing.sm,
   },
   friendsEmptyMessage: {
     ...typography.body,
@@ -632,7 +872,7 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   loadingEmpty: {
-    paddingVertical: 48,
+    paddingVertical: spacing.xxxl,
     alignItems: 'center',
     justifyContent: 'center',
   },

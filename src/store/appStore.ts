@@ -14,6 +14,7 @@ import {useFriendStore} from '@/store/friendStore';
 import {useInAppNotificationStore} from '@/store/inAppNotificationStore';
 import {useBadgeStore} from '@/store/badgeStore';
 import {finishWorkoutSession} from '@/services/session/finishWorkoutSession';
+import {fetchUserCenterIdsOrdered} from '@/services/supabase/userCentersService';
 
 function syncPublicProfileToSupabase(user: User) {
   upsertMyProfile(user).catch(err => {
@@ -62,26 +63,28 @@ export const useAppStore = create<AppState>((set, get) => ({
       if (session?.user && session.access_token && session.refresh_token) {
         const fromAuth = AuthService.getMappedUser(session.user);
         const storedUser = await SecureStorage.getUserData();
-        let mergedUser = (() => {
-          if (!storedUser) {
-            return fromAuth;
-          }
-          const fallbackDisplayName =
-            (storedUser.displayName || '').trim().length > 0
-              ? storedUser.displayName
-              : fromAuth.displayName;
-          const fallbackGyms =
-            Array.isArray(storedUser.favoriteGyms) &&
-            storedUser.favoriteGyms.length > 0
-              ? storedUser.favoriteGyms
-              : fromAuth.favoriteGyms;
-          return {
-            ...fromAuth,
-            displayName: fallbackDisplayName,
-            favoriteGyms: fallbackGyms,
-          };
-        })();
+        /** SecureStorage har seneste “Rediger profil”-data; JWT-metadata kan være bagud. */
+        let mergedUser: User = storedUser
+          ? {
+              ...fromAuth,
+              ...storedUser,
+              id: fromAuth.id,
+              email: fromAuth.email || storedUser.email,
+            }
+          : fromAuth;
         mergedUser = await mergeProfileUsernameIntoUser(mergedUser);
+        try {
+          const centerIds = await fetchUserCenterIdsOrdered(mergedUser.id);
+          if (centerIds.length > 0) {
+            mergedUser = {
+              ...mergedUser,
+              favoriteGyms: centerIds,
+              updatedAt: new Date(),
+            };
+          }
+        } catch {
+          /* keep stored favoriteGyms */
+        }
         const tokens: AuthTokens = {
           accessToken: session.access_token,
           refreshToken: session.refresh_token,

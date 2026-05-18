@@ -1,5 +1,5 @@
 /**
- * ProfileHeader – centreret avatar, navn, @brugernavn, Følgere / Følger / Venner
+ * ProfileHeader – centreret avatar, navn, @brugernavn, Venner
  */
 
 import React, {useRef} from 'react';
@@ -19,8 +19,6 @@ type ProfileHeaderProps = {
   showBio?: boolean;
   onEditPress?: () => void;
   activeStatus?: string;
-  followersCount?: number;
-  followingCount?: number;
   friendsCount?: number;
   onFriendsPress?: () => void;
 };
@@ -82,8 +80,6 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   showBio = false,
   onEditPress,
   activeStatus,
-  followersCount = 0,
-  followingCount = 0,
   friendsCount = 0,
   onFriendsPress,
 }) => {
@@ -127,9 +123,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
       ) : null}
     </View>
 
-    <View style={styles.statsRow}>
-      <StatCol value={followersCount} label="Følgere" />
-      <StatCol value={followingCount} label="Følger" />
+    <View style={styles.statsSection}>
       {onFriendsPress ? (
         <StatColButton
           value={friendsCount}
@@ -239,18 +233,15 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     flex: 1,
   },
-  statsRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
+  statsSection: {
     marginTop: spacing.lg + 2,
     paddingTop: spacing.lg,
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: colors.border,
-    gap: spacing.lg,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   statCol: {
-    flex: 1,
     alignItems: 'center',
     minWidth: 0,
   },

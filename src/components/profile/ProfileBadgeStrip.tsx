@@ -14,31 +14,56 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import Svg, {Defs, LinearGradient, Rect, Stop} from 'react-native-svg';
 import {BADGE_BY_ID} from '@/config/badgeDefinitions';
+import {upcomingBadgeHint} from '@/services/badgeEngine';
+import type {BadgeDefinition, BadgeProgress} from '@/types/badge.types';
 import {getBadgeProgressList, useBadgeStore} from '@/store/badgeStore';
-import type {BadgeDefinition} from '@/types/badge.types';
 import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows} from '@/theme/designTokens';
 
 type Props = {
   userId: string;
-  /** Fra `profiles.featured_badge_ids` (egen bruger synkes via realtime). */
+  /** Kun til andres profil: fremhævede badges hvis ingen unlocks er hentet endnu. */
   featuredBadgeIds?: string[] | null;
-  /** Når man ser en andens profil: anden copy, ingen navigation til egen Badges-fane */
   viewingOtherUser?: boolean;
   otherUserDisplayName?: string;
 };
 
-type UnlockedBadgeItem = {
+type UnlockedStripItem = {
+  kind: 'unlocked';
   def: BadgeDefinition;
   unlockedAt: string;
 };
 
-const BADGE_SIZE = 70;
-const BADGE_GAP = 14;
+type UpcomingStripItem = {
+  kind: 'upcoming';
+  def: BadgeDefinition;
+  progress: BadgeProgress;
+  hint: string;
+};
+
+type StripItem = UnlockedStripItem | UpcomingStripItem;
+
+const BADGE_TILE_W = 88;
+const BADGE_GAP = 12;
 const ROW_H_PADDING = 18;
 const ROW_V_PADDING = 10;
 const EDGE_FADE_WIDTH = 28;
 const CENTER_MAX_COUNT = 3;
+
+function formatEarnedAt(iso: string): string {
+  if (!iso) {
+    return '';
+  }
+  try {
+    return new Date(iso).toLocaleDateString('da-DK', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    });
+  } catch {
+    return '';
+  }
+}
 
 function ScrollEdgeFade({
   side,
@@ -73,18 +98,19 @@ function ScrollEdgeFade({
 }
 
 function ProfileBadgeCell({
-  def,
+  item,
   isNewest,
   onPress,
   entranceEpoch,
 }: {
-  def: BadgeDefinition;
+  item: StripItem;
   isNewest: boolean;
   onPress: () => void;
   entranceEpoch: number;
 }) {
   const scale = useRef(new Animated.Value(1)).current;
   const pulseRef = useRef<Animated.CompositeAnimation | null>(null);
+  const isUpcoming = item.kind === 'upcoming';
 
   const stopAll = useCallback(() => {
     scale.stopAnimation(() => {});
@@ -93,7 +119,7 @@ function ProfileBadgeCell({
   }, [scale]);
 
   useEffect(() => {
-    if (!isNewest) {
+    if (isUpcoming || !isNewest) {
       stopAll();
       scale.setValue(1);
       return;
@@ -156,9 +182,13 @@ function ProfileBadgeCell({
       entrance.stop?.();
       stopAll();
     };
-  }, [isNewest, entranceEpoch, scale, stopAll]);
+  }, [isNewest, isUpcoming, entranceEpoch, scale, stopAll]);
 
-  const tileStyle = [styles.badgeTile, isNewest && styles.badgeTileNewest];
+  const tileStyle = [
+    styles.badgeTile,
+    isUpcoming && styles.badgeTileUpcoming,
+    isNewest && !isUpcoming && styles.badgeTileNewest,
+  ];
 
   return (
     <TouchableOpacity
@@ -166,9 +196,24 @@ function ProfileBadgeCell({
       activeOpacity={0.88}
       style={styles.badgeTouch}
       accessibilityRole="button"
-      accessibilityLabel={`Badge ${def.name}`}>
+      accessibilityLabel={
+        isUpcoming
+          ? `Kommende badge ${item.def.name}`
+          : `Badge ${item.def.name} optjent`
+      }>
       <Animated.View style={[tileStyle, {transform: [{scale}]}]}>
-        <Text style={styles.badgeEmoji}>{def.emoji}</Text>
+        <Text style={[styles.badgeEmoji, isUpcoming && styles.badgeEmojiMuted]}>
+          {item.def.emoji}
+        </Text>
+        {isUpcoming ? (
+          <Text style={styles.badgeHint} numberOfLines={2}>
+            {item.hint}
+          </Text>
+        ) : (
+          <Text style={styles.badgeName} numberOfLines={2}>
+            {item.def.name}
+          </Text>
+        )}
       </Animated.View>
     </TouchableOpacity>
   );
@@ -182,9 +227,11 @@ export function ProfileBadgeStrip({
 }: Props) {
   const navigation = useNavigation<any>();
   const unlockSnap = useBadgeStore(s => s.unlockedByUser[userId]);
-  const [detail, setDetail] = useState<BadgeDefinition | null>(null);
+  const statsSnap = useBadgeStore(s => s.statsByUser[userId]);
+  const hydrateFromServer = useBadgeStore(s => s.hydrateUserBadgesFromServer);
+  const [detail, setDetail] = useState<StripItem | null>(null);
   const scrollRef = useRef<ScrollView>(null);
-  const [stripHeight, setStripHeight] = useState(BADGE_SIZE + ROW_V_PADDING * 2);
+  const [stripHeight, setStripHeight] = useState(100);
   const [scrollW, setScrollW] = useState(0);
   const [contentW, setContentW] = useState(0);
   const [newestEntranceEpoch, setNewestEntranceEpoch] = useState(0);
@@ -198,7 +245,13 @@ export function ProfileBadgeStrip({
     setNewestEntranceEpoch(0);
   }, [userId]);
 
-  const sortedBadges = useMemo((): UnlockedBadgeItem[] => {
+  useEffect(() => {
+    if (viewingOtherUser && userId) {
+      void hydrateFromServer(userId);
+    }
+  }, [viewingOtherUser, userId, hydrateFromServer]);
+
+  const sortedUnlocked = useMemo((): UnlockedStripItem[] => {
     if (!unlockSnap) {
       return [];
     }
@@ -208,9 +261,9 @@ export function ProfileBadgeStrip({
         if (!def) {
           return null;
         }
-        return {def, unlockedAt};
+        return {kind: 'unlocked' as const, def, unlockedAt};
       })
-      .filter(Boolean) as UnlockedBadgeItem[];
+      .filter(Boolean) as UnlockedStripItem[];
 
     entries.sort(
       (a, b) =>
@@ -219,36 +272,49 @@ export function ProfileBadgeStrip({
     return entries;
   }, [unlockSnap]);
 
-  const displayBadges = useMemo((): UnlockedBadgeItem[] => {
+  const upcomingItems = useMemo((): UpcomingStripItem[] => {
     if (viewingOtherUser) {
-      const ids = (featuredBadgeIds ?? []).filter(id => BADGE_BY_ID[id]).slice(0, 3);
+      return [];
+    }
+    return getBadgeProgressList(userId)
+      .filter(r => r.progress.status !== 'unlocked')
+      .sort((a, b) => b.progress.percent - a.progress.percent)
+      .slice(0, 3)
+      .map(r => ({
+        kind: 'upcoming' as const,
+        def: r.def,
+        progress: r.progress,
+        hint: upcomingBadgeHint(r.def, r.progress),
+      }));
+  }, [userId, viewingOtherUser, unlockSnap, statsSnap]);
+
+  const displayItems = useMemo((): StripItem[] => {
+    if (sortedUnlocked.length > 0) {
+      return sortedUnlocked.slice(0, 3);
+    }
+    if (viewingOtherUser) {
+      const ids = (featuredBadgeIds ?? [])
+        .filter(id => BADGE_BY_ID[id])
+        .slice(0, 3);
       return ids.map(id => ({
+        kind: 'unlocked' as const,
         def: BADGE_BY_ID[id],
         unlockedAt: '',
       }));
     }
-    const snap = unlockSnap ?? {};
-    const featured = (featuredBadgeIds ?? [])
-      .filter(id => BADGE_BY_ID[id] && snap[id])
-      .slice(0, 3);
-    if (featured.length > 0) {
-      return featured.map(id => ({
-        def: BADGE_BY_ID[id],
-        unlockedAt: snap[id] ?? '',
-      }));
-    }
-    return sortedBadges.slice(0, 3);
-  }, [viewingOtherUser, featuredBadgeIds, unlockSnap, sortedBadges]);
+    return upcomingItems;
+  }, [sortedUnlocked, viewingOtherUser, featuredBadgeIds, upcomingItems]);
 
-  const manualFeatured =
-    !viewingOtherUser && (featuredBadgeIds?.length ?? 0) > 0;
-  const newestId = sortedBadges[0]?.def.id ?? null;
-  const count = viewingOtherUser ? displayBadges.length : sortedBadges.length;
-  const rowCount = displayBadges.length;
+  const showUpcomingFallback =
+    !viewingOtherUser && sortedUnlocked.length === 0 && upcomingItems.length > 0;
+
+  const newestId =
+    sortedUnlocked.length > 0 ? sortedUnlocked[0].def.id : null;
+  const rowCount = displayItems.length;
   const useCenteredRow = rowCount > 0 && rowCount <= CENTER_MAX_COUNT;
 
   useEffect(() => {
-    if (manualFeatured || !newestId || count === 0) {
+    if (showUpcomingFallback || !newestId || sortedUnlocked.length === 0) {
       return;
     }
     if (!initializedRef.current) {
@@ -263,7 +329,7 @@ export function ProfileBadgeStrip({
         scrollRef.current?.scrollTo({x: 0, animated: true});
       });
     }
-  }, [newestId, count, manualFeatured]);
+  }, [newestId, sortedUnlocked.length, showUpcomingFallback]);
 
   const onScrollLayout = useCallback((e: LayoutChangeEvent) => {
     setScrollW(e.nativeEvent.layout.width);
@@ -279,7 +345,6 @@ export function ProfileBadgeStrip({
   const showEdgeFade =
     rowCount > CENTER_MAX_COUNT && contentW > scrollW + 4 && scrollW > 0;
 
-  const totalUnlocked = count;
   const badgeProgressById = useMemo(() => {
     const list = getBadgeProgressList(userId);
     const out: Record<
@@ -295,9 +360,9 @@ export function ProfileBadgeStrip({
       };
     });
     return out;
-  }, [userId, unlockSnap]);
+  }, [userId, unlockSnap, statsSnap]);
 
-  if (totalUnlocked === 0 && !(viewingOtherUser && displayBadges.length > 0)) {
+  if (rowCount === 0) {
     const name = (otherUserDisplayName || 'Brugeren').trim();
     const sub = viewingOtherUser
       ? `${name} har ikke delt badges på profilen`
@@ -347,7 +412,12 @@ export function ProfileBadgeStrip({
   return (
     <View style={styles.wrap}>
       <View style={styles.headerRow}>
-        <Text style={styles.title}>Badges</Text>
+        <View style={styles.titleBlock}>
+          <Text style={styles.title}>Badges</Text>
+          {showUpcomingFallback ? (
+            <Text style={styles.titleSub}>Næste milepæle</Text>
+          ) : null}
+        </View>
         {viewingOtherUser ? null : (
           <TouchableOpacity onPress={() => navigation.navigate('Badges')}>
             <Text style={styles.seeAll}>Se alle</Text>
@@ -366,19 +436,20 @@ export function ProfileBadgeStrip({
           onLayout={onScrollLayout}
           onContentSizeChange={w => setContentW(w)}
           contentContainerStyle={contentContainerStyle}>
-          {displayBadges.map(item => {
+          {displayItems.map(item => {
             const isNewest =
-              !manualFeatured &&
+              !showUpcomingFallback &&
               !viewingOtherUser &&
+              item.kind === 'unlocked' &&
               newestId != null &&
               item.def.id === newestId;
             return (
               <ProfileBadgeCell
                 key={item.def.id}
-                def={item.def}
+                item={item}
                 isNewest={isNewest}
                 entranceEpoch={isNewest ? newestEntranceEpoch : 0}
-                onPress={() => setDetail(item.def)}
+                onPress={() => setDetail(item)}
               />
             );
           })}
@@ -408,29 +479,35 @@ export function ProfileBadgeStrip({
           <Pressable style={styles.modalCard} onPress={e => e.stopPropagation()}>
             {detail ? (
               <>
-                <Text style={styles.modalEmoji}>{detail.emoji}</Text>
-                <Text style={styles.modalName}>{detail.name}</Text>
-                <Text style={styles.modalDesc}>{detail.description}</Text>
-                {!viewingOtherUser && badgeProgressById[detail.id] ? (
+                <Text style={styles.modalEmoji}>{detail.def.emoji}</Text>
+                <Text style={styles.modalName}>{detail.def.name}</Text>
+                <Text style={styles.modalDesc}>{detail.def.description}</Text>
+                {detail.kind === 'unlocked' ? (
+                  <>
+                    {detail.unlockedAt ? (
+                      <Text style={styles.modalEarned}>
+                        Optjent {formatEarnedAt(detail.unlockedAt)}
+                      </Text>
+                    ) : viewingOtherUser ? (
+                      <Text style={styles.modalHintMuted}>Fremhævet på profilen</Text>
+                    ) : null}
+                  </>
+                ) : !viewingOtherUser && badgeProgressById[detail.def.id] ? (
                   <>
                     <View style={styles.modalProgressTrack}>
                       <View
                         style={[
                           styles.modalProgressFill,
-                          {width: `${badgeProgressById[detail.id].percent}%`},
+                          {width: `${badgeProgressById[detail.def.id].percent}%`},
                         ]}
                       />
                     </View>
                     <Text style={styles.modalProgressText}>
-                      {badgeProgressById[detail.id].current} /{' '}
-                      {badgeProgressById[detail.id].required}
+                      {badgeProgressById[detail.def.id].current} /{' '}
+                      {badgeProgressById[detail.def.id].required}
                     </Text>
-                    <Text style={styles.modalHint}>
-                      Du mangler {badgeProgressById[detail.id].left} for næste level
-                    </Text>
+                    <Text style={styles.modalHint}>{detail.hint}</Text>
                   </>
-                ) : viewingOtherUser ? (
-                  <Text style={styles.modalHintMuted}>Fremhævet på profilen</Text>
                 ) : null}
                 <TouchableOpacity onPress={() => setDetail(null)} style={styles.modalBtn}>
                   <Text style={styles.modalBtnText}>OK</Text>
@@ -451,13 +528,21 @@ const styles = StyleSheet.create({
   headerRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     marginBottom: spacing.sm,
+  },
+  titleBlock: {
+    flex: 1,
   },
   title: {
     fontSize: 16,
     fontWeight: '700',
     color: colors.text,
+  },
+  titleSub: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    marginTop: 2,
   },
   seeAll: {
     ...typography.small,
@@ -474,7 +559,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    minHeight: BADGE_SIZE + ROW_V_PADDING * 2,
+    minHeight: 96,
   },
   scrollContentScrolling: {
     flexDirection: 'row',
@@ -483,19 +568,26 @@ const styles = StyleSheet.create({
     flexGrow: 0,
   },
   badgeTouch: {
-    width: BADGE_SIZE,
-    height: BADGE_SIZE,
+    width: BADGE_TILE_W,
   },
   badgeTile: {
-    width: BADGE_SIZE,
-    height: BADGE_SIZE,
+    width: BADGE_TILE_W,
+    minHeight: 96,
     borderRadius: radius.lg,
     backgroundColor: colors.backgroundCard,
     borderWidth: 1,
     borderColor: colors.border,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingHorizontal: spacing.xs,
+    paddingVertical: spacing.sm,
     ...shadows.sm,
+  },
+  badgeTileUpcoming: {
+    borderStyle: 'dashed',
+    borderColor: colors.primary + '55',
+    backgroundColor: colors.primary + '06',
+    opacity: 0.92,
   },
   badgeTileNewest: {
     borderWidth: 2.5,
@@ -508,7 +600,25 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   badgeEmoji: {
-    fontSize: 30,
+    fontSize: 28,
+    marginBottom: 4,
+  },
+  badgeEmojiMuted: {
+    opacity: 0.88,
+  },
+  badgeName: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: colors.text,
+    textAlign: 'center',
+    lineHeight: 14,
+  },
+  badgeHint: {
+    fontSize: 10,
+    fontWeight: '600',
+    color: colors.primaryDark,
+    textAlign: 'center',
+    lineHeight: 13,
   },
   edgeFade: {
     position: 'absolute',
@@ -577,7 +687,14 @@ const styles = StyleSheet.create({
     ...typography.body,
     color: colors.textSecondary,
     textAlign: 'center',
+    marginBottom: spacing.md,
+  },
+  modalEarned: {
+    ...typography.small,
+    color: colors.primaryDark,
+    fontWeight: '700',
     marginBottom: spacing.lg,
+    textAlign: 'center',
   },
   modalProgressTrack: {
     width: '100%',

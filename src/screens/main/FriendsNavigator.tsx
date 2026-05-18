@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.backgroundCard,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: colors.border,
-    paddingTop: 4,
+    paddingTop: 6,
   },
   tabRow: {
     flexDirection: 'row',
@@ -206,26 +206,28 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 12,
+    paddingVertical: 11,
   },
   tabLabel: {
     fontSize: 14,
     fontWeight: '600',
     color: colors.textMuted,
+    letterSpacing: -0.15,
   },
   tabLabelInactive: {
-    opacity: 0.55,
+    opacity: 0.5,
   },
   tabLabelActive: {
-    color: colors.primary,
+    color: colors.primaryDark,
     opacity: 1,
+    fontWeight: '700',
   },
   tabIndicator: {
     position: 'absolute',
     bottom: 0,
     left: 0,
-    height: 2,
-    borderRadius: 1,
+    height: 3,
+    borderRadius: 2,
     backgroundColor: colors.primary,
   },
   scene: {

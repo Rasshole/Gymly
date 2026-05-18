@@ -4,6 +4,8 @@
  */
 
 import {useState, useEffect, useCallback} from 'react';
+import {subscribeProfileStatsSelf} from '@/realtime/profileStatsSelfBridge';
+import {isDemoContentMode} from '@/demo/demoContentGate';
 import {
   getProfileStats,
   getProfileBadges,
@@ -34,6 +36,15 @@ export function useProfileStats(userId: string | undefined) {
   useEffect(() => {
     refresh();
   }, [refresh]);
+
+  useEffect(() => {
+    if (!userId || isDemoContentMode()) {
+      return;
+    }
+    return subscribeProfileStatsSelf(userId, () => {
+      void refresh();
+    });
+  }, [userId, refresh]);
 
   return {stats, loading, refresh};
 }

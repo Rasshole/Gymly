@@ -37,7 +37,7 @@ import {useNavigation} from '@react-navigation/native';
 import {useChatStore} from '@/store/chatStore';
 import {safeDisplayName} from '@/utils/displayName';
 import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
-import {formatActiveDurationSince} from '@/utils/activeSessionFormat';
+import {formatDurationIgang} from '@/utils/activeSessionFormat';
 import {getUserStatsMap, type UserStats} from '@/services/supabase/userStatsService';
 import {
   fetchSentWorkoutVibeEmojis,
@@ -68,6 +68,10 @@ const NON_FRIEND_VIBES = [
 ] as const;
 
 type FriendshipStatus = 'friend' | 'pending_sent' | 'pending_received' | 'none';
+
+function isSyntheticLiveUser(u: ActiveUser | null | undefined): boolean {
+  return !!u?.liveDemoSeed?.synthetic;
+}
 
 type CardLoadSnapshot = {
   checkInId: string | null;
@@ -228,7 +232,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
       );
       try {
         const list = await fetchSentWorkoutVibeEmojis(recipientId, checkInId);
-        const filtered = list.filter(e => allowed.has(e));
+        const filtered = list.filter(e => allowed.has(e as never));
         setDeliveredEmojis(new Set(filtered));
         console.log('[UserProfileModal] delivered emojis loaded', {
           recipientId,
@@ -250,6 +254,39 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
     if (!visible || !user?.id || !viewerUserId) {
       return;
     }
+
+    if (isSyntheticLiveUser(user)) {
+      const seed = user.liveDemoSeed!;
+      setSendPhase('idle');
+      setVibeError(null);
+      setVibeHint(null);
+      setSelectedVibe('💪');
+      setDeliveredEmojis(new Set());
+      setFriendship(seed.friendship);
+      setProfileName(user.name);
+      setProfileAvatar(user.avatar ?? null);
+      setLiveState({
+        centerName: user.centerName ?? null,
+        workoutType: user.workoutType ?? null,
+        startedAt: user.startedAt ?? null,
+        isActive: true,
+        checkInId: null,
+      });
+      const sd = seed.streakDays;
+      setUserStats({
+        currentStreak: sd,
+        longestStreak: Math.max(sd, 1),
+        lastStreakDate: null,
+        streakFreezeAvailable: 1,
+        streakFreezeUsedThisMonth: false,
+        streakFreezeMonth: null,
+        totalCheckIns: 42,
+        totalTrainingMinutes: 2100,
+      });
+      setPrimaryCenterSummary(seed.primaryCenterLabel ?? null);
+      return;
+    }
+
     setSendPhase('idle');
     setVibeError(null);
     setVibeHint(null);
@@ -320,7 +357,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
       cancelled = true;
       void supabase.removeChannel(channel);
     };
-  }, [visible, user?.id, viewerUserId, refreshCard, loadDeliveredEmojis]);
+  }, [visible, user, viewerUserId, refreshCard, loadDeliveredEmojis]);
 
   useEffect(() => {
     if (sendPhase !== 'sending') {
@@ -370,6 +407,32 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
         return;
       }
       if (sendPhase === 'sending' || sendPhase === 'success') {
+        return;
+      }
+
+      if (isSyntheticLiveUser(user)) {
+        setBusy(true);
+        setSendPhase('sending');
+        setVibeError(null);
+        setVibeHint(null);
+        await new Promise<void>(resolve => setTimeout(resolve, 280));
+        setDeliveredEmojis(prev => new Set(prev).add(emoji));
+        runEmojiSuccessAnim();
+        try {
+          if (Platform.OS === 'ios') {
+            Vibration.vibrate(10);
+          } else {
+            Vibration.vibrate(40);
+          }
+        } catch {
+          /* ignore */
+        }
+        setSendPhase('success');
+        setBusy(false);
+        setTimeout(() => {
+          onClose();
+          setSendPhase('idle');
+        }, 900);
         return;
       }
 
@@ -486,6 +549,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
       }
     },
     [
+      user,
       user?.id,
       user?.centerName,
       viewerUserId,
@@ -515,6 +579,13 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
     ) {
       return;
     }
+    if (isSyntheticLiveUser(user)) {
+      Alert.alert(
+        'Demo',
+        'Chat åbnes ikke for demo-profiler. Med rigtige venner åbner beskeder som normalt.',
+      );
+      return;
+    }
     setBusy(true);
     try {
       const threadId = await ensureThread(user.id, profileName);
@@ -534,6 +605,22 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
 
   const handleFriendAction = async () => {
     if (!user?.id || !viewerUserId || isSelf || busy) {
+      return;
+    }
+    if (isSyntheticLiveUser(user)) {
+      if (friendship === 'friend' || friendship === 'pending_sent') {
+        return;
+      }
+      setBusy(true);
+      try {
+        if (friendship === 'none') {
+          setFriendship('pending_sent');
+        } else if (friendship === 'pending_received') {
+          setFriendship('friend');
+        }
+      } finally {
+        setBusy(false);
+      }
       return;
     }
     setBusy(true);
@@ -557,15 +644,13 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
 
   const activityLine = useMemo(() => {
     const startedAt = liveState.startedAt ?? user?.startedAt ?? null;
-    const duration = startedAt
-      ? formatActiveDurationSince(startedAt)
-      : '0 min';
+    const duration = startedAt ? formatDurationIgang(startedAt) : '0 min i gang';
     const type = formatWorkoutTypeDisplay(liveState.workoutType ?? user?.workoutType ?? undefined);
     return `Aktiv nu · ${duration} · ${type}`;
   }, [liveState.startedAt, liveState.workoutType, user?.startedAt, user?.workoutType]);
 
   useEffect(() => {
-    if (!visible || !user?.id) {
+    if (!visible || !user?.id || isSyntheticLiveUser(user)) {
       return;
     }
     let mounted = true;
@@ -791,6 +876,20 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
                 <TouchableOpacity
                   style={styles.secondaryButton}
                   onPress={() => {
+                    if (isSyntheticLiveUser(user)) {
+                      const center =
+                        liveState.centerName ||
+                        user?.centerName ||
+                        'Samme center';
+                      const type = formatWorkoutTypeDisplay(
+                        liveState.workoutType ?? user?.workoutType ?? 'cardio',
+                      );
+                      Alert.alert(
+                        profileName,
+                        `${center}\n${type}\n${activityLine}\n\n(Demo — fuld profil findes hos rigtige brugere)`,
+                      );
+                      return;
+                    }
                     onClose();
                     navigation.navigate('FriendProfile', {
                       friendId: user.id,

@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
-import {useFocusEffect, useRoute} from '@react-navigation/native';
+import {useFocusEffect, useNavigation, useRoute} from '@react-navigation/native';
 import {
   StyleSheet,
   Text,
@@ -19,6 +19,7 @@ import {useWorkoutPlanStore, WorkoutPlanEntry, WorkoutHistoryEntry} from '@/stor
 import {formatGymDisplayName} from '@/utils/gymDisplay';
 import {
   createPlannedSession,
+  fetchPlannedWorkoutEntryById,
   loadWorkoutPlanEntriesForUser,
   respondPlannedWorkoutInvite,
 } from '@/services/supabase/plannedWorkoutService';
@@ -72,6 +73,7 @@ const muscleLabels: Record<MuscleGroup, string> = {
 
 const WorkoutScheduleScreen = () => {
   const route = useRoute<{params?: {openPlannedId?: string; initialTab?: string}}>();
+  const navigation = useNavigation();
   const {user} = useAppStore();
   // Brug brugerens valgte biceps; hvis ingen er valgt, brug samme hvide standard som i Profil (💪🏻)
   const rawBicepsEmoji = user?.bicepsEmoji || '💪🏻';
@@ -332,26 +334,90 @@ const WorkoutScheduleScreen = () => {
 
   const openPlannedId = route.params?.openPlannedId;
   const openPlannedHandledRef = useRef<string | null>(null);
+  const openPlannedFetchInFlightRef = useRef<string | null>(null);
+  const openPlannedFetchFailedRef = useRef<string | null>(null);
+
+  const openPlannedDetailForEntry = useCallback((p: WorkoutPlanEntry, id: string) => {
+    const d = new Date(p.scheduledAt);
+    d.setHours(0, 0, 0, 0);
+    setSelectedDate(d);
+    setCurrentMonth(new Date(d.getFullYear(), d.getMonth(), 1));
+    setSelectedWorkout({type: 'planned', data: p});
+    setDetailModalVisible(true);
+    openPlannedHandledRef.current = id;
+  }, []);
+
   useEffect(() => {
     if (!openPlannedId) {
+      openPlannedHandledRef.current = null;
+      openPlannedFetchInFlightRef.current = null;
+      openPlannedFetchFailedRef.current = null;
       return;
     }
-    if (openPlannedHandledRef.current === openPlannedId) {
+    if (openPlannedFetchFailedRef.current === openPlannedId) {
       return;
     }
-    const p = useWorkoutPlanStore
-      .getState()
-      .plannedWorkouts.find(w => w.id === openPlannedId);
+    const p = useWorkoutPlanStore.getState().plannedWorkouts.find(w => w.id === openPlannedId);
     if (p) {
-      openPlannedHandledRef.current = openPlannedId;
-      const d = new Date(p.scheduledAt);
-      d.setHours(0, 0, 0, 0);
-      setSelectedDate(d);
-      setCurrentMonth(new Date(d.getFullYear(), d.getMonth(), 1));
-      setSelectedWorkout({type: 'planned', data: p});
-      setDetailModalVisible(true);
+      if (openPlannedHandledRef.current !== openPlannedId) {
+        openPlannedDetailForEntry(p, openPlannedId);
+      }
+      return;
     }
-  }, [openPlannedId, plannedWorkouts]);
+    if (openPlannedFetchInFlightRef.current === openPlannedId) {
+      return;
+    }
+    openPlannedFetchInFlightRef.current = openPlannedId;
+    let cancelled = false;
+    void (async () => {
+      try {
+        const entry = await fetchPlannedWorkoutEntryById(openPlannedId);
+        if (cancelled) {
+          return;
+        }
+        openPlannedFetchInFlightRef.current = null;
+        if (entry) {
+          mergePlannedFromServer([entry]);
+        } else {
+          openPlannedFetchFailedRef.current = openPlannedId;
+          Alert.alert(
+            'Træning findes ikke',
+            'Denne træning findes ikke længere.',
+            [
+              {
+                text: 'OK',
+                onPress: () => {
+                  openPlannedFetchFailedRef.current = null;
+                  navigation.setParams({openPlannedId: undefined} as never);
+                },
+              },
+            ],
+          );
+        }
+      } catch {
+        if (!cancelled) {
+          openPlannedFetchInFlightRef.current = null;
+          openPlannedFetchFailedRef.current = openPlannedId;
+          Alert.alert(
+            'Kunne ikke åbne',
+            'Vi kunne ikke hente den planlagte træning. Prøv igen senere.',
+            [
+              {
+                text: 'OK',
+                onPress: () => {
+                  openPlannedFetchFailedRef.current = null;
+                  navigation.setParams({openPlannedId: undefined} as never);
+                },
+              },
+            ],
+          );
+        }
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [openPlannedId, plannedWorkouts, mergePlannedFromServer, navigation, openPlannedDetailForEntry]);
 
   const upcomingByDay = useMemo(() => {
     const map = new Map<string, WorkoutPlanEntry[]>();

@@ -257,6 +257,17 @@ class NotificationsErrorBoundary extends React.Component<
   }
 }
 
+function resolvePlannedWorkoutIdFromNotification(item: Notification): string | undefined {
+  const d = item.dataPayload;
+  const raw =
+    item.plannedWorkoutId ||
+    item.planId ||
+    (d?.plannedWorkoutId as string | undefined) ||
+    (d?.planned_workout_id as string | undefined);
+  const s = typeof raw === 'string' ? raw.trim() : '';
+  return s.length > 0 ? s : undefined;
+}
+
 const NotificationsScreenInner = () => {
   const navigation = useNavigation<any>();
   const {user} = useAppStore();
@@ -589,30 +600,25 @@ const NotificationsScreenInner = () => {
       return;
     }
     if (item.type === 'workout_invite' && item.planId) {
-      navigation.navigate('WorkoutSchedule', {initialTab: 'upcoming'});
+      const pid = resolvePlannedWorkoutIdFromNotification(item);
+      navigation.navigate('WorkoutSchedule', {
+        initialTab: 'upcoming',
+        ...(pid ? {openPlannedId: pid} : {}),
+      });
       return;
     }
-    if (item.type === 'planned_workout_invite') {
-      const pid = item.plannedWorkoutId || item.planId;
-      if (pid && item.isFromServer) {
-        setPlannedInviteModalNotif(item);
-        return;
-      }
-    }
     if (
-      (item.type === 'planned_workout_accepted' ||
-        item.type === 'planned_workout_declined') &&
-      item.threadId
+      item.type === 'planned_workout_invite' ||
+      item.type === 'planned_workout_accepted' ||
+      item.type === 'planned_workout_declined' ||
+      item.type === 'planned_workout_reminder'
     ) {
-      navigation.navigate('Chat', {
-        chatId: item.threadId,
-        friendId: item.friendId || '',
-        friendName: item.friendName || 'Ven',
-        participants:
-          item.friendId && item.friendName
-            ? [{id: item.friendId, name: item.friendName}]
-            : undefined,
+      const pid = resolvePlannedWorkoutIdFromNotification(item);
+      navigation.navigate('WorkoutSchedule', {
+        initialTab: 'upcoming',
+        ...(pid ? {openPlannedId: pid} : {}),
       });
+      return;
     }
   };
 
@@ -636,7 +642,10 @@ const NotificationsScreenInner = () => {
         );
       }
       if (notification.planId) {
-        navigation.navigate('WorkoutSchedule', {initialTab: 'upcoming'});
+        navigation.navigate('WorkoutSchedule', {
+          initialTab: 'upcoming',
+          openPlannedId: notification.planId,
+        });
       }
     }
   };

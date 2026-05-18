@@ -3,7 +3,7 @@
  * Card: Du er nu tjekket ind, timer, Inviter/Sæt PR/Tag billede, Aktive i centret
  */
 
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect, useRef, useMemo} from 'react';
 import {
   View,
   Text,
@@ -25,6 +25,7 @@ import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows} from '@/theme/designTokens';
 import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
 import {sortActiveUsersForDisplay} from '@/utils/sortActiveUsersForDisplay';
+import {useDemoModeStore} from '@/demo/demoModeStore';
 
 const LEGACY_WORKOUT_LABELS: Record<string, string> = {
   fri: 'Fri træning',
@@ -41,6 +42,59 @@ function formatElapsed(seconds: number): string {
   return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
 }
 
+/** Kun __DEV__ + demo: ekstra “live” profiler til optagelse (IDs bruges også til venne-sortering). */
+function makeDemoCenterCrowd(centerName: string | undefined): ActiveUser[] {
+  const agoMin = (m: number) => new Date(Date.now() - m * 60_000).toISOString();
+  const primary = centerName ?? 'SATS — Valby';
+  const rows: Array<{
+    id: string;
+    name: string;
+    isFriend: boolean;
+    workout: string;
+    ago: number;
+    rel: 'friend' | 'none' | 'pending_sent' | 'pending_received';
+    streak: number;
+  }> = [
+    {id: 'demo-live-sofie', name: 'Sofie Hansen', isFriend: true, workout: 'ben,skulder', ago: 8, rel: 'friend', streak: 14},
+    {id: 'demo-live-lucas', name: 'Lucas Berg', isFriend: true, workout: 'bryst,triceps', ago: 22, rel: 'friend', streak: 21},
+    {id: 'demo-live-emma', name: 'Emma N.', isFriend: true, workout: 'ryg,biceps', ago: 41, rel: 'friend', streak: 7},
+    {id: 'demo-live-oliver', name: 'Oliver K.', isFriend: true, workout: 'cardio', ago: 28, rel: 'friend', streak: 30},
+    {id: 'demo-live-ida', name: 'Ida Møller', isFriend: false, workout: 'mave,ben', ago: 12, rel: 'none', streak: 5},
+    {id: 'demo-live-magnus', name: 'Magnus T.', isFriend: false, workout: 'skulder,triceps', ago: 55, rel: 'none', streak: 0},
+    {id: 'demo-live-freja', name: 'Freja L.', isFriend: false, workout: 'pilates', ago: 18, rel: 'pending_sent', streak: 3},
+    {id: 'demo-live-noah', name: 'Noah S.', isFriend: false, workout: 'bryst,biceps', ago: 33, rel: 'none', streak: 11},
+    {id: 'demo-live-clara', name: 'Clara V.', isFriend: false, workout: 'reformer', ago: 67, rel: 'none', streak: 9},
+    {id: 'demo-live-viktor', name: 'Viktor A.', isFriend: false, workout: 'ben,cardio', ago: 6, rel: 'none', streak: 0},
+    {id: 'demo-live-julie', name: 'Julie F.', isFriend: false, workout: 'ryg,mave', ago: 44, rel: 'pending_received', streak: 18},
+    {id: 'demo-live-mathias', name: 'Mathias P.', isFriend: false, workout: 'ben,ryg', ago: 19, rel: 'none', streak: 4},
+    {id: 'demo-live-amalie', name: 'Amalie K.', isFriend: false, workout: 'skulder,bryst', ago: 15, rel: 'none', streak: 0},
+    {id: 'demo-live-tobias', name: 'Tobias R.', isFriend: false, workout: 'triceps,biceps', ago: 52, rel: 'none', streak: 26},
+  ];
+  return rows.map(r => ({
+    id: r.id,
+    name: r.name,
+    avatar: null,
+    isFriend: r.isFriend,
+    workoutType: r.workout,
+    centerName,
+    startedAt: agoMin(r.ago),
+    liveDemoSeed: {
+      synthetic: true,
+      friendship: r.rel,
+      streakDays: r.streak,
+      primaryCenterLabel: primary,
+    },
+  }));
+}
+
+/** Hold synk med `isFriend: true` i `makeDemoCenterCrowd` (bruges til sortering som “venner”). */
+const DEMO_LIVE_FRIEND_IDS = new Set([
+  'demo-live-sofie',
+  'demo-live-lucas',
+  'demo-live-emma',
+  'demo-live-oliver',
+]);
+
 export interface ActiveSessionViewProps {
   onEndSession: () => void;
 }
@@ -53,6 +107,15 @@ const ActiveSessionView: React.FC<ActiveSessionViewProps> = ({onEndSession}) => 
   const {user} = useAppStore();
   const friendIds = useFriendStore(s => s.friendIds);
   const loadFriendStore = useFriendStore(s => s.load);
+  const demoCenterCrowdActive =
+    typeof __DEV__ !== 'undefined' && __DEV__ && useDemoModeStore(s => s.enabled);
+  const effectiveFriendIds = useMemo(() => {
+    const next = new Set(friendIds);
+    if (demoCenterCrowdActive) {
+      DEMO_LIVE_FRIEND_IDS.forEach(id => next.add(id));
+    }
+    return next;
+  }, [friendIds, demoCenterCrowdActive]);
   const [elapsed, setElapsed] = useState(0);
   const [selectedUser, setSelectedUser] = useState<ActiveUser | null>(null);
   const fadeIn = useRef(new Animated.Value(0)).current;
@@ -117,17 +180,22 @@ const ActiveSessionView: React.FC<ActiveSessionViewProps> = ({onEndSession}) => 
           name: u.name,
           avatar: u.avatar,
           isFriend: friendIds.has(u.id),
-          workoutType: activeSession?.workoutType,
+          workoutType: u.workoutType ?? activeSession?.workoutType ?? undefined,
           centerName: activeSession?.gymName,
           startedAt: u.lastActivity?.toISOString?.() ?? undefined,
         }))
       : [];
+
+  const crowdExtras = demoCenterCrowdActive
+    ? makeDemoCenterCrowd(activeSession?.gymName)
+    : [];
 
   const activeUsers: ActiveUser[] = sortActiveUsersForDisplay(
     Array.from(
       new Map(
         [
           ...activeUsersRaw,
+          ...crowdExtras,
           {
             id: user?.id || 'current_user',
             name: currentUserName,
@@ -141,7 +209,7 @@ const ActiveSessionView: React.FC<ActiveSessionViewProps> = ({onEndSession}) => 
       ).values(),
     ),
     user?.id,
-    friendIds,
+    effectiveFriendIds,
   );
 
   if (__DEV__) {
@@ -181,7 +249,7 @@ const ActiveSessionView: React.FC<ActiveSessionViewProps> = ({onEndSession}) => 
         <Animated.View style={[styles.timerHeroCard, {transform: [{scale: timerPulse}]}]}>
           <View style={styles.timerGlowOrbTop} />
           <View style={styles.timerGlowOrbBottom} />
-          {showAwayZoneWarning ? (
+          {showAwayZoneWarning && !demoCenterCrowdActive ? (
             <View style={styles.awayWarningBanner} accessibilityRole="alert">
               <Text style={styles.awayWarningText}>
                 Det ser ud til, at du har forladt centeret. Du bliver snart automatisk

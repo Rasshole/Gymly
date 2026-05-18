@@ -442,6 +442,20 @@ Deno.serve(async (req) => {
       return jsonResponse({ok: true, skipped: "self"});
     }
 
+    /** Plan-invite i chatten er syntetisk DM-body; push sendes kun via planned_workout_invite. */
+    if (rec.type === "dm_message") {
+      const bodyStr = typeof rec.body === "string" ? rec.body.trim() : "";
+      if (
+        bodyStr.startsWith("[GYM_PLAN_INVITE]") ||
+        bodyStr.startsWith("[GYM_PLAN_STATUS]")
+      ) {
+        console.log("send-push: skipped plan embed dm_message", {
+          notificationId: rec.id,
+        });
+        return jsonResponse({ok: true, skipped: "plan_embed_dm_message"});
+      }
+    }
+
     /** Launch focus: no ranking / rank-drop pushes — reserved for future competitive systems. */
     const suppressedRankingPushTypes = new Set<string>(["leaderboard_movement"]);
     if (suppressedRankingPushTypes.has(String(rec.type || "").trim())) {

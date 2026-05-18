@@ -27,7 +27,7 @@ export function formatDurationIgang(
   if (diffMinutes >= 60) {
     const hours = Math.floor(diffMinutes / 60);
     const minutes = diffMinutes % 60;
-    return `${hours}t ${minutes}m i gang`;
+    return `${hours}t ${String(minutes).padStart(2, '0')}m i gang`;
   }
   return `${diffMinutes} min i gang`;
 }

@@ -6,3 +6,6 @@ export type {CenterMarkerProps} from './CenterMarker';
 export type {GymMarkerProps} from './GymMarker';
 export type {SelectedCenterCardProps} from './SelectedCenterCard';
 export type {NearbyCentersCarouselProps, NearbyCenterItem} from './NearbyCentersCarousel';
+export {MapFloatingButton} from './MapFloatingButton';
+export {MapTypePickerMenu} from './MapTypePickerMenu';
+export type {MapTypeValue} from './MapTypePickerMenu';

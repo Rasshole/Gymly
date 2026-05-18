@@ -146,38 +146,19 @@ private struct GymlyLiveLogo: View {
   var cornerRadius: CGFloat
 
   var body: some View {
-    ZStack {
-      RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-        .fill(
-          LinearGradient(
-            colors: [
-              Color(red: 0.47, green: 0.23, blue: 0.97),
-              Color(red: 0.61, green: 0.35, blue: 1.0),
-            ],
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing
-          )
-        )
-      RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-        .fill(
-          LinearGradient(
-            colors: [.white.opacity(0.14), .clear],
-            startPoint: .top,
-            endPoint: .bottom
-          )
-        )
-      Text("GY")
-        .font(.system(size: size * 0.34, weight: .black, design: .rounded))
-        .kerning(-0.2)
-        .foregroundStyle(.white)
-    }
-    .frame(width: size, height: size)
-    .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
-    .overlay(
-      RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-        .stroke(Color.white.opacity(0.08), lineWidth: 0.5)
-    )
-    .shadow(color: .black.opacity(0.18), radius: 4, y: 2)
+    Image("gymly-live-logo")
+      .renderingMode(.original)
+      .resizable()
+      .interpolation(.high)
+      .scaledToFit()
+      .padding(size * 0.06)
+      .frame(width: size, height: size)
+      .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
+      .overlay(
+        RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+          .stroke(Color.white.opacity(0.08), lineWidth: 0.5)
+      )
+      .shadow(color: .black.opacity(0.18), radius: 4, y: 2)
   }
 }
 
@@ -192,4 +173,4 @@ private func shortCenterName(_ full: String) -> String {
   return trimmed
 }
 
-// MARK: - Pure SwiftUI logo badge
+// MARK: - App icon badge (Asset Catalog: gymly-live-logo)

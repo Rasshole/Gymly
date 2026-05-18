@@ -36,6 +36,7 @@ import {
   refreshWorkoutFeedFromServerForHome,
   subscribeWorkoutFeedRealtimeForHome,
 } from '@/services/supabase/workoutPostService';
+import {isDemoContentMode} from '@/demo/demoContentGate';
 import MuscleGroupTileIcon from '@/components/ui/MuscleGroupTileIcon';
 import {MuscleGroup} from '@/types/workout.types';
 import colors from '@/theme/colors';
@@ -51,6 +52,10 @@ import {useChatStore} from '@/store/chatStore';
 import {getOrCreateDmThread} from '@/services/supabase/dmService';
 import {UserAvatar} from '@/components/ui/UserAvatar';
 import UserProfileModal from '@/components/checkin/UserProfileModal';
+import {
+  PostActionBottomSheet,
+} from '@/components/feed/PostActionBottomSheet';
+import {feedItemToPostActionSheet} from '@/utils/postActionMappers';
 import type {ActiveUser} from '@/components/checkin/ActiveUsersList';
 import GymLogoView from '@/components/ui/GymLogoView';
 import {
@@ -387,7 +392,17 @@ const HomeScreen = () => {
     localCenters,
     hasLocalCenters,
     loading: localCentersLoading,
+    refresh: refreshLocalCenters,
   } = useLocalCentersActivity(user?.id);
+
+  useFocusEffect(
+    useCallback(() => {
+      if (user?.id) {
+        void refreshLocalCenters();
+      }
+    }, [user?.id, refreshLocalCenters]),
+  );
+
   const getChatByParticipants = useChatStore(s => s.getChatByParticipants);
   const upsertChat = useChatStore(s => s.upsertChat);
 
@@ -444,7 +459,7 @@ const HomeScreen = () => {
     }
   }, [dashboardStreak, dashboardWeeklyCheckins, dashboardWeeklyMinutes]);
   const safeAreaBottom = insets?.bottom ?? 0;
-  const {feedItems, deleteFeedItem} = useFeedStore();
+  const {feedItems} = useFeedStore();
   const userBicepsEmoji = user?.bicepsEmoji || '💪🏻';
   const [addedFriends, setAddedFriends] = useState<string[]>([]);
   const [now, setNow] = useState(Date.now());
@@ -466,6 +481,7 @@ const HomeScreen = () => {
     Record<string, Record<string, {liked: boolean; likes: number}>>
   >({});
   const [commentedItems, setCommentedItems] = useState<string[]>([]);
+  const [postActionItem, setPostActionItem] = useState<FeedItem | null>(null);
   const [commentInputFocused, setCommentInputFocused] = useState(false);
   const [animatingItems, setAnimatingItems] = useState<Record<string, boolean>>({});
   const activeNowPulseScale = useRef(new Animated.Value(1)).current;
@@ -516,7 +532,7 @@ const HomeScreen = () => {
   const feedPhotoLayouts = useRef<Record<string, {x: number; y: number; width: number; height: number}>>({});
 
   useEffect(() => {
-    if (!user?.id) {
+    if (!user?.id || isDemoContentMode()) {
       return;
     }
     return subscribeWorkoutFeedRealtimeForHome(user.id);
@@ -527,6 +543,18 @@ const HomeScreen = () => {
     const postIds = feedItems.map(item => item.id);
     if (!uid || postIds.length === 0) {
       setFeedReactions({});
+      return;
+    }
+    if (isDemoContentMode()) {
+      setFeedReactions(prev => {
+        const next: Record<string, {liked: boolean; likes: number}> = {...prev};
+        for (const id of postIds) {
+          if (id.startsWith('demo-feed-')) {
+            next[id] = {liked: false, likes: 4 + (id.charCodeAt(id.length - 1) % 12)};
+          }
+        }
+        return next;
+      });
       return;
     }
     let cancelled = false;
@@ -564,7 +592,7 @@ const HomeScreen = () => {
 
   useEffect(() => {
     const uid = user?.id;
-    if (!uid) {
+    if (!uid || isDemoContentMode()) {
       return;
     }
     return subscribePostBicepsRealtime(postId => {
@@ -599,6 +627,10 @@ const HomeScreen = () => {
       setAuthorStatsByUserId({});
       return;
     }
+    if (isDemoContentMode()) {
+      setAuthorStatsByUserId({});
+      return;
+    }
     let mounted = true;
     const load = async () => {
       try {
@@ -628,11 +660,11 @@ const HomeScreen = () => {
   const prevActiveNowCountRef = useRef<number>(socialActiveNowList.length);
 
   // Subtle list transition when active users appear/disappear (only while Home is focused).
-  // Global LayoutAnimation while another stack screen mounts (e.g. Notifications) can crash Fabric iOS.
+  // LayoutAnimation + Fabric på iOS kan SIGABRT (__check_strict_weak_ordering_sorted / ShadowViewMutation).
   useEffect(() => {
     const prev = prevActiveNowCountRef.current;
     if (prev !== socialActiveNowList.length) {
-      if (isHomeFocused) {
+      if (isHomeFocused && Platform.OS === 'android') {
         LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
       }
       prevActiveNowCountRef.current = socialActiveNowList.length;
@@ -671,7 +703,7 @@ const HomeScreen = () => {
       );
       pulseLoop.start();
       void trainingStats.refresh();
-      if (user?.id) {
+      if (user?.id && !isDemoContentMode()) {
         refreshWorkoutFeedFromServerForHome(user.id).catch(() => {});
       }
       void refreshGymlyActiveNow();
@@ -1151,40 +1183,26 @@ const HomeScreen = () => {
     };
   }, [commentModalVisible, reelsCommentVisible, reelsShareVisible]);
 
-  const handleFeedItemMenu = (itemId: string, itemUser: string) => {
-    const currentUser = user?.displayName || user?.username || 'Du';
-    // Only allow deletion if it's the current user's post
-    if (itemUser === currentUser || itemUser === 'Du') {
-      Alert.alert(
-        'Slet indlæg',
-        'Er du sikker på, at du vil slette dette indlæg?',
-        [
-          {
-            text: 'Annuller',
-            style: 'cancel',
-          },
-          {
-            text: 'Slet',
-            style: 'destructive',
-            onPress: () => {
-              deleteFeedItem(itemId);
-              // Also remove reactions and comments
-              setFeedReactions(prev => {
-                const next = {...prev};
-                delete next[itemId];
-                return next;
-              });
-              setCommentsByFeedItem(prev => {
-                const next = {...prev};
-                delete next[itemId];
-                return next;
-              });
-            },
-          },
-        ],
-      );
-    }
-  };
+  const closePostActionSheet = useCallback(() => {
+    setPostActionItem(null);
+  }, []);
+
+  const handlePostDeletedSideEffects = useCallback((postId: string) => {
+    setFeedReactions(prev => {
+      const next = {...prev};
+      delete next[postId];
+      return next;
+    });
+    setCommentsByFeedItem(prev => {
+      const next = {...prev};
+      delete next[postId];
+      return next;
+    });
+  }, []);
+
+  const openPostActionMenu = useCallback((item: FeedItem) => {
+    setPostActionItem(item);
+  }, []);
 
   const handleSubmitComment = () => {
     const trimmed = commentInput.trim();
@@ -1710,9 +1728,10 @@ const HomeScreen = () => {
                   </View>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => handleFeedItemMenu(item.id, item.user)}
-                  activeOpacity={0.7}>
-                  <Icon name="ellipsis-horizontal" size={18} color="#94A3B8" />
+                  onPress={() => openPostActionMenu(item)}
+                  activeOpacity={0.7}
+                  hitSlop={{top: 8, bottom: 8, left: 8, right: 8}}>
+                  <Icon name="ellipsis-horizontal" size={17} color="#64748B" />
                 </TouchableOpacity>
               </View>
               {item.workoutInfo ? (
@@ -2043,6 +2062,15 @@ const HomeScreen = () => {
         viewerUserId={currentUser?.id}
         viewerName={currentUser?.displayName || 'Dig'}
         activitySubtitle="Aktiv lige nu"
+      />
+
+      <PostActionBottomSheet
+        visible={!!postActionItem}
+        onClose={closePostActionSheet}
+        post={postActionItem ? feedItemToPostActionSheet(postActionItem) : null}
+        currentUserId={currentUser?.id}
+        variant="workoutPost"
+        onPostDeleted={handlePostDeletedSideEffects}
       />
 
       <Modal visible={bicepsListVisible} transparent animationType="slide">

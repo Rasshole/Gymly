@@ -79,32 +79,33 @@ const GymlyPostCard: React.FC<GymlyPostCardProps> = ({
 }) => {
   return (
     <View style={styles.card}>
-      {/* Header */}
-      <TouchableOpacity
-        style={styles.header}
-        onPress={onUserPress}
-        activeOpacity={0.8}
-        disabled={!onUserPress}>
-        <UserAvatar name={userName} imageUrl={userAvatar} size="md" />
-        <View style={styles.headerInfo}>
-          <View style={styles.userNameRow}>
-            <Text style={styles.userName}>{userName}</Text>
-            {streakEmoji ? (
-              <Text style={styles.streakEmoji}>{streakEmoji}</Text>
-            ) : null}
+      <View style={styles.header}>
+        <TouchableOpacity
+          style={styles.headerLeft}
+          onPress={onUserPress}
+          activeOpacity={0.8}
+          disabled={!onUserPress}>
+          <UserAvatar name={userName} imageUrl={userAvatar} size="md" />
+          <View style={styles.headerInfo}>
+            <View style={styles.userNameRow}>
+              <Text style={styles.userName}>{userName}</Text>
+              {streakEmoji ? (
+                <Text style={styles.streakEmoji}>{streakEmoji}</Text>
+              ) : null}
+            </View>
+            <View style={styles.metaRow}>
+              <Text style={styles.metaText}>{gymName}</Text>
+              <Text style={styles.metaDot}> • </Text>
+              <Text style={styles.metaText}>
+                {workoutType.includes(',')
+                  ? formatWorkoutTypeDisplay(workoutType)
+                  : WORKOUT_LABELS[workoutType] ?? formatWorkoutTypeDisplay(workoutType)}
+              </Text>
+              <Text style={styles.metaDot}> • </Text>
+              <Text style={styles.metaText}>{duration}</Text>
+            </View>
           </View>
-          <View style={styles.metaRow}>
-            <Text style={styles.metaText}>{gymName}</Text>
-            <Text style={styles.metaDot}> • </Text>
-            <Text style={styles.metaText}>
-              {workoutType.includes(',')
-                ? formatWorkoutTypeDisplay(workoutType)
-                : WORKOUT_LABELS[workoutType] ?? formatWorkoutTypeDisplay(workoutType)}
-            </Text>
-            <Text style={styles.metaDot}> • </Text>
-            <Text style={styles.metaText}>{duration}</Text>
-          </View>
-        </View>
+        </TouchableOpacity>
         <View style={styles.headerRight}>
           {hasPR ? (
             <View style={styles.prBadge}>
@@ -115,12 +116,13 @@ const GymlyPostCard: React.FC<GymlyPostCardProps> = ({
             <TouchableOpacity
               style={styles.menuButton}
               onPress={onMenuPress}
-              activeOpacity={0.7}>
-              <Icon name="ellipsis-horizontal" size={18} color={colors.textMuted} />
+              activeOpacity={0.7}
+              hitSlop={{top: 8, bottom: 8, left: 8, right: 8}}>
+              <Icon name="ellipsis-horizontal" size={17} color="#64748B" />
             </TouchableOpacity>
           ) : null}
         </View>
-      </TouchableOpacity>
+      </View>
 
       {/* Media */}
       {mediaUri && (
@@ -181,9 +183,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: spacing.lg,
   },
+  headerLeft: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    minWidth: 0,
+  },
   headerInfo: {
     flex: 1,
     marginLeft: spacing.md,
+    minWidth: 0,
   },
   userNameRow: {
     flexDirection: 'row',

@@ -1,10 +1,17 @@
 import React, {useEffect, useMemo, useState} from 'react';
-import {View, Text, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  useWindowDimensions,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {UserAvatar} from '@/components/ui/UserAvatar';
 import colors from '@/theme/colors';
-import {spacing, radius} from '@/theme/designTokens';
+import {spacing, radius, typography} from '@/theme/designTokens';
 import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
+import {formatDurationIgang} from '@/utils/activeSessionFormat';
 import {getStreakBadge} from '@/utils/streakUtils';
 import {
   getUserStatsMap,
@@ -12,7 +19,19 @@ import {
   type UserStats,
 } from '@/services/supabase/userStatsService';
 
-const CARD_WIDTH = 116;
+/** Demo-kort: modal bruger lokalt indhold (ingen Supabase-UUID). */
+export type LiveDemoFriendship =
+  | 'friend'
+  | 'none'
+  | 'pending_sent'
+  | 'pending_received';
+
+export type LiveCenterUserDemoSeed = {
+  synthetic: true;
+  friendship: LiveDemoFriendship;
+  streakDays: number;
+  primaryCenterLabel?: string | null;
+};
 
 export interface ActiveUser {
   id: string;
@@ -23,6 +42,7 @@ export interface ActiveUser {
   workoutType?: string;
   centerName?: string;
   startedAt?: string;
+  liveDemoSeed?: LiveCenterUserDemoSeed;
 }
 
 export interface ActiveUsersListProps {
@@ -32,12 +52,22 @@ export interface ActiveUsersListProps {
   onUserPress: (user: ActiveUser) => void;
 }
 
+/** Afstand til kant matcher `ActiveSessionView` scrollContent. */
+const SECTION_HORIZONTAL_PAD = spacing.lg + 2;
+const COLUMN_GAP = spacing.sm;
+const ROW_GAP = spacing.sm;
+
+function isDemoLiveListId(id: string): boolean {
+  return id.startsWith('demo-live-');
+}
+
 const ActiveUsersList: React.FC<ActiveUsersListProps> = ({
   users,
   totalActive: _totalActive,
   friendsActive: _friendsActive,
   onUserPress,
 }) => {
+  const {width: windowWidth} = useWindowDimensions();
   const uniqueUsers = useMemo(
     () => Array.from(new Map(users.map(user => [user.id, user])).values()),
     [users],
@@ -46,13 +76,34 @@ const ActiveUsersList: React.FC<ActiveUsersListProps> = ({
   const totalActive = uniqueUsers.length;
   const friendsActive = uniqueUsers.filter(user => user.isFriend).length;
   const [statsByUser, setStatsByUser] = useState<Record<string, UserStats>>({});
-  const userIds = useMemo(() => safeUsers.map(u => u.id), [safeUsers]);
+  const statsUserIds = useMemo(
+    () => safeUsers.map(u => u.id).filter(id => !isDemoLiveListId(id)),
+    [safeUsers],
+  );
+
+  /** Floor så 3 × bredde + 2 × gap ikke overstiger rækken (undgår kun 2 pr. række på iOS). */
+  const cardWidth = useMemo(() => {
+    const contentW = windowWidth - SECTION_HORIZONTAL_PAD * 2;
+    return Math.max(92, Math.floor((contentW - COLUMN_GAP * 2) / 3));
+  }, [windowWidth]);
+
+  const rowChunks = useMemo(() => {
+    const chunks: ActiveUser[][] = [];
+    for (let i = 0; i < safeUsers.length; i += 3) {
+      chunks.push(safeUsers.slice(i, i + 3));
+    }
+    return chunks;
+  }, [safeUsers]);
 
   useEffect(() => {
+    if (statsUserIds.length === 0) {
+      setStatsByUser({});
+      return;
+    }
     let mounted = true;
     const load = async () => {
       try {
-        const next = await getUserStatsMap(userIds);
+        const next = await getUserStatsMap(statsUserIds);
         if (mounted) {
           setStatsByUser(next);
         }
@@ -63,12 +114,14 @@ const ActiveUsersList: React.FC<ActiveUsersListProps> = ({
       }
     };
     void load();
-    const unsubs = userIds.map(id => subscribeUserStats(id, () => void load()));
+    const unsubs = statsUserIds.map(id =>
+      subscribeUserStats(id, () => void load()),
+    );
     return () => {
       mounted = false;
       unsubs.forEach(fn => fn());
     };
-  }, [userIds]);
+  }, [statsUserIds]);
 
   return (
     <View style={styles.section}>
@@ -91,53 +144,63 @@ const ActiveUsersList: React.FC<ActiveUsersListProps> = ({
 
       <Text style={styles.sectionTitle}>Live i centret</Text>
 
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.scrollContent}>
-        {safeUsers.map(user => (
-          <TouchableOpacity
-            key={user.id}
-            style={styles.userCard}
-            onPress={() => onUserPress(user)}
-            activeOpacity={0.8}>
-            <View style={styles.avatarWrapper}>
-              <UserAvatar
-                name={user.name}
-                imageUrl={user.avatar}
-                size="lg"
-                showOnlineIndicator
-                isOnline
-              />
-              {user.isFriend && (
-                <View style={styles.friendBadge}>
-                  <Icon name="person" size={10} color={colors.white} />
-                </View>
-              )}
-            </View>
-            <Text style={styles.userName} numberOfLines={1}>
-              {user.name}
-            </Text>
-            <Text style={styles.trainingType} numberOfLines={1}>
-              {user.workoutEmoji ? `${user.workoutEmoji} ` : ''}
-              {formatWorkoutTypeDisplay(user.workoutType || 'cardio')}
-            </Text>
-            {(() => {
+      <View style={styles.gridContainer}>
+        {rowChunks.map((row, rowIdx) => (
+          <View key={`live-row-${rowIdx}`} style={styles.gridRow}>
+            {row.map((user, colIdx) => {
+              const started = user.startedAt;
+              const durationLine = started
+                ? formatDurationIgang(started)
+                : 'Lige startet';
               const streak = statsByUser[user.id]?.currentStreak ?? 0;
-              if (streak <= 0) {
-                return null;
-              }
-              const badge = getStreakBadge(streak);
+              const badge = streak > 0 ? getStreakBadge(streak) : null;
               return (
-                <Text style={styles.streakMeta} numberOfLines={1}>
-                  {badge ? `${badge} ` : ''}
-                  {streak} dages streak
-                </Text>
+                <TouchableOpacity
+                  key={user.id}
+                  style={[
+                    styles.userCard,
+                    {
+                      width: cardWidth,
+                      marginRight: colIdx < row.length - 1 ? COLUMN_GAP : 0,
+                    },
+                  ]}
+                  onPress={() => onUserPress(user)}
+                  activeOpacity={0.82}>
+                  <View style={styles.avatarRow}>
+                    <UserAvatar
+                      name={user.name}
+                      imageUrl={user.avatar}
+                      size="sm"
+                      showOnlineIndicator
+                      isOnline
+                    />
+                    {user.isFriend ? (
+                      <View style={styles.friendBadge}>
+                        <Icon name="person" size={8} color={colors.white} />
+                      </View>
+                    ) : null}
+                  </View>
+                  <Text style={styles.userName} numberOfLines={1}>
+                    {user.name}
+                  </Text>
+                  <Text style={styles.trainingType} numberOfLines={2}>
+                    {user.workoutEmoji ? `${user.workoutEmoji} ` : ''}
+                    {formatWorkoutTypeDisplay(user.workoutType || 'cardio')}
+                  </Text>
+                  <Text style={styles.durationText} numberOfLines={1}>
+                    {durationLine}
+                  </Text>
+                  {streak > 0 && badge ? (
+                    <Text style={styles.streakMeta} numberOfLines={1}>
+                      {badge} {streak}d
+                    </Text>
+                  ) : null}
+                </TouchableOpacity>
               );
-            })()}
-          </TouchableOpacity>
+            })}
+          </View>
         ))}
-      </ScrollView>
+      </View>
     </View>
   );
 };
@@ -146,6 +209,8 @@ const styles = StyleSheet.create({
   section: {
     marginTop: spacing.lg,
     marginBottom: spacing.xl + spacing.sm,
+    alignSelf: 'stretch',
+    width: '100%',
   },
   statsRow: {
     flexDirection: 'row',
@@ -181,57 +246,74 @@ const styles = StyleSheet.create({
     color: colors.text,
     marginBottom: spacing.md,
   },
-  scrollContent: {
-    paddingRight: spacing.xl,
-    gap: spacing.md,
+  gridContainer: {
+    width: '100%',
+  },
+  gridRow: {
+    flexDirection: 'row',
+    alignItems: 'stretch',
+    marginBottom: ROW_GAP,
   },
   userCard: {
-    width: CARD_WIDTH,
-    alignItems: 'center',
-    paddingVertical: spacing.md,
-    paddingHorizontal: spacing.sm,
-    borderRadius: radius.lg,
+    alignItems: 'flex-start',
+    paddingVertical: spacing.sm + 2,
+    paddingHorizontal: spacing.xs + 2,
+    borderRadius: radius.md,
     backgroundColor: colors.backgroundLight,
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 4},
-    shadowOpacity: 0.05,
+    borderWidth: 1,
+    borderColor: colors.border + '66',
+    shadowColor: '#0F172A',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.06,
     shadowRadius: 8,
     elevation: 2,
   },
-  avatarWrapper: {
+  avatarRow: {
     position: 'relative',
-    marginBottom: spacing.sm,
+    marginBottom: spacing.xs + 2,
+    alignSelf: 'center',
   },
   friendBadge: {
     position: 'absolute',
-    top: -3,
-    right: -3,
-    width: 18,
-    height: 18,
-    borderRadius: 9,
+    top: -2,
+    right: -2,
+    width: 15,
+    height: 15,
+    borderRadius: 8,
     backgroundColor: colors.primaryDark,
     alignItems: 'center',
     justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: colors.backgroundLight,
   },
   userName: {
-    fontSize: 13,
+    ...typography.small,
+    fontSize: 12,
     fontWeight: '700',
     color: colors.text,
-    textAlign: 'center',
-    marginBottom: 2,
+    width: '100%',
+    marginBottom: 1,
   },
   trainingType: {
-    fontSize: 11,
-    fontWeight: '500',
-    color: colors.textSecondary,
-    textAlign: 'center',
-  },
-  streakMeta: {
-    marginTop: 4,
     fontSize: 10,
     fontWeight: '600',
     color: colors.textSecondary,
-    textAlign: 'center',
+    width: '100%',
+    lineHeight: 13,
+    marginBottom: 3,
+  },
+  durationText: {
+    fontSize: 10,
+    fontWeight: '700',
+    color: colors.primaryDark,
+    width: '100%',
+  },
+  streakMeta: {
+    marginTop: 3,
+    fontSize: 9,
+    fontWeight: '600',
+    color: colors.textMuted,
+    width: '100%',
   },
 });
 

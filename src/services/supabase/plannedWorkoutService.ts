@@ -58,18 +58,23 @@ function rpcError(msg: string): string {
   return 'Noget gik galt. Prøv igen om lidt.';
 }
 
-/**
- * Én delt session: valgfri liste af venner (tom = solo). Opretter notifikation pr. inviteret.
- */
-export async function createPlannedSession(params: {
+export type CreateTrainingInvitationParams = {
   centerId: string;
   centerName: string;
   scheduledAt: Date;
   trainingTypes: string[];
   note?: string | null;
   inviteeIds: string[];
+  /** DM-/gruppetråd: sættes så invitation vises i chat; null som fra profil. */
   threadId?: string | null;
-}): Promise<string> {
+};
+
+/**
+ * Opretter én planlagt session (RPC `create_planned_session`).
+ * Bruges fra Profil → Inviter til træning og Beskeder → Planlæg træning — samme data, notifikationer (in-app/push),
+ * invitationer under Planlagte sessions og accept/decline-flow.
+ */
+export async function createPlannedSession(params: CreateTrainingInvitationParams): Promise<string> {
   const ids = [...new Set(params.inviteeIds.filter(Boolean))];
   const {data, error} = await supabase.rpc('create_planned_session', {
     p_center_id: params.centerId,
@@ -96,6 +101,10 @@ export async function createPlannedSession(params: {
   return id;
 }
 
+/** Alias til {@link createPlannedSession} — ét navn til “send træningsinvitation”. */
+export const createTrainingInvitation = createPlannedSession;
+
+/** @deprecated Brug {@link createTrainingInvitation} / {@link createPlannedSession} med `inviteeIds`. */
 export async function createPlannedWorkoutInvite(params: {
   inviteeId: string;
   centerId: string;
@@ -105,7 +114,7 @@ export async function createPlannedWorkoutInvite(params: {
   note?: string | null;
   threadId: string | null;
 }): Promise<string> {
-  return createPlannedSession({
+  return createTrainingInvitation({
     centerId: params.centerId,
     centerName: params.centerName,
     scheduledAt: params.scheduledAt,
@@ -169,6 +178,47 @@ export async function fetchPlannedWorkoutByThread(
     workout: pw as PlannedWorkoutRow,
     participants: (parts ?? []) as PlannedParticipantRow[],
   };
+}
+
+/** Mapper én planlagt session fra Supabase til kalender-/detaljeformat. */
+export function mapPlannedWorkoutBundleToEntry(
+  workout: PlannedWorkoutRow,
+  participants: PlannedParticipantRow[],
+): WorkoutPlanEntry {
+  const g = findGymById(workout.center_id) ?? SCHED_GYMS[0]!;
+  const invitees = participants.filter(p => p.role === 'invitee');
+  const invitedFriends = invitees.map(p => p.user_id);
+  const acceptedFriends = invitees
+    .filter(p => p.response_status === 'accepted')
+    .map(p => p.user_id);
+  const inviteStatusByUserId: Record<string, 'pending' | 'accepted' | 'declined'> = {};
+  invitees.forEach(p => {
+    inviteStatusByUserId[p.user_id] = p.response_status;
+  });
+  return {
+    id: workout.id,
+    creatorUserId: workout.creator_user_id,
+    gym: g,
+    muscles: (workout.training_types || []).map(coerceMuscleGroup),
+    scheduledAt: new Date(workout.scheduled_at),
+    invitedFriends,
+    acceptedFriends,
+    inviteStatusByUserId,
+  };
+}
+
+/** Henter én session (fx fra notifikation) og mapper til WorkoutPlanEntry. */
+export async function fetchPlannedWorkoutEntryById(
+  plannedWorkoutId: string,
+): Promise<WorkoutPlanEntry | null> {
+  const bundle = await fetchPlannedWorkoutById(plannedWorkoutId);
+  if (!bundle) {
+    return null;
+  }
+  if (bundle.workout.status === 'cancelled') {
+    return null;
+  }
+  return mapPlannedWorkoutBundleToEntry(bundle.workout, bundle.participants);
 }
 
 export async function fetchPlannedWorkoutById(
@@ -286,31 +336,9 @@ export async function loadWorkoutPlanEntriesForUser(
     userId,
     fromMonthBack ? from.toISOString() : undefined,
   );
-  return list.map(({workout, participants}) => {
-    const g = findGymById(workout.center_id) ?? SCHED_GYMS[0]!;
-    const invitees = participants.filter(p => p.role === 'invitee');
-    const invitedFriends = invitees.map(p => p.user_id);
-    const acceptedFriends = invitees
-      .filter(p => p.response_status === 'accepted')
-      .map(p => p.user_id);
-    const inviteStatusByUserId: Record<
-      string,
-      'pending' | 'accepted' | 'declined'
-    > = {};
-    invitees.forEach(p => {
-      inviteStatusByUserId[p.user_id] = p.response_status;
-    });
-    return {
-      id: workout.id,
-      creatorUserId: workout.creator_user_id,
-      gym: g,
-      muscles: (workout.training_types || []).map(coerceMuscleGroup),
-      scheduledAt: new Date(workout.scheduled_at),
-      invitedFriends,
-      acceptedFriends,
-      inviteStatusByUserId,
-    };
-  });
+  return list.map(({workout, participants}) =>
+    mapPlannedWorkoutBundleToEntry(workout, participants),
+  );
 }
 
 /** Tidsvindue til fælles tjek-ind (minutter før/efter planlagt tid) */

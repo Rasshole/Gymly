@@ -7,6 +7,7 @@ import {checkAndUnlockBadges} from '@/store/badgeStore';
 import type {Chat, ChatMessage, PlannedWorkoutDmEmbed} from '@/store/chatStore';
 import {withAvatarCacheBust} from '../../utils/avatar';
 import {safeDisplayName} from '@/utils/displayName';
+import {getMessagePreview} from '@/utils/dmMessagePreview';
 
 const UUID_RE =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
@@ -22,10 +23,25 @@ export type DmMessageRow = {
   body: string | null;
   image_url: string | null;
   created_at: string;
+  read_at?: string | null;
 };
 
 const GYM_PLAN_INVITE_PREFIX = '[GYM_PLAN_INVITE]';
 const GYM_PLAN_STATUS_PREFIX = '[GYM_PLAN_STATUS]';
+
+/** Kolonner inkl. read receipts (kræver migration på dm_messages). */
+const DM_MESSAGE_SELECT_WITH_READ = 'id, thread_id, sender_id, body, image_url, created_at, read_at';
+const DM_MESSAGE_SELECT_LEGACY = 'id, thread_id, sender_id, body, image_url, created_at';
+
+function isReadReceiptColumnError(err: unknown): boolean {
+  const msg = err instanceof Error ? err.message : String(err ?? '');
+  return /read_at|schema cache/i.test(msg);
+}
+
+function logDmService(context: string, err: unknown) {
+  const message = err instanceof Error ? err.message : String(err ?? '');
+  console.warn(`[dm] ${context}:`, message);
+}
 
 function parsePlannedWorkoutDmBody(body: string | null): {
   text: string;
@@ -100,6 +116,7 @@ export function messageFromDmRow(row: DmMessageRow): ChatMessage {
     isRead: true,
     imageUri: row.image_url?.trim() || undefined,
     plannedWorkoutEmbed: parsed.plannedWorkoutEmbed,
+    readAt: row.read_at ? new Date(row.read_at) : undefined,
   };
 }
 
@@ -168,7 +185,7 @@ export async function sendDmMessage(
     throw new Error('Ikke logget ind');
   }
 
-  const {data, error} = await supabase
+  let {data, error} = await supabase
     .from('dm_messages')
     .insert({
       thread_id: threadId,
@@ -176,8 +193,21 @@ export async function sendDmMessage(
       body: body || null,
       image_url: imageUrl,
     })
-    .select('id, thread_id, sender_id, body, image_url, created_at')
+    .select(DM_MESSAGE_SELECT_WITH_READ)
     .single();
+  if (error && isReadReceiptColumnError(error)) {
+    logDmService('sendDmMessage: retry without read_at', error);
+    ({data, error} = await supabase
+      .from('dm_messages')
+      .insert({
+        thread_id: threadId,
+        sender_id: uid,
+        body: body || null,
+        image_url: imageUrl,
+      })
+      .select(DM_MESSAGE_SELECT_LEGACY)
+      .single());
+  }
 
   if (error) {
     throw new Error(error.message || 'Kunne ikke sende besked');
@@ -253,16 +283,35 @@ export async function fetchDmMessages(
   options: {limit?: number} = {},
 ): Promise<ChatMessage[]> {
   const limit = Math.min(options.limit ?? 100, 200);
-  const {data, error} = await supabase
+  let {data, error} = await supabase
     .from('dm_messages')
-    .select('id, thread_id, sender_id, body, image_url, created_at')
+    .select(DM_MESSAGE_SELECT_WITH_READ)
     .eq('thread_id', threadId)
     .order('created_at', {ascending: true})
     .limit(limit);
+  if (error && isReadReceiptColumnError(error)) {
+    logDmService('fetchDmMessages: retry without read_at', error);
+    ({data, error} = await supabase
+      .from('dm_messages')
+      .select(DM_MESSAGE_SELECT_LEGACY)
+      .eq('thread_id', threadId)
+      .order('created_at', {ascending: true})
+      .limit(limit));
+  }
   if (error) {
     throw new Error(error.message);
   }
   return (data as DmMessageRow[]).map(mapRowToMessage);
+}
+
+/** Marker alle modpartens beskeder som læst (sætter read_at). */
+export async function markDmThreadMessagesRead(threadId: string): Promise<void> {
+  const {error} = await supabase.rpc('mark_dm_thread_messages_read', {
+    p_thread_id: threadId,
+  });
+  if (error) {
+    logDmService('markDmThreadMessagesRead', error);
+  }
 }
 
 export type DmInboxItem = {
@@ -388,7 +437,7 @@ export function inboxItemToChat(
     const ts = new Date(thread.last_message_at);
     lastMessage = {
       id: 'last_meta',
-      text: thread.last_message_preview,
+      text: getMessagePreview({text: thread.last_message_preview ?? ''}),
       senderId: thread.last_sender_id || '',
       timestamp: ts,
       isRead: true,
@@ -424,6 +473,7 @@ export function dmMessageFromPayload(newRow: unknown): DmMessageRow | null {
       body: typeof r.body === 'string' ? r.body : null,
       image_url: typeof r.image_url === 'string' ? r.image_url : null,
       created_at: r.created_at,
+      read_at: typeof r.read_at === 'string' ? r.read_at : null,
     };
   }
   return null;

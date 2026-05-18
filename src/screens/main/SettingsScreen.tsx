@@ -21,6 +21,8 @@ import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useAppStore} from '@/store/appStore';
 import {usePrivacyStore} from '@/store/privacyStore';
+import {useDemoModeStore} from '@/demo/demoModeStore';
+import {seedDemoStores, clearDemoStoresAfterDisable} from '@/demo/seedDemoStores';
 import AuthService from '@/services/auth/AuthService';
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '@/theme/colors';
@@ -41,6 +43,9 @@ const SettingsScreen = () => {
   const [units, setUnits] = useState<'metric' | 'imperial'>('metric');
   const [language, setLanguage] = useState<'da' | 'en'>('da');
   const [deviceComingSoonOpen, setDeviceComingSoonOpen] = useState(false);
+  const [demoBusy, setDemoBusy] = useState(false);
+  const demoEnabled = useDemoModeStore(s => s.enabled);
+  const setDemoEnabledPersisted = useDemoModeStore(s => s.setEnabled);
   const deviceModalOpacity = useRef(new Animated.Value(0)).current;
   const deviceModalScale = useRef(new Animated.Value(0.95)).current;
 
@@ -61,6 +66,33 @@ const SettingsScreen = () => {
     } catch {
       Alert.alert('Fejl', 'Kunne ikke opdatere indstilling');
       setAnalyticsEnabled(!value);
+    }
+  };
+
+  const handleDemoContentToggle = async (next: boolean) => {
+    if (!__DEV__) {
+      return;
+    }
+    if (!user?.id) {
+      Alert.alert('Log ind', 'Demo kræver en aktiv bruger.');
+      return;
+    }
+    if (demoBusy) {
+      return;
+    }
+    setDemoBusy(true);
+    try {
+      if (!next) {
+        await setDemoEnabledPersisted(false);
+        await clearDemoStoresAfterDisable(user.id);
+      } else {
+        await setDemoEnabledPersisted(true);
+        seedDemoStores(user.id);
+      }
+    } catch {
+      Alert.alert('Fejl', 'Kunne ikke opdatere demo-tilstand.');
+    } finally {
+      setDemoBusy(false);
     }
   };
 
@@ -433,6 +465,23 @@ const SettingsScreen = () => {
             onPress={() => navigation.navigate('Terms')}
           />
         </Section>
+
+        {__DEV__ ? (
+          <Section title="INTERN — DEMO / OPTAGELSE">
+            <View style={{opacity: demoBusy ? 0.55 : 1}}>
+              <SettingSwitch
+                icon="videocam-outline"
+                iconColor={colors.secondary}
+                title="Demo-indhold (optagelse)"
+                subtitle="Fiktiv aktivitet til video (ingen overlay). Slå fra ved rigtig test."
+                value={demoEnabled}
+                onValueChange={v => {
+                  handleDemoContentToggle(v).catch(() => {});
+                }}
+              />
+            </View>
+          </Section>
+        ) : null}
 
         {/* Support */}
         <Section title="SUPPORT">

@@ -2,24 +2,96 @@ import {useCallback, useEffect, useState} from 'react';
 import {AppState} from 'react-native';
 import {useAppStore} from '@/store/appStore';
 import {subscribeCheckInsPresence} from '@/realtime/checkInsPresenceSubscription';
+import {subscribeProfileCenters} from '@/realtime/profileCentersBridge';
 import {
   loadLocalCentersActivity,
   type LocalCenterActivity,
 } from '@/services/supabase/localCentersActivityService';
+import {
+  fetchUserCenterIdsOrdered,
+  subscribeUserCenters,
+} from '@/services/supabase/userCentersService';
+import {canUseDemoContentControls, isDemoContentMode} from '@/demo/demoContentGate';
+import {buildDemoPayload} from '@/demo/buildDemoPayload';
+import {useDemoModeStore} from '@/demo/demoModeStore';
+
+function sameCenterIds(a: string[], b: string[]): boolean {
+  if (a.length !== b.length) {
+    return false;
+  }
+  return a.every((id, i) => id === b[i]);
+}
 
 export function useLocalCentersActivity(userId: string | undefined) {
-  const favoriteGyms = useAppStore(s => s.user?.favoriteGyms ?? []);
+  const favoriteGyms = useAppStore(s => s.user?.favoriteGyms);
+  const [resolvedCenterIds, setResolvedCenterIds] = useState<string[]>([]);
   const [localCenters, setLocalCenters] = useState<LocalCenterActivity[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
+  const demoEnabled = useDemoModeStore(s => s.enabled);
+  const demoHydrated = useDemoModeStore(s => s.hydrated);
 
   const refresh = useCallback(async () => {
-    const ids = [...new Set((favoriteGyms ?? []).filter(Boolean))].slice(0, 3);
-    if (!userId || ids.length === 0) {
-      setLocalCenters([]);
-      setError(null);
+    if (canUseDemoContentControls() && !useDemoModeStore.getState().hydrated) {
       return;
     }
+    if (!userId) {
+      setResolvedCenterIds([]);
+      setLocalCenters([]);
+      setError(null);
+      setLoading(false);
+      return;
+    }
+
+    let ids = [...new Set((favoriteGyms ?? []).filter(Boolean))].slice(0, 3);
+
+    if (isDemoContentMode()) {
+      setLoading(true);
+      try {
+        const d = buildDemoPayload(userId);
+        const n = Math.max(1, ids.length || 3);
+        const demoIds = ids.length > 0 ? ids : d.localCenters.slice(0, n).map(c => c.centerId);
+        setResolvedCenterIds(demoIds.slice(0, 3));
+        setLocalCenters(d.localCenters.slice(0, n));
+        setError(null);
+      } catch (e) {
+        setResolvedCenterIds([]);
+        setLocalCenters([]);
+        setError(e instanceof Error ? e : new Error(String(e)));
+      } finally {
+        setLoading(false);
+      }
+      return;
+    }
+
+    try {
+      const fromDb = await fetchUserCenterIdsOrdered(userId);
+      if (fromDb.length > 0) {
+        ids = fromDb;
+        const storeIds = (favoriteGyms ?? []).filter(Boolean).slice(0, 3);
+        if (!sameCenterIds(storeIds, ids)) {
+          const cur = useAppStore.getState().user;
+          if (cur?.id === userId) {
+            useAppStore.getState().setUser(
+              {...cur, favoriteGyms: ids, updatedAt: new Date()},
+              {skipProfileSync: true},
+            );
+          }
+        }
+      }
+    } catch {
+      /* keep store ids as fallback */
+    }
+
+    setResolvedCenterIds(ids);
+
+    if (ids.length === 0) {
+      setLocalCenters([]);
+      setError(null);
+      setLoading(false);
+      return;
+    }
+
     setLoading(true);
     try {
       const data = await loadLocalCentersActivity(userId, ids);
@@ -35,10 +107,28 @@ export function useLocalCentersActivity(userId: string | undefined) {
 
   useEffect(() => {
     refresh().catch(() => {});
-  }, [refresh]);
+  }, [refresh, demoEnabled, userId, demoHydrated]);
 
   useEffect(() => {
-    if (!userId) {
+    if (!userId || isDemoContentMode()) {
+      return;
+    }
+    return subscribeProfileCenters(userId, () => {
+      refresh().catch(() => {});
+    });
+  }, [userId, refresh]);
+
+  useEffect(() => {
+    if (!userId || isDemoContentMode()) {
+      return;
+    }
+    return subscribeUserCenters(userId, () => {
+      refresh().catch(() => {});
+    });
+  }, [userId, refresh]);
+
+  useEffect(() => {
+    if (!userId || isDemoContentMode()) {
       return;
     }
     return subscribeCheckInsPresence(() => {
@@ -60,7 +150,7 @@ export function useLocalCentersActivity(userId: string | undefined) {
 
   return {
     localCenters,
-    hasLocalCenters: (favoriteGyms ?? []).filter(Boolean).length > 0,
+    hasLocalCenters: resolvedCenterIds.length > 0,
     loading,
     error,
     refresh,

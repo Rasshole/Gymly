@@ -3,7 +3,8 @@
  */
 
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '@/theme/colors';
 import {spacing, typography} from '@/theme/designTokens';
 import GymLogoView from '@/components/ui/GymLogoView';
@@ -23,19 +24,34 @@ type ProfileCentersListProps = {
   sectionTitle?: string;
   /** Aktive brugere på centeret lige nu (fx fra gymStore) */
   activeCountForId?: (centerId: string) => number;
+  /** Egen profil: åbn redigerings-sheet */
+  onEditPress?: () => void;
 };
 
 export const ProfileCentersList: React.FC<ProfileCentersListProps> = ({
   centers,
   sectionTitle = 'Dine centre',
   activeCountForId,
+  onEditPress,
 }) => {
   if (centers.length === 0) {
     return null;
   }
   return (
     <View style={styles.wrap}>
-      <Text style={styles.title}>{sectionTitle}</Text>
+      <View style={styles.headerRow}>
+        <Text style={styles.title}>{sectionTitle}</Text>
+        {onEditPress ? (
+          <TouchableOpacity
+            onPress={onEditPress}
+            hitSlop={{top: 8, bottom: 8, left: 8, right: 8}}
+            activeOpacity={0.7}
+            style={styles.editBtn}>
+            <Icon name="pencil" size={14} color={colors.primary} />
+            <Text style={styles.editBtnText}>Rediger</Text>
+          </TouchableOpacity>
+        ) : null}
+      </View>
       {centers.map((c, i) => {
         const active =
           c.centerId && activeCountForId ? activeCountForId(c.centerId) : 0;
@@ -88,13 +104,28 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border,
   },
+  headerRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: spacing.sm,
+  },
   title: {
     ...typography.small,
     fontWeight: '700',
     color: colors.textMuted,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
-    marginBottom: spacing.sm,
+  },
+  editBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+  },
+  editBtnText: {
+    ...typography.small,
+    fontWeight: '600',
+    color: colors.primary,
   },
   row: {
     flexDirection: 'row',

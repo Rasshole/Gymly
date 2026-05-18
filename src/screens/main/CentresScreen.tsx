@@ -28,6 +28,7 @@ import {spacing, radius, typography} from '@/theme/designTokens';
 import SocialSearchBar from '@/components/social/SocialSearchBar';
 import {useActiveCentersRealtime} from '@/hooks/useActiveCentersRealtime';
 import type {ActiveCenter} from '@/types/activeCenter.types';
+import {centerSocialRankScore} from '@/utils/centerSocialRank';
 
 type LiveStats = {total: number; friends: number};
 
@@ -87,15 +88,16 @@ function LiveActivityLine({live}: {live: LiveStats}) {
       </Text>
     );
   }
-  const people = `${live.total} aktiv${live.total > 1 ? 'e' : ''}`;
-  const friendsPart =
-    live.friends > 0
-      ? ` · ${live.friends} ven${live.friends > 1 ? 'ner' : ''}`
-      : '';
+  if (live.friends > 0) {
+    return (
+      <Text style={styles.liveLine} numberOfLines={1}>
+        {live.total} aktive · {live.friends} ven{live.friends > 1 ? 'ner' : ''}
+      </Text>
+    );
+  }
   return (
     <Text style={styles.liveLine} numberOfLines={1}>
-      👥 {people}
-      {friendsPart}
+      {live.total} træner nu
     </Text>
   );
 }
@@ -288,11 +290,20 @@ const CentresScreen = () => {
             gym.longitude,
           );
         }
-        return {gym, isOpen: status.isOpen, distance};
+        const live = liveStatsForGym(gym.id, liveByGymId, getActiveUsersCount);
+        const score = centerSocialRankScore(live, distance);
+        return {gym, isOpen: status.isOpen, distance, score};
       })
       .sort((a, b) => {
-        if (a.isOpen && !b.isOpen) return -1;
-        if (!a.isOpen && b.isOpen) return 1;
+        if (a.isOpen && !b.isOpen) {
+          return -1;
+        }
+        if (!a.isOpen && b.isOpen) {
+          return 1;
+        }
+        if (b.score !== a.score) {
+          return b.score - a.score;
+        }
         return a.distance - b.distance;
       })
       .map(item => item.gym);
@@ -303,6 +314,8 @@ const CentresScreen = () => {
     searchQuery,
     userLocation,
     getGymStatus,
+    liveByGymId,
+    getActiveUsersCount,
   ]);
 
   const isFavorite = (gymId: string) => favoriteGymIds.includes(gymId);

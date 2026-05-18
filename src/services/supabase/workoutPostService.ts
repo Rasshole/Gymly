@@ -11,7 +11,17 @@ import {formatRelativeTime} from '@/utils/formatRelativeTime';
 import {withAvatarCacheBust} from '../../utils/avatar';
 import {formatGymNameWithBrand} from '@/utils/gymDisplay';
 import {detectGymChain} from '@/services/gymLogoService';
+import {isLikelyServerPostUuid, isLocalDemoPostId} from '@/utils/postIds';
 const BUCKET = 'workout-images';
+
+function workoutImageStoragePathFromPublicUrl(publicUrl: string): string | null {
+  const marker = '/workout-images/';
+  const idx = publicUrl.indexOf(marker);
+  if (idx === -1) {
+    return null;
+  }
+  return decodeURIComponent(publicUrl.slice(idx + marker.length).split('?')[0]);
+}
 
 async function readImageForUpload(localUri: string): Promise<ArrayBuffer> {
   const res = await fetch(localUri);
@@ -266,6 +276,83 @@ export async function createWorkoutPost(
   }
 
   return mapPostRowToFeedItem(inserted as WorkoutPostRow);
+}
+
+/**
+ * Sletter et workout-opslag: demo-id rydder kun Zustand-feed;
+ * Supabase-id sletter række (RLS: egen bruger) og forsøger at fjerne billede i storage.
+ */
+export async function deleteWorkoutPostForUser(
+  postId: string,
+  authorUserId: string,
+  imagePublicUrl?: string | null,
+): Promise<{ok: boolean; message?: string}> {
+  if (isLocalDemoPostId(postId)) {
+    useFeedStore.getState().deleteFeedItem(postId);
+    return {ok: true};
+  }
+
+  if (!isLikelyServerPostUuid(postId)) {
+    useFeedStore.getState().deleteFeedItem(postId);
+    return {ok: true};
+  }
+
+  const {data: authData} = await supabase.auth.getUser();
+  const uid = authData?.user?.id;
+  if (!uid || uid !== authorUserId) {
+    return {ok: false, message: 'Ingen adgang.'};
+  }
+
+  const {error} = await supabase.from('posts').delete().eq('id', postId);
+  if (error) {
+    return {ok: false, message: error.message};
+  }
+
+  useFeedStore.getState().deleteFeedItem(postId);
+
+  if (imagePublicUrl) {
+    const path = workoutImageStoragePathFromPublicUrl(imagePublicUrl);
+    if (path) {
+      const {error: rmErr} = await supabase.storage.from(BUCKET).remove([path]);
+      if (rmErr) {
+        console.warn('[deleteWorkoutPostForUser] storage remove', rmErr.message);
+      }
+    }
+  }
+
+  return {ok: true};
+}
+
+/**
+ * Indsend anmeldelse af andres opslag. Demo-/aktivitets-id: ingen DB-kald.
+ */
+export async function submitPostReport(postId: string): Promise<{ok: boolean; message?: string}> {
+  if (isLocalDemoPostId(postId) || !isLikelyServerPostUuid(postId)) {
+    return {ok: true};
+  }
+
+  const {data: authData} = await supabase.auth.getUser();
+  const reporterId = authData?.user?.id;
+  if (!reporterId) {
+    return {ok: false, message: 'Ikke logget ind.'};
+  }
+
+  const {error} = await supabase.from('post_reports').insert({
+    post_id: postId,
+    reporter_id: reporterId,
+  });
+
+  if (error) {
+    if (error.code === '23505') {
+      return {ok: true};
+    }
+    if (error.code === '42P01' || error.message?.includes('post_reports')) {
+      return {ok: false, message: 'Rapportering er ikke tilgængelig lige nu.'};
+    }
+    return {ok: false, message: error.message};
+  }
+
+  return {ok: true};
 }
 
 // --- Realtime: én delt kanal, refcount når Home m.fl. lytter ---

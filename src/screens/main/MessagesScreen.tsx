@@ -13,19 +13,25 @@ import {
   TextInput,
   Animated,
   Easing,
+  Pressable,
+  Platform,
 } from 'react-native';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
+import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {ComposeMessageFab} from '@/components/messages/ComposeMessageFab';
 import {useChatStore, Chat, ChatMessage} from '@/store/chatStore';
 import {CURRENT_USER_PLACEHOLDER_ID} from '@/store/groupStore';
 import {useAppStore} from '@/store/appStore';
+import {isDemoContentMode} from '@/demo/demoContentGate';
 import {getInitialChats, getInitialMessages} from '@/services/data';
 import {syncDmInboxToStore} from '@/services/supabase/dmInboxSync';
 import {supabase} from '@/services/supabase/supabaseClient';
 import {formatRelativeTime} from '@/utils/formatRelativeTime';
 import {safeDisplayName} from '@/utils/displayName';
+import {getMessagePreview} from '@/utils/dmMessagePreview';
 import colors from '@/theme/colors';
-import {spacing, radius, typography} from '@/theme/designTokens';
+import {spacing, radius, typography, shadows} from '@/theme/designTokens';
 import {EmptyState} from '@/components/ui/EmptyState';
 import {UserAvatar} from '@/components/ui/UserAvatar';
 
@@ -88,52 +94,9 @@ function getConversationTitle(
 }
 
 const PREVIEW_MAX_LEN = 100;
-const GYM_PLAN_STATUS_PREFIX = '[GYM_PLAN_STATUS]';
-
-function formatGymPlanStatus(status: string | undefined): string {
-  switch (status) {
-    case 'accepted':
-      return 'Accepteret';
-    case 'declined':
-      return 'Afvist';
-    case 'pending':
-      return 'Inviteret';
-    case 'joined':
-      return 'Joinet';
-    case 'left':
-      return 'Forladt';
-    default:
-      return 'Opdateret';
-  }
-}
-
-function parseGymPlanStatusPreview(rawText: string): string | null {
-  const raw = rawText.trim();
-  if (!raw.startsWith(GYM_PLAN_STATUS_PREFIX)) {
-    return null;
-  }
-  try {
-    const payload = JSON.parse(
-      raw.slice(GYM_PLAN_STATUS_PREFIX.length),
-    ) as {status?: string};
-    return formatGymPlanStatus(payload.status);
-  } catch {
-    return 'Opdateret træning';
-  }
-}
 
 function getDisplayMessageText(m: ChatMessage): string {
-  if (m.plannedWorkoutEmbed?.kind === 'status') {
-    return formatGymPlanStatus(m.plannedWorkoutEmbed.status);
-  }
-  if (m.plannedWorkoutEmbed?.kind === 'invite') {
-    return 'Inviteret';
-  }
-  const t = m.text?.trim() ?? '';
-  if (!t) {
-    return '';
-  }
-  return parseGymPlanStatusPreview(t) ?? t;
+  return getMessagePreview(m);
 }
 
 function previewForListMessage(
@@ -198,6 +161,144 @@ function formatLastSeenText(lastSeenAt?: number): string {
   return `Sidst set for ${hours} t siden`;
 }
 
+const UnreadBanner = ({count}: {count: number}) => {
+  const opacity = useRef(new Animated.Value(0)).current;
+  const translateY = useRef(new Animated.Value(6)).current;
+
+  useEffect(() => {
+    Animated.parallel([
+      Animated.timing(opacity, {
+        toValue: 1,
+        duration: 340,
+        easing: Easing.out(Easing.cubic),
+        useNativeDriver: true,
+      }),
+      Animated.timing(translateY, {
+        toValue: 0,
+        duration: 340,
+        easing: Easing.out(Easing.cubic),
+        useNativeDriver: true,
+      }),
+    ]).start();
+  }, [count, opacity, translateY]);
+
+  return (
+    <Animated.View
+      style={[
+        styles.unreadStrip,
+        {opacity, transform: [{translateY}]},
+      ]}>
+      <View style={styles.unreadStripIconWrap}>
+        <Icon name="notifications" size={16} color={colors.primary} />
+      </View>
+      <Text style={styles.unreadStripText}>
+        {count === 1
+          ? '1 ny besked – åbn samtalen nedenfor'
+          : `${count} nye beskeder – åbn samtalerne nedenfor`}
+      </Text>
+    </Animated.View>
+  );
+};
+
+type ConversationRowProps = {
+  item: ConversationItem;
+  presence?: {
+    typingByThread?: Record<string, boolean>;
+    trainingNow?: boolean;
+    trainingGymName?: string;
+    isActive?: boolean;
+    lastSeenAt?: number;
+  };
+  onPress: () => void;
+};
+
+const ConversationRow = ({item, presence, onPress}: ConversationRowProps) => {
+  const scale = useRef(new Animated.Value(1)).current;
+  const typing = !!presence?.typingByThread?.[item.id];
+  const trainingNow = !!presence?.trainingNow;
+  const isUnread = item.unreadCount > 0;
+  const statusText = trainingNow
+    ? `🏋️ Træner nu i ${presence?.trainingGymName || 'center'}`
+    : presence?.isActive
+      ? 'Aktiv nu'
+      : formatLastSeenText(presence?.lastSeenAt);
+
+  const pressIn = () => {
+    Animated.spring(scale, {
+      toValue: 0.985,
+      friction: 9,
+      tension: 280,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const pressOut = () => {
+    Animated.spring(scale, {
+      toValue: 1,
+      friction: 5,
+      tension: 140,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  return (
+    <Pressable onPress={onPress} onPressIn={pressIn} onPressOut={pressOut}>
+      <Animated.View
+        style={[
+          styles.row,
+          isUnread && styles.rowUnread,
+          {transform: [{scale}]},
+        ]}>
+        <View style={styles.avatarWrapper}>
+          <View style={[styles.avatarRing, isUnread && styles.avatarRingUnread]}>
+            <UserAvatar
+              name={safeDisplayName(item.name)}
+              imageUrl={item.avatar}
+              size="lg"
+            />
+            <View style={styles.avatarSheen} pointerEvents="none" />
+          </View>
+          {(presence?.isActive || trainingNow) && <View style={styles.activeDot} />}
+          {isUnread ? (
+            <View style={styles.unreadBadge}>
+              <Text style={styles.unreadText}>
+                {item.unreadCount > 99 ? '99+' : item.unreadCount}
+              </Text>
+            </View>
+          ) : null}
+        </View>
+        <View style={styles.content}>
+          <View style={styles.rowHeader}>
+            <Text
+              style={[styles.name, isUnread && styles.nameUnread]}
+              numberOfLines={1}>
+              {item.name}
+            </Text>
+            <Text style={[styles.timestamp, isUnread && styles.timestampUnread]}>
+              {item.timestamp}
+            </Text>
+          </View>
+          <Text
+            style={[styles.statusLine, trainingNow && styles.trainingStatus]}
+            numberOfLines={1}>
+            {statusText}
+          </Text>
+          {typing ? (
+            <TypingDots />
+          ) : (
+            <Text
+              style={[styles.preview, isUnread && styles.previewUnread]}
+              numberOfLines={1}>
+              {item.lastMessage || 'Ingen beskeder endnu'}
+            </Text>
+          )}
+        </View>
+        <Icon name="chevron-forward" size={18} color={colors.textMuted} />
+      </Animated.View>
+    </Pressable>
+  );
+};
+
 const TypingDots = () => {
   const anim = useRef(new Animated.Value(0)).current;
   useEffect(() => {
@@ -247,6 +348,10 @@ const MessagesScreen = () => {
   const upsertDmPresence = useChatStore(s => s.upsertDmPresence);
   const {user} = useAppStore();
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchFocused, setSearchFocused] = useState(false);
+  const tabBarHeight = useBottomTabBarHeight();
+  const fabBottom = tabBarHeight + spacing.md;
+  const listBottomPad = fabBottom + 72;
 
   useFocusEffect(
     useCallback(() => {
@@ -255,6 +360,9 @@ const MessagesScreen = () => {
       }
       void (async () => {
         try {
+          if (isDemoContentMode()) {
+            return;
+          }
           await syncDmInboxToStore(
             user.id,
             user.displayName?.trim() || 'Dig',
@@ -401,64 +509,11 @@ const MessagesScreen = () => {
   };
 
   const renderConversationItem = ({item}: {item: ConversationItem}) => (
-    (() => {
-      const presence = item.otherUserId ? dmPresenceByUser[item.otherUserId] : undefined;
-      const typing = !!presence?.typingByThread?.[item.id];
-      const trainingNow = !!presence?.trainingNow;
-      const statusText = trainingNow
-        ? `🏋️ Træner nu i ${presence?.trainingGymName || 'center'}`
-        : presence?.isActive
-          ? 'Aktiv nu'
-          : formatLastSeenText(presence?.lastSeenAt);
-      return (
-    <TouchableOpacity
-      style={[styles.row, item.unreadCount > 0 && styles.rowUnread]}
-      activeOpacity={0.8}
-      onPress={() => handleOpenChat(item)}>
-      <View style={styles.avatarWrapper}>
-        <UserAvatar
-          name={safeDisplayName(item.name)}
-          imageUrl={item.avatar}
-          size="lg"
-        />
-        {(presence?.isActive || trainingNow) && <View style={styles.activeDot} />}
-        {item.unreadCount > 0 && (
-          <View style={styles.unreadBadge}>
-            <Text style={styles.unreadText}>
-              {item.unreadCount > 99 ? '99+' : item.unreadCount}
-            </Text>
-          </View>
-        )}
-      </View>
-      <View style={styles.content}>
-        <View style={styles.rowHeader}>
-          <Text
-            style={[styles.name, item.unreadCount > 0 && styles.nameUnread]}
-            numberOfLines={1}>
-            {item.name}
-          </Text>
-          <Text style={styles.timestamp}>{item.timestamp}</Text>
-        </View>
-        <Text style={[styles.statusLine, trainingNow && styles.trainingStatus]} numberOfLines={1}>
-          {statusText}
-        </Text>
-        {typing ? (
-          <TypingDots />
-        ) : (
-        <Text
-          style={[
-            styles.preview,
-            item.unreadCount > 0 && styles.previewUnread,
-          ]}
-          numberOfLines={1}>
-          {item.lastMessage || 'Ingen beskeder endnu'}
-        </Text>
-        )}
-      </View>
-      <Icon name="chevron-forward" size={20} color={colors.textMuted} />
-    </TouchableOpacity>
-      );
-    })()
+    <ConversationRow
+      item={item}
+      presence={item.otherUserId ? dmPresenceByUser[item.otherUserId] : undefined}
+      onPress={() => handleOpenChat(item)}
+    />
   );
 
   return (
@@ -470,43 +525,50 @@ const MessagesScreen = () => {
         </Text>
       </View>
 
-      {chats.length > 0 && (
-        <View style={styles.searchWrapper}>
-          <Icon name="search" size={20} color={colors.textMuted} style={styles.searchIcon} />
+      {chats.length > 0 ? (
+        <View
+          style={[
+            styles.searchWrapper,
+            searchFocused && styles.searchWrapperFocused,
+          ]}>
+          <Icon
+            name="search"
+            size={19}
+            color={searchFocused ? colors.primary : colors.textMuted}
+            style={styles.searchIcon}
+          />
           <TextInput
             style={styles.searchInput}
             placeholder="Søg i beskeder..."
             placeholderTextColor={colors.textMuted}
             value={searchQuery}
             onChangeText={setSearchQuery}
+            onFocus={() => setSearchFocused(true)}
+            onBlur={() => setSearchFocused(false)}
+            returnKeyType="search"
           />
-          {searchQuery.length > 0 && (
+          {searchQuery.length > 0 ? (
             <TouchableOpacity
               onPress={() => setSearchQuery('')}
               hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}>
               <Icon name="close-circle" size={20} color={colors.textMuted} />
             </TouchableOpacity>
-          )}
+          ) : null}
         </View>
-      )}
+      ) : null}
 
       <FlatList
         data={conversations}
         renderItem={renderConversationItem}
         keyExtractor={(item) => item.id}
         contentContainerStyle={
-          conversations.length === 0 ? styles.emptyContainer : styles.list
+          conversations.length === 0
+            ? [styles.emptyContainer, {paddingBottom: listBottomPad}]
+            : [styles.list, {paddingBottom: listBottomPad}]
         }
         ListHeaderComponent={
           totalMessageUnread > 0 && conversations.length > 0 ? (
-            <View style={styles.unreadStrip}>
-              <Icon name="notifications-outline" size={18} color={colors.primary} />
-              <Text style={styles.unreadStripText}>
-                {totalMessageUnread === 1
-                  ? '1 ny besked – åbn samtalen nedenfor'
-                  : `${totalMessageUnread} nye beskeder – åbn samtalerne nedenfor`}
-              </Text>
-            </View>
+            <UnreadBanner count={totalMessageUnread} />
           ) : null
         }
         ListEmptyComponent={
@@ -521,12 +583,11 @@ const MessagesScreen = () => {
         showsVerticalScrollIndicator={false}
       />
 
-      <TouchableOpacity
-        style={styles.fab}
+      <ComposeMessageFab
+        bottom={fabBottom}
+        right={spacing.lg}
         onPress={() => navigation.navigate('NewMessage')}
-        activeOpacity={0.9}>
-        <Icon name="create" size={26} color={colors.white} />
-      </TouchableOpacity>
+      />
     </View>
   );
 };
@@ -540,30 +601,46 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.lg,
     paddingTop: spacing.lg,
     paddingBottom: spacing.md,
-    backgroundColor: colors.backgroundCard,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
+    backgroundColor: colors.background,
   },
   headerTitle: {
-    ...typography.h4,
+    fontSize: 26,
+    fontWeight: '800',
+    letterSpacing: -0.4,
     color: colors.text,
   },
   headerSubtitle: {
     ...typography.small,
     color: colors.textSecondary,
-    marginTop: 4,
+    marginTop: 5,
+    lineHeight: 20,
   },
   searchWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
     marginHorizontal: spacing.lg,
-    marginTop: spacing.md,
+    marginTop: spacing.sm,
+    marginBottom: spacing.xs,
     paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
+    minHeight: 48,
     backgroundColor: colors.backgroundCard,
-    borderRadius: radius.lg,
+    borderRadius: radius.xl,
     borderWidth: 1,
     borderColor: colors.border,
+    ...shadows.sm,
+  },
+  searchWrapperFocused: {
+    borderColor: colors.primary + '55',
+    backgroundColor: colors.white,
+    ...Platform.select({
+      ios: {
+        shadowColor: colors.primary,
+        shadowOffset: {width: 0, height: 0},
+        shadowOpacity: 0.14,
+        shadowRadius: 10,
+      },
+      android: {elevation: 3},
+    }),
   },
   searchIcon: {
     marginRight: spacing.sm,
@@ -573,73 +650,122 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: spacing.sm,
     marginBottom: spacing.md,
-    paddingVertical: spacing.sm,
+    paddingVertical: spacing.md,
     paddingHorizontal: spacing.md,
-    backgroundColor: colors.primary + '12',
-    borderRadius: radius.md,
+    backgroundColor: colors.primary + '0A',
+    borderRadius: radius.xl,
     borderWidth: 1,
-    borderColor: colors.primary + '28',
+    borderColor: colors.primary + '22',
+    ...Platform.select({
+      ios: {
+        shadowColor: colors.primary,
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 0.1,
+        shadowRadius: 10,
+      },
+      android: {elevation: 2},
+    }),
+  },
+  unreadStripIconWrap: {
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    backgroundColor: colors.primary + '18',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   unreadStripText: {
-    ...typography.caption,
+    ...typography.small,
     color: colors.text,
     flex: 1,
+    fontWeight: '600',
+    lineHeight: 19,
   },
   searchInput: {
     flex: 1,
     ...typography.body,
     color: colors.text,
+    paddingVertical: Platform.OS === 'ios' ? 12 : 8,
     padding: 0,
   },
   list: {
-    padding: spacing.lg,
-    paddingBottom: spacing.xxxl,
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.sm,
   },
   emptyContainer: {
     flexGrow: 1,
-    paddingBottom: spacing.xxxl,
   },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: spacing.lg,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.md,
     backgroundColor: colors.backgroundCard,
     marginBottom: spacing.sm,
-    borderRadius: radius.lg,
+    borderRadius: radius.xl,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: colors.border + 'CC',
+    ...shadows.sm,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#0F172A',
+        shadowOffset: {width: 0, height: 3},
+        shadowOpacity: 0.06,
+        shadowRadius: 10,
+      },
+      android: {elevation: 2},
+    }),
   },
   rowUnread: {
-    backgroundColor: colors.primary + '08',
-    borderColor: colors.primary + '30',
+    backgroundColor: colors.primary + '07',
+    borderColor: colors.primary + '40',
+    ...Platform.select({
+      ios: {
+        shadowColor: colors.primary,
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 0.12,
+        shadowRadius: 12,
+      },
+      android: {elevation: 3},
+    }),
   },
   avatarWrapper: {
     position: 'relative',
     marginRight: spacing.md,
   },
-  avatar: {
-    width: 52,
-    height: 52,
-    borderRadius: 26,
+  avatarRing: {
+    borderRadius: 999,
+    padding: 2,
+    overflow: 'hidden',
+    backgroundColor: colors.primaryLight,
+    ...Platform.select({
+      ios: {
+        shadowColor: colors.primary,
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 0.18,
+        shadowRadius: 6,
+      },
+      android: {elevation: 2},
+    }),
   },
-  avatarPlaceholder: {
-    width: 52,
-    height: 52,
-    borderRadius: 26,
-    backgroundColor: colors.primary + '30',
-    justifyContent: 'center',
-    alignItems: 'center',
+  avatarRingUnread: {
+    backgroundColor: colors.primary,
   },
-  avatarText: {
-    ...typography.bodyBold,
-    color: colors.primary,
+  avatarSheen: {
+    position: 'absolute',
+    top: 4,
+    left: 8,
+    right: 8,
+    height: 14,
+    borderRadius: 10,
+    backgroundColor: 'rgba(255,255,255,0.22)',
   },
   activeDot: {
     position: 'absolute',
-    bottom: 2,
-    right: 2,
-    width: 12,
-    height: 12,
+    bottom: 1,
+    right: 1,
+    width: 11,
+    height: 11,
     borderRadius: 6,
     backgroundColor: colors.success,
     borderWidth: 2,
@@ -647,54 +773,76 @@ const styles = StyleSheet.create({
   },
   unreadBadge: {
     position: 'absolute',
-    top: -4,
-    right: -4,
+    top: -2,
+    right: -2,
     backgroundColor: colors.primary,
-    borderRadius: 10,
-    minWidth: 20,
-    height: 20,
+    borderRadius: 9,
+    minWidth: 18,
+    height: 18,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 6,
+    paddingHorizontal: 5,
     borderWidth: 2,
     borderColor: colors.backgroundCard,
+    ...Platform.select({
+      ios: {
+        shadowColor: colors.primaryDark,
+        shadowOffset: {width: 0, height: 1},
+        shadowOpacity: 0.35,
+        shadowRadius: 3,
+      },
+      android: {elevation: 3},
+    }),
   },
   unreadText: {
-    ...typography.badge,
+    fontSize: 10,
+    fontWeight: '800',
     color: colors.white,
+    lineHeight: 12,
   },
   content: {
     flex: 1,
     minWidth: 0,
-    marginRight: spacing.sm,
+    marginRight: spacing.xs,
   },
   rowHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 2,
+    marginBottom: 1,
   },
   name: {
-    ...typography.bodyBold,
+    fontSize: 16,
+    fontWeight: '600',
     color: colors.text,
     flex: 1,
+    letterSpacing: -0.2,
   },
   nameUnread: {
-    fontWeight: '700',
+    fontWeight: '800',
+    color: colors.text,
   },
   timestamp: {
     ...typography.caption,
     color: colors.textMuted,
     marginLeft: spacing.sm,
+    fontSize: 12,
+  },
+  timestampUnread: {
+    color: colors.primaryDark,
+    fontWeight: '600',
   },
   preview: {
     ...typography.small,
     color: colors.textSecondary,
+    marginTop: 1,
+    lineHeight: 18,
   },
   statusLine: {
-    ...typography.caption,
-    color: colors.textSecondary,
-    marginBottom: 2,
+    fontSize: 12,
+    color: colors.textMuted,
+    marginBottom: 1,
+    lineHeight: 16,
   },
   trainingStatus: {
     color: colors.primary,
@@ -702,38 +850,24 @@ const styles = StyleSheet.create({
   },
   previewUnread: {
     color: colors.text,
-    fontWeight: '500',
+    fontWeight: '600',
   },
   typingRow: {
     flexDirection: 'row',
     alignItems: 'flex-end',
+    marginTop: 1,
   },
   typingText: {
     ...typography.small,
     color: colors.primary,
     fontStyle: 'italic',
+    fontWeight: '600',
   },
   typingDot: {
     ...typography.small,
     color: colors.primary,
     fontWeight: '700',
     marginLeft: 1,
-  },
-  fab: {
-    position: 'absolute',
-    right: spacing.lg,
-    bottom: spacing.xl,
-    width: 56,
-    height: 56,
-    borderRadius: 28,
-    backgroundColor: colors.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 4},
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 8,
   },
 });
 

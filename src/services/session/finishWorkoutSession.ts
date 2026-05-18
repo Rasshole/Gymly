@@ -1,5 +1,5 @@
 import {
-  endActiveCheckInInSupabase,
+  completeActiveTrainingSession,
   getActiveCheckInForUser,
   type AutoCheckoutKind,
 } from '@/services/supabase/checkInService';
@@ -8,7 +8,12 @@ import {cleanupAllGymlyLiveActivities} from '@/services/ios/workoutLiveActivity'
 import {notifyCheckInsPresenceSubscribers} from '@/realtime/checkInsPresenceSubscription';
 import {useSessionStore} from '@/store/sessionStore';
 import {useCheckInUIStore} from '@/store/checkInUIStore';
-import {runStaleActiveSessionCleanup} from '@/services/supabase/activeSessionsSync';
+import {useTrainingStatsStore} from '@/store/trainingStatsStore';
+import {
+  requestUserTrainingStatsRefresh,
+  applyOptimisticCompletedTraining,
+} from '@/store/trainingStatsStore';
+import type {CompletedTrainingSession} from '@/services/training/completedTraining';
 import type {CheckInEndReason} from '@/types/checkIn.types';
 
 type FinishReason = 'manual' | 'auto' | 'logout' | 'stale';
@@ -34,7 +39,7 @@ export async function finishWorkoutSession(params: {
   skipSupabaseEnd?: boolean;
   endReason?: CheckInEndReason;
   autoCheckoutReason?: AutoCheckoutKind;
-}): Promise<void> {
+}): Promise<CompletedTrainingSession | null> {
   const {
     reason,
     userId,
@@ -46,18 +51,28 @@ export async function finishWorkoutSession(params: {
   } = params;
   const storeCheckInId = useSessionStore.getState().activeSession?.checkInId ?? null;
   let resolvedCheckInId = checkInId ?? storeCheckInId;
-  if (!resolvedCheckInId && !skipSupabaseEnd) {
-    const active = await getActiveCheckInForUser(userId).catch(() => null);
-    resolvedCheckInId = active?.id ?? null;
-  }
+  let completed: CompletedTrainingSession | null = null;
 
-  if (!skipSupabaseEnd && resolvedCheckInId) {
-    await endActiveCheckInInSupabase(
-      resolvedCheckInId,
-      userId,
-      endReason ?? mapReasonToEndReason(reason),
-      autoCheckoutReason ? {autoCheckoutReason} : undefined,
-    ).catch(() => {});
+  if (!skipSupabaseEnd) {
+    if (!resolvedCheckInId) {
+      const active = await getActiveCheckInForUser(userId).catch(() => null);
+      resolvedCheckInId = active?.id ?? null;
+    }
+    if (!resolvedCheckInId) {
+      if (reason === 'manual') {
+        throw new Error('Ingen aktiv træning at afslutte.');
+      }
+    } else {
+      completed = await completeActiveTrainingSession(userId, {
+      checkInId: resolvedCheckInId,
+      endReason: endReason ?? mapReasonToEndReason(reason),
+      autoCheckoutReason,
+      });
+      if (completed) {
+        applyOptimisticCompletedTraining(userId, completed);
+        await useTrainingStatsStore.getState().load(userId);
+      }
+    }
   }
 
   await deleteMyLiveWorkoutSession(userId).catch(() => {});
@@ -74,7 +89,7 @@ export async function finishWorkoutSession(params: {
   useSessionStore.getState().endSession();
   useCheckInUIStore.getState().setShowAwayZoneWarning(false);
   notifyCheckInsPresenceSubscribers();
-  await runStaleActiveSessionCleanup().catch(() => {});
+  requestUserTrainingStatsRefresh(userId);
 
   if (__DEV__) {
     console.log('[LiveActivity] session finished', {reason, checkInId: resolvedCheckInId});
@@ -82,5 +97,6 @@ export async function finishWorkoutSession(params: {
   if (alertBody && __DEV__) {
     console.log('[LiveActivity] finish alert body', alertBody);
   }
-}
 
+  return completed;
+}

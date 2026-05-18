@@ -19,6 +19,7 @@ import {
   Platform,
   PermissionsAndroid,
   Animated,
+  Easing,
 } from 'react-native';
 import Geolocation, {
   type GeolocationError,
@@ -27,6 +28,7 @@ import Geolocation, {
 import MapView, {Marker, Region, AnimatedRegion} from 'react-native-maps';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation, useFocusEffect} from '@react-navigation/native';
+import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
 import GymLogoView from '@/components/ui/GymLogoView';
@@ -38,9 +40,12 @@ import {useOnlineUsers} from '@/hooks/useOnlineUsers';
 import {getMapCenterActivity} from '@/data/mapCenterActivity';
 import {getMapCenters, type MapCenter} from '@/data/mapCentersData';
 import colors from '@/theme/colors';
+import {spacing} from '@/theme/designTokens';
 import {
   SelectedCenterCard,
   NearbyCentersCarousel,
+  MapFloatingButton,
+  MapTypePickerMenu,
 } from '@/components/map';
 import SocialSearchBar from '@/components/social/SocialSearchBar';
 import {loadMapGymBadges} from '@/services/supabase/presenceService';
@@ -51,31 +56,35 @@ if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental
 }
 
 // INLINE MARKER STYLES - White circle, barbell fallback, NO purple/heart
+const MAP_CONTROL_GAP = 12;
+const MAP_CONTROL_SIZE = 58;
+
 const markerStyles = StyleSheet.create({
   wrapper: {alignItems: 'center', justifyContent: 'center'},
   circle: {
     backgroundColor: '#FFFFFF',
-    borderWidth: 2.5,
-    borderColor: '#fff',
+    borderWidth: 2,
+    borderColor: 'rgba(255,255,255,0.95)',
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 3},
-    shadowOpacity: 0.22,
-    shadowRadius: 6,
+    shadowColor: '#0F172A',
+    shadowOffset: {width: 0, height: 4},
+    shadowOpacity: 0.16,
+    shadowRadius: 8,
     elevation: 8,
   },
   circleSelected: {
     borderColor: colors.primary,
     borderWidth: 3,
     shadowColor: colors.primary,
-    shadowOpacity: 0.5,
-    shadowRadius: 6,
+    shadowOpacity: 0.45,
+    shadowRadius: 12,
+    elevation: 12,
   },
   circleWithFriends: {
-    borderColor: colors.secondary,
+    borderColor: colors.secondary + 'CC',
     shadowColor: colors.secondary,
-    shadowOpacity: 0.4,
+    shadowOpacity: 0.35,
   },
   fallback: {
     width: '100%',
@@ -237,6 +246,22 @@ const MapScreen = () => {
   const [showCentersSheet, setShowCentersSheet] = useState(false);
   const [mapType, setMapType] = useState<'standard' | 'satellite' | 'hybrid' | 'terrain'>('standard');
   const [showMapTypePicker, setShowMapTypePicker] = useState(false);
+  const tabBarHeight = useBottomTabBarHeight();
+  /** Lige over “Tæt på dig”-karrusel — samme placering som før redesign. */
+  const mapControlsBottom = tabBarHeight + 128;
+  const mapControlsEntrance = useRef(new Animated.Value(0)).current;
+
+  useFocusEffect(
+    useCallback(() => {
+      mapControlsEntrance.setValue(0);
+      Animated.timing(mapControlsEntrance, {
+        toValue: 1,
+        duration: 380,
+        easing: Easing.out(Easing.cubic),
+        useNativeDriver: true,
+      }).start();
+    }, [mapControlsEntrance]),
+  );
 
   const initialRegion = useMemo<Region>(
     () => ({
@@ -468,7 +493,9 @@ const MapScreen = () => {
 
   const handleSelectGym = useCallback(
     (gym: DanishGym) => {
-      LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+      if (Platform.OS === 'android') {
+        LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+      }
       setSelectedGym(gym);
       const mc = allMapCenters.find(x => x.id === gym.id);
       const lat = mc?.mapLatitude ?? gym.latitude;
@@ -487,7 +514,9 @@ const MapScreen = () => {
   );
 
   const handleCloseSelection = useCallback(() => {
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    if (Platform.OS === 'android') {
+      LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    }
     setSelectedGym(null);
     setShowCentersSheet(false);
     setTimeout(() => {
@@ -519,13 +548,14 @@ const MapScreen = () => {
       return null;
     }
     const isSelected = selectedGym?.id === center.id;
-    const size = isSelected ? 48 : 42;
+    const size = isSelected ? 50 : 44;
     return (
       <Marker
         key={center.id}
         coordinate={{latitude: center.mapLatitude, longitude: center.mapLongitude}}
         onPress={() => handleSelectGym(gym)}
-        tracksViewChanges={false}>
+        zIndex={isSelected ? 999 : center.friendsActiveCount > 0 ? 50 : 1}
+        tracksViewChanges={isSelected}>
         <View style={markerStyles.wrapper}>
           <View
             style={[
@@ -642,66 +672,26 @@ const MapScreen = () => {
       </MapView>
 
       <SocialSearchBar
-        variant="floating"
+        variant="map"
         value={searchQuery}
         onChangeText={setSearchQuery}
         placeholder="Søg efter fitness centre..."
         style={styles.searchContainer}
       />
 
-      {/* Map type picker */}
-      <TouchableOpacity
-        style={styles.mapTypeBtn}
-        onPress={() => setShowMapTypePicker(!showMapTypePicker)}
-        activeOpacity={0.8}>
-        <Icon name="layers" size={24} color="#fff" />
-      </TouchableOpacity>
-
-      {showMapTypePicker && (
-        <>
-          <TouchableWithoutFeedback onPress={() => setShowMapTypePicker(false)}>
-            <View style={styles.pickerBackdrop} />
-          </TouchableWithoutFeedback>
-          <View style={styles.mapTypePicker}>
-            {(['standard', 'satellite', 'hybrid', 'terrain'] as const).map(t => (
-              <TouchableOpacity
-                key={t}
-                style={[styles.pickerOption, mapType === t && styles.pickerOptionActive]}
-                onPress={() => {
-                  setMapType(t);
-                  setShowMapTypePicker(false);
-                }}
-                activeOpacity={0.7}>
-                <Icon
-                  name={mapType === t ? 'radio-button-on' : 'radio-button-off'}
-                  size={20}
-                  color={mapType === t ? colors.primary : '#8E8E93'}
-                />
-                <Text style={[styles.pickerText, mapType === t && styles.pickerTextActive]}>
-                  {t === 'standard' ? 'Standard' : t === 'satellite' ? 'Satellit' : t === 'hybrid' ? 'Hybrid' : 'Terræn'}
-                </Text>
-              </TouchableOpacity>
-            ))}
-          </View>
-        </>
-      )}
-
-      {/* Center on user */}
-      <TouchableOpacity
-        style={styles.locateBtn}
-        onPress={() => {
-          setFollowUserMode(true);
-          mapRef.current?.animateCamera(
-            {
-              center: userLocation,
-              zoom: 16.2,
-            },
-            {duration: 600},
-          );
+      <MapTypePickerMenu
+        visible={showMapTypePicker}
+        value={mapType}
+        onSelect={t => {
+          setMapType(t);
+          setShowMapTypePicker(false);
         }}
-        activeOpacity={0.8}>
-        <Icon name="locate" size={24} color="#fff" />
-      </TouchableOpacity>
+        onClose={() => setShowMapTypePicker(false)}
+        menuStyle={{
+          bottom:
+            mapControlsBottom + MAP_CONTROL_SIZE + MAP_CONTROL_GAP + MAP_CONTROL_SIZE + 14,
+        }}
+      />
 
       {locationPermissionStatus === 'denied' ? (
         <View style={styles.locationHint}>
@@ -740,6 +730,47 @@ const MapScreen = () => {
           onSelectCenter={handleSelectGym}
         />
       </View>
+
+      {/* Flydende kortknapper — altid synlige over karrusel */}
+      <Animated.View
+        pointerEvents="box-none"
+        style={[
+          styles.mapControlsColumn,
+          {
+            bottom: mapControlsBottom,
+            opacity: mapControlsEntrance,
+            transform: [
+              {
+                translateY: mapControlsEntrance.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [10, 0],
+                }),
+              },
+            ],
+          },
+        ]}>
+        <MapFloatingButton
+          icon="layers-outline"
+          accessibilityLabel="Korttype"
+          active={showMapTypePicker}
+          onPress={() => setShowMapTypePicker(v => !v)}
+        />
+        <View style={styles.mapControlSpacer} />
+        <MapFloatingButton
+          icon="locate"
+          accessibilityLabel="Centrer på min placering"
+          onPress={() => {
+            setFollowUserMode(true);
+            mapRef.current?.animateCamera(
+              {
+                center: userLocation,
+                zoom: 16.2,
+              },
+              {duration: 600},
+            );
+          }}
+        />
+      </Animated.View>
 
       {/* I Nærheden bar */}
       <View style={styles.centersBar} {...centersBarPanResponder.panHandlers}>
@@ -861,64 +892,22 @@ const styles = StyleSheet.create({
   map: {width: Dimensions.get('window').width, height: Dimensions.get('window').height},
   searchContainer: {
     position: 'absolute',
-    top: 32,
-    left: 16,
-    right: 16,
+    top: 28,
+    left: spacing.lg,
+    right: spacing.lg,
     zIndex: 100,
   },
-  mapTypeBtn: {
+  mapControlsColumn: {
     position: 'absolute',
-    bottom: 284,
-    right: 16,
-    width: 52,
-    height: 52,
-    borderRadius: 26,
-    backgroundColor: colors.primary,
-    justifyContent: 'center',
+    right: spacing.lg,
+    zIndex: 250,
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 3},
-    shadowOpacity: 0.18,
-    shadowRadius: 6,
-    elevation: 8,
-    zIndex: 101,
+    ...Platform.select({
+      android: {elevation: 24},
+    }),
   },
-  pickerBackdrop: {position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 99},
-  mapTypePicker: {
-    position: 'absolute',
-    top: 144,
-    right: 16,
-    backgroundColor: '#fff',
-    borderRadius: 12,
-    paddingVertical: 8,
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.2,
-    shadowRadius: 6,
-    elevation: 6,
-    zIndex: 101,
-    minWidth: 150,
-  },
-  pickerOption: {flexDirection: 'row', alignItems: 'center', paddingVertical: 12, paddingHorizontal: 16},
-  pickerOptionActive: {backgroundColor: `${colors.primary}15`},
-  pickerText: {fontSize: 16, color: colors.text, marginLeft: 12, fontWeight: '500'},
-  pickerTextActive: {color: colors.primary, fontWeight: '600'},
-  locateBtn: {
-    position: 'absolute',
-    bottom: 220,
-    right: 16,
-    width: 52,
-    height: 52,
-    borderRadius: 26,
-    backgroundColor: colors.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 3},
-    shadowOpacity: 0.18,
-    shadowRadius: 6,
-    elevation: 8,
-    zIndex: 100,
+  mapControlSpacer: {
+    height: MAP_CONTROL_GAP,
   },
   userMarkerWrap: {
     width: 34,
@@ -985,6 +974,7 @@ const styles = StyleSheet.create({
     right: 0,
     zIndex: 60,
     backgroundColor: 'transparent',
+    pointerEvents: 'box-none',
   },
   centersBar: {
     position: 'absolute',

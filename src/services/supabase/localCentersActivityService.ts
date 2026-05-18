@@ -1,6 +1,10 @@
 import {supabase} from '@/services/supabase/supabaseClient';
 import {getMyFriendIds, getPublicProfilesByIds} from '@/services/supabase/friendService';
-import {findGymById, formatGymDisplayName, normalizeGymBrand} from '@/utils/gymDisplay';
+import {
+  findGymByIdRelaxed,
+  formatGymDisplayName,
+  normalizeGymBrand,
+} from '@/utils/gymDisplay';
 import {
   dedupeCheckInRowsByUserId,
   isEffectiveActiveCheckIn,
@@ -92,7 +96,7 @@ export async function loadLocalCentersActivity(
   );
 
   return ids.map(centerId => {
-    const gym = findGymById(centerId);
+    const gym = findGymByIdRelaxed(centerId);
     const centerRows = byCenter.get(centerId) ?? [];
     const uniqUsers = new Set(centerRows.map(r => r.user_id).filter(Boolean));
     const friendEntries: LocalCenterFriend[] = centerRows

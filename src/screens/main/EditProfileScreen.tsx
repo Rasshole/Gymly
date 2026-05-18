@@ -24,7 +24,10 @@ import {useNavigation, useRoute} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppStore} from '@/store/appStore';
-import {upsertMyProfile} from '@/services/supabase/friendService';
+import {useFriendStore} from '@/store/friendStore';
+import {useChatStore} from '@/store/chatStore';
+import AuthService from '@/services/auth/AuthService';
+import {upsertMyProfile, mergeProfileUsernameIntoUser} from '@/services/supabase/friendService';
 import {supabase} from '@/services/supabase/supabaseClient';
 import {
   getUsernameFormatErrorDa,
@@ -33,7 +36,7 @@ import {
 } from '@/utils/usernameRules';
 import {useUsernameAvailability} from '@/hooks/useUsernameAvailability';
 import {GymSlotsEditor} from '@/components/profile/GymSlotsEditor';
-import {ProfileVisibility} from '@/types/user.types';
+import {ProfileVisibility, type User} from '@/types/user.types';
 import {
   spacing,
   radius,
@@ -310,6 +313,17 @@ const EditProfileScreen = () => {
 
       await upsertMyProfile(updatedUser);
 
+      const syncedFromAuth = await AuthService.syncProfileMetadataFromUser(updatedUser);
+      let finalUser: User = {
+        ...updatedUser,
+        ...syncedFromAuth,
+        id: updatedUser.id,
+        email: updatedUser.email,
+        gdprConsent: updatedUser.gdprConsent,
+        featuredBadgeIds: updatedUser.featuredBadgeIds ?? syncedFromAuth.featuredBadgeIds,
+      };
+      finalUser = await mergeProfileUsernameIntoUser(finalUser);
+
       if (displayName !== user.displayName) {
         setLastDisplayNameChange(new Date());
       }
@@ -317,12 +331,19 @@ const EditProfileScreen = () => {
         setLastUsernameChange(new Date());
       }
 
-      setUser(updatedUser, {skipProfileSync: true});
+      setUser(finalUser, {skipProfileSync: true});
+      void useFriendStore.getState().load(finalUser.id);
+      useChatStore.getState().updateMyDmParticipantLabels(
+        finalUser.id,
+        (finalUser.displayName || '').trim() || 'Dig',
+      );
       Alert.alert('Profil opdateret', 'Dine ændringer er blevet gemt.');
       navigation.goBack();
     } catch (err) {
-      console.log('Profile save error:', err);
-      Alert.alert('Profil', userFacingSaveError(err));
+      if (__DEV__) {
+        console.warn('[EditProfile] save failed', err);
+      }
+      Alert.alert('Kunne ikke gemme profil', userFacingSaveError(err));
       return;
     } finally {
       setIsSaving(false);

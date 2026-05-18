@@ -3,6 +3,7 @@ import type {Notification, NotificationType} from '@/types/notification.types';
 import {safeDisplayName} from '@/utils/displayName';
 import {formatGymNameWithBrand} from '@/utils/gymDisplay';
 import {detectGymChain} from '@/services/gymLogoService';
+import {getMessagePreview} from '@/utils/dmMessagePreview';
 
 function mapType(t: InAppNotificationType): NotificationType {
   switch (t) {
@@ -96,7 +97,10 @@ export function mapRowToViewNotification(row: NotificationRow): Notification {
       data.actorName as string | undefined,
       data.displayName as string | undefined,
     ) || 'Ukendt bruger';
-  const plannedWorkoutId = (data.plannedWorkoutId as string) || undefined;
+  const plannedWorkoutId =
+    (data.plannedWorkoutId as string) ||
+    (data.planned_workout_id as string) ||
+    undefined;
   const threadId =
     (data.threadId as string) || (data.conversationId as string) || undefined;
   const schedRaw = data.scheduledAt as string | undefined;
@@ -110,11 +114,16 @@ export function mapRowToViewNotification(row: NotificationRow): Notification {
   const formattedCenterName = centerNameRaw
     ? formatGymNameWithBrand(centerNameRaw, inferredBrand)
     : undefined;
+  const displayBody =
+    row.type === 'dm_message'
+      ? getMessagePreview({text: row.body ?? ''})
+      : (row.body ?? '');
+
   return {
     id: rowId,
     type: mapType(row.type),
     title: (row.title ?? 'Notifikation').trim() || 'Notifikation',
-    message: row.body ?? '',
+    message: displayBody,
     read: row.is_read,
     timestamp: safeCreated,
     groupId,

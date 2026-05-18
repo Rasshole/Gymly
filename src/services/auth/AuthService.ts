@@ -12,9 +12,10 @@ const logAuthDebug = (...args: unknown[]) => {
   }
 };
 import {AuthTokens, AuthResponse} from '@/types/auth.types';
-import {User, UserLogin, UserRegistration} from '@/types/user.types';
+import {User, UserLogin, UserRegistration, type ConsentType} from '@/types/user.types';
 import SecureStorage from '../security/SecureStorage';
 import {supabase} from '@/services/supabase/supabaseClient';
+import {getLocalDateString} from '@/utils/streakUtils';
 import {
   SUPABASE_ALLOW_UNVERIFIED_LOGIN,
   SUPABASE_EMAIL_REDIRECT,
@@ -37,9 +38,68 @@ class AuthService {
     return this.mapSupabaseUser(supabaseUser);
   }
 
+  private parseGdprFromMetadata(raw: unknown, fallbackDate: Date): User['gdprConsent'] {
+    if (!raw || typeof raw !== 'object') {
+      return {
+        privacyPolicyAccepted: true,
+        termsOfServiceAccepted: true,
+        dataRetentionConsent: true,
+        marketingConsent: false,
+        analyticsConsent: false,
+        locationTrackingConsent: false,
+        consentDate: fallbackDate,
+        privacyPolicyVersion: '1.0.0',
+        termsOfServiceVersion: '1.0.0',
+        consentHistory: [],
+      };
+    }
+    const g = raw as Record<string, unknown>;
+    const historyRaw = Array.isArray(g.consentHistory) ? g.consentHistory : [];
+    return {
+      privacyPolicyAccepted: Boolean(g.privacyPolicyAccepted),
+      termsOfServiceAccepted: Boolean(g.termsOfServiceAccepted),
+      dataRetentionConsent: Boolean(g.dataRetentionConsent),
+      marketingConsent: Boolean(g.marketingConsent),
+      analyticsConsent: Boolean(g.analyticsConsent),
+      locationTrackingConsent: Boolean(g.locationTrackingConsent),
+      consentDate: g.consentDate ? new Date(String(g.consentDate)) : fallbackDate,
+      privacyPolicyVersion: String(g.privacyPolicyVersion ?? '1.0.0'),
+      termsOfServiceVersion: String(g.termsOfServiceVersion ?? '1.0.0'),
+      consentHistory: historyRaw.map((c: Record<string, unknown>) => ({
+        id: String(c.id ?? ''),
+        type: c.type as ConsentType,
+        accepted: Boolean(c.accepted),
+        version: String(c.version ?? ''),
+        timestamp: c.timestamp ? new Date(String(c.timestamp)) : fallbackDate,
+        ipAddress: typeof c.ipAddress === 'string' ? c.ipAddress : undefined,
+      })),
+    };
+  }
+
+  private serializeGdprConsentForMetadata(consent: User['gdprConsent']): Record<string, unknown> {
+    return {
+      ...consent,
+      consentDate:
+        consent.consentDate instanceof Date
+          ? consent.consentDate.toISOString()
+          : consent.consentDate,
+      consentHistory: (consent.consentHistory ?? []).map(c => ({
+        ...c,
+        timestamp: c.timestamp instanceof Date ? c.timestamp.toISOString() : c.timestamp,
+      })),
+    };
+  }
+
   private mapSupabaseUser(user: SupabaseUser): User {
     const metadata = user.user_metadata || {};
     const now = new Date();
+    const weightRaw = metadata.weight;
+    const weight =
+      typeof weightRaw === 'number'
+        ? weightRaw
+        : typeof weightRaw === 'string' && weightRaw.trim() !== ''
+          ? Number(weightRaw)
+          : undefined;
     return {
       id: user.id,
       email: user.email || '',
@@ -49,7 +109,7 @@ class AuthService {
         typeof metadata.phoneNumber === 'string' ? metadata.phoneNumber : undefined,
       profileImageUrl: metadata.profileImageUrl,
       bicepsEmoji: metadata.bicepsEmoji || '💪🏻',
-      bio: metadata.bio,
+      bio: typeof metadata.bio === 'string' ? metadata.bio : undefined,
       birthYear:
         metadata.birthYear ??
         (metadata.dateOfBirth
@@ -59,6 +119,15 @@ class AuthService {
         ? new Date(metadata.dateOfBirth as string)
         : undefined,
       trainingGoal: metadata.trainingGoal,
+      weight: Number.isFinite(weight) ? weight : undefined,
+      gender:
+        metadata.gender === 'male' ||
+        metadata.gender === 'female' ||
+        metadata.gender === 'other' ||
+        metadata.gender === 'prefer_not_to_say'
+          ? metadata.gender
+          : undefined,
+      city: typeof metadata.city === 'string' ? metadata.city : undefined,
       favoriteGyms: metadata.favoriteGyms,
       privacySettings: metadata.privacySettings || {
         profileVisibility: 'friends',
@@ -67,22 +136,55 @@ class AuthService {
         allowFriendRequests: true,
         showOnlineStatus: true,
       },
-      gdprConsent: metadata.gdprConsent || {
-        privacyPolicyAccepted: true,
-        termsOfServiceAccepted: true,
-        dataRetentionConsent: true,
-        marketingConsent: false,
-        analyticsConsent: false,
-        locationTrackingConsent: false,
-        consentDate: now,
-        privacyPolicyVersion: '1.0.0',
-        termsOfServiceVersion: '1.0.0',
-        consentHistory: [],
-      },
+      gdprConsent: this.parseGdprFromMetadata(metadata.gdprConsent, now),
+      usernameRequiresChange: Boolean(metadata.usernameRequiresChange),
+      featuredBadgeIds: Array.isArray(metadata.featuredBadgeIds)
+        ? (metadata.featuredBadgeIds as string[]).slice(0, 3)
+        : undefined,
       createdAt: user.created_at ? new Date(user.created_at) : now,
       updatedAt: now,
       lastLoginAt: now,
     };
+  }
+
+  /**
+   * Skriver profilfelter til auth.users.user_metadata så session/initialize matcher
+   * det der gemmes lokalt og i public.profiles (venner, feed, …).
+   */
+  async syncProfileMetadataFromUser(appUser: User): Promise<User> {
+    const dob =
+      appUser.dateOfBirth instanceof Date
+        ? getLocalDateString(appUser.dateOfBirth)
+        : appUser.dateOfBirth
+          ? String(appUser.dateOfBirth)
+          : undefined;
+    const meta: Record<string, unknown> = {
+      username: appUser.username,
+      displayName: appUser.displayName,
+      phoneNumber: appUser.phoneNumber,
+      profileImageUrl: appUser.profileImageUrl,
+      bicepsEmoji: appUser.bicepsEmoji,
+      bio: appUser.bio,
+      birthYear: appUser.birthYear,
+      dateOfBirth: dob,
+      trainingGoal: appUser.trainingGoal,
+      favoriteGyms: appUser.favoriteGyms,
+      weight: appUser.weight,
+      gender: appUser.gender,
+      city: appUser.city,
+      privacySettings: appUser.privacySettings,
+      usernameRequiresChange: appUser.usernameRequiresChange === true,
+      featuredBadgeIds: appUser.featuredBadgeIds,
+      gdprConsent: this.serializeGdprConsentForMetadata(appUser.gdprConsent),
+    };
+    const {data, error} = await supabase.auth.updateUser({data: meta});
+    if (error) {
+      throw new Error(this.humanizeAuthMessage(error.message));
+    }
+    if (!data.user) {
+      throw new Error('Kunne ikke opdatere bruger-session');
+    }
+    return this.mapSupabaseUser(data.user);
   }
 
   private mapSessionTokens(session: {

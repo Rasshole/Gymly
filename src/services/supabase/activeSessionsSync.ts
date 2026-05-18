@@ -3,10 +3,12 @@
  * DB: is_active, ended_at (ingen checked_out_at-kolonne — ended_at er checkout).
  */
 
-import {supabase} from '@/services/supabase/supabaseClient';
-
+/** Kun til visning på kort/lister — afslutter aldrig session i DB. */
 export const ACTIVE_SESSION_MAX_DURATION_MS = 6 * 60 * 60 * 1000;
 export const ACTIVE_SESSION_STALE_HEARTBEAT_MS = 30 * 60 * 1000;
+
+/** Vis recovery-dialog — auto-afslut aldrig uden brugerhandling. */
+export const ACTIVE_SESSION_RECOVERY_PROMPT_MS = 12 * 60 * 60 * 1000;
 
 export type ActiveCheckInSyncRow = {
   id?: string;
@@ -70,24 +72,9 @@ export function dedupeCheckInRowsByUserId<T extends ActiveCheckInSyncRow>(rows: 
 }
 
 /**
- * DB-side cleanup (alle brugeres rækker). Rollup-triggers kører på UPDATE.
- * Fejler stille hvis RPC ikke er deployet endnu.
+ * Tidligere DB-cleanup af aktive check-ins — deaktiveret.
+ * Aktive sessioner må kun afsluttes manuelt eller via bekræftet geofence auto-checkout.
  */
 export async function runStaleActiveSessionCleanup(): Promise<number> {
-  try {
-    const {data, error} = await supabase.rpc('cleanup_stale_active_check_ins');
-    if (error) {
-      if (__DEV__) {
-        console.warn('[ActiveSessions] cleanup_stale_active_check_ins RPC:', error.message);
-      }
-      return 0;
-    }
-    const n = typeof data === 'number' ? data : Number(data);
-    return Number.isFinite(n) ? n : 0;
-  } catch (e) {
-    if (__DEV__) {
-      console.warn('[ActiveSessions] cleanup_stale_active_check_ins', e);
-    }
-    return 0;
-  }
+  return 0;
 }

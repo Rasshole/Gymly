@@ -116,9 +116,12 @@ export function navigateFromPushData(data: Record<string, string> | undefined): 
     type === 'planned_workout_declined' ||
     type === 'planned_workout_reminder'
   ) {
-    const pid = data.plannedWorkoutId;
+    const pid =
+      data.plannedWorkoutId ||
+      data.planned_workout_id ||
+      '';
     nav.navigate('WorkoutSchedule', {
-      openPlannedId: pid,
+      openPlannedId: pid || undefined,
       initialTab: 'upcoming',
     });
     return;

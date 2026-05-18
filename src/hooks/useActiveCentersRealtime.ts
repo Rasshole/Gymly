@@ -7,6 +7,9 @@ import {
 import type {ActiveCenter} from '@/types/activeCenter.types';
 import {subscribeCheckInsPresence} from '@/realtime/checkInsPresenceSubscription';
 import {useOptionalUserCoords} from '@/hooks/useOptionalUserCoords';
+import {isDemoContentMode} from '@/demo/demoContentGate';
+import {buildDemoPayload} from '@/demo/buildDemoPayload';
+import {buildDemoActiveCentersFromLocal} from '@/demo/buildDemoActiveCenters';
 
 const TOP_N = 5;
 
@@ -21,6 +24,20 @@ export function useActiveCentersRealtime() {
     if (!userId) {
       setActiveCenters([]);
       setError(null);
+      return;
+    }
+    if (isDemoContentMode()) {
+      setLoading(true);
+      try {
+        const d = buildDemoPayload(userId);
+        setActiveCenters(buildDemoActiveCentersFromLocal(d.localCenters));
+        setError(null);
+      } catch (e) {
+        setActiveCenters([]);
+        setError(e instanceof Error ? e : new Error(String(e)));
+      } finally {
+        setLoading(false);
+      }
       return;
     }
     setLoading(true);
@@ -44,7 +61,7 @@ export function useActiveCentersRealtime() {
   }, [refresh]);
 
   useEffect(() => {
-    if (!userId) {
+    if (!userId || isDemoContentMode()) {
       return;
     }
     return subscribeCheckInsPresence(() => {

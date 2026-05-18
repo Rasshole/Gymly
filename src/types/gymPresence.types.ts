@@ -11,6 +11,8 @@ export interface UserPresence {
   id: string;
   name: string;
   avatar?: string | null;
+  /** Aktiv sessions workout_type (til Live i centret) */
+  workoutType?: string | null;
   status: UserPresenceStatus;
   lastActivity: Date;
   /** Minutes ago when status is active_minutes or checked_in_minutes */

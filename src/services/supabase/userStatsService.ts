@@ -148,23 +148,25 @@ export async function updateUserStatsAfterSession(
   session: CompletedSessionForStats,
 ): Promise<UserStats> {
   const sessionMinutesRaw = Math.max(
-    0,
+    1,
     Math.round((session.endedAt.getTime() - session.startedAt.getTime()) / 60000),
   );
   const boundedMinutes = Math.min(240, sessionMinutesRaw); // anti-cheat: cap at 4h
-  const isValidDurationWorkout = boundedMinutes >= 20;
-  const countsForStreak = session.hasValidCheckIn || isValidDurationWorkout;
 
   const current = await getUserStats(userId);
   let next = {...current};
 
   if (session.hasValidCheckIn) {
     next.totalCheckIns += 1;
-  }
-  next.totalTrainingMinutes += boundedMinutes;
-
-  if (countsForStreak) {
-    next = await updateUserStreak(userId, session.endedAt);
+    next.totalTrainingMinutes += boundedMinutes;
+    const streakNext = await updateUserStreak(userId, session.endedAt);
+    next = {
+      ...streakNext,
+      totalCheckIns: next.totalCheckIns,
+      totalTrainingMinutes: next.totalTrainingMinutes,
+    };
+  } else {
+    next.totalTrainingMinutes += boundedMinutes;
   }
 
   const {error} = await supabase

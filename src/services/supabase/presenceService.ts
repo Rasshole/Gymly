@@ -7,6 +7,9 @@ import {
   fetchGymLiveSessionTotals,
   fetchVisibleLiveSessions,
 } from '@/services/supabase/liveWorkoutSessionService';
+import {isDemoContentMode} from '@/demo/demoContentGate';
+import {buildDemoPayload} from '@/demo/buildDemoPayload';
+import {buildDemoMapGymBadgesFromCenters} from '@/demo/demoMapAndOnline';
 
 export const PRESENCE_WINDOW_HOURS = 3;
 
@@ -85,6 +88,7 @@ function rowToUserPresence(row: CheckInRow): UserPresence {
     id: row.user_id,
     name: row.user_display_name?.trim() || 'Bruger',
     avatar: undefined,
+    workoutType: row.workout_type ?? undefined,
     status,
     lastActivity: new Date(row.created_at),
     minutesAgo,
@@ -203,6 +207,10 @@ export async function loadMapGymBadges(userId: string): Promise<{
   friendsByGymId: Map<string, number>;
   totalByGymId: Map<string, number>;
 }> {
+  if (isDemoContentMode()) {
+    const d = buildDemoPayload(userId);
+    return buildDemoMapGymBadgesFromCenters(d.localCenters, d.demoMapExtraRollups);
+  }
   const friendIds = await getMyFriendIds(userId);
 
   const {data: rollups, error: rollupErr} = await supabase

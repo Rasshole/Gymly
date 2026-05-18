@@ -9,6 +9,8 @@ import {
   type NotificationRow,
 } from '@/services/notifications/inAppNotificationService';
 import {useNotificationStore} from '@/store/notificationStore';
+import {isDemoContentMode} from '@/demo/demoContentGate';
+import {buildDemoPayload} from '@/demo/buildDemoPayload';
 
 export type FriendRequestOutcomeMap = Record<
   string,
@@ -51,6 +53,21 @@ export const useInAppNotificationStore = create<InAppState>((set, get) => ({
   refresh: async (userId: string) => {
     if (!userId) {
       get().reset();
+      return;
+    }
+    if (isDemoContentMode()) {
+      const d = buildDemoPayload(userId);
+      const unread = d.notificationRows.filter(r => !r.is_read).length;
+      const frP = d.notificationRows.filter(
+        r => r.type === 'friend_request' && !r.is_read,
+      ).length;
+      set(state => ({
+        rows: d.notificationRows,
+        dbUnread: unread,
+        loadedUserId: userId,
+        friendRequestOutcomes: state.friendRequestOutcomes,
+      }));
+      useNotificationStore.getState().setIncomingFriendRequestCount(frP);
       return;
     }
     const [data, c] = await Promise.all([

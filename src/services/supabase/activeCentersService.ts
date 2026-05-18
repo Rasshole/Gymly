@@ -77,6 +77,7 @@ export function mapSessionToUserPresence(s: ActiveCenterSession): UserPresence {
     id: s.userId,
     name: s.displayName,
     avatar: s.avatarUrl ?? undefined,
+    workoutType: s.workoutType ?? undefined,
     status,
     lastActivity: new Date(s.startedAt),
     minutesAgo,

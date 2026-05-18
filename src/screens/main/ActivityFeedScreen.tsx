@@ -3,7 +3,7 @@
  * Hjertet i den sociale oplevelse – check-ins, streaks, badges, grupper
  */
 
-import React, {useState, useMemo, useEffect} from 'react';
+import React, {useState, useMemo, useEffect, useCallback} from 'react';
 import {
   View,
   Text,
@@ -18,14 +18,14 @@ import {Card} from '@/components/ui/Card';
 import {EmptyState} from '@/components/ui/EmptyState';
 import {ActivityCard} from '@/components/ui/ActivityCard';
 import GymlyPostCard from '@/components/feed/GymlyPostCard';
+import {PostActionBottomSheet} from '@/components/feed/PostActionBottomSheet';
+import type {ActivityEvent, ActivityScope} from '@/types/activity.types';
 import {useActivityData, useGroups} from '@/hooks/data';
 import {formatRelativeTime} from '@/utils/formatRelativeTime';
 import {mapEventTypeToActivityCard, buildSecondaryInfo} from '@/utils/activityUtils';
 import {useAppStore} from '@/store/appStore';
 import {useDashboardStatsStore} from '@/store/dashboardStatsStore';
 import * as streak from '@/utils/streakUtils';
-import type {ActivityEvent} from '@/types/activity.types';
-import type {ActivityScope} from '@/types/activity.types';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
 import {SURFACE_GROUPS_IN_APP} from '@/config/launchSurfaceConfig';
@@ -45,6 +45,18 @@ const TIME_OPTIONS: {key: TimeFilter; label: string}[] = [
   {key: 'today', label: 'I dag'},
   {key: 'week', label: 'Denne uge'},
 ];
+
+function activityEventToPostAction(item: ActivityEvent) {
+  const workoutBits = [item.secondaryInfo, item.gymName].filter(Boolean);
+  return {
+    id: item.id,
+    userId: item.userId,
+    userName: item.displayName,
+    caption: item.message || item.text,
+    photoUri: null as string | null | undefined,
+    workoutInfo: workoutBits.length ? workoutBits.join(' · ') : undefined,
+  };
+}
 
 const isToday = (d: Date) => {
   const today = new Date();
@@ -81,6 +93,7 @@ const ActivityFeedScreen = () => {
   const navigation = useNavigation<any>();
   const [scopeFilter, setScopeFilter] = useState<FilterScope>('all');
   const [timeFilter, setTimeFilter] = useState<TimeFilter>('week');
+  const [activityMenuItem, setActivityMenuItem] = useState<ActivityEvent | null>(null);
   const currentUser = useAppStore(s => s.user);
   const dashboardStreak = useDashboardStatsStore(s => s.streak);
 
@@ -95,7 +108,11 @@ const ActivityFeedScreen = () => {
     }
   }, [scopeFilter, SURFACE_GROUPS_IN_APP]);
 
-  const {events: activityEvents, error, refresh} = useActivityData('current_user', scopeFilter === 'all' ? undefined : scopeFilter);
+  const activityUserId = currentUser?.id;
+  const {events: activityEvents, error, refresh} = useActivityData(
+    activityUserId,
+    scopeFilter === 'all' ? undefined : scopeFilter,
+  );
   const {groups} = useGroups('current_user');
   const groupsForSummary = SURFACE_GROUPS_IN_APP ? groups : [];
 
@@ -136,6 +153,14 @@ const ActivityFeedScreen = () => {
       gyms: [],
     });
   };
+
+  const closeActivityPostSheet = useCallback(() => {
+    setActivityMenuItem(null);
+  }, []);
+
+  const openActivityPostMenu = useCallback((e: ActivityEvent) => {
+    setActivityMenuItem(e);
+  }, []);
 
   const isEmpty = filteredEvents.length === 0;
 
@@ -284,6 +309,7 @@ const ActivityFeedScreen = () => {
                     onUserPress={() =>
                       handleUserPress(item.userId, item.displayName)
                     }
+                    onMenuPress={() => openActivityPostMenu(item)}
                   />
                 );
               }
@@ -340,6 +366,13 @@ const ActivityFeedScreen = () => {
           </View>
         )}
       </ScrollView>
+      <PostActionBottomSheet
+        visible={!!activityMenuItem}
+        onClose={closeActivityPostSheet}
+        post={activityMenuItem ? activityEventToPostAction(activityMenuItem) : null}
+        currentUserId={currentUser?.id}
+        variant="activity"
+      />
     </View>
   );
 };

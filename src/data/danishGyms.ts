@@ -82,4 +82,29 @@ export function getActiveDanishGyms(): DanishGym[] {
   );
 }
 
+/** Første center — også når aktiv-listen er tom (demo / edge cases). */
+export function getDanishGymDemoFallback(): DanishGym {
+  const active = getActiveDanishGyms();
+  if (active.length > 0) {
+    return active[0]!;
+  }
+  const raw = ALL_GYM_CENTERS[0];
+  if (raw) {
+    return toDanishGym(raw);
+  }
+  const synthetic: GymCenter = {
+    id: 'demo_gym_fallback',
+    name: 'Demo Center',
+    brand: 'Demo',
+    address: '',
+    postal_code: '1000',
+    city: 'København',
+    country: 'DK',
+    lat: 55.6761,
+    lng: 12.5683,
+    is_active: true,
+  };
+  return toDanishGym(synthetic);
+}
+
 export default danishGyms;

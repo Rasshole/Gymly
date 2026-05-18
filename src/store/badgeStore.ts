@@ -21,9 +21,9 @@ import {fetchUserBadges, upsertUserBadges} from '@/services/supabase/userBadgesS
 import {buildUserBadgeStats} from '@/services/userBadgeStats';
 import {useActivityStore} from '@/store/activityStore';
 import {useInAppNotificationStore} from '@/store/inAppNotificationStore';
-import type {BadgeDefinition} from '@/types/badge.types';
-import type {UnlockedBadgeRecord} from '@/types/badge.types';
-import type {UserBadgeStats} from '@/types/badge.types';
+import type {BadgeDefinition, UnlockedBadgeRecord, UserBadgeStats} from '@/types/badge.types';
+import {isDemoContentMode} from '@/demo/demoContentGate';
+import {getDemoBadgeSnapshot} from '@/demo/demoBadgeSeed';
 
 const STORAGE_KEY = 'gymly_badge_unlocks_v1';
 
@@ -104,6 +104,8 @@ interface BadgeStoreState {
     userId: string,
     row: {badge_id: string; progress: number; unlocked_at: string | null},
   ) => void;
+  /** Hent `user_badges` fra Supabase ind i lokal unlock-map (fx ven-profil). */
+  hydrateUserBadgesFromServer: (userId: string) => Promise<void>;
   dismissUnlockModal: () => void;
   currentUnlockModal: () => BadgeDefinition | null;
 }
@@ -150,6 +152,20 @@ export async function checkAndUnlockBadges(
 }
 
 async function runCheckAndUnlockBadgesBody(uid: string, dn: string): Promise<void> {
+  if (isDemoContentMode()) {
+    const {stats, unlocked} = getDemoBadgeSnapshot();
+    useBadgeStore.setState(state => ({
+      statsByUser: {
+        ...state.statsByUser,
+        [uid]: stats,
+      },
+      unlockedByUser: {
+        ...state.unlockedByUser,
+        [uid]: unlocked,
+      },
+    }));
+    return;
+  }
   try {
     logBadgeEngine('checking badges for user', uid);
     const stats = await buildUserBadgeStats(uid);
@@ -355,6 +371,31 @@ export const useBadgeStore = create<BadgeStoreState>((set, get) => ({
       };
     });
     get().persist().catch(() => {});
+  },
+
+  hydrateUserBadgesFromServer: async userId => {
+    if (!userId || isDemoContentMode()) {
+      return;
+    }
+    try {
+      const server = await fetchUserBadges(userId);
+      const merged = mergeUnlockedFromServer(
+        useBadgeStore.getState().unlockedByUser[userId] ?? {},
+        server,
+      );
+      const cur = useBadgeStore.getState().unlockedByUser[userId] ?? {};
+      if (unlockMapsEqual(cur, merged)) {
+        return;
+      }
+      set(state => ({
+        unlockedByUser: {
+          ...state.unlockedByUser,
+          [userId]: merged,
+        },
+      }));
+    } catch {
+      /* offline */
+    }
   },
 
   syncBadgesForUser: (userId, displayName) => {

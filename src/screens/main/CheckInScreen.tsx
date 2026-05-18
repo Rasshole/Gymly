@@ -31,8 +31,6 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation, useFocusEffect} from '@react-navigation/native';
 import {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
-
-const CHECKIN_GYMS = getActiveDanishGyms();
 import {useAppStore} from '@/store/appStore';
 import {SKIP_CHECK_IN_LOCATION_RADIUS} from '@/config/dataConfig';
 import {useDashboardStatsStore} from '@/store/dashboardStatsStore';
@@ -47,7 +45,6 @@ import {
   getActiveCheckInForUser,
 } from '@/services/supabase/checkInService';
 import {runAutoCheckoutEvaluation} from '@/services/autoCheckout/runAutoCheckoutEvaluation';
-import {runStaleActiveSessionCleanup} from '@/services/supabase/activeSessionsSync';
 import {notifyFriendsOfCheckIn} from '@/services/firestore/FriendCheckInNotificationService';
 import {formatGymDisplayName, findGymById} from '@/utils/gymDisplay';
 import {
@@ -87,6 +84,26 @@ import {
   startWorkoutLiveActivity,
 } from '@/services/ios/workoutLiveActivity';
 import {finishWorkoutSession} from '@/services/session/finishWorkoutSession';
+import {useUserTrainingStats} from '@/hooks/useUserTrainingStats';
+import {isDemoContentMode} from '@/demo/demoContentGate';
+import {useDemoModeStore} from '@/demo/demoModeStore';
+
+const CHECKIN_GYMS = getActiveDanishGyms();
+
+/** Demo / screen recording: fiktiv placering 57 m fra SATS Valby (tjek-ind tilladt inden for 200 m). */
+const DEMO_CHECKIN_SHOWCASE_GYM_ID = 'sats-2500-valby-torvegade-17';
+const DEMO_CHECKIN_DISTANCE_M = 57;
+
+function coordsOffsetNorthMeters(lat: number, lng: number, northM: number) {
+  return {
+    latitude: lat + northM / 111_320,
+    longitude: lng,
+  };
+}
+
+function resolveDemoCheckInShowcaseGym(): DanishGym | null {
+  return CHECKIN_GYMS.find(g => g.id === DEMO_CHECKIN_SHOWCASE_GYM_ID) ?? null;
+}
 
 const MOOD_TO_RATING: Record<string, number> = {
   angry: 1,
@@ -203,10 +220,13 @@ function findNearestGymFromCoords(latitude: number, longitude: number): DanishGy
 const CheckInScreen = () => {
   const navigation = useNavigation<any>();
   const {user} = useAppStore();
+  const demoCheckInPlacementActive =
+    typeof __DEV__ !== 'undefined' && __DEV__ && useDemoModeStore(s => s.enabled);
 
   const onStatsCheckIn = useDashboardStatsStore(s => s.onCheckIn);
   const dashboardStreak = useDashboardStatsStore(s => s.streak);
   const {activeSession, startSession, endSession, getElapsedSeconds} = useSessionStore();
+  const {refresh: refreshTrainingStats} = useUserTrainingStats(user?.id);
   const addWorkout = useWorkoutStore(s => s.addWorkout);
   const [selectedGym, setSelectedGym] = useState<DanishGym | null>(null);
   const [userLocation, setUserLocation] = useState<{
@@ -349,6 +369,29 @@ const CheckInScreen = () => {
   /** Manuelt center-valg (modal) — blokerer auto-nærmeste indtil Lokalitet nulstiller */
   const hasManuallySelectedGym = useRef(false);
 
+  const applyDemoCheckInPlacement = useCallback(() => {
+    if (!isDemoContentMode()) {
+      return;
+    }
+    const gym = resolveDemoCheckInShowcaseGym();
+    if (!gym) {
+      return;
+    }
+    hasManuallySelectedGym.current = false;
+    const coords = coordsOffsetNorthMeters(
+      gym.latitude,
+      gym.longitude,
+      DEMO_CHECKIN_DISTANCE_M,
+    );
+    setUserLocation(coords);
+    setLocationPermissionStatus('granted');
+    setSelectedGym(gym);
+    logCheckInDebug('demoCheckInPlacement', {
+      gymId: gym.id,
+      offsetMeters: DEMO_CHECKIN_DISTANCE_M,
+    });
+  }, []);
+
   const GEO_OPTIONS = useMemo(
     () => ({
       enableHighAccuracy: true,
@@ -390,6 +433,9 @@ const CheckInScreen = () => {
    * altid være det geografisk nærmeste — også ved fokus/opdateret GPS eller når valget nulstilles.
    */
   useEffect(() => {
+    if (demoCheckInPlacementActive) {
+      return;
+    }
     if (hasManuallySelectedGym.current) {
       return;
     }
@@ -403,7 +449,7 @@ const CheckInScreen = () => {
     if (nearest) {
       setSelectedGym(nearest);
     }
-  }, [userLocation, selectedGym]);
+  }, [userLocation, selectedGym, demoCheckInPlacementActive]);
 
   /**
    * Kun når placering ikke kan bruges (afvist/utilgængelig): brug favorit-center som fallback.
@@ -429,6 +475,11 @@ const CheckInScreen = () => {
 
   // Første load: tilladelse + position
   useEffect(() => {
+    if (demoCheckInPlacementActive) {
+      applyDemoCheckInPlacement();
+      return;
+    }
+
     let cancelled = false;
 
     const onPositionSuccess = (position: GeolocationResponse) => {
@@ -500,11 +551,15 @@ const CheckInScreen = () => {
     return () => {
       cancelled = true;
     };
-  }, [GEO_OPTIONS, applyGeolocationSuccess]);
+  }, [GEO_OPTIONS, applyGeolocationSuccess, applyDemoCheckInPlacement, demoCheckInPlacementActive]);
 
   /** Genindlæs frisk position når skærmen vises — nærmeste center opdateres hvis ikke manuelt valgt */
   useFocusEffect(
     useCallback(() => {
+      if (demoCheckInPlacementActive) {
+        applyDemoCheckInPlacement();
+        return;
+      }
       Geolocation.getCurrentPosition(
         position => {
           applyGeolocationSuccess(position);
@@ -512,7 +567,7 @@ const CheckInScreen = () => {
         () => {},
         GEO_OPTIONS_FRESH,
       );
-    }, [GEO_OPTIONS_FRESH, applyGeolocationSuccess]),
+    }, [GEO_OPTIONS_FRESH, applyGeolocationSuccess, applyDemoCheckInPlacement, demoCheckInPlacementActive]),
   );
 
   useFocusEffect(
@@ -659,14 +714,9 @@ const CheckInScreen = () => {
               );
             }
           }
-        } else if (
-          reason === 'foreground' &&
-          useSessionStore.getState().activeSession?.checkInId
-        ) {
-          endSession();
         }
       } catch (e) {
-        if (reason === 'foreground' && __DEV__) {
+        if (__DEV__) {
           console.warn('[CheckIn] restoreSessionFromDatabase', e);
         }
       }
@@ -692,14 +742,10 @@ const CheckInScreen = () => {
       if (!user?.id) {
         return;
       }
-      void runStaleActiveSessionCleanup()
-        .catch(() => {})
-        .finally(() => {
-          runAutoCheckoutEvaluation({
-            userId: user.id,
-            appState: AppState.currentState,
-          }).catch(() => {});
-        });
+      runAutoCheckoutEvaluation({
+        userId: user.id,
+        appState: AppState.currentState,
+      }).catch(() => {});
     }, [user?.id]),
   );
 
@@ -800,14 +846,42 @@ const CheckInScreen = () => {
       setShowGymlySplash(true);
       const elapsed = getElapsedSeconds();
       const durationMinutes = Math.floor(elapsed / 60) || 1;
-      if (activeSession) {
+      const sessionSnapshot = activeSession;
+      const checkInId = sessionSnapshot?.checkInId ?? null;
+
+      if (user?.id) {
+        try {
+          await finishWorkoutSession({
+            reason: 'manual',
+            userId: user.id,
+            checkInId,
+          });
+          await refreshTrainingStats();
+        } catch (err) {
+          const detail =
+            err instanceof Error && err.message.length > 0
+              ? err.message
+              : 'Træningen blev ikke gemt korrekt. Tjek forbindelsen og prøv igen.';
+          if (__DEV__) {
+            console.warn('[CheckIn] finishWorkoutSession failed', err);
+          }
+          Alert.alert('Kunne ikke afslutte', detail);
+          setShowSummaryModal(false);
+          setShowGymlySplash(false);
+          return;
+        }
+      } else {
+        endSession();
+      }
+
+      if (sessionSnapshot) {
         addWorkout({
           userId: currentUserId,
-          gymId: activeSession.gymId,
-          gymName: activeSession.gymName,
+          gymId: sessionSnapshot.gymId,
+          gymName: sessionSnapshot.gymName,
           startTime: new Date(Date.now() - elapsed * 1000),
           duration: durationMinutes,
-          workoutType: activeSession.workoutType,
+          workoutType: sessionSnapshot.workoutType,
           notes: data.caption || undefined,
         });
         if (data.shareToFeed) {
@@ -824,8 +898,8 @@ const CheckInScreen = () => {
                 mediaUri: data.mediaUri,
                 caption: data.caption.trim(),
                 durationMinutes,
-                centerName: activeSession.gymName,
-                workoutTypeLabel: formatWorkoutTypeDisplay(activeSession.workoutType),
+                centerName: sessionSnapshot.gymName,
+                workoutTypeLabel: formatWorkoutTypeDisplay(sessionSnapshot.workoutType),
                 moodRating: MOOD_TO_RATING[data.mood] ?? null,
               });
               await refreshWorkoutFeedFromServer();
@@ -838,15 +912,6 @@ const CheckInScreen = () => {
           }
         }
       }
-      if (user?.id) {
-        await finishWorkoutSession({
-          reason: 'manual',
-          userId: user.id,
-          checkInId: activeSession?.checkInId ?? null,
-        });
-      } else {
-        endSession();
-      }
       returnToCheckInMain();
     },
     [
@@ -855,6 +920,7 @@ const CheckInScreen = () => {
       addWorkout,
       currentUserId,
       endSession,
+      refreshTrainingStats,
       user?.displayName,
       user?.id,
       returnToCheckInMain,
@@ -906,6 +972,10 @@ const CheckInScreen = () => {
   }, []);
 
   const handleLokalitetPress = useCallback(async () => {
+    if (demoCheckInPlacementActive) {
+      applyDemoCheckInPlacement();
+      return;
+    }
     const ok = await ensureAndroidLocationPermission();
     if (!ok) {
       Alert.alert('Placering', 'Tillad placering for at finde det nærmeste center.', [
@@ -940,7 +1010,7 @@ const CheckInScreen = () => {
       },
       {enableHighAccuracy: true, timeout: 20000, maximumAge: 0},
     );
-  }, [ensureAndroidLocationPermission, applyGeolocationSuccess]);
+  }, [ensureAndroidLocationPermission, applyGeolocationSuccess, applyDemoCheckInPlacement, demoCheckInPlacementActive]);
 
   const insets = useSafeAreaInsets();
   const ctaPulse = useRef(new Animated.Value(1)).current;
@@ -1149,13 +1219,15 @@ const CheckInScreen = () => {
                         pressed && styles.muscleCardHorizontalPressed,
                       ]}
                       onPress={() => {
-                        LayoutAnimation.configureNext(
-                          LayoutAnimation.create(
-                            220,
-                            LayoutAnimation.Types.easeInEaseOut,
-                            LayoutAnimation.Properties.opacity,
-                          ),
-                        );
+                        if (Platform.OS === 'android') {
+                          LayoutAnimation.configureNext(
+                            LayoutAnimation.create(
+                              220,
+                              LayoutAnimation.Types.easeInEaseOut,
+                              LayoutAnimation.Properties.opacity,
+                            ),
+                          );
+                        }
                         setSelectedMuscleGroups(prev => toggleCheckInMuscleGroup(prev, key));
                       }}>
                       <MuscleGroupTileIcon

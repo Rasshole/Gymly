@@ -586,7 +586,7 @@
 				CODE_SIGN_ENTITLEMENTS = GymlyFresh/GymlyFresh.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 34;
+				CURRENT_PROJECT_VERSION = 41;
 				DEVELOPMENT_TEAM = CDVFBW66X4;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -599,7 +599,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.22;
+				MARKETING_VERSION = 2.29;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -624,7 +624,7 @@
 				CODE_SIGN_ENTITLEMENTS = GymlyFresh/GymlyFresh.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 34;
+				CURRENT_PROJECT_VERSION = 41;
 				DEVELOPMENT_TEAM = CDVFBW66X4;
 				INFOPLIST_FILE = GymlyFresh/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
@@ -632,7 +632,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.22;
+				MARKETING_VERSION = 2.29;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

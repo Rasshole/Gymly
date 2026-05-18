@@ -1,10 +1,13 @@
 /**
- * Global: auto-checkout (useAutoCheckoutController).
- * Realtime på egne check_ins (tjek ud) styres i GymlyRealtimeHub.
+ * Global: genopret aktiv session, auto-checkout (kun afstand), recovery-dialog.
  */
 import {useAutoCheckoutController} from '@/hooks/useAutoCheckoutController';
+import {useRestoreActiveCheckInSession} from '@/hooks/useRestoreActiveCheckInSession';
+import {useStaleSessionRecovery} from '@/hooks/useStaleSessionRecovery';
 
 export function CheckInSessionController() {
+  useRestoreActiveCheckInSession();
   useAutoCheckoutController();
+  useStaleSessionRecovery();
   return null;
 }

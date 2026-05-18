@@ -3,7 +3,7 @@
  * Individual chat conversation with a friend
  */
 
-import React, {useState, useRef, useEffect, useMemo, useCallback} from 'react';
+import React, {useState, useRef, useEffect, useMemo, useCallback, useId} from 'react';
 import {
   View,
   Text,
@@ -25,6 +25,7 @@ import {
   Animated,
   Easing,
   Vibration,
+  useColorScheme,
 } from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -33,14 +34,13 @@ import {format} from 'date-fns';
 import {da} from 'date-fns/locale';
 import DateTimePicker, {DateTimePickerEvent} from '@react-native-community/datetimepicker';
 import {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
-
-const CHAT_GYMS = getActiveDanishGyms();
 import {MuscleGroup} from '@/types/workout.types';
-import {formatGymDisplayName, findGymById} from '@/utils/gymDisplay';
+import {formatGymDisplayName, findGymById, findGymByIdRelaxed} from '@/utils/gymDisplay';
 import {supabase} from '@/services/supabase/supabaseClient';
 import {
-  createPlannedWorkoutInvite,
+  createTrainingInvitation,
   fetchPlannedWorkoutByThread,
+  loadWorkoutPlanEntriesForUser,
   respondPlannedWorkoutInvite,
   type PlannedWorkoutRow,
   type PlannedParticipantRow,
@@ -49,6 +49,10 @@ import {useInAppNotificationStore} from '@/store/inAppNotificationStore';
 import {useFocusEffect} from '@react-navigation/native';
 import {useChatStore, ChatPlan, ChatMessage} from '@/store/chatStore';
 import {useAppStore} from '@/store/appStore';
+import {useWorkoutPlanStore} from '@/store/workoutPlanStore';
+import {isDemoContentMode} from '@/demo/demoContentGate';
+import {getDemoPeerLiveTrainingForFriend} from '@/demo/demoDmPeerTraining';
+import {getDemoProfileById} from '@/demo/demoPersonas';
 import {useSessionStore} from '@/store/sessionStore';
 import {useNotificationStore} from '@/store/notificationStore';
 import {navigateToFriendProfile} from '@/navigation/rootNavigation';
@@ -56,14 +60,25 @@ import {
   isDmThreadId,
   fetchDmMessages,
   sendDmMessage,
+  markDmThreadMessagesRead,
 } from '@/services/supabase/dmService';
 import {getPublicProfilesByIds} from '@/services/supabase/friendService';
 import {uploadDmChatImage} from '@/services/supabase/dmImageUpload';
+import {getActiveCheckInForUser} from '@/services/supabase/checkInService';
+import {formatDurationIgang} from '@/utils/activeSessionFormat';
+import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
-import MuscleGroupTileIcon from '@/components/ui/MuscleGroupTileIcon';
-import {safeDisplayName} from '@/utils/displayName';
+import TimePickerSheet from '@/components/ui/TimePickerSheet';
+import PlannedWorkoutInviteForm, {
+  defaultScheduleParts,
+  INVITE_FORM_SCREEN_TINT,
+} from '@/components/planned/PlannedWorkoutInviteForm';
+import {safeDisplayName, isUuidLike} from '@/utils/displayName';
 import {UserAvatar} from '@/components/ui/UserAvatar';
+import Svg, {Defs, LinearGradient, Rect, Stop} from 'react-native-svg';
+
+const FALLBACK_PLAN_INVITE_GYMS = getActiveDanishGyms();
 
 type ChatScreenProps = {
   route: {
@@ -76,6 +91,12 @@ type ChatScreenProps = {
     };
   };
   navigation: any;
+};
+
+type RecipientTrainingHeader = {
+  gymName: string;
+  workoutType: string | null;
+  startedAt: string;
 };
 
 const MUSCLE_GROUPS: {key: MuscleGroup; label: string}[] = [
@@ -266,24 +287,6 @@ function mapServerPlanToChatPlan(r: {
   };
 }
 
-function formatPlannedEmbedDate(iso: string): string {
-  try {
-    const d = new Date(iso);
-    if (Number.isNaN(d.getTime())) {
-      return '';
-    }
-    return d.toLocaleString('da-DK', {
-      weekday: 'short',
-      day: 'numeric',
-      month: 'short',
-      hour: '2-digit',
-      minute: '2-digit',
-    });
-  } catch {
-    return '';
-  }
-}
-
 const ChatScreen = ({route, navigation}: ChatScreenProps) => {
   const {chatId, friendId, friendName, initialMessage, participants: routeParticipants} = route.params;
   const updateChatLastMessage = useChatStore(state => state.updateChatLastMessage);
@@ -295,7 +298,8 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
   );
   const setForegroundOpenChatId = useChatStore(state => state.setForegroundOpenChatId);
   const addMessageToChat = useChatStore(state => state.addMessageToChat);
-  const getMessagesForChat = useChatStore(state => state.getMessagesForChat);
+  const resolvePendingDmMessage = useChatStore(state => state.resolvePendingDmMessage);
+  const abortPendingDmMessage = useChatStore(state => state.abortPendingDmMessage);
   const upsertDmPresence = useChatStore(state => state.upsertDmPresence);
   const dmPresenceByUser = useChatStore(state => state.dmPresenceByUser);
   const setThreadSeenAtByUser = useChatStore(state => state.setThreadSeenAtByUser);
@@ -312,7 +316,66 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
   );
   const currentUserId = useAppStore(s => s.user?.id) ?? 'current_user';
   const activeSession = useSessionStore(s => s.activeSession);
-  const isDm = useMemo(() => isDmThreadId(chatId), [chatId]);
+  const isDm = useMemo(
+    () =>
+      (!!chatId && isDmThreadId(chatId)) ||
+      (!!chatId && isDemoContentMode() && chatId.startsWith('demo-thread-')),
+    [chatId],
+  );
+  const dmMessagesForList = useMemo(() => {
+    if (!isDm) {
+      return messages;
+    }
+    return messages.filter(m => m.plannedWorkoutEmbed?.kind !== 'invite');
+  }, [messages, isDm]);
+  const planInviteBannerSurfaceId = activePlan?.serverPlannedWorkoutId ?? activePlan?.id ?? null;
+  const dismissedPlanInviteBannerSurfaceId = useChatStore(
+    useCallback(
+      s => (chatId ? s.dismissedPlanInviteBannerByChat[chatId] ?? null : null),
+      [chatId],
+    ),
+  );
+  const setDismissedPlanInviteBanner = useChatStore(s => s.setDismissedPlanInviteBanner);
+  const planInviteSurfaceTransitionRef = useRef<string | null>(null);
+  const showPlanInviteBanner = useMemo(() => {
+    if (!activePlan || !planInviteBannerSurfaceId) {
+      return false;
+    }
+    if (dismissedPlanInviteBannerSurfaceId === planInviteBannerSurfaceId) {
+      return false;
+    }
+    if (activePlan.inviteeResponse && activePlan.inviteeResponse !== 'pending') {
+      return false;
+    }
+    return true;
+  }, [
+    activePlan,
+    dismissedPlanInviteBannerSurfaceId,
+    planInviteBannerSurfaceId,
+  ]);
+
+  const demoDmPlanInviteUi = useMemo(
+    () =>
+      isDemoContentMode() &&
+      !!chatId &&
+      chatId.startsWith('demo-thread-') &&
+      !!activePlan &&
+      !activePlan.serverPlannedWorkoutId &&
+      activePlan.inviteeResponse === 'pending',
+    [chatId, activePlan],
+  );
+
+  useEffect(() => {
+    if (!chatId || !planInviteBannerSurfaceId) {
+      planInviteSurfaceTransitionRef.current = planInviteBannerSurfaceId;
+      return;
+    }
+    const prev = planInviteSurfaceTransitionRef.current;
+    if (prev && prev !== planInviteBannerSurfaceId) {
+      setDismissedPlanInviteBanner(chatId, null);
+    }
+    planInviteSurfaceTransitionRef.current = planInviteBannerSurfaceId;
+  }, [chatId, planInviteBannerSurfaceId, setDismissedPlanInviteBanner]);
   const chatParticipants =
     routeParticipants && routeParticipants.length > 0
       ? routeParticipants
@@ -328,26 +391,32 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
   const remotePresence = dmPresenceByUser[otherParticipantId];
   const remoteTyping = !!(chatId && remotePresence?.typingByThread?.[chatId]);
   const remoteSeenAt = threadSeenAtByUser[otherParticipantId] ?? 0;
+  const [recipientTraining, setRecipientTraining] = useState<RecipientTrainingHeader | null>(null);
+  const [recipientDurationClockMs, setRecipientDurationClockMs] = useState(() => Date.now());
   const [message, setMessage] = useState('');
   const [planModalVisible, setPlanModalVisible] = useState(false);
   const [planDetailVisible, setPlanDetailVisible] = useState(false);
   const [planSelectedGym, setPlanSelectedGym] = useState<DanishGym | null>(null);
-  const [planCenterQuery, setPlanCenterQuery] = useState('');
-  const [planMuscles, setPlanMuscles] = useState<MuscleGroup[]>([]);
-  const [planDateTime, setPlanDateTime] = useState(new Date());
-  const [planTimePickerVisible, setPlanTimePickerVisible] = useState(false);
+  const [planInviteDate, setPlanInviteDate] = useState(() => defaultScheduleParts().date);
+  const [planInviteTime, setPlanInviteTime] = useState(() => defaultScheduleParts().time);
+  const [planInviteMuscle, setPlanInviteMuscle] = useState<MuscleGroup>('bryst');
+  const [showPlanInviteDatePicker, setShowPlanInviteDatePicker] = useState(false);
+  const [showPlanInviteTimeSheet, setShowPlanInviteTimeSheet] = useState(false);
   const [selectedImageUri, setSelectedImageUri] = useState<string | null>(null);
   const [selectedImageMime, setSelectedImageMime] = useState<string | null>(null);
   const [isSendingImage, setIsSendingImage] = useState(false);
   const [lightboxUri, setLightboxUri] = useState<string | null>(null);
   const [showImagePickerOptions, setShowImagePickerOptions] = useState(false);
   const [planActionBusy, setPlanActionBusy] = useState(false);
+  const [planBannerSurfaceSize, setPlanBannerSurfaceSize] = useState({w: 1, h: 1});
+  const planBannerGradId = useId().replace(/:/g, '');
   const [headerDisplayName, setHeaderDisplayName] = useState<string>(
     safeDisplayName(friendName, 'Ukendt bruger'),
   );
   const [headerAvatarUrl, setHeaderAvatarUrl] = useState<string | null>(null);
   const {width: windowWidth} = useWindowDimensions();
   const refreshInAppNotifications = useInAppNotificationStore(s => s.refresh);
+  const mergePlannedFromServer = useWorkoutPlanStore(s => s.mergePlannedFromServer);
   const maxDmImageWidth = useMemo(
     () => Math.min(windowWidth * 0.7, 280),
     [windowWidth],
@@ -359,12 +428,106 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
   const insets = useSafeAreaInsets();
   const [keyboardOpen, setKeyboardOpen] = useState(false);
   const [localTyping, setLocalTyping] = useState(false);
-  const headerStatusText = useMemo(() => {
-    if (remotePresence?.trainingNow && remotePresence.trainingGymName) {
-      return `Træner nu i ${remotePresence.trainingGymName}`;
+  const showLiveTrainingHeader = !!recipientTraining && !remoteTyping;
+  const headerLiveContextText = useMemo(() => {
+    if (!recipientTraining) {
+      return null;
     }
+    const center = recipientTraining.gymName.trim();
+    const dur = formatDurationIgang(recipientTraining.startedAt, recipientDurationClockMs);
+    const type = formatWorkoutTypeDisplay(recipientTraining.workoutType);
+    return `${center} · ${dur} · ${type}`;
+  }, [recipientTraining, recipientDurationClockMs]);
+
+  const loadRecipientTraining = useCallback(async () => {
+    if (!isDm || !otherParticipantId) {
+      setRecipientTraining(null);
+      return;
+    }
+    if (isDemoContentMode()) {
+      const demo = getDemoPeerLiveTrainingForFriend(otherParticipantId);
+      if (!demo) {
+        setRecipientTraining(null);
+        return;
+      }
+      setRecipientTraining({
+        gymName: demo.gymName,
+        workoutType: demo.workoutType,
+        startedAt: demo.startedAt,
+      });
+      return;
+    }
+    try {
+      const row = await getActiveCheckInForUser(otherParticipantId);
+      if (!row?.is_active || row.ended_at) {
+        setRecipientTraining(null);
+        return;
+      }
+      setRecipientTraining({
+        gymName: row.gym_name,
+        workoutType: row.workout_type,
+        startedAt: row.started_at,
+      });
+    } catch {
+      setRecipientTraining(null);
+    }
+  }, [isDm, otherParticipantId]);
+
+  useEffect(() => {
+    if (!recipientTraining) {
+      return;
+    }
+    setRecipientDurationClockMs(Date.now());
+  }, [
+    recipientTraining?.startedAt,
+    recipientTraining?.gymName,
+    recipientTraining?.workoutType,
+  ]);
+
+  useEffect(() => {
+    if (!recipientTraining) {
+      return;
+    }
+    const id = setInterval(() => {
+      setRecipientDurationClockMs(Date.now());
+    }, 60_000);
+    return () => clearInterval(id);
+  }, [recipientTraining]);
+
+  useEffect(() => {
+    if (!isDm || !otherParticipantId) {
+      return;
+    }
+    void loadRecipientTraining();
+    if (isDemoContentMode()) {
+      return;
+    }
+    const ch = supabase
+      .channel(`dm_peer_checkin_${otherParticipantId}`)
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'check_ins',
+          filter: `user_id=eq.${otherParticipantId}`,
+        },
+        () => {
+          void loadRecipientTraining();
+        },
+      )
+      .subscribe();
+    return () => {
+      void supabase.removeChannel(ch);
+    };
+  }, [isDm, otherParticipantId, loadRecipientTraining]);
+
+  const headerStatusText = useMemo(() => {
     if (remoteTyping) {
       return 'Skriver...';
+    }
+    if (showLiveTrainingHeader) {
+      return 'Aktiv nu';
     }
     if (remotePresence?.isActive) {
       return 'Aktiv nu';
@@ -372,16 +535,16 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
     if (remotePresence?.lastSeenAt) {
       const mins = Math.max(1, Math.floor((Date.now() - remotePresence.lastSeenAt) / 60000));
       if (mins < 60) {
-        return `Sidst set for ${mins} min siden`;
+        return `Sidst online for ${mins} min siden`;
       }
       const hours = Math.floor(mins / 60);
-      return `Sidst set for ${hours} t siden`;
+      return `Sidst online for ${hours} t siden`;
     }
-    return 'Aktiv for nylig';
-  }, [remotePresence, remoteTyping]);
+    return 'Sidst aktiv for nylig';
+  }, [remotePresence, remoteTyping, showLiveTrainingHeader]);
 
   useEffect(() => {
-    if (!remotePresence?.trainingNow) {
+    if (!showLiveTrainingHeader) {
       trainingPulse.stopAnimation();
       trainingPulse.setValue(1);
       return;
@@ -404,7 +567,7 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
     );
     loop.start();
     return () => loop.stop();
-  }, [remotePresence?.trainingNow, trainingPulse]);
+  }, [showLiveTrainingHeader, trainingPulse]);
 
   useEffect(() => {
     if (!isDm) {
@@ -533,6 +696,9 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
     if (!isDm || !chatId) {
       return;
     }
+    if (isDemoContentMode() && chatId.startsWith('demo-thread-')) {
+      return;
+    }
     let cancelled = false;
     (async () => {
       try {
@@ -586,24 +752,18 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
     initialMessageHandledRef.current = false;
   }, [chatId]);
 
-  const planSuggestions = useMemo(() => {
-    if (!planCenterQuery.trim()) return [];
-    const query = planCenterQuery.toLowerCase();
-    return CHAT_GYMS
-      .filter(gym => 
-        formatGymDisplayName(gym).toLowerCase().includes(query) ||
-        gym.city?.toLowerCase().includes(query)
-      )
-      .slice(0, 5);
-  }, [planCenterQuery]);
+  const planInviteColorScheme = useColorScheme();
+  const planInviteUser = useAppStore(s => s.user);
 
-  const formattedPlanTime = useMemo(
-    () =>
-      planDateTime.toLocaleTimeString('da-DK', {
-        hour: '2-digit',
-        minute: '2-digit',
-      }),
-    [planDateTime],
+  const combinePlanInviteDateTime = useCallback(() => {
+    const scheduled = new Date(planInviteDate);
+    scheduled.setHours(planInviteTime.getHours(), planInviteTime.getMinutes(), 0, 0);
+    return scheduled;
+  }, [planInviteDate, planInviteTime]);
+
+  const scheduledPlanInvitePreview = useMemo(
+    () => combinePlanInviteDateTime(),
+    [combinePlanInviteDateTime],
   );
 
   useFocusEffect(
@@ -616,6 +776,10 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
         markChatAsRead(chatId);
         markMessageNotificationsForChatRead(chatId);
         setThreadSeenAtByUser(chatId, currentUserId, Date.now());
+        void loadRecipientTraining();
+        if (chatId && isDmThreadId(chatId) && !(isDemoContentMode() && chatId.startsWith('demo-thread-'))) {
+          void markDmThreadMessagesRead(chatId);
+        }
       } else {
         initializeChatMessages(chatId, []);
         markChatAsRead(chatId);
@@ -627,6 +791,8 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
     }, [
       chatId,
       isDm,
+      currentUserId,
+      loadRecipientTraining,
       initializeChatMessages,
       markChatAsRead,
       markMessageNotificationsForChatRead,
@@ -639,6 +805,9 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
     if (!chatId || !isDm) {
       return;
     }
+    if (isDemoContentMode() && chatId.startsWith('demo-thread-')) {
+      return;
+    }
     let cancelled = false;
     (async () => {
       try {
@@ -647,6 +816,13 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
           return;
         }
         setMessagesForChat(chatId, list);
+        if (
+          chatId &&
+          isDmThreadId(chatId) &&
+          !(isDemoContentMode() && chatId.startsWith('demo-thread-'))
+        ) {
+          void markDmThreadMessagesRead(chatId);
+        }
         if (initialMessage?.trim() && !initialMessageHandledRef.current) {
           const {message: sent} = await sendDmMessage(chatId, {
             body: initialMessage.trim(),
@@ -657,7 +833,8 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
         }
       } catch (e) {
         if (!cancelled) {
-          Alert.alert('Chat', (e as Error).message);
+          console.warn('[ChatScreen] Kunne ikke hente DM-beskeder:', e);
+          setMessagesForChat(chatId, []);
         }
       } finally {
         if (!cancelled) {
@@ -709,6 +886,16 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
     let cancelled = false;
     const loadProfile = async () => {
       try {
+        if (friendId && isDemoContentMode()) {
+          const demo = getDemoProfileById(friendId);
+          if (demo) {
+            if (!cancelled) {
+              setHeaderDisplayName(safeDisplayName(demo.displayName, demo.username, friendName, 'Ukendt bruger'));
+              setHeaderAvatarUrl(demo.avatarUrl ?? null);
+            }
+            return;
+          }
+        }
         const m = await getPublicProfilesByIds([friendId]);
         if (cancelled) {
           return;
@@ -797,17 +984,37 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
       if (!message.trim()) {
         return;
       }
-      try {
-        const {message: sent} = await sendDmMessage(chatId, {
-          body: message.trim(),
+      const textToSend = message.trim();
+      const useOptimistic = !!(chatId && isDmThreadId(chatId));
+      const tempId = useOptimistic ? `pending-${Date.now()}` : '';
+      if (useOptimistic && chatId) {
+        addMessageToChat(chatId, {
+          id: tempId,
+          text: textToSend,
+          senderId: currentUserId,
+          timestamp: new Date(),
+          isRead: false,
+          sendState: 'sending',
         });
-        addMessageToChat(chatId, sent);
-        updateChatLastMessage(chatId, sent, {fromCurrentUser: true});
-      } catch (e) {
-        Alert.alert('Kunne ikke sende', (e as Error).message);
       }
       setMessage('');
       setLocalTyping(false);
+      try {
+        const {message: sent} = await sendDmMessage(chatId, {
+          body: textToSend,
+        });
+        if (useOptimistic && chatId) {
+          resolvePendingDmMessage(chatId, tempId, sent);
+        } else if (chatId) {
+          addMessageToChat(chatId, sent);
+        }
+        updateChatLastMessage(chatId, sent, {fromCurrentUser: true});
+      } catch (e) {
+        if (useOptimistic && chatId) {
+          abortPendingDmMessage(chatId, tempId);
+        }
+        Alert.alert('Kunne ikke sende', (e as Error).message);
+      }
       return;
     }
 
@@ -914,52 +1121,28 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
     format(date, "EEEE d. MMM 'kl.' HH:mm", {locale: da});
 
   const handleOpenPlanModal = () => {
-    setPlanSelectedGym(null);
-    setPlanCenterQuery('');
-    setPlanMuscles([]);
-    const nextHour = new Date();
-    nextHour.setMinutes(0);
-    nextHour.setSeconds(0);
-    nextHour.setMilliseconds(0);
-    nextHour.setHours(nextHour.getHours() + 1);
-    setPlanDateTime(nextHour);
+    const {date, time} = defaultScheduleParts();
+    setPlanInviteDate(date);
+    setPlanInviteTime(time);
+    setPlanInviteMuscle('bryst');
+    const primaryId = planInviteUser?.favoriteGyms?.[0];
+    const fromProfile = primaryId ? findGymByIdRelaxed(primaryId) : null;
+    setPlanSelectedGym(fromProfile ?? FALLBACK_PLAN_INVITE_GYMS[0] ?? null);
+    setShowPlanInviteDatePicker(false);
+    setShowPlanInviteTimeSheet(false);
     setPlanModalVisible(true);
   };
 
-  const handlePlanCenterInput = (value: string) => {
-    setPlanCenterQuery(value);
-    setPlanSelectedGym(null);
-  };
-
-  const handleSelectPlanGym = (gym: DanishGym) => {
-    setPlanSelectedGym(gym);
-    setPlanCenterQuery(formatGymDisplayName(gym));
-  };
-
-  const togglePlanMuscle = (group: MuscleGroup) => {
-    setPlanMuscles(prev => {
-      if (prev.includes(group)) {
-        return prev.filter(item => item !== group);
-      }
-      return [...prev, group];
-    });
-  };
-
-  const openPlanTimePicker = () => {
-    setPlanTimePickerVisible(true);
-  };
-
-  const handlePlanTimeChange = (event: DateTimePickerEvent, date?: Date) => {
+  const handlePlanInviteDateChange = (event: DateTimePickerEvent, date?: Date) => {
     if (Platform.OS === 'android') {
-      setPlanTimePickerVisible(false);
+      setShowPlanInviteDatePicker(false);
     }
     if (date) {
-      setPlanDateTime(date);
+      setPlanInviteDate(date);
     }
-  };
-
-  const handlePlanTimePickerClose = () => {
-    setPlanTimePickerVisible(false);
+    if (Platform.OS === 'ios' && event.type === 'dismissed') {
+      setShowPlanInviteDatePicker(false);
+    }
   };
 
   const handleCreatePlan = () => {
@@ -967,71 +1150,127 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
       Alert.alert('Manglende center', 'Vælg venligst hvilket center træningen skal foregå i.');
       return;
     }
-    if (planMuscles.length === 0) {
-      Alert.alert('Vælg træningstype', 'Vælg mindst én type til sessionen.');
+    if (!chatId) {
       return;
     }
-    if (!chatId) {
+
+    const scheduledAt = combinePlanInviteDateTime();
+    const now = new Date();
+    if (scheduledAt.getTime() <= now.getTime()) {
+      Alert.alert('Ugyldigt tidspunkt', 'Vælg et tidspunkt i fremtiden.');
       return;
     }
 
     const resetPlanModal = () => {
       setPlanModalVisible(false);
       setPlanSelectedGym(null);
-      setPlanCenterQuery('');
-      setPlanMuscles([]);
+      setShowPlanInviteDatePicker(false);
+      setShowPlanInviteTimeSheet(false);
     };
 
-    if (isDm && friendId) {
-      setPlanActionBusy(true);
-      void (async () => {
-        try {
-          await createPlannedWorkoutInvite({
-            inviteeId: friendId,
-            centerId: planSelectedGym.id,
-            centerName: formatGymDisplayName(planSelectedGym),
-            scheduledAt: planDateTime,
-            trainingTypes: planMuscles,
-            note: null,
-            threadId: chatId,
-          });
-          const r = await fetchPlannedWorkoutByThread(chatId);
-          if (r) {
-            setActivePlanForChat(chatId, mapServerPlanToChatPlan(r));
-          }
-          if (currentUserId) {
-            void refreshInAppNotifications(currentUserId);
-          }
-        } catch (e) {
-          Alert.alert('Kunne ikke oprette', (e as Error).message);
-        } finally {
-          setPlanActionBusy(false);
-          resetPlanModal();
-        }
-      })();
+    const canUseServerPlannedInvite =
+      !!chatId &&
+      isDmThreadId(chatId) &&
+      !(isDemoContentMode() && chatId.startsWith('demo-thread-'));
+
+    if (!canUseServerPlannedInvite) {
+      Alert.alert(
+        'Kan ikke oprette her',
+        'Planlæg træning kræver en beskedtråd med synkroniserede brugere (samme som Inviter til træning).',
+      );
       return;
     }
 
-    const newPlan: ChatPlan = {
-      id: `plan_${Date.now()}`,
-      gym: planSelectedGym,
-      muscles: planMuscles,
-      scheduledAt: planDateTime,
-      createdBy: currentUserId,
-      joinedIds: [currentUserId],
-      invitedIds: participantList.map(participant => participant.id),
-    };
-    setActivePlanForChat(chatId, newPlan);
-    resetPlanModal();
+    const inviteeIds = chatParticipants
+      .map(p => p.id)
+      .filter(id => id !== currentUserId && isUuidLike(id));
+
+    if (inviteeIds.length === 0) {
+      Alert.alert(
+        'Ingen at invitere',
+        'Der skal være mindst én anden deltager med en gyldig brugerprofil.',
+      );
+      return;
+    }
+
+    setPlanActionBusy(true);
+    void (async () => {
+      try {
+        await createTrainingInvitation({
+          centerId: planSelectedGym.id,
+          centerName: formatGymDisplayName(planSelectedGym),
+          scheduledAt,
+          trainingTypes: [String(planInviteMuscle)],
+          note: null,
+          inviteeIds,
+          threadId: chatId,
+        });
+        const r = await fetchPlannedWorkoutByThread(chatId);
+        if (r) {
+          setActivePlanForChat(chatId, mapServerPlanToChatPlan(r));
+        }
+        const plannerId = planInviteUser?.id;
+        if (plannerId && isUuidLike(plannerId)) {
+          try {
+            const entries = await loadWorkoutPlanEntriesForUser(plannerId, true);
+            mergePlannedFromServer(entries);
+          } catch {
+            // Plan opdateres ved næste åbning af Planlagte sessions
+          }
+        }
+        if (currentUserId && isUuidLike(currentUserId)) {
+          void refreshInAppNotifications(currentUserId);
+        }
+      } catch (e) {
+        Alert.alert('Kunne ikke oprette', (e as Error).message);
+      } finally {
+        setPlanActionBusy(false);
+        resetPlanModal();
+      }
+    })();
   };
 
   const isPlanCreator = activePlan?.createdBy === currentUserId;
 
   const handleDeclineServerPlan = () => {
-    if (!chatId || !activePlan?.serverPlannedWorkoutId || isPlanCreator) {
+    if (!chatId || !activePlan || isPlanCreator) {
       return;
     }
     if (activePlan.inviteeResponse !== 'pending') {
+      return;
+    }
+    if (
+      isDemoContentMode() &&
+      chatId.startsWith('demo-thread-') &&
+      !activePlan.serverPlannedWorkoutId
+    ) {
+      setPlanActionBusy(true);
+      try {
+        const pwId = activePlan.id;
+        setActivePlanForChat(chatId, {
+          ...activePlan,
+          inviteeResponse: 'declined',
+        });
+        const statusMsg: ChatMessage = {
+          id: `demo-plan-status-${Date.now()}`,
+          text: '',
+          senderId: currentUserId,
+          timestamp: new Date(),
+          isRead: true,
+          plannedWorkoutEmbed: {
+            kind: 'status',
+            plannedWorkoutId: pwId,
+            status: 'declined',
+          },
+        };
+        addMessageToChat(chatId, statusMsg);
+        updateChatLastMessage(chatId, statusMsg, {fromCurrentUser: true});
+      } finally {
+        setPlanActionBusy(false);
+      }
+      return;
+    }
+    if (!activePlan.serverPlannedWorkoutId) {
       return;
     }
     setPlanActionBusy(true);
@@ -1072,9 +1311,18 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
             if (r) {
               setActivePlanForChat(chatId, mapServerPlanToChatPlan(r));
             }
+            if (isUuidLike(currentUserId)) {
+              try {
+                const entries = await loadWorkoutPlanEntriesForUser(currentUserId, true);
+                mergePlannedFromServer(entries);
+              } catch {
+                /* kalender opdateres ved næste åbning */
+              }
+            }
             if (currentUserId) {
               void refreshInAppNotifications(currentUserId);
             }
+            Alert.alert('Træning tilføjet', 'Sessionen ligger under Planlagte sessions.');
           } catch (e) {
             Alert.alert('Kunne ikke acceptere', (e as Error).message);
           } finally {
@@ -1084,6 +1332,50 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
         return;
       }
       setPlanDetailVisible(true);
+      return;
+    }
+
+    if (
+      isDemoContentMode() &&
+      chatId.startsWith('demo-thread-') &&
+      !activePlan.serverPlannedWorkoutId &&
+      activePlan.inviteeResponse === 'pending'
+    ) {
+      if (isPlanCreator) {
+        setPlanDetailVisible(true);
+        return;
+      }
+      const pwId = activePlan.id;
+      setActivePlanForChat(chatId, {
+        ...activePlan,
+        inviteeResponse: 'accepted',
+        joinedIds: [...new Set([...activePlan.joinedIds, currentUserId])],
+      });
+      const statusMsg: ChatMessage = {
+        id: `demo-plan-status-${Date.now()}`,
+        text: '',
+        senderId: currentUserId,
+        timestamp: new Date(),
+        isRead: true,
+        plannedWorkoutEmbed: {
+          kind: 'status',
+          plannedWorkoutId: pwId,
+          status: 'accepted',
+        },
+      };
+      addMessageToChat(chatId, statusMsg);
+      updateChatLastMessage(chatId, statusMsg, {fromCurrentUser: true});
+      useWorkoutPlanStore.getState().addPlannedWorkout({
+        id: `demo-accepted-${pwId}-${Date.now()}`,
+        creatorUserId: activePlan.createdBy,
+        gym: activePlan.gym,
+        muscles: activePlan.muscles,
+        scheduledAt: activePlan.scheduledAt,
+        invitedFriends: activePlan.invitedIds,
+        acceptedFriends: [...new Set([currentUserId, activePlan.createdBy])],
+        inviteStatusByUserId: {[currentUserId]: 'accepted'},
+      });
+      Alert.alert('Træning tilføjet', 'Sessionen ligger under Planlagte sessions.');
       return;
     }
 
@@ -1105,65 +1397,44 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
     });
   };
 
-  const respondToPlannedFromDmCard = useCallback(
-    async (plannedWorkoutId: string, accept: boolean) => {
-      if (!chatId) {
-        return;
-      }
-      setPlanActionBusy(true);
-      try {
-        await respondPlannedWorkoutInvite(plannedWorkoutId, accept);
-        const r = await fetchPlannedWorkoutByThread(chatId);
-        if (r) {
-          setActivePlanForChat(chatId, mapServerPlanToChatPlan(r));
-        }
-        if (currentUserId) {
-          void refreshInAppNotifications(currentUserId);
-        }
-      } catch (e) {
-        Alert.alert(
-          accept ? 'Kunne ikke acceptere' : 'Kunne ikke afvise',
-          e instanceof Error ? e.message : 'Prøv igen om lidt.',
-        );
-      } finally {
-        setPlanActionBusy(false);
-      }
-    },
-    [chatId, currentUserId, refreshInAppNotifications, setActivePlanForChat],
-  );
-
-  const openPlannedWorkoutFromDm = useCallback(
-    (plannedWorkoutId: string) => {
-      navigation.navigate('WorkoutSchedule', {openPlannedId: plannedWorkoutId});
-    },
-    [navigation],
-  );
-
   const planParticipants = participantList.map(participant => ({
     ...participant,
     hasJoined: activePlan?.joinedIds.includes(participant.id) ?? false,
   }));
 
   const latestMyMessageId = useMemo(() => {
-    for (let i = messages.length - 1; i >= 0; i--) {
-      const msg = messages[i];
+    for (let i = dmMessagesForList.length - 1; i >= 0; i--) {
+      const msg = dmMessagesForList[i];
       if (msg.senderId === currentUserId) {
         return msg.id;
       }
     }
     return null;
-  }, [messages, currentUserId]);
+  }, [dmMessagesForList, currentUserId]);
 
   const renderMessage = ({item, index}: {item: ChatMessage; index: number}) => {
     const isMe = item.senderId === currentUserId;
     const isLatestOutgoing = isMe && item.id === latestMyMessageId;
-    const showSeen =
+    const showDmReceipt =
+      isDm && !!chatId && isDmThreadId(chatId) && isLatestOutgoing;
+    let dmReceiptLabel: string | null = null;
+    if (showDmReceipt) {
+      if (item.sendState === 'sending' || item.id.startsWith('pending-')) {
+        dmReceiptLabel = 'Sender...';
+      } else if (item.readAt) {
+        dmReceiptLabel = `Læst ${format(item.readAt, 'HH:mm')}`;
+      } else {
+        dmReceiptLabel = 'Leveret';
+      }
+    }
+    const showSeenLegacy =
+      !isDm &&
       isLatestOutgoing &&
       typeof remoteSeenAt === 'number' &&
       remoteSeenAt >= item.timestamp.getTime();
     const showDate =
       index === 0 ||
-      formatDate(item.timestamp) !== formatDate(messages[index - 1].timestamp);
+      formatDate(item.timestamp) !== formatDate(dmMessagesForList[index - 1].timestamp);
 
     return (
       <View>
@@ -1194,75 +1465,6 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
                 onPress={() => setLightboxUri(item.imageUri!)}
               />
             )}
-            {item.plannedWorkoutEmbed?.kind === 'invite' ? (
-              <View style={styles.planMessageCard}>
-                <Text style={styles.planMessageCardKicker}>Planlagt træning</Text>
-                <Text style={styles.planMessageCardTitle}>
-                  {item.plannedWorkoutEmbed.centerName}
-                </Text>
-                {item.plannedWorkoutEmbed.scheduledAt ? (
-                  <Text style={styles.planMessageCardSub}>
-                    {formatPlannedEmbedDate(item.plannedWorkoutEmbed.scheduledAt)}
-                  </Text>
-                ) : null}
-                {item.plannedWorkoutEmbed.trainingTypes.length > 0 ? (
-                  <Text style={styles.planMessageCardTypes}>
-                    {item.plannedWorkoutEmbed.trainingTypes.join(', ')}
-                  </Text>
-                ) : null}
-                {isMe ? (
-                  <Text style={styles.planMessageCardHint}>Afventer svar</Text>
-                ) : (() => {
-                    const pid = item.plannedWorkoutEmbed.plannedWorkoutId;
-                    const live =
-                      activePlan?.serverPlannedWorkoutId === pid
-                        ? activePlan.inviteeResponse
-                        : 'pending';
-                    if (live === 'pending') {
-                      return (
-                        <View style={styles.planMessageCardActions}>
-                          <TouchableOpacity
-                            style={styles.planMessageCardDecline}
-                            onPress={() => respondToPlannedFromDmCard(pid, false)}
-                            disabled={planActionBusy}
-                            activeOpacity={0.85}>
-                            <Text style={styles.planMessageCardDeclineText}>Afvis</Text>
-                          </TouchableOpacity>
-                          <TouchableOpacity
-                            style={styles.planMessageCardAccept}
-                            onPress={() => respondToPlannedFromDmCard(pid, true)}
-                            disabled={planActionBusy}
-                            activeOpacity={0.85}>
-                            {planActionBusy ? (
-                              <ActivityIndicator color="#fff" size="small" />
-                            ) : (
-                              <Text style={styles.planMessageCardAcceptText}>Accepter</Text>
-                            )}
-                          </TouchableOpacity>
-                        </View>
-                      );
-                    }
-                    if (live === 'accepted') {
-                      return (
-                        <Text style={styles.planMessageCardStatusOk}>Accepteret</Text>
-                      );
-                    }
-                    if (live === 'declined') {
-                      return (
-                        <Text style={styles.planMessageCardStatusNo}>Afvist</Text>
-                      );
-                    }
-                    return null;
-                  })()}
-                <TouchableOpacity
-                  onPress={() => openPlannedWorkoutFromDm(item.plannedWorkoutEmbed.plannedWorkoutId)}
-                  activeOpacity={0.8}
-                  style={styles.planMessageCardDetail}>
-                  <Text style={styles.planMessageCardDetailText}>Se detaljer</Text>
-                  <Icon name="chevron-forward" size={16} color={colors.primary} />
-                </TouchableOpacity>
-              </View>
-            ) : null}
             {item.plannedWorkoutEmbed?.kind === 'status' ? (
               <View style={styles.planMessageStatusBubble}>
                 <Text
@@ -1297,7 +1499,11 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
             </Text>
             </View>
           </AnimatedMessageWrap>
-          {showSeen ? (
+          {dmReceiptLabel ? (
+            <View style={styles.readReceiptRow}>
+              <Text style={styles.readReceiptText}>{dmReceiptLabel}</Text>
+            </View>
+          ) : showSeenLegacy ? (
             <Animated.View style={styles.seenRow}>
               <Text style={styles.seenText}>Set</Text>
             </Animated.View>
@@ -1308,7 +1514,6 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
   };
 
   const inputBarBottomPad = keyboardOpen ? 0 : Math.max(insets.bottom, spacing.xs);
-  const showInputActions = message.trim().length === 0 && !selectedImageUri;
 
   return (
     <KeyboardAvoidingView
@@ -1341,21 +1546,33 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
             accessibilityLabel={`Åbn profil: ${headerDisplayName}`}>
             <UserAvatar name={headerDisplayName} imageUrl={headerAvatarUrl} size="md" />
             <View style={styles.headerTextWrap}>
-              <Text style={styles.headerName}>{headerDisplayName}</Text>
+              <Text style={styles.headerName} numberOfLines={1} ellipsizeMode="tail">
+                {headerDisplayName}
+              </Text>
               <View style={styles.headerStatusRow}>
-                {remotePresence?.trainingNow ? (
+                {showLiveTrainingHeader ? (
                   <Animated.View style={{transform: [{scale: trainingPulse}]}}>
-                    <Icon name="barbell-outline" size={12} color={colors.primary} />
+                    <Icon name="barbell-outline" size={12} color={colors.success} />
                   </Animated.View>
                 ) : null}
                 <Text
                   style={[
                     styles.headerHint,
-                    remotePresence?.trainingNow && styles.headerHintTraining,
-                  ]}>
+                    headerStatusText === 'Aktiv nu' && styles.headerHintActive,
+                  ]}
+                  numberOfLines={1}
+                  ellipsizeMode="tail">
                   {headerStatusText}
                 </Text>
               </View>
+              {showLiveTrainingHeader && headerLiveContextText ? (
+                <Text
+                  style={styles.headerLiveContext}
+                  numberOfLines={1}
+                  ellipsizeMode="tail">
+                  {headerLiveContextText}
+                </Text>
+              ) : null}
             </View>
           </TouchableOpacity>
         </View>
@@ -1363,138 +1580,201 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
 
       {/* Messages List */}
       <View style={styles.chatBody}>
-        {activePlan && (
-          <Pressable
-            onPress={() => setPlanDetailVisible(true)}
-            onLongPress={() => {
-              if (activePlan.serverPlannedWorkoutId) {
-                navigation.navigate('WorkoutSchedule', {
-                  openPlannedId: activePlan.serverPlannedWorkoutId,
-                });
-              } else {
-                navigation.navigate('WorkoutSchedule', {initialTab: 'upcoming'});
-              }
-            }}
-            style={({pressed}) => [styles.planBanner, pressed && {opacity: 0.92}]}>
-            {(() => {
-              const joinedNames = planParticipants
-                .filter(participant => participant.hasJoined)
-                .map(participant => participant.name);
-              const pendingNames = planParticipants
-                .filter(participant => !participant.hasJoined)
-                .map(participant => participant.name);
-              const useServer = !!activePlan.serverPlannedWorkoutId;
-              const isCreator = activePlan.createdBy === currentUserId;
-              const serverStatusLine = useServer
-                ? isCreator
-                  ? activePlan.inviteeResponse === 'pending'
-                    ? `Afventer svar · ${friendName}`
-                    : activePlan.inviteeResponse === 'accepted'
-                      ? 'Træner sammen – accepteret'
-                      : `${friendName} har afvist`
-                  : activePlan.inviteeResponse === 'pending'
-                    ? 'Du er inviteret'
-                    : activePlan.inviteeResponse === 'accepted'
-                      ? 'Du deltager'
-                      : 'Du har afvist'
-                : null;
-              const infoText = useServer
-                ? serverStatusLine
-                : joinedNames.length > 0
-                  ? `${joinedNames.join(', ')} har joinet`
-                  : 'Ingen har joinet endnu';
-              const pendingText = useServer
-                ? null
-                : pendingNames.length > 0
-                  ? `Venter: ${pendingNames.join(', ')}`
-                  : '';
-              return (
-                <>
-                  <View style={{flex: 1}}>
-                    <Text style={styles.planBannerTitle}>Planlagt træning</Text>
-                    <Text style={styles.planBannerSubtitle}>
-                      {formatGymDisplayName(activePlan.gym)} • {formatPlanDateTime(activePlan.scheduledAt)}
-                    </Text>
-                    <Text style={styles.planBannerSubtitle}>
-                      {formatMuscleSelection(activePlan.muscles)}
-                    </Text>
-                    <Text style={styles.planBannerInfo}>{infoText}</Text>
-                    {pendingText ? (
-                      <Text style={styles.planBannerPending}>{pendingText}</Text>
-                    ) : null}
-                    {useServer ? (
-                      <Text style={styles.planBannerHint}>Langt tryk → kalender</Text>
-                    ) : null}
-                  </View>
-                  {useServer && !isCreator && activePlan.inviteeResponse === 'pending' ? (
-                    <View style={styles.planBannerActionRow}>
+        {showPlanInviteBanner && activePlan ? (
+          <View style={styles.planBannerOuter}>
+            <View
+              style={styles.planBannerGradientHost}
+              onLayout={e => {
+                const {width, height} = e.nativeEvent.layout;
+                if (width > 0 && height > 0) {
+                  setPlanBannerSurfaceSize({w: width, h: height});
+                }
+              }}>
+              <Svg
+                pointerEvents="none"
+                width={planBannerSurfaceSize.w}
+                height={planBannerSurfaceSize.h}
+                style={StyleSheet.absoluteFill}>
+                <Defs>
+                  <LinearGradient
+                    id={planBannerGradId}
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%">
+                    <Stop offset="0%" stopColor={colors.primaryLight} />
+                    <Stop offset="48%" stopColor={colors.primary} />
+                    <Stop offset="100%" stopColor={colors.primaryDark} />
+                  </LinearGradient>
+                </Defs>
+                <Rect
+                  x={0}
+                  y={0}
+                  width={planBannerSurfaceSize.w}
+                  height={planBannerSurfaceSize.h}
+                  rx={16}
+                  ry={16}
+                  fill={`url(#${planBannerGradId})`}
+                />
+              </Svg>
+              <TouchableOpacity
+                style={styles.planBannerCloseBtn}
+                onPress={() => {
+                  if (chatId && planInviteBannerSurfaceId) {
+                    setDismissedPlanInviteBanner(chatId, planInviteBannerSurfaceId);
+                  }
+                }}
+                hitSlop={{top: 10, right: 10, bottom: 10, left: 10}}
+                accessibilityRole="button"
+                accessibilityLabel="Skjul invitation">
+                <View style={styles.planBannerCloseCircle}>
+                  <Icon name="close" size={18} color={colors.white} />
+                </View>
+              </TouchableOpacity>
+              <View style={styles.planBannerMainRow}>
+                <Pressable
+                  style={({pressed}) => [
+                    styles.planBannerTapCol,
+                    pressed && styles.planBannerTapPressed,
+                  ]}
+                  onPress={() => setPlanDetailVisible(true)}
+                  onLongPress={() => {
+                    if (activePlan.serverPlannedWorkoutId) {
+                      navigation.navigate('WorkoutSchedule', {
+                        openPlannedId: activePlan.serverPlannedWorkoutId,
+                      });
+                    } else {
+                      navigation.navigate('WorkoutSchedule', {initialTab: 'upcoming'});
+                    }
+                  }}>
+                  {(() => {
+                    const joinedNames = planParticipants
+                      .filter(participant => participant.hasJoined)
+                      .map(participant => participant.name);
+                    const pendingNames = planParticipants
+                      .filter(participant => !participant.hasJoined)
+                      .map(participant => participant.name);
+                    const useServer = !!activePlan.serverPlannedWorkoutId || demoDmPlanInviteUi;
+                    const isCreator = activePlan.createdBy === currentUserId;
+                    const serverStatusLine = useServer
+                      ? isCreator
+                        ? activePlan.inviteeResponse === 'pending'
+                          ? `Afventer svar · ${friendName}`
+                          : activePlan.inviteeResponse === 'accepted'
+                            ? 'Træner sammen – accepteret'
+                            : `${friendName} har afvist`
+                        : activePlan.inviteeResponse === 'pending'
+                          ? 'Du er inviteret'
+                          : activePlan.inviteeResponse === 'accepted'
+                            ? 'Du deltager'
+                            : 'Du har afvist'
+                      : null;
+                    const infoText = useServer
+                      ? serverStatusLine
+                      : joinedNames.length > 0
+                        ? `${joinedNames.join(', ')} har joinet`
+                        : 'Ingen har joinet endnu';
+                    const pendingText = useServer
+                      ? null
+                      : pendingNames.length > 0
+                        ? `Venter: ${pendingNames.join(', ')}`
+                        : '';
+                    return (
+                      <View style={styles.planBannerTextBlock}>
+                        <Text style={styles.planBannerTitle}>Planlagt træning</Text>
+                        <Text style={styles.planBannerSubtitle}>
+                          {formatGymDisplayName(activePlan.gym)} •{' '}
+                          {formatPlanDateTime(activePlan.scheduledAt)}
+                        </Text>
+                        <Text style={styles.planBannerSubtitle}>
+                          {formatMuscleSelection(activePlan.muscles)}
+                        </Text>
+                        <Text style={styles.planBannerInfo}>{infoText}</Text>
+                        {pendingText ? (
+                          <Text style={styles.planBannerPending}>{pendingText}</Text>
+                        ) : null}
+                        {useServer ? (
+                          <Text style={styles.planBannerHint}>Langt tryk → kalender</Text>
+                        ) : null}
+                      </View>
+                    );
+                  })()}
+                </Pressable>
+                <View style={styles.planBannerSideCol}>
+                  {(() => {
+                    const useServer = !!activePlan.serverPlannedWorkoutId || demoDmPlanInviteUi;
+                    const isCreator = activePlan.createdBy === currentUserId;
+                    if (useServer && !isCreator && activePlan.inviteeResponse === 'pending') {
+                      return (
+                        <View style={styles.planBannerActionRow}>
+                          <TouchableOpacity
+                            style={styles.planBannerDecline}
+                            onPress={handleDeclineServerPlan}
+                            disabled={planActionBusy}
+                            activeOpacity={0.9}>
+                            <Text style={styles.planBannerDeclineText}>Afvis</Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity
+                            style={styles.planBannerJoin}
+                            onPress={handleJoinPlan}
+                            disabled={planActionBusy}
+                            activeOpacity={0.9}>
+                            {planActionBusy ? (
+                              <ActivityIndicator color={colors.primary} size="small" />
+                            ) : (
+                              <Text style={styles.planBannerJoinText}>Accepter</Text>
+                            )}
+                          </TouchableOpacity>
+                        </View>
+                      );
+                    }
+                    if (useServer && isCreator) {
+                      return (
+                        <View style={styles.planBannerCreatorBadge}>
+                          <Text style={styles.planBannerJoinTextAnmodet}>Inviteret</Text>
+                        </View>
+                      );
+                    }
+                    if (!useServer) {
+                      return (
+                        <TouchableOpacity
+                          style={[
+                            styles.planBannerJoin,
+                            activePlan.joinedIds.includes(currentUserId) &&
+                              styles.planBannerJoinAnmodet,
+                          ]}
+                          onPress={handleJoinPlan}
+                          activeOpacity={0.9}>
+                          <Text
+                            style={[
+                              styles.planBannerJoinText,
+                              activePlan.joinedIds.includes(currentUserId) &&
+                                styles.planBannerJoinTextAnmodet,
+                            ]}>
+                            {activePlan.joinedIds.includes(currentUserId)
+                              ? 'Anmodet'
+                              : 'Deltag'}
+                          </Text>
+                        </TouchableOpacity>
+                      );
+                    }
+                    return (
                       <TouchableOpacity
-                        style={styles.planBannerDecline}
-                        onPress={e => {
-                          e.stopPropagation();
-                          handleDeclineServerPlan();
-                        }}
-                        disabled={planActionBusy}
+                        style={[styles.planBannerJoin, styles.planBannerJoinAnmodet]}
+                        onPress={() => setPlanDetailVisible(true)}
                         activeOpacity={0.9}>
-                        <Text style={styles.planBannerDeclineText}>Afvis</Text>
+                        <Text style={styles.planBannerJoinTextAnmodet}>Detaljer</Text>
                       </TouchableOpacity>
-                      <TouchableOpacity
-                        style={styles.planBannerJoin}
-                        onPress={e => {
-                          e.stopPropagation();
-                          handleJoinPlan();
-                        }}
-                        disabled={planActionBusy}
-                        activeOpacity={0.9}>
-                        {planActionBusy ? (
-                          <ActivityIndicator color={colors.successLight} size="small" />
-                        ) : (
-                          <Text style={styles.planBannerJoinText}>Accepter</Text>
-                        )}
-                      </TouchableOpacity>
-                    </View>
-                  ) : useServer && isCreator ? (
-                    <View style={styles.planBannerCreatorBadge}>
-                      <Text style={styles.planBannerJoinTextAnmodet}>Inviteret</Text>
-                    </View>
-                  ) : !useServer ? (
-                    <TouchableOpacity
-                      style={[
-                        styles.planBannerJoin,
-                        activePlan.joinedIds.includes(currentUserId) && styles.planBannerJoinAnmodet,
-                      ]}
-                      onPress={event => {
-                        event.stopPropagation();
-                        handleJoinPlan();
-                      }}
-                      activeOpacity={0.9}>
-                      <Text
-                        style={[
-                          styles.planBannerJoinText,
-                          activePlan.joinedIds.includes(currentUserId) && styles.planBannerJoinTextAnmodet,
-                        ]}>
-                        {activePlan.joinedIds.includes(currentUserId) ? 'Anmodet' : 'Deltag'}
-                      </Text>
-                    </TouchableOpacity>
-                  ) : (
-                    <TouchableOpacity
-                      style={[styles.planBannerJoin, styles.planBannerJoinAnmodet]}
-                      onPress={e => {
-                        e.stopPropagation();
-                        setPlanDetailVisible(true);
-                      }}
-                      activeOpacity={0.9}>
-                      <Text style={styles.planBannerJoinTextAnmodet}>Detaljer</Text>
-                    </TouchableOpacity>
-                  )}
-                </>
-              );
-            })()}
-          </Pressable>
-        )}
+                    );
+                  })()}
+                </View>
+              </View>
+            </View>
+          </View>
+        ) : null}
         <FlatList
           ref={flatListRef}
-          data={messages}
+          data={dmMessagesForList}
           renderItem={renderMessage}
           keyExtractor={item => item.id}
           contentContainerStyle={styles.messagesList}
@@ -1514,133 +1794,124 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
         />
       </View>
 
-      {/* Plan Modal */}
-      <Modal visible={planModalVisible} transparent animationType="slide">
-        <View style={styles.planModalOverlay}>
-          <View style={[styles.planModalCard, styles.planModal]}>
-            <ScrollView
-              style={{width: '100%'}}
-              contentContainerStyle={styles.planModalContent}
-              keyboardShouldPersistTaps="handled">
-              <Text style={styles.modalTitle}>Planlæg træning</Text>
-              <Text style={styles.modalText}>
-                Vælg center, muskelgrupper og tidspunkt for din næste session.
-              </Text>
-
-              <Text style={styles.sectionLabel}>Center</Text>
-              <TextInput
-                style={styles.planCenterInput}
-                placeholder="Fx PureGym Vanløse Torv"
-                value={planCenterQuery}
-                onChangeText={handlePlanCenterInput}
-                autoCapitalize="words"
-                autoCorrect={false}
-              />
-              {planCenterQuery.trim().length > 0 && planSuggestions.length > 0 && !planSelectedGym && (
-                <View style={styles.planSuggestionList}>
-                  {planSuggestions.map(option => (
-                    <TouchableOpacity
-                      key={option.id}
-                      style={styles.planSuggestionItem}
-                      onPress={() => handleSelectPlanGym(option)}>
-                      <View>
-                        <Text style={styles.planSuggestionTitle}>
-                          {formatGymDisplayName(option)}
-                        </Text>
-                        <Text style={styles.planSuggestionSubtitle}>
-                          {[option.city, option.region].filter(Boolean).join(' • ')}
-                        </Text>
-                      </View>
-                      <Icon name="location-outline" size={18} color={colors.primary} />
-                    </TouchableOpacity>
-                  ))}
-                </View>
-              )}
-
-              <Text style={[styles.sectionLabel, {marginTop: 20}]}>Muskelgrupper</Text>
-              <View style={styles.muscleGrid}>
-                {MUSCLE_GROUPS.map(item => {
-                  const isActive = planMuscles.includes(item.key);
-                  return (
-                    <TouchableOpacity
-                      key={item.key}
-                      style={[styles.muscleCard, isActive && styles.muscleCardActive]}
-                      onPress={() => togglePlanMuscle(item.key)}
-                      activeOpacity={0.85}>
-                      <MuscleGroupTileIcon
-                        group={item.key}
-                        size={40}
-                        color={isActive ? '#fff' : colors.textMuted}
-                        tintColor={isActive ? '#fff' : undefined}
-                      />
-                      <Text style={[styles.muscleLabel, isActive && styles.muscleLabelActive]}>
-                        {item.label}
-                      </Text>
-                    </TouchableOpacity>
-                  );
-                })}
-              </View>
-
-              <Text style={[styles.sectionLabel, {marginTop: 8}]}>Dato og tid</Text>
-              <TouchableOpacity
-                style={styles.timeButton}
-                onPress={openPlanTimePicker}
-                activeOpacity={0.85}>
-                <Icon name="time-outline" size={18} color={colors.text} />
-                <Text style={styles.timeButtonText}>
-                  {planDateTime.toLocaleDateString('da-DK', {
-                    day: 'numeric',
-                    month: 'short',
-                  })}{' '}
-                  kl. {formattedPlanTime}
-                </Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity style={styles.primaryButton} onPress={handleCreatePlan}>
-                <Text style={styles.primaryButtonText}>Planlæg træning</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={[styles.modalClose, {marginTop: 12}]}
-                onPress={() => setPlanModalVisible(false)}>
-                <Text style={styles.modalCloseText}>Luk</Text>
-              </TouchableOpacity>
-            </ScrollView>
-            {Platform.OS === 'ios' && planTimePickerVisible && (
-          <View style={styles.iosTimePickerOverlay} pointerEvents="box-none">
-            <TouchableOpacity
-              style={styles.iosTimePickerBackdrop}
-              activeOpacity={1}
-              onPress={handlePlanTimePickerClose}
-            />
-            <View style={styles.iosTimePickerCard}>
-              <DateTimePicker
-                value={planDateTime}
-                mode="datetime"
-                display="spinner"
-                minuteInterval={15}
-                preferredDatePickerStyle="wheels"
-                locale="da-DK"
-                onChange={handlePlanTimeChange}
-                style={styles.iosTimePickerControl}
-              />
-              <TouchableOpacity style={styles.modalClose} onPress={handlePlanTimePickerClose}>
-                <Text style={styles.modalCloseText}>Færdig</Text>
-              </TouchableOpacity>
-                </View>
-              </View>
-            )}
+      {/* Plan Modal — samme UI som Inviter til træning (PlannedWorkoutInviteForm) */}
+      <Modal
+        visible={planModalVisible}
+        transparent
+        animationType="slide"
+        onRequestClose={() => {
+          if (!planActionBusy) {
+            setPlanModalVisible(false);
+          }
+        }}>
+        <View style={styles.planInviteModalRoot}>
+          <Pressable
+            style={styles.planInviteModalBackdrop}
+            onPress={() => {
+              if (
+                planActionBusy ||
+                showPlanInviteDatePicker ||
+                showPlanInviteTimeSheet
+              ) {
+                return;
+              }
+              setPlanModalVisible(false);
+            }}
+          />
+          <View
+            style={[
+              styles.planInviteSheet,
+              styles.planModal,
+              {paddingBottom: Math.max(insets.bottom, spacing.md)},
+            ]}>
+            <View style={styles.planInviteSheetHeader}>
+              <Pressable
+                onPress={() => {
+                  if (!planActionBusy) {
+                    setPlanModalVisible(false);
+                  }
+                }}
+                hitSlop={12}
+                style={({pressed}) => [
+                  styles.planInviteClosePill,
+                  pressed && styles.planInviteClosePillPressed,
+                ]}>
+                <Icon name="close" size={22} color={colors.text} />
+              </Pressable>
             </View>
+            <PlannedWorkoutInviteForm
+              variant="compact"
+              title="Planlæg træning"
+              subtitle="Planlæg en session sammen"
+              peerDisplayName={headerDisplayName}
+              selectedDate={planInviteDate}
+              selectedTime={planInviteTime}
+              onPressSelectDate={() => setShowPlanInviteDatePicker(true)}
+              onPressSelectTime={() => setShowPlanInviteTimeSheet(true)}
+              scheduledPreview={scheduledPlanInvitePreview}
+              planSelectedGym={planSelectedGym}
+              onGymChange={setPlanSelectedGym}
+              planMuscle={planInviteMuscle}
+              onMuscleChange={setPlanInviteMuscle}
+              onSubmit={handleCreatePlan}
+              submitLabel="Send invitation"
+              saving={planActionBusy}
+              submitDisabled={planActionBusy || !planSelectedGym}
+              scrollBottomPadding={spacing.lg}
+            />
+            <TimePickerSheet
+              visible={showPlanInviteTimeSheet}
+              value={planInviteTime}
+              onClose={() => setShowPlanInviteTimeSheet(false)}
+              onConfirm={d => setPlanInviteTime(d)}
+              minuteInterval={15}
+            />
           </View>
-        </Modal>
-
-      {planTimePickerVisible && Platform.OS === 'android' && (
-        <DateTimePicker
-          value={planDateTime}
-          mode="datetime"
-          display="default"
-          onChange={handlePlanTimeChange}
-        />
-      )}
+          {showPlanInviteDatePicker && Platform.OS === 'ios' && (
+            <View style={styles.planInvitePickerModal} pointerEvents="box-none">
+              <Pressable
+                style={StyleSheet.absoluteFill}
+                onPress={() => setShowPlanInviteDatePicker(false)}
+              />
+              <View style={styles.planInvitePickerModalContent}>
+                <View style={styles.planInvitePickerHeader}>
+                  <Pressable
+                    onPress={() => setShowPlanInviteDatePicker(false)}
+                    style={styles.planInvitePickerHeaderBtn}>
+                    <Text style={styles.planInvitePickerCancel}>Annuller</Text>
+                  </Pressable>
+                  <Text style={styles.planInvitePickerTitle}>Dato</Text>
+                  <Pressable
+                    onPress={() => setShowPlanInviteDatePicker(false)}
+                    style={styles.planInvitePickerHeaderBtn}>
+                    <Text style={styles.planInvitePickerOk}>OK</Text>
+                  </Pressable>
+                </View>
+                <DateTimePicker
+                  value={planInviteDate}
+                  mode="date"
+                  display="spinner"
+                  onChange={handlePlanInviteDateChange}
+                  minimumDate={new Date()}
+                  locale="da_DK"
+                  themeVariant={planInviteColorScheme === 'dark' ? 'dark' : 'light'}
+                  textColor={planInviteColorScheme === 'dark' ? '#F9FAFB' : '#111827'}
+                  style={styles.planInvitePicker}
+                />
+              </View>
+            </View>
+          )}
+          {showPlanInviteDatePicker && Platform.OS === 'android' && (
+            <DateTimePicker
+              value={planInviteDate}
+              mode="date"
+              display="default"
+              onChange={handlePlanInviteDateChange}
+              minimumDate={new Date()}
+            />
+          )}
+        </View>
+      </Modal>
 
       {/* Plan Detail Modal */}
       <Modal visible={planDetailVisible && !!activePlan} transparent animationType="fade">
@@ -1712,90 +1983,91 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
           </TouchableWithoutFeedback>
         )}
         <View style={styles.inputWrapper}>
-          {showInputActions ? (
-            <>
-              <View style={styles.imagePickerContainer}>
-                {showImagePickerOptions && (
-                  <View style={styles.imagePickerOptions}>
-                    <Pressable
-                      style={({pressed}) => [
-                        styles.imagePickerCard,
-                        pressed && styles.imagePickerCardPressed,
-                      ]}
-                      onPress={handleCameraPress}
-                      android_ripple={{color: 'rgba(0,0,0,0.06)'}}>
-                      <Icon
-                        name="camera"
-                        size={26}
-                        color={CHAT_MEDIA_SHEET.icon}
-                        style={styles.imagePickerIcon}
-                      />
-                      <Text style={styles.imagePickerLabel}>Kamera</Text>
-                    </Pressable>
-                    <Pressable
-                      style={({pressed}) => [
-                        styles.imagePickerCard,
-                        pressed && styles.imagePickerCardPressed,
-                      ]}
-                      onPress={handleGalleryPress}
-                      android_ripple={{color: 'rgba(0,0,0,0.06)'}}>
-                      <Icon
-                        name="images"
-                        size={26}
-                        color={CHAT_MEDIA_SHEET.icon}
-                        style={styles.imagePickerIcon}
-                      />
-                      <Text style={styles.imagePickerLabel}>Fotos</Text>
-                    </Pressable>
+          <View style={styles.inputLeadingCluster}>
+            {showImagePickerOptions ? (
+              <View style={styles.imagePickerOptions}>
+                <Pressable
+                  style={({pressed}) => [
+                    styles.imagePickerCard,
+                    pressed && styles.imagePickerCardPressed,
+                  ]}
+                  onPress={handleCameraPress}
+                  android_ripple={{color: 'rgba(0,0,0,0.06)'}}>
+                  <Icon
+                    name="camera"
+                    size={26}
+                    color={CHAT_MEDIA_SHEET.icon}
+                    style={styles.imagePickerIcon}
+                  />
+                  <Text style={styles.imagePickerLabel}>Kamera</Text>
+                </Pressable>
+                <Pressable
+                  style={({pressed}) => [
+                    styles.imagePickerCard,
+                    pressed && styles.imagePickerCardPressed,
+                  ]}
+                  onPress={handleGalleryPress}
+                  android_ripple={{color: 'rgba(0,0,0,0.06)'}}>
+                  <Icon
+                    name="images"
+                    size={26}
+                    color={CHAT_MEDIA_SHEET.icon}
+                    style={styles.imagePickerIcon}
+                  />
+                  <Text style={styles.imagePickerLabel}>Fotos</Text>
+                </Pressable>
+              </View>
+            ) : null}
+            <TouchableOpacity
+              style={styles.inputCircleBtn}
+              onPress={handleImagePickerToggle}
+              activeOpacity={0.75}
+              accessibilityLabel="Vedhæft billede">
+              <Icon name="add" size={22} color={colors.primary} />
+            </TouchableOpacity>
+          </View>
+          <TouchableOpacity
+            style={styles.inputCircleBtn}
+            onPress={handleOpenPlanModal}
+            activeOpacity={0.75}
+            accessibilityLabel="Planlæg træning">
+            <Icon name="calendar-outline" size={20} color={colors.primary} />
+          </TouchableOpacity>
+          <View style={styles.inputFieldColumn}>
+            {selectedImageUri ? (
+              <View style={styles.selectedImageContainer}>
+                <Image source={{uri: selectedImageUri}} style={styles.selectedImage} />
+                {isSendingImage ? (
+                  <View style={styles.selectedImageSending}>
+                    <ActivityIndicator color={colors.white} size="small" />
                   </View>
-                )}
+                ) : null}
                 <TouchableOpacity
-                  style={styles.inputIconButton}
-                  onPress={handleImagePickerToggle}
-                  activeOpacity={0.7}>
-                  <Icon name="add-circle-outline" size={26} color={colors.primary} />
+                  onPress={() => {
+                    if (isSendingImage) {
+                      return;
+                    }
+                    setSelectedImageUri(null);
+                    setSelectedImageMime(null);
+                  }}
+                  style={styles.removeImageButton}
+                  disabled={isSendingImage}
+                  accessibilityLabel="Fjern billede">
+                  <Icon name="close-circle" size={20} color="#fff" />
                 </TouchableOpacity>
               </View>
-              <TouchableOpacity
-                style={styles.inputIconButton}
-                onPress={handleOpenPlanModal}
-                activeOpacity={0.7}>
-                <Icon name="calendar-outline" size={26} color={colors.primary} />
-              </TouchableOpacity>
-            </>
-          ) : null}
-          <TextInput
-            style={styles.input}
-            placeholder="Skriv en besked..."
-            placeholderTextColor={colors.textMuted}
-            value={message}
-            onChangeText={setMessage}
-            multiline
-            maxLength={1000}
-          />
-          {selectedImageUri && (
-            <View style={styles.selectedImageContainer}>
-              <Image source={{uri: selectedImageUri}} style={styles.selectedImage} />
-              {isSendingImage && (
-                <View style={styles.selectedImageSending}>
-                  <ActivityIndicator color={colors.white} size="small" />
-                </View>
-              )}
-              <TouchableOpacity
-                onPress={() => {
-                  if (isSendingImage) {
-                    return;
-                  }
-                  setSelectedImageUri(null);
-                  setSelectedImageMime(null);
-                }}
-                style={styles.removeImageButton}
-                disabled={isSendingImage}
-                accessibilityLabel="Fjern billede">
-                <Icon name="close-circle" size={20} color="#fff" />
-              </TouchableOpacity>
-            </View>
-          )}
+            ) : null}
+            <TextInput
+              style={styles.input}
+              placeholder="Skriv en besked..."
+              placeholderTextColor={colors.textMuted}
+              value={message}
+              onChangeText={setMessage}
+              multiline
+              maxLength={1000}
+              {...(Platform.OS === 'android' ? {includeFontPadding: false} : {})}
+            />
+          </View>
           {(message.trim().length > 0 || selectedImageUri) && (
             <TouchableOpacity
               onPress={handleSend}
@@ -1894,7 +2166,19 @@ const styles = StyleSheet.create({
   },
   headerHint: {
     ...typography.caption,
+    color: colors.textTertiary,
+    marginTop: 2,
+    flexShrink: 1,
+  },
+  headerHintActive: {
     color: colors.success,
+    fontWeight: '600',
+  },
+  headerLiveContext: {
+    ...typography.caption,
+    fontSize: 11,
+    lineHeight: 14,
+    color: colors.textMuted,
     marginTop: 2,
   },
   headerStatusRow: {
@@ -1902,10 +2186,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 4,
     marginTop: 2,
-  },
-  headerHintTraining: {
-    color: colors.primary,
-    fontWeight: '600',
   },
   headerActions: {
     flexDirection: 'row',
@@ -1921,58 +2201,107 @@ const styles = StyleSheet.create({
     padding: spacing.lg,
     paddingBottom: spacing.lg,
   },
-  planBanner: {
-    backgroundColor: colors.success,
-    marginHorizontal: 16,
-    marginTop: 12,
-    marginBottom: 4,
-    borderRadius: 14,
-    padding: 16,
-    flexDirection: 'row',
+  planBannerOuter: {
+    marginHorizontal: spacing.lg,
+    marginTop: spacing.md,
+    marginBottom: spacing.xs,
+  },
+  planBannerGradientHost: {
+    borderRadius: 16,
+    overflow: 'hidden',
+    position: 'relative',
+    shadowColor: colors.primary,
+    shadowOffset: {width: 0, height: 6},
+    shadowOpacity: 0.22,
+    shadowRadius: 14,
+    elevation: 5,
+  },
+  planBannerCloseBtn: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    zIndex: 4,
+  },
+  planBannerCloseCircle: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: 'rgba(255,255,255,0.22)',
     alignItems: 'center',
-    gap: 12,
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.35)',
+  },
+  planBannerMainRow: {
+    flexDirection: 'row',
+    alignItems: 'stretch',
+    paddingRight: 44,
+    paddingTop: spacing.md,
+    paddingBottom: spacing.md,
+    paddingLeft: spacing.lg,
+    minHeight: 100,
+  },
+  planBannerTapCol: {
+    flex: 1,
+    paddingRight: spacing.md,
+    justifyContent: 'center',
+  },
+  planBannerTapPressed: {
+    opacity: 0.92,
+  },
+  planBannerTextBlock: {
+    flexShrink: 1,
+  },
+  planBannerSideCol: {
+    justifyContent: 'center',
+    alignItems: 'flex-end',
   },
   planBannerTitle: {
-    fontSize: 14,
-    color: '#DCFCE7',
-    fontWeight: '600',
+    fontSize: 11,
+    letterSpacing: 0.8,
+    color: 'rgba(255,255,255,0.9)',
+    fontWeight: '700',
     textTransform: 'uppercase',
   },
   planBannerSubtitle: {
-    fontSize: 16,
-    color: '#fff',
+    fontSize: 15,
+    color: colors.white,
     fontWeight: '700',
+    marginTop: 4,
   },
   planBannerInfo: {
     fontSize: 13,
-    color: '#DCFCE7',
-    marginTop: 4,
+    color: 'rgba(255,255,255,0.88)',
+    marginTop: 6,
   },
   planBannerPending: {
     fontSize: 12,
-    color: '#BBF7D0',
+    color: 'rgba(255,255,255,0.78)',
+    marginTop: 2,
   },
   planBannerJoin: {
-    backgroundColor: colors.backgroundCard,
+    backgroundColor: colors.white,
     borderRadius: 999,
-    paddingHorizontal: 16,
+    paddingHorizontal: 14,
     paddingVertical: 8,
   },
   planBannerJoinAnmodet: {
-    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    backgroundColor: 'rgba(255, 255, 255, 0.35)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.45)',
   },
   planBannerJoinText: {
-    color: colors.successLight,
+    color: colors.primaryDark,
     fontWeight: '700',
   },
   planBannerJoinTextAnmodet: {
-    color: colors.textTertiary,
+    color: colors.white,
     fontWeight: '600',
   },
   planBannerHint: {
     fontSize: 11,
-    color: 'rgba(255,255,255,0.75)',
-    marginTop: 4,
+    color: 'rgba(255,255,255,0.72)',
+    marginTop: 6,
   },
   planBannerActionRow: {
     flexDirection: 'row',
@@ -1980,79 +2309,24 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   planBannerDecline: {
-    backgroundColor: 'rgba(0,0,0,0.2)',
+    backgroundColor: 'rgba(0,0,0,0.22)',
     borderRadius: 999,
     paddingHorizontal: 12,
     paddingVertical: 8,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.28)',
   },
   planBannerDeclineText: {
-    color: '#fff',
+    color: colors.white,
     fontWeight: '600',
   },
   planBannerCreatorBadge: {
-    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    backgroundColor: 'rgba(255, 255, 255, 0.22)',
     borderRadius: 999,
     paddingHorizontal: 12,
     paddingVertical: 8,
-  },
-  planMessageCard: {
-    maxWidth: 260,
-    marginBottom: 6,
-  },
-  planMessageCardKicker: {
-    fontSize: 11,
-    color: colors.textTertiary,
-    fontWeight: '600',
-    textTransform: 'uppercase',
-    marginBottom: 4,
-  },
-  planMessageCardTitle: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: colors.text,
-  },
-  planMessageCardSub: {
-    fontSize: 14,
-    color: colors.textSecondary,
-    marginTop: 2,
-  },
-  planMessageCardTypes: {
-    fontSize: 13,
-    color: colors.text,
-    marginTop: 4,
-  },
-  planMessageCardHint: {
-    fontSize: 13,
-    color: colors.textTertiary,
-    marginTop: 8,
-  },
-  planMessageCardActions: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-    marginTop: 10,
-  },
-  planMessageCardDecline: {
-    backgroundColor: colors.surface,
-    borderRadius: 999,
-    paddingHorizontal: 14,
-    paddingVertical: 8,
-  },
-  planMessageCardDeclineText: {
-    color: colors.text,
-    fontWeight: '600',
-  },
-  planMessageCardAccept: {
-    backgroundColor: colors.success,
-    borderRadius: 999,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    minWidth: 100,
-    alignItems: 'center',
-  },
-  planMessageCardAcceptText: {
-    color: '#fff',
-    fontWeight: '700',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.35)',
   },
   planMessageCardStatusOk: {
     fontSize: 14,
@@ -2065,17 +2339,6 @@ const styles = StyleSheet.create({
     color: colors.textTertiary,
     fontWeight: '600',
     marginTop: 8,
-  },
-  planMessageCardDetail: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 4,
-    marginTop: 8,
-  },
-  planMessageCardDetailText: {
-    fontSize: 14,
-    color: colors.primary,
-    fontWeight: '600',
   },
   planMessageStatusBubble: {
     marginBottom: 4,
@@ -2166,6 +2429,18 @@ const styles = StyleSheet.create({
     marginTop: 2,
     marginRight: 2,
   },
+  readReceiptRow: {
+    alignSelf: 'flex-end',
+    marginTop: 3,
+    marginRight: 4,
+    maxWidth: '88%',
+  },
+  readReceiptText: {
+    fontSize: 11,
+    lineHeight: 14,
+    color: colors.textMuted,
+    fontWeight: '500',
+  },
   seenText: {
     ...typography.caption,
     color: colors.textMuted,
@@ -2202,30 +2477,57 @@ const styles = StyleSheet.create({
     backgroundColor: colors.backgroundCard,
     borderTopWidth: 1,
     borderTopColor: colors.border,
-    paddingHorizontal: spacing.lg,
-    paddingTop: spacing.sm,
+    paddingHorizontal: spacing.md,
+    paddingTop: spacing.xs,
   },
   inputWrapper: {
     flexDirection: 'row',
-    alignItems: 'flex-end',
+    alignItems: 'center',
     backgroundColor: colors.background,
     borderRadius: radius.xl,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: 6,
     minHeight: 48,
     borderWidth: 1,
     borderColor: colors.border,
+  },
+  inputLeadingCluster: {
+    position: 'relative',
+    marginRight: 4,
+    zIndex: 4,
+  },
+  inputCircleBtn: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: colors.backgroundCard,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.border,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 8,
+  },
+  inputFieldColumn: {
+    flex: 1,
+    minWidth: 0,
+    justifyContent: 'center',
   },
   inputIconButton: {
     marginRight: 8,
     padding: 4,
   },
   input: {
-    flex: 1,
+    flexGrow: 1,
+    flexShrink: 1,
     fontSize: 16,
+    lineHeight: 20,
     color: colors.text,
     maxHeight: 100,
-    padding: 0,
+    paddingVertical: Platform.OS === 'ios' ? 8 : 6,
+    paddingHorizontal: 4,
+    margin: 0,
+    minHeight: 40,
+    textAlignVertical: 'center',
   },
   sendButton: {
     marginLeft: spacing.sm,
@@ -2241,7 +2543,8 @@ const styles = StyleSheet.create({
   },
   selectedImageContainer: {
     position: 'relative',
-    marginRight: 8,
+    alignSelf: 'flex-start',
+    marginBottom: 6,
   },
   selectedImage: {
     width: 68,
@@ -2301,7 +2604,7 @@ const styles = StyleSheet.create({
   },
   imagePickerOptions: {
     position: 'absolute',
-    bottom: 50,
+    bottom: 44,
     left: 0,
     flexDirection: 'row',
     alignItems: 'stretch',
@@ -2332,10 +2635,82 @@ const styles = StyleSheet.create({
     color: '#1C1C1E',
     textAlign: 'center',
   },
-  planModalOverlay: {
+  planInviteModalRoot: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
     justifyContent: 'flex-end',
+  },
+  planInviteModalBackdrop: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(15, 23, 42, 0.45)',
+  },
+  planInviteSheet: {
+    width: '100%',
+    backgroundColor: INVITE_FORM_SCREEN_TINT,
+    borderTopLeftRadius: radius.lg,
+    borderTopRightRadius: radius.lg,
+    overflow: 'hidden',
+  },
+  planInviteSheetHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    paddingHorizontal: spacing.sm,
+    paddingTop: spacing.sm,
+  },
+  planInviteClosePill: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: colors.backgroundCardLight,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  planInviteClosePillPressed: {
+    opacity: 0.75,
+    transform: [{scale: 0.96}],
+  },
+  planInvitePickerModal: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'flex-end',
+    backgroundColor: 'rgba(15, 23, 42, 0.35)',
+  },
+  planInvitePickerModalContent: {
+    backgroundColor: colors.white,
+    borderTopLeftRadius: radius.xl,
+    borderTopRightRadius: radius.xl,
+    paddingBottom: spacing.lg,
+  },
+  planInvitePickerHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: colors.border,
+  },
+  planInvitePickerHeaderBtn: {
+    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.sm,
+    minWidth: 64,
+  },
+  planInvitePickerCancel: {
+    ...typography.body,
+    color: colors.textMuted,
+  },
+  planInvitePickerTitle: {
+    ...typography.bodyBold,
+    fontSize: 16,
+    color: colors.text,
+  },
+  planInvitePickerOk: {
+    ...typography.bodyBold,
+    fontSize: 16,
+    color: colors.primary,
+    textAlign: 'right',
+  },
+  planInvitePicker: {
+    height: 216,
   },
   planModal: {
     maxHeight: '90%',

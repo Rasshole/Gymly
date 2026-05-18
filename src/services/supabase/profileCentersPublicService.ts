@@ -3,6 +3,7 @@
  */
 
 import {supabase} from '@/services/supabase/supabaseClient';
+import {fetchUserCenterIdsOrdered} from '@/services/supabase/userCentersService';
 import {findGymByIdRelaxed} from '@/utils/gymDisplay';
 import type {ProfileCenterRow} from '@/components/profile/ProfileCentersList';
 
@@ -82,7 +83,7 @@ function toRowsFromResolved(
 export async function loadProfileCentersForUser(
   userId: string,
 ): Promise<ProfileCenterRow[]> {
-  const favIds = await fetchFavoriteGymIdsForUser(userId);
+  const favIds = await fetchUserCenterIdsOrdered(userId);
   const fromFavorites: {id: string; name: string; city?: string; brand?: string}[] = [];
   const seen = new Set<string>();
   for (const id of favIds.slice(0, 3)) {

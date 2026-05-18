@@ -91,6 +91,8 @@ import {spacing, typography, radius, shadows} from '@/theme/designTokens';
 import {PurpleGradientButton} from '@/components/ui/PurpleGradientButton';
 import type {ProfileCenterRow} from '@/components/profile/ProfileCentersList';
 import GymlyPostCard from '@/components/feed/GymlyPostCard';
+import {PostActionBottomSheet} from '@/components/feed/PostActionBottomSheet';
+import {feedItemToPostActionSheet} from '@/utils/postActionMappers';
 
 type FriendProfileRouteParams = {
   friendId?: string;
@@ -247,6 +249,7 @@ const FriendProfileScreen = () => {
   const [commentsByFeedItem, setCommentsByFeedItem] = useState<
     Record<string, Array<{author: string; text: string; id: string}>>
   >({});
+  const [postActionItem, setPostActionItem] = useState<FeedItem | null>(null);
   const [supabaseFriendStats, setSupabaseFriendStats] =
     useState<SupabaseUserStats | null>(null);
   const [friendLiveCheckIn, setFriendLiveCheckIn] =
@@ -459,13 +462,26 @@ const FriendProfileScreen = () => {
         },
         () => {
           void refreshProfileCenters();
+          void loadProfile();
+        },
+      )
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'user_centers',
+          filter: `user_id=eq.${friendId}`,
+        },
+        () => {
+          void refreshProfileCenters();
         },
       )
       .subscribe();
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [friendId, refreshProfileCenters]);
+  }, [friendId, refreshProfileCenters, loadProfile]);
 
   const sessionInsights = useMemo(
     () => computeSessionInsights(completedSessions),
@@ -1058,6 +1074,27 @@ const FriendProfileScreen = () => {
     setCommentInput('');
   }, []);
 
+  const closePostActionSheet = useCallback(() => {
+    setPostActionItem(null);
+  }, []);
+
+  const handlePostDeletedSideEffects = useCallback((postId: string) => {
+    setFeedReactions(prev => {
+      const next = {...prev};
+      delete next[postId];
+      return next;
+    });
+    setCommentsByFeedItem(prev => {
+      const next = {...prev};
+      delete next[postId];
+      return next;
+    });
+  }, []);
+
+  const openPostActionMenu = useCallback((post: FeedItem) => {
+    setPostActionItem(post);
+  }, []);
+
   const addComment = useCallback(() => {
     if (!activeCommentItem) {
       return;
@@ -1170,8 +1207,6 @@ const FriendProfileScreen = () => {
           showBio={Boolean(profileBio?.trim())}
           activeStatus={headerActiveStatus}
           primaryCenterLabel={headerPrimaryCenterLabel}
-          followersCount={mergedDisplayStats?.followersCount ?? 0}
-          followingCount={mergedDisplayStats?.followingCount ?? 0}
           friendsCount={mergedDisplayStats?.friendsCount ?? 0}
         />
 
@@ -1412,6 +1447,7 @@ const FriendProfileScreen = () => {
                       onCommentPress={() => openComments(post.id)}
                       commentCount={commentCount}
                       onBicepsCountPress={() => void openBicepsList(post.id)}
+                      onMenuPress={() => openPostActionMenu(post)}
                     />
                   );
                 })
@@ -1686,6 +1722,14 @@ const FriendProfileScreen = () => {
           </View>
         </TouchableWithoutFeedback>
       </Modal>
+      <PostActionBottomSheet
+        visible={!!postActionItem}
+        onClose={closePostActionSheet}
+        post={postActionItem ? feedItemToPostActionSheet(postActionItem) : null}
+        currentUserId={currentUser?.id}
+        variant="workoutPost"
+        onPostDeleted={handlePostDeletedSideEffects}
+      />
     </SafeAreaView>
   );
 };

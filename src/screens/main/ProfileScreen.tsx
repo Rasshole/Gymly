@@ -11,7 +11,6 @@ import {
   TouchableOpacity,
   Pressable,
   ActivityIndicator,
-  Alert,
   Modal,
   TextInput,
   TouchableWithoutFeedback,
@@ -33,16 +32,12 @@ import {
   StreakHighlight,
   ProfileBadgeStrip,
 } from '@/components/profile';
+import {CompletedSessionRow} from '@/components/profile/CompletedSessionRow';
 import {FriendsListModal} from '@/components/friends/FriendsListModal';
 import {useFriendStore} from '@/store/friendStore';
 import {Card} from '@/components/ui/Card';
 import type {FeedItem} from '@/store/feedStore';
-import {
-  completedSessionsToWorkouts,
-  formatSessionDateAndDurationDa,
-  type ProfileCompletedSession,
-} from '@/services/supabase/profileCheckInHistory';
-import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
+import {completedSessionsToWorkouts} from '@/services/supabase/profileCheckInHistory';
 import * as streak from '@/utils/streakUtils';
 import {SURFACE_GROUPS_IN_APP} from '@/config/launchSurfaceConfig';
 import {
@@ -56,12 +51,18 @@ import {useBadgeStore} from '@/store/badgeStore';
 import {useUserTrainingStats} from '@/hooks/useUserTrainingStats';
 import {formatGymNameWithBrand} from '@/utils/gymDisplay';
 import {loadProfileCentersForUser} from '@/services/supabase/profileCentersPublicService';
+import {saveUserCenters, subscribeUserCenters} from '@/services/supabase/userCentersService';
+import {emitProfileCentersChanged} from '@/realtime/profileCentersBridge';
 import type {ProfileCenterRow} from '@/components/profile/ProfileCentersList';
+import {EditProfileCentersSheet} from '@/components/profile/EditProfileCentersSheet';
+import {GymlyToast} from '@/components/ui/GymlyToast';
 import {useGymStore} from '@/store/gymStore';
 import {useSessionStore} from '@/store/sessionStore';
 import colors from '@/theme/colors';
 import {spacing, typography, radius} from '@/theme/designTokens';
 import GymlyPostCard from '@/components/feed/GymlyPostCard';
+import {PostActionBottomSheet} from '@/components/feed/PostActionBottomSheet';
+import {feedItemToPostActionSheet} from '@/utils/postActionMappers';
 import {
   fetchPostBicepsStates,
   fetchPostBicepsUsers,
@@ -92,7 +93,7 @@ const DATA_PERIOD_OPTIONS: {key: WorkoutPeriod; label: string}[] = [
 const ProfileScreen = () => {
   const navigation = useNavigation<any>();
   const {user, setUser} = useAppStore();
-  const {feedItems, deleteFeedItem} = useFeedStore();
+  const {feedItems} = useFeedStore();
   const goals = useGoalStore(s => s.goals);
   const [tab, setTab] = useState<ProfileTab>('feed');
   const [tabBarWidth, setTabBarWidth] = useState(0);
@@ -103,6 +104,8 @@ const ProfileScreen = () => {
   const getActiveUsersCount = useGymStore(s => s.getActiveUsersCount);
   const tabAnim = React.useRef(new Animated.Value(tab === 'feed' ? 0 : 1)).current;
   const [centerRows, setCenterRows] = useState<ProfileCenterRow[]>([]);
+  const [centersSheetOpen, setCentersSheetOpen] = useState(false);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   useEffect(() => {
     Animated.timing(tabAnim, {
@@ -136,6 +139,7 @@ const ProfileScreen = () => {
   const [commentsByFeedItem, setCommentsByFeedItem] = useState<
     Record<string, Array<{author: string; text: string; id: string}>>
   >({});
+  const [postActionItem, setPostActionItem] = useState<FeedItem | null>(null);
 
   useFocusEffect(
     useCallback(() => {
@@ -201,6 +205,45 @@ const ProfileScreen = () => {
       setCenterRows([]);
     }
   }, [user?.id]);
+
+  useEffect(() => {
+    void refreshProfileCenters();
+  }, [refreshProfileCenters]);
+
+  useEffect(() => {
+    if (!user?.id) {
+      return;
+    }
+    return subscribeUserCenters(user.id, () => {
+      void refreshProfileCenters();
+    });
+  }, [user?.id, refreshProfileCenters]);
+
+  const handleSaveCenters = useCallback(
+    async (orderedIds: string[]) => {
+      if (!user?.id) {
+        throw new Error('no user');
+      }
+      try {
+        const ids = await saveUserCenters(user.id, orderedIds);
+        setCentersSheetOpen(false);
+        const cur = useAppStore.getState().user;
+        if (cur && cur.id === user.id) {
+          setUser({...cur, favoriteGyms: ids, updatedAt: new Date()}, {skipProfileSync: true});
+        }
+        emitProfileCentersChanged(user.id);
+        await refreshProfileCenters();
+      } catch {
+        setToastMessage('Kunne ikke gemme centre. Prøv igen.');
+        throw new Error('save centers failed');
+      }
+    },
+    [user?.id, setUser, refreshProfileCenters],
+  );
+
+  const openCentersEditor = useCallback(() => {
+    setCentersSheetOpen(true);
+  }, []);
 
   const badgeUnlocks = useBadgeStore(s => s.unlockedByUser[user?.id ?? '']);
   const badgeCount =
@@ -295,8 +338,8 @@ const ProfileScreen = () => {
     [trainingStats.recentSessions, uid],
   );
 
-  const feedSessions = useMemo(
-    () => trainingStats.recentSessions.slice(0, 10),
+  const profilePreviewSessions = useMemo(
+    () => trainingStats.recentSessions.slice(0, 5),
     [trainingStats.recentSessions],
   );
 
@@ -326,9 +369,9 @@ const ProfileScreen = () => {
       },
       {
         key: 'longest-streak',
-        emoji: streak.getStreakBadge(profileStats?.longestStreak ?? 0) || '👑',
+        emoji: streak.getStreakBadge(trainingStats.longestStreakDays) || '👑',
         label: 'Longest streak',
-        value: `${profileStats?.longestStreak ?? 0} dage`,
+        value: `${trainingStats.longestStreakDays} dage`,
       },
       {
         key: 'checkins',
@@ -375,11 +418,11 @@ const ProfileScreen = () => {
     dataWorkoutPeriod,
     trainingStats.activeSessionMinutes,
     trainingStats.currentStreakDays,
+    trainingStats.longestStreakDays,
     trainingStats.friendsCount,
     trainingStats.groupsCount,
     friendCountDisplay,
     badgeCount,
-    profileStats?.longestStreak,
     navigation,
   ]);
 
@@ -398,35 +441,6 @@ const ProfileScreen = () => {
       return false;
     });
   }, [goals, user?.id]);
-
-  const renderCompletedSessionRow = (
-    s: ProfileCompletedSession,
-    isLast?: boolean,
-  ) => (
-    <View
-      key={s.id}
-      style={[styles.workoutHistoryRow, isLast && styles.workoutHistoryRowLast]}>
-      <View style={styles.workoutHistoryIcon}>
-        <Icon name="barbell-outline" size={22} color={colors.primary} />
-      </View>
-      <View style={styles.workoutHistoryBody}>
-        <Text style={styles.workoutHistoryTitle} numberOfLines={2}>
-          {s.gymName}
-        </Text>
-        <Text style={styles.workoutHistoryMeta} numberOfLines={1}>
-          {formatSessionDateAndDurationDa(s.startedAt, s.durationMinutes)}
-        </Text>
-        <Text style={styles.workoutHistoryTypeLine} numberOfLines={2}>
-          {formatWorkoutTypeDisplay(s.workoutType)}
-        </Text>
-        {s.partnerDisplayName ? (
-          <Text style={styles.workoutHistoryWith} numberOfLines={1}>
-            Med: {s.partnerDisplayName}
-          </Text>
-        ) : null}
-      </View>
-    </View>
-  );
 
   const toggleLike = useCallback(
     async (itemId: string) => {
@@ -542,21 +556,26 @@ const ProfileScreen = () => {
     };
   }, []);
 
-  const handleFeedItemMenu = useCallback(
-    (item: FeedItem) => {
-      Alert.alert('Opslag', 'Vælg handling', [
-        {text: 'Annuller', style: 'cancel'},
-        {
-          text: 'Slet opslag',
-          style: 'destructive',
-          onPress: () => {
-            deleteFeedItem(item.id);
-          },
-        },
-      ]);
-    },
-    [deleteFeedItem],
-  );
+  const closePostActionSheet = useCallback(() => {
+    setPostActionItem(null);
+  }, []);
+
+  const handlePostDeletedSideEffects = useCallback((postId: string) => {
+    setFeedReactions(prev => {
+      const next = {...prev};
+      delete next[postId];
+      return next;
+    });
+    setCommentsByFeedItem(prev => {
+      const next = {...prev};
+      delete next[postId];
+      return next;
+    });
+  }, []);
+
+  const openPostActionMenu = useCallback((post: FeedItem) => {
+    setPostActionItem(post);
+  }, []);
 
   const activeComments = activeCommentItem
     ? commentsByFeedItem[activeCommentItem] ?? []
@@ -576,33 +595,25 @@ const ProfileScreen = () => {
           onEditPress={() => navigation.navigate('EditProfile')}
           activeStatus={activeStatusText}
           primaryCenterLabel={primaryCenterLabel}
-          followersCount={profileStats?.followersCount ?? 0}
-          followingCount={profileStats?.followingCount ?? 0}
           friendsCount={friendCountDisplay}
           onFriendsPress={() => setFriendsListOpen(true)}
         />
 
-        {user?.id ? (
-          <ProfileBadgeStrip
-            userId={user.id}
-            featuredBadgeIds={user.featuredBadgeIds ?? null}
-          />
-        ) : null}
+        {user?.id ? <ProfileBadgeStrip userId={user.id} /> : null}
 
         {centerRows.length > 0 ? (
           <ProfileCentersList
             centers={centerRows}
             activeCountForId={id => getActiveUsersCount(id)}
+            onEditPress={openCentersEditor}
           />
         ) : (
           <TouchableOpacity
             style={styles.noCentersHint}
-            onPress={() => navigation.navigate('EditProfile')}
+            onPress={openCentersEditor}
             activeOpacity={0.85}>
-            <Icon name="location-outline" size={18} color={colors.primary} />
-            <Text style={styles.noCentersHintText}>
-              Har ikke valgt primært center endnu — tryk for at vælge under Rediger profil
-            </Text>
+            <Icon name="add-circle-outline" size={22} color={colors.primary} />
+            <Text style={styles.noCentersHintText}>Tilføj dine centre</Text>
             <Icon name="chevron-forward" size={18} color={colors.textMuted} />
           </TouchableOpacity>
         )}
@@ -663,28 +674,39 @@ const ProfileScreen = () => {
 
         {tab === 'feed' ? (
           <View style={styles.section}>
-            <Text style={styles.blockTitle}>Dine træninger</Text>
+            <View style={styles.blockHeaderRow}>
+              <Text style={styles.blockTitle}>Dine træninger</Text>
+              {profilePreviewSessions.length > 0 ? (
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('AllTrainings')}
+                  hitSlop={{top: 8, bottom: 8, left: 8, right: 8}}
+                  activeOpacity={0.7}>
+                  <Text style={styles.seeAll}>Se alle</Text>
+                </TouchableOpacity>
+              ) : null}
+            </View>
             <Text style={styles.blockSubtitle}>
-              Historik fra dine sessioner
+              Historik fra dine seneste sessions
             </Text>
             <Card variant="outlined" padding="md">
               {trainingStats.loading && trainingStats.recentSessions.length === 0 ? (
                 <View style={styles.sessionsLoadingBox}>
                   <ActivityIndicator color={colors.primary} />
                 </View>
-              ) : feedSessions.length > 0 ? (
-                feedSessions.map((s, i) =>
-                  renderCompletedSessionRow(
-                    s,
-                    i === feedSessions.length - 1,
-                  ),
-                )
+              ) : profilePreviewSessions.length > 0 ? (
+                profilePreviewSessions.map((s, i) => (
+                  <CompletedSessionRow
+                    key={s.id}
+                    session={s}
+                    isLast={i === profilePreviewSessions.length - 1}
+                  />
+                ))
               ) : (
                 <View style={styles.emptyInline}>
                   <Icon name="fitness-outline" size={32} color={colors.textMuted} />
                   <Text style={styles.emptyTitle}>Ingen træninger endnu</Text>
                   <Text style={styles.emptySubtext}>
-                    Afslut din session (tjek ud) for at se den her
+                    Dine afsluttede sessions vises her.
                   </Text>
                 </View>
               )}
@@ -725,11 +747,7 @@ const ProfileScreen = () => {
                       onCommentPress={() => openComments(post.id)}
                       commentCount={commentCount}
                       onBicepsCountPress={() => void openBicepsList(post.id)}
-                      onMenuPress={
-                        user?.id && post.userId === user.id
-                          ? () => handleFeedItemMenu(post)
-                          : undefined
-                      }
+                      onMenuPress={() => openPostActionMenu(post)}
                     />
                   );
                 })
@@ -780,10 +798,7 @@ const ProfileScreen = () => {
             <View style={styles.streakBlock}>
               <StreakHighlight
                 currentStreak={trainingStats.currentStreakDays}
-                longestStreak={Math.max(
-                  profileStats?.longestStreak ?? 0,
-                  trainingStats.currentStreakDays,
-                )}
+                longestStreak={trainingStats.longestStreakDays}
                 onPress={() => navigation.navigate('CheckIn')}
               />
               <Text style={styles.streakMicro}>Du er på vej 💪</Text>
@@ -813,12 +828,13 @@ const ProfileScreen = () => {
                   <ActivityIndicator color={colors.primary} />
                 </View>
               ) : dataTabSessions.length > 0 ? (
-                dataTabSessions.map((s, i) =>
-                  renderCompletedSessionRow(
-                    s,
-                    i === dataTabSessions.length - 1,
-                  ),
-                )
+                dataTabSessions.map((s, i) => (
+                  <CompletedSessionRow
+                    key={s.id}
+                    session={s}
+                    isLast={i === dataTabSessions.length - 1}
+                  />
+                ))
               ) : (
                 <View style={styles.emptyInline}>
                   <Icon name="calendar-outline" size={28} color={colors.textMuted} />
@@ -958,6 +974,22 @@ const ProfileScreen = () => {
           </View>
         </TouchableWithoutFeedback>
       </Modal>
+      <EditProfileCentersSheet
+        visible={centersSheetOpen}
+        initialCenterIds={user?.favoriteGyms ?? centerRows.map(r => r.centerId).filter(Boolean) as string[]}
+        onClose={() => setCentersSheetOpen(false)}
+        onSave={handleSaveCenters}
+        onLimitReached={() => setToastMessage('Du kan max vælge 3 centre')}
+      />
+      <GymlyToast message={toastMessage} onHidden={() => setToastMessage(null)} />
+      <PostActionBottomSheet
+        visible={!!postActionItem}
+        onClose={closePostActionSheet}
+        post={postActionItem ? feedItemToPostActionSheet(postActionItem) : null}
+        currentUserId={user?.id}
+        variant="workoutPost"
+        onPostDeleted={handlePostDeletedSideEffects}
+      />
     </View>
   );
 };
@@ -1028,10 +1060,20 @@ const styles = StyleSheet.create({
   tabBtnTextActive: {
     color: colors.white,
   },
+  blockHeaderRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 2,
+  },
   blockTitle: {
     ...typography.bodyBold,
     color: colors.text,
-    marginBottom: 2,
+  },
+  seeAll: {
+    ...typography.small,
+    color: colors.primary,
+    fontWeight: '600',
   },
   blockTitleSpaced: {
     marginTop: spacing.xl,

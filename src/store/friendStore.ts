@@ -4,6 +4,8 @@ import {
   removeFriendship,
   type PublicProfile,
 } from '@/services/supabase/friendService';
+import {isDemoContentMode} from '@/demo/demoContentGate';
+import {buildDemoPayload} from '@/demo/buildDemoPayload';
 
 type FriendState = {
   friends: PublicProfile[];
@@ -31,6 +33,17 @@ export const useFriendStore = create<FriendState>((set, get) => ({
         friendIds: new Set(),
         lastLoadedUserId: null,
         version: get().version + 1,
+      });
+      return;
+    }
+    if (isDemoContentMode()) {
+      const d = buildDemoPayload(userId);
+      set({
+        friends: d.friends,
+        friendIds: new Set(d.friends.map(f => f.id)),
+        lastLoadedUserId: userId,
+        version: get().version + 1,
+        loading: false,
       });
       return;
     }

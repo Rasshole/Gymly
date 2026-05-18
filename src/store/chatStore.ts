@@ -3,6 +3,7 @@ import {useNotificationStore} from '@/store/notificationStore';
 import {DanishGym} from '@/data/danishGyms';
 import {MuscleGroup} from '@/types/workout.types';
 import {safeDisplayName} from '@/utils/displayName';
+import {getMessagePreview} from '@/utils/dmMessagePreview';
 
 export type PlannedWorkoutDmEmbed =
   | {
@@ -28,6 +29,10 @@ export interface ChatMessage {
   imageUri?: string;
   /** DM body [GYM_PLAN_INVITE] / [GYM_PLAN_STATUS] (parsed in dmService) */
   plannedWorkoutEmbed?: PlannedWorkoutDmEmbed;
+  /** Når modtager har åbnet tråden (kun meningsfuldt for beskeder modparten sendte) */
+  readAt?: Date | null;
+  /** Optimistisk afsendelse (fjernes når server-besked indsættes) */
+  sendState?: 'sending';
 }
 
 export interface Chat {
@@ -76,6 +81,12 @@ interface ChatState {
   chats: Chat[];
   messagesByChat: Record<string, ChatMessage[]>;
   activePlansByChat: Record<string, ChatPlan | null>;
+  /**
+   * Visuelt skjult plan-invite banner (surface id pr. tråd). Påvirker ikke DB eller invitation.
+   * Nulstilles når bruger får en ny plan (ny surface id) i samme tråd.
+   */
+  dismissedPlanInviteBannerByChat: Record<string, string>;
+  setDismissedPlanInviteBanner: (chatId: string, surfaceId: string | null) => void;
   dmPresenceByUser: Record<string, DmPresenceState>;
   threadSeenAtByUser: Record<string, Record<string, number>>;
   addChat: (chat: Chat) => void;
@@ -91,6 +102,8 @@ interface ChatState {
   seedChatsFromInitial: (chats: Chat[], messagesByChat: Record<string, ChatMessage[]>) => void;
   /** Erstat tråd (bruges når server har uuid / sync indbakke) */
   upsertChat: (chat: Chat) => void;
+  /** Opdatér eget viste navn i DM-listen efter profil-gem */
+  updateMyDmParticipantLabels: (myUserId: string, displayName: string) => void;
   /** Erstat hele besked-listen (hent fra Supabase) */
   setMessagesForChat: (chatId: string, messages: ChatMessage[]) => void;
   mergeIncomingMessage: (
@@ -99,6 +112,9 @@ interface ChatState {
     fromCurrentUser: boolean,
     myUserId?: string,
   ) => void;
+  patchChatMessage: (chatId: string, messageId: string, patch: Partial<ChatMessage>) => void;
+  resolvePendingDmMessage: (chatId: string, tempId: string, sent: ChatMessage) => void;
+  abortPendingDmMessage: (chatId: string, tempId: string) => void;
   upsertDmPresence: (
     userId: string,
     patch: Partial<Omit<DmPresenceState, 'typingByThread'>> & {
@@ -118,6 +134,18 @@ export const useChatStore = create<ChatState>((set, get) => ({
   chats: [],
   messagesByChat: {},
   activePlansByChat: {},
+  dismissedPlanInviteBannerByChat: {},
+  setDismissedPlanInviteBanner: (chatId, surfaceId) => {
+    set(state => {
+      const next = {...state.dismissedPlanInviteBannerByChat};
+      if (surfaceId == null) {
+        delete next[chatId];
+      } else {
+        next[chatId] = surfaceId;
+      }
+      return {dismissedPlanInviteBannerByChat: next};
+    });
+  },
   dmPresenceByUser: {},
   threadSeenAtByUser: {},
 
@@ -162,15 +190,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
           i >= 0
             ? safeDisplayName(chat.participantNames[i], 'Ukendt bruger')
             : 'Ukendt bruger';
-        const preview = message.plannedWorkoutEmbed
-          ? message.plannedWorkoutEmbed.kind === 'invite'
-            ? 'Træningsinvitation'
-            : 'Svar på træning'
-          : message.text?.trim()
-            ? message.text.slice(0, 120)
-            : message.imageUri
-              ? 'Billede'
-              : 'Ny besked';
+        const preview = getMessagePreview(message);
         useNotificationStore.getState().addNotification({
           type: 'message',
           title: 'Ny besked',
@@ -224,8 +244,16 @@ export const useChatStore = create<ChatState>((set, get) => ({
   addMessageToChat: (chatId, message) => {
     set((state) => {
       const list = state.messagesByChat[chatId] ?? [];
-      if (list.some((m) => m.id === message.id)) {
-        return state;
+      const idx = list.findIndex(m => m.id === message.id);
+      if (idx >= 0) {
+        const next = [...list];
+        next[idx] = {...next[idx], ...message};
+        return {
+          messagesByChat: {
+            ...state.messagesByChat,
+            [chatId]: next,
+          },
+        };
       }
       return {
         messagesByChat: {
@@ -234,6 +262,51 @@ export const useChatStore = create<ChatState>((set, get) => ({
         },
       };
     });
+  },
+
+  patchChatMessage: (chatId, messageId, patch) => {
+    set(state => {
+      const list = state.messagesByChat[chatId] ?? [];
+      if (!list.some(m => m.id === messageId)) {
+        return state;
+      }
+      return {
+        messagesByChat: {
+          ...state.messagesByChat,
+          [chatId]: list.map(m => (m.id === messageId ? {...m, ...patch} : m)),
+        },
+      };
+    });
+  },
+
+  resolvePendingDmMessage: (chatId, tempId, sent) => {
+    set(state => {
+      const list = state.messagesByChat[chatId] ?? [];
+      const withoutTemp = list.filter(m => m.id !== tempId);
+      const idx = withoutTemp.findIndex(m => m.id === sent.id);
+      let next: ChatMessage[];
+      if (idx >= 0) {
+        next = [...withoutTemp];
+        next[idx] = {...next[idx], ...sent};
+      } else {
+        next = [...withoutTemp, sent];
+      }
+      return {
+        messagesByChat: {
+          ...state.messagesByChat,
+          [chatId]: next,
+        },
+      };
+    });
+  },
+
+  abortPendingDmMessage: (chatId, tempId) => {
+    set(state => ({
+      messagesByChat: {
+        ...state.messagesByChat,
+        [chatId]: (state.messagesByChat[chatId] ?? []).filter(m => m.id !== tempId),
+      },
+    }));
   },
 
   setMessagesForChat: (chatId, messages) => {
@@ -301,6 +374,24 @@ export const useChatStore = create<ChatState>((set, get) => ({
     });
   },
 
+  updateMyDmParticipantLabels: (myUserId, displayName) => {
+    const label = (displayName || '').trim() || 'Dig';
+    set(state => ({
+      chats: state.chats.map(chat => {
+        const idx = chat.participantIds.findIndex(id => id === myUserId);
+        if (idx < 0) {
+          return chat;
+        }
+        const names = [...chat.participantNames];
+        if (names[idx] === label) {
+          return chat;
+        }
+        names[idx] = label;
+        return {...chat, participantNames: names};
+      }),
+    }));
+  },
+
   mergeIncomingMessage: (threadId, message, fromCurrentUser, myUserId) => {
     if (
       myUserId &&
@@ -318,7 +409,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
       });
     }
     get().addMessageToChat(threadId, message);
-    get().updateChatLastMessage(threadId, message, {fromCurrentUser});
+    get().updateChatLastMessage(threadId, message, {fromCurrentUser: fromCurrentUser});
   },
 
   upsertDmPresence: (userId, patch) => {

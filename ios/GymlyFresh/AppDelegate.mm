@@ -2,11 +2,16 @@
 
 #import <TargetConditionals.h>
 #import <React/RCTBundleURLProvider.h>
+#import <React/RCTDevLoadingViewSetEnabled.h>
 #import <Firebase.h>
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+#if DEBUG
+  /* Skjul øverste "Bundling …%"-banner (screen recording / content). Sæt til YES hvis du vil se load-progress. */
+  RCTDevLoadingViewSetEnabled(NO);
+#endif
   if ([FIRApp defaultApp] == nil) {
     [FIRApp configure];
   }

@@ -1,6 +1,6 @@
 /**
- * Auto-tjek-ud: geofence + inaktivitet (juster tærskler her).
- * App-livscyclus (baggrund, lås) udløser ikke tjek-ud.
+ * Auto-tjek-ud: kun bekræftet geofence (afstand).
+ * App-genstart, crash, baggrund og manglende GPS afslutter aldrig session.
  */
 
 export const ACTIVE_CHECKIN_SAFE_RADIUS = 400;

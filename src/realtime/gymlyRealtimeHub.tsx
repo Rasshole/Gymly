@@ -43,6 +43,7 @@ import {
   logRealtimeSubscribed,
 } from '@/realtime/realtimeDebug';
 import {useRealtimeHealthStore} from '@/realtime/realtimeHealthStore';
+import {isDemoContentMode} from '@/demo/demoContentGate';
 
 const HUB_NAME = 'gymly_hub';
 
@@ -104,6 +105,10 @@ export function GymlyRealtimeHub() {
     if (!userId) {
       return;
     }
+    if (isDemoContentMode()) {
+      useFriendStore.getState().load(userId).catch(() => {});
+      return;
+    }
     listPendingIncomingRequests(userId)
       .then(rows => useNotificationStore.getState().setIncomingFriendRequestCount(rows.length))
       .catch(() => {});
@@ -114,6 +119,9 @@ export function GymlyRealtimeHub() {
 
   const refreshGroupsAndPlan = useCallback(() => {
     if (!userId) {
+      return;
+    }
+    if (isDemoContentMode()) {
       return;
     }
     useGymlyGroupsStore.getState().refresh(userId).catch(() => {});
@@ -169,7 +177,9 @@ export function GymlyRealtimeHub() {
       try {
         const {data, error} = await supabase
           .from('profiles')
-          .select('id, username, display_name, avatar_url, featured_badge_ids')
+          .select(
+            'id, username, display_name, avatar_url, featured_badge_ids, favorite_gym_ids',
+          )
           .eq('id', userId)
           .maybeSingle();
         if (error || !data) {
@@ -184,19 +194,28 @@ export function GymlyRealtimeHub() {
           display_name?: string | null;
           avatar_url?: string | null;
           featured_badge_ids?: unknown;
+          favorite_gym_ids?: unknown;
         };
         const rawFeatured = row.featured_badge_ids;
         const featuredBadgeIds = Array.isArray(rawFeatured)
           ? rawFeatured.map(x => String(x)).filter(Boolean).slice(0, 3)
           : u.featuredBadgeIds;
-        useAppStore.getState().setUser({
-          ...u,
-          username: row.username?.trim() || u.username,
-          displayName: (row.display_name ?? '').trim() || u.displayName,
-          profileImageUrl: row.avatar_url ?? u.profileImageUrl,
-          featuredBadgeIds,
-          updatedAt: new Date(),
-        });
+        const rawGyms = row.favorite_gym_ids;
+        const favoriteGyms = Array.isArray(rawGyms)
+          ? rawGyms.map(x => String(x)).filter(Boolean).slice(0, 3)
+          : u.favoriteGyms;
+        useAppStore.getState().setUser(
+          {
+            ...u,
+            username: row.username?.trim() || u.username,
+            displayName: (row.display_name ?? '').trim() || u.displayName,
+            profileImageUrl: row.avatar_url ?? u.profileImageUrl,
+            featuredBadgeIds,
+            favoriteGyms,
+            updatedAt: new Date(),
+          },
+          {skipProfileSync: true},
+        );
         logRealtimeStore('profiles', 'merge_self');
       } catch {
         /* ignore */
@@ -247,6 +266,22 @@ export function GymlyRealtimeHub() {
           });
         }
         logRealtimeStore('dm_messages', 'merge_message');
+      },
+    );
+
+    ch = ch.on(
+      'postgres_changes',
+      {event: 'UPDATE', schema: 'public', table: 'dm_messages'},
+      payload => {
+        bumpHealth('dm_messages', 'UPDATE');
+        const row = dmMessageFromPayload(payload.new);
+        if (!row?.read_at) {
+          return;
+        }
+        useChatStore.getState().patchChatMessage(row.thread_id, row.id, {
+          readAt: new Date(row.read_at),
+        });
+        logRealtimeStore('dm_messages', 'read_receipt');
       },
     );
 

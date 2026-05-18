@@ -6,6 +6,9 @@ import {
   loadGymlyActiveNowData,
   type ActiveNowFriendRow,
 } from '@/services/supabase/gymlyActiveNowService';
+import {canUseDemoContentControls, isDemoContentMode} from '@/demo/demoContentGate';
+import {buildDemoPayload} from '@/demo/buildDemoPayload';
+import {useDemoModeStore} from '@/demo/demoModeStore';
 
 const DURATION_TICK_MS = 60_000;
 
@@ -21,6 +24,8 @@ export function useGymlyActiveNow(userId: string | undefined) {
   const [error, setError] = useState<Error | null>(null);
   const [durationNow, setDurationNow] = useState(() => Date.now());
   const appStateRef = useRef<string>(AppState.currentState);
+  const demoEnabled = useDemoModeStore(s => s.enabled);
+  const demoHydrated = useDemoModeStore(s => s.hydrated);
 
   const refresh = useCallback(async () => {
     if (!userId) {
@@ -28,6 +33,26 @@ export function useGymlyActiveNow(userId: string | undefined) {
       setActiveFriends([]);
       setCurrentUserActive(null);
       setError(null);
+      setLoading(false);
+      return;
+    }
+    if (canUseDemoContentControls() && !useDemoModeStore.getState().hydrated) {
+      return;
+    }
+    if (isDemoContentMode()) {
+      setLoading(true);
+      try {
+        const d = buildDemoPayload(userId);
+        setTotalActiveUsers(d.totalActiveUsers);
+        setActiveFriends(d.activeFriends);
+        setCurrentUserActive(d.currentUserActive);
+        setDurationNow(Date.now());
+        setError(null);
+      } catch (e) {
+        setError(e instanceof Error ? e : new Error(String(e)));
+      } finally {
+        setLoading(false);
+      }
       return;
     }
     setLoading(true);
@@ -48,26 +73,26 @@ export function useGymlyActiveNow(userId: string | undefined) {
 
   useEffect(() => {
     if (!userId) {
-      void refresh();
+      refresh().catch(() => {});
       return;
     }
     if (!isFocused) {
       return;
     }
-    void refresh();
-  }, [userId, isFocused, refresh]);
+    refresh().catch(() => {});
+  }, [userId, isFocused, refresh, demoEnabled, demoHydrated]);
 
   useEffect(() => {
-    if (!userId) {
+    if (!userId || isDemoContentMode()) {
       return;
     }
     return subscribeCheckInsPresence(() => {
       if (__DEV__) {
         console.log('[ActiveSessions] realtime event received → refresh');
       }
-      void refresh();
+      refresh().catch(() => {});
     });
-  }, [userId, refresh]);
+  }, [userId, refresh, demoEnabled]);
 
   useEffect(() => {
     if (!userId) {
@@ -75,7 +100,7 @@ export function useGymlyActiveNow(userId: string | undefined) {
     }
     const sub = AppState.addEventListener('change', next => {
       if (appStateRef.current.match(/inactive|background/) && next === 'active') {
-        void refresh();
+        refresh().catch(() => {});
         setDurationNow(Date.now());
       }
       appStateRef.current = next;

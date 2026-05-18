@@ -1,6 +1,5 @@
 /**
  * NearbyCentersCarousel – Horizontal scroll of nearest centers
- * Shows logo, name, distance, activity (friends + total)
  */
 
 import React, {useRef, useEffect} from 'react';
@@ -8,13 +7,16 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity,
   FlatList,
   Dimensions,
+  Pressable,
+  Animated,
+  Platform,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import GymLogoView from '@/components/ui/GymLogoView';
 import colors from '@/theme/colors';
+import {radius, spacing} from '@/theme/designTokens';
 import type {DanishGym} from '@/data/danishGyms';
 
 export interface NearbyCenterItem {
@@ -30,8 +32,82 @@ export interface NearbyCentersCarouselProps {
   onSelectCenter: (gym: DanishGym) => void;
 }
 
-const CARD_WIDTH = Dimensions.get('window').width * 0.72;
+const CARD_WIDTH = Dimensions.get('window').width * 0.74;
 const CARD_MARGIN = 12;
+
+function NearbyCard({
+  item,
+  isSelected,
+  onPress,
+}: {
+  item: NearbyCenterItem;
+  isSelected: boolean;
+  onPress: () => void;
+}) {
+  const scale = useRef(new Animated.Value(1)).current;
+  const {gym, distanceText, totalActiveCount, friendsActiveCount} = item;
+  const hasActivity = totalActiveCount > 0 || friendsActiveCount > 0;
+
+  return (
+    <Pressable
+      onPress={onPress}
+      onPressIn={() => {
+        Animated.spring(scale, {
+          toValue: 0.985,
+          friction: 9,
+          tension: 280,
+          useNativeDriver: true,
+        }).start();
+      }}
+      onPressOut={() => {
+        Animated.spring(scale, {
+          toValue: 1,
+          friction: 5,
+          tension: 140,
+          useNativeDriver: true,
+        }).start();
+      }}>
+      <Animated.View style={[styles.card, isSelected && styles.cardSelected, {transform: [{scale}]}]}>
+        <View style={styles.logoSection}>
+          <View style={styles.logoFrame}>
+            <GymLogoView gymName={gym.name} brand={gym.brand} size={72} style={styles.logoFill} />
+          </View>
+        </View>
+        <View style={styles.infoSection}>
+          <Text style={styles.gymName} numberOfLines={1}>
+            {gym.name}
+          </Text>
+          <View style={styles.metaRow}>
+            <Icon name="location-outline" size={12} color={colors.textMuted} />
+            <Text style={styles.distanceText}>{distanceText}</Text>
+          </View>
+          {hasActivity ? (
+            <View style={styles.activityRow}>
+              {totalActiveCount > 0 ? (
+                <View style={styles.activityChip}>
+                  <Icon name="people" size={11} color={colors.secondary} />
+                  <Text style={[styles.activityChipText, {color: colors.secondary}]}>
+                    {totalActiveCount} aktive
+                  </Text>
+                </View>
+              ) : null}
+              {friendsActiveCount > 0 ? (
+                <View style={[styles.activityChip, styles.activityChipFriends]}>
+                  <Icon name="person" size={11} color={colors.primary} />
+                  <Text style={[styles.activityChipText, {color: colors.primaryDark}]}>
+                    {friendsActiveCount} venner
+                  </Text>
+                </View>
+              ) : null}
+            </View>
+          ) : (
+            <Text style={styles.activityEmpty}>Ingen aktive lige nu</Text>
+          )}
+        </View>
+      </Animated.View>
+    </Pressable>
+  );
+}
 
 const NearbyCentersCarousel: React.FC<NearbyCentersCarouselProps> = ({
   centers,
@@ -52,55 +128,9 @@ const NearbyCentersCarousel: React.FC<NearbyCentersCarouselProps> = ({
     }
   }, [selectedGymId, centers]);
 
-  const renderItem = ({item}: {item: NearbyCenterItem}) => {
-    const {gym, distanceText, totalActiveCount, friendsActiveCount} = item;
-    const isSelected = selectedGymId === gym.id;
-    const hasActivity = totalActiveCount > 0 || friendsActiveCount > 0;
-
-    return (
-      <TouchableOpacity
-        style={[styles.card, isSelected && styles.cardSelected]}
-        onPress={() => onSelectCenter(gym)}
-        activeOpacity={0.85}>
-        <View style={styles.logoSection}>
-          <GymLogoView gymName={gym.name} brand={gym.brand} size={100} style={styles.logoFill} />
-        </View>
-        <View style={styles.infoSection}>
-          <Text style={styles.gymName} numberOfLines={1}>
-            {gym.name}
-          </Text>
-          <View style={styles.metaRow}>
-            <Icon name="location" size={12} color={colors.primary} />
-            <Text style={styles.distanceText}>{distanceText}</Text>
-          </View>
-          {hasActivity ? (
-            <View style={styles.activityRow}>
-              {totalActiveCount > 0 ? (
-                <View style={styles.activityChip}>
-                  <Icon name="people" size={11} color={colors.secondary} />
-                  <Text style={[styles.activityChipText, {color: colors.secondary}]}>
-                    {totalActiveCount}
-                  </Text>
-                </View>
-              ) : null}
-              {friendsActiveCount > 0 ? (
-                <View style={styles.activityChip}>
-                  <Icon name="person" size={11} color={colors.primary} />
-                  <Text style={[styles.activityChipText, {color: colors.primary}]}>
-                    {friendsActiveCount}
-                  </Text>
-                </View>
-              ) : null}
-            </View>
-          ) : (
-            <Text style={styles.activityEmpty}>Ingen aktive lige nu</Text>
-          )}
-        </View>
-      </TouchableOpacity>
-    );
-  };
-
-  if (centers.length === 0) return null;
+  if (centers.length === 0) {
+    return null;
+  }
 
   return (
     <View style={styles.container}>
@@ -112,7 +142,13 @@ const NearbyCentersCarousel: React.FC<NearbyCentersCarouselProps> = ({
         showsHorizontalScrollIndicator={false}
         keyExtractor={item => item.gym.id.toString()}
         contentContainerStyle={styles.listContent}
-        renderItem={renderItem}
+        renderItem={({item}) => (
+          <NearbyCard
+            item={item}
+            isSelected={selectedGymId === item.gym.id}
+            onPress={() => onSelectCenter(item.gym)}
+          />
+        )}
       />
     </View>
   );
@@ -120,76 +156,105 @@ const NearbyCentersCarousel: React.FC<NearbyCentersCarouselProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 12,
-    paddingBottom: 8,
+    paddingTop: spacing.sm,
+    paddingBottom: spacing.xs,
   },
   sectionTitle: {
     fontSize: 15,
-    fontWeight: '600',
+    fontWeight: '700',
     color: colors.text,
-    marginBottom: 10,
-    marginHorizontal: 16,
+    marginBottom: spacing.sm,
+    marginHorizontal: spacing.lg,
+    letterSpacing: -0.3,
   },
   listContent: {
-    paddingHorizontal: 16,
-    paddingRight: 28,
+    paddingHorizontal: spacing.lg,
+    paddingRight: spacing.xl,
   },
   card: {
     width: CARD_WIDTH,
     marginRight: CARD_MARGIN,
-    backgroundColor: colors.backgroundCard,
-    borderRadius: 16,
+    backgroundColor: 'rgba(255,255,255,0.97)',
+    borderRadius: radius.xl,
     flexDirection: 'row',
     overflow: 'hidden',
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.08,
-    shadowRadius: 8,
-    elevation: 4,
-    borderWidth: 2,
-    borderColor: 'transparent',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.9)',
+    ...Platform.select({
+      ios: {
+        shadowColor: '#0F172A',
+        shadowOffset: {width: 0, height: 6},
+        shadowOpacity: 0.1,
+        shadowRadius: 14,
+      },
+      android: {elevation: 5},
+    }),
   },
   cardSelected: {
-    borderColor: colors.primary,
-    shadowColor: colors.primary,
-    shadowOpacity: 0.2,
-    shadowRadius: 10,
+    borderColor: colors.primary + '55',
+    ...Platform.select({
+      ios: {
+        shadowColor: colors.primary,
+        shadowOpacity: 0.2,
+        shadowRadius: 16,
+      },
+      android: {elevation: 7},
+    }),
   },
   logoSection: {
-    width: 88,
-    height: 100,
+    width: 92,
+    paddingVertical: spacing.sm,
+    paddingLeft: spacing.sm,
     justifyContent: 'center',
-    alignItems: 'center',
+  },
+  logoFrame: {
+    borderRadius: radius.lg,
+    overflow: 'hidden',
+    backgroundColor: colors.backgroundCard,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 0.08,
+        shadowRadius: 6,
+      },
+      android: {elevation: 2},
+    }),
   },
   logoFill: {
-    width: '100%',
-    height: '100%',
-    borderRadius: 0,
+    width: 80,
+    height: 80,
+    borderRadius: radius.md,
   },
   infoSection: {
     flex: 1,
-    padding: 12,
-    justifyContent: 'space-between',
+    paddingVertical: spacing.md,
+    paddingRight: spacing.md,
+    paddingLeft: spacing.xs,
+    justifyContent: 'center',
   },
   gymName: {
-    fontSize: 15,
-    fontWeight: '700',
+    fontSize: 16,
+    fontWeight: '800',
     color: colors.text,
     marginBottom: 4,
+    letterSpacing: -0.3,
   },
   metaRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 8,
+    marginBottom: spacing.sm,
   },
   distanceText: {
-    fontSize: 13,
-    fontWeight: '600',
-    color: colors.primary,
-    marginLeft: 6,
+    fontSize: 12,
+    fontWeight: '500',
+    color: colors.textMuted,
+    marginLeft: 4,
   },
   activityRow: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 6,
   },
   activityChip: {
     flexDirection: 'row',
@@ -197,11 +262,13 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surfaceLight,
     paddingHorizontal: 8,
     paddingVertical: 4,
-    borderRadius: 8,
-    marginRight: 8,
+    borderRadius: radius.sm,
+  },
+  activityChipFriends: {
+    backgroundColor: colors.primary + '10',
   },
   activityChipText: {
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: '700',
     marginLeft: 4,
   },
