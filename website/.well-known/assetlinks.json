@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.test1.Gymly",
+      "sha256_cert_fingerprints": [
+        "BE:09:CA:6D:AD:0A:71:03:EA:0C:A5:09:FF:7B:E1:43:52:32:5A:E8:05:32:07:79:E8:8B:C8:F3:E7:C3:9D:0B"
+      ]
+    }
+  }
+]

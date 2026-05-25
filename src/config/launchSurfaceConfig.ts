@@ -35,3 +35,9 @@ export const SURFACE_ONLINE_SUBTAB_IN_FRIENDS = false;
  * Stack-ruter, Supabase og `GroupsScreen` bevares modulært til genaktivering.
  */
 export const SURFACE_GROUPS_IN_APP = false;
+
+/**
+ * Demo-indhold toggle i Indstillinger (optagelse / fiktiv aktivitet).
+ * Sæt til `true` når du skal optage demo-video igen.
+ */
+export const SURFACE_DEMO_MODE_IN_SETTINGS = false;

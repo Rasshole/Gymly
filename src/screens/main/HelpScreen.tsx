@@ -1,6 +1,5 @@
 /**
  * Help Screen
- * Provides help resources and information about the app
  */
 
 import React, {useMemo} from 'react';
@@ -12,7 +11,6 @@ import {
   TouchableOpacity,
   Alert,
   SafeAreaView,
-  Linking,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
@@ -20,34 +18,31 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {HELP_NAV_ITEMS} from '@/data/helpNavItems';
 import colors from '@/theme/colors';
 import {spacing, typography} from '@/theme/designTokens';
+import {useTranslation} from '@/i18n';
 
 const HelpScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
+  const {t} = useTranslation();
 
   const handleHelpItemPress = (itemId: string, itemTitle: string) => {
     switch (itemId) {
-      case '1': // Support
+      case '1':
         navigation.navigate('Support');
         break;
-      case '2': // Om Gymly
+      case '2':
         navigation.navigate('AboutGymly');
         break;
-      case '3': // Vilkår og betingelser
+      case '3':
         navigation.navigate('Terms');
         break;
-      case '4': // Privatlivspolitik
+      case '4':
         navigation.navigate('PrivacyPolicy');
         break;
-      case '5': // Slet din konto
-        Alert.alert(
-          'Slet din konto',
-          'For at slette din konto permanent, skal du besøge vores hjemmeside og logge ind. Denne funktion vil være tilgængelig når vores hjemmeside er klar.',
-        );
-        // TODO: Open website when ready
-        // Linking.openURL('https://gymly.dk/delete-account');
+      case '5':
+        Alert.alert(t('help.deleteAccountTitle'), t('help.deleteAccountBody'));
         break;
       default:
-        Alert.alert('Info', `${itemTitle} funktion kommer snart`);
+        Alert.alert(t('common.comingSoon'), t('help.comingSoon', {title: itemTitle}));
     }
   };
 
@@ -55,49 +50,48 @@ const HelpScreen = () => {
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity
           onPress={() => navigation.goBack()}
           style={styles.backButton}>
           <Icon name="arrow-back" size={24} color={colors.text} />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Hjælp</Text>
+        <Text style={styles.headerTitle}>{t('help.title')}</Text>
         <View style={styles.headerRight} />
       </View>
 
-      {/* Content */}
       <ScrollView
         style={styles.scrollView}
         contentContainerStyle={styles.scrollContent}>
-        {helpItems.map((item, index) => (
-          <TouchableOpacity
-            key={item.id}
-            style={[
-              styles.helpItem,
-              index === helpItems.length - 1 && styles.helpItemLast,
-            ]}
-            onPress={() => handleHelpItemPress(item.id, item.title)}
-            activeOpacity={0.7}>
-            <Text
+        {helpItems.map((item, index) => {
+          const title = t(item.titleKey);
+          return (
+            <TouchableOpacity
+              key={item.id}
               style={[
-                styles.helpItemText,
-                item.isDestructive && styles.helpItemTextDestructive,
-              ]}>
-              {item.title}
-            </Text>
-            <Icon
-              name="chevron-forward"
-              size={20}
-              color={item.isDestructive ? colors.error : colors.textMuted}
-            />
-          </TouchableOpacity>
-        ))}
+                styles.helpItem,
+                index === helpItems.length - 1 && styles.helpItemLast,
+              ]}
+              onPress={() => handleHelpItemPress(item.id, title)}
+              activeOpacity={0.7}>
+              <Text
+                style={[
+                  styles.helpItemText,
+                  item.isDestructive && styles.helpItemTextDestructive,
+                ]}>
+                {title}
+              </Text>
+              <Icon
+                name="chevron-forward"
+                size={20}
+                color={item.isDestructive ? colors.error : colors.textMuted}
+              />
+            </TouchableOpacity>
+          );
+        })}
 
-        {/* Separator */}
         <View style={styles.separator} />
 
-        {/* Version Info */}
         <View style={styles.versionContainer}>
           <Text style={styles.versionText}>Gymly v1.0.0</Text>
         </View>
@@ -173,4 +167,3 @@ const styles = StyleSheet.create({
 });
 
 export default HelpScreen;
-

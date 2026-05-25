@@ -1,26 +1,19 @@
 <!DOCTYPE html>
-<html lang="da">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>Omdirigerer…</title>
+  <title>Opening Gymly…</title>
   <script>
     (function () {
-      var u = new URL(window.location.href);
-      var target = new URL(window.location.origin + '/');
-      target.searchParams.set('confirmed', '1');
-      u.searchParams.forEach(function (value, key) {
-        if (key !== 'confirmed') {
-          target.searchParams.set(key, value);
-        }
-      });
-      target.hash = u.hash || '';
-      window.location.replace(target.toString());
+      window.location.replace(
+        '/auth/callback' + (window.location.search || '') + (window.location.hash || ''),
+      );
     })();
   </script>
   <noscript>
-    <meta http-equiv="refresh" content="0;url=/?confirmed=1" />
+    <meta http-equiv="refresh" content="0;url=/auth/callback" />
   </noscript>
 </head>
 <body></body>

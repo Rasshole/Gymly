@@ -11,6 +11,7 @@ import {UserAvatar} from '@/components/ui/UserAvatar';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
 import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
+import {useTranslation, getRuntimeLanguage} from '@/i18n';
 import {formatDurationIgang} from '@/utils/activeSessionFormat';
 import {getStreakBadge} from '@/utils/streakUtils';
 import {
@@ -67,6 +68,7 @@ const ActiveUsersList: React.FC<ActiveUsersListProps> = ({
   friendsActive: _friendsActive,
   onUserPress,
 }) => {
+  const {t} = useTranslation();
   const {width: windowWidth} = useWindowDimensions();
   const uniqueUsers = useMemo(
     () => Array.from(new Map(users.map(user => [user.id, user])).values()),
@@ -129,12 +131,14 @@ const ActiveUsersList: React.FC<ActiveUsersListProps> = ({
         <View style={styles.pill}>
           <Icon name="people" size={14} color={colors.primaryDark} />
           <Text style={styles.pillText}>
-            {totalActive} {totalActive === 1 ? 'aktiv' : 'aktive'}
+            {t('activeCenter.active', {count: totalActive})}
           </Text>
         </View>
         <View style={styles.pill}>
           <Icon name="person" size={14} color={colors.primaryDark} />
-          <Text style={styles.pillText}>{friendsActive} venner aktive</Text>
+          <Text style={styles.pillText}>
+            {t('activeCenter.activeAndFriends', {count: totalActive, friends: friendsActive})}
+          </Text>
         </View>
         <View style={styles.pill}>
           <Text style={styles.pillEmoji}>🔥</Text>
@@ -185,7 +189,10 @@ const ActiveUsersList: React.FC<ActiveUsersListProps> = ({
                   </Text>
                   <Text style={styles.trainingType} numberOfLines={2}>
                     {user.workoutEmoji ? `${user.workoutEmoji} ` : ''}
-                    {formatWorkoutTypeDisplay(user.workoutType || 'cardio')}
+                    {formatWorkoutTypeDisplay(
+                      user.workoutType || 'cardio',
+                      getRuntimeLanguage(),
+                    )}
                   </Text>
                   <Text style={styles.durationText} numberOfLines={1}>
                     {durationLine}

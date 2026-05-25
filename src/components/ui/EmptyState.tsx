@@ -2,18 +2,13 @@
  * Empty State component - consistent empty states across app
  */
 
-import React, {useRef} from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Pressable,
-  Animated,
-} from 'react-native';
+import React from 'react';
+import {View, Text, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '@/theme/colors';
-import {spacing, typography} from '@/theme/designTokens';
-import {SOCIAL_EMPTY_GAP, SOCIAL_PRIMARY_MIN_HEIGHT, SOCIAL_PRIMARY_RADIUS} from '@/components/social/socialUiTokens';
+import {spacing, typography, radius, shadows} from '@/theme/designTokens';
+import {GymlyPressable} from './GymlyPressable';
+import {SOCIAL_EMPTY_GAP, SOCIAL_PRIMARY_MIN_HEIGHT} from '@/components/social/socialUiTokens';
 
 type EmptyStateProps = {
   icon?: string;
@@ -33,46 +28,25 @@ const EmptyStateComponent: React.FC<EmptyStateProps> = ({
   actionLabel,
   onAction,
 }) => {
-  const scale = useRef(new Animated.Value(1)).current;
-
-  const pressIn = () => {
-    Animated.spring(scale, {
-      toValue: 0.97,
-      useNativeDriver: true,
-      friction: 6,
-      tension: 400,
-    }).start();
-  };
-
-  const pressOut = () => {
-    Animated.spring(scale, {
-      toValue: 1,
-      useNativeDriver: true,
-      friction: 5,
-      tension: 320,
-    }).start();
-  };
-
   return (
     <View style={styles.container}>
-      <View style={styles.iconWrapper}>
-        <Icon name={icon as never} size={52} color={colors.textMuted} />
+      <View style={styles.iconRing}>
+        <Icon name={icon as never} size={48} color={colors.primary} />
       </View>
       <Text style={styles.title}>{title}</Text>
       {message ? <Text style={styles.message}>{message}</Text> : null}
       {hint ? <Text style={styles.hint}>{hint}</Text> : null}
       {actionLabel && onAction ? (
-        <Animated.View style={[styles.buttonWrap, {transform: [{scale}]}]}>
-          <Pressable
-            onPress={onAction}
-            onPressIn={pressIn}
-            onPressOut={pressOut}
-            style={({pressed}) => [styles.button, pressed && styles.buttonPressed]}
-            accessibilityRole="button"
-            accessibilityLabel={actionLabel}>
+        <GymlyPressable
+          onPress={onAction}
+          style={styles.buttonWrap}
+          haptic="medium"
+          accessibilityRole="button"
+          accessibilityLabel={actionLabel}>
+          <View style={styles.button}>
             <Text style={styles.buttonText}>{actionLabel}</Text>
-          </Pressable>
-        </Animated.View>
+          </View>
+        </GymlyPressable>
       ) : null}
     </View>
   );
@@ -89,15 +63,22 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.xxxl,
     paddingHorizontal: spacing.xl,
   },
-  iconWrapper: {
-    marginBottom: 28,
+  iconRing: {
+    width: 88,
+    height: 88,
+    borderRadius: 44,
+    backgroundColor: 'rgba(139, 92, 246, 0.1)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: spacing.xl,
+    borderWidth: 1,
+    borderColor: 'rgba(139, 92, 246, 0.12)',
   },
   title: {
-    ...typography.h4,
-    fontWeight: '700',
+    ...typography.h3,
     color: colors.text,
     textAlign: 'center',
-    marginBottom: 14,
+    marginBottom: spacing.sm,
   },
   message: {
     ...typography.body,
@@ -124,19 +105,12 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: colors.primary,
     minHeight: SOCIAL_PRIMARY_MIN_HEIGHT,
-    borderRadius: SOCIAL_PRIMARY_RADIUS,
+    borderRadius: radius.xl,
     paddingHorizontal: spacing.xl,
     paddingVertical: 14,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 4},
-    shadowOpacity: 0.22,
-    shadowRadius: 8,
-    elevation: 3,
-  },
-  buttonPressed: {
-    opacity: 0.92,
+    ...shadows.glow,
   },
   buttonText: {
     ...typography.bodyBold,

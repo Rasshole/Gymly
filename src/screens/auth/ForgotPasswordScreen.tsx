@@ -26,6 +26,7 @@ import colors from '@/theme/colors';
 import safeArea from '@/safeAreaContext';
 import {spacing, shadows} from '@/theme/designTokens';
 import Svg, {Defs, LinearGradient, Rect, Stop} from 'react-native-svg';
+import {useTranslation} from '@/i18n';
 
 const {SafeAreaView} = safeArea;
 
@@ -35,6 +36,7 @@ type ForgotPasswordScreenNavigationProp = StackNavigationProp<
 >;
 
 const ForgotPasswordScreen = () => {
+  const {t} = useTranslation();
   const navigation = useNavigation<ForgotPasswordScreenNavigationProp>();
 
   const [email, setEmail] = useState('');
@@ -56,7 +58,7 @@ const ForgotPasswordScreen = () => {
 
   const handleResetPassword = async () => {
     if (!email) {
-      Alert.alert('Fejl', 'Indtast venligst din email');
+      Alert.alert(t('authForgot.error'), t('authForgot.enterEmail'));
       return;
     }
 
@@ -65,7 +67,7 @@ const ForgotPasswordScreen = () => {
       await AuthService.requestPasswordReset(email);
       setEmailSent(true);
     } catch (error: any) {
-      Alert.alert('Fejl', error.message || 'Prøv igen');
+      Alert.alert(t('authForgot.error'), error.message || t('common.retry'));
     } finally {
       setIsLoading(false);
     }

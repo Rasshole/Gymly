@@ -1,6 +1,5 @@
 /**
  * Feed Sorting Screen
- * Allows user to choose how feed items are sorted
  */
 
 import React, {useState} from 'react';
@@ -16,48 +15,38 @@ import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '@/theme/colors';
+import {useTranslation} from '@/i18n';
 
 type FeedSortOption = 'latest' | 'personalized';
 
 const FeedSortingScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
+  const {t} = useTranslation();
   const [selectedOption, setSelectedOption] = useState<FeedSortOption>('latest');
 
   const handleSelectOption = async (option: FeedSortOption) => {
     try {
       setSelectedOption(option);
-      // TODO: Implement actual API call to save feed sorting preference
-      // await updateFeedSortingPreference(option);
-      
-      // Show success feedback
-      Alert.alert(
-        'Succes',
-        'Din feed sortering er blevet opdateret',
-        [
-          {
-            text: 'OK',
-            onPress: () => navigation.goBack(),
-          },
-        ],
-      );
-    } catch (error) {
-      Alert.alert('Fejl', 'Kunne ikke opdatere indstilling');
+      Alert.alert(t('feedSorting.successTitle'), t('feedSorting.successBody'), [
+        {
+          text: t('common.ok'),
+          onPress: () => navigation.goBack(),
+        },
+      ]);
+    } catch {
+      Alert.alert(t('common.error'), t('feedSorting.errorBody'));
     }
   };
 
   return (
     <View style={styles.container}>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.content}>
-        {/* Header Section */}
         <View style={styles.headerSection}>
           <Icon name="options-outline" size={48} color={colors.primary} />
-          <Text style={styles.headerTitle}>Feed Sortering</Text>
-          <Text style={styles.headerDescription}>
-            Vælg hvordan opslag sorteres i dit feed
-          </Text>
+          <Text style={styles.headerTitle}>{t('feedSorting.title')}</Text>
+          <Text style={styles.headerDescription}>{t('feedSorting.description')}</Text>
         </View>
 
-        {/* Options */}
         <View style={styles.optionsSection}>
           <TouchableOpacity
             style={[
@@ -75,14 +64,15 @@ const FeedSortingScreen = () => {
                 />
               </View>
               <View style={styles.optionContent}>
-                <Text style={[
-                  styles.optionTitle,
-                  selectedOption === 'latest' && styles.optionTitleSelected,
-                ]}>
-                  Seneste
+                <Text
+                  style={[
+                    styles.optionTitle,
+                    selectedOption === 'latest' && styles.optionTitleSelected,
+                  ]}>
+                  {t('feedSorting.latestTitle')}
                 </Text>
                 <Text style={styles.optionDescription}>
-                  Viser de seneste nyheder i feed
+                  {t('feedSorting.latestDescription')}
                 </Text>
               </View>
               {selectedOption === 'latest' && (
@@ -103,18 +93,21 @@ const FeedSortingScreen = () => {
                 <Icon
                   name="sparkles-outline"
                   size={28}
-                  color={selectedOption === 'personalized' ? colors.primary : colors.textSecondary}
+                  color={
+                    selectedOption === 'personalized' ? colors.primary : colors.textSecondary
+                  }
                 />
               </View>
               <View style={styles.optionContent}>
-                <Text style={[
-                  styles.optionTitle,
-                  selectedOption === 'personalized' && styles.optionTitleSelected,
-                ]}>
-                  Personlig
+                <Text
+                  style={[
+                    styles.optionTitle,
+                    selectedOption === 'personalized' && styles.optionTitleSelected,
+                  ]}>
+                  {t('feedSorting.personalizedTitle')}
                 </Text>
                 <Text style={styles.optionDescription}>
-                  Viser en blanding af nyeste opslag, den slags opslag du oftest interagerer med, og populære opslag du måske ikke har opdaget endnu
+                  {t('feedSorting.personalizedDescription')}
                 </Text>
               </View>
               {selectedOption === 'personalized' && (
@@ -211,4 +204,3 @@ const styles = StyleSheet.create({
 });
 
 export default FeedSortingScreen;
-

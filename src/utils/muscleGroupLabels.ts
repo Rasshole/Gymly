@@ -1,8 +1,9 @@
 /**
- * Danish labels and helpers for muscle / training types (check-in, session, feed).
+ * Muscle / training type labels (check-in, session, feed) — locale-aware.
  */
 
 import {MuscleGroup} from '@/types/workout.types';
+import type {AppLanguage} from '@/i18n/types';
 
 export const MUSCLE_GROUP_LABELS_DK: Record<MuscleGroup, string> = {
   bryst: 'Bryst',
@@ -17,7 +18,39 @@ export const MUSCLE_GROUP_LABELS_DK: Record<MuscleGroup, string> = {
   pilates: 'Pilates',
 };
 
+export const MUSCLE_GROUP_LABELS_EN: Record<MuscleGroup, string> = {
+  bryst: 'Chest',
+  triceps: 'Triceps',
+  skulder: 'Shoulder',
+  ben: 'Legs',
+  biceps: 'Biceps',
+  mave: 'Abs',
+  ryg: 'Back',
+  cardio: 'Cardio',
+  reformer: 'Reformer',
+  pilates: 'Pilates',
+};
+
 const ALL_KEYS = new Set<string>(Object.keys(MUSCLE_GROUP_LABELS_DK));
+
+export function getMuscleGroupLabel(key: MuscleGroup, language: AppLanguage): string {
+  if (language === 'en') {
+    return MUSCLE_GROUP_LABELS_EN[key];
+  }
+  return MUSCLE_GROUP_LABELS_DK[key];
+}
+
+export function labelForMuscleToken(raw: string, language: AppLanguage): string {
+  const k = normalizeLegacyMuscleKey(raw.trim());
+  if (k && ALL_KEYS.has(k)) {
+    return getMuscleGroupLabel(k as MuscleGroup, language);
+  }
+  const u = raw.trim();
+  if (u.toLowerCase() === 'fri') {
+    return language === 'en' ? 'Open workout' : 'Fri træning';
+  }
+  return u || (language === 'en' ? 'Workout' : 'Træning');
+}
 
 /**
  * Træningstyper der på check-in fylder "hele kortet" alene (kan ikke kombineres med
@@ -68,20 +101,18 @@ export function workoutTypeForFirestoreCheckIn(encoded: string): string | undefi
 /**
  * Human-readable list for UI (handles comma-separated keys from storage).
  */
-export function formatWorkoutTypeDisplay(workoutType: string | undefined | null): string {
+export function formatWorkoutTypeDisplay(
+  workoutType: string | undefined | null,
+  language: AppLanguage = 'da',
+): string {
   if (!workoutType?.trim()) {
-    return MUSCLE_GROUP_LABELS_DK.cardio;
+    return getMuscleGroupLabel('cardio', language);
   }
   const parts = workoutType.split(',').map(s => s.trim()).filter(Boolean);
   if (parts.length === 0) {
-    return MUSCLE_GROUP_LABELS_DK.cardio;
+    return getMuscleGroupLabel('cardio', language);
   }
-  return parts
-    .map(p => {
-      const k = normalizeLegacyMuscleKey(p);
-      return ALL_KEYS.has(k) ? MUSCLE_GROUP_LABELS_DK[k as MuscleGroup] : p;
-    })
-    .join(', ');
+  return parts.map(p => labelForMuscleToken(p, language)).join(', ');
 }
 
 /**

@@ -20,6 +20,7 @@ import {useFriendStore} from '@/store/friendStore';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
 import ScreenHeader from '@/components/ui/ScreenHeader';
+import {useTranslation} from '@/i18n';
 import {
   upsertMyProfile,
   searchProfiles,
@@ -35,6 +36,7 @@ import {
 
 const AddFriendScreen = () => {
   const navigation = useNavigation<any>();
+  const {t} = useTranslation();
   const {user} = useAppStore();
   const loadFriendStore = useFriendStore(s => s.load);
   const [query, setQuery] = useState('');
@@ -114,7 +116,7 @@ const AddFriendScreen = () => {
         }
       }
     } catch (e: any) {
-      Alert.alert('Søgning fejlede', e?.message ?? 'Prøv igen.');
+      Alert.alert(t('addFriend.searchFailed'), e?.message ?? t('common.retry'));
       setResults([]);
       setActiveFriendGymById({});
     } finally {
@@ -131,11 +133,11 @@ const AddFriendScreen = () => {
       setPendingTo(prev => new Set(prev).add(profile.id));
       void loadFriendStore(currentUserId);
       Alert.alert(
-        'Sendt',
-        `${profile.displayName} får en besked under Notifikationer.`,
+        t('home.videoSent'),
+        t('addFriend.requestSentBody', {name: profile.displayName}),
       );
     } catch (e: any) {
-      Alert.alert('Kunne ikke sende', e?.message ?? 'Prøv igen.');
+      Alert.alert(t('addFriend.couldNotSend'), e?.message ?? t('common.retry'));
     }
   };
 
@@ -173,18 +175,18 @@ const AddFriendScreen = () => {
             </Text>
             {isFriend && activeGym ? (
               <Text style={styles.activeHint} numberOfLines={1}>
-                Træner nu · {activeGym}
+                {t('addFriend.trainingNowAt', {gym: activeGym})}
               </Text>
             ) : null}
           </View>
         </TouchableOpacity>
         {isFriend ? (
           <View style={styles.pillMuted}>
-            <Text style={styles.pillMutedText}>Venner</Text>
+            <Text style={styles.pillMutedText}>{t('friendsScreen.filterFriends')}</Text>
           </View>
         ) : isPending ? (
           <View style={styles.pillMuted}>
-            <Text style={styles.pillMutedText}>Afventer</Text>
+            <Text style={styles.pillMutedText}>{t('plannedSessions.invited')}</Text>
           </View>
         ) : (
           <TouchableOpacity
@@ -193,7 +195,7 @@ const AddFriendScreen = () => {
             activeOpacity={0.85}
             hitSlop={{top: 8, bottom: 8, left: 8, right: 8}}>
             <Icon name="person-add-outline" size={18} color={colors.white} style={styles.addBtnIcon} />
-            <Text style={styles.addBtnText}>Tilføj</Text>
+            <Text style={styles.addBtnText}>{t('addFriend.add')}</Text>
           </TouchableOpacity>
         )}
       </View>
@@ -202,12 +204,12 @@ const AddFriendScreen = () => {
 
   return (
     <View style={styles.container}>
-      <ScreenHeader title="Tilføj ven" onBack={() => navigation.goBack()} />
+      <ScreenHeader title={t('addFriend.title')} onBack={() => navigation.goBack()} />
       <View style={styles.searchWrap}>
         <Icon name="search" size={20} color={colors.textMuted} style={styles.searchIcon} />
         <TextInput
           style={styles.searchInput}
-          placeholder="Søg på brugernavn eller navn"
+          placeholder={t('addFriend.searchPlaceholder')}
           placeholderTextColor={colors.textMuted}
           value={query}
           onChangeText={text => {
@@ -237,9 +239,9 @@ const AddFriendScreen = () => {
         contentContainerStyle={styles.list}
         ListEmptyComponent={
           !loading && query.length >= 2 ? (
-            <Text style={styles.empty}>Ingen brugere fundet.</Text>
+            <Text style={styles.empty}>{t('addFriend.noUsersFound')}</Text>
           ) : query.length < 2 ? (
-            <Text style={styles.empty}>Skriv mindst 2 tegn for at søge.</Text>
+            <Text style={styles.empty}>{t('addFriend.typeToSearch')}</Text>
           ) : null
         }
       />

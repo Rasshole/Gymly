@@ -12,6 +12,7 @@ import {spacing, radius, shadows, typography} from '@/theme/designTokens';
 import {formatGymDisplayName} from '@/utils/gymDisplay';
 import type {DanishGym} from '@/data/danishGyms';
 import PlanSessionCenterPickerSheet from '@/components/planned/PlanSessionCenterPickerSheet';
+import {useTranslation} from '@/i18n';
 
 const PURPLE_MIST = 'rgba(139, 92, 246, 0.09)';
 const CARD_LINE = 'rgba(139, 92, 246, 0.1)';
@@ -36,6 +37,7 @@ type DetachedSheetProps = BaseProps & {
 export type TrainingCenterPickerProps = InternalSheetProps | DetachedSheetProps;
 
 const TrainingCenterPicker: React.FC<TrainingCenterPickerProps> = props => {
+  const {t} = useTranslation();
   const detached = props.sheetMode === 'detached';
   const onSheetOpenChange = detached ? props.onSheetOpenChange : undefined;
   const [sheetOpen, setSheetOpen] = useState(false);
@@ -70,12 +72,12 @@ const TrainingCenterPicker: React.FC<TrainingCenterPickerProps> = props => {
       onPress={openSheet}
       android_ripple={{color: PURPLE_MIST}}
       accessibilityRole="button"
-      accessibilityLabel="Vælg center">
+      accessibilityLabel={t('centerPicker.selectCenter')}>
       <View style={styles.iconWrap}>
         <Ionicons name="location-outline" size={18} color={colors.primary} />
       </View>
       <Text style={[styles.rowText, !props.value && styles.placeholder]} numberOfLines={2}>
-        {props.value ? formatGymDisplayName(props.value) : 'Vælg center'}
+        {props.value ? formatGymDisplayName(props.value) : t('centerPicker.selectCenter')}
       </Text>
       <Ionicons name="chevron-down" size={18} color={colors.textMuted} />
     </Pressable>

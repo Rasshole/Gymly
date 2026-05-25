@@ -36,32 +36,13 @@ import {getHomeLeaderboardCenterIdForUser} from '@/utils/leaderboardCenterFromGy
 import {findGymById} from '@/utils/gymDisplay';
 import type {LeaderboardEntry} from '@/types/leaderboard.types';
 import {UserAvatar} from '@/components/ui/UserAvatar';
+import {useTranslation, rt} from '@/i18n';
 
 type Period = 'week' | 'month' | 'all';
 type LeaderboardMetric = 'checkins' | 'minutes' | 'streak';
 type CategoryTab = 'gymly' | 'friends' | 'center';
 
-const METRIC_OPTIONS: {key: LeaderboardMetric; label: string}[] = [
-  {key: 'checkins', label: 'Check-ins'},
-  {key: 'minutes', label: 'Tid'},
-  {key: 'streak', label: 'Streak'},
-];
-
-const CATEGORY_TABS: {key: CategoryTab; label: string}[] = [
-  {key: 'gymly', label: 'Gymly'},
-  {key: 'friends', label: 'Venner'},
-  {key: 'center', label: 'Center'},
-];
-
-const PERIOD_OPTIONS: {key: Period; label: string}[] = [
-  {key: 'week', label: 'Denne uge'},
-  {key: 'month', label: 'Denne måned'},
-  {key: 'all', label: 'Altid'},
-];
-
 const TOP_PREVIEW_COUNT = 10;
-const EMPTY_CENTER_TITLE = 'Ingen centerdata endnu';
-const EMPTY_CENTER_MESSAGE = 'Tjek ind i dit center for at komme på ranglisten.';
 
 /** Supabase/PostgREST fejl er ofte plain objects — ikke `instanceof Error`. */
 function stringifyLeaderboardError(e: unknown): string {
@@ -90,7 +71,7 @@ function stringifyLeaderboardError(e: unknown): string {
       return parts.join(' ');
     }
   }
-  return 'Ukendt fejl';
+  return rt('notifications.unknownError');
 }
 
 function normalizeLeaderboardEntries(input: unknown): LeaderboardEntry[] {
@@ -114,7 +95,7 @@ function normalizeLeaderboardEntries(input: unknown): LeaderboardEntry[] {
       const displayName =
         typeof entry.displayName === 'string' && entry.displayName.trim().length > 0
           ? entry.displayName.trim()
-          : 'Bruger';
+          : rt('common.unknownUser');
       const value = Number(entry.value ?? 0);
       const rank = Number(entry.rank ?? idx + 1);
       return {
@@ -152,7 +133,7 @@ function normalizeLeaderboardEntries(input: unknown): LeaderboardEntry[] {
 function formatMetricValue(value: number, metric: LeaderboardMetric): string {
   if (metric === 'checkins') return `${value} check-ins`;
   if (metric === 'minutes') return `${value} min`;
-  return `${value} dages streak`;
+  return rt('leaderboard.dayStreak', {count: String(value)});
 }
 
 function AnimatedMetricValue({
@@ -208,15 +189,15 @@ function getMotivationText(
   rank: number,
 ): string {
   if (!current) {
-    return 'Check ind og kom på ranglisten.';
+    return rt('leaderboard.checkInToRank');
   }
   if (rank === 1) {
-    return 'Du er #1 – hold momentumet!';
+    return rt('leaderboard.keepMomentum');
   }
   if (rank <= 4) {
-    return `${rank - 1} plads(er) til top 3 – du er tæt på!`;
+    return rt('leaderboard.closeToTop3', {count: String(rank - 1)});
   }
-  return 'Hold momentum – du kæmper med om pladserne.';
+  return rt('leaderboard.keepMomentum');
 }
 
 function YourPlacementCard({
@@ -243,7 +224,7 @@ function YourPlacementCard({
   return (
     <View style={styles.yourCard}>
       <View style={styles.yourCardHeader}>
-        <Text style={styles.yourCardTitle}>Din placering</Text>
+        <Text style={styles.yourCardTitle}>{rt('leaderboard.yourPlacement')}</Text>
         <View style={styles.rankBadge}>
           <Text style={styles.rankBadgeText}>#{rank}</Text>
         </View>
@@ -259,7 +240,7 @@ function YourPlacementCard({
       <Text style={styles.yourMovement}>{movementText}</Text>
       <Text style={styles.motivationText}>{motivation}</Text>
       <View style={styles.yourHintWrap}>
-        <Text style={styles.yourHintPrefix}>Nuværende måling:</Text>
+        <Text style={styles.yourHintPrefix}>{rt('leaderboard.currentMetric')}</Text>
         <AnimatedMetricValue value={entry.value} metric={metric} style={styles.yourHint} />
       </View>
     </View>
@@ -371,6 +352,7 @@ function LeaderboardSearchBar({
   onChangeText: (text: string) => void;
   variant?: 'page' | 'inSection';
 }) {
+  const {t} = useTranslation();
   return (
     <View
       style={[
@@ -380,7 +362,7 @@ function LeaderboardSearchBar({
       <Icon name="search" size={20} color={colors.textMuted} />
       <TextInput
         style={styles.searchInput}
-        placeholder="Søg navn, @brugernavn …"
+        placeholder={t('leaderboard.searchPlaceholder')}
         placeholderTextColor={colors.textMuted}
         value={value}
         onChangeText={onChangeText}
@@ -397,6 +379,31 @@ function LeaderboardSearchBar({
 }
 
 const LeaderboardScreen = () => {
+  const {t} = useTranslation();
+  const periodOptions = useMemo(
+    () => [
+      {key: 'week' as const, label: t('leaderboard.thisWeek')},
+      {key: 'month' as const, label: t('leaderboard.thisMonth')},
+      {key: 'all' as const, label: t('profile.periodAll')},
+    ],
+    [t],
+  );
+  const categoryTabs = useMemo(
+    () => [
+      {key: 'gymly' as const, label: 'Gymly'},
+      {key: 'friends' as const, label: t('profile.friends')},
+      {key: 'center' as const, label: t('leaderboard.tabCenter')},
+    ],
+    [t],
+  );
+  const metricOptions = useMemo(
+    () => [
+      {key: 'checkins' as const, label: 'Check-ins'},
+      {key: 'minutes' as const, label: t('leaderboard.metricTime')},
+      {key: 'streak' as const, label: 'Streak'},
+    ],
+    [t],
+  );
   const navigation = useNavigation<StackNavigationProp<any>>();
   const insets = useSafeAreaInsets();
   const user = useAppStore(s => s.user);
@@ -536,7 +543,7 @@ const LeaderboardScreen = () => {
           setEntries([]);
           setFetchError(msg);
           if (category === 'center') {
-            setCenterError('Kunne ikke hente centerdata lige nu.');
+            setCenterError(t('leaderboard.couldNotLoadCenter'));
           }
         }
       } finally {
@@ -549,7 +556,7 @@ const LeaderboardScreen = () => {
     return () => {
       cancelled = true;
     };
-  }, [user?.id, category, metric, period, selectedCenterId, realtimeRevision]);
+  }, [user?.id, category, metric, period, selectedCenterId, realtimeRevision, t]);
 
   useEffect(() => {
     if (category !== 'center') return;
@@ -623,18 +630,18 @@ const LeaderboardScreen = () => {
 
   const movementText = useMemo(() => {
     if (!placementEntry || placementRank <= 0) {
-      return 'Ranglisten opdateres live når folk træner.';
+      return t('leaderboard.liveUpdates');
     }
     const prev = previousRankByUserRef.current[placementEntry.userId];
     if (prev == null || prev === placementRank) {
-      return 'Ranglisten opdateres live når folk træner.';
+      return t('leaderboard.liveUpdates');
     }
     const delta = prev - placementRank;
     if (delta > 0) {
-      return `⬆️ +${delta} placering${delta === 1 ? '' : 'er'} siden sidst`;
+      return t('leaderboard.movementUp', {count: String(delta)});
     }
-    return `⬇️ ${Math.abs(delta)} placering${Math.abs(delta) === 1 ? '' : 'er'} siden sidst`;
-  }, [placementEntry, placementRank]);
+    return t('leaderboard.movementDown', {count: String(Math.abs(delta))});
+  }, [placementEntry, placementRank, t]);
 
   const topThree = useMemo(
     () => normalizeLeaderboardEntries(filtered).slice(0, 3),
@@ -654,14 +661,14 @@ const LeaderboardScreen = () => {
     [placementEntry, placementRank],
   );
 
-  const periodLabelDa = useMemo(
+  const periodLabel = useMemo(
     () =>
       period === 'week'
-        ? 'denne uge'
+        ? t('leaderboard.periodWeek')
         : period === 'month'
-          ? 'denne måned'
-          : 'alt tid',
-    [period],
+          ? t('leaderboard.periodMonth')
+          : t('leaderboard.allTime'),
+    [period, t],
   );
 
   const handleUserPress = (userId: string, name: string) => {
@@ -683,11 +690,13 @@ const LeaderboardScreen = () => {
   const showCenterEmpty =
     isCenterCategory && !loading && !fetchError && !centerError && filtered.length === 0;
   const listSectionTitle =
-    hasMoreThanPreview && !showFullList ? 'Top 10' : 'Rangliste';
+    hasMoreThanPreview && !showFullList
+      ? t('leaderboard.top10')
+      : t('leaderboard.listTitle');
 
   return (
     <View style={styles.container}>
-      <ScreenHeader title="Ranglister" onBack={() => navigation.goBack()} showBack />
+      <ScreenHeader title={t('leaderboard.title')} onBack={() => navigation.goBack()} showBack />
 
       {loading && (
         <View style={styles.loadingBar}>
@@ -699,7 +708,7 @@ const LeaderboardScreen = () => {
         <View style={styles.fetchErrorBanner}>
           <Icon name="warning-outline" size={20} color={colors.error} />
           <Text style={styles.fetchErrorText} numberOfLines={4}>
-            Kunne ikke hente ranglisten: {fetchError}
+            {t('leaderboard.couldNotLoad', {error: fetchError})}
           </Text>
           <TouchableOpacity
             onPress={() => {
@@ -707,8 +716,8 @@ const LeaderboardScreen = () => {
               setRealtimeRevision(v => v + 1);
             }}
             hitSlop={12}
-            accessibilityLabel="Prøv igen">
-            <Text style={styles.fetchErrorRetry}>Prøv igen</Text>
+            accessibilityLabel={t('common.retry')}>
+            <Text style={styles.fetchErrorRetry}>{t('common.retry')}</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => setFetchError(null)} hitSlop={12}>
             <Icon name="close" size={22} color={colors.textMuted} />
@@ -724,7 +733,7 @@ const LeaderboardScreen = () => {
         ]}
         showsVerticalScrollIndicator={false}>
         <View style={styles.categoryRow}>
-          {CATEGORY_TABS.map(({key, label}) => {
+          {categoryTabs.map(({key, label}) => {
             const selected = category === key;
             return (
               <TouchableOpacity
@@ -743,19 +752,18 @@ const LeaderboardScreen = () => {
         </View>
 
         <Text style={styles.categoryHint}>
-          {category === 'gymly' && 'Rangliste for alle brugere på Gymly.'}
-          {category === 'friends' && 'Rangliste mellem dig og dine venner.'}
-          {category === 'center' &&
-            'Rangliste for det valgte center (baseret på backend-data for centeret).'}
+          {category === 'gymly' && t('leaderboard.gymlyScope')}
+          {category === 'friends' && t('leaderboard.friendsScope')}
+          {category === 'center' && t('leaderboard.centerScope')}
         </Text>
 
         <View style={styles.filterSection}>
-          <Text style={styles.filterLabel}>Måling</Text>
+          <Text style={styles.filterLabel}>{t('leaderboard.metricLabel')}</Text>
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.chipRow}>
-            {METRIC_OPTIONS.map(({key, label}) => {
+            {metricOptions.map(({key, label}) => {
               const selected = metric === key;
               return (
                 <TouchableOpacity
@@ -776,12 +784,12 @@ const LeaderboardScreen = () => {
         </View>
 
         <View style={styles.filterSection}>
-          <Text style={styles.filterLabel}>Periode</Text>
+          <Text style={styles.filterLabel}>{t('leaderboard.periodFilterLabel')}</Text>
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.chipRow}>
-            {PERIOD_OPTIONS.map(({key, label}) => {
+            {periodOptions.map(({key, label}) => {
               const selected = period === key;
               return (
                 <TouchableOpacity
@@ -803,20 +811,24 @@ const LeaderboardScreen = () => {
 
         {category === 'center' && (
           <View style={styles.centerSection}>
-            <Text style={styles.filterLabel}>Vælg center</Text>
+            <Text style={styles.filterLabel}>{t('leaderboard.selectCenter')}</Text>
             {selectedCenter && (
               <View style={styles.selectedCenterBanner}>
                 <View style={styles.selectedCenterTextWrap}>
                   <Text style={styles.selectedCenterName}>{selectedCenter.name}</Text>
                   <Text style={styles.selectedCenterCity}>{selectedCenter.city ?? ''}</Text>
                   <Text style={styles.selectedCenterLive}>
-                    {liveCountByGymId[selectedCenter.id] ?? 0} aktive nu
+                    {t('leaderboard.activeNow', {
+                      count: liveCountByGymId[selectedCenter.id] ?? 0,
+                    })}
                   </Text>
-                  <Text style={styles.selectedCenterMomentum}>🔥 Mest aktive center denne uge</Text>
+                  <Text style={styles.selectedCenterMomentum}>
+                    {t('leaderboard.hottestCenter')}
+                  </Text>
                 </View>
                 {selectedCenterId === homeCenterId && (
                   <View style={styles.homeBadge}>
-                    <Text style={styles.homeBadgeText}>Dit center</Text>
+                    <Text style={styles.homeBadgeText}>{t('leaderboard.yourCenter')}</Text>
                   </View>
                 )}
               </View>
@@ -825,7 +837,7 @@ const LeaderboardScreen = () => {
               <Icon name="search" size={20} color={colors.textMuted} />
               <TextInput
                 style={styles.centerSearchInput}
-                placeholder="Søg efter center (navn eller by)..."
+                placeholder={t('leaderboard.searchCenterPlaceholder')}
                 placeholderTextColor={colors.textMuted}
                 value={centerSearchQuery}
                 onChangeText={setCenterSearchQuery}
@@ -838,7 +850,7 @@ const LeaderboardScreen = () => {
                 </TouchableOpacity>
               )}
             </View>
-            <Text style={styles.centerListLabel}>Centre</Text>
+            <Text style={styles.centerListLabel}>{t('leaderboard.centersLabel')}</Text>
             <ScrollView
               style={styles.centerList}
               nestedScrollEnabled
@@ -878,14 +890,14 @@ const LeaderboardScreen = () => {
 
         {!isEmpty && topThree.length > 0 && (
           <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Top 3</Text>
+            <Text style={styles.sectionTitle}>{t('leaderboard.top3')}</Text>
             <TopThreePodium users={topThree} onUserPress={handleUserPress} metric={metric} />
           </View>
         )}
 
         {hasMoreThanPreview && showFullList && (
           <View style={styles.section}>
-            <Text style={styles.searchSectionLabel}>Søg på profiler</Text>
+            <Text style={styles.searchSectionLabel}>{t('leaderboard.searchProfiles')}</Text>
             <LeaderboardSearchBar
               variant="inSection"
               value={searchQuery}
@@ -902,7 +914,7 @@ const LeaderboardScreen = () => {
                 <LeaderboardRow
                   key={item.userId}
                   rank={item.rank ?? idx + 4}
-                  name={item.isCurrentUser ? 'Dig' : item.displayName}
+                  name={item.isCurrentUser ? t('common.you') : item.displayName}
                   value={item.valueLabel}
                   valueLabel={
                     item.aliveSubtitle ||
@@ -937,7 +949,7 @@ const LeaderboardScreen = () => {
                 }}
                 activeOpacity={0.85}>
                 <Text style={styles.fullListButtonText}>
-                  {showFullList ? 'Vis kun top 10' : 'Se hele listen og søg profiler'}
+                  {showFullList ? t('leaderboard.showTop10') : t('leaderboard.showFullList')}
                 </Text>
                 <Icon
                   name={showFullList ? 'chevron-up' : 'chevron-down'}
@@ -959,10 +971,12 @@ const LeaderboardScreen = () => {
                 getStreakBadge(placementEntry.leaderboardStreak ?? 0) || '🔥'
               } ${placementEntry.leaderboardStreak ?? 0} dages streak`}
               checkInText={`${placementEntry.leaderboardCheckIns ?? 0} check-ins`}
-              timeText={`${placementEntry.leaderboardMinutes ?? 0} min træning`}
+              timeText={t('leaderboard.minTraining', {
+                count: placementEntry.leaderboardMinutes ?? 0,
+              })}
               movementText={movementText}
               metric={metric}
-              periodLabel={periodLabelDa}
+              periodLabel={periodLabel}
             />
           </View>
         )}
@@ -980,7 +994,7 @@ const LeaderboardScreen = () => {
         {isCenterCategory && centerError && !loading && (
           <EmptyState
             icon="alert-circle-outline"
-            title="Center utilgængelig"
+            title={t('leaderboard.centerUnavailable')}
             message={centerError}
           />
         )}
@@ -988,8 +1002,8 @@ const LeaderboardScreen = () => {
         {showCenterEmpty && (
           <EmptyState
             icon="barbell-outline"
-            title={EMPTY_CENTER_TITLE}
-            message={EMPTY_CENTER_MESSAGE}
+            title={t('leaderboard.noCenterData')}
+            message={t('leaderboard.noCenterDataBody')}
           />
         )}
 
@@ -998,23 +1012,19 @@ const LeaderboardScreen = () => {
             icon="trophy-outline"
             title={
               category === 'center' && !selectedCenterId
-                ? 'Vælg et center'
-                : category === 'center'
-                  ? 'Ingen placeringer endnu 👀'
-                  : category === 'friends'
-                    ? 'Ingen placeringer endnu 👀'
-                    : 'Ingen placeringer endnu 👀'
+                ? t('leaderboard.selectCenterTitle')
+                : t('leaderboard.noPlacements')
             }
             message={
               category === 'center' && !selectedCenterId
-                ? 'Vælg et center på listen for at se ranglisten.'
+                ? t('leaderboard.selectCenterHint')
                 : category === 'center'
-                  ? 'Bliv den første til at sætte standarden i denne uge.'
+                  ? t('leaderboard.beFirstWeek')
                   : category === 'friends'
-                    ? 'Inviter venner og byg jeres egen liga.'
-                    : 'Bliv den første til at sætte standarden denne uge.'
+                    ? t('leaderboard.inviteFriendsLeague')
+                    : t('leaderboard.beFirstWeek')
             }
-            actionLabel={category === 'friends' ? 'Inviter venner' : undefined}
+            actionLabel={category === 'friends' ? t('leaderboard.inviteFriends') : undefined}
             onAction={
               category === 'friends'
                 ? () => navigation.navigate('AddFriend')

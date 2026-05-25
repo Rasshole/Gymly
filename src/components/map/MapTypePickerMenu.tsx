@@ -1,7 +1,7 @@
 /**
- * Korttype-vælger (Standard / Satellit / Hybrid / Terræn).
+ * Map type picker (Standard / Satellite / Hybrid / Terrain).
  */
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useMemo} from 'react';
 import {
   Animated,
   Easing,
@@ -16,15 +16,9 @@ import {
 } from 'react-native';
 import colors from '@/theme/colors';
 import {radius, spacing} from '@/theme/designTokens';
+import {useTranslation} from '@/i18n';
 
 export type MapTypeValue = 'standard' | 'satellite' | 'hybrid' | 'terrain';
-
-const OPTIONS: {value: MapTypeValue; label: string}[] = [
-  {value: 'standard', label: 'Standard'},
-  {value: 'satellite', label: 'Satellit'},
-  {value: 'hybrid', label: 'Hybrid'},
-  {value: 'terrain', label: 'Terræn'},
-];
 
 type Props = {
   visible: boolean;
@@ -41,9 +35,21 @@ export function MapTypePickerMenu({
   onClose,
   menuStyle,
 }: Props) {
+  const {t} = useTranslation();
   const opacity = useRef(new Animated.Value(0)).current;
   const scale = useRef(new Animated.Value(0.94)).current;
   const translateY = useRef(new Animated.Value(8)).current;
+
+  const options = useMemo(
+    () =>
+      [
+        {value: 'standard' as const, label: t('map.mapTypeStandard')},
+        {value: 'satellite' as const, label: t('map.mapTypeSatellite')},
+        {value: 'hybrid' as const, label: t('map.mapTypeHybrid')},
+        {value: 'terrain' as const, label: t('map.mapTypeTerrain')},
+      ],
+    [t],
+  );
 
   useEffect(() => {
     if (!visible) {
@@ -92,7 +98,7 @@ export function MapTypePickerMenu({
             transform: [{scale}, {translateY}],
           },
         ]}>
-        {OPTIONS.map(opt => {
+        {options.map(opt => {
           const selected = value === opt.value;
           return (
             <Pressable

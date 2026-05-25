@@ -6,15 +6,17 @@
 import React from 'react';
 import {View, Image, Text, StyleSheet, ActivityIndicator} from 'react-native';
 import colors from '@/theme/colors';
+import {useTranslation} from '@/i18n';
 
 const splashLogo = require('@/assets/images/splash-kettlebell.png');
 
 const LoadingScreen = () => {
+  const {t} = useTranslation();
   return (
     <View style={styles.container}>
       <Image source={splashLogo} style={styles.logo} resizeMode="contain" />
       <ActivityIndicator size="large" color={colors.primary} style={styles.spinner} />
-      <Text style={styles.label}>Indlæser Gymly…</Text>
+      <Text style={styles.label}>{t('loadingScreen.label')}</Text>
     </View>
   );
 };

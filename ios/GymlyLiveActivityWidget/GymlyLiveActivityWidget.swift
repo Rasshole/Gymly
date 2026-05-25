@@ -30,7 +30,6 @@ struct GymlyLiveActivityWidget: Widget {
         }
         DynamicIslandExpandedRegion(.center) {
           VStack(spacing: 6) {
-            GymlyLiveLogo(size: 20, cornerRadius: 6)
             Text(context.state.startedAt, style: .timer)
               .font(.system(size: 24, weight: .bold, design: .rounded))
               .monospacedDigit()
@@ -58,16 +57,11 @@ struct GymlyLiveActivityWidget: Widget {
           Color.clear.frame(width: 1, height: 1)
         }
       } compactLeading: {
-        GymlyLiveLogo(size: 16, cornerRadius: 4)
+        islandTimerText(context.state.startedAt, size: 13)
       } compactTrailing: {
-        Text(context.state.startedAt, style: .timer)
-          .font(.system(size: 13, weight: .semibold, design: .rounded))
-          .monospacedDigit()
-          .foregroundStyle(.white)
-          .lineLimit(1)
-          .minimumScaleFactor(0.8)
+        Color.clear.frame(width: 1, height: 1)
       } minimal: {
-        GymlyLiveLogo(size: 14, cornerRadius: 4)
+        islandTimerText(context.state.startedAt, size: 12)
       }
       .keylineTint(gymlyPurple)
     }
@@ -81,7 +75,7 @@ private struct GymlyLiveActivityLockScreenCard: View {
   let startedAt: Date
 
   var body: some View {
-    ZStack(alignment: .topLeading) {
+    ZStack {
       RoundedRectangle(cornerRadius: 22, style: .continuous)
         .fill(.ultraThinMaterial)
         .overlay(
@@ -103,10 +97,6 @@ private struct GymlyLiveActivityLockScreenCard: View {
             .stroke(.white.opacity(0.18), lineWidth: 0.7)
         )
         .shadow(color: .black.opacity(0.18), radius: 8, y: 5)
-
-      GymlyLiveLogo(size: 28, cornerRadius: 8)
-        .padding(.top, 14)
-        .padding(.leading, 16)
 
       VStack(spacing: 6) {
         Text(startedAt, style: .timer)
@@ -141,25 +131,13 @@ private struct GymlyLiveActivityLockScreenCard: View {
   }
 }
 
-private struct GymlyLiveLogo: View {
-  var size: CGFloat
-  var cornerRadius: CGFloat
-
-  var body: some View {
-    Image("gymly-live-logo")
-      .renderingMode(.original)
-      .resizable()
-      .interpolation(.high)
-      .scaledToFit()
-      .padding(size * 0.06)
-      .frame(width: size, height: size)
-      .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
-      .overlay(
-        RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-          .stroke(Color.white.opacity(0.08), lineWidth: 0.5)
-      )
-      .shadow(color: .black.opacity(0.18), radius: 4, y: 2)
-  }
+private func islandTimerText(_ startedAt: Date, size: CGFloat) -> some View {
+  Text(startedAt, style: .timer)
+    .font(.system(size: size, weight: .semibold, design: .rounded))
+    .monospacedDigit()
+    .foregroundStyle(.white)
+    .lineLimit(1)
+    .minimumScaleFactor(0.8)
 }
 
 private func shortCenterName(_ full: String) -> String {
@@ -172,5 +150,3 @@ private func shortCenterName(_ full: String) -> String {
   }
   return trimmed
 }
-
-// MARK: - App icon badge (Asset Catalog: gymly-live-logo)

@@ -21,7 +21,8 @@ import DateTimePicker, {
 } from '@react-native-community/datetimepicker';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import colors from '@/theme/colors';
-import {spacing, radius, typography} from '@/theme/designTokens';
+import {spacing, radius, typography, sheet} from '@/theme/designTokens';
+import {SheetHandle} from './SheetHandle';
 
 /** UIDatePicker wheels er typisk 216pt; lidt ekstra undgår clipping i Modal. */
 const WHEEL_HEIGHT = 234;
@@ -114,6 +115,7 @@ const TimePickerSheet: React.FC<TimePickerSheetProps> = ({
             styles.sheet,
             {paddingBottom: Math.max(insets.bottom, spacing.md) + spacing.sm},
           ]}>
+          <SheetHandle />
           <View style={styles.header}>
             <Pressable onPress={onClose} hitSlop={12} style={styles.headerBtn}>
               <Text style={styles.cancelText}>Annuller</Text>
@@ -152,14 +154,13 @@ const styles = StyleSheet.create({
   overlay: {
     flex: 1,
     justifyContent: 'flex-end',
-    backgroundColor: 'rgba(15, 23, 42, 0.38)',
+    backgroundColor: sheet.overlay,
   },
   sheet: {
     backgroundColor: colors.white,
-    borderTopLeftRadius: 22,
-    borderTopRightRadius: 22,
-    paddingHorizontal: spacing.md,
-    paddingTop: spacing.sm,
+    borderTopLeftRadius: sheet.topRadius,
+    borderTopRightRadius: sheet.topRadius,
+    paddingHorizontal: spacing.lg,
     width: '100%',
     zIndex: 2,
     elevation: 12,

@@ -20,7 +20,7 @@ import {ActivityCard} from '@/components/ui/ActivityCard';
 import GymlyPostCard from '@/components/feed/GymlyPostCard';
 import {PostActionBottomSheet} from '@/components/feed/PostActionBottomSheet';
 import type {ActivityEvent, ActivityScope} from '@/types/activity.types';
-import {useActivityData, useGroups} from '@/hooks/data';
+import {useActivityData} from '@/hooks/data';
 import {formatRelativeTime} from '@/utils/formatRelativeTime';
 import {mapEventTypeToActivityCard, buildSecondaryInfo} from '@/utils/activityUtils';
 import {useAppStore} from '@/store/appStore';
@@ -28,17 +28,16 @@ import {useDashboardStatsStore} from '@/store/dashboardStatsStore';
 import * as streak from '@/utils/streakUtils';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
-import {SURFACE_GROUPS_IN_APP} from '@/config/launchSurfaceConfig';
+import {useTranslation} from '@/i18n';
 
 type FilterScope = 'all' | ActivityScope;
 type TimeFilter = 'today' | 'week';
 
-const SCOPE_OPTIONS: {key: FilterScope; label: string}[] = [
-  {key: 'all', label: 'Alt'},
-  {key: 'friends', label: 'Venner'},
-  {key: 'groups', label: 'Grupper'},
-  {key: 'local', label: 'Lokal'},
-  {key: 'trending', label: 'Trending'},
+const SCOPE_OPTION_KEYS: {key: FilterScope; labelKey: string}[] = [
+  {key: 'all', labelKey: 'activity.scopeAll'},
+  {key: 'friends', labelKey: 'activity.scopeFriends'},
+  {key: 'local', labelKey: 'activity.scopeLocal'},
+  {key: 'trending', labelKey: 'activity.scopeTrending'},
 ];
 
 const TIME_OPTIONS: {key: TimeFilter; label: string}[] = [
@@ -91,6 +90,7 @@ const SummaryCard = ({
 
 const ActivityFeedScreen = () => {
   const navigation = useNavigation<any>();
+  const {t} = useTranslation();
   const [scopeFilter, setScopeFilter] = useState<FilterScope>('all');
   const [timeFilter, setTimeFilter] = useState<TimeFilter>('week');
   const [activityMenuItem, setActivityMenuItem] = useState<ActivityEvent | null>(null);
@@ -98,24 +98,19 @@ const ActivityFeedScreen = () => {
   const dashboardStreak = useDashboardStatsStore(s => s.streak);
 
   const scopeChipOptions = useMemo(
-    () => SCOPE_OPTIONS.filter(o => SURFACE_GROUPS_IN_APP || o.key !== 'groups'),
-    [],
+    () =>
+      SCOPE_OPTION_KEYS.map(o => ({
+        key: o.key,
+        label: t(o.labelKey),
+      })),
+    [t],
   );
-
-  useEffect(() => {
-    if (!SURFACE_GROUPS_IN_APP && scopeFilter === 'groups') {
-      setScopeFilter('all');
-    }
-  }, [scopeFilter, SURFACE_GROUPS_IN_APP]);
 
   const activityUserId = currentUser?.id;
   const {events: activityEvents, error, refresh} = useActivityData(
     activityUserId,
     scopeFilter === 'all' ? undefined : scopeFilter,
   );
-  const {groups} = useGroups('current_user');
-  const groupsForSummary = SURFACE_GROUPS_IN_APP ? groups : [];
-
   const filteredEvents = useMemo(() => {
     let filtered = [...activityEvents];
     if (timeFilter === 'today') {
@@ -134,16 +129,12 @@ const ActivityFeedScreen = () => {
     const checkInsToday = activityEvents.filter(
       e => e.type === 'check_in' && isToday(new Date(e.timestamp))
     ).length;
-    const mostActiveGroup = groupsForSummary
-      .filter(g => g.isJoined)
-      .sort((a, b) => (b.memberCount ?? 0) - (a.memberCount ?? 0))[0];
     return {
       activitiesToday: todayEvents.length,
       friendsActive: Math.min(friendsActive, 12),
       newCheckIns: checkInsToday,
-      mostActiveGroup: mostActiveGroup?.name || '–',
     };
-  }, [activityEvents, groupsForSummary]);
+  }, [activityEvents]);
 
   const handleUserPress = (userId: string, name: string) => {
     navigation.navigate('FriendProfile', {
@@ -172,7 +163,7 @@ const ActivityFeedScreen = () => {
           icon="cloud-offline-outline"
           title="Kunne ikke hente aktivitet"
           message={error.message}
-          actionLabel="Prøv igen"
+          actionLabel={t('common.retry')}
           onAction={refresh}
         />
       </View>
@@ -194,11 +185,7 @@ const ActivityFeedScreen = () => {
         {/* Header */}
         <View style={styles.header}>
           <Text style={styles.headerTitle}>Aktivitet</Text>
-          <Text style={styles.headerSubtitle}>
-            {SURFACE_GROUPS_IN_APP
-              ? 'Se hvad venner, grupper og lokale brugere laver'
-              : 'Se hvad venner og lokale brugere laver'}
-          </Text>
+          <Text style={styles.headerSubtitle}>{t('activity.headerSub')}</Text>
           <Text style={styles.headerSummary}>
             {filteredEvents.length} aktiviteter{timeFilter === 'today' ? ' i dag' : ' denne uge'}
           </Text>
@@ -224,14 +211,6 @@ const ActivityFeedScreen = () => {
             label="Nye check-ins"
             color={colors.success}
           />
-          {SURFACE_GROUPS_IN_APP ? (
-            <SummaryCard
-              icon="people-circle"
-              value={summary.mostActiveGroup}
-              label="Mest aktiv gruppe"
-              color={colors.warning}
-            />
-          ) : null}
         </View>
 
         {/* Scope filter chips */}
@@ -345,7 +324,7 @@ const ActivityFeedScreen = () => {
               onPress={() => navigation.navigate('CheckIn')}
               activeOpacity={0.8}>
               <Icon name="location" size={20} color={colors.primary} />
-              <Text style={styles.ctaButtonText}>Lav dit første check-in</Text>
+              <Text style={styles.ctaButtonText}>{t('home.firstCheckIn')}</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.ctaButton}
@@ -354,15 +333,6 @@ const ActivityFeedScreen = () => {
               <Icon name="person-add" size={20} color={colors.primary} />
               <Text style={styles.ctaButtonText}>Find venner</Text>
             </TouchableOpacity>
-            {SURFACE_GROUPS_IN_APP ? (
-              <TouchableOpacity
-                style={styles.ctaButton}
-                onPress={() => navigation.navigate('Friends', {screen: 'Grupper'} as never)}
-                activeOpacity={0.8}>
-                <Icon name="people" size={20} color={colors.primary} />
-                <Text style={styles.ctaButtonText}>Opret gruppe</Text>
-              </TouchableOpacity>
-            ) : null}
           </View>
         )}
       </ScrollView>

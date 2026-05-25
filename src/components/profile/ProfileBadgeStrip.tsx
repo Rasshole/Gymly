@@ -19,6 +19,7 @@ import type {BadgeDefinition, BadgeProgress} from '@/types/badge.types';
 import {getBadgeProgressList, useBadgeStore} from '@/store/badgeStore';
 import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows} from '@/theme/designTokens';
+import {useTranslation} from '@/i18n';
 
 type Props = {
   userId: string;
@@ -225,6 +226,7 @@ export function ProfileBadgeStrip({
   viewingOtherUser = false,
   otherUserDisplayName = '',
 }: Props) {
+  const {t} = useTranslation();
   const navigation = useNavigation<any>();
   const unlockSnap = useBadgeStore(s => s.unlockedByUser[userId]);
   const statsSnap = useBadgeStore(s => s.statsByUser[userId]);
@@ -415,12 +417,12 @@ export function ProfileBadgeStrip({
         <View style={styles.titleBlock}>
           <Text style={styles.title}>Badges</Text>
           {showUpcomingFallback ? (
-            <Text style={styles.titleSub}>Næste milepæle</Text>
+            <Text style={styles.titleSub}>{t('profile.nextMilestones')}</Text>
           ) : null}
         </View>
         {viewingOtherUser ? null : (
           <TouchableOpacity onPress={() => navigation.navigate('Badges')}>
-            <Text style={styles.seeAll}>Se alle</Text>
+            <Text style={styles.seeAll}>{t('profile.seeAll')}</Text>
           </TouchableOpacity>
         )}
       </View>

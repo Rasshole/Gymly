@@ -10,12 +10,18 @@ Upload HELE indholdet af denne mappe (website/) til webhotellets DOCUMENT ROOT
 (typisk public_html, www eller htdocs — dér hvor index.html til forsiden allerede ligger).
 
 Vigtigt:
-  • Mappen confirm/ med index.html skal ende som: .../confirm/index.html
+  • auth/callback/index.html → https://gymlyapp.com/auth/callback (åbner gymly://)
+  • .well-known/apple-app-site-association + assetlinks.json (universal links)
+  • confirm/index.html → omdirigerer til /auth/callback
   • auth-confirm/ med index.html til .../auth-confirm/index.html
+  • reset-password/index.html
   • Upload også _redirects (Netlify), vercel.json, netlify.toml, .htaccess (Apache) eller brug
     nginx-confirm.conf hvis du kører nginx — alt efter hvad dit host bruger.
 
-Tjek i browser: https://gymlyapp.com/confirm
+Tjek i browser:
+  https://gymlyapp.com/auth/callback
+  https://gymlyapp.com/.well-known/apple-app-site-association  (skal være JSON, ikke HTML)
+  https://gymlyapp.com/confirm
 
 ────────────────────────────────────
 2) AUTOMATISK (GitHub Actions)

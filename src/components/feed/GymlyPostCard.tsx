@@ -17,6 +17,7 @@ import {UserAvatar} from '@/components/ui/UserAvatar';
 import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows} from '@/theme/designTokens';
 import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
+import {getRuntimeLanguage} from '@/i18n';
 
 const MEDIA_HEIGHT = 280;
 
@@ -48,14 +49,6 @@ export interface GymlyPostCardProps {
   bicepActive?: boolean;
   onBicepsCountPress?: () => void;
 }
-
-const WORKOUT_LABELS: Record<string, string> = {
-  fri: 'Fri træning',
-  styrke: 'Styrke',
-  kondi: 'Kondition',
-  ben: 'Ben',
-  overkrop: 'Overkrop',
-};
 
 const GymlyPostCard: React.FC<GymlyPostCardProps> = ({
   userName,
@@ -97,9 +90,7 @@ const GymlyPostCard: React.FC<GymlyPostCardProps> = ({
               <Text style={styles.metaText}>{gymName}</Text>
               <Text style={styles.metaDot}> • </Text>
               <Text style={styles.metaText}>
-                {workoutType.includes(',')
-                  ? formatWorkoutTypeDisplay(workoutType)
-                  : WORKOUT_LABELS[workoutType] ?? formatWorkoutTypeDisplay(workoutType)}
+                {formatWorkoutTypeDisplay(workoutType, getRuntimeLanguage())}
               </Text>
               <Text style={styles.metaDot}> • </Text>
               <Text style={styles.metaText}>{duration}</Text>
@@ -173,9 +164,11 @@ const styles = StyleSheet.create({
   card: {
     width: '100%',
     backgroundColor: colors.backgroundCard,
-    borderRadius: 20,
+    borderRadius: radius.lg,
     marginBottom: spacing.lg,
     overflow: 'hidden',
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.border,
     ...shadows.card,
   },
   header: {
@@ -266,18 +259,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: spacing.lg,
     paddingVertical: spacing.md,
-    gap: spacing.lg,
+    gap: spacing.sm,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: colors.border,
   },
   reactionButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 4,
-    paddingHorizontal: 6,
-    paddingVertical: 4,
+    gap: 5,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
     borderRadius: radius.full,
+    backgroundColor: '#F1F5F9',
   },
   reactionButtonActive: {
-    backgroundColor: colors.primary + '12',
+    backgroundColor: 'rgba(139, 92, 246, 0.14)',
   },
   reactionEmoji: {
     fontSize: 22,

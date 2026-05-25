@@ -27,7 +27,8 @@ import {isDemoContentMode} from '@/demo/demoContentGate';
 import {getInitialChats, getInitialMessages} from '@/services/data';
 import {syncDmInboxToStore} from '@/services/supabase/dmInboxSync';
 import {supabase} from '@/services/supabase/supabaseClient';
-import {formatRelativeTime} from '@/utils/formatRelativeTime';
+import {useFormatRelativeTime} from '@/hooks/useFormatRelativeTime';
+import {useTranslation} from '@/i18n';
 import {safeDisplayName} from '@/utils/displayName';
 import {getMessagePreview} from '@/utils/dmMessagePreview';
 import colors from '@/theme/colors';
@@ -102,6 +103,7 @@ function getDisplayMessageText(m: ChatMessage): string {
 function previewForListMessage(
   m: ChatMessage | undefined,
   myId: string | undefined,
+  t: (path: string, params?: Record<string, string | number>) => string,
 ): string {
   if (!m) {
     return '';
@@ -112,16 +114,19 @@ function previewForListMessage(
       m.senderId === 'current_user' ||
       m.senderId === CURRENT_USER_PLACEHOLDER_ID);
   let body = '';
-  const t = getDisplayMessageText(m);
-  if (t) {
-    body = t.length > PREVIEW_MAX_LEN ? `${t.slice(0, PREVIEW_MAX_LEN - 1)}…` : t;
+  const previewText = getDisplayMessageText(m);
+  if (previewText) {
+    body =
+      previewText.length > PREVIEW_MAX_LEN
+        ? `${previewText.slice(0, PREVIEW_MAX_LEN - 1)}…`
+        : previewText;
   } else if (m.imageUri) {
-    body = 'Billede';
+    body = t('messages.imagePreview');
   }
   if (!body) {
     return '';
   }
-  return isMine ? `Du: ${body}` : body;
+  return isMine ? t('messages.youPrefix', {message: body}) : body;
 }
 
 /** Seneste besked til listen: chat.lastMessage eller sidste i tråden */
@@ -143,25 +148,30 @@ function getChatListPreview(
   chat: Chat,
   messagesByChat: Record<string, ChatMessage[] | undefined>,
   myId: string | undefined,
+  t: (path: string, params?: Record<string, string | number>) => string,
 ): string {
   const last = getLastMessageInThread(chat, messagesByChat);
-  return previewForListMessage(last, myId);
+  return previewForListMessage(last, myId, t);
 }
 
-function formatLastSeenText(lastSeenAt?: number): string {
+function formatLastSeenText(
+  lastSeenAt: number | undefined,
+  t: (path: string, params?: Record<string, string | number>) => string,
+): string {
   if (!lastSeenAt) {
-    return 'Sidst set for nylig';
+    return t('messages.lastSeenRecent');
   }
   const diffMs = Date.now() - lastSeenAt;
   const mins = Math.max(1, Math.floor(diffMs / 60000));
   if (mins < 60) {
-    return `Sidst set for ${mins} min siden`;
+    return t('messages.lastSeenMinutes', {mins});
   }
   const hours = Math.floor(mins / 60);
-  return `Sidst set for ${hours} t siden`;
+  return t('messages.lastSeenHours', {hours});
 }
 
 const UnreadBanner = ({count}: {count: number}) => {
+  const {t} = useTranslation();
   const opacity = useRef(new Animated.Value(0)).current;
   const translateY = useRef(new Animated.Value(6)).current;
 
@@ -192,9 +202,7 @@ const UnreadBanner = ({count}: {count: number}) => {
         <Icon name="notifications" size={16} color={colors.primary} />
       </View>
       <Text style={styles.unreadStripText}>
-        {count === 1
-          ? '1 ny besked – åbn samtalen nedenfor'
-          : `${count} nye beskeder – åbn samtalerne nedenfor`}
+        {t('messages.newMessages', {count})}
       </Text>
     </Animated.View>
   );
@@ -213,15 +221,18 @@ type ConversationRowProps = {
 };
 
 const ConversationRow = ({item, presence, onPress}: ConversationRowProps) => {
+  const {t} = useTranslation();
   const scale = useRef(new Animated.Value(1)).current;
   const typing = !!presence?.typingByThread?.[item.id];
   const trainingNow = !!presence?.trainingNow;
   const isUnread = item.unreadCount > 0;
   const statusText = trainingNow
-    ? `🏋️ Træner nu i ${presence?.trainingGymName || 'center'}`
+    ? t('messages.trainingNowAt', {
+        gym: presence?.trainingGymName || t('messages.defaultGym'),
+      })
     : presence?.isActive
-      ? 'Aktiv nu'
-      : formatLastSeenText(presence?.lastSeenAt);
+      ? t('messages.activeNow')
+      : formatLastSeenText(presence?.lastSeenAt, t);
 
   const pressIn = () => {
     Animated.spring(scale, {
@@ -289,7 +300,7 @@ const ConversationRow = ({item, presence, onPress}: ConversationRowProps) => {
             <Text
               style={[styles.preview, isUnread && styles.previewUnread]}
               numberOfLines={1}>
-              {item.lastMessage || 'Ingen beskeder endnu'}
+              {item.lastMessage || t('messages.noMessagesYet')}
             </Text>
           )}
         </View>
@@ -339,6 +350,8 @@ const TypingDots = () => {
 
 const MessagesScreen = () => {
   const navigation = useNavigation<any>();
+  const {t} = useTranslation();
+  const formatRelativeTime = useFormatRelativeTime();
   const {chats, seedChatsFromInitial, markChatAsRead} = useChatStore();
   const messagesByChat = useChatStore(s => s.messagesByChat);
   const totalMessageUnread = useChatStore(s =>
@@ -365,7 +378,7 @@ const MessagesScreen = () => {
           }
           await syncDmInboxToStore(
             user.id,
-            user.displayName?.trim() || 'Dig',
+            user.displayName?.trim() || t('common.you'),
           );
         } catch {
           // offline / RLS: ignore; liste viser cache
@@ -393,7 +406,7 @@ const MessagesScreen = () => {
       .map((chat) => ({
         id: chat.id,
         name: safeDisplayName(getConversationTitle(chat, meId, meName)),
-        lastMessage: getChatListPreview(chat, messagesByChat, meId),
+        lastMessage: getChatListPreview(chat, messagesByChat, meId, t),
         timestamp: (() => {
           const last = getLastMessageInThread(chat, messagesByChat);
           return last
@@ -421,7 +434,7 @@ const MessagesScreen = () => {
           item.lastMessage.toLowerCase().includes(q)
         );
       });
-  }, [chats, searchQuery, user?.id, user?.displayName, messagesByChat]);
+  }, [chats, searchQuery, user?.id, user?.displayName, messagesByChat, t, formatRelativeTime]);
 
   useEffect(() => {
     if (!user?.id || conversations.length === 0) {
@@ -519,10 +532,8 @@ const MessagesScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Beskeder</Text>
-        <Text style={styles.headerSubtitle}>
-          Chat med venner og hold styr på træningsplaner
-        </Text>
+        <Text style={styles.headerTitle}>{t('messages.title')}</Text>
+        <Text style={styles.headerSubtitle}>{t('messages.subtitle')}</Text>
       </View>
 
       {chats.length > 0 ? (
@@ -539,7 +550,7 @@ const MessagesScreen = () => {
           />
           <TextInput
             style={styles.searchInput}
-            placeholder="Søg i beskeder..."
+            placeholder={t('messages.searchPlaceholder')}
             placeholderTextColor={colors.textMuted}
             value={searchQuery}
             onChangeText={setSearchQuery}
@@ -574,9 +585,9 @@ const MessagesScreen = () => {
         ListEmptyComponent={
           <EmptyState
             icon="chatbubbles-outline"
-            title="Ingen beskeder endnu"
-            message="Start en samtale med en ven eller find nye træningspartnere. Når du får beskeder, vises de her."
-            actionLabel="Start en samtale"
+            title={t('messages.noMessagesYet')}
+            message={t('messages.emptyMessage')}
+            actionLabel={t('messages.startConversation')}
             onAction={() => navigation.navigate('NewMessage')}
           />
         }

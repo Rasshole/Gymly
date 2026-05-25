@@ -40,11 +40,18 @@
   NSLog(@"[Gymly RN] Simulator → Metro (live JS). URL: %@", simURL.absoluteString);
   return simURL;
 #elif DEBUG
+  // Physical device Debug builds embed main.jsbundle in Xcode; Metro is often unreachable
+  // on a real phone (wrong host IP / Metro not running) → blank white screen without this.
+  NSURL *embedded = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+  if (embedded != nil) {
+    NSLog(@"[Gymly RN] DEBUG device → embedded bundle. URL: %@", embedded.absoluteString);
+    return embedded;
+  }
   NSURL *bundleURL = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"];
   if (!bundleURL) {
     bundleURL = [NSURL URLWithString:@"http://127.0.0.1:8081/index.bundle?platform=ios&dev=true"];
   }
-  NSLog(@"[Gymly RN] DEBUG device → Metro. URL: %@", bundleURL.absoluteString);
+  NSLog(@"[Gymly RN] DEBUG device → Metro (no embedded bundle). URL: %@", bundleURL.absoluteString);
   return bundleURL;
 #else
   NSURL *embedded = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];

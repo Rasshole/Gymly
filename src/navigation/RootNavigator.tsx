@@ -32,14 +32,18 @@ const RootNavigator = () => {
   return (
     <Stack.Navigator
       key={isAuthenticated ? 'root-signed-in' : 'root-signed-out'}
-      initialRouteName={isAuthenticated ? 'Main' : 'Auth'}
       screenOptions={{
         headerShown: false,
         cardStyle: {flex: 1, backgroundColor: colors.background},
       }}>
-      <Stack.Screen name="Auth" component={AuthNavigator} />
-      <Stack.Screen name="Main" component={MainNavigator} />
-      <Stack.Screen name="ResetPassword" component={ResetPasswordScreen} />
+      {isAuthenticated ? (
+        <Stack.Screen name="Main" component={MainNavigator} />
+      ) : (
+        <>
+          <Stack.Screen name="Auth" component={AuthNavigator} />
+          <Stack.Screen name="ResetPassword" component={ResetPasswordScreen} />
+        </>
+      )}
     </Stack.Navigator>
   );
 };

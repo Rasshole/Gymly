@@ -11,10 +11,12 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  Platform,
-  PermissionsAndroid,
 } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
+import {
+  getLocationPermissionStatus,
+  isLocationAuthorized,
+} from '@/services/location/locationPermission';
 import Icon from 'react-native-vector-icons/Ionicons';
 import danishGyms, {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
 import {useAppStore} from '@/store/appStore';
@@ -29,6 +31,9 @@ import SocialSearchBar from '@/components/social/SocialSearchBar';
 import {useActiveCentersRealtime} from '@/hooks/useActiveCentersRealtime';
 import type {ActiveCenter} from '@/types/activeCenter.types';
 import {centerSocialRankScore} from '@/utils/centerSocialRank';
+import {useTranslation} from '@/i18n';
+import {useGymSearch} from '@/hooks/useGymSearch';
+import {GymSearchResultsPanel} from '@/components/gym/GymSearchResultsPanel';
 
 type LiveStats = {total: number; friends: number};
 
@@ -81,28 +86,33 @@ function formatDistanceMeters(distanceM: number): string {
 }
 
 function LiveActivityLine({live}: {live: LiveStats}) {
+  const {t} = useTranslation();
   if (live.total <= 0) {
     return (
       <Text style={styles.liveLineMuted} numberOfLines={1}>
-        Ingen aktive lige nu
+        {t('centres.noOneActive')}
       </Text>
     );
   }
   if (live.friends > 0) {
     return (
       <Text style={styles.liveLine} numberOfLines={1}>
-        {live.total} aktive · {live.friends} ven{live.friends > 1 ? 'ner' : ''}
+        {t('home.activeAndFriends', {
+          active: String(live.total),
+          friends: String(live.friends),
+        })}
       </Text>
     );
   }
   return (
     <Text style={styles.liveLine} numberOfLines={1}>
-      {live.total} træner nu
+      {t('centres.trainingNow', {count: String(live.total)})}
     </Text>
   );
 }
 
 function OpenClosedChip({isOpen}: {isOpen: boolean}) {
+  const {t} = useTranslation();
   return (
     <View
       style={[
@@ -115,7 +125,7 @@ function OpenClosedChip({isOpen}: {isOpen: boolean}) {
       <Text
         style={[styles.statusChipText, isOpen ? styles.statusChipTextOpen : styles.statusChipTextClosed]}
         numberOfLines={1}>
-        {isOpen ? 'Åbent nu' : 'Lukket nu'}
+        {isOpen ? t('centres.openNow') : t('centres.closedNow')}
       </Text>
     </View>
   );
@@ -135,6 +145,7 @@ const FavoriteGymCard = ({
   live: LiveStats;
   gymStatus: {isOpen: boolean};
 }) => {
+  const {t} = useTranslation();
   const navigation = useNavigation<StackNavigationProp<any>>();
   const showDitCenterChip = index === 0;
 
@@ -157,7 +168,7 @@ const FavoriteGymCard = ({
             </Text>
             {showDitCenterChip ? (
               <View style={styles.ditCenterChip}>
-                <Text style={styles.ditCenterChipText}>Dit center</Text>
+                <Text style={styles.ditCenterChipText}>{t('centres.yourGym')}</Text>
               </View>
             ) : null}
           </View>
@@ -182,6 +193,7 @@ const FavoriteGymCard = ({
 
 const CentresScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
+  const {t} = useTranslation();
   const [searchQuery, setSearchQuery] = useState('');
   const {user} = useAppStore();
   const {getActiveUsersCount, getGymStatus} = useGymStore();
@@ -202,45 +214,20 @@ const CentresScreen = () => {
   );
 
   useEffect(() => {
-    requestLocationPermission();
-  }, []);
-
-  const requestLocationPermission = async () => {
-    if (Platform.OS === 'android') {
-      try {
-        const granted = await PermissionsAndroid.request(
-          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-          {
-            title: 'Location Permission',
-            message: 'Gymly needs access to your location to show nearby gyms',
-            buttonNeutral: 'Ask Me Later',
-            buttonNegative: 'Cancel',
-            buttonPositive: 'OK',
-          },
-        );
-        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-          getCurrentLocation();
-        }
-      } catch (err) {
-        console.warn(err);
+    void getLocationPermissionStatus().then(status => {
+      if (!isLocationAuthorized(status)) {
+        return;
       }
-    } else {
-      getCurrentLocation();
-    }
-  };
-
-  const getCurrentLocation = () => {
-    Geolocation.getCurrentPosition(
-      position => {
-        const {latitude, longitude} = position.coords;
-        setUserLocation({latitude, longitude});
-      },
-      error => {
-        console.warn('Location error:', error);
-      },
-      {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
-    );
-  };
+      Geolocation.getCurrentPosition(
+        position => {
+          const {latitude, longitude} = position.coords;
+          setUserLocation({latitude, longitude});
+        },
+        () => {},
+        {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
+      );
+    });
+  }, []);
 
   const favoriteGymIds = user?.favoriteGyms || [];
   const favoriteGyms = useMemo(() => {
@@ -254,29 +241,22 @@ const CentresScreen = () => {
     [],
   );
 
-  const qLower = searchQuery.toLowerCase();
-  const filteredGyms = allCentres.filter(
-    gym =>
-      gym.name.toLowerCase().includes(qLower) ||
-      (gym.city?.toLowerCase().includes(qLower) ?? false) ||
-      (gym.brand?.toLowerCase().includes(qLower) ?? false) ||
-      (gym.address?.toLowerCase().includes(qLower) ?? false),
-  );
-
-  const favoriteGymsFiltered = favoriteGyms.filter(
-    gym =>
-      gym.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      gym.city?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      gym.brand?.toLowerCase().includes(searchQuery.toLowerCase()),
-  );
-
-  const otherGymsFiltered = filteredGyms.filter(gym => !favoriteGymIds.includes(gym.id));
+  const {hits: searchHits, isActive: isSearchActive, showLoading: searchLoading} =
+    useGymSearch(searchQuery, {
+      userLat: userLocation?.latitude,
+      userLng: userLocation?.longitude,
+      favoriteIds: favoriteGymIds,
+      limit: 50,
+      gyms: allCentres,
+    });
 
   const sortedGyms = useMemo(() => {
-    const allGyms =
-      searchQuery.length > 0
-        ? [...favoriteGymsFiltered, ...otherGymsFiltered]
-        : [...favoriteGyms, ...otherGymsFiltered];
+    if (isSearchActive) {
+      return searchHits.map(h => h.gym);
+    }
+
+    const otherGyms = allCentres.filter(gym => !favoriteGymIds.includes(gym.id));
+    const allGyms = [...favoriteGyms, ...otherGyms];
 
     return allGyms
       .map(gym => {
@@ -308,10 +288,11 @@ const CentresScreen = () => {
       })
       .map(item => item.gym);
   }, [
+    isSearchActive,
+    searchHits,
     favoriteGyms,
-    favoriteGymsFiltered,
-    otherGymsFiltered,
-    searchQuery,
+    allCentres,
+    favoriteGymIds,
     userLocation,
     getGymStatus,
     liveByGymId,
@@ -413,20 +394,36 @@ const CentresScreen = () => {
       <SocialSearchBar
         value={searchQuery}
         onChangeText={setSearchQuery}
-        placeholder="Søg efter centre..."
+        placeholder={t('centres.searchPlaceholder')}
         style={styles.searchOuter}
       />
 
+      {isSearchActive ? (
+        <GymSearchResultsPanel
+          hits={searchHits}
+          isActive={isSearchActive}
+          showLoading={searchLoading}
+          favoriteIds={favoriteGymIds}
+          onSelectGym={gym =>
+            navigation.navigate('GymDetail', {gymId: gym.id, gym})
+          }
+          formatDistance={gym => distanceForGym(gym)}
+          style={[styles.searchResultsPanel, styles.searchResultsFlex]}
+        />
+      ) : null}
+
+      {!isSearchActive ? (
       <ScrollView
         ref={scrollViewRef}
         style={styles.scrollView}
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
+        keyboardShouldPersistTaps="handled"
         onScroll={event => {
           setShowScrollToTop(event.nativeEvent.contentOffset.y > 500);
         }}
         scrollEventThrottle={16}>
-        {showEmptyLocalOnboarding ? (
+        {showEmptyLocalOnboarding && !isSearchActive ? (
           <View style={styles.emptyLocalWrap}>
             <Text style={styles.emptyLocalTitle}>Ingen gemte centre endnu</Text>
             <Text style={styles.emptyLocalBody}>
@@ -436,9 +433,9 @@ const CentresScreen = () => {
           </View>
         ) : null}
 
-        {favoriteGymsSorted.length > 0 && searchQuery.length === 0 && (
+        {favoriteGymsSorted.length > 0 && !isSearchActive && (
           <View style={styles.favoriteSection}>
-            <Text style={styles.sectionTitle}>Mine lokale centre</Text>
+            <Text style={styles.sectionTitle}>{t('centres.myLocalCentres')}</Text>
             <View style={styles.favoriteStack}>
               {favoriteGymsSorted.map((gym, index) => (
                 <FavoriteGymCard
@@ -455,7 +452,7 @@ const CentresScreen = () => {
         )}
 
         <View style={styles.nearbyHeader}>
-          <Text style={styles.nearbyHeaderText}>Centre i nærheden</Text>
+          <Text style={styles.nearbyHeaderText}>{t('centres.nearbyCentres')}</Text>
         </View>
 
         <View style={styles.list}>
@@ -466,8 +463,9 @@ const CentresScreen = () => {
           ))}
         </View>
       </ScrollView>
+      ) : null}
 
-      {showScrollToTop && (
+      {showScrollToTop && !isSearchActive && (
         <TouchableOpacity
           style={styles.scrollToTopButton}
           onPress={() => scrollViewRef.current?.scrollTo({y: 0, animated: true})}
@@ -487,6 +485,14 @@ const styles = StyleSheet.create({
   scrollView: {flex: 1},
   scrollContent: {
     paddingBottom: spacing.xl,
+  },
+  searchResultsPanel: {
+    marginHorizontal: spacing.lg,
+    marginBottom: spacing.sm,
+  },
+  searchResultsFlex: {
+    flex: 1,
+    marginBottom: 0,
   },
   searchOuter: {
     marginHorizontal: spacing.lg,

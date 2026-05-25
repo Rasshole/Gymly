@@ -20,6 +20,7 @@ import {spacing, typography, radius} from '@/theme/designTokens';
 import {navigateToFriendProfile} from '@/navigation/rootNavigation';
 import {useNavigation} from '@react-navigation/native';
 import type {PublicProfile} from '@/services/supabase/friendService';
+import {useTranslation} from '@/i18n';
 
 type FriendsListModalProps = {
   visible: boolean;
@@ -28,6 +29,7 @@ type FriendsListModalProps = {
 
 export function FriendsListModal({visible, onClose}: FriendsListModalProps) {
   const navigation = useNavigation<any>();
+  const {t} = useTranslation();
   const {user} = useAppStore();
   const {acceptedFriends: friends, removeFriend} = useFriends();
   const {refresh: refreshProfileStats} = useProfileStats(user?.id);
@@ -51,12 +53,12 @@ export function FriendsListModal({visible, onClose}: FriendsListModalProps) {
         return;
       }
       Alert.alert(
-        'Fjern ven',
-        'Er du sikker på, at du vil fjerne denne ven?',
+        t('friendProfile.removeFriendTitle'),
+        t('friendsModal.removeConfirm'),
         [
-          {text: 'Annuller', style: 'cancel'},
+          {text: t('common.cancel'), style: 'cancel'},
           {
-            text: 'Fjern',
+            text: t('common.delete'),
             style: 'destructive',
             onPress: () => {
               void (async () => {
@@ -65,8 +67,8 @@ export function FriendsListModal({visible, onClose}: FriendsListModalProps) {
                   await refreshProfileStats();
                 } catch (e) {
                   Alert.alert(
-                    'Kunne ikke fjerne',
-                    (e as Error).message || 'Prøv igen.',
+                    t('friendsModal.couldNotRemove'),
+                    (e as Error).message || t('errors.tryAgainLater'),
                   );
                 }
               })();
@@ -76,7 +78,7 @@ export function FriendsListModal({visible, onClose}: FriendsListModalProps) {
         {cancelable: true},
       );
     },
-    [user?.id, removeFriend, refreshProfileStats],
+    [user?.id, removeFriend, refreshProfileStats, t],
   );
 
   const openProfile = useCallback(
@@ -100,7 +102,7 @@ export function FriendsListModal({visible, onClose}: FriendsListModalProps) {
       presentationStyle="pageSheet"
       onRequestClose={onClose}>
       <View style={styles.header}>
-        <Text style={styles.title}>Venner</Text>
+        <Text style={styles.title}>{t('tabs.friends')}</Text>
         <TouchableOpacity
           onPress={onClose}
           style={styles.closeBtn}
@@ -120,7 +122,7 @@ export function FriendsListModal({visible, onClose}: FriendsListModalProps) {
         />
         <TextInput
           style={styles.searchInput}
-          placeholder="Søg"
+          placeholder={t('friendsModal.search')}
           placeholderTextColor={colors.textMuted}
           value={query}
           onChangeText={setQuery}
@@ -140,8 +142,8 @@ export function FriendsListModal({visible, onClose}: FriendsListModalProps) {
           <View style={styles.empty}>
             <Text style={styles.emptyText}>
               {friends.length === 0
-                ? 'Ingen venner endnu. Tilføj ven under Venner-fanen.'
-                : 'Ingen resultater.'}
+                ? `${t('newMessage.noFriends')} ${t('newMessage.noFriendsSub')}`
+                : t('newMessage.noResults')}
             </Text>
           </View>
         }

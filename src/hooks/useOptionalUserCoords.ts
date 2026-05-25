@@ -1,9 +1,14 @@
 import {useState, useEffect, useRef} from 'react';
 import Geolocation from '@react-native-community/geolocation';
-import {PermissionsAndroid, Platform} from 'react-native';
+import {
+  configureGeolocationForPermissionSafety,
+  getLocationPermissionStatus,
+  isLocationAuthorized,
+} from '@/services/location/locationPermission';
 
 /**
- * Etskuds-brugerkoordinat til afstand sortering (ignorer fejl/afvisning).
+ * Optional user coordinates for distance sorting — never requests permission.
+ * Returns null when location is not authorized.
  */
 export function useOptionalUserCoords(): {latitude: number; longitude: number} | null {
   const [c, setC] = useState<{latitude: number; longitude: number} | null>(null);
@@ -13,9 +18,10 @@ export function useOptionalUserCoords(): {latitude: number; longitude: number} |
     let watchId: number | null = null;
     let mounted = true;
 
+    configureGeolocationForPermissionSafety();
+
     const maybePush = (latitude: number, longitude: number) => {
       const now = Date.now();
-      // Throttle state updates to avoid frequent re-renders.
       if (now - lastPushMsRef.current < 1200) {
         return;
       }
@@ -39,7 +45,11 @@ export function useOptionalUserCoords(): {latitude: number; longitude: number} |
     const startWatch = () => {
       Geolocation.getCurrentPosition(
         pos => maybePush(pos.coords.latitude, pos.coords.longitude),
-        () => setC(null),
+        () => {
+          if (mounted) {
+            setC(null);
+          }
+        },
         {enableHighAccuracy: false, timeout: 10_000, maximumAge: 60_000},
       );
       watchId = Geolocation.watchPosition(
@@ -56,34 +66,21 @@ export function useOptionalUserCoords(): {latitude: number; longitude: number} |
     };
 
     const run = async () => {
-      if (Platform.OS === 'android') {
-        try {
-          const granted = await PermissionsAndroid.request(
-            PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-          );
-          if (granted !== PermissionsAndroid.RESULTS.GRANTED) {
-            if (mounted) {
-              setC(null);
-            }
-            return;
-          }
-        } catch {
-          if (mounted) {
-            setC(null);
-          }
-          return;
-        }
-      } else {
-        Geolocation.requestAuthorization(
-          () => {},
-          () => {},
-        );
+      const status = await getLocationPermissionStatus();
+      if (!mounted) {
+        return;
+      }
+      if (!isLocationAuthorized(status)) {
+        setC(null);
+        return;
       }
       startWatch();
     };
 
-    run().catch(() => {
-      setC(null);
+    void run().catch(() => {
+      if (mounted) {
+        setC(null);
+      }
     });
 
     return () => {
@@ -93,5 +90,6 @@ export function useOptionalUserCoords(): {latitude: number; longitude: number} |
       }
     };
   }, []);
+
   return c;
 }

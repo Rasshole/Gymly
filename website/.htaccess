@@ -5,6 +5,9 @@
   RewriteEngine On
   RewriteBase /
 
+  RewriteRule ^auth/callback$ /auth/callback/index.html [L]
+  RewriteRule ^auth/callback/$ /auth/callback/index.html [L]
+
   RewriteRule ^confirm$ /confirm/index.html [L]
   RewriteRule ^confirm/$ /confirm/index.html [L]
   RewriteRule ^auth/confirm$ /auth-confirm/index.html [L]

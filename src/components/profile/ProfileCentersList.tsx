@@ -1,17 +1,17 @@
 /**
- * Liste over brugerens lokale centre (1–3) under profilheader
+ * Home gyms on profile — premium cards with logo, name, primary badge.
  */
 
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '@/theme/colors';
-import {spacing, typography} from '@/theme/designTokens';
+import {spacing, typography, radius, shadows} from '@/theme/designTokens';
 import GymLogoView from '@/components/ui/GymLogoView';
 import {formatGymNameWithBrand} from '@/utils/gymDisplay';
+import {useTranslation} from '@/i18n';
 
 export type ProfileCenterRow = {
-  /** Stabilt center-id fra register — valgfrit for ældre navigations-fallback uden id */
   centerId?: string;
   name: string;
   city?: string;
@@ -20,27 +20,28 @@ export type ProfileCenterRow = {
 
 type ProfileCentersListProps = {
   centers: ProfileCenterRow[];
-  /** Default: "Dine centre" — brug fx "Lokale centre" på andres profil */
   sectionTitle?: string;
-  /** Aktive brugere på centeret lige nu (fx fra gymStore) */
   activeCountForId?: (centerId: string) => number;
-  /** Egen profil: åbn redigerings-sheet */
   onEditPress?: () => void;
 };
 
 export const ProfileCentersList: React.FC<ProfileCentersListProps> = ({
   centers,
-  sectionTitle = 'Dine centre',
+  sectionTitle,
   activeCountForId,
   onEditPress,
 }) => {
+  const {t} = useTranslation();
+  const title = sectionTitle ?? t('profile.homeGyms');
+
   if (centers.length === 0) {
     return null;
   }
+
   return (
     <View style={styles.wrap}>
       <View style={styles.headerRow}>
-        <Text style={styles.title}>{sectionTitle}</Text>
+        <Text style={styles.title}>{title}</Text>
         {onEditPress ? (
           <TouchableOpacity
             onPress={onEditPress}
@@ -48,48 +49,58 @@ export const ProfileCentersList: React.FC<ProfileCentersListProps> = ({
             activeOpacity={0.7}
             style={styles.editBtn}>
             <Icon name="pencil" size={14} color={colors.primary} />
-            <Text style={styles.editBtnText}>Rediger</Text>
+            <Text style={styles.editBtnText}>{t('profile.editGyms')}</Text>
           </TouchableOpacity>
         ) : null}
       </View>
-      {centers.map((c, i) => {
-        const active =
-          c.centerId && activeCountForId ? activeCountForId(c.centerId) : 0;
-        return (
-          <View
-            key={`${c.centerId ?? 'noid'}_${c.name}_${i}`}
-            style={[styles.row, i > 0 && styles.rowDivider]}>
-            <GymLogoView
-              gymName={c.name}
-              brand={c.brand}
-              size={40}
-              unknownFallback="gymly-only"
-              surface="lavender"
-              style={styles.rowLogo}
-            />
-            <View style={styles.textCol}>
-              {i === 0 ? (
-                <View style={styles.primaryBadge}>
-                  <Text style={styles.primaryBadgeText}>Primært center</Text>
-                </View>
-              ) : null}
-              <Text style={styles.name} numberOfLines={2}>
-                {formatGymNameWithBrand(c.name, c.brand)}
-              </Text>
-              {c.city ? (
-                <Text style={styles.city} numberOfLines={1}>
-                  {c.city}
+
+      <View style={styles.cardsCol}>
+        {centers.map((c, i) => {
+          const active =
+            c.centerId && activeCountForId ? activeCountForId(c.centerId) : 0;
+          const isPrimary = i === 0;
+          return (
+            <View
+              key={`${c.centerId ?? 'noid'}_${c.name}_${i}`}
+              style={[styles.gymCard, isPrimary && styles.gymCardPrimary]}>
+              <GymLogoView
+                gymName={c.name}
+                brand={c.brand}
+                size={48}
+                unknownFallback="gymly-only"
+                surface="lavender"
+                style={styles.rowLogo}
+              />
+              <View style={styles.textCol}>
+                {isPrimary ? (
+                  <View style={styles.primaryBadge}>
+                    <Text style={styles.primaryBadgeText}>
+                      {t('profile.primaryGym')}
+                    </Text>
+                  </View>
+                ) : null}
+                <Text style={styles.name} numberOfLines={2}>
+                  {formatGymNameWithBrand(c.name, c.brand)}
                 </Text>
-              ) : null}
-              {active > 0 ? (
-                <Text style={styles.activeLine} numberOfLines={1}>
-                  👥 {active} aktiv{active > 1 ? 'e' : ''} nu
-                </Text>
-              ) : null}
+                {c.city ? (
+                  <Text style={styles.city} numberOfLines={1}>
+                    {c.city}
+                  </Text>
+                ) : null}
+                {active > 0 ? (
+                  <View style={styles.activePill}>
+                    <Text style={styles.activeLine} numberOfLines={1}>
+                      {t(active === 1 ? 'profile.activeNow_one' : 'profile.activeNow_other', {
+                        count: String(active),
+                      })}
+                    </Text>
+                  </View>
+                ) : null}
+              </View>
             </View>
-          </View>
-        );
-      })}
+          );
+        })}
+      </View>
     </View>
   );
 };
@@ -98,85 +109,100 @@ const styles = StyleSheet.create({
   wrap: {
     marginHorizontal: spacing.lg,
     marginBottom: spacing.xl,
-    padding: spacing.md,
-    backgroundColor: colors.backgroundCard,
-    borderRadius: 16,
-    borderWidth: 1,
-    borderColor: colors.border,
   },
   headerRow: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: spacing.sm,
+    marginBottom: spacing.md,
+    paddingHorizontal: spacing.xs,
   },
   title: {
     ...typography.small,
-    fontWeight: '700',
-    color: colors.textMuted,
+    fontWeight: '800',
+    color: colors.textSecondary,
     textTransform: 'uppercase',
-    letterSpacing: 0.5,
+    letterSpacing: 0.6,
   },
   editBtn: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 4,
+    paddingVertical: spacing.xs,
+    paddingHorizontal: spacing.sm,
+    borderRadius: radius.full,
+    backgroundColor: colors.primary + '10',
   },
   editBtnText: {
     ...typography.small,
-    fontWeight: '600',
+    fontWeight: '700',
     color: colors.primary,
   },
-  row: {
+  cardsCol: {
+    gap: spacing.sm,
+  },
+  gymCard: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: spacing.sm,
-    paddingVertical: spacing.md,
+    gap: spacing.md,
+    padding: spacing.md,
+    backgroundColor: colors.backgroundCard,
+    borderRadius: radius.lg,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.border,
+    ...shadows.sm,
   },
-  rowDivider: {
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: colors.border,
-    marginTop: spacing.xs,
-    paddingTop: spacing.sm,
+  gymCardPrimary: {
+    borderColor: colors.primary + '35',
+    backgroundColor: colors.primary + '06',
+    ...shadows.card,
   },
   rowLogo: {
-    marginRight: 4,
     shadowColor: '#000',
     shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.14,
+    shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 2,
   },
-  textCol: {flex: 1},
+  textCol: {
+    flex: 1,
+    minWidth: 0,
+  },
   primaryBadge: {
     alignSelf: 'flex-start',
     backgroundColor: colors.primary + '18',
-    borderWidth: 1,
-    borderColor: colors.primary + '35',
-    paddingHorizontal: 8,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.primary + '40',
+    paddingHorizontal: spacing.sm,
     paddingVertical: 3,
-    borderRadius: 999,
-    marginBottom: 6,
+    borderRadius: radius.full,
+    marginBottom: spacing.xs,
   },
   primaryBadgeText: {
     ...typography.caption,
-    color: colors.primary,
+    color: colors.primaryDark,
     fontWeight: '700',
   },
   name: {
-    ...typography.body,
-    fontWeight: '600',
+    ...typography.bodyBold,
     color: colors.text,
   },
   city: {
     ...typography.caption,
-    color: colors.textSecondary,
+    color: colors.textMuted,
     marginTop: 2,
+  },
+  activePill: {
+    alignSelf: 'flex-start',
+    marginTop: spacing.xs,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: 2,
+    borderRadius: radius.full,
+    backgroundColor: colors.surface,
   },
   activeLine: {
     ...typography.caption,
     color: colors.textSecondary,
-    marginTop: 4,
-    fontWeight: '500',
+    fontWeight: '600',
   },
 });

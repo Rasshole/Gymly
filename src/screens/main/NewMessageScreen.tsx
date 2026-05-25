@@ -1,9 +1,16 @@
 /**
- * New Message Screen
- * Screen to compose and send a new message to a friend
+ * New Message Screen — compose DM to friend(s)
  */
 
-import React, {useRef, useState, useMemo, useCallback, useEffect} from 'react';
+import React, {
+  useRef,
+  useState,
+  useMemo,
+  useCallback,
+  useEffect,
+  useId,
+} from 'react';
+import type {LayoutChangeEvent} from 'react-native';
 import {useFocusEffect} from '@react-navigation/native';
 import {
   View,
@@ -18,31 +25,163 @@ import {
   Platform,
   Image,
   ActivityIndicator,
+  Pressable,
 } from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Svg, {Defs, LinearGradient, Rect, Stop} from 'react-native-svg';
 import {useChatStore} from '@/store/chatStore';
 import {useGroupStore, CURRENT_USER_PLACEHOLDER_ID, GymlyGroup} from '@/store/groupStore';
 import {useAppStore} from '@/store/appStore';
 import {listFriendsWithProfiles} from '@/services/supabase/friendService';
 import {getOrCreateDmThread} from '@/services/supabase/dmService';
 import colors from '@/theme/colors';
+import {spacing, radius, shadows, typography} from '@/theme/designTokens';
 import {UserAvatar} from '@/components/ui/UserAvatar';
 import {SURFACE_GROUPS_IN_APP} from '@/config/launchSurfaceConfig';
+import {useTranslation} from '@/i18n';
+
+type FriendChip = {id: string; name: string; avatar: string | null};
+
+function RecipientChip({
+  label,
+  avatarUrl,
+  onRemove,
+}: {
+  label: string;
+  avatarUrl?: string | null;
+  onRemove: () => void;
+}) {
+  const gradId = useId().replace(/:/g, '');
+  const initial = label.trim().charAt(0).toUpperCase() || '?';
+  const [size, setSize] = useState({w: 1, h: 40});
+
+  const onLayout = useCallback((e: LayoutChangeEvent) => {
+    const {width, height} = e.nativeEvent.layout;
+    if (width > 0 && height > 0) {
+      setSize({w: width, h: height});
+    }
+  }, []);
+
+  return (
+    <View style={chipStyles.wrap}>
+      <View style={chipStyles.gradientClip} onLayout={onLayout}>
+        <Svg width={size.w} height={size.h} style={StyleSheet.absoluteFill}>
+          <Defs>
+            <LinearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="100%">
+              <Stop offset="0%" stopColor={colors.primaryLight} />
+              <Stop offset="50%" stopColor={colors.primary} />
+              <Stop offset="100%" stopColor={colors.primaryDark} />
+            </LinearGradient>
+          </Defs>
+          <Rect
+            x={0}
+            y={0}
+            width={size.w}
+            height={size.h}
+            rx={size.h / 2}
+            fill={`url(#${gradId})`}
+          />
+        </Svg>
+        <View style={chipStyles.inner}>
+          {avatarUrl ? (
+            <Image source={{uri: avatarUrl}} style={chipStyles.avatar} />
+          ) : (
+            <View style={chipStyles.avatarFallback}>
+              <Text style={chipStyles.avatarInitial}>{initial}</Text>
+            </View>
+          )}
+          <Text style={chipStyles.label} numberOfLines={1}>
+            {label}
+          </Text>
+          <Pressable
+            onPress={onRemove}
+            hitSlop={8}
+            style={chipStyles.removeHit}
+            accessibilityLabel="Fjern modtager">
+            <View style={chipStyles.removeCircle}>
+              <Icon name="close" size={14} color={colors.white} />
+            </View>
+          </Pressable>
+        </View>
+      </View>
+    </View>
+  );
+}
+
+const chipStyles = StyleSheet.create({
+  wrap: {
+    marginRight: spacing.sm,
+    marginBottom: spacing.sm,
+    maxWidth: '100%',
+  },
+  gradientClip: {
+    borderRadius: radius.full,
+    overflow: 'hidden',
+    ...shadows.sm,
+  },
+  inner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingLeft: spacing.sm,
+    paddingRight: spacing.sm,
+    paddingVertical: spacing.sm,
+    gap: spacing.sm,
+  },
+  avatar: {
+    width: 26,
+    height: 26,
+    borderRadius: 13,
+    borderWidth: 1.5,
+    borderColor: 'rgba(255,255,255,0.5)',
+  },
+  avatarFallback: {
+    width: 26,
+    height: 26,
+    borderRadius: 13,
+    backgroundColor: 'rgba(255,255,255,0.25)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  avatarInitial: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: colors.white,
+  },
+  label: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: colors.white,
+    flexShrink: 1,
+    maxWidth: 200,
+  },
+  removeHit: {
+    marginLeft: spacing.xs,
+  },
+  removeCircle: {
+    width: 22,
+    height: 22,
+    borderRadius: 11,
+    backgroundColor: 'rgba(255,255,255,0.28)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 
 const NewMessageScreen = ({navigation}: any) => {
   const {getChatByParticipants, addChat, initializeChatMessages, upsertChat} =
     useChatStore();
   const {groups} = useGroupStore();
   const {user} = useAppStore();
+  const insets = useSafeAreaInsets();
+  const {t} = useTranslation();
+
   const [selectedFriends, setSelectedFriends] = useState<string[]>([]);
   const [selectedGroup, setSelectedGroup] = useState<GymlyGroup | null>(null);
   const [message, setMessage] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const [searchActive, setSearchActive] = useState(true);
-  const [messageInputFocused, setMessageInputFocused] = useState(false);
-  const [friends, setFriends] = useState<
-    Array<{id: string; name: string; avatar: string | null}>
-  >([]);
+  const [friends, setFriends] = useState<FriendChip[]>([]);
   const [friendsLoading, setFriendsLoading] = useState(false);
 
   useEffect(() => {
@@ -50,11 +189,14 @@ const NewMessageScreen = ({navigation}: any) => {
       setSelectedGroup(null);
     }
   }, []);
+
   const searchInputRef = useRef<TextInput>(null);
   const messageInputRef = useRef<TextInput>(null);
 
   const currentUserId = user?.id || CURRENT_USER_PLACEHOLDER_ID;
   const currentUserName = user?.displayName || 'Dig';
+  const hasRecipient = selectedFriends.length > 0 || !!selectedGroup;
+  const canSend = message.trim().length > 0 && hasRecipient;
 
   useFocusEffect(
     useCallback(() => {
@@ -135,23 +277,22 @@ const NewMessageScreen = ({navigation}: any) => {
   }, [searchQuery, myGroups]);
 
   const handleSend = async () => {
-    if (selectedFriends.length === 0 && !selectedGroup) {
+    if (!hasRecipient) {
       Alert.alert(
-        'Vælg modtager',
+        t('newMessage.selectRecipientTitle'),
         SURFACE_GROUPS_IN_APP
-          ? 'Vælg venligst en ven eller gruppe at sende beskeden til'
-          : 'Vælg venligst en ven at sende beskeden til',
+          ? t('newMessage.selectRecipientGroup')
+          : t('newMessage.selectRecipientFriend'),
       );
       return;
     }
     if (!message.trim()) {
-      Alert.alert('Tom besked', 'Skriv venligst en besked');
+      Alert.alert(t('newMessage.emptyMessage'), t('newMessage.writeMessage'));
       return;
     }
 
     const trimmedMessage = message.trim();
 
-    // Handle group chat (kun når grupper er aktiveret i UI)
     if (SURFACE_GROUPS_IN_APP && selectedGroup) {
       const members = normalizedGroupMembers(selectedGroup);
       const participantIds = Array.from(
@@ -161,10 +302,7 @@ const NewMessageScreen = ({navigation}: any) => {
         if (id === currentUserId) {
           return currentUserName;
         }
-        return (
-          members.find(member => member.id === id)?.name ||
-          'Ven'
-        );
+        return members.find(member => member.id === id)?.name || 'Ven';
       });
       const existingChat = getChatByParticipants(participantIds);
       const chatId = existingChat?.id ?? `group_chat_${selectedGroup.id}`;
@@ -196,18 +334,16 @@ const NewMessageScreen = ({navigation}: any) => {
       setSelectedGroup(null);
       setSearchQuery('');
       setSearchActive(true);
-      setMessageInputFocused(false);
       Keyboard.dismiss();
       return;
     }
 
-    // Handle friend chat
     const friendObjects = friends.filter(friend =>
       selectedFriends.includes(friend.id),
     );
 
     if (friendObjects.length === 0) {
-      Alert.alert('Ups', 'Kunne ikke finde de valgte venner');
+      Alert.alert(t('newMessage.oops'), t('newMessage.couldNotFindFriends'));
       return;
     }
 
@@ -225,9 +361,7 @@ const NewMessageScreen = ({navigation}: any) => {
         upsertChat({
           id: threadId,
           participantIds: allParticipantIds,
-          participantNames: allParticipantIds.map(
-            id => nameById[id] ?? 'Ven',
-          ),
+          participantNames: allParticipantIds.map(id => nameById[id] ?? 'Ven'),
           lastActivity: new Date(),
           unreadCount: existingChat?.unreadCount ?? 0,
           avatar: existingChat?.avatar,
@@ -241,51 +375,46 @@ const NewMessageScreen = ({navigation}: any) => {
           initialMessage: trimmedMessage,
         });
       } catch (e) {
-        Alert.alert('Besked', (e as Error).message);
+        Alert.alert(t('friendsScreen.messageError'), (e as Error).message);
         return;
       }
+    } else if (existingChat) {
+      navigation.navigate('Chat', {
+        chatId: existingChat.id,
+        friendId: `group_${existingChat.id}`,
+        friendName: `${friendObjects.length} venner`,
+        participants: friendObjects.map(friend => ({
+          id: friend.id,
+          name: friend.name,
+        })),
+        initialMessage: trimmedMessage,
+      });
     } else {
-      if (existingChat) {
-        navigation.navigate('Chat', {
-          chatId: existingChat.id,
-          friendId: `group_${existingChat.id}`,
-          friendName: `${friendObjects.length} venner`,
-          participants: friendObjects.map(friend => ({
-            id: friend.id,
-            name: friend.name,
-          })),
-          initialMessage: trimmedMessage,
-        });
-      } else {
-        const chatId = `chat_${Date.now()}`;
-        addChat({
-          id: chatId,
-          participantIds: allParticipantIds,
-          participantNames: allParticipantIds.map(
-            id => nameById[id] ?? 'Ven',
-          ),
-          lastActivity: new Date(),
-          unreadCount: 0,
-        });
-        initializeChatMessages(chatId, []);
-        navigation.navigate('Chat', {
-          chatId,
-          friendId: `group_${chatId}`,
-          friendName: `${friendObjects.length} venner`,
-          participants: friendObjects.map(friend => ({
-            id: friend.id,
-            name: friend.name,
-          })),
-          initialMessage: trimmedMessage,
-        });
-      }
+      const chatId = `chat_${Date.now()}`;
+      addChat({
+        id: chatId,
+        participantIds: allParticipantIds,
+        participantNames: allParticipantIds.map(id => nameById[id] ?? 'Ven'),
+        lastActivity: new Date(),
+        unreadCount: 0,
+      });
+      initializeChatMessages(chatId, []);
+      navigation.navigate('Chat', {
+        chatId,
+        friendId: `group_${chatId}`,
+        friendName: `${friendObjects.length} venner`,
+        participants: friendObjects.map(friend => ({
+          id: friend.id,
+          name: friend.name,
+        })),
+        initialMessage: trimmedMessage,
+      });
     }
 
     setMessage('');
     setSelectedFriends([]);
     setSearchQuery('');
     setSearchActive(true);
-    setMessageInputFocused(false);
     Keyboard.dismiss();
   };
 
@@ -294,18 +423,20 @@ const NewMessageScreen = ({navigation}: any) => {
       return;
     }
     setSelectedFriends(prev => [...prev, friendId]);
-    setSelectedGroup(null); // Clear group selection when selecting friend
+    setSelectedGroup(null);
     setSearchQuery('');
     setSearchActive(false);
     Keyboard.dismiss();
+    setTimeout(() => messageInputRef.current?.focus(), 120);
   };
 
   const handleSelectGroup = (group: GymlyGroup) => {
     setSelectedGroup(group);
-    setSelectedFriends([]); // Clear friend selection when selecting group
+    setSelectedFriends([]);
     setSearchQuery('');
     setSearchActive(false);
     Keyboard.dismiss();
+    setTimeout(() => messageInputRef.current?.focus(), 120);
   };
 
   const handleRemoveFriend = (friendId: string) => {
@@ -325,317 +456,272 @@ const NewMessageScreen = ({navigation}: any) => {
     setTimeout(() => searchInputRef.current?.focus(), 50);
   };
 
-const handleSearchFocus = () => {
-  setSearchActive(true);
-};
-
   return (
-    <KeyboardAvoidingView
-      style={styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={Platform.OS === 'ios' ? 90 : 0}>
-      {/* Header */}
-      <View style={styles.header}>
-        <View style={styles.headerSpacer} />
-        <View style={styles.headerContent}>
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.backButton}>
-            <Icon name="arrow-back" size={24} color="#000" />
-            <Text style={styles.backButtonText}>Tilbage</Text>
-          </TouchableOpacity>
-          <Text style={styles.headerTitle}>Ny besked</Text>
-          <View style={styles.headerRight} />
-        </View>
+    <View style={styles.root}>
+      <View style={[styles.header, {paddingTop: insets.top + spacing.sm}]}>
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={styles.backButton}
+          hitSlop={{top: 8, bottom: 8, left: 8, right: 8}}
+          accessibilityLabel="Tilbage">
+          <Icon name="chevron-back" size={26} color={colors.text} />
+        </TouchableOpacity>
+        <Text style={styles.headerTitle}>{t('newMessage.title')}</Text>
+        <View style={styles.headerRight} />
       </View>
 
-      <ScrollView style={styles.content} keyboardShouldPersistTaps="handled">
-        {/* To Section */}
-        <View style={[styles.section, selectedFriends.length > 0 && styles.sectionCompact]}>
-          <Text style={styles.sectionLabel}>Til</Text>
-          <View style={styles.searchContainer}>
-            <Icon name="search" size={20} color="#8E8E93" style={styles.searchIcon} />
-            <TextInput
-              style={styles.searchInput}
-              placeholder={
-                selectedFriends.length > 0 ? 'Søg for at tilføje flere...' : 'Søg efter venner...'
-              }
-              placeholderTextColor="#8E8E93"
-              value={searchQuery}
-              onChangeText={setSearchQuery}
-              ref={searchInputRef}
-              onFocus={handleSearchFocus}
-            />
-            {searchQuery.length > 0 && (
-              <TouchableOpacity
-                onPress={() => setSearchQuery('')}
-                style={styles.clearButton}>
-                <Icon name="close-circle" size={20} color="#8E8E93" />
-              </TouchableOpacity>
-            )}
-          </View>
+      <View style={styles.recipientCard}>
+        <Text style={styles.tilLabel}>{t('newMessage.to')}</Text>
+        <View style={styles.searchRow}>
+          <Icon name="search" size={18} color={colors.textMuted} />
+          <TextInput
+            ref={searchInputRef}
+            style={styles.searchInput}
+            placeholder={
+              selectedFriends.length > 0
+                ? t('newMessage.searchMore')
+                : t('newMessage.searchFriends')
+            }
+            placeholderTextColor={colors.textMuted}
+            value={searchQuery}
+            onChangeText={setSearchQuery}
+            onFocus={() => setSearchActive(true)}
+            returnKeyType="search"
+          />
+          {searchQuery.length > 0 ? (
+            <Pressable onPress={() => setSearchQuery('')} hitSlop={8}>
+              <Icon name="close-circle" size={18} color={colors.textMuted} />
+            </Pressable>
+          ) : null}
+        </View>
 
-          {/* Selected Friend or Group */}
-          {(selectedFriends.length > 0 || selectedGroup) && (
-            <View style={styles.selectedFriendContainer}>
-              <View style={styles.chipList}>
-                {selectedGroup && (
-                  <View style={styles.selectedGroup}>
-                    {selectedGroup.image ? (
-                      <Image source={{uri: selectedGroup.image}} style={styles.selectedGroupImage} />
+        {hasRecipient ? (
+          <View style={styles.chipRow}>
+            {selectedGroup ? (
+              <RecipientChip
+                label={selectedGroup.name}
+                avatarUrl={selectedGroup.image}
+                onRemove={handleRemoveGroup}
+              />
+            ) : null}
+            {selectedFriends.map(friendId => {
+              const friend = friends.find(f => f.id === friendId);
+              if (!friend) {
+                return null;
+              }
+              return (
+                <RecipientChip
+                  key={friend.id}
+                  label={friend.name}
+                  avatarUrl={friend.avatar}
+                  onRemove={() => handleRemoveFriend(friend.id)}
+                />
+              );
+            })}
+          </View>
+        ) : null}
+      </View>
+
+      {searchActive ? (
+        <ScrollView
+          style={styles.listScroll}
+          contentContainerStyle={styles.listContent}
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}>
+          {SURFACE_GROUPS_IN_APP && filteredGroups.length > 0 ? (
+            <View style={styles.listSection}>
+              <Text style={styles.listSectionLabel}>{t('friendsTabs.groups')}</Text>
+              {filteredGroups.map(group => {
+                const members = normalizedGroupMembers(group).filter(
+                  member => member.id !== currentUserId,
+                );
+                return (
+                  <TouchableOpacity
+                    key={group.id}
+                    style={styles.listRow}
+                    onPress={() => handleSelectGroup(group)}
+                    activeOpacity={0.65}>
+                    {group.image ? (
+                      <Image source={{uri: group.image}} style={styles.listRowAvatar} />
                     ) : (
-                      <View style={styles.selectedGroupPlaceholder}>
-                        <Text style={styles.selectedGroupPlaceholderText}>
-                          {selectedGroup.name.charAt(0).toUpperCase()}
+                      <View style={styles.listRowAvatarPlaceholder}>
+                        <Text style={styles.listRowAvatarLetter}>
+                          {group.name.charAt(0).toUpperCase()}
                         </Text>
                       </View>
                     )}
-                    <Text style={styles.selectedGroupName}>{selectedGroup.name}</Text>
-                    <TouchableOpacity
-                      onPress={handleRemoveGroup}
-                      style={styles.removeButton}>
-                      <Icon name="close-circle" size={18} color="#FF3B30" />
-                    </TouchableOpacity>
-                  </View>
-                )}
-                {selectedFriends.map(friendId => {
-                  const friend = friends.find(f => f.id === friendId);
-                  if (!friend) {
-                    return null;
-                  }
-                  return (
-                    <View key={friend.id} style={styles.selectedFriend}>
-                      <Text style={styles.selectedFriendName}>{friend.name}</Text>
-                      <TouchableOpacity
-                        onPress={() => handleRemoveFriend(friend.id)}
-                        style={styles.removeButton}>
-                        <Icon name="close-circle" size={18} color="#FF3B30" />
-                      </TouchableOpacity>
+                    <View style={styles.listRowBody}>
+                      <Text style={styles.listRowTitle}>{group.name}</Text>
+                      <Text style={styles.listRowSubtitle} numberOfLines={1}>
+                        {members.length > 0
+                          ? members.map(member => member.name).join(', ')
+                          : 'Kun dig i gruppen endnu'}
+                      </Text>
                     </View>
-                  );
-                })}
+                    <Icon name="chevron-forward" size={18} color={colors.textMuted} />
+                  </TouchableOpacity>
+                );
+              })}
+            </View>
+          ) : null}
+
+          {filteredFriends.length > 0 ? (
+            <View style={styles.listSection}>
+              <Text style={styles.listSectionLabel}>{t('newMessage.friends')}</Text>
+              {filteredFriends.map(friend => (
+                <TouchableOpacity
+                  key={friend.id}
+                  style={styles.listRow}
+                  onPress={() => handleSelectFriend(friend.id)}
+                  activeOpacity={0.65}>
+                  <UserAvatar
+                    name={friend.name}
+                    imageUrl={friend.avatar}
+                    size="md"
+                    style={styles.listRowAvatarImage}
+                  />
+                  <Text style={styles.listRowTitleFlex}>{friend.name}</Text>
+                  <Icon name="chevron-forward" size={18} color={colors.textMuted} />
+                </TouchableOpacity>
+              ))}
+            </View>
+          ) : null}
+
+          {friendsLoading &&
+            filteredFriends.length === 0 &&
+            (!SURFACE_GROUPS_IN_APP || filteredGroups.length === 0) && (
+              <View style={styles.emptyBlock}>
+                <ActivityIndicator size="large" color={colors.primary} />
+                <Text style={styles.emptySub}>{t('newMessage.loadingFriends')}</Text>
               </View>
-            </View>
-          )}
+            )}
 
-          {/* Friends and Groups List */}
-          {searchActive && (
-            <View style={styles.friendsList}>
-              {SURFACE_GROUPS_IN_APP && filteredGroups.length > 0 ? (
-                <View style={styles.groupsSection}>
-                  <Text style={styles.sectionSubtitle}>Grupper</Text>
-                  {filteredGroups.map(group => {
-                    const members = normalizedGroupMembers(group).filter(
-                      member => member.id !== currentUserId,
-                    );
-                    return (
-                      <TouchableOpacity
-                        key={group.id}
-                        style={styles.groupItem}
-                        onPress={() => handleSelectGroup(group)}
-                        activeOpacity={0.7}>
-                        {group.image ? (
-                          <Image source={{uri: group.image}} style={styles.groupItemImage} />
-                        ) : (
-                          <View style={styles.groupItemPlaceholder}>
-                            <Text style={styles.groupItemPlaceholderText}>
-                              {group.name.charAt(0).toUpperCase()}
-                            </Text>
-                          </View>
-                        )}
-                        <View style={styles.groupItemInfo}>
-                          <Text style={styles.groupItemName}>{group.name}</Text>
-                          <Text style={styles.groupItemMembers}>
-                            {members.length > 0
-                              ? members.map(member => member.name).join(', ')
-                              : 'Kun dig i gruppen endnu'}
-                          </Text>
-                        </View>
-                        <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-                      </TouchableOpacity>
-                    );
-                  })}
-                </View>
-              ) : null}
+          {!friendsLoading &&
+            friends.length === 0 &&
+            filteredFriends.length === 0 &&
+            (!SURFACE_GROUPS_IN_APP || filteredGroups.length === 0) &&
+            searchQuery.trim().length === 0 && (
+              <View style={styles.emptyBlock}>
+                <Icon name="people-outline" size={44} color={colors.textMuted} />
+                <Text style={styles.emptyTitle}>{t('newMessage.noFriends')}</Text>
+                <Text style={styles.emptySub}>{t('newMessage.noFriendsSub')}</Text>
+              </View>
+            )}
 
-              {/* Friends Section */}
-              {filteredFriends.length > 0 && (
-                <View style={styles.friendsSection}>
-                  <Text style={styles.sectionSubtitle}>Venner</Text>
-                  {filteredFriends.map(friend => (
-                    <TouchableOpacity
-                      key={friend.id}
-                      style={styles.friendItem}
-                      onPress={() => handleSelectFriend(friend.id)}
-                      activeOpacity={0.7}>
-                      <UserAvatar
-                        name={friend.name}
-                        imageUrl={friend.avatar}
-                        size="md"
-                        style={styles.friendAvatarImage}
-                      />
-                      <Text style={styles.friendName}>{friend.name}</Text>
-                      <Icon name="chevron-forward" size={20} color="#C7C7CC" />
-                    </TouchableOpacity>
-                  ))}
-                </View>
-              )}
+          {!friendsLoading &&
+            filteredFriends.length === 0 &&
+            (!SURFACE_GROUPS_IN_APP || filteredGroups.length === 0) &&
+            searchQuery.trim().length > 0 && (
+              <View style={styles.emptyBlock}>
+                <Icon name="search-outline" size={44} color={colors.textMuted} />
+                <Text style={styles.emptyTitle}>{t('newMessage.noResults')}</Text>
+              </View>
+            )}
+        </ScrollView>
+      ) : null}
 
-              {friendsLoading &&
-                (!SURFACE_GROUPS_IN_APP || filteredGroups.length === 0) &&
-                filteredFriends.length === 0 && (
-                  <View style={styles.emptyState}>
-                    <ActivityIndicator size="large" color={colors.primary} />
-                    <Text style={styles.emptySubtext}>Henter venner…</Text>
-                  </View>
-                )}
-
-              {!friendsLoading &&
-                friends.length === 0 &&
-                (!SURFACE_GROUPS_IN_APP || filteredGroups.length === 0) &&
-                filteredFriends.length === 0 &&
-                searchQuery.trim().length === 0 && (
-                  <View style={styles.emptyState}>
-                    <Icon name="people-outline" size={48} color="#C7C7CC" />
-                    <Text style={styles.emptyText}>Ingen venner endnu</Text>
-                    <Text style={styles.emptySubtext}>
-                      Tilføj venner under fanen Venner for at skrive sammen.
-                    </Text>
-                  </View>
-                )}
-
-              {/* Empty State — søgning uden match */}
-              {!friendsLoading &&
-                filteredFriends.length === 0 &&
-                (!SURFACE_GROUPS_IN_APP || filteredGroups.length === 0) &&
-                searchQuery.trim().length > 0 && (
-                  <View style={styles.emptyState}>
-                    <Icon name="people-outline" size={48} color="#C7C7CC" />
-                    <Text style={styles.emptyText}>Ingen resultater fundet</Text>
-                  </View>
-                )}
-            </View>
-          )}
-        </View>
-      </ScrollView>
-
-      {/* Message Input - Instagram style at bottom */}
-      {(selectedFriends.length > 0 || selectedGroup) && (
-        <View style={styles.messageInputBottom}>
-          <View style={styles.messageInputWrapper}>
-            <TextInput
-              ref={messageInputRef}
-              style={styles.messageInputBottomField}
-              placeholder="Besked..."
-              placeholderTextColor="#8E8E93"
-              value={message}
-              onChangeText={setMessage}
-              onFocus={() => setMessageInputFocused(true)}
-              onBlur={() => setMessageInputFocused(false)}
-              multiline
-              maxLength={1000}
-            />
-            {message.trim().length > 0 && (
+      {hasRecipient ? (
+        <KeyboardAvoidingView
+          behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+          keyboardVerticalOffset={0}>
+          <View
+            style={[
+              styles.composerBar,
+              {paddingBottom: Math.max(insets.bottom, spacing.sm)},
+            ]}>
+            <View style={styles.composerCard}>
+              <TextInput
+                ref={messageInputRef}
+                style={styles.composerInput}
+                placeholder={t('newMessage.writeMessage')}
+                placeholderTextColor={colors.textMuted}
+                value={message}
+                onChangeText={setMessage}
+                multiline
+                maxLength={1000}
+                textAlignVertical="center"
+              />
               <TouchableOpacity
                 onPress={handleSend}
-                style={styles.sendButtonBottom}
-                activeOpacity={0.7}>
-                <Icon name="send" size={20} color="#007AFF" />
+                disabled={!canSend}
+                style={[
+                  styles.sendButton,
+                  canSend ? styles.sendButtonEnabled : styles.sendButtonDisabled,
+                ]}
+                activeOpacity={0.85}
+                accessibilityLabel="Send besked">
+                <Icon
+                  name="paper-plane"
+                  size={18}
+                  color={canSend ? colors.white : colors.textMuted}
+                />
               </TouchableOpacity>
-            )}
+            </View>
           </View>
-        </View>
-      )}
-    </KeyboardAvoidingView>
+        </KeyboardAvoidingView>
+      ) : null}
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  root: {
     flex: 1,
     backgroundColor: colors.background,
   },
   header: {
-    backgroundColor: colors.backgroundCard,
-    borderBottomWidth: 1,
-    borderBottomColor: '#EFEFF4',
-    paddingTop: 50, // Space for status bar
-  },
-  headerSpacer: {
-    height: 0,
-  },
-  headerContent: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingHorizontal: spacing.lg,
+    paddingBottom: spacing.md,
+    backgroundColor: colors.backgroundCard,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: colors.border,
   },
   backButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 4,
-  },
-  backButtonText: {
-    fontSize: 16,
-    color: colors.text,
-    marginLeft: 4,
+    width: 40,
+    height: 40,
+    alignItems: 'flex-start',
+    justifyContent: 'center',
   },
   headerTitle: {
-    fontSize: 18,
-    fontWeight: '600',
+    ...typography.h3,
+    fontSize: 17,
     color: colors.text,
+    textAlign: 'center',
   },
   headerRight: {
-    width: 80, // Balance the back button width
+    width: 40,
   },
-  messageInputContainer: {
-    position: 'relative',
-  },
-  messageInputFooter: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginTop: 8,
-  },
-  sendButtonIcon: {
-    padding: 4,
-  },
-  sendButtonIconDisabled: {
-    opacity: 0.3,
-  },
-  content: {
-    flex: 1,
-  },
-  section: {
+  recipientCard: {
     backgroundColor: colors.backgroundCard,
-    padding: 16,
-    marginTop: 8,
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
-    borderColor: '#EFEFF4',
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.lg,
+    paddingBottom: spacing.md,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: colors.border,
+    ...shadows.card,
   },
-  sectionCompact: {
-    paddingBottom: 12,
-  },
-  sectionLabel: {
-    fontSize: 14,
+  tilLabel: {
+    fontSize: 11,
     fontWeight: '600',
+    letterSpacing: 0.8,
     color: colors.textMuted,
-    marginBottom: 12,
     textTransform: 'uppercase',
+    marginBottom: spacing.sm,
   },
-  searchContainer: {
+  searchRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: colors.background,
-    borderRadius: 10,
-    paddingHorizontal: 12,
-    paddingVertical: 10,
-    marginBottom: 12,
-  },
-  searchIcon: {
-    marginRight: 8,
+    backgroundColor: colors.backgroundCardLight,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
+    paddingHorizontal: spacing.md,
+    paddingVertical: Platform.OS === 'ios' ? spacing.md : spacing.sm,
+    gap: spacing.sm,
+    ...shadows.sm,
   },
   searchInput: {
     flex: 1,
@@ -643,215 +729,146 @@ const styles = StyleSheet.create({
     color: colors.text,
     padding: 0,
   },
-  clearButton: {
-    marginLeft: 8,
-    padding: 4,
-  },
-  selectedFriendContainer: {
-    marginTop: 8,
-  },
-  chipList: {
+  chipRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 8,
+    marginTop: spacing.md,
   },
-  selectedFriend: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.primary,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderRadius: 16,
-    gap: 6,
+  listScroll: {
+    flex: 1,
   },
-  selectedFriendName: {
-    fontSize: 14,
+  listContent: {
+    paddingBottom: spacing.xl,
+  },
+  listSection: {
+    backgroundColor: colors.backgroundCard,
+    marginTop: spacing.sm,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.sm,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.border,
+  },
+  listSectionLabel: {
+    fontSize: 11,
     fontWeight: '600',
-    color: colors.white,
-  },
-  selectedGroup: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.primary,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderRadius: 16,
-    gap: 6,
-  },
-  selectedGroupImage: {
-    width: 24,
-    height: 24,
-    borderRadius: 6,
-  },
-  selectedGroupPlaceholder: {
-    width: 24,
-    height: 24,
-    borderRadius: 6,
-    backgroundColor: colors.secondary,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  selectedGroupPlaceholderText: {
-    fontSize: 12,
-    fontWeight: '700',
-    color: '#fff',
-  },
-  selectedGroupName: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: colors.white,
-  },
-  removeButton: {
-    padding: 4,
-  },
-  groupsSection: {
-    marginBottom: 16,
-  },
-  friendsSection: {
-    marginTop: 8,
-  },
-  sectionSubtitle: {
-    fontSize: 12,
-    fontWeight: '600',
+    letterSpacing: 0.6,
     color: colors.textMuted,
-    marginBottom: 8,
     textTransform: 'uppercase',
+    marginBottom: spacing.sm,
+    marginTop: spacing.xs,
   },
-  groupItem: {
+  listRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 12,
-    paddingHorizontal: 4,
+    paddingVertical: spacing.md,
   },
-  groupItemImage: {
-    width: 40,
-    height: 40,
-    borderRadius: 10,
-    marginRight: 12,
+  listRowAvatar: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    marginRight: spacing.md,
   },
-  groupItemPlaceholder: {
-    width: 40,
-    height: 40,
-    borderRadius: 10,
-    backgroundColor: colors.primary,
-    justifyContent: 'center',
+  listRowAvatarPlaceholder: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: colors.surface,
     alignItems: 'center',
-    marginRight: 12,
+    justifyContent: 'center',
+    marginRight: spacing.md,
   },
-  groupItemPlaceholderText: {
-    fontSize: 16,
+  listRowAvatarLetter: {
+    fontSize: 17,
     fontWeight: '700',
     color: colors.primary,
   },
-  groupItemInfo: {
-    flex: 1,
+  listRowAvatarImage: {
+    marginRight: spacing.md,
   },
-  groupItemName: {
+  listRowBody: {
+    flex: 1,
+    marginRight: spacing.sm,
+  },
+  listRowTitle: {
     fontSize: 16,
     fontWeight: '600',
     color: colors.text,
     marginBottom: 2,
   },
-  groupItemMembers: {
+  listRowTitleFlex: {
+    flex: 1,
+    fontSize: 16,
+    fontWeight: '600',
+    color: colors.text,
+    marginRight: spacing.sm,
+  },
+  listRowSubtitle: {
     fontSize: 13,
     color: colors.textMuted,
   },
-  friendsList: {
-    marginTop: 8,
-  },
-  friendItem: {
-    flexDirection: 'row',
+  emptyBlock: {
     alignItems: 'center',
-    paddingVertical: 12,
-    paddingHorizontal: 4,
+    paddingVertical: spacing.xxxl,
+    paddingHorizontal: spacing.xl,
   },
-  friendAvatar: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: colors.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 12,
-  },
-  friendAvatarImage: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    marginRight: 12,
-    backgroundColor: colors.surface,
-  },
-  friendAvatarText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#fff',
-  },
-  friendName: {
-    flex: 1,
+  emptyTitle: {
     fontSize: 16,
-    color: colors.text,
+    fontWeight: '600',
+    color: colors.textSecondary,
+    marginTop: spacing.md,
   },
-  emptyState: {
-    alignItems: 'center',
-    padding: 32,
-  },
-  emptySubtext: {
+  emptySub: {
     fontSize: 14,
     color: colors.textMuted,
-    marginTop: 8,
+    marginTop: spacing.sm,
     textAlign: 'center',
-    paddingHorizontal: 16,
+    lineHeight: 20,
   },
-  emptyText: {
-    fontSize: 16,
-    color: colors.textMuted,
-    marginTop: 12,
-  },
-  messageInput: {
-    backgroundColor: colors.background,
-    borderRadius: 12,
-    padding: 16,
-    fontSize: 16,
-    color: colors.text,
-    minHeight: 150,
-    maxHeight: 300,
-  },
-  characterCount: {
-    fontSize: 12,
-    color: colors.textMuted,
-    textAlign: 'right',
-    marginTop: 8,
-  },
-  messageInputBottom: {
+  composerBar: {
     backgroundColor: colors.backgroundCard,
-    borderTopWidth: 1,
-    borderTopColor: '#EFEFF4',
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    paddingBottom: Platform.OS === 'ios' ? 20 : 8,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: colors.border,
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.sm,
   },
-  messageInputWrapper: {
+  composerCard: {
     flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.background,
-    borderRadius: 20,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    minHeight: 44,
-    maxHeight: 100,
+    alignItems: 'flex-end',
+    backgroundColor: colors.backgroundCardLight,
+    borderRadius: radius.xl,
+    borderWidth: 1,
+    borderColor: colors.border,
+    paddingLeft: spacing.lg,
+    paddingRight: spacing.sm,
+    paddingVertical: spacing.sm,
+    minHeight: 48,
+    ...shadows.sm,
   },
-  messageInputBottomField: {
+  composerInput: {
     flex: 1,
     fontSize: 16,
     color: colors.text,
-    maxHeight: 84,
-    padding: 0,
+    maxHeight: 120,
+    paddingTop: Platform.OS === 'ios' ? 10 : 8,
+    paddingBottom: Platform.OS === 'ios' ? 10 : 8,
+    paddingRight: spacing.sm,
   },
-  sendButtonBottom: {
-    marginLeft: 8,
-    padding: 4,
+  sendButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 2,
+  },
+  sendButtonEnabled: {
+    backgroundColor: colors.primary,
+    ...shadows.glow,
+  },
+  sendButtonDisabled: {
+    backgroundColor: colors.surface,
   },
 });
 
 export default NewMessageScreen;
-

@@ -1,17 +1,18 @@
 /**
- * Reusable Card component - premium rounded cards
+ * Reusable Card — premium rounded surfaces
  */
 
 import React from 'react';
-import {View, ViewStyle, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, ViewStyle, StyleSheet} from 'react-native';
 import colors from '@/theme/colors';
 import {spacing, radius, shadows} from '@/theme/designTokens';
+import {GymlyPressable} from './GymlyPressable';
 
 type CardProps = {
   children: React.ReactNode;
   onPress?: () => void;
   style?: ViewStyle;
-  variant?: 'default' | 'elevated' | 'outlined';
+  variant?: 'default' | 'elevated' | 'outlined' | 'flat';
   padding?: keyof typeof spacing;
 };
 
@@ -26,17 +27,15 @@ export const Card: React.FC<CardProps> = ({
     styles.base,
     variant === 'elevated' && styles.elevated,
     variant === 'outlined' && styles.outlined,
+    variant === 'flat' && styles.flat,
     {padding: spacing[padding]},
   ];
 
   if (onPress) {
     return (
-      <TouchableOpacity
-        onPress={onPress}
-        activeOpacity={0.8}
-        style={[cardStyle, style]}>
+      <GymlyPressable onPress={onPress} style={[cardStyle, style]} haptic="selection">
         {children}
-      </TouchableOpacity>
+      </GymlyPressable>
     );
   }
 
@@ -53,9 +52,12 @@ const styles = StyleSheet.create({
     ...shadows.md,
   },
   outlined: {
-    borderWidth: 1,
+    borderWidth: StyleSheet.hairlineWidth,
     borderColor: colors.border,
-    shadowOpacity: 0,
-    elevation: 0,
+    ...shadows.none,
+  },
+  flat: {
+    backgroundColor: colors.backgroundCardLight,
+    ...shadows.none,
   },
 });

@@ -16,8 +16,10 @@ import {
 import {usePrivacyStore} from '@/store/privacyStore';
 import PrivacyService from '@/services/privacy/PrivacyService';
 import colors from '@/theme/colors';
+import {useTranslation} from '@/i18n';
 
 const PrivacyConsentScreen = () => {
+  const {t} = useTranslation();
   const {saveConsent} = usePrivacyStore();
   
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
@@ -29,8 +31,8 @@ const PrivacyConsentScreen = () => {
   const handleAccept = async () => {
     if (!privacyAccepted || !termsAccepted) {
       Alert.alert(
-        'Påkrævet',
-        'Du skal acceptere privatlivspolitikken og servicevilkårene for at fortsætte.'
+        t('privacyConsent.requiredAlertTitle'),
+        t('privacyConsent.requiredAlertBody'),
       );
       return;
     }
@@ -46,7 +48,7 @@ const PrivacyConsentScreen = () => {
       
       await saveConsent(consent);
     } catch (error) {
-      Alert.alert('Fejl', 'Kunne ikke gemme samtykke. Prøv igen.');
+      Alert.alert(t('common.error'), t('privacyConsent.saveFailed'));
       console.error(error);
     } finally {
       setIsLoading(false);
@@ -59,25 +61,21 @@ const PrivacyConsentScreen = () => {
         {/* Header */}
         <View style={styles.header}>
           <Text style={styles.icon}>🔒</Text>
-          <Text style={styles.title}>Velkommen til Gymly</Text>
-          <Text style={styles.subtitle}>
-            Vi respekterer dit privatliv og overholder GDPR
-          </Text>
+          <Text style={styles.title}>{t('privacyConsent.welcomeTitle')}</Text>
+          <Text style={styles.subtitle}>{t('privacyConsent.welcomeSubtitle')}</Text>
         </View>
 
         {/* Required Consents */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Påkrævet (nødvendigt for app)</Text>
+          <Text style={styles.sectionTitle}>{t('privacyConsent.requiredSection')}</Text>
           
           <TouchableOpacity
             style={styles.consentItem}
             onPress={() => setPrivacyAccepted(!privacyAccepted)}
             activeOpacity={0.7}>
             <View style={styles.consentInfo}>
-              <Text style={styles.consentTitle}>Privatlivspolitik</Text>
-              <Text style={styles.consentDescription}>
-                Vi gemmer kun nødvendige data og beskytter dine oplysninger
-              </Text>
+              <Text style={styles.consentTitle}>{t('privacyConsent.privacyTitle')}</Text>
+              <Text style={styles.consentDescription}>{t('privacyConsent.privacyDesc')}</Text>
             </View>
             <View style={[styles.checkbox, privacyAccepted && styles.checkboxChecked]}>
               {privacyAccepted && <Text style={styles.checkmark}>✓</Text>}
@@ -89,10 +87,8 @@ const PrivacyConsentScreen = () => {
             onPress={() => setTermsAccepted(!termsAccepted)}
             activeOpacity={0.7}>
             <View style={styles.consentInfo}>
-              <Text style={styles.consentTitle}>Servicevilkår</Text>
-              <Text style={styles.consentDescription}>
-                Vilkår for brug af Gymly
-              </Text>
+              <Text style={styles.consentTitle}>{t('privacyConsent.termsTitle')}</Text>
+              <Text style={styles.consentDescription}>{t('privacyConsent.termsDesc')}</Text>
             </View>
             <View style={[styles.checkbox, termsAccepted && styles.checkboxChecked]}>
               {termsAccepted && <Text style={styles.checkmark}>✓</Text>}
@@ -102,14 +98,12 @@ const PrivacyConsentScreen = () => {
 
         {/* Optional Consents */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Valgfrit</Text>
+          <Text style={styles.sectionTitle}>{t('privacyConsent.optionalSection')}</Text>
           
           <View style={styles.consentItem}>
             <View style={styles.consentInfo}>
-              <Text style={styles.consentTitle}>Marketing kommunikation</Text>
-              <Text style={styles.consentDescription}>
-                Modtag nyheder og tilbud (kan ændres senere)
-              </Text>
+              <Text style={styles.consentTitle}>{t('privacyConsent.marketingTitle')}</Text>
+              <Text style={styles.consentDescription}>{t('privacyConsent.marketingDesc')}</Text>
             </View>
             <Switch
               value={marketingConsent}
@@ -121,10 +115,8 @@ const PrivacyConsentScreen = () => {
 
           <View style={styles.consentItem}>
             <View style={styles.consentInfo}>
-              <Text style={styles.consentTitle}>Anonymiseret analyse</Text>
-              <Text style={styles.consentDescription}>
-                Hjælp os med at forbedre appen (kan ændres senere)
-              </Text>
+              <Text style={styles.consentTitle}>{t('privacyConsent.analyticsTitle')}</Text>
+              <Text style={styles.consentDescription}>{t('privacyConsent.analyticsDesc')}</Text>
             </View>
             <Switch
               value={analyticsConsent}
@@ -137,11 +129,11 @@ const PrivacyConsentScreen = () => {
 
         {/* GDPR Rights Info */}
         <View style={styles.infoBox}>
-          <Text style={styles.infoTitle}>Dine rettigheder under GDPR:</Text>
-          <Text style={styles.infoText}>• Ret til indsigt i dine data</Text>
-          <Text style={styles.infoText}>• Ret til at få dine data slettet</Text>
-          <Text style={styles.infoText}>• Ret til dataportabilitet</Text>
-          <Text style={styles.infoText}>• Ret til at trække samtykke tilbage</Text>
+          <Text style={styles.infoTitle}>{t('privacyConsent.gdprTitle')}</Text>
+          <Text style={styles.infoText}>{t('privacyConsent.gdprInsight')}</Text>
+          <Text style={styles.infoText}>{t('privacyConsent.gdprDelete')}</Text>
+          <Text style={styles.infoText}>{t('privacyConsent.gdprPortability')}</Text>
+          <Text style={styles.infoText}>{t('privacyConsent.gdprWithdraw')}</Text>
         </View>
 
         {/* Accept Button */}
@@ -154,13 +146,13 @@ const PrivacyConsentScreen = () => {
           disabled={!privacyAccepted || !termsAccepted || isLoading}
           activeOpacity={0.8}>
           <Text style={styles.acceptButtonText}>
-            {isLoading ? 'Gemmer...' : 'Accepter og fortsæt'}
+            {isLoading ? t('privacyConsent.saving') : t('privacyConsent.acceptAndContinue')}
           </Text>
         </TouchableOpacity>
 
         <View style={styles.footer}>
           <Text style={styles.footerText}>
-            Ved at fortsætte accepterer du at overholde vores retningslinjer
+            {t('privacyConsent.footer')}
           </Text>
         </View>
       </ScrollView>

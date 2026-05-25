@@ -28,6 +28,9 @@ import {useChatStore} from '@/store/chatStore';
 import {getOrCreateDmThread} from '@/services/supabase/dmService';
 import {UserAvatar} from '@/components/ui/UserAvatar';
 import SocialSearchBar from '@/components/social/SocialSearchBar';
+import {useTranslation} from '@/i18n';
+import type {AppLanguage} from '@/i18n/types';
+import {labelForMuscleToken} from '@/utils/muscleGroupLabels';
 
 type FilterType = 'venner' | 'alle';
 
@@ -47,17 +50,25 @@ const matchesSearch = (u: OnlineUser, q: string): boolean => {
   return hay.includes(s);
 };
 
-const getStatusLabel = (user: OnlineUser): string => {
+const getStatusLabel = (
+  user: OnlineUser,
+  t: (path: string, params?: Record<string, string | number>) => string,
+  language: AppLanguage,
+): string => {
   switch (user.status) {
     case 'training_now':
-      return user.muscleGroup ? `Træner ${user.muscleGroup}` : 'Træner nu';
+      return user.muscleGroup
+        ? t('online.trainingMuscle', {
+            muscle: labelForMuscleToken(user.muscleGroup, language),
+          })
+        : t('online.trainingNow');
     case 'active_minutes':
       const mins = user.activeMinutesAgo ?? 0;
-      return `Aktiv for ${mins} min siden`;
+      return t('online.activeMinutesAgo', {mins});
     case 'online_now':
-      return 'Online';
+      return t('online.onlineNow');
     default:
-      return 'Online';
+      return t('online.onlineNow');
   }
 };
 
@@ -75,13 +86,14 @@ const getStatusColor = (status: OnlineUser['status']): string => {
 };
 
 const OnlineScreen = () => {
+  const {t, language} = useTranslation();
   const navigation = useNavigation<any>();
   const {user} = useAppStore();
   const {getChatByParticipants, upsertChat} = useChatStore();
   const [filter, setFilter] = useState<FilterType>('venner');
   const [searchQuery, setSearchQuery] = useState('');
   const currentUserId = user?.id || 'current_user';
-  const currentUserName = user?.displayName || 'Dig';
+  const currentUserName = user?.displayName || t('common.you');
 
   const {users: usersFromSource, refresh: refreshOnline} = useOnlineUsers(
     user?.id,
@@ -137,7 +149,7 @@ const OnlineScreen = () => {
         participants: [{id: u.userId, name: u.displayName}],
       });
     } catch (e) {
-      Alert.alert('Besked', (e as Error).message);
+      Alert.alert(t('friendsScreen.messageError'), (e as Error).message);
     }
   };
 
@@ -155,7 +167,7 @@ const OnlineScreen = () => {
 
   const renderUserCard = ({item}: {item: OnlineUser}) => {
     const statusColor = getStatusColor(item.status);
-    const statusLabel = getStatusLabel(item);
+    const statusLabel = getStatusLabel(item, t, language);
 
     return (
       <View style={styles.card}>
@@ -234,14 +246,12 @@ const OnlineScreen = () => {
   };
 
   const filterOptions = [
-    {value: 'venner' as const, label: 'Venner'},
-    {value: 'alle' as const, label: 'Alle'},
+    {value: 'venner' as const, label: t('online.friends')},
+    {value: 'alle' as const, label: t('online.all')},
   ];
 
   const searchPlaceholder =
-    filter === 'venner'
-      ? 'Søg efter venner...'
-      : 'Søg på alle profiler...';
+    filter === 'venner' ? t('online.searchFriends') : t('online.searchAll');
 
   const listEmpty =
     usersFromSource.length === 0 ? (
@@ -255,8 +265,8 @@ const OnlineScreen = () => {
     ) : (
       <EmptyState
         icon="search-outline"
-        title="Ingen matcher din søgning"
-        message="Prøv et andet navn eller søgeord."
+        title={t('online.emptyTitle')}
+        message={t('online.emptyMessage')}
       />
     );
 

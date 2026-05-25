@@ -4,6 +4,7 @@
  */
 
 export type AuthStackParamList = {
+  Language: undefined;
   Login: undefined;
   Register: undefined;
   ForgotPassword: undefined;

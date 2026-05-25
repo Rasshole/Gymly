@@ -1,8 +1,8 @@
 /**
- * Push-indstillinger — synkes til `notification_preferences` (påvirker udsendelse fra Edge Function).
+ * Push notification preferences — synced to `notification_preferences`.
  */
 
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useEffect, useCallback, useMemo} from 'react';
 import {
   View,
   Text,
@@ -27,8 +27,10 @@ import {
   savePushTokenToSupabase,
   setPushTokenEnabledForUser,
 } from '@/services/push/pushTokenService';
+import {useTranslation} from '@/i18n';
 
 const PushNotificationsScreen = () => {
+  const {t} = useTranslation();
   const userId = useAppStore(s => s.user?.id);
   const [pushEnabled, setPushEnabled] = useState(true);
   const [messages, setMessages] = useState(true);
@@ -38,6 +40,49 @@ const PushNotificationsScreen = () => {
   const [planned, setPlanned] = useState(true);
   const [reminders, setReminders] = useState(true);
   const [loading, setLoading] = useState(true);
+
+  const categoryRows = useMemo(
+    () =>
+      [
+        {
+          label: t('pushSettings.catMessages'),
+          value: messages,
+          on: setMessages,
+          key: 'messages_enabled' as const,
+        },
+        {
+          label: t('pushSettings.catFriendRequests'),
+          value: friendReq,
+          on: setFriendReq,
+          key: 'friend_requests_enabled' as const,
+        },
+        {
+          label: t('pushSettings.catCheckIns'),
+          value: checkins,
+          on: setCheckins,
+          key: 'check_ins_enabled' as const,
+        },
+        {
+          label: t('pushSettings.catBadges'),
+          value: badges,
+          on: setBadges,
+          key: 'badges_streaks_enabled' as const,
+        },
+        {
+          label: t('pushSettings.catPlanned'),
+          value: planned,
+          on: setPlanned,
+          key: 'planned_workouts_enabled' as const,
+        },
+        {
+          label: t('pushSettings.catReminders'),
+          value: reminders,
+          on: setReminders,
+          key: 'workout_reminders_enabled' as const,
+        },
+      ],
+    [t, messages, friendReq, checkins, badges, planned, reminders],
+  );
 
   const load = useCallback(async () => {
     if (!userId) {
@@ -53,12 +98,12 @@ const PushNotificationsScreen = () => {
       setBadges(p.badges_streaks_enabled);
       setPlanned(p.planned_workouts_enabled);
       setReminders(p.workout_reminders_enabled);
-    } catch (e) {
-      Alert.alert('Fejl', 'Kunne ikke hente notifikationsindstillinger');
+    } catch {
+      Alert.alert(t('common.error'), t('pushSettings.errorLoad'));
     } finally {
       setLoading(false);
     }
-  }, [userId]);
+  }, [userId, t]);
 
   useEffect(() => {
     load().catch(() => {});
@@ -71,7 +116,7 @@ const PushNotificationsScreen = () => {
     try {
       await upsertNotificationPreferences(userId, patch);
     } catch {
-      Alert.alert('Fejl', 'Kunne ikke gemme');
+      Alert.alert(t('common.error'), t('pushSettings.errorSave'));
       load().catch(() => {});
     }
   };
@@ -84,20 +129,17 @@ const PushNotificationsScreen = () => {
         keyboardShouldPersistTaps="handled">
         <View style={styles.headerSection}>
           <Icon name="notifications-outline" size={48} color={colors.primary} />
-          <Text style={styles.headerTitle}>Push-notifikationer</Text>
-          <Text style={styles.headerDescription}>
-            Styring af hvilke telefon-notifikationer du vil modtage. Hvis du afviser
-            systemtilladelsen, kan du slå det til senere i enhedsindstillinger.
-          </Text>
+          <Text style={styles.headerTitle}>{t('pushSettings.title')}</Text>
+          <Text style={styles.headerDescription}>{t('pushSettings.description')}</Text>
           <Text style={styles.linkHint} onPress={() => Linking.openSettings()}>
-            Åbn indstillinger for Gymly
+            {t('pushSettings.openSettings')}
           </Text>
         </View>
 
         <View style={styles.section}>
-          <Text style={styles.sectionLabel}>Hovedkontakt</Text>
+          <Text style={styles.sectionLabel}>{t('pushSettings.mainSection')}</Text>
           <View style={styles.row}>
-            <Text style={styles.rowTitle}>Push-notifikationer</Text>
+            <Text style={styles.rowTitle}>{t('pushSettings.masterToggle')}</Text>
             <Switch
               value={pushEnabled}
               disabled={loading}
@@ -111,21 +153,24 @@ const PushNotificationsScreen = () => {
                   }
                   if (!ok) {
                     Alert.alert(
-                      'Notifikationer er slået fra',
-                      'Du kan slå notifikationer til i enhedsindstillinger for Gymly.',
+                      t('pushSettings.disabledTitle'),
+                      t('pushSettings.disabledBody'),
                       [
-                        {text: 'Ikke nu'},
-                        {text: 'Åbn indstillinger', onPress: () => Linking.openSettings()},
+                        {text: t('pushSettings.notNow')},
+                        {
+                          text: t('pushSettings.openSettingsBtn'),
+                          onPress: () => Linking.openSettings(),
+                        },
                       ],
                     );
                   }
                   if (ok && userId) {
-                    const t = await getFcmToken();
+                    const token = await getFcmToken();
                     if (__DEV__) {
-                      console.log('[push] settings token generated:', Boolean(t));
+                      console.log('[push] settings token generated:', Boolean(token));
                     }
-                    if (t) {
-                      await savePushTokenToSupabase(userId, t);
+                    if (token) {
+                      await savePushTokenToSupabase(userId, token);
                       if (__DEV__) {
                         console.log('[push] settings token saved:', true);
                       }
@@ -143,15 +188,8 @@ const PushNotificationsScreen = () => {
         </View>
 
         <View style={styles.section}>
-          <Text style={styles.sectionLabel}>Kategorier</Text>
-          {[
-            {label: 'Beskeder (DM)', value: messages, on: setMessages, key: 'messages_enabled' as const},
-            {label: 'Venneanmodninger & accept', value: friendReq, on: setFriendReq, key: 'friend_requests_enabled' as const},
-            {label: 'Når venner tjekker ind', value: checkins, on: setCheckins, key: 'check_ins_enabled' as const},
-            {label: 'Badges & streaks', value: badges, on: setBadges, key: 'badges_streaks_enabled' as const},
-            {label: 'Planlagte sessions (invitationer)', value: planned, on: setPlanned, key: 'planned_workouts_enabled' as const},
-            {label: 'Træningspåmindelser', value: reminders, on: setReminders, key: 'workout_reminders_enabled' as const},
-          ].map(r => (
+          <Text style={styles.sectionLabel}>{t('pushSettings.categoriesSection')}</Text>
+          {categoryRows.map(r => (
             <View key={r.key} style={styles.row}>
               <Text style={styles.rowTitle}>{r.label}</Text>
               <Switch
@@ -187,31 +225,39 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: colors.textSecondary,
     textAlign: 'center',
-    paddingHorizontal: 20,
+    paddingHorizontal: 24,
+    lineHeight: 22,
   },
-  linkHint: {marginTop: 10, color: colors.primary, fontSize: 15, fontWeight: '600'},
-  section: {
-    backgroundColor: colors.backgroundCard,
-    borderRadius: radius.lg,
-    padding: spacing.md,
-    marginBottom: spacing.md,
+  linkHint: {
+    marginTop: 12,
+    fontSize: 15,
+    fontWeight: '600',
+    color: colors.primary,
   },
+  section: {marginBottom: 24},
   sectionLabel: {
-    fontSize: 12,
-    fontWeight: '700',
-    color: colors.textSecondary,
-    textTransform: 'uppercase',
-    marginBottom: spacing.sm,
+    ...typography.caption,
+    color: colors.textMuted,
+    marginBottom: 8,
+    marginLeft: 4,
+    letterSpacing: 0.5,
   },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: 10,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: colors.border,
+    backgroundColor: colors.backgroundCard,
+    paddingVertical: 14,
+    paddingHorizontal: 16,
+    borderRadius: radius.lg,
+    marginBottom: 8,
   },
-  rowTitle: {...typography.body, flex: 1, marginRight: 12, color: colors.text},
+  rowTitle: {
+    fontSize: 16,
+    color: colors.text,
+    flex: 1,
+    marginRight: 12,
+  },
 });
 
 export default PushNotificationsScreen;

@@ -10,11 +10,19 @@ import SecureStorage from '@/services/security/SecureStorage';
 import AuthService from '@/services/auth/AuthService';
 import {supabase} from '@/services/supabase/supabaseClient';
 import {mergeProfileUsernameIntoUser, upsertMyProfile} from '@/services/supabase/friendService';
-import {useFriendStore} from '@/store/friendStore';
-import {useInAppNotificationStore} from '@/store/inAppNotificationStore';
 import {useBadgeStore} from '@/store/badgeStore';
 import {finishWorkoutSession} from '@/services/session/finishWorkoutSession';
-import {fetchUserCenterIdsOrdered} from '@/services/supabase/userCentersService';
+import {
+  fetchUserCenterIdsOrdered,
+  persistUserHomeGyms,
+} from '@/services/supabase/userCentersService';
+import {emitProfileCentersChanged} from '@/realtime/profileCentersBridge';
+import {
+  clearAllUserStores,
+  clearLocalUserSession,
+  resetNavigationToLogin,
+} from '@/services/auth/sessionCleanup';
+import {isPasswordRecoveryActive} from '@/services/auth/authDeepLink';
 
 function syncPublicProfileToSupabase(user: User) {
   upsertMyProfile(user).catch(err => {
@@ -60,7 +68,12 @@ export const useAppStore = create<AppState>((set, get) => ({
         data: {session},
       } = await supabase.auth.getSession();
 
-      if (session?.user && session.access_token && session.refresh_token) {
+      if (
+        session?.user &&
+        session.access_token &&
+        session.refresh_token &&
+        !isPasswordRecoveryActive()
+      ) {
         const fromAuth = AuthService.getMappedUser(session.user);
         const storedUser = await SecureStorage.getUserData();
         /** SecureStorage har seneste “Rediger profil”-data; JWT-metadata kan være bagud. */
@@ -118,21 +131,14 @@ export const useAppStore = create<AppState>((set, get) => ({
         return;
       }
 
-      // Fallback for legacy local token storage when session restore fails.
-      const tokens = await SecureStorage.getTokens();
-      const isValid = await SecureStorage.areTokensValid();
-      const user = await SecureStorage.getUserData();
-      if (tokens && isValid && user) {
-        set({
-          isAuthenticated: true,
-          user,
-          tokens,
-          isLoading: false,
-        });
+      if (session?.user && isPasswordRecoveryActive()) {
+        set({isLoading: false});
         return;
       }
 
-      // No valid session found.
+      // No Supabase session — never restore from Keychain/AsyncStorage alone (ghost login).
+      clearAllUserStores();
+      await SecureStorage.clearAll().catch(() => {});
       set({
         isAuthenticated: false,
         user: null,
@@ -141,6 +147,8 @@ export const useAppStore = create<AppState>((set, get) => ({
       });
     } catch (error) {
       console.error('Initialization error:', error);
+      clearAllUserStores();
+      await SecureStorage.clearAll().catch(() => {});
       set({
         isAuthenticated: false,
         user: null,
@@ -158,6 +166,16 @@ export const useAppStore = create<AppState>((set, get) => ({
       isAuthenticated: true,
       user,
       tokens,
+    });
+    SecureStorage.saveTokens(tokens).catch(err => {
+      if (__DEV__) {
+        console.warn('[appStore] saveTokens', err);
+      }
+    });
+    SecureStorage.saveUserData(user).catch(err => {
+      if (__DEV__) {
+        console.warn('[appStore] saveUserData', err);
+      }
     });
     useBadgeStore
       .getState()
@@ -178,8 +196,8 @@ export const useAppStore = create<AppState>((set, get) => ({
    * Logout user
    */
   logout: async () => {
+    const currentUserId = get().user?.id ?? null;
     try {
-      const currentUserId = get().user?.id;
       if (currentUserId) {
         await finishWorkoutSession({
           reason: 'logout',
@@ -187,15 +205,18 @@ export const useAppStore = create<AppState>((set, get) => ({
         });
       }
       await AuthService.logout();
-      useFriendStore.getState().reset();
-      useInAppNotificationStore.getState().reset();
+    } catch (error) {
+      console.error('Logout error:', error);
+      await SecureStorage.clearAll().catch(() => {});
+      await supabase.auth.signOut().catch(() => {});
+    } finally {
+      clearAllUserStores(currentUserId);
       set({
         isAuthenticated: false,
         user: null,
         tokens: null,
       });
-    } catch (error) {
-      console.error('Logout error:', error);
+      resetNavigationToLogin();
     }
   },
 
@@ -203,8 +224,8 @@ export const useAppStore = create<AppState>((set, get) => ({
    * Delete account permanently (Guideline 5.1.1(v))
    */
   deleteAccount: async () => {
+    const currentUserId = get().user?.id ?? null;
     try {
-      const currentUserId = get().user?.id;
       if (currentUserId) {
         await finishWorkoutSession({
           reason: 'logout',
@@ -212,21 +233,14 @@ export const useAppStore = create<AppState>((set, get) => ({
         });
       }
       await AuthService.deleteAccount();
-      useFriendStore.getState().reset();
-      useInAppNotificationStore.getState().reset();
-      set({
-        isAuthenticated: false,
-        user: null,
-        tokens: null,
-      });
     } catch (error) {
       console.error('Delete account error:', error);
-      useFriendStore.getState().reset();
-      useInAppNotificationStore.getState().reset();
-      set({
-        isAuthenticated: false,
-        user: null,
-        tokens: null,
+      await SecureStorage.clearAll().catch(() => {});
+      await supabase.auth.signOut().catch(() => {});
+    } finally {
+      clearLocalUserSession({
+        previousUserId: currentUserId,
+        navigate: true,
       });
     }
   },
@@ -254,16 +268,31 @@ export const useAppStore = create<AppState>((set, get) => ({
    */
   setFavoriteGyms: (gymIds: string[]) => {
     const state = get();
-    if (state.user) {
-      const updatedUser = {
-        ...state.user,
-        favoriteGyms: gymIds.slice(0, 3), // Max 3 gyms
-        updatedAt: new Date(),
-      };
-      set({user: updatedUser});
-      SecureStorage.saveUserData(updatedUser);
-      syncPublicProfileToSupabase(updatedUser);
+    if (!state.user?.id) {
+      return;
     }
+    const userId = state.user.id;
+    void persistUserHomeGyms(userId, gymIds)
+      .then(savedIds => {
+        const cur = get().user;
+        if (!cur || cur.id !== userId) {
+          return;
+        }
+        const updatedUser = {
+          ...cur,
+          favoriteGyms: savedIds,
+          updatedAt: new Date(),
+        };
+        set({user: updatedUser});
+        SecureStorage.saveUserData(updatedUser).catch(() => {});
+        syncPublicProfileToSupabase(updatedUser);
+        emitProfileCentersChanged(userId);
+      })
+      .catch(err => {
+        if (__DEV__) {
+          console.warn('[appStore] setFavoriteGyms', err);
+        }
+      });
   },
 }));
 

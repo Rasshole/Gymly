@@ -25,6 +25,7 @@ import colors from '@/theme/colors';
 import {SURFACE_LEADERBOARD_IN_GYM_DETAIL} from '@/config/launchSurfaceConfig';
 import GymLogoView from '@/components/ui/GymLogoView';
 import {formatGymDisplayName, normalizeGymBrand} from '@/utils/gymDisplay';
+import {useTranslation} from '@/i18n';
 
 const formatDuration = (minutes: number): string => {
   if (minutes < 60) return `${minutes} min`;
@@ -46,6 +47,7 @@ type GymDetailScreenProps = {
 };
 
 const GymDetailScreen = () => {
+  const {t} = useTranslation();
   const navigation = useNavigation<StackNavigationProp<any>>();
   const route = useRoute();
   const {gymId, gym} = (route.params as any) || {};
@@ -122,7 +124,7 @@ const GymDetailScreen = () => {
               size={20}
               color={gymStatus.isOpen ? '#34C759' : '#FF3B30'}
             />
-            <Text style={styles.sectionTitle}>Åbningstider</Text>
+            <Text style={styles.sectionTitle}>{t('gymDetail.openingHours')}</Text>
           </View>
           <View style={styles.statusContainer}>
             <View
@@ -141,7 +143,7 @@ const GymDetailScreen = () => {
                   styles.statusText,
                   gymStatus.isOpen ? styles.statusTextOpen : styles.statusTextClosed,
                 ]}>
-                {gymStatus.isOpen ? 'Åbent nu' : 'Lukket nu'}
+                {gymStatus.isOpen ? t('gymDetail.openNow') : t('gymDetail.closedNow')}
               </Text>
             </View>
             
@@ -149,12 +151,12 @@ const GymDetailScreen = () => {
             {gymHours && (
               <View style={styles.hoursList}>
                 {gymHours.isOpen24Hours ? (
-                  <Text style={styles.hoursText}>Åbent 24 timer i døgnet</Text>
+                  <Text style={styles.hoursText}>{t('gymDetail.open24Hours')}</Text>
                 ) : (
                   <>
                     {gymHours.monday && (
                       <View style={styles.hoursRow}>
-                        <Text style={styles.hoursDay}>Mandag:</Text>
+                        <Text style={styles.hoursDay}>{t('gymDetail.dayMonday')}</Text>
                         <Text style={styles.hoursTime}>
                           {gymHours.monday.open} - {gymHours.monday.close}
                         </Text>
@@ -162,7 +164,7 @@ const GymDetailScreen = () => {
                     )}
                     {gymHours.tuesday && (
                       <View style={styles.hoursRow}>
-                        <Text style={styles.hoursDay}>Tirsdag:</Text>
+                        <Text style={styles.hoursDay}>{t('gymDetail.dayTuesday')}</Text>
                         <Text style={styles.hoursTime}>
                           {gymHours.tuesday.open} - {gymHours.tuesday.close}
                         </Text>
@@ -170,7 +172,7 @@ const GymDetailScreen = () => {
                     )}
                     {gymHours.wednesday && (
                       <View style={styles.hoursRow}>
-                        <Text style={styles.hoursDay}>Onsdag:</Text>
+                        <Text style={styles.hoursDay}>{t('gymDetail.dayWednesday')}</Text>
                         <Text style={styles.hoursTime}>
                           {gymHours.wednesday.open} - {gymHours.wednesday.close}
                         </Text>
@@ -178,7 +180,7 @@ const GymDetailScreen = () => {
                     )}
                     {gymHours.thursday && (
                       <View style={styles.hoursRow}>
-                        <Text style={styles.hoursDay}>Torsdag:</Text>
+                        <Text style={styles.hoursDay}>{t('gymDetail.dayThursday')}</Text>
                         <Text style={styles.hoursTime}>
                           {gymHours.thursday.open} - {gymHours.thursday.close}
                         </Text>
@@ -186,7 +188,7 @@ const GymDetailScreen = () => {
                     )}
                     {gymHours.friday && (
                       <View style={styles.hoursRow}>
-                        <Text style={styles.hoursDay}>Fredag:</Text>
+                        <Text style={styles.hoursDay}>{t('gymDetail.dayFriday')}</Text>
                         <Text style={styles.hoursTime}>
                           {gymHours.friday.open} - {gymHours.friday.close}
                         </Text>
@@ -194,7 +196,7 @@ const GymDetailScreen = () => {
                     )}
                     {gymHours.saturday && (
                       <View style={styles.hoursRow}>
-                        <Text style={styles.hoursDay}>Lørdag:</Text>
+                        <Text style={styles.hoursDay}>{t('gymDetail.daySaturday')}</Text>
                         <Text style={styles.hoursTime}>
                           {gymHours.saturday.open} - {gymHours.saturday.close}
                         </Text>
@@ -202,7 +204,7 @@ const GymDetailScreen = () => {
                     )}
                     {gymHours.sunday && (
                       <View style={styles.hoursRow}>
-                        <Text style={styles.hoursDay}>Søndag:</Text>
+                        <Text style={styles.hoursDay}>{t('gymDetail.daySunday')}</Text>
                         <Text style={styles.hoursTime}>
                           {gymHours.sunday.open} - {gymHours.sunday.close}
                         </Text>
@@ -216,7 +218,7 @@ const GymDetailScreen = () => {
             {/* Fallback if no hours data */}
             {!gymHours && (
               <Text style={styles.hoursText}>
-                Åbningstider ikke tilgængelige
+                {t('gymDetail.hoursUnavailable')}
               </Text>
             )}
           </View>
@@ -227,12 +229,14 @@ const GymDetailScreen = () => {
           <View style={styles.section}>
             <View style={styles.sectionHeader}>
               <Icon name="checkmark-circle" size={20} color="#007AFF" />
-              <Text style={styles.sectionTitle}>Mine check-ins</Text>
+              <Text style={styles.sectionTitle}>{t('gymDetail.myCheckIns')}</Text>
             </View>
             <View style={styles.statRow}>
               <Text style={styles.statValue}>{stats.userCheckIns}</Text>
               <Text style={styles.statLabel}>
-                {stats.userCheckIns === 1 ? 'gang' : 'gange'} tjekket ind
+                {stats.userCheckIns === 1
+                  ? t('gymDetail.checkInOnce')
+                  : t('gymDetail.checkInMany')}
               </Text>
             </View>
           </View>
@@ -242,7 +246,7 @@ const GymDetailScreen = () => {
         {SURFACE_LEADERBOARD_IN_GYM_DETAIL && weeklyChampion ? (
           <View style={styles.weeklyChampionSection}>
             <Text style={styles.weeklyChampionEmoji}>🏆</Text>
-            <Text style={styles.weeklyChampionLabel}>Ugens mester</Text>
+            <Text style={styles.weeklyChampionLabel}>{t('gymDetail.weeklyChampion')}</Text>
             <Text style={styles.weeklyChampionName}>{weeklyChampion.displayName}</Text>
           </View>
         ) : null}
@@ -256,11 +260,11 @@ const GymDetailScreen = () => {
             activeOpacity={0.8}>
             <View style={styles.sectionHeader}>
               <Icon name="trophy" size={20} color="#FFD700" />
-              <Text style={styles.sectionTitle}>Rangliste</Text>
+              <Text style={styles.sectionTitle}>{t('gymDetail.leaderboard')}</Text>
               <Icon name="chevron-forward" size={18} color={colors.textMuted} style={styles.sectionChevron} />
             </View>
             <Text style={styles.leaderboardSubtitle}>
-              Se hvem der har flest besøg her
+              {t('gymDetail.leaderboardSub')}
             </Text>
           </TouchableOpacity>
         ) : null}

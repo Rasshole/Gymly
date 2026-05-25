@@ -19,9 +19,9 @@ import {
   Animated,
   Easing,
   Dimensions,
-  PermissionsAndroid,
   Linking,
   Pressable,
+  AppState,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
@@ -29,12 +29,12 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {AuthStackParamList} from '@/navigation/authStackParamList';
 import {useAppStore} from '@/store/appStore';
 import AuthService from '@/services/auth/AuthService';
+import {navigationRef} from '@/navigation/navigationRef';
+import {supabase} from '@/services/supabase/supabaseClient';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon from 'react-native-vector-icons/Ionicons';
 import GymlyLogo from '@/components/GymlyLogo';
-import {getActiveDanishGyms, DanishGym, DanishRegion} from '@/data/danishGyms';
-
-const REG_PICKER_GYMS = getActiveDanishGyms();
+import {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
 import colors from '@/theme/colors';
 import {spacing, radius, shadows} from '@/theme/designTokens';
 import {
@@ -48,10 +48,11 @@ import {AuthTokens} from '@/types/auth.types';
 import {isValidDanishMobile, normalizeDanishPhone} from '@/utils/phoneUtils';
 import {gymSearchMatchesTokens} from '@/utils/gymSearch';
 import {formatGymDisplayName} from '@/utils/gymDisplay';
+import {useTranslation, getIntlLocale} from '@/i18n';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import * as streak from '@/utils/streakUtils';
 import {
-  getUsernameFormatErrorDa,
+  getUsernameFormatError,
   normalizeUsernameForStorage,
   normalizeUsernameInput,
 } from '@/utils/usernameRules';
@@ -60,9 +61,22 @@ import Geolocation, {
   type GeolocationError,
   type GeolocationResponse,
 } from '@react-native-community/geolocation';
+import {
+  getLocationPermissionStatus,
+  isLocationAuthorized,
+  mapLegacyLocationPermissionStatus,
+  requestLocationPermissionIfNeeded,
+  showLocationDeniedInAppMessage,
+} from '@/services/location/locationPermission';
 import Svg, {Defs, LinearGradient, Rect, Stop} from 'react-native-svg';
+import {
+  OnboardingPrimaryButton,
+  OnboardingGymPicker,
+  ONBOARDING,
+} from '@/components/onboarding';
 
 const SPLASH_KETTLEBELL = require('@/assets/images/splash-kettlebell.png');
+const REG_PICKER_GYMS = getActiveDanishGyms();
 
 type RegisterScreenNavigationProp = StackNavigationProp<AuthStackParamList, 'Register'>;
 type Step =
@@ -70,15 +84,13 @@ type Step =
   | 'profile'
   | 'gym'
   | 'social'
-  | 'privacy'
   | 'done'
   | 'verification';
 
-const FLOW_STEPS: Step[] = ['entry', 'profile', 'gym', 'social', 'privacy'];
-const PROGRESS_TOTAL = 5;
+/** Register wizard steps (language is step 1 globally). */
+const FLOW_STEPS: Step[] = ['entry', 'profile', 'gym', 'social'];
+const ONBOARDING_TOTAL_STEPS = 5;
 const BICEPS_OPTIONS = ['💪🏻', '💪🏼', '💪🏽', '💪🏾', '💪🏿', '🦾'];
-
-const regionOptions: DanishRegion[] = ['København', 'Sjælland', 'Fyn', 'Jylland'];
 
 const GEO_PERMISSION_DENIED = 1;
 const GEO_OPTS_ONBOARD = {
@@ -98,6 +110,7 @@ const RegisterScreen = () => {
   const navigation = useNavigation<RegisterScreenNavigationProp>();
   const insets = useSafeAreaInsets();
   const {login} = useAppStore();
+  const {t, language} = useTranslation();
   const scrollRef = useRef<ScrollView>(null);
 
   const [step, setStep] = useState<Step>('entry');
@@ -109,11 +122,8 @@ const RegisterScreen = () => {
   /** iOS: spinner opdaterer kun kladden; «Vælg» skriver til dateOfBirth (pålideligt bekræftelsesflow). */
   const [dobPickerDraft, setDobPickerDraft] = useState(defaultOnboardingBirthDate);
   const [showDatePicker, setShowDatePicker] = useState(false);
-  const [location, setLocation] = useState<DanishRegion | ''>('');
   const [favoriteGyms, setFavoriteGyms] = useState<(DanishGym | null)[]>([null, null, null]);
   const [favoriteGymLabels, setFavoriteGymLabels] = useState<string[]>(['', '', '']);
-  const [activeGymIndex, setActiveGymIndex] = useState<number | null>(null);
-  const [showGymSuggestions, setShowGymSuggestions] = useState(false);
   /** OS-placeringstilladelse — påkrævet for at gå videre fra gym-trinnet */
   const [locationPermissionStatus, setLocationPermissionStatus] = useState<
     'idle' | 'granted' | 'denied'
@@ -141,9 +151,7 @@ const RegisterScreen = () => {
   const splashFinishTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const contentFade = useRef(new Animated.Value(1)).current;
   const logoFloat = useRef(new Animated.Value(0)).current;
-  const progressAnim = useRef(new Animated.Value(1 / PROGRESS_TOTAL)).current;
-  const primaryPress = useRef(new Animated.Value(1)).current;
-  const subtlePress = useRef(new Animated.Value(1)).current;
+  const progressAnim = useRef(new Animated.Value(2 / ONBOARDING_TOTAL_STEPS)).current;
   const passwordToggleAnim = useRef(new Animated.Value(1)).current;
   const bicepsScaleRef = useRef<Record<string, Animated.Value>>(
     Object.fromEntries(BICEPS_OPTIONS.map(key => [key, new Animated.Value(1)])),
@@ -151,32 +159,12 @@ const RegisterScreen = () => {
 
   const fullName = `${firstName.trim()} ${lastName.trim()}`.trim();
 
-  const gymSuggestions = useMemo(() => {
-    const activeLabel =
-      activeGymIndex !== null ? favoriteGymLabels[activeGymIndex] : '';
-    const trimmed = activeLabel.trim();
-    if (!showGymSuggestions || activeGymIndex === null || trimmed.length === 0) {
-      return [];
-    }
-    const filtered = REG_PICKER_GYMS.filter(option => {
-      const haystack = [
-        option.name,
-        option.city ?? '',
-        option.region,
-        option.address ?? '',
-        option.brand ?? '',
-      ].join(' ');
-      return gymSearchMatchesTokens(haystack, trimmed);
-    });
-    return filtered.slice(0, 10);
-  }, [favoriteGymLabels, showGymSuggestions, activeGymIndex]);
-
   const validatePassword = (pwd: string): string[] => {
     const errors: string[] = [];
-    if (pwd.length < 8) errors.push('Mindst 8 tegn');
-    if (!/[A-Z]/.test(pwd)) errors.push('Mindst ét stort bogstav');
-    if (!/[a-z]/.test(pwd)) errors.push('Mindst ét lille bogstav');
-    if (!/[0-9]/.test(pwd)) errors.push('Mindst ét tal');
+    if (pwd.length < 8) errors.push(t('register.passwordMinLength'));
+    if (!/[A-Z]/.test(pwd)) errors.push(t('register.passwordUpper'));
+    if (!/[a-z]/.test(pwd)) errors.push(t('register.passwordLower'));
+    if (!/[0-9]/.test(pwd)) errors.push(t('register.passwordDigit'));
     return errors;
   };
 
@@ -186,7 +174,11 @@ const RegisterScreen = () => {
   };
 
   const formatBirthDateLabel = (d: Date) =>
-    d.toLocaleDateString('da-DK', {day: '2-digit', month: 'long', year: 'numeric'});
+    d.toLocaleDateString(getIntlLocale(language), {
+      day: '2-digit',
+      month: 'long',
+      year: 'numeric',
+    });
 
   const ageFromBirthDate = (birth: Date): number => {
     const today = new Date();
@@ -200,14 +192,15 @@ const RegisterScreen = () => {
 
   const validateBirthDate = (d: Date): string | null => {
     const age = ageFromBirthDate(d);
-    if (age < 13) return 'Du skal være mindst 13 år.';
-    if (age > 120) return 'Tjek venligst fødselsdatoen.';
+    if (age < 13) return t('register.alertBirthDateYoung');
+    if (age > 120) return t('register.alertBirthDateCheck');
     return null;
   };
 
   const usernameAvailability = useUsernameAvailability({
     rawUsername: username,
     excludeUserId: null,
+    language,
   });
 
   const profileContinueEnabled = useMemo(() => {
@@ -231,16 +224,16 @@ const RegisterScreen = () => {
 
   const handleEntryContinue = () => {
     if (!email.trim()) {
-      Alert.alert('Email', 'Indtast din email.');
+      Alert.alert(t('register.alertEmail'), t('register.alertEmailEmpty'));
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
-      Alert.alert('Email', 'Tjek venligst din email.');
+      Alert.alert(t('register.alertEmail'), t('register.alertEmailInvalid'));
       return;
     }
     const err = validatePassword(password);
     if (err.length) {
-      Alert.alert('Adgangskode', err.join('\n'));
+      Alert.alert(t('register.alertPassword'), err.join('\n'));
       return;
     }
     setStep('profile');
@@ -248,66 +241,63 @@ const RegisterScreen = () => {
 
   const handleProfileContinue = () => {
     if (!firstName.trim() || !lastName.trim()) {
-      Alert.alert('Navn', 'Udfyld fornavn og efternavn.');
+      Alert.alert(t('register.alertName'), t('register.alertNameEmpty'));
       return;
     }
     const dobErr = validateBirthDate(dateOfBirth);
     if (dobErr) {
-      Alert.alert('Fødselsdato', dobErr);
+      Alert.alert(t('register.alertBirthDate'), dobErr);
       return;
     }
-    const uFmt = getUsernameFormatErrorDa(normalizeUsernameForStorage(username));
+    const uFmt = getUsernameFormatError(language, normalizeUsernameForStorage(username));
     if (uFmt) {
-      Alert.alert('Brugernavn', uFmt);
+      Alert.alert(t('register.alertUsername'), uFmt);
       return;
     }
     if (!usernameAvailability.canProceed) {
       if (usernameAvailability.checking) {
-        Alert.alert('Brugernavn', 'Vent et øjeblik …');
+        Alert.alert(t('register.alertUsername'), t('register.alertUsernameWait'));
         return;
       }
       if (usernameAvailability.available === false) {
-        Alert.alert('Brugernavn', 'Brugernavn er allerede taget');
+        Alert.alert(t('register.alertUsername'), t('register.alertUsernameTaken'));
         return;
       }
-      Alert.alert('Brugernavn', 'Tjek brugernavnet og prøv igen.');
+      Alert.alert(t('register.alertUsername'), t('register.alertUsernameRetry'));
       return;
     }
     if (!isValidDanishMobile(phoneNumber)) {
-      Alert.alert(
-        'Telefon',
-        'Indtast et gyldigt dansk mobilnummer (8 cifre, fx 12 34 56 78 eller +45 12 34 56 78).',
-      );
+      Alert.alert(t('register.alertPhone'), t('register.alertPhoneInvalid'));
       return;
     }
     setStep('gym');
   };
 
-  const handleSelectRegion = (region: DanishRegion) => {
-    setLocation(region);
-    setFavoriteGyms([null, null, null]);
-    setFavoriteGymLabels(['', '', '']);
-    setActiveGymIndex(null);
-    setShowGymSuggestions(false);
+  const handleSelectGymAtIndex = (index: number, gym: DanishGym) => {
+    const displayLabel = formatGymDisplayName(gym);
+    setFavoriteGyms(prev => {
+      const next = [...prev];
+      next[index] = gym;
+      return next;
+    });
+    setFavoriteGymLabels(prev => {
+      const next = [...prev];
+      next[index] = displayLabel;
+      return next;
+    });
   };
 
-  const handleSelectGymSuggestion = (gym: DanishGym) => {
-    const displayLabel = formatGymDisplayName(gym);
-    if (activeGymIndex !== null) {
-      setFavoriteGyms(prev => {
-        const next = [...prev];
-        next[activeGymIndex] = gym;
-        return next;
-      });
-      setFavoriteGymLabels(prev => {
-        const next = [...prev];
-        next[activeGymIndex] = displayLabel;
-        return next;
-      });
-    }
-    setLocation(gym.region);
-    setActiveGymIndex(null);
-    setShowGymSuggestions(false);
+  const handleRemoveGymAtIndex = (index: number) => {
+    setFavoriteGyms(prev => {
+      const next = [...prev];
+      next[index] = null;
+      return next;
+    });
+    setFavoriteGymLabels(prev => {
+      const next = [...prev];
+      next[index] = '';
+      return next;
+    });
   };
 
   const markLocationGranted = useCallback(() => {
@@ -319,11 +309,11 @@ const RegisterScreen = () => {
     if (denied) {
       setLocationPermissionStatus('denied');
       Alert.alert(
-        'Lokation',
-        'Gymly har brug for adgang til din placering. Tillad lokation i systemets dialog, eller slå den til under Indstillinger → Gymly.',
+        t('register.alertLocation'),
+        t('register.alertLocationDenied'),
         [
-          {text: 'OK'},
-          {text: 'Åbn indstillinger', onPress: () => Linking.openSettings()},
+          {text: t('common.ok')},
+          {text: t('register.alertLocationOpenSettings'), onPress: () => Linking.openSettings()},
         ],
       );
     } else {
@@ -345,67 +335,52 @@ const RegisterScreen = () => {
     };
 
     try {
-      if (Platform.OS === 'android') {
-        const granted = await PermissionsAndroid.request(
-          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-          {
-            title: 'Placeringsadgang',
-            message:
-              'Gymly bruger din placering til at vise centre og når du tjekker ind ved et center.',
-            buttonNeutral: 'Senere',
-            buttonNegative: 'Annuller',
-            buttonPositive: 'OK',
-          },
-        );
-        if (granted !== PermissionsAndroid.RESULTS.GRANTED) {
-          setLocationPermissionStatus('denied');
-          finish();
-          Alert.alert(
-            'Lokation påkrævet',
-            'Tillad placering for at bruge Gymly — du kan ændre det senere under Indstillinger.',
-            [
-              {text: 'OK'},
-              {text: 'Åbn indstillinger', onPress: () => Linking.openSettings()},
-            ],
-          );
-          return;
-        }
-        Geolocation.getCurrentPosition(onPosOk, onPosErr, GEO_OPTS_ONBOARD);
+      const status = await requestLocationPermissionIfNeeded();
+      const legacy = mapLegacyLocationPermissionStatus(status);
+      setLocationPermissionStatus(legacy === 'granted' ? 'granted' : 'denied');
+
+      if (status === 'denied' || status === 'restricted') {
+        finish();
+        showLocationDeniedInAppMessage();
         return;
       }
-
-      Geolocation.requestAuthorization(
-        () => {
-          Geolocation.getCurrentPosition(onPosOk, onPosErr, GEO_OPTS_ONBOARD);
-        },
-        () => {
-          Geolocation.getCurrentPosition(onPosOk, onPosErr, GEO_OPTS_ONBOARD);
-        },
-      );
+      if (!isLocationAuthorized(status)) {
+        finish();
+        return;
+      }
+      Geolocation.getCurrentPosition(onPosOk, onPosErr, GEO_OPTS_ONBOARD);
     } catch {
       finish();
     }
-  }, [markLocationGranted, onGeolocationFailure]);
+  }, [markLocationGranted, onGeolocationFailure, t]);
+
+  useEffect(() => {
+    void getLocationPermissionStatus().then(status => {
+      if (isLocationAuthorized(status)) {
+        setLocationPermissionStatus('granted');
+      } else if (status === 'denied' || status === 'restricted') {
+        setLocationPermissionStatus('denied');
+      }
+    });
+  }, []);
 
   const handleGymContinue = () => {
-    const firstGymLabel = favoriteGymLabels[0].trim();
-    if (!location || !firstGymLabel) {
-      Alert.alert('Center', 'Vælg region og dit primære træningscenter.');
+    const hasGym = favoriteGyms.some(g => g !== null);
+    if (!hasGym) {
+      Alert.alert(t('register.alertGym'), t('register.alertGymRequired'));
       return;
     }
     if (!selectedBiceps) {
-      Alert.alert('Biceps', 'Vælg din biceps emoji.');
+      Alert.alert(t('register.alertBiceps'), t('register.alertBicepsRequired'));
       return;
     }
-    setShowGymSuggestions(false);
-    setActiveGymIndex(null);
     setStep('social');
   };
 
   const handlePhotoPick = () => {
-    Alert.alert('Profilbillede', 'Hvordan vil du tilføje et billede?', [
+    Alert.alert(t('register.alertPhoto'), t('register.alertPhotoHow'), [
       {
-        text: 'Tag billede',
+        text: t('register.alertPhotoCamera'),
         onPress: async () => {
           const response: ImagePickerResponse = await launchCamera({
             mediaType: 'photo',
@@ -418,7 +393,7 @@ const RegisterScreen = () => {
         },
       },
       {
-        text: 'Vælg fra bibliotek',
+        text: t('register.alertPhotoLibrary'),
         onPress: async () => {
           const response = await launchImageLibrary({
             mediaType: 'photo',
@@ -429,11 +404,9 @@ const RegisterScreen = () => {
           if (asset?.uri) setProfilePhotoUri(asset.uri);
         },
       },
-      {text: 'Annuller', style: 'cancel'},
+      {text: t('common.cancel'), style: 'cancel'},
     ]);
   };
-
-  const handleSocialContinue = () => setStep('privacy');
 
   const buildFavoriteGymIds = (): string[] => {
     const ids: string[] = [];
@@ -454,19 +427,16 @@ const RegisterScreen = () => {
 
   const handleCompleteRegistration = async () => {
     if (!privacyAccepted || !termsAccepted) {
-      Alert.alert('Påkrævet', 'Accepter privatlivspolitik og servicevilkår.');
+      Alert.alert(t('register.alertRequired'), t('register.alertConsentRequired'));
       return;
     }
     if (locationPermissionStatus !== 'granted') {
-      Alert.alert(
-        'Lokation',
-        'Tillad brug af placering under «Påkrævet» — tryk «Tillad lokation» og bekræft i systemets dialog.',
-      );
+      Alert.alert(t('register.alertLocation'), t('register.alertLocationRequired'));
       return;
     }
     const dobErr = validateBirthDate(dateOfBirth);
     if (dobErr) {
-      Alert.alert('Fødselsdato', dobErr);
+      Alert.alert(t('register.alertBirthDate'), dobErr);
       return;
     }
 
@@ -477,7 +447,7 @@ const RegisterScreen = () => {
       const dateOfBirthIso = streak.getLocalDateString(dateOfBirth);
       const phoneNormalized = normalizeDanishPhone(phoneNumber);
       if (!phoneNormalized) {
-        Alert.alert('Telefon', 'Ugyldigt mobilnummer.');
+        Alert.alert(t('register.alertPhone'), t('register.alertPhoneInvalidShort'));
         setIsLoading(false);
         return;
       }
@@ -508,26 +478,49 @@ const RegisterScreen = () => {
         setStep('verification');
         return;
       }
-      if (!tokens) throw new Error('Kunne ikke fuldføre registrering.');
+      if (!tokens) throw new Error(t('register.alertRegisterRetry'));
       setPendingAuth({user, tokens});
       setStep('done');
     } catch (error: any) {
-      Alert.alert('Registrering fejlede', error.message || 'Prøv igen.');
+      Alert.alert(
+        t('register.alertRegisterFailed'),
+        error.message || t('register.alertRegisterRetry'),
+      );
     } finally {
       setIsLoading(false);
     }
   };
 
   const handleEnterGymly = () => {
-    if (!pendingAuth) return;
+    if (!pendingAuth) {
+      return;
+    }
     login(pendingAuth.user, pendingAuth.tokens);
     setPendingAuth(null);
+    if (navigationRef.isReady()) {
+      navigationRef.reset({
+        index: 0,
+        routes: [{name: 'Main'}],
+      });
+    }
   };
 
   useEffect(() => {
     if (step !== 'profile') {
       setShowDatePicker(false);
     }
+  }, [step]);
+
+  useEffect(() => {
+    if (step !== 'verification') {
+      return;
+    }
+    const sub = AppState.addEventListener('change', next => {
+      if (next === 'active') {
+        void supabase.auth.refreshSession().catch(() => {});
+      }
+    });
+    return () => sub.remove();
   }, [step]);
 
   useEffect(
@@ -551,16 +544,24 @@ const RegisterScreen = () => {
     return () => loop.stop();
   }, [logoFloat]);
 
+  const prevStepRef = useRef(step);
   useEffect(() => {
-    Animated.sequence([
-      Animated.timing(contentFade, {toValue: 0, duration: 120, useNativeDriver: true}),
-      Animated.timing(contentFade, {toValue: 1, duration: 220, useNativeDriver: true}),
-    ]).start();
+    if (prevStepRef.current === step) {
+      return;
+    }
+    prevStepRef.current = step;
+    contentFade.setValue(0);
+    Animated.timing(contentFade, {
+      toValue: 1,
+      duration: 280,
+      easing: Easing.out(Easing.cubic),
+      useNativeDriver: true,
+    }).start();
   }, [contentFade, step]);
 
   useEffect(() => {
     if (progressIndex < 0) return;
-    const target = (progressIndex + 1) / PROGRESS_TOTAL;
+    const target = (progressIndex + 2) / ONBOARDING_TOTAL_STEPS;
     Animated.timing(progressAnim, {
       toValue: target,
       duration: 280,
@@ -579,86 +580,39 @@ const RegisterScreen = () => {
     }).start();
   }, [passwordToggleAnim, showPassword]);
 
-  const handlePrimaryPressIn = useCallback(() => {
-    Animated.spring(primaryPress, {toValue: 0.98, useNativeDriver: true}).start();
-  }, [primaryPress]);
-
-  const handlePrimaryPressOut = useCallback(() => {
-    Animated.spring(primaryPress, {toValue: 1, useNativeDriver: true}).start();
-  }, [primaryPress]);
-
-  const handleSubtlePressIn = useCallback(() => {
-    Animated.spring(subtlePress, {toValue: 0.97, useNativeDriver: true}).start();
-  }, [subtlePress]);
-
-  const handleSubtlePressOut = useCallback(() => {
-    Animated.spring(subtlePress, {toValue: 1, useNativeDriver: true}).start();
-  }, [subtlePress]);
-
-  const startVerificationSplashThenLogin = useCallback(
+  const enterAppAfterEmailConfirmed = useCallback(
     (user: User, tokens: AuthTokens) => {
-      if (splashFinishTimerRef.current) {
-        clearTimeout(splashFinishTimerRef.current);
-        splashFinishTimerRef.current = null;
+      login(user, tokens);
+      if (navigationRef.isReady()) {
+        navigationRef.reset({
+          index: 0,
+          routes: [{name: 'Main'}],
+        });
       }
-      setVerificationSplashVisible(true);
-      splashOpacity.setValue(0);
-      splashLogoScale.setValue(0.45);
-      splashRingScale.setValue(0.6);
-      splashRingOpacity.setValue(0);
-
-      Animated.parallel([
-        Animated.timing(splashOpacity, {
-          toValue: 1,
-          duration: 240,
-          easing: Easing.out(Easing.cubic),
-          useNativeDriver: true,
-        }),
-        Animated.timing(splashRingOpacity, {
-          toValue: 0.55,
-          duration: 280,
-          easing: Easing.out(Easing.quad),
-          useNativeDriver: true,
-        }),
-        Animated.spring(splashLogoScale, {
-          toValue: 1,
-          friction: 6,
-          tension: 110,
-          useNativeDriver: true,
-        }),
-        Animated.timing(splashRingScale, {
-          toValue: 1.35,
-          duration: 700,
-          easing: Easing.out(Easing.cubic),
-          useNativeDriver: true,
-        }),
-      ]).start(() => {
-        splashFinishTimerRef.current = setTimeout(() => {
-          splashFinishTimerRef.current = null;
-          setVerificationSplashVisible(false);
-          login(user, tokens);
-        }, 420);
-      });
     },
-    [login, splashLogoScale, splashOpacity, splashRingOpacity, splashRingScale],
+    [login],
   );
 
   const handleVerificationContinue = () => {
     if (!email.trim() || !password) {
-      Alert.alert('Info mangler', 'Brug email og adgangskode til login.');
+      Alert.alert(t('register.alertInfoMissing'), t('register.alertInfoMissingBody'));
       return;
     }
     setIsLoading(true);
-    AuthService.login({email: email.trim(), password})
+    void AuthService.completeSignupAfterEmailConfirmation(email.trim(), password)
       .then(({user, tokens}) => {
-        if (tokens) {
-          startVerificationSplashThenLogin(user, tokens);
-        } else {
-          Alert.alert('Login fejlede', 'Prøv igen.');
+        if (!tokens) {
+          Alert.alert(t('register.alertNotVerified'), t('register.alertNotVerifiedBody'));
+          return;
         }
+        enterAppAfterEmailConfirmed(user, tokens);
       })
       .catch(error => {
-        Alert.alert('Ikke bekræftet endnu', error?.message || 'Bekræft din email.');
+        const msg =
+          error instanceof Error
+            ? error.message
+            : t('register.alertNotVerifiedBody');
+        Alert.alert(t('register.alertNotVerified'), msg);
       })
       .finally(() => setIsLoading(false));
   };
@@ -670,43 +624,44 @@ const RegisterScreen = () => {
       return;
     }
     if (step === 'entry') {
-      navigation.navigate('Login');
+      navigation.navigate('Language');
       return;
     }
     const i = FLOW_STEPS.indexOf(step);
     if (i > 0) setStep(FLOW_STEPS[i - 1]);
   };
 
-  const titles: Record<Step, {title: string; sub: string}> = {
-    entry: {
-      title: 'Kom i gang',
-      sub: 'Opret din konto og kom med i fællesskabet.',
-    },
-    profile: {
-      title: 'Din profil',
-      sub: 'Så andre kan finde dig på Gymly.',
-    },
-    gym: {
-      title: 'Dit træningssted',
-      sub: 'Region, center og den biceps der passer til dig.',
-    },
-    social: {
-      title: 'Gør profilen din',
-      sub: 'Valgfrit — du kan altid ændre det senere.',
-    },
-    privacy: {
-      title: 'Samtykke',
-      sub: 'Kort og tydeligt. Du bestemmer over dine data.',
-    },
-    verification: {
-      title: 'Bekræft din konto',
-      sub: `Vi har sendt et link til ${email.trim() || 'din mail'}.`,
-    },
-    done: {
-      title: 'Velkommen',
-      sub: 'Du er klar til at bruge Gymly.',
-    },
-  };
+  const titles: Record<Step, {title: string; sub: string}> = useMemo(
+    () => ({
+      entry: {
+        title: t('register.stepEntryTitle'),
+        sub: t('register.stepEntrySub'),
+      },
+      profile: {
+        title: t('register.stepProfileTitle'),
+        sub: t('register.stepProfileSub'),
+      },
+      gym: {
+        title: t('register.stepGymTitle'),
+        sub: t('register.stepGymSub'),
+      },
+      social: {
+        title: t('register.stepTrainingTitle'),
+        sub: t('register.stepTrainingSub'),
+      },
+      verification: {
+        title: t('register.stepVerifyTitle'),
+        sub: t('register.stepVerifySub', {
+          email: email.trim() || '…',
+        }),
+      },
+      done: {
+        title: t('register.stepDoneTitle'),
+        sub: t('register.stepDoneSub'),
+      },
+    }),
+    [t, email],
+  );
 
   const renderProgress = () => {
     if (!showProgress) return null;
@@ -726,7 +681,10 @@ const RegisterScreen = () => {
           />
         </View>
         <Text style={styles.progressLabel}>
-          Trin {progressIndex + 1} af {PROGRESS_TOTAL}
+          {t('register.progressStep', {
+            current: progressIndex + 2,
+            total: ONBOARDING_TOTAL_STEPS,
+          })}
         </Text>
       </View>
     );
@@ -737,7 +695,7 @@ const RegisterScreen = () => {
       <View style={[styles.card, shadows.sm]}>
         <TextInput
           style={styles.input}
-          placeholder="Email"
+          placeholder={t('register.emailPlaceholder')}
           placeholderTextColor={colors.textMuted}
           value={email}
           onChangeText={setEmail}
@@ -749,7 +707,7 @@ const RegisterScreen = () => {
         <View style={styles.passwordField}>
           <TextInput
             style={[styles.input, styles.passwordInput]}
-            placeholder="Adgangskode"
+            placeholder={t('register.passwordPlaceholder')}
             placeholderTextColor={colors.textMuted}
             value={password}
             onChangeText={handlePasswordChange}
@@ -776,7 +734,7 @@ const RegisterScreen = () => {
                   ],
                 },
               ]}>
-              {showPassword ? 'Skjul' : 'Vis'}
+              {showPassword ? t('register.hidePassword') : t('register.showPassword')}
             </Animated.Text>
           </TouchableOpacity>
         </View>
@@ -793,29 +751,24 @@ const RegisterScreen = () => {
           ) : (
             <View style={styles.hintRow}>
               <Icon name="checkmark-circle" size={16} color={colors.primary} />
-              <Text style={styles.hintOk}>Adgangskoden er stærk nok</Text>
+              <Text style={styles.hintOk}>{t('register.passwordStrong')}</Text>
             </View>
           )}
         </View>
       )}
-      <TouchableOpacity
-        style={[
-          styles.primaryBtn,
-          password.length > 0 && passwordErrors.length === 0 && email.trim() && styles.primaryBtnEnabled,
-        ]}
+      <OnboardingPrimaryButton
+        label="Fortsæt"
         onPress={handleEntryContinue}
-        onPressIn={handlePrimaryPressIn}
-        onPressOut={handlePrimaryPressOut}
-        activeOpacity={0.9}>
-        <Animated.Text style={[styles.primaryBtnText, {transform: [{scale: primaryPress}]}]}>
-          Fortsæt
-        </Animated.Text>
-      </TouchableOpacity>
+        disabled={!(password.length > 0 && passwordErrors.length === 0 && email.trim())}
+      />
       <View style={styles.inlineLogin}>
         <Text style={styles.muted}>Har du allerede en konto? </Text>
-        <TouchableOpacity onPress={() => navigation.navigate('Login')} hitSlop={8}>
+        <Pressable
+          onPress={() => navigation.navigate('Login')}
+          hitSlop={12}
+          style={({pressed}) => [styles.loginLinkWrap, pressed && styles.loginLinkPressed]}>
           <Text style={styles.link}>Log ind</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     </View>
   );
@@ -826,7 +779,7 @@ const RegisterScreen = () => {
         <View style={styles.rowInputs}>
           <TextInput
             style={[styles.input, styles.inputHalf]}
-            placeholder="Fornavn"
+            placeholder={t('register.firstName')}
             placeholderTextColor={colors.textMuted}
             value={firstName}
             onChangeText={setFirstName}
@@ -843,7 +796,7 @@ const RegisterScreen = () => {
             autoComplete="family-name"
           />
         </View>
-        <Text style={styles.blockTitleSmall}>Fødselsdato</Text>
+        <Text style={styles.blockTitleSmall}>{t('register.birthDate')}</Text>
         <TouchableOpacity
           style={[styles.input, styles.dobButton]}
           onPress={() => {
@@ -859,7 +812,7 @@ const RegisterScreen = () => {
           <Icon name="calendar-outline" size={22} color={colors.textMuted} />
         </TouchableOpacity>
         <Text style={[styles.helperMuted, styles.helperBelowDob]}>
-          Påkrævet — du skal være mindst 13 år
+          {t('register.birthDateRequired')}
         </Text>
         {showDatePicker && (
           <>
@@ -888,7 +841,7 @@ const RegisterScreen = () => {
                 return x;
               })()}
               maximumDate={new Date()}
-              locale="da-DK"
+              locale={getIntlLocale(language)}
             />
             {Platform.OS === 'ios' && (
               <TouchableOpacity
@@ -898,7 +851,7 @@ const RegisterScreen = () => {
                   setShowDatePicker(false);
                 }}
                 activeOpacity={0.85}>
-                <Text style={styles.datePickerDoneText}>Vælg</Text>
+                <Text style={styles.datePickerDoneText}>{t('register.birthDatePick')}</Text>
               </TouchableOpacity>
             )}
           </>
@@ -912,7 +865,7 @@ const RegisterScreen = () => {
                 ? styles.inputUsernameOk
                 : null,
           ]}
-          placeholder="Brugernavn"
+          placeholder={t('register.username')}
           placeholderTextColor={colors.textMuted}
           value={username}
           onChangeText={t => setUsername(normalizeUsernameInput(t))}
@@ -922,7 +875,7 @@ const RegisterScreen = () => {
           maxLength={20}
         />
         <Text style={styles.helperMuted}>
-          Bogstaver, tal, punktum og _ · 3–20 tegn · gemmes som små bogstaver
+          {t('register.usernameRules')}
         </Text>
         {usernameAvailability.formatError ? (
           <View style={styles.usernameStatusRow}>
@@ -934,17 +887,17 @@ const RegisterScreen = () => {
         ) : usernameAvailability.available === false ? (
           <View style={styles.usernameStatusRow}>
             <Icon name="close-circle" size={16} color={colors.error} />
-            <Text style={styles.hintErr}>Brugernavn er allerede taget</Text>
+            <Text style={styles.hintErr}>{t('register.usernameTaken')}</Text>
           </View>
         ) : usernameAvailability.available === true ? (
           <View style={styles.usernameStatusRow}>
             <Icon name="checkmark-circle" size={16} color={colors.primary} />
-            <Text style={styles.hintOk}>Brugernavn er ledigt</Text>
+            <Text style={styles.hintOk}>{t('register.usernameAvailable')}</Text>
           </View>
         ) : null}
         <TextInput
           style={styles.input}
-          placeholder="Mobilnummer (påkrævet)"
+          placeholder={t('register.phone')}
           placeholderTextColor={colors.textMuted}
           value={phoneNumber}
           onChangeText={setPhoneNumber}
@@ -953,165 +906,62 @@ const RegisterScreen = () => {
           autoComplete="tel"
         />
         <Text style={styles.helperMuted}>
-          Dansk mobil — 8 cifre (fx 12 34 56 78 eller +45 12 34 56 78)
+          {t('register.phoneHint')}
         </Text>
       </View>
-      <TouchableOpacity
-        style={[
-          styles.primaryBtn,
-          profileContinueEnabled && styles.primaryBtnEnabled,
-          !profileContinueEnabled && styles.primaryBtnDisabled,
-        ]}
+      <OnboardingPrimaryButton
+        label={t('register.continue')}
         onPress={handleProfileContinue}
-        onPressIn={handlePrimaryPressIn}
-        onPressOut={handlePrimaryPressOut}
-        activeOpacity={0.9}
-        disabled={!profileContinueEnabled}>
-        <Animated.Text style={[styles.primaryBtnText, {transform: [{scale: primaryPress}]}]}>
-          Fortsæt
-        </Animated.Text>
-      </TouchableOpacity>
+        disabled={!profileContinueEnabled}
+      />
     </View>
   );
 
   const renderGym = () => (
     <View style={styles.section}>
-      <Text style={styles.blockTitle}>Region</Text>
-      <View style={styles.chipWrap}>
-        {regionOptions.map(region => (
-          <TouchableOpacity
-            key={region}
-            style={[styles.chip, location === region && styles.chipActive]}
-            onPress={() => handleSelectRegion(region)}
-            activeOpacity={0.85}>
-            <Text style={[styles.chipText, location === region && styles.chipTextActive]}>{region}</Text>
-          </TouchableOpacity>
-        ))}
-      </View>
-      <Text style={styles.blockTitle}>Dine centre</Text>
-      <Text style={styles.helperMuted}>Mindst ét center — søg efter navn eller by</Text>
-      {favoriteGymLabels.map((label, index) => {
-        const isActive = activeGymIndex === index;
-        return (
-          <View key={`gym_${index}`} style={styles.gymFieldWrap}>
-            <View style={styles.gymRow}>
-              <Text style={styles.gymIndex}>{index + 1}</Text>
-              <TextInput
-                style={[styles.input, styles.gymInput]}
-                placeholder={index === 0 ? 'Primært center *' : 'Valgfrit center'}
-                placeholderTextColor={colors.textMuted}
-                value={label}
-                onFocus={() => {
-                  setActiveGymIndex(index);
-                  setShowGymSuggestions(true);
-                  setTimeout(() => scrollRef.current?.scrollTo({y: 260, animated: true}), 80);
-                }}
-                onChangeText={value => {
-                  setFavoriteGymLabels(prev => {
-                    const n = [...prev];
-                    n[index] = value;
-                    return n;
-                  });
-                  setFavoriteGyms(prev => {
-                    const n = [...prev];
-                    n[index] = null;
-                    return n;
-                  });
-                  setActiveGymIndex(index);
-                  setShowGymSuggestions(value.trim().length > 0);
-                }}
-                autoCapitalize="words"
-                autoCorrect={false}
-              />
-            </View>
-            {isActive && showGymSuggestions && gymSuggestions.length > 0 && (
-              <View style={[styles.suggestions, shadows.md]}>
-                {gymSuggestions.map(option => (
-                  <TouchableOpacity
-                    key={`${index}_${option.id}`}
-                    style={styles.suggestionRow}
-                    onPress={() => handleSelectGymSuggestion(option)}>
-                    <MaterialIcon name="map-marker-radius" size={18} color={colors.primary} />
-                    <View style={styles.suggestionText}>
-                      <Text style={styles.suggestionTitle}>{formatGymDisplayName(option)}</Text>
-                      <Text style={styles.suggestionSub}>{option.city}</Text>
-                    </View>
-                  </TouchableOpacity>
-                ))}
-              </View>
-            )}
-          </View>
-        );
-      })}
-      <Text style={styles.sectionMiniTitle}>Din biceps</Text>
-      <View style={styles.bicepsRow}>
-        {BICEPS_OPTIONS.map(emoji => (
-          <Pressable
-            key={emoji}
-            style={styles.bicepsPress}
-            onPressIn={() =>
-              Animated.spring(bicepsScaleRef[emoji], {
-                toValue: 0.94,
-                useNativeDriver: true,
-              }).start()
-            }
-            onPressOut={() =>
-              Animated.spring(bicepsScaleRef[emoji], {
-                toValue: 1,
-                useNativeDriver: true,
-              }).start()
-            }
-            onPress={() => setSelectedBiceps(emoji)}>
-            <Animated.View
-              style={[
-                styles.bicepsChip,
-                selectedBiceps === emoji && styles.bicepsChipActive,
-                {transform: [{scale: bicepsScaleRef[emoji]}]},
-              ]}>
-              <Text style={styles.bicepsEmoji}>{emoji}</Text>
-            </Animated.View>
-          </Pressable>
-        ))}
-      </View>
-      <TouchableOpacity
-        style={styles.primaryBtn}
-        onPress={handleGymContinue}
-        onPressIn={handlePrimaryPressIn}
-        onPressOut={handlePrimaryPressOut}
-        activeOpacity={0.9}>
-        <Animated.Text style={[styles.primaryBtnText, {transform: [{scale: primaryPress}]}]}>
-          Fortsæt
-        </Animated.Text>
-      </TouchableOpacity>
+      <OnboardingGymPicker
+        allGyms={REG_PICKER_GYMS}
+        favoriteGyms={favoriteGyms}
+        favoriteGymLabels={favoriteGymLabels}
+        onSelectGym={handleSelectGymAtIndex}
+        onRemoveGym={handleRemoveGymAtIndex}
+        selectedBiceps={selectedBiceps}
+        onSelectBiceps={setSelectedBiceps}
+        bicepsScaleRef={bicepsScaleRef}
+      />
+      <OnboardingPrimaryButton label={t('register.continue')} onPress={handleGymContinue} />
     </View>
   );
 
   const renderSocial = () => (
     <View style={styles.section}>
-      <TouchableOpacity style={styles.photoRing} onPress={handlePhotoPick} activeOpacity={0.9}>
+      <Pressable
+        style={({pressed}) => [styles.photoRing, pressed && styles.photoRingPressed]}
+        onPress={handlePhotoPick}>
+        <View style={styles.photoRingGlow} pointerEvents="none" />
         {profilePhotoUri ? (
           <Image source={{uri: profilePhotoUri}} style={styles.photoImg} />
         ) : (
           <View style={styles.photoPlaceholder}>
-            <MaterialIcon name="camera-plus" size={40} color={colors.primary} />
-            <Text style={styles.photoHint}>Tilføj foto</Text>
+            <MaterialIcon name="camera-plus" size={44} color={colors.primary} />
+            <Text style={styles.photoHint}>{t('register.addPhoto')}</Text>
           </View>
         )}
-      </TouchableOpacity>
+      </Pressable>
       <View style={[styles.card, shadows.sm]}>
-        <Text style={styles.inputLabel}>Hvad træner du for? (valgfrit)</Text>
+        <Text style={styles.inputLabel}>{t('register.trainingGoalLabel')}</Text>
         <TextInput
           style={[styles.input, styles.textArea]}
-          placeholder="Fx disciplin, styrke, community…"
+          placeholder={t('register.trainingGoalPlaceholder')}
           placeholderTextColor={colors.textMuted}
           value={trainingGoal}
           onChangeText={setTrainingGoal}
           maxLength={120}
         />
-        <Text style={styles.inputLabel}>Kort bio (valgfrit)</Text>
+        <Text style={styles.inputLabel}>{t('register.bioLabel')}</Text>
         <TextInput
           style={[styles.input, styles.textArea, styles.textAreaTall]}
-          placeholder="Én kort linje om dig"
+          placeholder={t('register.bioPlaceholder')}
           placeholderTextColor={colors.textMuted}
           value={bio}
           onChangeText={setBio}
@@ -1119,37 +969,14 @@ const RegisterScreen = () => {
           multiline
         />
       </View>
-      <TouchableOpacity
-        style={styles.primaryBtn}
-        onPress={handleSocialContinue}
-        onPressIn={handlePrimaryPressIn}
-        onPressOut={handlePrimaryPressOut}
-        activeOpacity={0.9}>
-        <Animated.Text style={[styles.primaryBtnText, {transform: [{scale: primaryPress}]}]}>
-          Fortsæt
-        </Animated.Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={handleSocialContinue}
-        onPressIn={handleSubtlePressIn}
-        onPressOut={handleSubtlePressOut}
-        style={styles.skipBtn}>
-        <Animated.Text style={[styles.skipText, {transform: [{scale: subtlePress}]}]}>
-          Spring over
-        </Animated.Text>
-      </TouchableOpacity>
-    </View>
-  );
 
-  const renderPrivacy = () => (
-    <View style={styles.section}>
       <View style={[styles.consentBlock, shadows.sm]}>
-        <Text style={styles.consentBlockTitle}>Påkrævet</Text>
+        <Text style={styles.consentBlockTitle}>{t('register.consentRequired')}</Text>
         <View style={styles.consentRow}>
           <View style={styles.consentCopy}>
-            <Text style={styles.consentHead}>Privatlivspolitik</Text>
+            <Text style={styles.consentHead}>{t('register.consentPrivacy')}</Text>
             <TouchableOpacity onPress={() => navigation.navigate('PrivacyPolicy')} hitSlop={8}>
-              <Text style={styles.consentLink}>Læs politikken</Text>
+              <Text style={styles.consentLink}>{t('register.consentPrivacyLink')}</Text>
             </TouchableOpacity>
           </View>
           <TouchableOpacity
@@ -1164,9 +991,9 @@ const RegisterScreen = () => {
         </View>
         <View style={styles.consentRow}>
           <View style={styles.consentCopy}>
-            <Text style={styles.consentHead}>Servicevilkår</Text>
+            <Text style={styles.consentHead}>{t('register.consentTerms')}</Text>
             <TouchableOpacity onPress={() => navigation.navigate('Terms')} hitSlop={8}>
-              <Text style={styles.consentLink}>Læs vilkår</Text>
+              <Text style={styles.consentLink}>{t('register.consentTermsLink')}</Text>
             </TouchableOpacity>
           </View>
           <TouchableOpacity
@@ -1181,17 +1008,21 @@ const RegisterScreen = () => {
         </View>
 
         <View style={styles.consentLocationSection}>
-          <Text style={styles.consentHead}>Placering</Text>
-          <Text style={styles.consentSub}>
-            Gymly bruger din placering til at vise centre og når du tjekker ind ved et center.
-          </Text>
+          <Text style={styles.consentHead}>{t('register.consentLocationTitle')}</Text>
+          <Text style={styles.consentSub}>{t('register.consentLocationBody')}</Text>
           <View style={styles.locationCardInner}>
             {locationPermissionStatus === 'granted' ? (
-              <View style={styles.locationStatusRow}>
-                <Icon name="checkmark-circle" size={26} color={colors.primary} />
+              <View style={styles.locationSuccessBox}>
+                <View style={styles.locationSuccessIcon}>
+                  <Icon name="checkmark" size={20} color={colors.white} />
+                </View>
                 <View style={styles.locationStatusTextCol}>
-                  <Text style={styles.locationStatusTitle}>Lokation tilladt</Text>
-                  <Text style={styles.locationStatusSub}>Du kan oprette din konto.</Text>
+                  <Text style={styles.locationStatusTitle}>
+                    {t('register.consentLocationGranted')}
+                  </Text>
+                  <Text style={styles.locationStatusSub}>
+                    {t('register.consentLocationGrantedSub')}
+                  </Text>
                 </View>
               </View>
             ) : (
@@ -1199,37 +1030,27 @@ const RegisterScreen = () => {
                 <View style={styles.locationStatusRow}>
                   <Icon name="location-outline" size={26} color={colors.primary} />
                   <View style={styles.locationStatusTextCol}>
-                    <Text style={styles.locationStatusTitle}>Tillad brug af lokation</Text>
+                    <Text style={styles.locationStatusTitle}>
+                      {t('register.consentLocationPrompt')}
+                    </Text>
                     <Text style={styles.locationStatusSub}>
-                      Tryk herunder — du får en systemdialog om placering.
+                      {t('register.consentLocationPromptSub')}
                     </Text>
                   </View>
                 </View>
-                <TouchableOpacity
-                  style={[
-                    styles.locationAllowBtn,
-                    locationRequesting && styles.primaryBtnDisabled,
-                  ]}
+                <OnboardingPrimaryButton
+                  label={t('register.consentAllowLocation')}
                   onPress={requestOnboardingLocation}
-                  disabled={locationRequesting}
-                  onPressIn={handlePrimaryPressIn}
-                  onPressOut={handlePrimaryPressOut}
-                  activeOpacity={0.9}>
-                  <Animated.View style={{transform: [{scale: primaryPress}]}}>
-                    {locationRequesting ? (
-                      <ActivityIndicator color={colors.white} />
-                    ) : (
-                      <Text style={styles.locationAllowBtnText}>Tillad lokation</Text>
-                    )}
-                  </Animated.View>
-                </TouchableOpacity>
+                  loading={locationRequesting}
+                  style={styles.locationAllowBtnWrap}
+                />
                 {locationPermissionStatus === 'denied' ? (
                   <TouchableOpacity
                     style={styles.locationRetryBtn}
                     onPress={requestOnboardingLocation}
                     disabled={locationRequesting}
                     hitSlop={8}>
-                    <Text style={styles.locationRetryText}>Prøv igen</Text>
+                    <Text style={styles.locationRetryText}>{t('common.retry')}</Text>
                   </TouchableOpacity>
                 ) : null}
               </>
@@ -1237,12 +1058,13 @@ const RegisterScreen = () => {
           </View>
         </View>
       </View>
+
       <View style={[styles.consentBlock, shadows.sm]}>
-        <Text style={styles.consentBlockTitle}>Valgfrit</Text>
+        <Text style={styles.consentBlockTitle}>{t('register.consentOptional')}</Text>
         <View style={styles.switchRow}>
           <View style={styles.consentCopy}>
-            <Text style={styles.consentHead}>Nyheder fra Gymly</Text>
-            <Text style={styles.consentSub}>Tips og opdateringer</Text>
+            <Text style={styles.consentHead}>{t('register.consentMarketing')}</Text>
+            <Text style={styles.consentSub}>{t('register.consentMarketingSub')}</Text>
           </View>
           <Switch
             value={marketingConsent}
@@ -1254,8 +1076,8 @@ const RegisterScreen = () => {
         </View>
         <View style={styles.switchRow}>
           <View style={styles.consentCopy}>
-            <Text style={styles.consentHead}>Anonymiseret analyse</Text>
-            <Text style={styles.consentSub}>Hjælper os med at forbedre appen</Text>
+            <Text style={styles.consentHead}>{t('register.consentAnalytics')}</Text>
+            <Text style={styles.consentSub}>{t('register.consentAnalyticsSub')}</Text>
           </View>
           <Switch
             value={analyticsConsent}
@@ -1266,40 +1088,19 @@ const RegisterScreen = () => {
           />
         </View>
       </View>
+
       <View style={styles.gdprMini}>
-        <Text style={styles.gdprMiniText}>
-          Under GDPR har du bl.a. ret til indsigt, sletning og dataportabilitet.
-        </Text>
+        <Text style={styles.gdprMiniText}>{t('register.consentGdpr')}</Text>
       </View>
-      <View style={styles.privacyCtaDock}>
-        <TouchableOpacity
-          style={[
-            styles.primaryBtn,
-            (!privacyAccepted ||
-              !termsAccepted ||
-              locationPermissionStatus !== 'granted' ||
-              isLoading) &&
-              styles.primaryBtnDisabled,
-          ]}
-          onPress={handleCompleteRegistration}
-          disabled={
-            !privacyAccepted ||
-            !termsAccepted ||
-            locationPermissionStatus !== 'granted' ||
-            isLoading
-          }
-          onPressIn={handlePrimaryPressIn}
-          onPressOut={handlePrimaryPressOut}
-          activeOpacity={0.9}>
-          <Animated.View style={{transform: [{scale: primaryPress}]}}>
-            {isLoading ? (
-              <ActivityIndicator color={colors.white} />
-            ) : (
-              <Text style={styles.primaryBtnText}>Accepter og fortsæt</Text>
-            )}
-          </Animated.View>
-        </TouchableOpacity>
-      </View>
+
+      <OnboardingPrimaryButton
+        label={t('register.acceptAndCreate')}
+        onPress={handleCompleteRegistration}
+        disabled={
+          !privacyAccepted || !termsAccepted || locationPermissionStatus !== 'granted'
+        }
+        loading={isLoading}
+      />
     </View>
   );
 
@@ -1308,63 +1109,57 @@ const RegisterScreen = () => {
       <View style={styles.doneLogo}>
         <GymlyLogo size={88} />
       </View>
-      <Text style={styles.doneTitle}>Du er klar</Text>
-      <Text style={styles.doneSub}>Lad os åbne Gymly sammen.</Text>
-      <TouchableOpacity
-        style={styles.primaryBtn}
-        onPress={handleEnterGymly}
-        onPressIn={handlePrimaryPressIn}
-        onPressOut={handlePrimaryPressOut}
-        activeOpacity={0.9}>
-        <Animated.Text style={[styles.primaryBtnText, {transform: [{scale: primaryPress}]}]}>
-          Åbn Gymly
-        </Animated.Text>
-      </TouchableOpacity>
+      <Text style={styles.doneTitle}>{t('register.doneTitle')}</Text>
+      <Text style={styles.doneSub}>{t('register.doneSub')}</Text>
+      <OnboardingPrimaryButton label={t('register.enterGymly')} onPress={handleEnterGymly} />
     </View>
   );
 
   const renderVerification = () => (
     <View style={styles.section}>
-      <Text style={styles.verifyBlockLabel}>Mail</Text>
-      <View style={[styles.card, shadows.sm]}>
-        <TextInput style={styles.input} value={email} editable={false} />
+      <View style={styles.verifyHero}>
+        <View style={styles.verifyHeroIcon}>
+          <MaterialIcon name="email-check-outline" size={32} color={colors.primary} />
+        </View>
+        <Text style={styles.verifyHeroText}>{t('register.verifyAlmost')}</Text>
+      </View>
+      <Text style={styles.verifyBlockLabel}>{t('register.verifyMail')}</Text>
+      <View style={[styles.card, styles.verifyCard, shadows.sm]}>
+        <TextInput
+          style={[styles.input, styles.verifyEmailInput]}
+          value={email}
+          editable={false}
+          selectTextOnFocus
+        />
         <View style={styles.verifyLinks}>
-          <TouchableOpacity
+          <Pressable
+            style={({pressed}) => [styles.verifyLinkBtn, pressed && styles.verifyLinkBtnPressed]}
             onPress={async () => {
               try {
                 await AuthService.resendEmailConfirmation(email.trim());
-                Alert.alert('Sendt', 'Vi har sendt linket igen.');
+                Alert.alert(t('register.alertSent'), t('register.alertResent'));
               } catch (e: any) {
-                Alert.alert('Fejl', e?.message || 'Kunne ikke sende.');
+                Alert.alert(t('common.error'), e?.message || t('register.alertCouldNotSend'));
               }
             }}>
-            <Text style={styles.link}>Send link igen</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => Linking.openURL('mailto:')}>
-            <Text style={styles.link}>Åbn mail</Text>
-          </TouchableOpacity>
+            <MaterialIcon name="refresh" size={18} color={colors.primary} />
+            <Text style={styles.verifyLinkText}>{t('register.verifyResend')}</Text>
+          </Pressable>
+          <Pressable
+            style={({pressed}) => [styles.verifyLinkBtn, pressed && styles.verifyLinkBtnPressed]}
+            onPress={() => Linking.openURL('mailto:')}>
+            <MaterialIcon name="open-in-new" size={18} color={colors.primary} />
+            <Text style={styles.verifyLinkText}>{t('register.verifyOpenMail')}</Text>
+          </Pressable>
         </View>
       </View>
 
-      <TouchableOpacity
-        style={[
-          styles.primaryBtn,
-          styles.verifyConfirmedBtn,
-          isLoading && styles.primaryBtnDisabled,
-        ]}
+      <OnboardingPrimaryButton
+        label={t('register.verifyConfirmed')}
         onPress={handleVerificationContinue}
-        disabled={isLoading}
-        onPressIn={handlePrimaryPressIn}
-        onPressOut={handlePrimaryPressOut}
-        activeOpacity={0.9}>
-        <Animated.View style={{transform: [{scale: primaryPress}]}}>
-          {isLoading ? (
-            <ActivityIndicator color={colors.white} />
-          ) : (
-            <Text style={styles.primaryBtnText}>Jeg har bekræftet</Text>
-          )}
-        </Animated.View>
-      </TouchableOpacity>
+        loading={isLoading}
+        style={styles.verifyConfirmedBtn}
+      />
     </View>
   );
 
@@ -1378,8 +1173,6 @@ const RegisterScreen = () => {
         return renderGym();
       case 'social':
         return renderSocial();
-      case 'privacy':
-        return renderPrivacy();
       case 'done':
         return renderDone();
       case 'verification':
@@ -1397,8 +1190,9 @@ const RegisterScreen = () => {
         <Svg width="100%" height="100%">
           <Defs>
             <LinearGradient id="registerBg" x1="0" y1="0" x2="0" y2="1">
-              <Stop offset="0" stopColor="#F7F5FF" stopOpacity="1" />
-              <Stop offset="1" stopColor="#FFFFFF" stopOpacity="1" />
+              <Stop offset="0" stopColor={ONBOARDING.bgTop} stopOpacity="1" />
+              <Stop offset="0.55" stopColor="#FBFAFF" stopOpacity="1" />
+              <Stop offset="1" stopColor={ONBOARDING.bgBottom} stopOpacity="1" />
             </LinearGradient>
           </Defs>
           <Rect x="0" y="0" width="100%" height="100%" fill="url(#registerBg)" />
@@ -1428,13 +1222,14 @@ const RegisterScreen = () => {
         </Animated.View>
       ) : null}
       {showBack ? (
-        <TouchableOpacity
+        <Pressable
           style={[styles.backBtn, {top: insets.top + spacing.sm}]}
           onPress={handleBackPress}
-          hitSlop={16}
-          activeOpacity={0.7}>
-          <MaterialIcon name="arrow-left" size={24} color={colors.text} />
-        </TouchableOpacity>
+          hitSlop={16}>
+          <View style={styles.backBtnInner}>
+            <MaterialIcon name="arrow-left" size={22} color={colors.text} />
+          </View>
+        </Pressable>
       ) : null}
       <KeyboardAvoidingView style={styles.flex} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
         <ScrollView
@@ -1479,7 +1274,9 @@ const RegisterScreen = () => {
                     ],
                   },
                 ]}>
-                <GymlyLogo size={72} />
+                <View style={styles.logoHalo}>
+                  <GymlyLogo size={76} />
+                </View>
               </Animated.View>
             ) : null}
             <View style={styles.formMax}>
@@ -1534,59 +1331,100 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  logoWrap: {alignItems: 'center', marginBottom: spacing.md},
-  progressWrap: {marginBottom: spacing.md},
+  logoWrap: {alignItems: 'center', marginBottom: spacing.lg, marginTop: spacing.xs},
+  logoHalo: {
+    padding: spacing.md,
+    borderRadius: 999,
+    backgroundColor: 'rgba(139, 92, 246, 0.08)',
+    borderWidth: 1,
+    borderColor: 'rgba(139, 92, 246, 0.12)',
+  },
+  progressWrap: {marginBottom: spacing.lg},
   progressLabel: {
     textAlign: 'center',
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: '600',
-    color: colors.textSecondary,
-    marginTop: spacing.xs,
+    color: colors.textMuted,
+    marginTop: spacing.sm,
+    letterSpacing: 0.8,
+    textTransform: 'uppercase',
   },
   progressTrack: {
-    height: 3,
-    borderRadius: 2,
-    backgroundColor: '#E7E3F7',
+    height: 5,
+    borderRadius: 4,
+    backgroundColor: ONBOARDING.progressTrack,
     overflow: 'hidden',
   },
-  progressFill: {height: '100%', borderRadius: 2, backgroundColor: colors.primary},
+  progressFill: {
+    height: '100%',
+    borderRadius: 4,
+    backgroundColor: colors.primary,
+    ...Platform.select({
+      ios: {
+        shadowColor: colors.primary,
+        shadowOffset: {width: 0, height: 0},
+        shadowOpacity: 0.45,
+        shadowRadius: 6,
+      },
+    }),
+  },
   title: {
-    fontSize: 32,
+    fontSize: 34,
     fontWeight: '800',
-    letterSpacing: -0.5,
+    letterSpacing: -0.8,
     color: colors.text,
     textAlign: 'center',
-    marginBottom: spacing.xs,
+    marginBottom: spacing.sm,
   },
   subtitle: {
-    fontSize: 14,
-    color: colors.textMuted,
+    fontSize: 15,
+    fontWeight: '500',
+    color: colors.textSecondary,
     textAlign: 'center',
-    lineHeight: 20,
-    marginBottom: spacing.lg,
-    maxWidth: 300,
+    lineHeight: 22,
+    marginBottom: spacing.xl,
+    maxWidth: 320,
     alignSelf: 'center',
-    paddingHorizontal: spacing.sm,
+    paddingHorizontal: spacing.md,
   },
-  section: {gap: spacing.md},
+  section: {gap: spacing.lg},
   card: {
-    backgroundColor: '#FCFCFF',
-    borderRadius: 28,
-    padding: spacing.lg,
+    backgroundColor: ONBOARDING.cardBg,
+    borderRadius: ONBOARDING.cardRadius,
+    padding: spacing.lg + 2,
     borderWidth: 1,
-    borderColor: '#EBE7F7',
-    gap: spacing.md,
+    borderColor: ONBOARDING.cardBorder,
+    gap: spacing.md + 2,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#6B21A8',
+        shadowOffset: {width: 0, height: 8},
+        shadowOpacity: 0.06,
+        shadowRadius: 20,
+      },
+      android: {elevation: 3},
+    }),
   },
   rowInputs: {flexDirection: 'row', gap: spacing.md},
   input: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: radius.lg,
+    backgroundColor: ONBOARDING.inputBg,
+    borderRadius: ONBOARDING.inputRadius,
     paddingHorizontal: spacing.lg,
-    paddingVertical: 15,
+    paddingVertical: 16,
     fontSize: 16,
+    fontWeight: '500',
     color: colors.text,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: ONBOARDING.inputBorder,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#0F172A',
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 0.04,
+        shadowRadius: 8,
+      },
+      android: {elevation: 1},
+    }),
   },
   inputUsernameOk: {
     borderColor: colors.primary,
@@ -1605,9 +1443,10 @@ const styles = StyleSheet.create({
   inputHalf: {flex: 1},
   inputLabel: {
     fontSize: 13,
-    fontWeight: '600',
-    color: colors.textSecondary,
-    marginBottom: -4,
+    fontWeight: '700',
+    color: colors.text,
+    marginBottom: spacing.xs,
+    letterSpacing: -0.1,
   },
   textArea: {minHeight: 48, paddingTop: spacing.md + 2},
   textAreaTall: {minHeight: 88, textAlignVertical: 'top'},
@@ -1619,27 +1458,35 @@ const styles = StyleSheet.create({
   hintRow: {flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 4},
   hintErr: {fontSize: 13, color: colors.error},
   hintOk: {fontSize: 13, color: colors.primary, fontWeight: '600'},
-  helperMuted: {fontSize: 12, color: colors.textMuted, marginTop: -2},
-  primaryBtn: {
-    backgroundColor: colors.primary,
-    minHeight: 56,
-    paddingVertical: spacing.md,
-    borderRadius: radius.lg,
+  helperMuted: {
+    fontSize: 12,
+    fontWeight: '500',
+    color: colors.textMuted,
+    marginTop: spacing.xs,
+    lineHeight: 17,
+  },
+  inlineLogin: {
+    flexDirection: 'row',
+    justifyContent: 'center',
     alignItems: 'center',
-    ...shadows.card,
+    marginTop: spacing.lg,
+    paddingVertical: spacing.sm,
   },
-  primaryBtnDisabled: {opacity: 0.45},
-  primaryBtnEnabled: {
-    shadowColor: colors.primary,
-    shadowOpacity: 0.28,
-    shadowRadius: 12,
-    shadowOffset: {width: 0, height: 6},
+  loginLinkWrap: {
+    paddingHorizontal: spacing.xs,
+    paddingVertical: 2,
+    borderRadius: radius.sm,
   },
-  primaryBtnText: {color: colors.white, fontSize: 17, fontWeight: '700'},
-  inlineLogin: {flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: spacing.sm},
-  muted: {color: colors.textSecondary, fontSize: 15},
-  link: {color: colors.primary, fontSize: 15, fontWeight: '700'},
-  blockTitle: {fontSize: 16, fontWeight: '700', color: colors.text, marginBottom: spacing.xs},
+  loginLinkPressed: {backgroundColor: 'rgba(139, 92, 246, 0.1)'},
+  muted: {color: colors.textSecondary, fontSize: 15, fontWeight: '500'},
+  link: {color: colors.primary, fontSize: 15, fontWeight: '800'},
+  blockTitle: {
+    fontSize: 17,
+    fontWeight: '800',
+    color: colors.text,
+    marginBottom: spacing.sm,
+    letterSpacing: -0.3,
+  },
   consentLocationSection: {
     marginTop: spacing.md,
     paddingTop: spacing.md,
@@ -1648,42 +1495,65 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
   },
   locationCardInner: {
-    backgroundColor: '#F7F3FF',
-    borderRadius: radius.md,
+    backgroundColor: ONBOARDING.lavenderTint,
+    borderRadius: radius.lg,
+    padding: spacing.md + 2,
+    borderWidth: 1,
+    borderColor: ONBOARDING.lavenderTintBorder,
+    gap: spacing.md,
+  },
+  locationSuccessBox: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.md,
+    backgroundColor: 'rgba(34, 197, 94, 0.08)',
+    borderRadius: radius.lg,
     padding: spacing.md,
     borderWidth: 1,
-    borderColor: '#E4D9FF',
-    gap: spacing.md,
+    borderColor: 'rgba(34, 197, 94, 0.22)',
+  },
+  locationSuccessIcon: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    ...Platform.select({
+      ios: {
+        shadowColor: colors.primary,
+        shadowOffset: {width: 0, height: 4},
+        shadowOpacity: 0.35,
+        shadowRadius: 8,
+      },
+    }),
   },
   locationStatusRow: {flexDirection: 'row', alignItems: 'center', gap: spacing.md},
   locationStatusTextCol: {flex: 1},
   locationStatusTitle: {fontSize: 16, fontWeight: '700', color: colors.text},
   locationStatusSub: {fontSize: 13, color: colors.textSecondary, marginTop: 2},
-  locationAllowBtn: {
-    backgroundColor: colors.primary,
-    paddingVertical: spacing.md,
-    borderRadius: radius.md,
-    alignItems: 'center',
-  },
-  locationAllowBtnText: {color: colors.white, fontSize: 16, fontWeight: '700'},
+  locationAllowBtnWrap: {marginTop: 0},
   locationRetryBtn: {alignSelf: 'center', paddingVertical: spacing.xs},
   locationRetryText: {color: colors.primary, fontSize: 15, fontWeight: '600'},
   blockTitleSmall: {
-    fontSize: 13,
+    fontSize: 14,
     fontWeight: '700',
     color: colors.text,
-    marginTop: spacing.sm,
-    marginBottom: spacing.xs,
+    marginTop: spacing.md,
+    marginBottom: spacing.sm,
+    letterSpacing: -0.2,
   },
   dobButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    backgroundColor: '#F8F7FC',
+    borderColor: ONBOARDING.inputBorderFocus,
   },
   dobButtonText: {
     fontSize: 16,
     color: colors.text,
-    fontWeight: '500',
+    fontWeight: '600',
   },
   datePickerDone: {
     alignSelf: 'center',
@@ -1700,29 +1570,61 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   helperBelowDob: {marginBottom: spacing.sm},
-  sectionMiniTitle: {fontSize: 15, fontWeight: '700', color: colors.text},
-  chipWrap: {flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm},
+  sectionMiniTitle: {
+    fontSize: 17,
+    fontWeight: '800',
+    color: colors.text,
+    marginTop: spacing.md,
+    letterSpacing: -0.3,
+  },
+  regionSegment: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.sm,
+    padding: spacing.xs,
+    borderRadius: radius.xl,
+    backgroundColor: '#F3F0FA',
+    borderWidth: 1,
+    borderColor: 'rgba(139, 92, 246, 0.1)',
+  },
   chip: {
     paddingHorizontal: spacing.lg,
-    paddingVertical: 10,
+    paddingVertical: 11,
     borderRadius: radius.full,
     borderWidth: 1,
-    borderColor: '#E9E2FA',
-    backgroundColor: '#FAF9FF',
+    borderColor: ONBOARDING.chipBorder,
+    backgroundColor: ONBOARDING.chipBg,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: {width: 0, height: 1},
+        shadowOpacity: 0.04,
+        shadowRadius: 3,
+      },
+    }),
   },
   chipActive: {
     borderColor: colors.primary,
-    backgroundColor: 'rgba(139, 92, 246, 0.12)',
+    backgroundColor: '#FFFFFF',
+    ...Platform.select({
+      ios: {
+        shadowColor: colors.primary,
+        shadowOffset: {width: 0, height: 4},
+        shadowOpacity: 0.18,
+        shadowRadius: 10,
+      },
+      android: {elevation: 3},
+    }),
   },
-  chipText: {fontSize: 15, color: colors.text, fontWeight: '500'},
-  chipTextActive: {color: colors.primaryDark, fontWeight: '700'},
+  chipText: {fontSize: 15, color: colors.textSecondary, fontWeight: '600'},
+  chipTextActive: {color: colors.primaryDark, fontWeight: '800'},
   bicepsRow: {flexDirection: 'row', flexWrap: 'wrap', gap: spacing.md, justifyContent: 'center'},
   bicepsPress: {borderRadius: 28},
   bicepsChip: {
-    width: 58,
-    height: 58,
-    borderRadius: 29,
-    backgroundColor: '#FAF9FF',
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    backgroundColor: '#FFFFFF',
     borderWidth: 2,
     borderColor: '#E7E2F5',
     justifyContent: 'center',
@@ -1730,19 +1632,67 @@ const styles = StyleSheet.create({
   },
   bicepsChipActive: {
     borderColor: colors.primary,
-    backgroundColor: 'rgba(139, 92, 246, 0.12)',
+    borderWidth: 3,
+    backgroundColor: 'rgba(139, 92, 246, 0.1)',
+    ...Platform.select({
+      ios: {
+        shadowColor: colors.primary,
+        shadowOffset: {width: 0, height: 0},
+        shadowOpacity: 0.35,
+        shadowRadius: 12,
+      },
+    }),
   },
-  bicepsEmoji: {fontSize: 28},
-  gymFieldWrap: {marginBottom: spacing.sm, zIndex: 2},
-  gymRow: {flexDirection: 'row', alignItems: 'center', gap: spacing.sm},
+  bicepsEmoji: {fontSize: 30},
+  gymFieldWrap: {marginBottom: spacing.md, zIndex: 2},
+  gymRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.md,
+    backgroundColor: '#FFFFFF',
+    borderRadius: radius.lg,
+    padding: spacing.sm,
+    borderWidth: 1,
+    borderColor: ONBOARDING.inputBorder,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#0F172A',
+        shadowOffset: {width: 0, height: 3},
+        shadowOpacity: 0.05,
+        shadowRadius: 10,
+      },
+      android: {elevation: 2},
+    }),
+  },
+  gymRowFilled: {
+    borderColor: 'rgba(139, 92, 246, 0.35)',
+    backgroundColor: '#FDFCFF',
+  },
+  gymIndexBadge: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: 'rgba(139, 92, 246, 0.12)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   gymIndex: {
-    width: 24,
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: '800',
     color: colors.primary,
     textAlign: 'center',
   },
   gymInput: {flex: 1},
+  gymInputInCard: {
+    borderWidth: 0,
+    backgroundColor: 'transparent',
+    paddingVertical: 12,
+    paddingHorizontal: spacing.sm,
+    ...Platform.select({
+      ios: {shadowOpacity: 0},
+      android: {elevation: 0},
+    }),
+  },
   suggestions: {
     marginTop: spacing.sm,
     borderRadius: radius.lg,
@@ -1779,27 +1729,57 @@ const styles = StyleSheet.create({
   toggleSub: {fontSize: 13, color: colors.textSecondary, marginTop: 2},
   photoRing: {
     alignSelf: 'center',
-    width: 152,
-    height: 152,
-    borderRadius: 76,
-    borderWidth: 3,
-    borderColor: colors.primary + '55',
+    width: 168,
+    height: 168,
+    borderRadius: 84,
+    borderWidth: 2,
+    borderColor: 'rgba(139, 92, 246, 0.45)',
     overflow: 'hidden',
-    backgroundColor: '#F8F5FF',
-    ...shadows.card,
+    backgroundColor: '#FAF8FF',
+    marginBottom: spacing.sm,
+    ...Platform.select({
+      ios: {
+        shadowColor: colors.primary,
+        shadowOffset: {width: 0, height: 10},
+        shadowOpacity: 0.14,
+        shadowRadius: 22,
+      },
+      android: {elevation: 4},
+    }),
+  },
+  photoRingPressed: {opacity: 0.92, transform: [{scale: 0.98}]},
+  photoRingGlow: {
+    ...StyleSheet.absoluteFillObject,
+    borderRadius: 84,
+    backgroundColor: 'rgba(139, 92, 246, 0.06)',
   },
   photoImg: {width: '100%', height: '100%'},
   photoPlaceholder: {flex: 1, justifyContent: 'center', alignItems: 'center', padding: spacing.md},
-  photoHint: {marginTop: spacing.sm, fontSize: 13, color: colors.textSecondary, textAlign: 'center'},
-  skipBtn: {alignItems: 'center', paddingVertical: spacing.sm},
-  skipText: {color: colors.textMuted, fontSize: 13, fontWeight: '500'},
+  photoHint: {
+    marginTop: spacing.sm,
+    fontSize: 14,
+    fontWeight: '600',
+    color: colors.primary,
+    textAlign: 'center',
+  },
+  skipBtn: {alignItems: 'center', paddingVertical: spacing.md, marginTop: -spacing.xs},
+  skipText: {color: colors.textMuted, fontSize: 14, fontWeight: '600', letterSpacing: 0.2},
   consentBlock: {
-    backgroundColor: '#FCFCFF',
-    borderRadius: 28,
-    padding: spacing.lg,
+    backgroundColor: ONBOARDING.cardBg,
+    borderRadius: ONBOARDING.cardRadius,
+    padding: spacing.lg + 2,
     borderWidth: 1,
-    borderColor: '#EBE7F7',
-    gap: spacing.md,
+    borderColor: ONBOARDING.cardBorder,
+    gap: spacing.md + 2,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#6B21A8',
+        shadowOffset: {width: 0, height: 6},
+        shadowOpacity: 0.05,
+        shadowRadius: 16,
+      },
+      android: {elevation: 2},
+    }),
   },
   consentBlockTitle: {
     fontSize: 13,
@@ -1819,15 +1799,27 @@ const styles = StyleSheet.create({
   consentSub: {fontSize: 13, color: colors.textSecondary, lineHeight: 18},
   consentLink: {fontSize: 14, fontWeight: '600', color: colors.primary},
   checkBox: {
-    width: 28,
-    height: 28,
-    borderRadius: 8,
+    width: 30,
+    height: 30,
+    borderRadius: 10,
     borderWidth: 2,
-    borderColor: colors.primary,
+    borderColor: 'rgba(139, 92, 246, 0.35)',
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#FAFAFE',
   },
-  checkBoxOn: {backgroundColor: colors.primary},
+  checkBoxOn: {
+    backgroundColor: colors.primary,
+    borderColor: colors.primary,
+    ...Platform.select({
+      ios: {
+        shadowColor: colors.primary,
+        shadowOffset: {width: 0, height: 3},
+        shadowOpacity: 0.3,
+        shadowRadius: 6,
+      },
+    }),
+  },
   switchRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -1839,11 +1831,28 @@ const styles = StyleSheet.create({
   },
   gdprMini: {paddingHorizontal: spacing.xs},
   privacyCtaDock: {
-    paddingTop: spacing.sm,
-    paddingBottom: spacing.sm,
-    backgroundColor: '#FFFFFFE8',
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderTopColor: '#EEEAF9',
+    paddingTop: spacing.md,
+    paddingBottom: spacing.xs,
+    marginTop: spacing.sm,
+  },
+  backBtnInner: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: 'rgba(255,255,255,0.92)',
+    borderWidth: 1,
+    borderColor: 'rgba(139, 92, 246, 0.12)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 0.06,
+        shadowRadius: 8,
+      },
+      android: {elevation: 2},
+    }),
   },
   gdprMiniText: {fontSize: 12, color: colors.textMuted, lineHeight: 18},
   doneSection: {alignItems: 'center', paddingTop: spacing.md},
@@ -1857,14 +1866,52 @@ const styles = StyleSheet.create({
     marginBottom: spacing.xl,
     paddingHorizontal: spacing.sm,
   },
+  verifyHero: {
+    alignItems: 'center',
+    marginBottom: spacing.lg,
+    gap: spacing.sm,
+  },
+  verifyHeroIcon: {
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    backgroundColor: 'rgba(139, 92, 246, 0.12)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'rgba(139, 92, 246, 0.2)',
+  },
+  verifyHeroText: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: colors.primaryDark,
+    letterSpacing: -0.1,
+  },
+  verifyCard: {marginTop: spacing.xs},
+  verifyEmailInput: {fontWeight: '600', color: colors.text},
   verifyBlockLabel: {
-    fontSize: 13,
-    fontWeight: '800',
+    fontSize: 11,
+    fontWeight: '700',
     color: colors.textMuted,
     textTransform: 'uppercase',
-    letterSpacing: 0.5,
-    marginBottom: spacing.xs,
+    letterSpacing: 0.9,
+    marginBottom: spacing.sm,
   },
+  verifyLinkBtn: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.sm,
+    borderRadius: radius.lg,
+    backgroundColor: 'rgba(139, 92, 246, 0.08)',
+    borderWidth: 1,
+    borderColor: 'rgba(139, 92, 246, 0.14)',
+  },
+  verifyLinkBtnPressed: {opacity: 0.85, backgroundColor: 'rgba(139, 92, 246, 0.14)'},
+  verifyLinkText: {fontSize: 14, fontWeight: '700', color: colors.primary},
   verifyBlockLabelSpaced: {marginTop: spacing.lg},
   verifyHintShort: {
     fontSize: 13,
@@ -1898,8 +1945,8 @@ const styles = StyleSheet.create({
   },
   secondaryBtnText: {fontSize: 14, fontWeight: '600', color: colors.primaryDark},
   secondaryBtnTextPrimary: {fontSize: 14, fontWeight: '700', color: colors.primaryDark},
-  verifyConfirmedBtn: {marginTop: spacing.lg},
-  verifyLinks: {flexDirection: 'row', justifyContent: 'space-between', marginTop: spacing.sm},
+  verifyConfirmedBtn: {marginTop: spacing.md},
+  verifyLinks: {flexDirection: 'row', gap: spacing.sm, marginTop: spacing.md},
 });
 
 export default RegisterScreen;

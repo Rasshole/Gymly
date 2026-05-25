@@ -32,6 +32,7 @@ import {radius, spacing, typography} from '@/theme/designTokens';
 import {useActiveCentersRealtime} from '@/hooks/useActiveCentersRealtime';
 import {useOptionalUserCoords} from '@/hooks/useOptionalUserCoords';
 import type {ActiveCenter} from '@/types/activeCenter.types';
+import {useTranslation, rt} from '@/i18n';
 
 const ALL_ACTIVE = getActiveDanishGyms();
 
@@ -109,7 +110,7 @@ function OpenClosedChip({isOpen}: {isOpen: boolean}) {
       <Text
         style={[styles.statusChipText, isOpen ? styles.statusChipTextOpen : styles.statusChipTextClosed]}
         numberOfLines={1}>
-        {isOpen ? 'Åbent nu' : 'Lukket nu'}
+        {isOpen ? rt('centerPicker.openNow') : rt('centerPicker.closedNow')}
       </Text>
     </View>
   );
@@ -123,7 +124,7 @@ function LiveLine({live}: {live: LiveStats}) {
   if (live.total <= 0) {
     return (
       <Text style={styles.liveMuted} numberOfLines={1}>
-        Ingen aktive
+        {rt('centerPicker.noActive')}
       </Text>
     );
   }
@@ -149,6 +150,7 @@ const PlanSessionCenterPickerSheet: React.FC<PlanSessionCenterPickerSheetProps> 
   onClose,
   onSelect,
 }) => {
+  const {t} = useTranslation();
   const insets = useSafeAreaInsets();
   const {height: windowHeight} = useWindowDimensions();
   const sheetHeight = Math.round(windowHeight * (Platform.OS === 'ios' ? 0.88 : 0.92));
@@ -267,7 +269,7 @@ const PlanSessionCenterPickerSheet: React.FC<PlanSessionCenterPickerSheetProps> 
     if (favorites.length > 0) {
       out.push({title: 'Dine centre', data: favorites});
     }
-    out.push({title: 'Centre i nærheden', data: nearbySorted});
+    out.push({title: t('centerPicker.nearbySection'), data: nearbySorted});
     return out;
   }, [
     query,
@@ -359,7 +361,7 @@ const PlanSessionCenterPickerSheet: React.FC<PlanSessionCenterPickerSheetProps> 
           ]}>
           <View style={styles.sheetGrab} accessibilityElementsHidden />
           <View style={styles.sheetHeader}>
-            <Text style={styles.sheetTitle}>Vælg center</Text>
+            <Text style={styles.sheetTitle}>{t('centerPicker.selectCenter')}</Text>
             <TouchableOpacity onPress={onClose} hitSlop={12} accessibilityLabel="Luk">
               <Ionicons name="close" size={26} color={colors.textSecondary} />
             </TouchableOpacity>
@@ -370,7 +372,7 @@ const PlanSessionCenterPickerSheet: React.FC<PlanSessionCenterPickerSheetProps> 
             <TextInput
               value={query}
               onChangeText={setQuery}
-              placeholder="Søg efter center..."
+              placeholder={t('centerPicker.searchPlaceholder')}
               placeholderTextColor={colors.textTertiary}
               style={styles.searchInput}
               autoCapitalize="none"
@@ -394,7 +396,7 @@ const PlanSessionCenterPickerSheet: React.FC<PlanSessionCenterPickerSheetProps> 
               contentContainerStyle={styles.listContent}
               ListEmptyComponent={
                 <View style={styles.emptyWrap}>
-                  <Text style={styles.emptyText}>Ingen centre fundet</Text>
+                  <Text style={styles.emptyText}>{t('checkIn.noCentersFound')}</Text>
                   <Text style={styles.emptyHint}>Prøv et andet søgeord, kæde eller by</Text>
                 </View>
               }

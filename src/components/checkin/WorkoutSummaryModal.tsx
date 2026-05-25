@@ -30,6 +30,7 @@ import {
 import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows} from '@/theme/designTokens';
 import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
+import {useTranslation, getRuntimeLanguage} from '@/i18n';
 
 const MOODS = [
   {emoji: '😡', key: 'angry'},
@@ -57,30 +58,13 @@ export interface WorkoutSummaryModalProps {
   }) => void | Promise<void>;
 }
 
-const WORKOUT_LABELS: Record<string, string> = {
-  fri: 'Fri træning',
-  styrke: 'Styrke',
-  kondi: 'Kondition',
-  ben: 'Ben',
-  overkrop: 'Overkrop',
-  bryst: 'Bryst',
-  triceps: 'Triceps',
-  skulder: 'Skulder',
-  biceps: 'Biceps',
-  mave: 'Mave',
-  ryg: 'Ryg',
-  cardio: 'Cardio',
-  hele_kroppen: 'Cardio',
-  reformer: 'Reformer',
-  pilates: 'Pilates',
-};
-
 const WorkoutSummaryModal: React.FC<WorkoutSummaryModalProps> = ({
   visible,
   summary,
   onClose,
   onComplete,
 }) => {
+  const {t} = useTranslation();
   const [caption, setCaption] = React.useState('');
   const [mood, setMood] = React.useState('good');
   const [shareToFeed, setShareToFeed] = React.useState(true);
@@ -104,10 +88,10 @@ const WorkoutSummaryModal: React.FC<WorkoutSummaryModalProps> = ({
     return m > 0 ? `${h} t ${m} min` : `${h} time`;
   };
 
-  const workoutTypeLabel =
-    summary.workoutType.includes(',') || summary.workoutType.includes('_')
-      ? formatWorkoutTypeDisplay(summary.workoutType)
-      : WORKOUT_LABELS[summary.workoutType] ?? formatWorkoutTypeDisplay(summary.workoutType);
+  const workoutTypeLabel = formatWorkoutTypeDisplay(
+    summary.workoutType,
+    getRuntimeLanguage(),
+  );
 
   const ensureAndroidCamera = async (): Promise<boolean> => {
     if (Platform.OS !== 'android') return true;
@@ -129,7 +113,7 @@ const WorkoutSummaryModal: React.FC<WorkoutSummaryModalProps> = ({
   const openCamera = useCallback(async () => {
     const ok = await ensureAndroidCamera();
     if (!ok) {
-      Alert.alert('Kamera', 'Tillad kamera i indstillinger for at tage et billede.');
+      Alert.alert(t('chat.cameraError'), t('workoutSummary.couldNotOpenLibrary'));
       return;
     }
     const cameraOptions: CameraOptions = {
@@ -141,7 +125,7 @@ const WorkoutSummaryModal: React.FC<WorkoutSummaryModalProps> = ({
     launchCamera(cameraOptions, (response: ImagePickerResponse) => {
       if (response.didCancel) return;
       if (response.errorCode) {
-        Alert.alert('Kamera', response.errorMessage || 'Kunne ikke åbne kameraet.');
+        Alert.alert(t('chat.cameraError'), response.errorMessage || t('chat.couldNotOpenCamera'));
         return;
       }
       const asset = response.assets?.[0];
@@ -158,7 +142,7 @@ const WorkoutSummaryModal: React.FC<WorkoutSummaryModalProps> = ({
     launchImageLibrary(libraryOptions, (response: ImagePickerResponse) => {
       if (response.didCancel) return;
       if (response.errorCode) {
-        Alert.alert('Fotos', response.errorMessage || 'Kunne ikke åbne fotobiblioteket.');
+        Alert.alert(t('chat.photosError'), response.errorMessage || t('workoutSummary.couldNotOpenLibrary'));
         return;
       }
       const asset = response.assets?.[0];
@@ -190,16 +174,18 @@ const WorkoutSummaryModal: React.FC<WorkoutSummaryModalProps> = ({
   const requestDiscardConfirmation = () => {
     if (submitting) return;
     Alert.alert(
-      'Kassér træning',
-      'Er du sikker på, at du vil kassere din træning?',
+      t('workoutSummary.discardTitle'),
+      t('workoutSummary.discardBody'),
       [
-        {text: 'Nej', style: 'cancel'},
-        {text: 'Ja', onPress: () => void performDiscardShare()},
+        {text: t('common.no'), style: 'cancel'},
+        {text: t('common.yes'), onPress: () => void performDiscardShare()},
       ],
     );
   };
 
-  const primaryLabel = shareToFeed ? 'Del træning' : 'Gem og afslut';
+  const primaryLabel = shareToFeed
+    ? t('workoutSummary.shareWorkout')
+    : t('workoutSummary.saveAndFinish');
   const centerShort = summary.gymName.replace(/\s*-\s*Falkoner$/i, '');
 
   return (
@@ -222,7 +208,7 @@ const WorkoutSummaryModal: React.FC<WorkoutSummaryModalProps> = ({
             showsVerticalScrollIndicator={false}
             keyboardShouldPersistTaps="handled">
             <View style={styles.heroHeader}>
-              <Text style={styles.heroTitle}>Tjekket ind 🔥</Text>
+              <Text style={styles.heroTitle}>{t('workoutSummary.checkedIn')}</Text>
               <Text style={styles.heroCenter} numberOfLines={1}>
                 {centerShort}
               </Text>
@@ -235,11 +221,11 @@ const WorkoutSummaryModal: React.FC<WorkoutSummaryModalProps> = ({
               <View style={styles.heroCircleTop} />
               <View style={styles.heroCircleBottom} />
               <Text style={styles.heroTimerValue}>{formatDuration(summary.durationMinutes)}</Text>
-              <Text style={styles.heroTimerSub}>Session i gang</Text>
+              <Text style={styles.heroTimerSub}>{t('workoutSummary.sessionInProgress')}</Text>
             </View>
 
-            <Text style={styles.title}>Opsummer din træning</Text>
-            <Text style={styles.subtitle}>Billede, tekst og deling på feed (startside og profil)</Text>
+            <Text style={styles.title}>{t('workoutSummary.summarizeTitle')}</Text>
+            <Text style={styles.subtitle}>{t('workoutSummary.summarizeSub')}</Text>
 
             <View style={styles.summaryCard}>
               <View style={styles.summaryRow}>
@@ -247,7 +233,7 @@ const WorkoutSummaryModal: React.FC<WorkoutSummaryModalProps> = ({
                   <Icon name="time-outline" size={18} color={colors.primaryDark} />
                 </View>
                 <Text style={styles.summaryValue}>{formatDuration(summary.durationMinutes)}</Text>
-                <Text style={styles.summaryLabel}>Varighed</Text>
+                <Text style={styles.summaryLabel}>{t('workoutSummary.duration')}</Text>
               </View>
               <View style={styles.summaryRow}>
                 <View style={styles.summaryIconWrap}>
@@ -256,19 +242,19 @@ const WorkoutSummaryModal: React.FC<WorkoutSummaryModalProps> = ({
                 <Text style={styles.summaryValue} numberOfLines={1}>
                   {centerShort}
                 </Text>
-                <Text style={styles.summaryLabel}>Center</Text>
+                <Text style={styles.summaryLabel}>{t('workoutSummary.center')}</Text>
               </View>
               <View style={styles.summaryRow}>
                 <View style={styles.summaryIconWrap}>
                   <Icon name="barbell-outline" size={18} color={colors.primaryDark} />
                 </View>
                 <Text style={styles.summaryValue}>{workoutTypeLabel}</Text>
-                <Text style={styles.summaryLabel}>Træningstype</Text>
+                <Text style={styles.summaryLabel}>{t('workoutSummary.workoutType')}</Text>
               </View>
             </View>
 
             <View style={styles.section}>
-              <Text style={styles.sectionLabel}>Billede (valgfrit)</Text>
+              <Text style={styles.sectionLabel}>{t('workoutSummary.photoOptional')}</Text>
               {mediaUri ? (
                 <View style={styles.previewWrap}>
                   <Image source={{uri: mediaUri}} style={styles.previewImage} resizeMode="cover" />
@@ -287,7 +273,7 @@ const WorkoutSummaryModal: React.FC<WorkoutSummaryModalProps> = ({
                   activeOpacity={0.8}
                   disabled={submitting}>
                   <Icon name="camera-outline" size={20} color={colors.primaryDark} />
-                  <Text style={styles.mediaHalfButtonText}>Tag billede</Text>
+                  <Text style={styles.mediaHalfButtonText}>{t('workoutSummary.takePhoto')}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={styles.mediaHalfButton}
@@ -295,16 +281,16 @@ const WorkoutSummaryModal: React.FC<WorkoutSummaryModalProps> = ({
                   activeOpacity={0.8}
                   disabled={submitting}>
                   <Icon name="images-outline" size={20} color={colors.primaryDark} />
-                  <Text style={styles.mediaHalfButtonText}>Vælg fra bibliotek</Text>
+                  <Text style={styles.mediaHalfButtonText}>{t('workoutSummary.chooseLibrary')}</Text>
                 </TouchableOpacity>
               </View>
             </View>
 
             <View style={styles.section}>
-              <Text style={styles.sectionLabel}>Tekst</Text>
+              <Text style={styles.sectionLabel}>{t('workoutSummary.caption')}</Text>
               <TextInput
                 style={styles.captionInput}
-                placeholder="Skriv noget om din træning..."
+                placeholder={t('workoutSummary.writeAboutWorkout')}
                 placeholderTextColor={colors.textMuted}
                 value={caption}
                 onChangeText={setCaption}
@@ -315,7 +301,7 @@ const WorkoutSummaryModal: React.FC<WorkoutSummaryModalProps> = ({
             </View>
 
             <View style={styles.section}>
-              <Text style={styles.sectionLabel}>Humør</Text>
+              <Text style={styles.sectionLabel}>{t('workoutSummary.mood')}</Text>
               <View style={styles.moodsRow}>
                 {MOODS.map(({emoji, key}) => (
                   <TouchableOpacity
@@ -340,10 +326,8 @@ const WorkoutSummaryModal: React.FC<WorkoutSummaryModalProps> = ({
                   color={shareToFeed ? colors.primary : colors.textMuted}
                 />
                 <View style={styles.toggleTextCol}>
-                  <Text style={styles.toggleLabel}>Del på feed</Text>
-                  <Text style={styles.toggleHint}>
-                    Synlig på startside, din profil og hos dine venner (som i Strava/Instagram)
-                  </Text>
+                  <Text style={styles.toggleLabel}>{t('workoutSummary.shareToFeed')}</Text>
+                  <Text style={styles.toggleHint}>{t('workoutSummary.visibleOnFeed')}</Text>
                 </View>
               </TouchableOpacity>
             </View>
@@ -370,7 +354,9 @@ const WorkoutSummaryModal: React.FC<WorkoutSummaryModalProps> = ({
                   onPress={requestDiscardConfirmation}
                   activeOpacity={0.8}
                   disabled={submitting}>
-                  <Text style={styles.discardShareButtonText}>Kassér træning</Text>
+                  <Text style={styles.discardShareButtonText}>
+                    {t('workoutSummary.discardWorkout')}
+                  </Text>
                 </TouchableOpacity>
               ) : null}
               <TouchableOpacity
@@ -378,7 +364,7 @@ const WorkoutSummaryModal: React.FC<WorkoutSummaryModalProps> = ({
                 onPress={onClose}
                 activeOpacity={0.8}
                 disabled={submitting}>
-                <Text style={styles.secondaryButtonText}>Annuller</Text>
+                <Text style={styles.secondaryButtonText}>{t('common.cancel')}</Text>
               </TouchableOpacity>
             </View>
           </ScrollView>

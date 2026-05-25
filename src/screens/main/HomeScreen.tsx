@@ -40,7 +40,7 @@ import {isDemoContentMode} from '@/demo/demoContentGate';
 import MuscleGroupTileIcon from '@/components/ui/MuscleGroupTileIcon';
 import {MuscleGroup} from '@/types/workout.types';
 import colors from '@/theme/colors';
-import {spacing, typography, radius, shadows} from '@/theme/designTokens';
+import {spacing, typography, radius, shadows, letterSpacing} from '@/theme/designTokens';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useGymlyActiveNow} from '@/hooks/useGymlyActiveNow';
 import {Card} from '@/components/ui/Card';
@@ -82,6 +82,7 @@ import {
   subscribeUserStats,
   type UserStats,
 } from '@/services/supabase/userStatsService';
+import {useTranslation, useAppFormat, rt} from '@/i18n';
 
 type HomeScreenNavigationProp = StackNavigationProp<any>;
 
@@ -223,7 +224,7 @@ const FeedPhoto = memo(
         .filter(Boolean);
       const centerText = workoutParts[0] ?? 'Gymly center';
       const durationText = workoutParts[1] ?? 'Session';
-      const workoutText = workoutParts[2] ?? 'Træning';
+      const workoutText = workoutParts[2] ?? rt('notifications.workoutDefault');
       return (
         <View style={styles.feedNoImageCard}>
           <Text style={styles.feedNoImageEyebrow}>🔥 SESSION DELT</Text>
@@ -360,6 +361,8 @@ const FeedPhoto = memo(
 
 
 const HomeScreen = () => {
+  const {t} = useTranslation();
+  const {formatDateLong, streakLabel} = useAppFormat();
   const navigation = useNavigation<HomeScreenNavigationProp>();
   const isHomeFocused = useIsFocused();
   const user = useAuth();
@@ -807,7 +810,10 @@ const HomeScreen = () => {
       setAddedFriends(prev => [...prev, friendId]);
       const requesterName = user?.displayName?.trim() || 'Du';
       NotificationService.sendFriendRequestNotification(friendId, requesterName);
-      Alert.alert('Venneanmodning sendt', `${friendName} har modtaget en venneanmodning fra dig.`);
+      Alert.alert(
+        t('home.friendRequestSent'),
+        t('home.friendRequestSentBody', {name: friendName}),
+      );
     }
   };
 
@@ -1338,7 +1344,7 @@ const HomeScreen = () => {
   const handleReelsSendShare = (friendId: string) => {
     const friend = FRIENDS.find(f => f.id === friendId);
     if (friend) {
-      Alert.alert('Sendt', `Video sendt til ${friend.name}`);
+      Alert.alert(t('home.videoSent'), t('home.videoSentBody', {name: friend.name}));
       setReelsShareVisible(false);
       setReelsShareSelections({});
       setReelsShareSearch('');
@@ -1446,7 +1452,9 @@ const HomeScreen = () => {
     /^(google\s*user|gymly\s*user|user)(!)?$/i.test(normalized) ||
     normalized.includes('google user') ||
     normalized.includes('gymly user');
-  const greeting = !isGenericName ? `Hej, ${greetingName} 👋` : 'Hej 👋';
+  const greeting = !isGenericName
+    ? t('home.greetingName', {name: greetingName!})
+    : t('home.greeting');
 
   return (
     <View style={styles.container}>
@@ -1459,14 +1467,8 @@ const HomeScreen = () => {
         {/* 1. Header / Welcome */}
         <View style={[styles.welcomeSection, {paddingHorizontal: HOME_H_PADDING}]}>
           <Text style={styles.welcomeText}>{greeting}</Text>
-          <Text style={styles.subtitle}>
-            {new Date().toLocaleDateString('da-DK', {
-              weekday: 'long',
-              day: 'numeric',
-              month: 'long',
-            })}
-          </Text>
-          <Text style={styles.welcomeCta}>Klar til dagens session?</Text>
+          <Text style={styles.subtitle}>{formatDateLong(new Date())}</Text>
+          <Text style={styles.welcomeCta}>{t('home.readyForSession')}</Text>
         </View>
 
         {/* 2. Quick Stats Cards */}
@@ -1476,7 +1478,7 @@ const HomeScreen = () => {
               <StatCard
                 compact
                 emoji="🔥"
-                label="Dages streak"
+                label={t('home.dayStreak')}
                 value={streakDisplayValue}
                 accent
               />
@@ -1485,7 +1487,7 @@ const HomeScreen = () => {
               <StatCard
                 compact
                 emoji="✅"
-                label="Check-ins"
+                label={t('home.checkIns')}
                 value={dashboardWeeklyCheckins}
               />
             </View>
@@ -1495,7 +1497,7 @@ const HomeScreen = () => {
               <StatCard
                 compact
                 emoji="⏰"
-                label="Min. Trænet"
+                label={t('home.minutesTrained')}
                 value={dashboardWeeklyMinutes}
               />
             </View>
@@ -1503,7 +1505,7 @@ const HomeScreen = () => {
               <StatCard
                 compact
                 emoji="🏅"
-                label="Badges"
+                label={t('home.badges')}
                 value={badgeCount}
                 onPress={() => navigation.navigate('Badges')}
               />
@@ -1511,8 +1513,8 @@ const HomeScreen = () => {
           </View>
 
           <DashboardSection
-            title="Dine centre"
-            subtitle="Se aktiviteten i dine lokale centre">
+            title={t('home.yourCentres')}
+            subtitle={t('home.yourCentresSub')}>
             {hasLocalCenters ? (
               <View style={styles.localCentersList}>
                 {localCenters.map(center => (
@@ -1535,34 +1537,35 @@ const HomeScreen = () => {
                         {center.displayName}
                       </Text>
                       <Text style={styles.localCenterCounts} numberOfLines={1}>
-                        {center.totalActiveCount} aktive · {center.activeFriendsCount} venner
+                        {t('home.activeAndFriends', {
+                          active: center.totalActiveCount,
+                          friends: center.activeFriendsCount,
+                        })}
                       </Text>
                     </View>
                     <Icon name="chevron-forward" size={20} color={colors.textMuted} />
                   </Pressable>
                 ))}
                 {localCentersLoading ? (
-                  <Text style={styles.localCenterLoading}>Opdaterer aktivitet...</Text>
+                  <Text style={styles.localCenterLoading}>{t('home.updatingActivity')}</Text>
                 ) : null}
               </View>
             ) : (
               <Card padding="lg" style={styles.localCenterEmptyCard}>
-                <Text style={styles.localCenterEmptyTitle}>Tilføj dine centre</Text>
-                <Text style={styles.localCenterEmptyText}>
-                  Vælg op til 3 lokale centre og følg aktiviteten live
-                </Text>
+                <Text style={styles.localCenterEmptyTitle}>{t('home.addCentresTitle')}</Text>
+                <Text style={styles.localCenterEmptyText}>{t('home.addCentresSub')}</Text>
                 <TouchableOpacity
                   style={styles.localCenterEmptyBtn}
                   activeOpacity={0.8}
                   onPress={() => navigation.navigate('EditProfile')}>
-                  <Text style={styles.localCenterEmptyBtnText}>Tilføj center</Text>
+                  <Text style={styles.localCenterEmptyBtnText}>{t('home.addCentreBtn')}</Text>
                 </TouchableOpacity>
               </Card>
             )}
           </DashboardSection>
 
           {/* 3. Aktive nu — globalt antal + venneliste (check_ins) */}
-          <DashboardSection title="Aktive nu">
+          <DashboardSection title={t('home.activeNow')}>
             <View style={styles.activeNowCounterRow}>
               <View style={styles.activeNowCounterDotWrap}>
                 <Animated.View
@@ -1577,7 +1580,7 @@ const HomeScreen = () => {
                 <View style={styles.activeNowCounterDot} />
               </View>
               <Text style={styles.activeNowCounterText}>
-                {totalActiveUsers} aktive på Gymly lige nu
+                {t('home.activeOnGymly', {count: totalActiveUsers})}
               </Text>
             </View>
             <Card padding="lg" style={styles.activeNowHighlightCard}>
@@ -1626,7 +1629,7 @@ const HomeScreen = () => {
                           onPress={() => void openDmToFriend(f.userId, f.displayName)}
                           style={styles.activeNowMessageBtn}
                           hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
-                          accessibilityLabel="Besked"
+                          accessibilityLabel={t('home.message')}
                           activeOpacity={0.75}>
                           <Icon name="chatbubble-outline" size={22} color={colors.primary} />
                         </TouchableOpacity>
@@ -1636,11 +1639,11 @@ const HomeScreen = () => {
                 </View>
               ) : (
                 <View style={styles.emptyPreview}>
-                  <Text style={styles.emptyPreviewText}>Ingen venner aktive lige nu</Text>
+                  <Text style={styles.emptyPreviewText}>{t('home.noFriendsActive')}</Text>
                   <Text style={styles.emptyPreviewSubtext}>
                     {totalActiveUsers > 0
-                      ? 'Start en session eller se når dine venner tjekker ind.'
-                      : 'Vær den første til at tjekke ind 🔥'}
+                      ? t('home.noFriendsActiveSubWithUsers')
+                      : t('home.noFriendsActiveSubEmpty')}
                   </Text>
                   <Pressable
                     style={({pressed}) => [
@@ -1648,7 +1651,7 @@ const HomeScreen = () => {
                       pressed && styles.emptyCtaPressed,
                     ]}
                     onPress={() => navigation.navigate('CheckIn')}>
-                    <Text style={styles.emptyCtaText}>Tjek ind</Text>
+                    <Text style={styles.emptyCtaText}>{t('home.checkInCta')}</Text>
                   </Pressable>
                 </View>
               )}
@@ -1660,14 +1663,12 @@ const HomeScreen = () => {
         <React.Fragment>
         {feedItems.length === 0 ? (
           <View style={styles.emptyPreview}>
-            <Text style={styles.emptyPreviewText}>Intet på feedet endnu</Text>
-            <Text style={styles.emptyPreviewSubtext}>
-              Tilføj venner og del din træning for at se aktivitet her.
-            </Text>
+            <Text style={styles.emptyPreviewText}>{t('home.feedEmptyTitle')}</Text>
+            <Text style={styles.emptyPreviewSubtext}>{t('home.feedEmptySub')}</Text>
             <Pressable
               style={({pressed}) => [styles.emptyCta, pressed && styles.emptyCtaPressed]}
               onPress={() => navigation.navigate('Friends')}>
-              <Text style={styles.emptyCtaText}>Find venner</Text>
+              <Text style={styles.emptyCtaText}>{t('home.findFriends')}</Text>
             </Pressable>
           </View>
         ) : feedItems.map(item => {
@@ -1833,7 +1834,7 @@ const HomeScreen = () => {
                       {(item.workoutInfo?.split('·')[1] ?? 'Session').trim().toUpperCase()}
                     </Text>
                     <Text style={styles.feedNoImageWorkout}>
-                      {(item.workoutInfo?.split('·')[2] ?? 'Træning').trim()}
+                      {(item.workoutInfo?.split('·')[2] ?? t('notifications.workoutDefault')).trim()}
                     </Text>
                     <Text style={styles.feedNoImageCenter} numberOfLines={1}>
                       {(item.workoutInfo?.split('·')[0] ?? 'Gymly center').trim()}
@@ -1988,7 +1989,7 @@ const HomeScreen = () => {
         {/* Suggested Friends - kun ægte brugere */}
         {suggestedFriends.length > 0 && (
           <View style={styles.suggestedFriendsCard}>
-            <Text style={styles.suggestedFriendsTitle}>Forslåede venner</Text>
+            <Text style={styles.suggestedFriendsTitle}>{t('home.suggestedFriends')}</Text>
             <FlatList
               data={suggestedFriends}
               horizontal
@@ -2013,7 +2014,7 @@ const HomeScreen = () => {
                       {item.name}
                     </Text>
                     <Text style={styles.suggestedFriendMutual}>
-                      {item.mutualFriends} fælles venner
+                      {t('home.mutualFriends', {count: item.mutualFriends})}
                     </Text>
                     <View style={styles.suggestedFriendGyms}>
                       {item.gyms.slice(0, 2).map((gym, idx) => (
@@ -2043,7 +2044,7 @@ const HomeScreen = () => {
                           styles.suggestedFriendAddText,
                           isAdded && styles.suggestedFriendAddTextAdded,
                         ]}>
-                        {isAdded ? 'Tilføjet' : 'Tilføj'}
+                        {isAdded ? t('home.added') : t('home.add')}
                       </Text>
                     </TouchableOpacity>
                   </TouchableOpacity>
@@ -2192,7 +2193,7 @@ const HomeScreen = () => {
                     <View style={styles.commentInputRow}>
                       <TextInput
                         style={styles.commentInput}
-                        placeholder="Tilføj en kommentar..."
+                        placeholder={t('home.addComment')}
                         placeholderTextColor="#94A3B8"
                         value={commentInput}
                         onChangeText={setCommentInput}
@@ -2261,7 +2262,7 @@ const HomeScreen = () => {
                   resizeMode="contain"
                   onLoad={() => setIsVideoPlaying(true)}
                   onError={(error) => {
-                    Alert.alert('Fejl', 'Kunne ikke afspille videoen.');
+                    Alert.alert(t('common.error'), t('errors.tryAgainLater'));
                     console.error('Video error:', error);
                   }}
                 />
@@ -2455,7 +2456,7 @@ const HomeScreen = () => {
                                 setCommentInputFocused(false);
                                 setReelsCommentVisible(true);
                               }}>
-                              <Text style={styles.reelsCommentInputText}>Tilføj kommentar...</Text>
+                              <Text style={styles.reelsCommentInputText}>{t('home.addComment')}</Text>
                             </TouchableOpacity>
                           </View>
                           {/* Right side action buttons */}
@@ -2609,7 +2610,7 @@ const HomeScreen = () => {
                     <View style={styles.commentInputRow}>
                       <TextInput
                         style={styles.commentInput}
-                        placeholder="Tilføj en kommentar..."
+                        placeholder={t('home.addComment')}
                         placeholderTextColor="#94A3B8"
                         value={commentInput}
                         onChangeText={setCommentInput}
@@ -2695,7 +2696,7 @@ const HomeScreen = () => {
                         }
                       }}
                       onBlur={() => setReelsShareSearchFocused(false)}
-                      placeholder="Søg"
+                      placeholder={t('home.search')}
                       placeholderTextColor="#94A3B8"
                       style={styles.shareSearchInput}
                     />
@@ -2842,7 +2843,7 @@ const styles = StyleSheet.create({
   },
   statCardWrapper: {
     flex: 1,
-    minHeight: 96,
+    minHeight: 100,
   },
   quickActionsGrid: {
     marginBottom: spacing.xl,
@@ -3149,12 +3150,10 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   welcomeText: {
-    fontSize: 30,
-    lineHeight: 38,
-    fontWeight: '800',
+    ...typography.h2,
     color: colors.text,
     marginBottom: spacing.xs,
-    letterSpacing: -0.3,
+    letterSpacing: letterSpacing.headline,
   },
   subtitle: {
     ...typography.body,
@@ -3306,7 +3305,9 @@ const styles = StyleSheet.create({
     marginBottom: spacing.xl,
     marginHorizontal: HOME_H_PADDING,
     backgroundColor: colors.backgroundCard,
-    borderRadius: 28,
+    borderRadius: radius.xl,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.border,
     paddingHorizontal: spacing.lg,
     paddingVertical: spacing.lg,
     overflow: 'hidden',
@@ -3317,6 +3318,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: spacing.md,
+    gap: spacing.sm,
   },
   feedAvatar: {
     width: 40,
@@ -3378,19 +3380,15 @@ const styles = StyleSheet.create({
     fontWeight: '400',
   },
   feedNoImageCard: {
-    borderRadius: 22,
-    backgroundColor: '#7C3AED',
+    borderRadius: radius.lg,
+    backgroundColor: colors.primary,
     minHeight: 196,
     paddingHorizontal: spacing.lg,
     paddingVertical: spacing.lg + 2,
     marginBottom: spacing.md,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#7C3AED',
-    shadowOffset: {width: 0, height: 8},
-    shadowOpacity: 0.26,
-    shadowRadius: 18,
-    elevation: 6,
+    ...shadows.glow,
   },
   feedNoImageEyebrow: {
     fontSize: 13,
@@ -3421,7 +3419,7 @@ const styles = StyleSheet.create({
     width: '100%',
     marginBottom: spacing.md,
     backgroundColor: '#000',
-    borderRadius: 22,
+    borderRadius: radius.lg,
     overflow: 'hidden',
     position: 'relative',
     alignItems: 'center',
@@ -3481,7 +3479,7 @@ const styles = StyleSheet.create({
   feedPhotoContainer: {
     width: '100%',
     backgroundColor: '#0B1220',
-    borderRadius: 22,
+    borderRadius: radius.lg,
     position: 'relative',
     alignItems: 'center',
     justifyContent: 'center',
@@ -3493,7 +3491,7 @@ const styles = StyleSheet.create({
   feedPhotoMask: {
     width: '100%',
     height: '100%',
-    borderRadius: 22,
+    borderRadius: radius.lg,
     overflow: 'hidden',
     backgroundColor: '#000',
   },
@@ -3642,7 +3640,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexWrap: 'wrap',
     gap: spacing.sm,
-    paddingTop: 2,
+    paddingTop: spacing.xs,
     paddingBottom: spacing.md,
     zIndex: 1,
   },
@@ -3656,12 +3654,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 6,
     borderRadius: radius.full,
-    backgroundColor: '#F1F5F9',
-    paddingHorizontal: 12,
-    paddingVertical: 8,
+    backgroundColor: colors.surface,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.border,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
   },
   feedSocialPillActive: {
-    backgroundColor: colors.primary + '20',
+    backgroundColor: colors.primary + '18',
+    borderColor: colors.primary + '40',
   },
   feedSocialPillEmoji: {
     fontSize: 14,

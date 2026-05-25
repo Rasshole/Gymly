@@ -29,16 +29,20 @@ import {
 } from '@/utils/filterSessionsByPeriod';
 import type {WorkoutPeriod} from '@/utils/workoutPeriodFilter';
 import colors from '@/theme/colors';
+import {useTranslation} from '@/i18n';
 import {spacing, typography, radius} from '@/theme/designTokens';
 
-const PERIOD_OPTIONS: {key: WorkoutPeriod; label: string}[] = [
-  {key: 'all', label: 'I alt'},
-  {key: 'week', label: 'Uge'},
-  {key: 'month', label: 'Måned'},
-  {key: 'year', label: 'År'},
-];
-
 const AllTrainingsScreen = () => {
+  const {t} = useTranslation();
+  const periodOptions = useMemo(
+    () => [
+      {key: 'all' as const, label: t('profile.periodAll')},
+      {key: 'week' as const, label: t('profile.periodWeek')},
+      {key: 'month' as const, label: t('allTrainings.periodMonth')},
+      {key: 'year' as const, label: t('allTrainings.periodYear')},
+    ],
+    [t],
+  );
   const userId = useAppStore(s => s.user?.id);
   const [sessions, setSessions] = useState<ProfileCompletedSession[]>([]);
   const [loading, setLoading] = useState(true);
@@ -105,7 +109,7 @@ const AllTrainingsScreen = () => {
           style={styles.searchInput}
           value={query}
           onChangeText={setQuery}
-          placeholder="Søg center, type eller træningsmakker…"
+          placeholder={t('allTrainings.searchPlaceholder')}
           placeholderTextColor={colors.textMuted}
           autoCorrect={false}
           autoCapitalize="none"
@@ -114,7 +118,7 @@ const AllTrainingsScreen = () => {
       </View>
 
       <View style={styles.periodRow}>
-        {PERIOD_OPTIONS.map(({key, label}) => {
+        {periodOptions.map(({key, label}) => {
           const active = period === key;
           return (
             <TouchableOpacity
@@ -150,11 +154,11 @@ const AllTrainingsScreen = () => {
           ListEmptyComponent={
             <View style={styles.empty}>
               <Icon name="fitness-outline" size={40} color={colors.textMuted} />
-              <Text style={styles.emptyTitle}>Ingen træninger endnu</Text>
+              <Text style={styles.emptyTitle}>{t('allTrainings.emptyTitle')}</Text>
               <Text style={styles.emptySub}>
                 {sessions.length === 0
-                  ? 'Dine afsluttede sessions vises her.'
-                  : 'Ingen sessioner i valgt periode eller søgning.'}
+                  ? t('profile.noWorkoutsHistorySub')
+                  : t('allTrainings.emptyFiltered')}
               </Text>
             </View>
           }

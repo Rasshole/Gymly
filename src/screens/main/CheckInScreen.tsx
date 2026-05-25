@@ -16,7 +16,6 @@ import {
   Alert,
   Switch,
   Platform,
-  PermissionsAndroid,
   AppState,
   LayoutAnimation,
   UIManager,
@@ -33,6 +32,13 @@ import {useNavigation, useFocusEffect} from '@react-navigation/native';
 import {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
 import {useAppStore} from '@/store/appStore';
 import {SKIP_CHECK_IN_LOCATION_RADIUS} from '@/config/dataConfig';
+import {
+  getLocationPermissionStatus,
+  isLocationAuthorized,
+  mapLegacyLocationPermissionStatus,
+  requestLocationPermissionIfNeeded,
+  showLocationDeniedInAppMessage,
+} from '@/services/location/locationPermission';
 import {useDashboardStatsStore} from '@/store/dashboardStatsStore';
 import * as streak from '@/utils/streakUtils';
 import {
@@ -58,11 +64,11 @@ import GymLogoView from '@/components/ui/GymLogoView';
 import MuscleGroupTileIcon from '@/components/ui/MuscleGroupTileIcon';
 import {
   encodeMuscleGroupsForSession,
-  MUSCLE_GROUP_LABELS_DK,
   toggleCheckInMuscleGroup,
   workoutTypeForFirestoreCheckIn,
   formatWorkoutTypeDisplay,
 } from '@/utils/muscleGroupLabels';
+import {useTranslation, useAppFormat, rt, getRuntimeLanguage} from '@/i18n';
 import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows} from '@/theme/designTokens';
 import {MuscleGroup} from '@/types/workout.types';
@@ -113,26 +119,18 @@ const MOOD_TO_RATING: Record<string, number> = {
   amazing: 5,
 };
 
-const MUSCLE_GROUPS: {key: MuscleGroup; label: string}[] = [
-  {key: 'bryst', label: MUSCLE_GROUP_LABELS_DK.bryst},
-  {key: 'triceps', label: MUSCLE_GROUP_LABELS_DK.triceps},
-  {key: 'skulder', label: MUSCLE_GROUP_LABELS_DK.skulder},
-  {key: 'ben', label: MUSCLE_GROUP_LABELS_DK.ben},
-  {key: 'biceps', label: MUSCLE_GROUP_LABELS_DK.biceps},
-  {key: 'mave', label: MUSCLE_GROUP_LABELS_DK.mave},
-  {key: 'ryg', label: MUSCLE_GROUP_LABELS_DK.ryg},
-  {key: 'cardio', label: MUSCLE_GROUP_LABELS_DK.cardio},
-  {key: 'reformer', label: MUSCLE_GROUP_LABELS_DK.reformer},
-  {key: 'pilates', label: MUSCLE_GROUP_LABELS_DK.pilates},
-];
-
 /** 2 kolonner × 5 rækker — samme rækkefølge som tidligere Gymly check-in */
-const MUSCLE_ROWS: (typeof MUSCLE_GROUPS)[] = [
-  MUSCLE_GROUPS.slice(0, 2),
-  MUSCLE_GROUPS.slice(2, 4),
-  MUSCLE_GROUPS.slice(4, 6),
-  MUSCLE_GROUPS.slice(6, 8),
-  MUSCLE_GROUPS.slice(8, 10),
+const MUSCLE_GROUP_KEYS: MuscleGroup[] = [
+  'bryst',
+  'triceps',
+  'skulder',
+  'ben',
+  'biceps',
+  'mave',
+  'ryg',
+  'cardio',
+  'reformer',
+  'pilates',
 ];
 
 /**
@@ -191,17 +189,17 @@ function userFacingCheckInError(err: unknown): string {
       m,
     )
   ) {
-    return 'Kunne ikke tjekke ind. Prøv igen.';
+    return rt('checkIn.checkInFailed');
   }
   if (
     /network|Network request failed|Failed to fetch|timeout|getaddrinfo/i.test(m)
   ) {
-    return 'Kunne ikke tjekke ind. Tjek forbindelsen og prøv igen.';
+    return rt('checkIn.checkInFailedNetwork');
   }
   if (m && m.length < 200 && /[æøåÆØÅ]/.test(m)) {
     return m;
   }
-  return 'Kunne ikke tjekke ind. Prøv igen.';
+  return rt('checkIn.checkInFailed');
 }
 
 function findNearestGymFromCoords(latitude: number, longitude: number): DanishGym | null {
@@ -219,9 +217,47 @@ function findNearestGymFromCoords(latitude: number, longitude: number): DanishGy
 
 const CheckInScreen = () => {
   const navigation = useNavigation<any>();
+  const {t, intlLocale} = useTranslation();
+  const {streakLabel, daysUntil} = useAppFormat();
   const {user} = useAppStore();
   const demoCheckInPlacementActive =
     typeof __DEV__ !== 'undefined' && __DEV__ && useDemoModeStore(s => s.enabled);
+
+  const muscleGroupLabel = useCallback(
+    (key: MuscleGroup): string => {
+      const labels: Record<MuscleGroup, string> = {
+        bryst: t('checkIn.muscleChest'),
+        triceps: t('checkIn.muscleTriceps'),
+        skulder: t('checkIn.muscleShoulder'),
+        ben: t('checkIn.muscleLegs'),
+        biceps: t('checkIn.muscleBiceps'),
+        mave: t('checkIn.muscleAbs'),
+        ryg: t('checkIn.muscleBack'),
+        cardio: t('checkIn.muscleCardio'),
+        reformer: t('checkIn.muscleReformer'),
+        pilates: t('checkIn.musclePilates'),
+      };
+      return labels[key];
+    },
+    [t],
+  );
+
+  const muscleGroups = useMemo(
+    (): {key: MuscleGroup; label: string}[] =>
+      MUSCLE_GROUP_KEYS.map(key => ({key, label: muscleGroupLabel(key)})),
+    [muscleGroupLabel],
+  );
+
+  const muscleRows = useMemo(
+    () => [
+      muscleGroups.slice(0, 2),
+      muscleGroups.slice(2, 4),
+      muscleGroups.slice(4, 6),
+      muscleGroups.slice(6, 8),
+      muscleGroups.slice(8, 10),
+    ],
+    [muscleGroups],
+  );
 
   const onStatsCheckIn = useDashboardStatsStore(s => s.onCheckIn);
   const dashboardStreak = useDashboardStatsStore(s => s.streak);
@@ -473,101 +509,78 @@ const CheckInScreen = () => {
     }
   }, [favoriteGym, userLocation, selectedGym, locationPermissionStatus]);
 
-  // Første load: tilladelse + position
+  const syncLocationIfAuthorized = useCallback(
+    (options: typeof GEO_OPTIONS, cancelled?: () => boolean) => {
+      void getLocationPermissionStatus().then(status => {
+        if (cancelled?.()) {
+          return;
+        }
+        setLocationPermissionStatus(mapLegacyLocationPermissionStatus(status));
+        if (!isLocationAuthorized(status)) {
+          return;
+        }
+        Geolocation.getCurrentPosition(
+          position => {
+            if (cancelled?.()) {
+              return;
+            }
+            applyGeolocationSuccess(position);
+          },
+          error => {
+            if (cancelled?.()) {
+              return;
+            }
+            const denied = error?.code === GEO_PERMISSION_DENIED;
+            setLocationPermissionStatus(denied ? 'denied' : 'unavailable');
+            logCheckInDebug('locationError', {
+              code: error?.code,
+              message: error?.message,
+              permissionDenied: denied,
+            });
+          },
+          options,
+        );
+      });
+    },
+    [applyGeolocationSuccess],
+  );
+
+  /** Ved mount: kun hent position hvis tilladelse allerede er givet — ingen systemdialog */
   useEffect(() => {
     if (demoCheckInPlacementActive) {
       applyDemoCheckInPlacement();
       return;
     }
-
     let cancelled = false;
-
-    const onPositionSuccess = (position: GeolocationResponse) => {
-      if (cancelled) {
-        return;
-      }
-      applyGeolocationSuccess(position);
-    };
-
-    const onPositionError = (error: GeolocationError) => {
-      if (cancelled) {
-        return;
-      }
-      const denied = error?.code === GEO_PERMISSION_DENIED;
-      setLocationPermissionStatus(denied ? 'denied' : 'unavailable');
-      logCheckInDebug('locationError', {
-        code: error?.code,
-        message: error?.message,
-        permissionDenied: denied,
-      });
-    };
-
-    const fetchPosition = () => {
-      Geolocation.getCurrentPosition(onPositionSuccess, onPositionError, GEO_OPTIONS);
-    };
-
-    const requestLocation = async () => {
-      if (Platform.OS === 'android') {
-        try {
-          const granted = await PermissionsAndroid.request(
-            PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-            {
-              title: 'Placeringsadgang',
-              message: 'Gymly bruger din placering til at vise det nærmeste center',
-              buttonNeutral: 'Spørg senere',
-              buttonNegative: 'Annuller',
-              buttonPositive: 'OK',
-            },
-          );
-          if (granted !== PermissionsAndroid.RESULTS.GRANTED) {
-            setLocationPermissionStatus('denied');
-            logCheckInDebug('androidPermissionDenied', {granted});
-            return;
-          }
-        } catch (e) {
-          setLocationPermissionStatus('unavailable');
-          logCheckInDebug('androidPermissionException', {message: String(e)});
-          return;
-        }
-        fetchPosition();
-        return;
-      }
-
-      Geolocation.requestAuthorization(
-        () => {
-          fetchPosition();
-        },
-        err => {
-          logCheckInDebug('iosRequestAuthorizationError', {
-            message: err?.message,
-          });
-          setLocationPermissionStatus('denied');
-          fetchPosition();
-        },
-      );
-    };
-
-    requestLocation();
+    syncLocationIfAuthorized(GEO_OPTIONS, () => cancelled);
     return () => {
       cancelled = true;
     };
-  }, [GEO_OPTIONS, applyGeolocationSuccess, applyDemoCheckInPlacement, demoCheckInPlacementActive]);
+  }, [
+    GEO_OPTIONS,
+    applyDemoCheckInPlacement,
+    demoCheckInPlacementActive,
+    syncLocationIfAuthorized,
+  ]);
 
-  /** Genindlæs frisk position når skærmen vises — nærmeste center opdateres hvis ikke manuelt valgt */
+  /** Genindlæs frisk position når skærmen vises — kun hvis allerede autoriseret */
   useFocusEffect(
     useCallback(() => {
       if (demoCheckInPlacementActive) {
         applyDemoCheckInPlacement();
         return;
       }
-      Geolocation.getCurrentPosition(
-        position => {
-          applyGeolocationSuccess(position);
-        },
-        () => {},
-        GEO_OPTIONS_FRESH,
-      );
-    }, [GEO_OPTIONS_FRESH, applyGeolocationSuccess, applyDemoCheckInPlacement, demoCheckInPlacementActive]),
+      let cancelled = false;
+      syncLocationIfAuthorized(GEO_OPTIONS_FRESH, () => cancelled);
+      return () => {
+        cancelled = true;
+      };
+    }, [
+      GEO_OPTIONS_FRESH,
+      applyDemoCheckInPlacement,
+      demoCheckInPlacementActive,
+      syncLocationIfAuthorized,
+    ]),
   );
 
   useFocusEffect(
@@ -642,7 +655,7 @@ const CheckInScreen = () => {
           workoutType: encoded,
         });
         void startWorkoutLiveActivity(
-          formatWorkoutTypeDisplay(encoded),
+          formatWorkoutTypeDisplay(encoded, getRuntimeLanguage()),
           centerDisplayName,
           result.startedAt,
         );
@@ -675,11 +688,11 @@ const CheckInScreen = () => {
         if (__DEV__) {
           console.warn('[CheckIn] submitCheckIn failed', err);
         }
-        Alert.alert('Fejl', userFacingCheckInError(err), [{text: 'OK'}]);
+        Alert.alert(t('common.error'), userFacingCheckInError(err), [{text: t('common.ok')}]);
         return false;
       }
     },
-    [currentUserId, user, onStatsCheckIn, startSession, linkablePlannedId, selectedGym]
+    [currentUserId, user, onStatsCheckIn, startSession, linkablePlannedId, selectedGym, t]
   );
 
   const restoreSessionFromDatabase = useCallback(
@@ -693,7 +706,7 @@ const CheckInScreen = () => {
           const session = activeSessionFromSupabaseRow(row);
           startSession(session);
           void startWorkoutLiveActivity(
-            formatWorkoutTypeDisplay(session.workoutType || ''),
+            formatWorkoutTypeDisplay(session.workoutType || '', getRuntimeLanguage()),
             session.gymName,
             session.startTime,
           );
@@ -752,41 +765,74 @@ const CheckInScreen = () => {
   const handleCheckIn = async () => {
     if (!selectedGym) {
       Alert.alert(
-        'Vælg et center',
-        'Vælg et center før du tjekker ind.',
-        [{text: 'OK'}]
+        t('checkIn.selectCenterTitle'),
+        t('checkIn.selectCenterBody'),
+        [{text: t('common.ok')}],
       );
       return;
     }
     if (!SKIP_LOCATION_CHECK) {
-      if (!userLocation) {
-        Alert.alert(
-          'Placering påkrævet',
-          'Vi skal bruge din placering for at bekræfte at du er ved centret. Tillad placering eller tryk Lokalitet.',
-          [{text: 'OK'}]
-        );
-        return;
+      let coords = userLocation;
+      if (!coords) {
+        const status = await requestLocationPermissionIfNeeded();
+        setLocationPermissionStatus(mapLegacyLocationPermissionStatus(status));
+        if (status === 'denied' || status === 'restricted') {
+          showLocationDeniedInAppMessage();
+          return;
+        }
+        if (!isLocationAuthorized(status)) {
+          Alert.alert(
+            t('checkIn.locationRequired'),
+            t('checkIn.allowLocationHint'),
+            [{text: t('common.ok')}],
+          );
+          return;
+        }
+        coords = await new Promise<{latitude: number; longitude: number} | null>(resolve => {
+          Geolocation.getCurrentPosition(
+            position => {
+              applyGeolocationSuccess(position);
+              resolve({
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude,
+              });
+            },
+            () => resolve(null),
+            GEO_OPTIONS_FRESH,
+          );
+        });
+        if (!coords) {
+          Alert.alert(
+            t('checkIn.locationRequired'),
+            t('checkIn.locationRequiredBody'),
+            [{text: t('common.ok')}],
+          );
+          return;
+        }
       }
       const metersAway = calculateDistance(
-        userLocation.latitude,
-        userLocation.longitude,
+        coords.latitude,
+        coords.longitude,
         selectedGym.latitude,
         selectedGym.longitude
       );
       if (metersAway > CHECK_IN_RADIUS_METERS) {
         Alert.alert(
-          'For langt væk',
-          `Du er ${formatDistance(metersAway)} fra ${formatGymDisplayName(selectedGym)}. Du skal være inden for ${CHECK_IN_RADIUS_METERS} m for at tjekke ind.`,
-          [{text: 'OK'}]
+          t('common.error'),
+          t('checkIn.tooFar', {
+            distance: formatDistance(metersAway),
+            radius: String(CHECK_IN_RADIUS_METERS),
+          }),
+          [{text: t('common.ok')}],
         );
         return;
       }
     }
     if (selectedMuscleGroups.length === 0) {
       Alert.alert(
-        'Træningstype',
-        'Vælg mindst én træningstype.',
-        [{text: 'OK'}]
+        t('checkIn.selectTypeTitle'),
+        t('checkIn.selectTypeBody'),
+        [{text: t('common.ok')}],
       );
       return;
     }
@@ -861,11 +907,11 @@ const CheckInScreen = () => {
           const detail =
             err instanceof Error && err.message.length > 0
               ? err.message
-              : 'Træningen blev ikke gemt korrekt. Tjek forbindelsen og prøv igen.';
+              : t('checkIn.workoutNotSaved');
           if (__DEV__) {
             console.warn('[CheckIn] finishWorkoutSession failed', err);
           }
-          Alert.alert('Kunne ikke afslutte', detail);
+          Alert.alert(t('checkIn.couldNotFinish'), detail);
           setShowSummaryModal(false);
           setShowGymlySplash(false);
           return;
@@ -887,8 +933,8 @@ const CheckInScreen = () => {
         if (data.shareToFeed) {
           if (!user?.id) {
             Alert.alert(
-              'Log ind',
-              'Du skal være logget ind for at dele dit opslag på feed.',
+              t('plannedSessions.loginRequired'),
+              t('checkIn.mustLoginToShare'),
             );
           } else {
             try {
@@ -899,14 +945,17 @@ const CheckInScreen = () => {
                 caption: data.caption.trim(),
                 durationMinutes,
                 centerName: sessionSnapshot.gymName,
-                workoutTypeLabel: formatWorkoutTypeDisplay(sessionSnapshot.workoutType),
+                workoutTypeLabel: formatWorkoutTypeDisplay(
+                  sessionSnapshot.workoutType,
+                  getRuntimeLanguage(),
+                ),
                 moodRating: MOOD_TO_RATING[data.mood] ?? null,
               });
               await refreshWorkoutFeedFromServer();
             } catch {
               Alert.alert(
-                'Kunne ikke dele',
-                'Træningen er gemt, men opslaget blev ikke oprettet. Tjek forbindelsen og prøv igen senere.',
+                t('checkIn.couldNotShare'),
+                t('checkIn.shareFailedBody'),
               );
             }
           }
@@ -924,6 +973,7 @@ const CheckInScreen = () => {
       user?.displayName,
       user?.id,
       returnToCheckInMain,
+      t,
     ]
   );
 
@@ -952,35 +1002,18 @@ const CheckInScreen = () => {
     navigation.navigate('WorkoutSchedule', {initialTab: 'upcoming'});
   };
 
-  const ensureAndroidLocationPermission = useCallback(async (): Promise<boolean> => {
-    if (Platform.OS !== 'android') return true;
-    try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-        {
-          title: 'Placeringsadgang',
-          message: 'Gymly bruger din placering til at vise det nærmeste center',
-          buttonNeutral: 'Spørg senere',
-          buttonNegative: 'Annuller',
-          buttonPositive: 'OK',
-        },
-      );
-      return granted === PermissionsAndroid.RESULTS.GRANTED;
-    } catch {
-      return false;
-    }
-  }, []);
-
   const handleLokalitetPress = useCallback(async () => {
     if (demoCheckInPlacementActive) {
       applyDemoCheckInPlacement();
       return;
     }
-    const ok = await ensureAndroidLocationPermission();
-    if (!ok) {
-      Alert.alert('Placering', 'Tillad placering for at finde det nærmeste center.', [
-        {text: 'OK'},
-      ]);
+    const status = await requestLocationPermissionIfNeeded();
+    setLocationPermissionStatus(mapLegacyLocationPermissionStatus(status));
+    if (status === 'denied' || status === 'restricted') {
+      showLocationDeniedInAppMessage();
+      return;
+    }
+    if (!isLocationAuthorized(status)) {
       return;
     }
     Geolocation.getCurrentPosition(
@@ -1003,14 +1036,14 @@ const CheckInScreen = () => {
           message: err?.message,
         });
         Alert.alert(
-          'Kunne ikke finde placering',
-          'Tjek at GPS er slået til og at Gymly må bruge placering (Indstillinger → Gymly).',
-          [{text: 'OK'}],
+          t('checkIn.locationNotFound'),
+          t('checkIn.locationNotFoundBody'),
+          [{text: t('common.ok')}],
         );
       },
       {enableHighAccuracy: true, timeout: 20000, maximumAge: 0},
     );
-  }, [ensureAndroidLocationPermission, applyGeolocationSuccess, applyDemoCheckInPlacement, demoCheckInPlacementActive]);
+  }, [applyGeolocationSuccess, applyDemoCheckInPlacement, demoCheckInPlacementActive]);
 
   const insets = useSafeAreaInsets();
   const ctaPulse = useRef(new Animated.Value(1)).current;
@@ -1054,26 +1087,31 @@ const CheckInScreen = () => {
   );
 
   const ctaHintText = useMemo(() => {
+    const radius = String(CHECK_IN_RADIUS_METERS);
     if (SKIP_LOCATION_CHECK) {
       if (!selectedGym) {
-        return 'Vælg et center ovenfor – derefter swipe for at tjekke ind.';
+        return t('checkIn.selectGymFirst');
       }
-      return 'Vælg træningstype, og swipe for at starte din træning.';
+      return t('checkIn.selectTypeSwipe');
     }
     if (!selectedGym) {
-      return 'Vælg et center ovenfor – derefter swipe for at tjekke ind.';
+      return t('checkIn.selectGymFirst');
     }
     if (!userLocation) {
-      return 'Tillad placering eller tryk Lokalitet — max 200 m fra center.';
+      return t('checkIn.allowLocationSwipe', {radius});
     }
     if (!isWithinCheckInRadius && distanceToSelectedGym != null) {
-      return `Du er ${formatDistance(distanceToSelectedGym)} fra centret. Kom inden for ${CHECK_IN_RADIUS_METERS} m for at tjekke ind.`;
+      return t('checkIn.tooFar', {
+        distance: formatDistance(distanceToSelectedGym),
+        radius,
+      });
     }
     if (isWithinCheckInRadius) {
-      return `Du er inden for ${CHECK_IN_RADIUS_METERS} m — swipe for at tjekke ind.`;
+      return t('checkIn.withinRadius', {radius});
     }
-    return 'Kunne ikke måle afstand til centret.';
+    return t('checkIn.couldNotMeasure');
   }, [
+    t,
     selectedGym,
     userLocation,
     isWithinCheckInRadius,
@@ -1081,17 +1119,12 @@ const CheckInScreen = () => {
   ]);
 
   const streakBanner = useMemo(() => {
-    const streakLabel =
-      dashboardStreak === 1 ? '1 dags streak' : `${dashboardStreak} dages streak`;
+    const label = streakLabel(dashboardStreak);
     const next = streak.getNextMilestone(dashboardStreak);
     const milestoneLine =
-      next == null
-        ? null
-        : next.daysRemaining === 1
-          ? `1 dag til ${next.emoji}`
-          : `${next.daysRemaining} dage til ${next.emoji}`;
-    return {streakLabel, milestoneLine};
-  }, [dashboardStreak]);
+      next == null ? null : daysUntil(next.daysRemaining, next.emoji);
+    return {streakLabel: label, milestoneLine};
+  }, [dashboardStreak, streakLabel, daysUntil]);
 
   // Active session – live workout view
   if (activeSession) {
@@ -1128,9 +1161,9 @@ const CheckInScreen = () => {
         <View style={styles.checkInScrollInner}>
         <View style={styles.centerSection}>
           <View style={styles.sectionHeader}>
-            <Text style={styles.sectionLabel}>Dit center</Text>
+            <Text style={styles.sectionLabel}>{t('checkIn.yourGym')}</Text>
             <TouchableOpacity onPress={goToWorkoutSchedule} activeOpacity={0.8}>
-              <Text style={styles.planLink}>Planlagte sessions</Text>
+              <Text style={styles.planLink}>{t('checkIn.plannedSessions')}</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.gymCard}>
@@ -1145,23 +1178,23 @@ const CheckInScreen = () => {
                 {userLocation && nearestGym ? (
                   <>
                     <Text style={styles.gymNearestLabel} numberOfLines={1}>
-                      Nærmeste center
+                      {t('checkIn.nearestGym')}
                     </Text>
                     <Text style={styles.gymName} numberOfLines={1} ellipsizeMode="tail">
                       {formatGymDisplayName(nearestGym)}
                     </Text>
                     {distanceToNearestGym != null ? (
                       <Text style={styles.gymDistance} numberOfLines={1}>
-                        {formatDistance(distanceToNearestGym)} væk
+                        {t('format.away', {distance: formatDistance(distanceToNearestGym)})}
                       </Text>
                     ) : null}
                     {selectedGym && selectedGym.id !== nearestGym.id ? (
                       <Text style={styles.gymHint} numberOfLines={2}>
-                        Tjek ind ved: {formatGymDisplayName(selectedGym)}
+                        {t('checkIn.checkInAt', {name: formatGymDisplayName(selectedGym)})}
                       </Text>
                     ) : (
                       <Text style={styles.gymHint} numberOfLines={1}>
-                        Tryk for at vælge et andet center
+                        {t('checkIn.tapOtherGym')}
                       </Text>
                     )}
                   </>
@@ -1172,18 +1205,18 @@ const CheckInScreen = () => {
                     </Text>
                     {distanceToSelectedGym != null ? (
                       <Text style={styles.gymDistance} numberOfLines={1}>
-                        {formatDistance(distanceToSelectedGym)} væk
+                        {t('format.away', {distance: formatDistance(distanceToSelectedGym)})}
                       </Text>
                     ) : null}
                     <Text style={styles.gymHint} numberOfLines={1}>
-                      Tryk for at vælge et andet center
+                      {t('checkIn.tapOtherGym')}
                     </Text>
                   </>
                 ) : (
                   <>
-                    <Text style={styles.gymNamePlaceholder}>Vælg center</Text>
+                    <Text style={styles.gymNamePlaceholder}>{t('checkIn.selectGym')}</Text>
                     <Text style={styles.gymHint}>
-                      Tillad lokalitet for nærmeste center — eller tryk for at søge
+                      {t('checkIn.allowLocationHint')}
                     </Text>
                   </>
                 )}
@@ -1194,18 +1227,18 @@ const CheckInScreen = () => {
               onPress={handleLokalitetPress}
               android_ripple={{color: colors.primary + '22'}}>
               <Icon name="locate" size={18} color={colors.primary} />
-              <Text style={styles.lokalitetText}>Lokalitet</Text>
+              <Text style={styles.lokalitetText}>{t('checkIn.location')}</Text>
             </Pressable>
           </View>
         </View>
 
         <View style={styles.trainingSection}>
           <View style={styles.trainingTypeHeader}>
-            <Text style={styles.sectionLabel}>Træningstype</Text>
-            <Text style={styles.sectionSubBelow}>Vælg én eller flere.</Text>
+            <Text style={styles.sectionLabel}>{t('checkIn.trainingType')}</Text>
+            <Text style={styles.sectionSubBelow}>{t('checkIn.selectOneOrMore')}</Text>
           </View>
           <View style={styles.muscleGridTwoCol}>
-            {MUSCLE_ROWS.map((row, rowIdx) => (
+            {muscleRows.map((row, rowIdx) => (
               <View key={rowIdx} style={styles.muscleRow2col}>
                 {row.map(({key, label}) => {
                   const isSelected = selectedMuscleGroups.includes(key);
@@ -1256,7 +1289,7 @@ const CheckInScreen = () => {
         <View style={styles.soloAboveCta}>
           <View style={styles.soloCard}>
             <View style={styles.soloRow}>
-              <Text style={styles.soloLabel}>Solo træning</Text>
+              <Text style={styles.soloLabel}>{t('checkIn.soloTraining')}</Text>
               <View style={styles.soloSwitchWrap}>
                 <Switch
                   value={soloTraining}
@@ -1267,7 +1300,7 @@ const CheckInScreen = () => {
               </View>
             </View>
             <Text style={styles.soloHint} numberOfLines={2}>
-              Skjul denne træning for venner i feed og online-status
+              {t('checkIn.soloTrainingHint')}
             </Text>
           </View>
         </View>
@@ -1331,7 +1364,7 @@ const CheckInScreen = () => {
                     (!SKIP_LOCATION_CHECK &&
                       (!userLocation || !isWithinCheckInRadius))
                   }
-                  label="Tjek ind"
+                  label={t('checkIn.checkIn')}
                 />
               </Animated.View>
             </>
@@ -1348,7 +1381,7 @@ const CheckInScreen = () => {
           <Pressable
             style={StyleSheet.absoluteFill}
             accessibilityRole="button"
-            accessibilityLabel="Luk"
+            accessibilityLabel={t('plannedSessions.close')}
             onPress={() => setPlannedLinkPromptVisible(false)}
           />
           <View style={styles.plannedPromptCard}>
@@ -1360,14 +1393,14 @@ const CheckInScreen = () => {
               <View style={styles.plannedPromptMeta}>
                 <Text style={styles.plannedPromptMetaLine}>
                   {linkablePlanPreview.muscles
-                    .map(m => MUSCLE_GROUP_LABELS_DK[m])
+                    .map(m => muscleGroupLabel(m))
                     .join(' · ')}
                 </Text>
                 <Text style={styles.plannedPromptMetaLine}>
                   {formatGymDisplayName(linkablePlanPreview.gym)}
                 </Text>
                 <Text style={styles.plannedPromptMetaLine}>
-                  {new Date(linkablePlanPreview.scheduledAt).toLocaleTimeString('da-DK', {
+                  {new Date(linkablePlanPreview.scheduledAt).toLocaleTimeString(intlLocale, {
                     hour: '2-digit',
                     minute: '2-digit',
                   })}
@@ -1409,7 +1442,7 @@ const CheckInScreen = () => {
         presentationStyle="pageSheet">
         <View style={styles.modalContainer}>
           <View style={styles.modalHeader}>
-            <Text style={styles.modalTitle}>Vælg center</Text>
+            <Text style={styles.modalTitle}>{t('checkIn.selectGym')}</Text>
             <TouchableOpacity onPress={closeGymModal} style={styles.modalClose}>
               <Icon name="close" size={28} color={colors.text} />
             </TouchableOpacity>
@@ -1417,14 +1450,14 @@ const CheckInScreen = () => {
           <SocialSearchBar
             value={gymSearchQuery}
             onChangeText={setGymSearchQuery}
-            placeholder="Søg efter center, by eller kæde..."
+            placeholder={t('checkIn.searchCentersPlaceholder')}
             autoCapitalize="none"
             style={styles.modalSearchOuter}
           />
           <ScrollView style={styles.modalList}>
             {favoriteGym && !gymSearchQuery.trim() && (
               <View style={styles.modalSection}>
-                <Text style={styles.modalSectionLabel}>Dit center</Text>
+                <Text style={styles.modalSectionLabel}>{t('checkIn.yourGym')}</Text>
                 <TouchableOpacity
                   style={styles.modalGymRow}
                   onPress={() => {
@@ -1447,12 +1480,12 @@ const CheckInScreen = () => {
             )}
             <View style={styles.modalSection}>
               <Text style={styles.modalSectionLabel}>
-                {gymSearchQuery.trim() ? 'Søgeresultater' : 'Alle centre'}
+                {gymSearchQuery.trim() ? t('checkIn.searchResults') : t('checkIn.allCenters')}
               </Text>
               {filteredGyms.length === 0 ? (
                 <View style={styles.modalEmpty}>
                   <Icon name="search-outline" size={48} color={colors.textMuted} />
-                  <Text style={styles.modalEmptyText}>Ingen centre fundet</Text>
+                  <Text style={styles.modalEmptyText}>{t('checkIn.noCentersFound')}</Text>
                 </View>
               ) : (
                 filteredGyms.map(gym => (
@@ -1662,35 +1695,35 @@ const styles = StyleSheet.create({
     paddingVertical: 0,
     paddingHorizontal: spacing.md + 2,
     borderRadius: radius.lg,
-    borderWidth: 1,
+    borderWidth: StyleSheet.hairlineWidth,
     borderColor: colors.border,
-    backgroundColor: '#F3F4F7',
+    backgroundColor: colors.backgroundCard,
     ...(Platform.OS === 'ios'
       ? {
-          shadowColor: '#000',
+          shadowColor: '#0F172A',
           shadowOffset: {width: 0, height: 2},
-          shadowOpacity: 0.05,
+          shadowOpacity: 0.04,
           shadowRadius: 6,
         }
-      : {elevation: 2}),
+      : {elevation: 1}),
   },
   muscleCardHorizontalSelected: {
-    backgroundColor: colors.primaryDark,
+    backgroundColor: colors.primary,
     borderColor: colors.primaryDark,
     ...(Platform.OS === 'ios'
       ? {
           shadowColor: colors.primary,
-          shadowOffset: {width: 0, height: 2},
-          shadowOpacity: 0.28,
-          shadowRadius: 5,
+          shadowOffset: {width: 0, height: 3},
+          shadowOpacity: 0.22,
+          shadowRadius: 8,
         }
-      : {elevation: 4}),
+      : {elevation: 3}),
   },
   muscleCardHorizontalSelectedScale: {
-    transform: [{scale: 1.03}],
+    transform: [{scale: 1.02}],
   },
   muscleCardHorizontalPressed: {
-    opacity: 0.9,
+    opacity: 0.92,
   },
   muscleIconLeft: {
     width: MUSCLE_ICON_SIZE,

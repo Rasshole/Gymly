@@ -4,13 +4,15 @@
  */
 
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 
 import LoginScreen from '@/screens/auth/LoginScreen';
 import RegisterScreen from '@/screens/auth/RegisterScreen';
 import ForgotPasswordScreen from '@/screens/auth/ForgotPasswordScreen';
+import LanguageOnboardingScreen from '@/screens/settings/LanguageScreen';
 import TermsScreen from '@/screens/main/TermsScreen';
 import PrivacyPolicyScreen from '@/screens/main/PrivacyPolicyScreen';
+import {useTranslation} from '@/i18n';
 import type {AuthStackParamList} from './authStackParamList';
 
 export type {AuthStackParamList};
@@ -18,15 +20,18 @@ export type {AuthStackParamList};
 const Stack = createStackNavigator<AuthStackParamList>();
 
 const AuthNavigator = () => {
+  const {hasUserChosenLanguage} = useTranslation();
+
   return (
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
-        /** Undgå standard grå stack-baggrund (gør logo-PNG og hvid UI synlig som tænkt) */
         cardStyle: {backgroundColor: '#FFFFFF'},
-        contentStyle: {backgroundColor: '#FFFFFF'},
+        ...TransitionPresets.SlideFromRightIOS,
+        gestureEnabled: true,
       }}
-      initialRouteName="Register">
+      initialRouteName={hasUserChosenLanguage ? 'Login' : 'Language'}>
+      <Stack.Screen name="Language" component={LanguageOnboardingScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Register" component={RegisterScreen} />
       <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
@@ -37,4 +42,3 @@ const AuthNavigator = () => {
 };
 
 export default AuthNavigator;
-

@@ -18,6 +18,7 @@ import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '@/theme/colors';
+import {useTranslation} from '@/i18n';
 
 type Device = {
   id: string;
@@ -45,18 +46,21 @@ const devices: Device[] = [
 
 const ConnectDeviceScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
+  const {t} = useTranslation();
 
   const handleDevicePress = (device: Device) => {
     Alert.alert(
-      'Forbind enhed',
-      `Vil du forbinde ${device.name} til Gymly?`,
+      t('connectDevice.comingSoonTitle'),
+      t('connectDevice.connectPrompt', {name: device.name}),
       [
-        {text: 'Annuller', style: 'cancel'},
+        {text: t('common.cancel'), style: 'cancel'},
         {
-          text: 'Forbind',
+          text: t('connectDevice.connect'),
           onPress: () => {
-            // TODO: Implement device connection
-            Alert.alert('Succes', `${device.name} er nu forbundet til Gymly`);
+            Alert.alert(
+              t('connectDevice.successTitle'),
+              t('connectDevice.connectedSuccess', {name: device.name}),
+            );
           },
         },
       ],
@@ -98,7 +102,7 @@ const ConnectDeviceScreen = () => {
           style={styles.backButton}>
           <Icon name="arrow-back" size={24} color="#000" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Enheder</Text>
+        <Text style={styles.headerTitle}>{t('connectDevice.devicesHeader')}</Text>
         <TouchableOpacity
           onPress={() => navigation.goBack()}
           style={styles.closeButton}>
@@ -111,12 +115,8 @@ const ConnectDeviceScreen = () => {
         contentContainerStyle={styles.scrollContent}>
         {/* Title Section */}
         <View style={styles.titleSection}>
-          <Text style={styles.title}>Forbind din enhed</Text>
-          <Text style={styles.description}>
-            Gymly parrer med næsten hver fitness enhed og app. Få problemfri
-            aktivitets uploads - plus et mere komplet billede af din præstation
-            og restitution.
-          </Text>
+          <Text style={styles.title}>{t('connectDevice.connectYourDevice')}</Text>
+          <Text style={styles.description}>{t('connectDevice.description')}</Text>
         </View>
 
         {/* Devices Grid */}
@@ -128,15 +128,10 @@ const ConnectDeviceScreen = () => {
         <TouchableOpacity
           style={styles.differentDeviceButton}
           onPress={() => {
-            Alert.alert(
-              'Anden enhed',
-              'Kontakt support for at tilføje din enhed',
-            );
+            Alert.alert(t('connectDevice.otherDeviceTitle'), t('connectDevice.otherDeviceBody'));
           }}
           activeOpacity={0.7}>
-          <Text style={styles.differentDeviceText}>
-            Jeg har en anden enhed
-          </Text>
+          <Text style={styles.differentDeviceText}>{t('connectDevice.otherDeviceLink')}</Text>
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>

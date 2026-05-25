@@ -45,6 +45,7 @@ import {
 } from '@/services/supabase/workoutVibeService';
 import {loadProfileCentersForUser} from '@/services/supabase/profileCentersPublicService';
 import {formatGymNameWithBrand} from '@/utils/gymDisplay';
+import {useTranslation, getRuntimeLanguage} from '@/i18n';
 
 export interface UserProfileModalProps {
   user: ActiveUser | null;
@@ -86,6 +87,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
   viewerName,
   activitySubtitle,
 }) => {
+  const {t} = useTranslation();
   const navigation = useNavigation<any>();
   const getChatByParticipants = useChatStore(s => s.getChatByParticipants);
   const upsertChat = useChatStore(s => s.upsertChat);
@@ -373,7 +375,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
   const ensureThread = useCallback(
     async (otherUserId: string, otherName: string) => {
       if (!viewerUserId) {
-        throw new Error('Du skal være logget ind.');
+        throw new Error(t('userProfile.mustLogin'));
       }
       const participantIds = [viewerUserId, otherUserId].sort();
       const nameById: Record<string, string> = {
@@ -513,9 +515,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
             }
           }
           if (lastDmErr != null) {
-            throw new Error(
-              'Viben blev gemt, men beskeden kom ikke i chat. Prøv igen om et øjeblik.',
-            );
+            throw new Error(t('userProfile.vibeSavedChatFailed'));
           }
         }
 
@@ -542,7 +542,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
         const msg = e instanceof Error ? e.message : String(e);
         const short =
           msg.length > 160 ? `${msg.slice(0, 157)}…` : msg;
-        setVibeError(short || 'Kunne ikke sende vibe');
+        setVibeError(short || t('userProfile.couldNotSendVibe'));
         console.warn('[UserProfileModal] sendVibe failed', e);
       } finally {
         setBusy(false);
@@ -580,10 +580,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
       return;
     }
     if (isSyntheticLiveUser(user)) {
-      Alert.alert(
-        'Demo',
-        'Chat åbnes ikke for demo-profiler. Med rigtige venner åbner beskeder som normalt.',
-      );
+      Alert.alert(t('settings.deviceSoonTitle'), t('userProfile.demoNoChat'));
       return;
     }
     setBusy(true);
@@ -597,7 +594,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
         participants: [{id: user.id, name: profileName}],
       });
     } catch (e) {
-      Alert.alert('Besked', (e as Error).message);
+      Alert.alert(t('friendsScreen.messageError'), (e as Error).message);
     } finally {
       setBusy(false);
     }
@@ -645,7 +642,10 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
   const activityLine = useMemo(() => {
     const startedAt = liveState.startedAt ?? user?.startedAt ?? null;
     const duration = startedAt ? formatDurationIgang(startedAt) : '0 min i gang';
-    const type = formatWorkoutTypeDisplay(liveState.workoutType ?? user?.workoutType ?? undefined);
+    const type = formatWorkoutTypeDisplay(
+      liveState.workoutType ?? user?.workoutType ?? undefined,
+      getRuntimeLanguage(),
+    );
     return `Aktiv nu · ${duration} · ${type}`;
   }, [liveState.startedAt, liveState.workoutType, user?.startedAt, user?.workoutType]);
 
@@ -677,11 +677,11 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
         ? 'Anmodning sendt'
         : friendship === 'pending_received'
           ? 'Acceptér anmodning'
-          : 'Tilføj ven';
+          : t('userProfile.addFriend');
   const friendButtonDisabled =
     isSelf || busy || friendship === 'pending_sent' || friendship === 'friend';
   const modalTitle = isSelf
-    ? 'Din aktive session'
+    ? t('userProfile.yourActiveSession')
     : friendship === 'friend'
       ? 'Send vibe'
       : 'Sig hey';
@@ -689,7 +689,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
   const streakText =
     (userStats?.currentStreak ?? 0) > 0
       ? `🔥 ${userStats?.currentStreak} dages streak`
-      : 'Ingen aktiv streak';
+      : t('userProfile.noActiveStreak');
 
   const sendButtonDisabled =
     isSelf ||
@@ -753,7 +753,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
                 ) : null}
                 {!isSelf ? (
                   <Text style={styles.sameGymHint}>
-                    {activitySubtitle || 'I træner i samme center lige nu'}
+                    {activitySubtitle || t('userProfile.trainingSameCenter')}
                   </Text>
                 ) : null}
               </View>
@@ -817,7 +817,7 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({
               <View style={styles.reactionsSection}>
                 {!isSelf ? (
                   <Text style={styles.reactionsLabel}>
-                    {friendship === 'friend' ? 'Vælg vibe' : 'Vælg hey-vibe'}
+                    {friendship === 'friend' ? t('userProfile.chooseVibe') : t('userProfile.chooseHeyVibe')}
                   </Text>
                 ) : null}
                 {!isSelf ? (

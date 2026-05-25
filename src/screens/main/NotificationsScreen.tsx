@@ -15,14 +15,17 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {CommonActions, useNavigation} from '@react-navigation/native';
+import {CommonActions, useFocusEffect, useNavigation} from '@react-navigation/native';
 import {useInAppNotifications} from '@/hooks/useInAppNotifications';
 import {useNotificationStore} from '@/store/notificationStore';
 import {useWorkoutInvitationStore} from '@/store/workoutInvitationStore';
 import {useAppStore} from '@/store/appStore';
 import {useWorkoutPlanStore} from '@/store/workoutPlanStore';
 import NotificationService from '@/services/notifications/NotificationService';
-import {formatRelativeTime} from '@/utils/formatRelativeTime';
+import {useFormatRelativeTime} from '@/hooks/useFormatRelativeTime';
+import {formatRelativeTime as formatRelativeTimeUtil} from '@/utils/formatRelativeTime';
+import {getRuntimeLanguage, rt, useTranslation} from '@/i18n';
+import {labelForMuscleToken} from '@/utils/muscleGroupLabels';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
 import {EmptyState} from '@/components/ui/EmptyState';
@@ -57,10 +60,7 @@ import {useFriendStore} from '@/store/friendStore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {getOrCreateDmThread} from '@/services/supabase/dmService';
 import {sendWorkoutBicepsReaction} from '@/services/supabase/workoutReactionService';
-import {
-  MUSCLE_GROUP_LABELS_DK,
-  normalizeLegacyMuscleKey,
-} from '@/utils/muscleGroupLabels';
+import {normalizeLegacyMuscleKey} from '@/utils/muscleGroupLabels';
 import type {MuscleGroup} from '@/types/workout.types';
 import {BADGE_BY_ID} from '@/config/badgeDefinitions';
 import type {BadgeDefinition} from '@/types/badge.types';
@@ -73,19 +73,14 @@ function bicepsReactionKey(checkInId: string, friendUserId: string): string {
   return `${checkInId}:${friendUserId}`;
 }
 
-function labelForMuscleToken(raw: string): string {
-  const k = normalizeLegacyMuscleKey(raw.trim());
-  if (k && k in MUSCLE_GROUP_LABELS_DK) {
-    return MUSCLE_GROUP_LABELS_DK[k as MuscleGroup];
-  }
-  const u = raw.trim();
-  return u || 'Træning';
+function muscleLabel(raw: string): string {
+  return labelForMuscleToken(raw, getRuntimeLanguage());
 }
 
 function friendCheckinTrainingLabel(item: Notification): string {
   const fromRow = item.muscles?.filter(m => m && String(m).trim().length > 0) ?? [];
   if (fromRow.length > 0) {
-    return fromRow.map(m => labelForMuscleToken(String(m))).join(' · ');
+    return fromRow.map(m => muscleLabel(String(m))).join(' · ');
   }
   const bodyLine = item.message || '';
   const trainerIdx = bodyLine.search(/Træner:\s*/i);
@@ -94,11 +89,11 @@ function friendCheckinTrainingLabel(item: Notification): string {
     if (part) {
       return part
         .split(',')
-        .map(s => labelForMuscleToken(s))
+        .map(s => muscleLabel(s))
         .join(' · ');
     }
   }
-  return 'Træning';
+  return rt('notifications.workoutDefault');
 }
 
 function friendCheckinLocationTrainingLine(item: Notification): string {
@@ -111,12 +106,12 @@ function friendCheckinLocationTrainingLine(item: Notification): string {
 }
 
 function friendCheckinCardTitle(item: Notification): string {
-  const name = (item.friendName || item.title || 'En ven').trim();
+  const name = (item.friendName || item.title || rt('notifications.aFriend')).trim();
   const center = (item.gymName || (item.dataPayload?.centerName as string) || '').trim();
   if (center) {
-    return `${name} tjekkede ind i ${center}`;
+    return rt('notifications.checkedInAt', {name, center});
   }
-  return `${name} er aktiv nu`;
+  return rt('notifications.activeNow', {name});
 }
 
 function resolveBadgeDefinition(item: Notification): BadgeDefinition | undefined {
@@ -140,7 +135,7 @@ function friendCheckinMetaLine(item: Notification): string {
       return `${mins} min i gang`;
     }
   }
-  return formatRelativeTime(item.timestamp);
+  return formatRelativeTimeUtil(item.timestamp, getRuntimeLanguage());
 }
 
 function friendRequestRowIcon(item: Notification): string {
@@ -238,16 +233,14 @@ class NotificationsErrorBoundary extends React.Component<
       return (
         <View style={styles.container}>
           <View style={styles.header}>
-            <Text style={styles.headerTitle}>Notifikationer</Text>
-            <Text style={styles.headerSubtitle}>
-              Noget gik galt ved indlæsning. Prøv at åbne skærmen igen.
-            </Text>
+            <Text style={styles.headerTitle}>{rt('notifications.title')}</Text>
+            <Text style={styles.headerSubtitle}>{rt('notifications.loadError')}</Text>
           </View>
           <EmptyState
             icon="alert-circle-outline"
-            title="Kunne ikke vise notifikationer"
-            message={this.state.message || 'Ukendt fejl'}
-            actionLabel="Prøv igen"
+            title={rt('notifications.couldNotShowTitle')}
+            message={this.state.message || rt('notifications.unknownError')}
+            actionLabel={rt('errors.tryAgain')}
             onAction={() => this.setState({hasError: false, message: undefined})}
           />
         </View>
@@ -270,9 +263,17 @@ function resolvePlannedWorkoutIdFromNotification(item: Notification): string | u
 
 const NotificationsScreenInner = () => {
   const navigation = useNavigation<any>();
+  const {t, intlLocale} = useTranslation();
+  const formatRelativeTime = useFormatRelativeTime();
   const {user} = useAppStore();
   const {listForUi, refetch, markRead, markAllRead: markAllInApp} =
     useInAppNotifications();
+
+  useFocusEffect(
+    React.useCallback(() => {
+      void refetch();
+    }, [refetch]),
+  );
   const {
     markAsRead: markLocalRead,
     markAllAsRead: markAllLocal,
@@ -346,10 +347,10 @@ const NotificationsScreenInner = () => {
       }
       const groupedFirst: Notification = {
         ...first,
-        title: `${clustered.length} venner er aktive lige nu`,
+        title: t('notifications.friendsActiveNow', {count: String(clustered.length)}),
         message: clustered
           .slice(0, 3)
-          .map(n => n.friendName || 'Ven')
+          .map(n => n.friendName || t('notifications.guest'))
           .join(', '),
         dataPayload: {
           ...(first.dataPayload ?? {}),
@@ -504,7 +505,7 @@ const NotificationsScreenInner = () => {
         await deleteInAppNotificationById(id, user.id);
       } catch {
         await refetch();
-        Alert.alert('Kunne ikke slette notifikationen', 'Prøv igen.');
+        Alert.alert(t('notifications.couldNotDelete'), t('errors.tryAgain'));
       }
     })();
   };
@@ -669,7 +670,7 @@ const NotificationsScreenInner = () => {
     ).trim();
     const toUserId = item.friendId;
     if (!user?.id || !checkInId || !toUserId) {
-      Alert.alert('Kunne ikke sende', 'Manglende tjek-in data.');
+      Alert.alert(t('notifications.couldNotSend'), t('notifications.missingCheckInData'));
       return;
     }
     const key = bicepsReactionKey(checkInId, toUserId);
@@ -682,8 +683,8 @@ const NotificationsScreenInner = () => {
       markBicepsSentPersist(key);
     } catch (e) {
       Alert.alert(
-        'Kunne ikke sende',
-        e instanceof Error ? e.message : 'Prøv igen.',
+        t('notifications.couldNotSend'),
+        e instanceof Error ? e.message : t('errors.tryAgain'),
       );
     } finally {
       setBicepsBusyKey(null);
@@ -709,7 +710,7 @@ const NotificationsScreenInner = () => {
     } catch (e) {
       Alert.alert(
         'Besked',
-        e instanceof Error ? e.message : 'Kunne ikke åbne chat.',
+        e instanceof Error ? e.message : t('notifications.couldNotOpenChat'),
       );
     }
   };
@@ -752,11 +753,11 @@ const NotificationsScreenInner = () => {
       if (isFriendRequestNotRecipientError(msg)) {
         Alert.alert(
           'Kunne ikke acceptere',
-          'Denne anmodning tilhører ikke dig.',
+          t('notifications.notYourRequest'),
         );
         return;
       }
-      Alert.alert('Kunne ikke acceptere', msg || 'Prøv igen.');
+      Alert.alert(t('notifications.couldNotAccept'), msg || t('errors.tryAgain'));
     } finally {
       setFriendReqBusyId(null);
     }
@@ -781,11 +782,11 @@ const NotificationsScreenInner = () => {
         /* ignore */
       }
       await refetch();
-      Alert.alert('Session tilføjet 💪', 'Find den under Planlagte sessions.');
+      Alert.alert(t('notifications.sessionAdded'), t('notifications.sessionAddedBody'));
     } catch (e: unknown) {
       Alert.alert(
-        'Kunne ikke acceptere',
-        e instanceof Error ? e.message : 'Prøv igen.',
+        t('notifications.couldNotAccept'),
+        e instanceof Error ? e.message : t('errors.tryAgain'),
       );
     } finally {
       setPlannedBusy(null);
@@ -805,8 +806,8 @@ const NotificationsScreenInner = () => {
       await refetch();
     } catch (e: unknown) {
       Alert.alert(
-        'Kunne ikke afvise',
-        e instanceof Error ? e.message : 'Prøv igen.',
+        t('notifications.couldNotDecline'),
+        e instanceof Error ? e.message : t('errors.tryAgain'),
       );
     } finally {
       setPlannedBusy(null);
@@ -835,7 +836,7 @@ const NotificationsScreenInner = () => {
       }
       clearFriendRequestOutcome(notifId);
       void useInAppNotificationStore.getState().refresh(user.id);
-      Alert.alert('Kunne ikke afvise', msg || 'Prøv igen.');
+      Alert.alert(t('notifications.couldNotDecline'), msg || t('errors.tryAgain'));
     } finally {
       setFriendReqBusyId(null);
     }
@@ -859,7 +860,7 @@ const NotificationsScreenInner = () => {
       const name =
         prof?.displayName?.trim() ||
         prof?.username?.trim() ||
-        (p.role === 'creator' ? 'Vært' : 'Ven');
+        (p.role === 'creator' ? t('notifications.host') : t('notifications.guest'));
       return {
         userId: p.user_id,
         name,
@@ -888,9 +889,9 @@ const NotificationsScreenInner = () => {
       plannedInviteModalNotif?.muscles ??
       [];
     if (!types.length) {
-      return 'Træning';
+      return rt('notifications.workoutDefault');
     }
-    return types.map(t => labelForMuscleToken(String(t))).join(' · ');
+    return types.map(tok => muscleLabel(String(tok))).join(' · ');
   }, [plannedInviteDetail, plannedInviteModalNotif]);
 
   const plannedModalCenterLine = useMemo(() => {
@@ -928,18 +929,20 @@ const NotificationsScreenInner = () => {
       return {dateLine: '—', timeLine: ''};
     }
     return {
-      dateLine: d.toLocaleDateString('da-DK', {
+      dateLine: d.toLocaleDateString(intlLocale, {
         weekday: 'long',
         day: 'numeric',
         month: 'long',
         year: 'numeric',
       }),
-      timeLine: `kl. ${d.toLocaleTimeString('da-DK', {
-        hour: '2-digit',
-        minute: '2-digit',
-      })}`,
+      timeLine: t('plannedSessions.timeAt', {
+        time: d.toLocaleTimeString(intlLocale, {
+          hour: '2-digit',
+          minute: '2-digit',
+        }),
+      }),
     };
-  }, [plannedInviteDetail, plannedInviteModalNotif]);
+  }, [plannedInviteDetail, plannedInviteModalNotif, intlLocale, t]);
 
   const renderNotificationItem = ({item}: {item: Notification}) => {
     const iconName =
@@ -1042,7 +1045,7 @@ const NotificationsScreenInner = () => {
                 ) : null}
                 <Text style={styles.friendCheckinMeta} numberOfLines={1}>
                   {isGroupedFriendCheckins
-                    ? 'Tryk for at se hvem der er aktive nu'
+                    ? t('notifications.tapActiveNow')
                     : friendCheckinMetaLine(item)}
                 </Text>
               </>
@@ -1051,13 +1054,12 @@ const NotificationsScreenInner = () => {
                 <Text
                   style={[styles.title, !item.read && styles.titleUnread]}
                   numberOfLines={1}>
-                  Nyt badge
+                  {t('notifications.newBadge')}
                 </Text>
                 <Text style={styles.message} numberOfLines={2} ellipsizeMode="tail">
-                  {`Du har låst et nyt badge op: ${badgeUnlockDisplayName(
-                    item,
-                    badgeDefRow,
-                  )}`}
+                  {t('notifications.badgeUnlocked', {
+                    name: badgeUnlockDisplayName(item, badgeDefRow),
+                  })}
                 </Text>
                 <Text style={styles.time}>{formatRelativeTime(item.timestamp)}</Text>
               </>
@@ -1210,13 +1212,11 @@ const NotificationsScreenInner = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Notifikationer</Text>
-        <Text style={styles.headerSubtitle}>
-          Hold styr på venner, streaks og mere
-        </Text>
+        <Text style={styles.headerTitle}>{t('notifications.title')}</Text>
+        <Text style={styles.headerSubtitle}>{t('notifications.subtitle')}</Text>
         {listForUi.length > 0 && (
           <TouchableOpacity onPress={onMarkAll} style={styles.markAllBtn} activeOpacity={0.8}>
-            <Text style={styles.markAllText}>Marker alle som læst</Text>
+            <Text style={styles.markAllText}>{t('notifications.markAllRead')}</Text>
           </TouchableOpacity>
         )}
       </View>
@@ -1228,8 +1228,12 @@ const NotificationsScreenInner = () => {
           activeOpacity={0.8}>
           <Icon name="fitness" size={22} color={colors.white} />
           <Text style={styles.inviteBannerText}>
-            {pendingInvitations.length} træningsinvitation
-            {pendingInvitations.length > 1 ? 'er' : ''}
+            {t(
+              pendingInvitations.length === 1
+                ? 'notifications.workoutInvites_one'
+                : 'notifications.workoutInvites_other',
+              {count: String(pendingInvitations.length)},
+            )}
           </Text>
           <Icon name="chevron-forward" size={20} color={colors.white} />
         </TouchableOpacity>
@@ -1249,9 +1253,9 @@ const NotificationsScreenInner = () => {
         ListEmptyComponent={
           <EmptyState
             icon="notifications-outline"
-            title="Ingen notifikationer lige nu"
-            message="Når dine venner tjekker ind, eller noget andet sker, vises det her."
-            actionLabel="Tjek ind"
+            title={t('notifications.emptyTitle')}
+            message={t('notifications.emptyMessage')}
+            actionLabel={t('notifications.checkInCta')}
             onAction={() => {
               try {
                 navigation.dispatch(

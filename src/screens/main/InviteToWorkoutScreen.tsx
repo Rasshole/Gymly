@@ -29,6 +29,7 @@ import {
 import {formatGymDisplayName, findGymByIdRelaxed} from '@/utils/gymDisplay';
 import {getActiveDanishGyms, type DanishGym} from '@/data/danishGyms';
 import TimePickerSheet from '@/components/ui/TimePickerSheet';
+import {useTranslation} from '@/i18n';
 import PlannedWorkoutInviteForm, {
   defaultScheduleParts,
   INVITE_FORM_SCREEN_TINT,
@@ -37,6 +38,7 @@ import PlannedWorkoutInviteForm, {
 const FALLBACK_GYMS = getActiveDanishGyms();
 
 const InviteToWorkoutScreen = () => {
+  const {t} = useTranslation();
   const navigation = useNavigation();
   const route = useRoute();
   const insets = useSafeAreaInsets();
@@ -89,26 +91,26 @@ const InviteToWorkoutScreen = () => {
 
   const handleSendInvitation = async () => {
     if (!friendId?.trim()) {
-      Alert.alert('Fejl', 'Kunne ikke finde brugeren.');
+      Alert.alert(t('common.error'), t('errors.tryAgainLater'));
       return;
     }
     if (user?.id && friendId === user.id) {
-      Alert.alert('Fejl', 'Du kan ikke invitere dig selv.');
+      Alert.alert(t('common.error'), t('errors.tryAgain'));
       return;
     }
     if (!user?.id) {
-      Alert.alert('Log ind', 'Log ind for at sende en invitation.');
+      Alert.alert(t('plannedSessions.loginRequired'), t('plannedSessions.loginRequiredBody'));
       return;
     }
     if (!planSelectedGym) {
-      Alert.alert('Vælg center', 'Vælg hvor I skal mødes — som i Planlagte sessions.');
+      Alert.alert(t('inviteWorkout.selectCenter'), t('inviteWorkout.selectCenterBody'));
       return;
     }
 
     const scheduledDateTime = combineDateTime();
     const now = new Date();
     if (scheduledDateTime.getTime() <= now.getTime()) {
-      Alert.alert('Ugyldigt tidspunkt', 'Vælg et tidspunkt i fremtiden.');
+      Alert.alert(t('inviteWorkout.invalidTime'), t('inviteWorkout.selectFutureTime'));
       return;
     }
 
@@ -130,13 +132,13 @@ const InviteToWorkoutScreen = () => {
         // Plan opdateres ved næste åbning
       }
       Alert.alert(
-        'Invitation sendt',
-        `${displayName} får besked og kan svare under Planlagte sessions → Invitationer.`,
-        [{text: 'OK', onPress: () => navigation.goBack()}],
+        t('plannedSessions.sessionCreated'),
+        t('inviteWorkout.notifyBody', {name: displayName}),
+        [{text: t('common.ok'), onPress: () => navigation.goBack()}],
       );
     } catch (e) {
-      const message = e instanceof Error ? e.message : 'Prøv igen om lidt.';
-      Alert.alert('Kunne ikke oprette', message);
+      const message = e instanceof Error ? e.message : t('errors.tryAgainSoon');
+      Alert.alert(t('chat.couldNotCreate'), message);
     } finally {
       setSaving(false);
     }
@@ -153,7 +155,7 @@ const InviteToWorkoutScreen = () => {
           hitSlop={12}>
           <Icon name="chevron-back" size={22} color={colors.text} />
         </Pressable>
-        <Text style={styles.headerTitle}>Inviter til træning</Text>
+        <Text style={styles.headerTitle}>{t('friendProfile.inviteToWorkout')}</Text>
         <View style={styles.headerRight} />
       </View>
 

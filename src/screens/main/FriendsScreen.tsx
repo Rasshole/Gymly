@@ -42,6 +42,7 @@ import {isDemoContentMode} from '@/demo/demoContentGate';
 import {buildDemoFriendsScreenList} from '@/demo/demoFriendsList';
 import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
 import {formatTrainingDurationDa} from '@/utils/socialTrainingLive';
+import {useTranslation} from '@/i18n';
 
 type Friend = {
   id: string;
@@ -57,6 +58,7 @@ type Friend = {
 
 const FriendsScreen = () => {
   const navigation = useNavigation<any>();
+  const {t, intlLocale} = useTranslation();
   const {user} = useAppStore();
   const loadFriendStore = useFriendStore(s => s.load);
   const getChatByParticipants = useChatStore(s => s.getChatByParticipants);
@@ -255,15 +257,15 @@ const FriendsScreen = () => {
     if (m) {
       const mins = Number(m[1]);
       if (mins <= 12) {
-        return 'Aktiv nu';
+        return t('friendsScreen.activeNow');
       }
     }
-    return `Aktiv i ${activeTime}`;
+    return t('friendsScreen.activeFor', {time: activeTime});
   };
 
   const formatLastSeen = (checkOutTime?: Date): string => {
     if (!checkOutTime) {
-      return 'Sidst online ukendt';
+      return t('friendsScreen.lastSeenUnknown');
     }
 
     const now = new Date();
@@ -273,19 +275,20 @@ const FriendsScreen = () => {
     const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
 
     if (diffMins < 1) {
-      return 'Sidst online lige nu';
-    } else if (diffMins < 60) {
-      return `Sidst online for ${diffMins} ${diffMins === 1 ? 'minut' : 'minutter'} siden`;
-    } else if (diffHours < 24) {
-      return `Sidst online for ${diffHours} ${diffHours === 1 ? 'time' : 'timer'} siden`;
-    } else if (diffDays < 7) {
-      return `Sidst online for ${diffDays} ${diffDays === 1 ? 'dag' : 'dage'} siden`;
-    } else {
-      // For older dates, show the actual date
-      const day = checkOutTime.getDate();
-      const month = checkOutTime.toLocaleDateString('da-DK', {month: 'short'});
-      return `Sidst online ${day}. ${month}`;
+      return t('friendsScreen.lastSeenJustNow');
     }
+    if (diffMins < 60) {
+      return t('friendsScreen.lastSeenMinutes', {count: String(diffMins)});
+    }
+    if (diffHours < 24) {
+      return t('friendsScreen.lastSeenHours', {count: String(diffHours)});
+    }
+    if (diffDays < 7) {
+      return t('friendsScreen.lastSeenDays', {count: String(diffDays)});
+    }
+    const day = checkOutTime.getDate();
+    const month = checkOutTime.toLocaleDateString(intlLocale, {month: 'short'});
+    return t('friendsScreen.lastSeenDate', {date: `${day}. ${month}`});
   };
 
   // Get muscle group key based on muscle group name
@@ -328,11 +331,8 @@ const FriendsScreen = () => {
         <View style={styles.friendsEmptyIconWrap}>
           <Icon name="people-outline" size={52} color={colors.textMuted} />
         </View>
-        <Text style={styles.friendsEmptyTitle}>Ingen venner endnu</Text>
-        <Text style={styles.friendsEmptyMessage}>
-          Søg efter dit brugernavn hos hinanden og send en venneanmodning. Du kan
-          også svare under Notifikationer.
-        </Text>
+        <Text style={styles.friendsEmptyTitle}>{t('friendsScreen.emptyTitle')}</Text>
+        <Text style={styles.friendsEmptyMessage}>{t('friendsScreen.emptyMessage')}</Text>
       </View>
     </View>
   );
@@ -355,7 +355,7 @@ const FriendsScreen = () => {
       <SocialSearchBar
         value={searchQuery}
         onChangeText={setSearchQuery}
-        placeholder="Søg efter folk på Gymly"
+        placeholder={t('friendsScreen.searchPlaceholder')}
         style={styles.searchOuter}
       />
 
@@ -380,7 +380,7 @@ const FriendsScreen = () => {
         ListHeaderComponent={
           <View style={styles.listHeaderWrap}>
             <SocialPrimaryButton
-              label="Tilføj ven"
+              label={t('friendsScreen.addFriend')}
               iconName="person-add-outline"
               onPress={openAddFriend}
               variant="premium"
@@ -544,6 +544,7 @@ const FriendListRow = ({
 };
 
 const FriendRequestsCard = ({onPress}: {onPress: () => void}) => {
+  const {t} = useTranslation();
   const scale = useRef(new Animated.Value(1)).current;
 
   const pressIn = () => {
@@ -576,9 +577,9 @@ const FriendRequestsCard = ({onPress}: {onPress: () => void}) => {
           <Icon name="mail-unread" size={20} color={colors.primary} />
         </View>
         <View style={rowStyles.requestsTextCol}>
-          <Text style={rowStyles.requestsTitle}>Venneanmodninger</Text>
+          <Text style={rowStyles.requestsTitle}>{t('friendsScreen.friendRequests')}</Text>
           <Text style={rowStyles.requestsSubtitle}>
-            Accepter eller afvis under Notifikationer
+            {t('friendsScreen.friendRequestsSub')}
           </Text>
         </View>
         <View style={rowStyles.chevronWrap}>

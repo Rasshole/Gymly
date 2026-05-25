@@ -1,4 +1,4 @@
-# Deployer indholdet af website/ til dit webhotel (FTP/SFTP).
+# Deployer website/ + web auth-filer til gymlyapp.com (FTP/SFTP).
 #
 # Opsætning (én gang):
 #   GitHub → repo → Settings → Secrets and variables → Actions → New repository secret:
@@ -9,7 +9,7 @@
 #
 # Kør deploy:
 #   Actions → "Deploy gymlyapp website" → Run workflow
-#   eller push til main når du ændrer filer under website/
+#   eller push til main når du ændrer filer under website/ eller web/
 
 name: Deploy gymlyapp website
 
@@ -19,15 +19,34 @@ on:
     branches: [main]
     paths:
       - 'website/**'
+      - 'web/**'
       - '.github/workflows/deploy-gymlyapp-website.yml'
 
 jobs:
   ftp-deploy:
-    name: FTP upload (website → gymlyapp)
+    name: FTP upload (website + web auth → gymlyapp)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Prepare deploy bundle
+        run: |
+          set -euo pipefail
+          rm -rf deploy-bundle
+          mkdir -p deploy-bundle
+          cp -a website/. deploy-bundle/
+          # Overlay web auth paths (production har historisk brugt web/confirm)
+          mkdir -p deploy-bundle/auth/callback deploy-bundle/.well-known deploy-bundle/confirm
+          cp -f web/auth/callback/index.html deploy-bundle/auth/callback/
+          cp -f web/.well-known/apple-app-site-association deploy-bundle/.well-known/
+          cp -f web/.well-known/assetlinks.json deploy-bundle/.well-known/
+          cp -f web/confirm/index.html deploy-bundle/confirm/
+          if [ -f web/_redirects ]; then
+            cp -f web/_redirects deploy-bundle/_redirects.web-overlay
+          fi
+          echo "Deploy bundle ready:"
+          find deploy-bundle/auth deploy-bundle/.well-known deploy-bundle/confirm -type f 2>/dev/null | sort
 
       - name: FTP deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -35,7 +54,7 @@ jobs:
           server: ${{ secrets.GYMLYAPP_FTP_SERVER }}
           username: ${{ secrets.GYMLYAPP_FTP_USERNAME }}
           password: ${{ secrets.GYMLYAPP_FTP_PASSWORD }}
-          local-dir: ./website/
+          local-dir: ./deploy-bundle/
           server-dir: ${{ secrets.GYMLYAPP_FTP_SERVER_DIR }}
           dangerous-clean-slate: false
           log-level: standard

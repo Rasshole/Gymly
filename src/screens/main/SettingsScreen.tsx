@@ -26,10 +26,14 @@ import {seedDemoStores, clearDemoStoresAfterDisable} from '@/demo/seedDemoStores
 import AuthService from '@/services/auth/AuthService';
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '@/theme/colors';
+import {spacing, radius, typography, shadows, layout, iconSize} from '@/theme/designTokens';
+import {SURFACE_DEMO_MODE_IN_SETTINGS} from '@/config/launchSurfaceConfig';
+import {useTranslation} from '@/i18n';
 
 const SettingsScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
   const {user, logout, deleteAccount} = useAppStore();
+  const {t, languageLabel} = useTranslation();
   const {consent, updateMarketingConsent, updateAnalyticsConsent} = usePrivacyStore();
 
   const [marketingEnabled, setMarketingEnabled] = useState(
@@ -41,7 +45,6 @@ const SettingsScreen = () => {
   const [autoplayVideo, setAutoplayVideo] = useState(true);
   const [appearance, setAppearance] = useState<'system' | 'light' | 'dark'>('system');
   const [units, setUnits] = useState<'metric' | 'imperial'>('metric');
-  const [language, setLanguage] = useState<'da' | 'en'>('da');
   const [deviceComingSoonOpen, setDeviceComingSoonOpen] = useState(false);
   const [demoBusy, setDemoBusy] = useState(false);
   const demoEnabled = useDemoModeStore(s => s.enabled);
@@ -54,7 +57,7 @@ const SettingsScreen = () => {
     try {
       await updateMarketingConsent(value);
     } catch {
-      Alert.alert('Fejl', 'Kunne ikke opdatere indstilling');
+      Alert.alert(t('common.error'), t('settings.updateFailed'));
       setMarketingEnabled(!value);
     }
   };
@@ -64,7 +67,7 @@ const SettingsScreen = () => {
     try {
       await updateAnalyticsConsent(value);
     } catch {
-      Alert.alert('Fejl', 'Kunne ikke opdatere indstilling');
+      Alert.alert(t('common.error'), t('settings.updateFailed'));
       setAnalyticsEnabled(!value);
     }
   };
@@ -74,7 +77,7 @@ const SettingsScreen = () => {
       return;
     }
     if (!user?.id) {
-      Alert.alert('Log ind', 'Demo kræver en aktiv bruger.');
+      Alert.alert(t('auth.loginTitle'), t('settings.demoLoginRequired'));
       return;
     }
     if (demoBusy) {
@@ -90,7 +93,7 @@ const SettingsScreen = () => {
         seedDemoStores(user.id);
       }
     } catch {
-      Alert.alert('Fejl', 'Kunne ikke opdatere demo-tilstand.');
+      Alert.alert(t('common.error'), t('settings.demoUpdateFailed'));
     } finally {
       setDemoBusy(false);
     }
@@ -98,38 +101,44 @@ const SettingsScreen = () => {
 
   const handleLogout = () => {
     Alert.alert(
-      'Log ud',
-      'Er du sikker på du vil logge ud?',
+      t('settings.logout'),
+      t('settings.logoutConfirm'),
       [
-        {text: 'Annuller', style: 'cancel'},
-        {text: 'Log ud', style: 'destructive', onPress: () => logout()},
+        {text: t('common.cancel'), style: 'cancel'},
+        {
+          text: t('settings.logout'),
+          style: 'destructive',
+          onPress: () => {
+            void logout();
+          },
+        },
       ]
     );
   };
 
   const handleDeleteAccount = () => {
     Alert.alert(
-      'Slet konto',
-      'Er du sikker på du vil slette din konto? Denne handling kan ikke fortrydes. Alle dine data vil blive slettet permanent.',
+      t('settings.deleteAccount'),
+      t('settings.deleteAccountConfirm'),
       [
-        {text: 'Annuller', style: 'cancel'},
+        {text: t('common.cancel'), style: 'cancel'},
         {
-          text: 'Slet konto',
+          text: t('settings.deleteAccount'),
           style: 'destructive',
           onPress: () => {
             Alert.alert(
-              'Bekræft sletning',
-              'Din konto og alle tilknyttede data vil blive slettet nu. Dette kan ikke fortrydes.',
+              t('settings.deleteAccountFinal'),
+              t('settings.deleteAccountFinalBody'),
               [
-                {text: 'Annuller', style: 'cancel'},
+                {text: t('common.cancel'), style: 'cancel'},
                 {
-                  text: 'Slet permanent',
+                  text: t('settings.deletePermanent'),
                   style: 'destructive',
                   onPress: async () => {
                     try {
                       await deleteAccount();
                     } catch (err) {
-                      Alert.alert('Fejl', 'Kunne ikke slette konto. Prøv igen.');
+                      Alert.alert(t('common.error'), t('settings.deleteFailed'));
                     }
                   },
                 },
@@ -142,39 +151,32 @@ const SettingsScreen = () => {
   };
 
   const handleExportData = () => {
-    Alert.alert(
-      'Hent data',
-      'Du kan anmode om en kopi af dine data ved at kontakte support@gymly.dk. Vi sender dig en eksport inden for 30 dage (GDPR artikel 20).',
-      [{text: 'OK'}]
-    );
+    Alert.alert(t('settings.exportTitle'), t('settings.exportBody'), [
+      {text: t('common.ok')},
+    ]);
   };
 
   const handlePasswordReset = () => {
     if (!user?.email) {
-      Alert.alert('Skift adgangskode', 'Vi kunne ikke finde en email på din konto.');
+      Alert.alert(t('settings.passwordResetTitle'), t('settings.passwordResetNoEmail'));
       return;
     }
-    Alert.alert(
-      'Skift adgangskode',
-      'Vi sender dig et link til at vælge nyt kodeord.',
-      [
-        {text: 'Annuller', style: 'cancel'},
-        {
-          text: 'Send link',
-          onPress: async () => {
-            console.log('UI: Skift adgangskode → Send link pressed', user.email);
-            try {
-              await AuthService.requestPasswordReset(user.email);
-              Alert.alert('Skift adgangskode', 'Vi har sendt et link til din email.');
-            } catch (e) {
-              const msg =
-                e instanceof Error ? e.message : 'Kunne ikke sende link. Prøv igen.';
-              Alert.alert('Skift adgangskode', msg);
-            }
-          },
+    Alert.alert(t('settings.passwordResetTitle'), t('settings.passwordResetBody'), [
+      {text: t('common.cancel'), style: 'cancel'},
+      {
+        text: t('settings.passwordResetSend'),
+        onPress: async () => {
+          try {
+            await AuthService.requestPasswordReset(user.email);
+            Alert.alert(t('settings.passwordResetTitle'), t('settings.passwordResetSent'));
+          } catch (e) {
+            const msg =
+              e instanceof Error ? e.message : t('settings.passwordResetFailed');
+            Alert.alert(t('settings.passwordResetTitle'), msg);
+          }
         },
-      ],
-    );
+      },
+    ]);
   };
 
   const openDeviceComingSoon = () => {
@@ -241,7 +243,7 @@ const SettingsScreen = () => {
       disabled={!onPress}
       activeOpacity={onPress ? 0.7 : 1}>
       <View style={[styles.rowIcon, iconColor && {backgroundColor: iconColor + '20'}]}>
-        <Icon name={icon as any} size={22} color={iconColor || colors.primary} />
+        <Icon name={icon as any} size={iconSize.md} color={iconColor || colors.primary} />
       </View>
       <View style={styles.rowContent}>
         <Text style={styles.rowTitle}>{title}</Text>
@@ -270,7 +272,7 @@ const SettingsScreen = () => {
   }) => (
     <View style={styles.row}>
       <View style={[styles.rowIcon, iconColor && {backgroundColor: iconColor + '20'}]}>
-        <Icon name={icon as any} size={22} color={iconColor || colors.primary} />
+        <Icon name={icon as any} size={iconSize.md} color={iconColor || colors.primary} />
       </View>
       <View style={styles.rowContent}>
         <Text style={styles.rowTitle}>{title}</Text>
@@ -288,88 +290,92 @@ const SettingsScreen = () => {
   const Section = ({title, children}: {title: string; children: React.ReactNode}) => (
     <View style={styles.section}>
       <Text style={styles.sectionTitle}>{title}</Text>
-      {children}
+      <View style={styles.sectionCard}>{children}</View>
     </View>
   );
 
-  const appearanceLabel = appearance === 'system' ? 'System' : appearance === 'light' ? 'Lys' : 'Mørk';
-  const unitsLabel = units === 'metric' ? 'kg, km' : 'lbs, miles';
-  const languageLabel = language === 'da' ? 'Dansk' : 'English';
-
+  const appearanceLabel =
+    appearance === 'system'
+      ? t('settings.appearanceValueSystem')
+      : appearance === 'light'
+        ? t('settings.appearanceValueLight')
+        : t('settings.appearanceValueDark');
+  const unitsLabel =
+    units === 'metric' ? t('settings.unitsValueMetric') : t('settings.unitsValueImperial');
   return (
     <View style={styles.container}>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.content}>
         {/* Konto */}
-        <Section title="KONTO">
+        <Section title={t('settings.account')}>
           <SettingRow
             icon="person-outline"
-            title="Rediger profil"
-            subtitle="Navn, billede, bio"
+            title={t('settings.editProfile')}
+            subtitle={t('settings.editProfileSub')}
             onPress={() => navigation.navigate('EditProfile')}
           />
           <SettingRow
             icon="mail-outline"
-            title="Skift email"
+            title={t('settings.changeEmail')}
             onPress={() => navigation.navigate('ChangeEmail')}
           />
           <SettingRow
             icon="lock-closed-outline"
-            title="Skift adgangskode"
+            title={t('settings.changePassword')}
             onPress={handlePasswordReset}
           />
           <SettingRow
             icon="download-outline"
-            title="Hent mine data"
-            subtitle="GDPR – eksport af dine data"
+            title={t('settings.exportData')}
+            subtitle={t('settings.exportDataSub')}
             onPress={handleExportData}
           />
         </Section>
 
         {/* Privatliv */}
-        <Section title="PRIVATLIV">
+        <Section title={t('settings.privacy')}>
           <SettingRow
             icon="shield-checkmark-outline"
-            title="Privatlivsindstillinger"
-            subtitle="Profil synlighed, placering, deling"
+            title={t('settings.privacySettings')}
+            subtitle={t('settings.privacySettingsSub')}
             onPress={() => navigation.navigate('EditProfile')}
           />
           <SettingRow
             icon="ban-outline"
-            title="Blokeret brugere"
+            title={t('settings.blockedUsers')}
             onPress={() =>
-              Alert.alert('Kommer snart', 'Administration af blokerede brugere kommer snart.')
+              Alert.alert(t('common.comingSoon'), t('settings.blockedSoon'))
             }
           />
         </Section>
 
         {/* Notifikationer */}
-        <Section title="NOTIFIKATIONER">
+        <Section title={t('settings.notifications')}>
           <SettingRow
             icon="notifications-outline"
-            title="Push notifikationer"
-            subtitle="Træningsinvitationer, venner, grupper"
+            title={t('settings.pushNotifications')}
+            subtitle={t('settings.pushNotificationsSub')}
             onPress={() => navigation.navigate('PushNotifications')}
           />
           <SettingSwitch
             icon="mail-outline"
-            title="Email notifikationer"
-            subtitle="Nyheder og tilbud via email"
+            title={t('settings.emailNotifications')}
+            subtitle={t('settings.emailNotificationsSub')}
             value={marketingEnabled}
             onValueChange={handleMarketingToggle}
           />
         </Section>
 
         {/* App & Præferencer */}
-        <Section title="APP & PRÆFERENCER">
+        <Section title={t('settings.appPrefs')}>
           <SettingRow
             icon="phone-portrait-outline"
-            title="Forbind app eller enhed"
-            subtitle="Apple Health, Garmin, etc."
+            title={t('settings.connectDevice')}
+            subtitle={t('settings.connectDeviceSub')}
             onPress={openDeviceComingSoon}
           />
           <SettingRow
             icon="options-outline"
-            title="Udseende"
+            title={t('settings.appearance')}
             rightElement={
               <View style={styles.rowValueContainer}>
                 <Text style={styles.rowValue}>{appearanceLabel}</Text>
@@ -377,21 +383,17 @@ const SettingsScreen = () => {
               </View>
             }
             onPress={() =>
-              Alert.alert(
-                'Udseende',
-                'Vælg tema',
-                [
-                  {text: 'System', onPress: () => setAppearance('system')},
-                  {text: 'Lys', onPress: () => setAppearance('light')},
-                  {text: 'Mørk', onPress: () => setAppearance('dark')},
-                  {text: 'Annuller', style: 'cancel'},
-                ]
-              )
+              Alert.alert(t('settings.appearance'), t('settings.appearancePick'), [
+                  {text: t('settings.appearanceSystem'), onPress: () => setAppearance('system')},
+                  {text: t('settings.appearanceLight'), onPress: () => setAppearance('light')},
+                  {text: t('settings.appearanceDark'), onPress: () => setAppearance('dark')},
+                  {text: t('common.cancel'), style: 'cancel'},
+                ])
             }
           />
           <SettingRow
             icon="resize-outline"
-            title="Måleenheder"
+            title={t('settings.units')}
             rightElement={
               <View style={styles.rowValueContainer}>
                 <Text style={styles.rowValue}>{unitsLabel}</Text>
@@ -399,81 +401,67 @@ const SettingsScreen = () => {
               </View>
             }
             onPress={() =>
-              Alert.alert(
-                'Måleenheder',
-                'Vælg måleenheder',
-                [
-                  {text: 'kg, km', onPress: () => setUnits('metric')},
-                  {text: 'lbs, miles', onPress: () => setUnits('imperial')},
-                  {text: 'Annuller', style: 'cancel'},
-                ]
-              )
+              Alert.alert(t('settings.units'), t('settings.unitsPick'), [
+                  {text: t('settings.unitsMetric'), onPress: () => setUnits('metric')},
+                  {text: t('settings.unitsImperial'), onPress: () => setUnits('imperial')},
+                  {text: t('common.cancel'), style: 'cancel'},
+                ])
             }
           />
           <SettingRow
             icon="language-outline"
-            title="Sprog"
+            title={t('settings.language')}
             rightElement={
               <View style={styles.rowValueContainer}>
                 <Text style={styles.rowValue}>{languageLabel}</Text>
                 <Icon name="chevron-forward" size={20} color={colors.textMuted} />
               </View>
             }
-            onPress={() =>
-              Alert.alert(
-                'Sprog',
-                'Vælg sprog',
-                [
-                  {text: 'Dansk', onPress: () => setLanguage('da')},
-                  {text: 'English', onPress: () => setLanguage('en')},
-                  {text: 'Annuller', style: 'cancel'},
-                ]
-              )
-            }
+            onPress={() => navigation.navigate('LanguageSettings')}
           />
           <SettingRow
             icon="swap-vertical-outline"
-            title="Feed sortering"
-            subtitle="Sorter aktiviteter i feed"
+            title={t('settings.feedSorting')}
+            subtitle={t('settings.feedSortingSub')}
             onPress={() => navigation.navigate('FeedSorting')}
           />
           <SettingSwitch
             icon="play-circle-outline"
-            title="Automatisk afspilning af video"
+            title={t('settings.autoplayVideo')}
             value={autoplayVideo}
             onValueChange={setAutoplayVideo}
           />
         </Section>
 
         {/* GDPR & Privatliv */}
-        <Section title="PRIVATLIV & GDPR">
+        <Section title={t('settings.gdpr')}>
           <SettingSwitch
             icon="analytics-outline"
-            title="Anonymiseret analyse"
-            subtitle="Hjælp os med at forbedre appen"
+            title={t('settings.analytics')}
+            subtitle={t('settings.analyticsSub')}
             value={analyticsEnabled}
             onValueChange={handleAnalyticsToggle}
           />
           <SettingRow
             icon="document-text-outline"
-            title="Privatlivspolitik"
+            title={t('settings.privacyPolicy')}
             onPress={() => navigation.navigate('PrivacyPolicy')}
           />
           <SettingRow
             icon="document-outline"
-            title="Brugervilkår"
+            title={t('settings.terms')}
             onPress={() => navigation.navigate('Terms')}
           />
         </Section>
 
-        {__DEV__ ? (
+        {__DEV__ && SURFACE_DEMO_MODE_IN_SETTINGS ? (
           <Section title="INTERN — DEMO / OPTAGELSE">
             <View style={{opacity: demoBusy ? 0.55 : 1}}>
               <SettingSwitch
                 icon="videocam-outline"
                 iconColor={colors.secondary}
                 title="Demo-indhold (optagelse)"
-                subtitle="Fiktiv aktivitet til video (ingen overlay). Slå fra ved rigtig test."
+                subtitle={t('settings.demoContentSub')}
                 value={demoEnabled}
                 onValueChange={v => {
                   handleDemoContentToggle(v).catch(() => {});
@@ -484,27 +472,27 @@ const SettingsScreen = () => {
         ) : null}
 
         {/* Support */}
-        <Section title="SUPPORT">
+        <Section title={t('settings.support')}>
           <SettingRow
             icon="help-circle-outline"
-            title="Hjælp & FAQ"
+            title={t('settings.help')}
             onPress={() => navigation.navigate('Help')}
           />
           <SettingRow
             icon="chatbubble-outline"
-            title="Kontakt support"
+            title={t('settings.supportRow')}
             onPress={() => navigation.navigate('Support')}
           />
           <SettingRow
             icon="information-circle-outline"
-            title="Om Gymly"
+            title={t('settings.about')}
             onPress={() => navigation.navigate('AboutGymly')}
           />
         </Section>
 
         {/* Konto info */}
         <View style={styles.accountInfo}>
-          <Text style={styles.accountInfoLabel}>Email</Text>
+          <Text style={styles.accountInfoLabel}>{t('settings.accountEmail')}</Text>
           <Text style={styles.accountInfoValue}>{user?.email}</Text>
           </View>
 
@@ -514,7 +502,7 @@ const SettingsScreen = () => {
           onPress={handleLogout}
           activeOpacity={0.8}>
           <Icon name="log-out-outline" size={22} color={colors.error} />
-          <Text style={styles.logoutButtonText}>Log ud</Text>
+          <Text style={styles.logoutButtonText}>{t('settings.logout')}</Text>
         </TouchableOpacity>
 
         {/* Slet konto */}
@@ -522,7 +510,7 @@ const SettingsScreen = () => {
           style={styles.deleteButton}
           onPress={handleDeleteAccount}
           activeOpacity={0.8}>
-          <Text style={styles.deleteButtonText}>Slet konto</Text>
+          <Text style={styles.deleteButtonText}>{t('settings.deleteAccount')}</Text>
         </TouchableOpacity>
 
         {/* Version */}
@@ -545,25 +533,27 @@ const SettingsScreen = () => {
                 },
               ]}>
               <Text style={styles.deviceModalIcon}>⌚</Text>
-              <Text style={styles.deviceModalTitle}>Forbind enhed</Text>
-              <Text style={styles.deviceModalMessage}>Denne funktion kommer snart 👀</Text>
+              <Text style={styles.deviceModalTitle}>{t('settings.deviceConnectTitle')}</Text>
+              <Text style={styles.deviceModalMessage}>{t('settings.deviceConnectSoon')}</Text>
               <Text style={styles.deviceModalSubtext}>
-                Vi arbejder på integration med Garmin, Apple Watch, Fitbit m.fl.
+                {t('settings.deviceConnectIntegrations')}
               </Text>
               <TouchableOpacity
                 style={styles.deviceModalPrimaryButton}
                 onPress={closeDeviceComingSoon}
                 activeOpacity={0.9}>
-                <Text style={styles.deviceModalPrimaryButtonText}>OK</Text>
+                <Text style={styles.deviceModalPrimaryButtonText}>{t('common.ok')}</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.deviceModalSecondaryButton}
                 onPress={() => {
                   closeDeviceComingSoon();
-                  Alert.alert('Kommer snart', 'Vi tilføjer besked-flow for notifikationer snart.');
+                  Alert.alert(t('common.comingSoon'), t('settings.deviceNotifySoon'));
                 }}
                 activeOpacity={0.8}>
-                <Text style={styles.deviceModalSecondaryButtonText}>Bliv notificeret</Text>
+                <Text style={styles.deviceModalSecondaryButtonText}>
+                  {t('settings.deviceNotifyMe')}
+                </Text>
               </TouchableOpacity>
             </Animated.View>
           </Pressable>
@@ -641,9 +631,10 @@ const styles = StyleSheet.create({
   },
   accountInfo: {
     backgroundColor: colors.backgroundCard,
-    padding: 16,
-    borderRadius: 12,
-    marginBottom: 16,
+    padding: spacing.lg,
+    borderRadius: radius.lg,
+    marginBottom: spacing.lg,
+    ...shadows.sm,
   },
   accountInfoLabel: {
     fontSize: 13,
@@ -660,12 +651,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.backgroundCard,
-    padding: 16,
-    borderRadius: 12,
-    marginBottom: 8,
+    padding: spacing.lg,
+    borderRadius: radius.lg,
+    marginBottom: spacing.sm,
     borderWidth: 1,
-    borderColor: colors.error,
-    gap: 8,
+    borderColor: 'rgba(239, 68, 68, 0.35)',
+    gap: spacing.sm,
+    minHeight: layout.rowMinHeight,
+    ...shadows.sm,
   },
   logoutButtonText: {
     color: colors.error,

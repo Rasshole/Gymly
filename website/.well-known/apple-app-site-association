@@ -1,0 +1,33 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["CDVFBW66X4.com.test1.Gymly"],
+        "components": [
+          {
+            "/": "/auth/callback",
+            "comment": "Supabase email verify, magic link, PKCE"
+          },
+          {
+            "/": "/auth/callback/*"
+          },
+          {
+            "/": "/confirm",
+            "comment": "Legacy email confirm"
+          },
+          {
+            "/": "/confirm/*"
+          },
+          {
+            "/": "/reset-password",
+            "comment": "Password recovery web UI"
+          },
+          {
+            "/": "/reset-password/*"
+          }
+        ]
+      }
+    ]
+  }
+}

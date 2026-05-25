@@ -25,7 +25,7 @@ import {
   getBadgeProgressList,
 } from '@/store/badgeStore';
 import {BADGE_DEFINITIONS} from '@/config/badgeDefinitions';
-import {progressLabel} from '@/services/badgeEngine';
+import {useTranslation, progressLabelT, rt} from '@/i18n';
 import type {BadgeCategory, BadgeRarity} from '@/types/badge.types';
 import colors from '@/theme/colors';
 import {spacing, radius, typography} from '@/theme/designTokens';
@@ -44,28 +44,29 @@ const SECTION_ORDER: BadgeCategory[] = [
   'elite',
 ];
 
-const SECTION_TITLE: Record<BadgeCategory, string> = {
-  streak: 'Streak',
-  checkin: 'Tjek-ind',
-  time: 'Tid',
-  sessions: 'Sessioner',
-  messaging: 'Beskeder',
-  social: 'Social',
-  planned: 'Planlagt',
-  habits: 'Vaner',
-  records: 'Rekorder',
-  exploration: 'Udforskning',
-  elite: 'Elite',
+const SECTION_TITLE_KEY: Record<BadgeCategory, string> = {
+  streak: 'badges.sectionStreak',
+  checkin: 'badges.sectionCheckin',
+  time: 'badges.sectionTime',
+  sessions: 'badges.sectionSessions',
+  messaging: 'badges.sectionMessaging',
+  social: 'badges.sectionSocial',
+  planned: 'badges.sectionPlanned',
+  habits: 'badges.sectionHabits',
+  records: 'badges.sectionSessions',
+  exploration: 'badges.sectionSocial',
+  elite: 'badges.sectionElite',
 };
 
-const RARITY_DK: Record<BadgeRarity, string> = {
-  common: 'Almindelig',
-  rare: 'Sjælden',
-  epic: 'Episk',
-  legendary: 'Legendarisk',
+const RARITY_KEY: Record<BadgeRarity, string> = {
+  common: 'badges.rarityCommon',
+  rare: 'badges.rarityRare',
+  epic: 'badges.rarityEpic',
+  legendary: 'badges.rarityLegendary',
 };
 
 export default function BadgesScreen() {
+  const {t} = useTranslation();
   const route = useRoute();
   const navigation = useNavigation();
   const user = useAppStore(s => s.user);
@@ -201,7 +202,7 @@ export default function BadgesScreen() {
   if (!userId) {
     return (
       <View style={styles.centered}>
-        <Text style={styles.emptyTitle}>Log ind for at se badges</Text>
+        <Text style={styles.emptyTitle}>{t('badges.loginRequired')}</Text>
       </View>
     );
   }
@@ -212,11 +213,11 @@ export default function BadgesScreen() {
       contentContainerStyle={styles.scrollContent}
       showsVerticalScrollIndicator={false}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Badges</Text>
+        <Text style={styles.headerTitle}>{t('badges.title')}</Text>
         <Text style={styles.headerSubMain}>
-          {unlockedCount} / {totalDefined} Badges unlocked
+          {t('badges.unlocked', {unlocked: unlockedCount, total: totalDefined})}
         </Text>
-        <Text style={styles.headerSub}>Keep going - you're just getting started</Text>
+        <Text style={styles.headerSub}>{t('badges.keepGoing')}</Text>
         <View style={styles.progressTrack}>
           <Animated.View
             style={[
@@ -234,24 +235,28 @@ export default function BadgesScreen() {
 
       {nextBadge ? (
         <View style={styles.nextBadgeCard}>
-          <Text style={styles.nextBadgeTitle}>Næste badge</Text>
+          <Text style={styles.nextBadgeTitle}>{t('badges.nextBadge')}</Text>
           <Text style={styles.nextBadgeName} numberOfLines={1}>
             {nextBadge.def.emoji} {nextBadge.def.name}
           </Text>
           <Text style={styles.nextBadgeHint}>
-            Only {Math.max(1, 100 - Math.round(nextBadge.progress.percent))}% left
+            {t('badges.onlyLeft', {
+              percent: Math.max(1, 100 - Math.round(nextBadge.progress.percent)),
+            })}
           </Text>
-          <Text style={styles.nextBadgeMeta}>{progressLabel(nextBadge.def, nextBadge.progress)}</Text>
+          <Text style={styles.nextBadgeMeta}>
+            {progressLabelT(t, nextBadge.def, nextBadge.progress)}
+          </Text>
         </View>
       ) : null}
 
       {almost.length > 0 ? (
         <View style={styles.section}>
           <View style={styles.sectionHeaderRow}>
-            <Text style={styles.sectionTitle}>Næsten der</Text>
+            <Text style={styles.sectionTitle}>{t('badges.almostThere')}</Text>
             <View style={styles.sectionDivider} />
           </View>
-          <Text style={styles.sectionHint}>≥ 70% fremskridt</Text>
+          <Text style={styles.sectionHint}>{t('badges.progressHint')}</Text>
           <View style={styles.grid}>
             {almost.map(({def, progress}) => (
               <BadgeCard
@@ -259,7 +264,7 @@ export default function BadgesScreen() {
                 emoji={def.emoji}
                 name={def.name}
                 rarity={def.rarity}
-                progressText={progressLabel(def, progress)}
+                progressText={progressLabelT(t, def, progress)}
                 progressPercent={progress.percent}
                 status="almost_unlocked"
                 pulsingHighlight={highlightRingId === def.id}
@@ -278,7 +283,7 @@ export default function BadgesScreen() {
         return (
           <View key={cat} style={styles.section}>
             <View style={styles.sectionHeaderRow}>
-              <Text style={styles.sectionTitle}>{SECTION_TITLE[cat]}</Text>
+              <Text style={styles.sectionTitle}>{t(SECTION_TITLE_KEY[cat])}</Text>
               <View style={styles.sectionDivider} />
             </View>
             <View style={styles.grid}>
@@ -288,7 +293,7 @@ export default function BadgesScreen() {
                   emoji={def.emoji}
                   name={def.name}
                   rarity={def.rarity}
-                  progressText={progressLabel(def, progress)}
+                  progressText={progressLabelT(t, def, progress)}
                   progressPercent={progress.percent}
                   status={progress.status as BadgeStatus}
                   pulsingHighlight={highlightRingId === def.id}
@@ -313,17 +318,17 @@ export default function BadgesScreen() {
                   <Text style={styles.modalEmoji}>{detail.def.emoji}</Text>
                   <View style={styles.modalRarityPill}>
                     <Text style={styles.modalRarityText}>
-                      {RARITY_DK[detail.def.rarity]}
+                      {t(RARITY_KEY[detail.def.rarity])}
                     </Text>
                   </View>
                   <Text style={styles.modalName}>{detail.def.name}</Text>
                   <Text style={styles.modalDesc}>{detail.def.description}</Text>
                   <Text style={styles.modalMeta}>
-                    {progressLabel(detail.def, detail.progress)}
+                    {progressLabelT(t, detail.def, detail.progress)}
                   </Text>
                   {detail.progress.status === 'unlocked' && user ? (
                     <View style={styles.featuredRow}>
-                      <Text style={styles.featuredLabel}>Vis på profil</Text>
+                      <Text style={styles.featuredLabel}>{t('badges.showOnProfile')}</Text>
                       <Switch
                         value={(user.featuredBadgeIds ?? []).includes(detail.def.id)}
                         onValueChange={async on => {
@@ -338,7 +343,7 @@ export default function BadgesScreen() {
                             if (cur.length >= 3) {
                               Alert.alert(
                                 '',
-                                'Du kan kun fremhæve 3 badges på profilen',
+                                t('badges.highlightMax'),
                               );
                               return;
                             }
@@ -356,7 +361,7 @@ export default function BadgesScreen() {
                             );
                             setUser({...user, featuredBadgeIds: saved});
                           } catch {
-                            Alert.alert('', 'Kunne ikke gemme. Prøv igen.');
+                            Alert.alert('', t('errors.couldNotSave'));
                           }
                         }}
                       />
@@ -366,7 +371,7 @@ export default function BadgesScreen() {
                     onPress={() => setDetail(null)}
                     style={styles.modalBtn}
                     activeOpacity={0.88}>
-                    <Text style={styles.modalBtnText}>Fortsæt</Text>
+                    <Text style={styles.modalBtnText}>{t('common.continue')}</Text>
                   </TouchableOpacity>
                 </>
               ) : null}
@@ -449,7 +454,7 @@ function BadgeCard({
         <Text style={[styles.cardEmoji, isLocked && styles.cardEmojiMuted]}>{emoji}</Text>
         {isUnlocked ? (
           <View style={styles.cardCheckWrap}>
-            <Text style={styles.cardCheck} accessibilityLabel="Opnået">
+            <Text style={styles.cardCheck} accessibilityLabel={rt('badges.achieved')}>
               ✓
             </Text>
           </View>

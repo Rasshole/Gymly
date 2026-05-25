@@ -1,9 +1,10 @@
 import {useState, useEffect, useRef, useCallback} from 'react';
 import {
-  getUsernameFormatErrorDa,
+  getUsernameFormatError,
   normalizeUsernameForStorage,
   isUsernameFormatValid,
 } from '@/utils/usernameRules';
+import type {AppLanguage} from '@/i18n';
 import {isUsernameAvailableInSupabase} from '@/services/supabase/usernameAvailabilityService';
 
 export type UsernameAvailabilityState = {
@@ -26,8 +27,9 @@ export function useUsernameAvailability(params: {
   excludeUserId?: string | null;
   /** Når sandt, spring availability-RPC over og sæt available=true */
   unchangedNormalized?: string | null;
+  language?: AppLanguage;
 }) {
-  const {rawUsername, excludeUserId, unchangedNormalized} = params;
+  const {rawUsername, excludeUserId, unchangedNormalized, language = 'da'} = params;
   const [state, setState] = useState<UsernameAvailabilityState>({
     normalized: '',
     formatError: null,
@@ -41,7 +43,7 @@ export function useUsernameAvailability(params: {
       if (!isUsernameFormatValid(normalized)) {
         setState({
           normalized,
-          formatError: getUsernameFormatErrorDa(normalized),
+          formatError: getUsernameFormatError(language, normalized),
           available: null,
           checking: false,
         });
@@ -92,7 +94,7 @@ export function useUsernameAvailability(params: {
       });
       return;
     }
-    const formatErr = getUsernameFormatErrorDa(normalized);
+    const formatErr = getUsernameFormatError(language, normalized);
     if (formatErr) {
       setState({
         normalized,
@@ -106,7 +108,7 @@ export function useUsernameAvailability(params: {
       void runCheck(normalized);
     }, DEBOUNCE_MS);
     return () => clearTimeout(t);
-  }, [rawUsername, runCheck]);
+  }, [rawUsername, language, runCheck]);
 
   const canProceed =
     state.normalized.length > 0 &&

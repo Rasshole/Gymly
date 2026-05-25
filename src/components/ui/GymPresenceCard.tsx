@@ -11,6 +11,7 @@ import colors from '@/theme/colors';
 import {spacing, radius, shadows} from '@/theme/designTokens';
 import {typography} from '@/theme/designTokens';
 import type {GymPresence} from '@/types/gymPresence.types';
+import {useTranslation} from '@/i18n';
 
 export type GymPresenceCardProps = {
   gym: GymPresence;
@@ -24,6 +25,7 @@ export const GymPresenceCard: React.FC<GymPresenceCardProps> = ({
   onPress,
   maxAvatars = 4,
 }) => {
+  const {t} = useTranslation();
   const avatarsToShow = gym.userList.slice(0, maxAvatars);
 
   return (
@@ -39,9 +41,7 @@ export const GymPresenceCard: React.FC<GymPresenceCardProps> = ({
             {gym.gymName}
           </Text>
           <Text style={styles.userCount}>
-            {gym.activeUsers === 1
-              ? '1 træner lige nu'
-              : `${gym.activeUsers} træner lige nu`}
+            {t('gymPresence.trainingNow', {count: gym.activeUsers})}
           </Text>
         </View>
       </View>

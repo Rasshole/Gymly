@@ -21,6 +21,7 @@ import Animated, {
   interpolate,
 } from 'react-native-reanimated';
 import colors from '@/theme/colors';
+import {useTranslation} from '@/i18n';
 import {spacing, radius, typography} from '@/theme/designTokens';
 
 /** Track-højde; thumb og logo afledes så de fylder næsten hele baren vertikalt */
@@ -48,9 +49,11 @@ export interface SwipeCheckInProps {
 const SwipeCheckIn: React.FC<SwipeCheckInProps> = ({
   onSuccess,
   disabled,
-  label = 'Swipe for at starte træning',
+  label,
   compact = false,
 }) => {
+  const {t} = useTranslation();
+  const displayLabel = label ?? t('swipeCheckIn.defaultLabel');
   const trackHeight = compact ? COMPACT_TRACK : DEFAULT_TRACK;
   /** Thumb næsten fuld højde af baren → kettlebell fylder top til bund */
   const thumbSize = trackHeight - THUMB_VERTICAL_INSET;
@@ -167,7 +170,7 @@ const SwipeCheckIn: React.FC<SwipeCheckInProps> = ({
               compact && styles.trackTextCompact,
               textStyle,
             ]}>
-            {label}
+            {displayLabel}
           </Animated.Text>
           <Animated.View
             style={[

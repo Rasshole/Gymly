@@ -49,8 +49,7 @@ import TrainingCenterPicker from '@/components/planned/TrainingCenterPicker';
 import PlanSessionCenterPickerSheet from '@/components/planned/PlanSessionCenterPickerSheet';
 import TrainingTypeMuscleGrid from '@/components/planned/TrainingTypeMuscleGrid';
 import TimePickerSheet from '@/components/ui/TimePickerSheet';
-
-const WEEKDAYS = ['Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør', 'Søn'];
+import {useTranslation, useAppFormat} from '@/i18n';
 
 const formatDateKey = (date: Date) => {
   const copy = new Date(date);
@@ -58,22 +57,11 @@ const formatDateKey = (date: Date) => {
   return copy.toISOString();
 };
 
-const muscleLabels: Record<MuscleGroup, string> = {
-  bryst: 'Bryst',
-  triceps: 'Triceps',
-  skulder: 'Skulder',
-  ben: 'Ben',
-  biceps: 'Biceps',
-  mave: 'Mave',
-  ryg: 'Ryg',
-  cardio: 'Cardio',
-  reformer: 'Reformer',
-  pilates: 'Pilates',
-};
-
 const WorkoutScheduleScreen = () => {
   const route = useRoute<{params?: {openPlannedId?: string; initialTab?: string}}>();
   const navigation = useNavigation();
+  const {t, intlLocale} = useTranslation();
+  const {weekdayShort, formatMonthYear, formatDateMedium} = useAppFormat();
   const {user} = useAppStore();
   // Brug brugerens valgte biceps; hvis ingen er valgt, brug samme hvide standard som i Profil (💪🏻)
   const rawBicepsEmoji = user?.bicepsEmoji || '💪🏻';
@@ -148,6 +136,25 @@ const WorkoutScheduleScreen = () => {
     null,
   );
 
+  const muscleGroupLabel = useCallback(
+    (key: MuscleGroup): string => {
+      const labels: Record<MuscleGroup, string> = {
+        bryst: t('checkIn.muscleChest'),
+        triceps: t('checkIn.muscleTriceps'),
+        skulder: t('checkIn.muscleShoulder'),
+        ben: t('checkIn.muscleLegs'),
+        biceps: t('checkIn.muscleBiceps'),
+        mave: t('checkIn.muscleAbs'),
+        ryg: t('checkIn.muscleBack'),
+        cardio: t('checkIn.muscleCardio'),
+        reformer: t('checkIn.muscleReformer'),
+        pilates: t('checkIn.musclePilates'),
+      };
+      return labels[key];
+    },
+    [t],
+  );
+
   const calendarPlans = useMemo(
     () => plannedWorkouts.filter(p => isWorkoutOnUserCalendar(p, user?.id)),
     [plannedWorkouts, user?.id],
@@ -180,8 +187,8 @@ const WorkoutScheduleScreen = () => {
       await refetchPlansFromServer();
     } catch (e) {
       Alert.alert(
-        'Kunne ikke svare',
-        e instanceof Error ? e.message : 'Prøv igen om lidt.',
+        t('plannedSessions.couldNotRespond'),
+        e instanceof Error ? e.message : t('plannedSessions.tryAgainSoon'),
       );
     } finally {
       setInviteRespondPlanId(null);
@@ -207,8 +214,8 @@ const WorkoutScheduleScreen = () => {
       }
     } catch (e) {
       Alert.alert(
-        'Kunne ikke afvise',
-        e instanceof Error ? e.message : 'Prøv igen om lidt.',
+        t('plannedSessions.couldNotDecline'),
+        e instanceof Error ? e.message : t('plannedSessions.tryAgainSoon'),
       );
     } finally {
       setInviteRespondPlanId(null);
@@ -381,11 +388,11 @@ const WorkoutScheduleScreen = () => {
         } else {
           openPlannedFetchFailedRef.current = openPlannedId;
           Alert.alert(
-            'Træning findes ikke',
-            'Denne træning findes ikke længere.',
+            t('plannedSessions.workoutNotFound'),
+            t('plannedSessions.workoutNotFoundBody'),
             [
               {
-                text: 'OK',
+                text: t('common.ok'),
                 onPress: () => {
                   openPlannedFetchFailedRef.current = null;
                   navigation.setParams({openPlannedId: undefined} as never);
@@ -399,11 +406,11 @@ const WorkoutScheduleScreen = () => {
           openPlannedFetchInFlightRef.current = null;
           openPlannedFetchFailedRef.current = openPlannedId;
           Alert.alert(
-            'Kunne ikke åbne',
-            'Vi kunne ikke hente den planlagte træning. Prøv igen senere.',
+            t('plannedSessions.couldNotOpen'),
+            t('plannedSessions.couldNotOpenBody'),
             [
               {
-                text: 'OK',
+                text: t('common.ok'),
                 onPress: () => {
                   openPlannedFetchFailedRef.current = null;
                   navigation.setParams({openPlannedId: undefined} as never);
@@ -483,7 +490,6 @@ const WorkoutScheduleScreen = () => {
     });
   };
 
-  /** "kl. 21:00" — bruges ved siden af træningstype, ikke i gym-titlen */
   const formatClockKl = (date: Date) => {
     const d = new Date(date);
     if (Number.isNaN(d.getTime())) {
@@ -491,11 +497,11 @@ const WorkoutScheduleScreen = () => {
     }
     const h = d.getHours().toString().padStart(2, '0');
     const m = d.getMinutes().toString().padStart(2, '0');
-    return `kl. ${h}:${m}`;
+    return t('plannedSessions.timeAt', {time: `${h}:${m}`});
   };
 
   const formatDateTime = (date: Date) =>
-    new Date(date).toLocaleString('da-DK', {
+    new Date(date).toLocaleString(intlLocale, {
       weekday: 'long',
       day: 'numeric',
       month: 'long',
@@ -557,11 +563,11 @@ const WorkoutScheduleScreen = () => {
 
   const formattedPlanTime = useMemo(
     () =>
-      planDateTime.toLocaleTimeString('da-DK', {
+      planDateTime.toLocaleTimeString(intlLocale, {
         hour: '2-digit',
         minute: '2-digit',
       }),
-    [planDateTime],
+    [planDateTime, intlLocale],
   );
 
   const handleOpenPlanModal = () => {
@@ -596,12 +602,12 @@ const WorkoutScheduleScreen = () => {
   const handlePlanWorkout = async () => {
     const resolvedGym = planSelectedGym || findGymByQuery(planCenterQuery);
     if (!resolvedGym) {
-      Alert.alert('Vælg center', 'Hvor skal I mødes?');
+      Alert.alert(t('plannedSessions.selectCenterAlert'), t('plannedSessions.selectCenterWhere'));
       return;
     }
 
     if (!user?.id) {
-      Alert.alert('Log ind', 'Log ind for at planlægge en session.');
+      Alert.alert(t('plannedSessions.loginRequired'), t('plannedSessions.loginRequiredBody'));
       return;
     }
 
@@ -631,15 +637,15 @@ const WorkoutScheduleScreen = () => {
       setPlanInviteSearchQuery('');
       const inviteMsg =
         inviteeCount === 0
-          ? 'Vi minder dig før sessionen.'
+          ? t('plannedSessions.reminderSolo')
           : inviteeCount === 1
-            ? 'Din ven får besked — I kan holde hinanden accountable og få en påmindelse før tid.'
-            : 'Dine venner får besked — I kan holde hinanden accountable og få en påmindelse før tid.';
-      Alert.alert('Session oprettet', inviteMsg);
+            ? t('plannedSessions.reminderOneFriend')
+            : t('plannedSessions.reminderManyFriends');
+      Alert.alert(t('plannedSessions.sessionCreated'), inviteMsg);
     } catch (e) {
       Alert.alert(
-        'Kunne ikke oprette',
-        e instanceof Error ? e.message : 'Prøv igen om lidt.',
+        t('plannedSessions.createFailed'),
+        e instanceof Error ? e.message : t('plannedSessions.tryAgainSoon'),
       );
     } finally {
       setPlanSaving(false);
@@ -657,12 +663,21 @@ const WorkoutScheduleScreen = () => {
     );
   };
 
-  const formatMuscleSelection = (muscles: MuscleGroup[]): string => {
-    if (muscles.length === 0) {return '';}
-    if (muscles.length === 1) {return muscleLabels[muscles[0]];}
-    if (muscles.length === 2) {return `${muscleLabels[muscles[0]]} & ${muscleLabels[muscles[1]]}`;}
-    return `${muscleLabels[muscles[0]]} + ${muscles.length - 1} flere`;
-  };
+  const formatMuscleSelection = useCallback(
+    (muscles: MuscleGroup[]): string => {
+      if (muscles.length === 0) {
+        return '';
+      }
+      if (muscles.length === 1) {
+        return muscleGroupLabel(muscles[0]);
+      }
+      if (muscles.length === 2) {
+        return `${muscleGroupLabel(muscles[0])} & ${muscleGroupLabel(muscles[1])}`;
+      }
+      return `${muscleGroupLabel(muscles[0])} + ${muscles.length - 1} flere`;
+    },
+    [muscleGroupLabel],
+  );
 
   const getCurrentInvitedIds = () => {
     if (!selectedWorkout || selectedWorkout.type !== 'planned') {
@@ -673,13 +688,13 @@ const WorkoutScheduleScreen = () => {
 
   const handleInviteFriends = () => {
     if (!selectedWorkout || selectedWorkout.type !== 'planned') {
-      Alert.alert('Fejl', 'Ingen session valgt');
+      Alert.alert(t('common.error'), t('plannedSessions.noSessionSelected'));
       return;
     }
     if (!selectedWorkout.data.id.startsWith('plan_')) {
       Alert.alert(
-        'Inviter fra chat',
-        'Sessioner med Gymly-invitation åbner bedst i beskeder med din ven — dér kan I svare og holde styr på aftalen.',
+        t('plannedSessions.inviteFromChat'),
+        t('plannedSessions.inviteFromChatBody'),
       );
       return;
     }
@@ -866,26 +881,24 @@ const WorkoutScheduleScreen = () => {
   return (
     <>
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-      <Text style={styles.screenIntro}>
-        Aftal hurtigt med venner, hold streaken — uden tung planlægning.
-      </Text>
+      <Text style={styles.screenIntro}>{t('plannedSessions.screenIntro')}</Text>
 
       {user?.id ? (
         <View style={styles.inviteSection}>
-          <Text style={styles.inviteSectionTitle}>Invitationer</Text>
+          <Text style={styles.inviteSectionTitle}>{t('plannedSessions.invitationsTitle')}</Text>
           {pendingInvitePlans.length === 0 ? (
             <Text style={styles.inviteSectionEmpty}>
-              Ingen afventende invitationer — når en ven inviterer dig, vises den her.
+              {t('plannedSessions.noPendingInvites')}
             </Text>
           ) : (
             pendingInvitePlans.map(plan => {
               const creatorId = plan.creatorUserId;
               const inviterName = creatorId
                 ? sessionFriendNames.get(creatorId) ||
-                  'Din ven'
-                : 'Din ven';
+                  t('plannedSessions.yourFriend')
+                : t('plannedSessions.yourFriend');
               const clockKl = formatClockKl(plan.scheduledAt);
-              const dateLine = plan.scheduledAt.toLocaleDateString('da-DK', {
+              const dateLine = plan.scheduledAt.toLocaleDateString(intlLocale, {
                 weekday: 'short',
                 day: 'numeric',
                 month: 'short',
@@ -961,7 +974,7 @@ const WorkoutScheduleScreen = () => {
             <Ionicons name="chevron-back" size={18} color="#0F172A" />
           </TouchableOpacity>
           <Text style={styles.calendarHeaderText}>
-            {currentMonth.toLocaleDateString('da-DK', {month: 'long', year: 'numeric'})}
+            {formatMonthYear(currentMonth)}
           </Text>
           <View style={styles.calendarHeaderRight}>
             <TouchableOpacity onPress={handleOpenPlanModal} style={styles.addButton}>
@@ -973,7 +986,7 @@ const WorkoutScheduleScreen = () => {
           </View>
         </View>
         <View style={styles.weekRow}>
-          {WEEKDAYS.map(day => (
+          {weekdayShort.map(day => (
             <Text key={day} style={styles.weekLabel}>
               {day}
             </Text>
@@ -1013,19 +1026,15 @@ const WorkoutScheduleScreen = () => {
 
       <View style={styles.detailSection}>
         <Text style={styles.detailTitle}>
-          {selectedDate.toLocaleDateString('da-DK', {
-            weekday: 'long',
-            day: 'numeric',
-            month: 'long',
-          })}
+          {formatDateMedium(selectedDate)}
         </Text>
 
         {!isPastDay && (
           <View style={styles.detailGroup}>
-            <Text style={styles.detailGroupTitle}>Kommende sessions</Text>
+            <Text style={styles.detailGroupTitle}>{t('plannedSessions.upcoming')}</Text>
             {selectedUpcoming.length === 0 ? (
               <Text style={styles.emptyDetail}>
-                Ingen sessions denne dag — tryk + for at aftale én.
+                {t('plannedSessions.noSessionsDay')}
               </Text>
             ) : (
               selectedUpcoming.map(plan => {
@@ -1059,7 +1068,7 @@ const WorkoutScheduleScreen = () => {
                     <Text style={styles.sessionCardSocial}>{socialLine}</Text>
                   ) : null}
                   <View style={styles.moreInfoHint}>
-                    <Text style={styles.moreInfoText}>Detaljer</Text>
+                    <Text style={styles.moreInfoText}>{t('plannedSessions.details')}</Text>
                     <Ionicons name="chevron-forward" size={16} color={colors.textMuted} />
                 </View>
                 </TouchableOpacity>
@@ -1071,9 +1080,11 @@ const WorkoutScheduleScreen = () => {
 
         {!isFutureDay && (
           <View style={styles.detailGroup}>
-            <Text style={styles.detailGroupTitle}>Tidligere sessions</Text>
+            <Text style={styles.detailGroupTitle}>{t('plannedSessions.previous')}</Text>
             {selectedHistory.length === 0 ? (
-              <Text style={styles.emptyDetail}>Ingen gennemførte sessions denne dag.</Text>
+              <Text style={styles.emptyDetail}>
+                {t('plannedSessions.noCompletedDay')}
+              </Text>
             ) : (
               selectedHistory.map(entry => (
                 <TouchableOpacity
@@ -1094,13 +1105,17 @@ const WorkoutScheduleScreen = () => {
                   ) : null}
                   {entry.acceptedFriends?.length ? (
                     <Text style={styles.sessionCardSocial}>
-                      {`👥 Trænede med ${entry.acceptedFriends.length} ${
-                        entry.acceptedFriends.length === 1 ? 'ven' : 'venner'
-                      }`}
+                      {`👥 ${t('plannedSessions.trainedWith', {
+                        count: String(entry.acceptedFriends.length),
+                        friends:
+                          entry.acceptedFriends.length === 1
+                            ? t('plannedSessions.friendOne')
+                            : t('plannedSessions.friendMany'),
+                      })}`}
                     </Text>
                   ) : null}
                   <View style={styles.moreInfoHint}>
-                    <Text style={styles.moreInfoText}>Detaljer</Text>
+                    <Text style={styles.moreInfoText}>{t('plannedSessions.details')}</Text>
                     <Ionicons name="chevron-forward" size={16} color={colors.textMuted} />
                 </View>
                 </TouchableOpacity>
@@ -1122,7 +1137,9 @@ const WorkoutScheduleScreen = () => {
             <View style={styles.modalContent}>
             <View style={styles.modalHeader}>
               <Text style={styles.modalTitle}>
-                {selectedWorkout?.type === 'planned' ? 'Kommende session' : 'Tidligere session'}
+                {selectedWorkout?.type === 'planned'
+                  ? t('plannedSessions.upcomingOne')
+                  : t('plannedSessions.previousOne')}
               </Text>
               <TouchableOpacity
                 onPress={() => setDetailModalVisible(false)}
@@ -1219,7 +1236,7 @@ const WorkoutScheduleScreen = () => {
                               styles.modalMuscleChipText,
                               selectedWorkout.type === 'completed' && styles.modalMuscleChipHistoryText,
                             ]}>
-                            {muscleLabels[muscle]}
+                            {muscleGroupLabel(muscle)}
                           </Text>
                         </View>
                       ))}
@@ -1233,7 +1250,9 @@ const WorkoutScheduleScreen = () => {
                       <View style={styles.modalSection}>
                         <View style={styles.modalSectionHeader}>
                           <Text style={styles.modalSectionTitle}>
-                            Inviterede venner ({selectedWorkout.data.invitedFriends.length})
+                            {t('plannedSessions.invitedFriends', {
+                              count: String(selectedWorkout.data.invitedFriends.length),
+                            })}
                           </Text>
                           {user?.id &&
                           !isPendingInviteeSession(selectedWorkout.data, user.id) ? (
@@ -1261,7 +1280,7 @@ const WorkoutScheduleScreen = () => {
                           </View>
                         ) : (
                           <Text style={styles.emptyInvitesText}>
-                            Ingen endnu — tryk + for at sende en let invitation.
+                            {t('plannedSessions.noInvitesYet')}
                           </Text>
                         )}
                       </View>
@@ -1274,7 +1293,9 @@ const WorkoutScheduleScreen = () => {
                         selectedWorkout.data.acceptedFriends.length > 0 && (
                           <View style={styles.modalSection}>
                             <Text style={styles.modalSectionTitle}>
-                              Trænede med ({selectedWorkout.data.acceptedFriends.length})
+                              {t('plannedSessions.trainedWithSection', {
+                                count: String(selectedWorkout.data.acceptedFriends.length),
+                              })}
                             </Text>
                             <View style={styles.modalFriendsList}>
                               {selectedWorkout.data.acceptedFriends.map(friendId => (
@@ -1295,10 +1316,12 @@ const WorkoutScheduleScreen = () => {
                             selectedWorkout.data.acceptedFriends.length) && (
                           <View style={styles.modalSection}>
                             <Text style={styles.modalSectionTitle}>
-                              Inviteret men deltog ikke (
-                              {selectedWorkout.data.invitedFriends.length -
-                                (selectedWorkout.data.acceptedFriends?.length || 0)}
-                              )
+                              {t('plannedSessions.invitedNotAttended', {
+                                count: String(
+                                  selectedWorkout.data.invitedFriends.length -
+                                    (selectedWorkout.data.acceptedFriends?.length || 0),
+                                ),
+                              })}
                             </Text>
                             <View style={styles.modalFriendsList}>
                               {selectedWorkout.data.invitedFriends
@@ -1343,10 +1366,8 @@ const WorkoutScheduleScreen = () => {
               style={styles.planModalScroll}
               contentContainerStyle={styles.planModalContent}
               keyboardShouldPersistTaps="handled">
-              <Text style={styles.modalTitle}>Ny session</Text>
-              <Text style={styles.modalText}>
-                Center, træningstype og tid — inviter en ven hvis du vil holde hinanden accountable.
-              </Text>
+              <Text style={styles.modalTitle}>{t('plannedSessions.newSession')}</Text>
+              <Text style={styles.modalText}>{t('plannedSessions.newSessionSub')}</Text>
 
               <TrainingCenterPicker
                 variant="scheduleRow"
@@ -1357,7 +1378,7 @@ const WorkoutScheduleScreen = () => {
               />
 
               <Text style={[styles.sectionLabel, styles.sectionLabelSpacingTop20]}>
-                Træningstype
+                {t('plannedSessions.trainingType')}
               </Text>
               <TrainingTypeMuscleGrid value={planMuscle} onChange={selectPlanMuscle} />
 
@@ -1367,7 +1388,10 @@ const WorkoutScheduleScreen = () => {
                 onPress={() => {
                   const resolvedGym = planSelectedGym || findGymByQuery(planCenterQuery);
                   if (!resolvedGym) {
-                    Alert.alert('Vælg center', 'Vælg center først — så ved venner hvor I mødes.');
+                    Alert.alert(
+                      t('plannedSessions.selectCenterAlert'),
+                      t('plannedSessions.selectCenterFirst'),
+                    );
                     return;
                   }
                   setPlanInviteSectionVisible(!planInviteSectionVisible);
@@ -1379,28 +1403,31 @@ const WorkoutScheduleScreen = () => {
                   color={colors.secondary}
                 />
                 <Text style={styles.planInviteButtonText}>
-                  Inviter venner (valgfrit){planInvitedFriends.length > 0 ? ` · ${planInvitedFriends.length}` : ''}
+                  {t('plannedSessions.inviteFriendsOptional')}
+                  {planInvitedFriends.length > 0 ? ` · ${planInvitedFriends.length}` : ''}
                 </Text>
               </TouchableOpacity>
 
-              <Text style={[styles.sectionLabel, styles.sectionLabelSpacingTop8]}>Dag</Text>
+              <Text style={[styles.sectionLabel, styles.sectionLabelSpacingTop8]}>
+                {t('plannedSessions.day')}
+              </Text>
               <View style={styles.planQuickDates}>
                 <TouchableOpacity
                   style={styles.planQuickDateChip}
                   onPress={() => applyPlanQuickDate(0)}
                   activeOpacity={0.85}>
-                  <Text style={styles.planQuickDateChipText}>I dag</Text>
+                  <Text style={styles.planQuickDateChipText}>{t('plannedSessions.today')}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={styles.planQuickDateChip}
                   onPress={() => applyPlanQuickDate(1)}
                   activeOpacity={0.85}>
-                  <Text style={styles.planQuickDateChipText}>I morgen</Text>
+                  <Text style={styles.planQuickDateChipText}>{t('plannedSessions.tomorrow')}</Text>
                 </TouchableOpacity>
               </View>
 
               <Text style={[styles.sectionLabel, styles.sectionLabelSpacingTop12]}>
-                Dato i kalender
+                {t('plannedSessions.dateInCalendar')}
               </Text>
               <View style={styles.calendarContainer}>
                 <View style={styles.planInlineCalendarHeader}>
@@ -1410,10 +1437,7 @@ const WorkoutScheduleScreen = () => {
                     <Ionicons name="chevron-back" size={18} color="#0F172A" />
                   </TouchableOpacity>
                   <Text style={styles.planInlineCalendarHeaderText}>
-                    {planCalendarMonth.toLocaleDateString('da-DK', {
-                      month: 'long',
-                      year: 'numeric',
-                    })}
+                    {formatMonthYear(planCalendarMonth)}
                   </Text>
                   <TouchableOpacity
                     onPress={() => handleCalendarNav(1)}
@@ -1422,7 +1446,7 @@ const WorkoutScheduleScreen = () => {
                   </TouchableOpacity>
                 </View>
                 <View style={styles.calendarWeekRow}>
-                  {WEEKDAYS.map(day => (
+                  {weekdayShort.map(day => (
                     <Text key={day} style={styles.calendarWeekday}>
                       {day}
                     </Text>
@@ -1467,7 +1491,9 @@ const WorkoutScheduleScreen = () => {
                 onPress={openPlanTimePicker}
                 activeOpacity={0.85}>
                 <Ionicons name="time-outline" size={18} color="#0F172A" />
-                <Text style={styles.timeButtonText}>Kl. {formattedPlanTime}</Text>
+                <Text style={styles.timeButtonText}>
+                  {t('plannedSessions.timeAt', {time: formattedPlanTime})}
+                </Text>
               </TouchableOpacity>
 
               <TouchableOpacity
@@ -1477,7 +1503,7 @@ const WorkoutScheduleScreen = () => {
                 }}
                 disabled={planSaving}>
                 <Text style={styles.primaryButtonText}>
-                  {planSaving ? 'Opretter…' : 'Opret session'}
+                  {planSaving ? t('plannedSessions.creating') : t('plannedSessions.createSession')}
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity
@@ -1490,7 +1516,7 @@ const WorkoutScheduleScreen = () => {
                   setPlanInviteSearchQuery('');
                   setPlanMuscle('bryst');
                 }}>
-                <Text style={styles.modalCloseText}>Luk</Text>
+                <Text style={styles.modalCloseText}>{t('plannedSessions.close')}</Text>
               </TouchableOpacity>
             </ScrollView>
           </View>
@@ -1507,7 +1533,7 @@ const WorkoutScheduleScreen = () => {
                   <View style={styles.planInvitePopupContent}>
                     {/* Header */}
                     <View style={styles.planInvitePopupHeader}>
-                      <Text style={styles.planInvitePopupTitle}>Inviter venner</Text>
+                      <Text style={styles.planInvitePopupTitle}>{t('plannedSessions.inviteFriends')}</Text>
                       <TouchableOpacity
                         onPress={() => {
                           setPlanInviteSectionVisible(false);
@@ -1523,7 +1549,7 @@ const WorkoutScheduleScreen = () => {
                       <Ionicons name="search" size={20} color={colors.textTertiary} style={styles.planInviteSearchIcon} />
                       <TextInput
                         style={styles.planInviteSearchInput}
-                        placeholder="Søg efter venner eller grupper..."
+                        placeholder={t('plannedSessions.searchFriendsGroups')}
                         placeholderTextColor={colors.textTertiary}
                         value={planInviteSearchQuery}
                         onChangeText={setPlanInviteSearchQuery}
@@ -1557,7 +1583,7 @@ const WorkoutScheduleScreen = () => {
                           filteredPlanInviteFriends.filter(f => !planInvitedFriends.includes(f.id)).length === 0 &&
                             styles.inviteAllTextDisabled,
                         ]}>
-                        Inviter alle venner
+                        {t('plannedSessions.inviteAllFriends')}
                       </Text>
                     </TouchableOpacity>
 
@@ -1610,7 +1636,9 @@ const WorkoutScheduleScreen = () => {
                                       styles.invitePillText,
                                       hasBeenInvited && styles.invitePillTextDisabled,
                                     ]}>
-                                    {hasBeenInvited ? 'Inviteret' : 'Inviter'}
+                                    {hasBeenInvited
+                                      ? t('plannedSessions.invited')
+                                      : t('plannedSessions.invite')}
                                   </Text>
                                 </TouchableOpacity>
                               </View>
@@ -1622,7 +1650,9 @@ const WorkoutScheduleScreen = () => {
                       {/* Empty state */}
                       {planInviteSearchQuery.trim().length > 0 && filteredPlanInviteFriends.length === 0 && (
                         <View style={styles.planInviteEmpty}>
-                          <Text style={styles.planInviteEmptyText}>Ingen resultater fundet</Text>
+                          <Text style={styles.planInviteEmptyText}>
+                            {t('newMessage.noResults')}
+                          </Text>
                         </View>
                       )}
                     </ScrollView>
@@ -1663,14 +1693,14 @@ const WorkoutScheduleScreen = () => {
       presentationStyle="overFullScreen">
       <View style={styles.inviteModalOverlay}>
         <View style={[styles.modalCard, styles.friendModal]}>
-          <Text style={styles.modalTitle}>Inviter venner</Text>
+          <Text style={styles.modalTitle}>{t('plannedSessions.inviteFriends')}</Text>
 
           {/* Search Bar */}
           <View style={styles.inviteSearchContainer}>
             <Ionicons name="search" size={20} color={colors.textTertiary} style={styles.inviteSearchIcon} />
             <TextInput
               style={styles.inviteSearchInput}
-              placeholder="Søg efter venner..."
+              placeholder={t('newMessage.searchFriends')}
               placeholderTextColor={colors.textTertiary}
               value={inviteSearchQuery}
               onChangeText={setInviteSearchQuery}
@@ -1697,12 +1727,12 @@ const WorkoutScheduleScreen = () => {
                 styles.inviteAllText,
                 remainingInviteCount === 0 && styles.inviteAllTextDisabled,
               ]}>
-              Inviter alle
+              {t('plannedSessions.inviteAll')}
             </Text>
           </TouchableOpacity>
           <ScrollView style={styles.friendList} showsVerticalScrollIndicator={false}>
             {filteredInviteFriends.length === 0 ? (
-              <Text style={styles.emptySearchText}>Ingen venner fundet</Text>
+              <Text style={styles.emptySearchText}>{t('plannedSessions.noFriendsFound')}</Text>
             ) : (
               filteredInviteFriends.map(friend => {
                 const hasBeenInvited = currentInvitedIds.includes(friend.id);
@@ -1734,7 +1764,9 @@ const WorkoutScheduleScreen = () => {
                           styles.invitePillText,
                           hasBeenInvited && styles.invitePillTextDisabled,
                         ]}>
-                        {hasBeenInvited ? 'Inviteret' : 'Inviter'}
+                        {hasBeenInvited
+                          ? t('plannedSessions.invited')
+                          : t('plannedSessions.invite')}
                       </Text>
                     </TouchableOpacity>
                   </View>
@@ -1743,7 +1775,7 @@ const WorkoutScheduleScreen = () => {
             )}
           </ScrollView>
           <TouchableOpacity style={styles.modalClose} onPress={handleInviteModalDone}>
-            <Text style={styles.modalCloseText}>Færdig</Text>
+            <Text style={styles.modalCloseText}>{t('plannedSessions.done')}</Text>
           </TouchableOpacity>
         </View>
       </View>

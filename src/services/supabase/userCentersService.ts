@@ -58,6 +58,17 @@ export async function fetchUserCenterIdsOrdered(userId: string): Promise<string[
   return rows.map(r => r.centerId);
 }
 
+/**
+ * Single write path for home gyms (onboarding, profile Rediger, settings).
+ * Updates `user_centers` + mirrors `profiles.favorite_gym_ids`.
+ */
+export async function persistUserHomeGyms(
+  userId: string,
+  centerIds: string[],
+): Promise<string[]> {
+  return saveUserCenters(userId, centerIds);
+}
+
 export async function saveUserCenters(
   userId: string,
   centerIds: string[],

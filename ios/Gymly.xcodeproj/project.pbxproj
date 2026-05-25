@@ -22,6 +22,8 @@
 		B7C1A0232A68108700A75B9A /* GymlyLiveActivityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C1A0212A68108700A75B9A /* GymlyLiveActivityWidget.swift */; };
 		B7C1A0252A68108700A75B9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7C1A0262A68108700A75B9A /* Assets.xcassets */; };
 		B7C1A0612A68108700A75B9A /* GymlyLiveActivityWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B7C1A0312A68108700A75B9A /* GymlyLiveActivityWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C7D1A0912A68108700A75B9A /* GymlyFresh/AppBadge/GymlyAppBadgeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1A0932A68108700A75B9A /* GymlyFresh/AppBadge/GymlyAppBadgeModule.swift */; };
+		C7D1A0922A68108700A75B9A /* GymlyFresh/AppBadge/GymlyAppBadgeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D1A0942A68108700A75B9A /* GymlyFresh/AppBadge/GymlyAppBadgeModule.m */; };
 		EA728D3C88368E38B8F3404E /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +82,8 @@
 		B7C1A0262A68108700A75B9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7C1A0312A68108700A75B9A /* GymlyLiveActivityWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GymlyLiveActivityWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7C1A0A12A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7D1A0932A68108700A75B9A /* GymlyFresh/AppBadge/GymlyAppBadgeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymlyFresh/AppBadge/GymlyAppBadgeModule.swift; sourceTree = "<group>"; };
+		C7D1A0942A68108700A75B9A /* GymlyFresh/AppBadge/GymlyAppBadgeModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GymlyFresh/AppBadge/GymlyAppBadgeModule.m; sourceTree = "<group>"; };
 		D5338F27D99A473A8C6D8C11 /* gymly-logo.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "gymly-logo.png"; path = "../src/assets/images/gymly-logo.png"; sourceTree = "<group>"; };
 		E1A2B3C4D5E6F78901234567 /* GymlyFresh.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GymlyFresh.entitlements; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -135,6 +139,8 @@
 				B7C1A0012A68108700A75B9A /* GymlyFresh/LiveActivity/GymlyActivityAttributes.swift */,
 				B7C1A0022A68108700A75B9A /* GymlyFresh/LiveActivity/GymlyLiveActivityModule.swift */,
 				B7C1A0032A68108700A75B9A /* GymlyFresh/LiveActivity/GymlyLiveActivityModule.m */,
+				C7D1A0932A68108700A75B9A /* GymlyFresh/AppBadge/GymlyAppBadgeModule.swift */,
+				C7D1A0942A68108700A75B9A /* GymlyFresh/AppBadge/GymlyAppBadgeModule.m */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -496,6 +502,8 @@
 				B7C1A0112A68108700A75B9A /* GymlyFresh/LiveActivity/GymlyActivityAttributes.swift in Sources */,
 				B7C1A0122A68108700A75B9A /* GymlyFresh/LiveActivity/GymlyLiveActivityModule.swift in Sources */,
 				B7C1A0132A68108700A75B9A /* GymlyFresh/LiveActivity/GymlyLiveActivityModule.m in Sources */,
+				C7D1A0912A68108700A75B9A /* GymlyFresh/AppBadge/GymlyAppBadgeModule.swift in Sources */,
+				C7D1A0922A68108700A75B9A /* GymlyFresh/AppBadge/GymlyAppBadgeModule.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
@@ -586,7 +594,7 @@
 				CODE_SIGN_ENTITLEMENTS = GymlyFresh/GymlyFresh.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 50;
 				DEVELOPMENT_TEAM = CDVFBW66X4;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -599,7 +607,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.29;
+				MARKETING_VERSION = 2.38;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -624,7 +632,7 @@
 				CODE_SIGN_ENTITLEMENTS = GymlyFresh/GymlyFresh.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 50;
 				DEVELOPMENT_TEAM = CDVFBW66X4;
 				INFOPLIST_FILE = GymlyFresh/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
@@ -632,7 +640,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.29;
+				MARKETING_VERSION = 2.38;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

@@ -8,19 +8,33 @@ import type {MuscleGroup} from '@/types/workout.types';
 import MuscleGroupTileIcon from '@/components/ui/MuscleGroupTileIcon';
 import colors from '@/theme/colors';
 import {spacing, radius} from '@/theme/designTokens';
+import {useTranslation} from '@/i18n';
 
-const MUSCLE_GROUPS: {key: MuscleGroup; label: string}[] = [
-  {key: 'bryst', label: 'Bryst'},
-  {key: 'triceps', label: 'Triceps'},
-  {key: 'skulder', label: 'Skulder'},
-  {key: 'ben', label: 'Ben'},
-  {key: 'biceps', label: 'Biceps'},
-  {key: 'mave', label: 'Mave'},
-  {key: 'ryg', label: 'Ryg'},
-  {key: 'cardio', label: 'Cardio'},
-  {key: 'reformer', label: 'Reformer'},
-  {key: 'pilates', label: 'Pilates'},
+const MUSCLE_GROUP_KEYS: MuscleGroup[] = [
+  'bryst',
+  'triceps',
+  'skulder',
+  'ben',
+  'biceps',
+  'mave',
+  'ryg',
+  'cardio',
+  'reformer',
+  'pilates',
 ];
+
+const MUSCLE_LABEL_KEYS: Record<MuscleGroup, string> = {
+  bryst: 'checkIn.muscleChest',
+  triceps: 'checkIn.muscleTriceps',
+  skulder: 'checkIn.muscleShoulder',
+  ben: 'checkIn.muscleLegs',
+  biceps: 'checkIn.muscleBiceps',
+  mave: 'checkIn.muscleAbs',
+  ryg: 'checkIn.muscleBack',
+  cardio: 'checkIn.muscleCardio',
+  reformer: 'checkIn.muscleReformer',
+  pilates: 'checkIn.musclePilates',
+};
 
 /** Afstand mellem kort (krav: 16px) */
 const CARD_GAP = spacing.lg;
@@ -34,27 +48,29 @@ const TrainingTypeMuscleGrid: React.FC<TrainingTypeMuscleGridProps> = ({
   value,
   onChange,
 }) => {
+  const {t} = useTranslation();
   return (
     <View style={styles.grid}>
-      {MUSCLE_GROUPS.map(item => {
-        const isActive = value === item.key;
+      {MUSCLE_GROUP_KEYS.map(key => {
+        const label = t(MUSCLE_LABEL_KEYS[key]);
+        const isActive = value === key;
         return (
-          <View key={item.key} style={styles.cellOuter}>
+          <View key={key} style={styles.cellOuter}>
             <TouchableOpacity
               activeOpacity={0.85}
               accessibilityRole="button"
               accessibilityState={{selected: isActive}}
-              accessibilityLabel={item.label}
-              onPress={() => onChange(item.key)}
+              accessibilityLabel={label}
+              onPress={() => onChange(key)}
               style={[styles.cell, isActive && styles.cellActive]}>
               <MuscleGroupTileIcon
-                group={item.key}
+                group={key}
                 size={40}
                 color={isActive ? '#fff' : colors.textMuted}
                 tintColor={isActive ? '#fff' : undefined}
               />
               <Text style={[styles.label, isActive && styles.labelActive]}>
-                {item.label}
+                {label}
               </Text>
             </TouchableOpacity>
           </View>

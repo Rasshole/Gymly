@@ -48,6 +48,7 @@ import {
   isFriendRequestStaleError,
 } from '@/utils/friendRequestRpcErrors';
 import {useFriendStore} from '@/store/friendStore';
+import {useTranslation} from '@/i18n';
 import {
   ProfileHeader,
   ProfileCentersList,
@@ -116,12 +117,6 @@ type FriendProfileUser = {
 
 type ProfileTab = 'feed' | 'data';
 
-const DATA_PERIOD_OPTIONS: {key: WorkoutPeriod; label: string}[] = [
-  {key: 'week', label: 'Uge'},
-  {key: 'month', label: 'Måned'},
-  {key: 'year', label: 'År'},
-  {key: 'all', label: 'I alt'},
-];
 
 const NON_FRIEND_VIBE_OPTIONS = [
   {emoji: '💪', label: 'Respekt'},
@@ -195,6 +190,16 @@ function centersFromGymNameStrings(gyms: string[]): ProfileCenterRow[] {
 }
 
 const FriendProfileScreen = () => {
+  const {t} = useTranslation();
+  const dataPeriodOptions = useMemo(
+    () => [
+      {key: 'week' as const, label: t('profile.periodWeek')},
+      {key: 'month' as const, label: t('friendProfile.periodMonth')},
+      {key: 'year' as const, label: t('friendProfile.periodYear')},
+      {key: 'all' as const, label: t('profile.periodAll')},
+    ],
+    [t],
+  );
   const navigation = useNavigation<StackNavigationProp<any>>();
   const route = useRoute();
   const params = (route.params as FriendProfileRouteParams) || {};
@@ -518,16 +523,17 @@ const FriendProfileScreen = () => {
 
   const headerActiveStatus = useMemo(() => {
     if (friendLiveCheckIn?.gym_name?.trim()) {
-      return `Træner nu i ${friendLiveCheckIn.gym_name.trim()}`;
+      return t('profile.trainingNow', {gym: friendLiveCheckIn.gym_name.trim()});
     }
     if (sessionInsights.recentlyActive && sessionInsights.lastEndedAt) {
-      return 'Aktiv for nylig';
+      return t('friendProfile.activeRecently');
     }
     return undefined;
   }, [
     friendLiveCheckIn,
     sessionInsights.lastEndedAt,
     sessionInsights.recentlyActive,
+    t,
   ]);
 
   const headerPrimaryCenterLabel = useMemo(() => {
@@ -543,11 +549,11 @@ const FriendProfileScreen = () => {
       const nameLine = formatGymNameWithBrand(first.name, first.brand);
       const tail = first.city?.trim();
       return tail
-        ? `Træner ofte i ${nameLine} — ${tail}`
-        : `Træner ofte i ${nameLine}`;
+        ? t('profile.trainsOftenCity', {gym: nameLine, city: tail})
+        : t('profile.trainsOften', {gym: nameLine});
     }
     if (sessionInsights.topGymName) {
-      return `Træner ofte i ${sessionInsights.topGymName}`;
+      return t('profile.trainsOften', {gym: sessionInsights.topGymName});
     }
     return undefined;
   }, [
@@ -555,6 +561,7 @@ const FriendProfileScreen = () => {
     params.activeCenterName,
     profileCenterRows,
     sessionInsights.topGymName,
+    t,
   ]);
 
   const handleRemoveFriend = useCallback(() => {
@@ -562,12 +569,12 @@ const FriendProfileScreen = () => {
       return;
     }
     Alert.alert(
-      'Fjern ven',
-      'Er du sikker på, at du vil fjerne denne ven?',
+      t('friendProfile.removeFriendTitle'),
+      t('friendProfile.removeFriendBody'),
       [
-        {text: 'Annuller', style: 'cancel'},
+        {text: t('common.cancel'), style: 'cancel'},
         {
-          text: 'Fjern',
+          text: t('common.delete'),
           style: 'destructive',
           onPress: async () => {
             try {
@@ -578,15 +585,15 @@ const FriendProfileScreen = () => {
               navigation.goBack();
             } catch (e) {
               Alert.alert(
-                'Kunne ikke fjerne ven',
-                (e as Error).message || 'Prøv igen',
+                t('userProfile.couldNotRemove'),
+                (e as Error).message || t('common.retry'),
               );
             }
           },
         },
       ],
     );
-  }, [currentUser?.id, friendUser, navigation, refreshMyProfileStats, removeFriendFromStore]);
+  }, [currentUser?.id, friendUser, navigation, refreshMyProfileStats, removeFriendFromStore, t]);
 
   const handleAddFriend = useCallback(async () => {
     if (!currentUser?.id || !friendUser) {
@@ -601,11 +608,11 @@ const FriendProfileScreen = () => {
       );
       setPendingBetween(pend);
     } catch (e) {
-      Alert.alert('Kunne ikke sende', (e as Error).message || 'Prøv igen.');
+      Alert.alert(t('friendProfile.couldNotSend'), (e as Error).message || t('common.retry'));
     } finally {
       setRequestActionLoading(false);
     }
-  }, [currentUser?.id, friendUser]);
+  }, [currentUser?.id, friendUser, t]);
 
   const handleAccept = useCallback(async () => {
     if (!currentUser?.id || !pendingBetween?.incoming) {
@@ -637,7 +644,7 @@ const FriendProfileScreen = () => {
         })();
         return;
       }
-      Alert.alert('Kunne ikke acceptere', msg || 'Prøv igen.');
+      Alert.alert(t('friendProfile.couldNotAccept'), msg || t('common.retry'));
     } finally {
       setRequestActionLoading(false);
     }
@@ -659,7 +666,7 @@ const FriendProfileScreen = () => {
       await declineFriendRequest(pendingBetween.incoming.id);
       setPendingBetween({incoming: null, outgoing: null});
     } catch (e) {
-      Alert.alert('Kunne ikke afvise', (e as Error).message || 'Prøv igen.');
+      Alert.alert(t('friendProfile.couldNotDecline'), (e as Error).message || t('common.retry'));
     } finally {
       setRequestActionLoading(false);
     }
@@ -671,8 +678,8 @@ const FriendProfileScreen = () => {
     }
     if (!friendLiveCheckIn) {
       Alert.alert(
-        'Send vibe',
-        'Personen skal være aktiv på et center for at du kan sende en vibe. Tjek ind og find dem under Live i centret.',
+        t('userProfile.couldNotSendVibe'),
+        t('friendProfile.vibeRequiresActive'),
       );
       return;
     }
@@ -928,7 +935,7 @@ const FriendProfileScreen = () => {
       {
         key: 'time',
         icon: 'time',
-        label: 'Træningstid',
+        label: t('friendProfile.trainingTime'),
         value: formatTotalTime(mergedDisplayStats?.totalTrainingMinutes ?? 0),
       },
       {
@@ -964,7 +971,7 @@ const FriendProfileScreen = () => {
       {
         key: 'time',
         icon: 'time',
-        label: 'Træningstid',
+        label: t('friendProfile.trainingTime'),
         value: formatTotalTime(mergedDisplayStats?.totalTrainingMinutes ?? 0),
       },
       {
@@ -1233,16 +1240,14 @@ const FriendProfileScreen = () => {
 
           {profileCenterRows.length > 0 ? (
             <ProfileCentersList
-              sectionTitle="Lokale centre"
+              sectionTitle={t('editProfile.localCentres')}
               centers={profileCenterRows}
               activeCountForId={id => getActiveUsersCount(id)}
             />
           ) : (
             <View style={styles.noCentersBox}>
-              <Text style={styles.noCentersTitle}>Lokale centre</Text>
-              <Text style={styles.noCentersSub}>
-                Har ikke valgt primært center endnu
-              </Text>
+              <Text style={styles.noCentersTitle}>{t('editProfile.localCentres')}</Text>
+              <Text style={styles.noCentersSub}>{t('friendProfile.noPrimaryCenter')}</Text>
             </View>
           )}
         </View>
@@ -1261,7 +1266,7 @@ const FriendProfileScreen = () => {
                   ) : (
                     <>
                       <Icon name="checkmark-circle" size={20} color="#fff" />
-                      <Text style={styles.addFriendRowText}>Accepter</Text>
+                      <Text style={styles.addFriendRowText}>{t('friendProfile.accept')}</Text>
                     </>
                   )}
                 </TouchableOpacity>
@@ -1270,7 +1275,7 @@ const FriendProfileScreen = () => {
                   onPress={handleDecline}
                   disabled={requestActionLoading}
                   activeOpacity={0.85}>
-                  <Text style={styles.declineFriendBtnText}>Afvis</Text>
+                  <Text style={styles.declineFriendBtnText}>{t('friendProfile.decline')}</Text>
                 </TouchableOpacity>
               </View>
             ) : null}
@@ -1284,14 +1289,14 @@ const FriendProfileScreen = () => {
                     size={18}
                     color={colors.textSecondary}
                   />
-                  <Text style={styles.requestSentPillText}>Anmodning sendt</Text>
+                  <Text style={styles.requestSentPillText}>{t('friendProfile.requestSent')}</Text>
                 </View>
                 <TouchableOpacity
                   style={styles.sendVibeOutlineFull}
                   onPress={() => void openVibeSheet()}
                   activeOpacity={0.85}>
                   <Text style={styles.emojiInline}>✨</Text>
-                  <Text style={styles.sendVibeOutlineText}>Send vibe</Text>
+                  <Text style={styles.sendVibeOutlineText}>{t('friendProfile.sendVibe')}</Text>
                 </TouchableOpacity>
               </>
             ) : null}
@@ -1313,7 +1318,7 @@ const FriendProfileScreen = () => {
                         size={20}
                         color="#fff"
                       />
-                      <Text style={styles.addFriendRowText}>Tilføj ven</Text>
+                      <Text style={styles.addFriendRowText}>{t('userProfile.addFriend')}</Text>
                     </>
                   )}
                 </TouchableOpacity>
@@ -1322,7 +1327,7 @@ const FriendProfileScreen = () => {
                   onPress={() => void openVibeSheet()}
                   activeOpacity={0.85}>
                   <Text style={styles.emojiInline}>✨</Text>
-                  <Text style={styles.sendVibeOutlineText}>Send vibe</Text>
+                  <Text style={styles.sendVibeOutlineText}>{t('friendProfile.sendVibe')}</Text>
                 </TouchableOpacity>
               </View>
             ) : null}
@@ -1335,7 +1340,7 @@ const FriendProfileScreen = () => {
               style={styles.ctaButtonWrap}
               onPress={openChatWithFriend}>
               <Icon name="chatbubble-outline" size={20} color="#fff" />
-              <Text style={styles.messageButtonText}>Skriv besked</Text>
+              <Text style={styles.messageButtonText}>{t('friendProfile.writeMessage')}</Text>
             </PurpleGradientButton>
             <PurpleGradientButton
               style={styles.ctaButtonWrap}
@@ -1346,7 +1351,7 @@ const FriendProfileScreen = () => {
                 })
               }>
               <Icon name="calendar-outline" size={20} color="#fff" />
-              <Text style={styles.messageButtonText}>Inviter til træning</Text>
+              <Text style={styles.messageButtonText}>{t('friendProfile.inviteToWorkout')}</Text>
             </PurpleGradientButton>
           </View>
         )}
@@ -1363,7 +1368,7 @@ const FriendProfileScreen = () => {
             />
             <Text
               style={[styles.tabBtnText, tab === 'feed' && styles.tabBtnTextActive]}>
-              Feed
+              {t('profile.feedTab')}
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -1380,15 +1385,15 @@ const FriendProfileScreen = () => {
                 styles.tabBtnText,
                 tab === 'data' && styles.tabBtnTextActive,
               ]}>
-              Data
+              {t('profile.dataTab')}
             </Text>
           </TouchableOpacity>
         </View>
 
         {tab === 'feed' ? (
           <View style={styles.section}>
-            <Text style={styles.blockTitle}>Træninger</Text>
-            <Text style={styles.blockSubtitle}>Historik fra sessioner</Text>
+            <Text style={styles.blockTitle}>{t('friendProfile.workouts')}</Text>
+            <Text style={styles.blockSubtitle}>{t('friendProfile.workoutHistorySub')}</Text>
             <Card variant="outlined" padding="md">
               {sessionsLoading && completedSessions.length === 0 ? (
                 <View style={styles.sessionsLoadingBox}>
@@ -1404,19 +1409,17 @@ const FriendProfileScreen = () => {
               ) : (
                 <View style={styles.emptyInline}>
                   <Icon name="fitness-outline" size={32} color={colors.textMuted} />
-                  <Text style={styles.emptyTitle}>Ingen træninger endnu</Text>
-                  <Text style={styles.emptySubtext}>
-                    Afsluttede tjek-ind vises her efter endt session
-                  </Text>
+                  <Text style={styles.emptyTitle}>{t('profile.noWorkoutsYet')}</Text>
+                  <Text style={styles.emptySubtext}>{t('friendProfile.completedCheckInsHint')}</Text>
                 </View>
               )}
             </Card>
 
             <Text style={[styles.blockTitle, styles.blockTitleSpaced]}>
-              Opslag &amp; delte træninger
+              {t('profile.postsAndShared')}
             </Text>
             <Text style={styles.blockSubtitle}>
-              Billeder, PR&apos;s og feed fra {dName}
+              {t('friendProfile.feedPostsSub', {name: dName})}
             </Text>
             <View style={styles.profileFeedList}>
               {myFeedItems.length > 0 ? (
@@ -1454,17 +1457,15 @@ const FriendProfileScreen = () => {
               ) : (
                 <View style={styles.emptyInline}>
                   <Icon name="images-outline" size={36} color={colors.textMuted} />
-                  <Text style={styles.emptyTitle}>Ingen opslag endnu</Text>
-                  <Text style={styles.emptySubtext}>
-                    Del en træning efter din næste session.
-                  </Text>
+                  <Text style={styles.emptyTitle}>{t('profile.noPosts')}</Text>
+                  <Text style={styles.emptySubtext}>{t('friendProfile.shareAfterSession')}</Text>
                 </View>
               )}
             </View>
           </View>
         ) : (
           <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Statistik</Text>
+            <Text style={styles.sectionTitle}>{t('profile.statistics')}</Text>
             <View style={styles.streakBlock}>
               <StreakHighlight
                 currentStreak={mergedDisplayStats?.currentStreak ?? 0}
@@ -1475,16 +1476,14 @@ const FriendProfileScreen = () => {
               <ProfileStatGrid stats={stats} />
             </Card>
 
-            <Text style={styles.recentWorkoutsHeading}>Seneste træninger</Text>
+            <Text style={styles.recentWorkoutsHeading}>{t('profile.recentWorkouts')}</Text>
             <Text style={styles.recentWorkoutsSub}>
               {dataTabWorkoutsSummary.count === 0
-                ? 'Ingen i valgt periode'
-                : `${dataTabWorkoutsSummary.count} træning${
-                    dataTabWorkoutsSummary.count === 1 ? '' : 'er'
-                  } · ${formatTotalTime(dataTabWorkoutsSummary.minutes)}`}
+                ? t('profile.noneInPeriod')
+                : `${t('profile.workoutCount', {count: dataTabWorkoutsSummary.count})} · ${formatTotalTime(dataTabWorkoutsSummary.minutes)}`}
             </Text>
             <View style={styles.periodChips}>
-              {DATA_PERIOD_OPTIONS.map(({key, label}) => {
+              {dataPeriodOptions.map(({key, label}) => {
                 const active = dataWorkoutPeriod === key;
                 return (
                   <TouchableOpacity
@@ -1518,19 +1517,17 @@ const FriendProfileScreen = () => {
               ) : (
                 <View style={styles.emptyInline}>
                   <Icon name="calendar-outline" size={28} color={colors.textMuted} />
-                  <Text style={styles.emptyTitle}>Ingen træninger her</Text>
-                  <Text style={styles.emptySubtext}>
-                    Vælg en anden periode, eller når der findes afsluttede sessioner
-                  </Text>
+                  <Text style={styles.emptyTitle}>{t('profile.noWorkoutsHere')}</Text>
+                  <Text style={styles.emptySubtext}>{t('profile.noWorkoutsSub')}</Text>
                 </View>
               )}
             </Card>
 
-            <Text style={styles.goalsHeading}>Mål</Text>
+            <Text style={styles.goalsHeading}>{t('profile.goals')}</Text>
             <Card variant="outlined" padding="md">
               {theirGoals.length === 0 ? (
                 <Text style={styles.goalsEmpty}>
-                  Ingen aktive mål for {dName}
+                  {t('friendProfile.noGoalsFor', {name: dName})}
                 </Text>
               ) : (
                 theirGoals.map(goal => (

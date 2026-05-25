@@ -1,6 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {Alert, AppState, Linking} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useTranslation} from '@/i18n';
 import {useAppStore} from '@/store/appStore';
 import {
   getFcmToken,
@@ -20,6 +21,7 @@ const PROMPT_KEY = '@gymly/push_prompt_completed_v1';
  * Efter login: token + refresh, tilladelses-prompt (iOS) før system-popup, FCM-åbninger.
  */
 export function PushNotificationBootstrap() {
+  const {t} = useTranslation();
   const userId = useAppStore(s => s.user?.id);
   const [showPrompt, setShowPrompt] = useState(false);
 
@@ -121,11 +123,11 @@ export function PushNotificationBootstrap() {
     }
     if (!granted) {
       Alert.alert(
-        'Notifikationer er slået fra',
-        'Du kan slå dem til i Indstillinger for at modtage beskeder og venne-notifikationer.',
+        t('pushBootstrap.disabledTitle'),
+        t('pushBootstrap.disabledBody'),
         [
-          {text: 'Ikke nu'},
-          {text: 'Åbn indstillinger', onPress: () => Linking.openSettings()},
+          {text: t('pushNotifications.notNow')},
+          {text: t('pushBootstrap.openSettings'), onPress: () => Linking.openSettings()},
         ],
       );
     }
@@ -150,11 +152,11 @@ export function PushNotificationBootstrap() {
         }
         if (status === 'denied') {
           Alert.alert(
-            'Notifikationer er slået fra',
-            'Gymly kan ikke sende push-notifikationer. Du kan slå dem til i enhedsindstillinger.',
+            t('pushBootstrap.pushDisabledTitle'),
+            t('pushBootstrap.pushDisabledBody'),
             [
-              {text: 'Ikke nu'},
-              {text: 'Åbn indstillinger', onPress: () => Linking.openSettings()},
+              {text: t('pushNotifications.notNow')},
+              {text: t('pushBootstrap.openSettings'), onPress: () => Linking.openSettings()},
             ],
           );
         }

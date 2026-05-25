@@ -1,9 +1,10 @@
 import {useEffect} from 'react';
+import {AppState} from 'react-native';
 import {useAppStore} from '@/store/appStore';
 import {useInAppNotificationStore} from '@/store/inAppNotificationStore';
 
 /**
- * Én enkelt sted: fetch + Realtime for public.notifications
+ * Fetch notifications on login + refetch unread count when app returns to foreground.
  */
 export function InAppNotificationBootstrap() {
   const userId = useAppStore(s => s.user?.id);
@@ -17,6 +18,18 @@ export function InAppNotificationBootstrap() {
     }
     void refresh(userId);
   }, [userId, refresh, reset]);
+
+  useEffect(() => {
+    if (!userId) {
+      return;
+    }
+    const sub = AppState.addEventListener('change', next => {
+      if (next === 'active') {
+        void refresh(userId);
+      }
+    });
+    return () => sub.remove();
+  }, [userId, refresh]);
 
   return null;
 }

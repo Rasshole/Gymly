@@ -33,14 +33,71 @@ const GYM_PLAN_STATUS_PREFIX = '[GYM_PLAN_STATUS]';
 const DM_MESSAGE_SELECT_WITH_READ = 'id, thread_id, sender_id, body, image_url, created_at, read_at';
 const DM_MESSAGE_SELECT_LEGACY = 'id, thread_id, sender_id, body, image_url, created_at';
 
+function postgresErrorText(err: unknown): string {
+  if (!err || typeof err !== 'object') {
+    return String(err ?? '');
+  }
+  const e = err as {message?: string; details?: string; hint?: string; code?: string};
+  return [e.message, e.details, e.hint, e.code].filter(Boolean).join(' ');
+}
+
 function isReadReceiptColumnError(err: unknown): boolean {
-  const msg = err instanceof Error ? err.message : String(err ?? '');
-  return /read_at|schema cache/i.test(msg);
+  const t = postgresErrorText(err).toLowerCase();
+  return (
+    t.includes('read_at') &&
+    /does not exist|schema cache|unknown column|42703|pgrst204/i.test(t)
+  );
+}
+
+/** Brugervenlig fejl — aldrig rå Postgres/PostgREST-tekst. */
+export function userFacingDmError(
+  err: unknown,
+  fallback = 'Beskeden kunne ikke sendes. Prøv igen.',
+): string {
+  const raw = postgresErrorText(err);
+  if (/not_friends|not friends|P0001/i.test(raw)) {
+    return 'I kan kun sende beskeder til venner.';
+  }
+  if (/not authenticated/i.test(raw)) {
+    return 'Log ind igen for at sende beskeder.';
+  }
+  if (/network|fetch failed|failed to fetch|timeout/i.test(raw)) {
+    return 'Ingen forbindelse. Tjek internettet og prøv igen.';
+  }
+  if (isReadReceiptColumnError(err) || /column |does not exist|42703|postgres|pgrst/i.test(raw)) {
+    return fallback;
+  }
+  if (raw.length > 0 && raw.length < 100 && !/column |does not exist/i.test(raw)) {
+    return raw;
+  }
+  return fallback;
 }
 
 function logDmService(context: string, err: unknown) {
-  const message = err instanceof Error ? err.message : String(err ?? '');
-  console.warn(`[dm] ${context}:`, message);
+  console.warn(`[dm] ${context}:`, postgresErrorText(err));
+}
+
+async function fetchDmMessageRowById(
+  messageId: string,
+  threadId: string,
+): Promise<DmMessageRow> {
+  for (const cols of [DM_MESSAGE_SELECT_WITH_READ, DM_MESSAGE_SELECT_LEGACY]) {
+    const {data, error} = await supabase
+      .from('dm_messages')
+      .select(cols)
+      .eq('id', messageId)
+      .eq('thread_id', threadId)
+      .maybeSingle();
+    if (!error && data) {
+      return data as DmMessageRow;
+    }
+    if (error && !isReadReceiptColumnError(error)) {
+      throw new Error(userFacingDmError(error));
+    }
+  }
+  throw new Error(
+    'Beskeden blev sendt, men kunne ikke hentes. Træk ned for at opdatere.',
+  );
 }
 
 function parsePlannedWorkoutDmBody(body: string | null): {
@@ -185,7 +242,7 @@ export async function sendDmMessage(
     throw new Error('Ikke logget ind');
   }
 
-  let {data, error} = await supabase
+  const {data: inserted, error: insertErr} = await supabase
     .from('dm_messages')
     .insert({
       thread_id: threadId,
@@ -193,26 +250,13 @@ export async function sendDmMessage(
       body: body || null,
       image_url: imageUrl,
     })
-    .select(DM_MESSAGE_SELECT_WITH_READ)
+    .select('id')
     .single();
-  if (error && isReadReceiptColumnError(error)) {
-    logDmService('sendDmMessage: retry without read_at', error);
-    ({data, error} = await supabase
-      .from('dm_messages')
-      .insert({
-        thread_id: threadId,
-        sender_id: uid,
-        body: body || null,
-        image_url: imageUrl,
-      })
-      .select(DM_MESSAGE_SELECT_LEGACY)
-      .single());
-  }
 
-  if (error) {
-    throw new Error(error.message || 'Kunne ikke sende besked');
+  if (insertErr) {
+    throw new Error(userFacingDmError(insertErr));
   }
-  const row = data as DmMessageRow;
+  const row = await fetchDmMessageRowById(inserted.id, threadId);
   // Trigger on dm_messages should create a `notifications` row for recipient.
   // Fallback: if row exists, call send-push directly to avoid missing webhook dispatch.
   setTimeout(async () => {
@@ -299,9 +343,41 @@ export async function fetchDmMessages(
       .limit(limit));
   }
   if (error) {
-    throw new Error(error.message);
+    throw new Error(userFacingDmError(error, 'Kunne ikke hente beskeder.'));
   }
   return (data as DmMessageRow[]).map(mapRowToMessage);
+}
+
+/**
+ * Ulæste beskeder pr. tråd: modpartens beskeder hvor read_at er null.
+ * Returnerer null hvis read_at-kolonnen mangler (brug legacy inbox-heuristik).
+ */
+export async function fetchDmUnreadCountsByThread(
+  myUserId: string,
+  threadIds: string[],
+): Promise<Record<string, number> | null> {
+  if (!threadIds.length) {
+    return {};
+  }
+  const {data, error} = await supabase
+    .from('dm_messages')
+    .select('thread_id')
+    .in('thread_id', threadIds)
+    .neq('sender_id', myUserId)
+    .is('read_at', null);
+  if (error) {
+    if (isReadReceiptColumnError(error)) {
+      logDmService('fetchDmUnreadCountsByThread: read_at missing', error);
+      return null;
+    }
+    logDmService('fetchDmUnreadCountsByThread', error);
+    return null;
+  }
+  const counts: Record<string, number> = {};
+  for (const row of (data as {thread_id: string}[] | null) ?? []) {
+    counts[row.thread_id] = (counts[row.thread_id] ?? 0) + 1;
+  }
+  return counts;
 }
 
 /** Marker alle modpartens beskeder som læst (sætter read_at). */

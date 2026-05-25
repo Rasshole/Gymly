@@ -14,10 +14,10 @@ import {
   PanResponder,
   TouchableWithoutFeedback,
   Text,
+  Keyboard,
   LayoutAnimation,
   UIManager,
   Platform,
-  PermissionsAndroid,
   Animated,
   Easing,
 } from 'react-native';
@@ -25,6 +25,13 @@ import Geolocation, {
   type GeolocationError,
   type GeolocationResponse,
 } from '@react-native-community/geolocation';
+import {
+  getLocationPermissionStatus,
+  isLocationAuthorized,
+  mapLegacyLocationPermissionStatus,
+  requestLocationPermissionIfNeeded,
+  showLocationDeniedInAppMessage,
+} from '@/services/location/locationPermission';
 import MapView, {Marker, Region, AnimatedRegion} from 'react-native-maps';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation, useFocusEffect} from '@react-navigation/native';
@@ -33,6 +40,9 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {getActiveDanishGyms, DanishGym} from '@/data/danishGyms';
 import GymLogoView from '@/components/ui/GymLogoView';
 import {formatGymDisplayName} from '@/utils/gymDisplay';
+import {useTranslation} from '@/i18n';
+import {useGymSearch} from '@/hooks/useGymSearch';
+import {GymSearchResultsPanel} from '@/components/gym/GymSearchResultsPanel';
 
 const MAP_GYMS = getActiveDanishGyms();
 import {useAppStore} from '@/store/appStore';
@@ -149,6 +159,7 @@ const calculateDistance = (
 
 const MapScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
+  const {t} = useTranslation();
   const {user} = useAppStore();
   const currentUserId = user?.id || '';
   const {users: onlineFriends, refresh: refreshOnlineFriends} = useOnlineUsers(
@@ -339,34 +350,16 @@ const MapScreen = () => {
     [followUserMode],
   );
 
-  const requestAndStartLocationWatch = useCallback(async () => {
-    if (Platform.OS === 'android') {
-      try {
-        const granted = await PermissionsAndroid.request(
-          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-          {
-            title: 'Placeringsadgang',
-            message: 'Gymly bruger lokation til kort og centerafstande',
-            buttonNegative: 'Annuller',
-            buttonPositive: 'OK',
-          },
-        );
-        if (granted !== PermissionsAndroid.RESULTS.GRANTED) {
-          setLocationPermissionStatus('denied');
-          return;
-        }
-      } catch {
-        setLocationPermissionStatus('unavailable');
-        return;
-      }
-    } else {
-      Geolocation.requestAuthorization(
-        () => {},
-        () => {},
-      );
+  const startLocationWatchIfAuthorized = useCallback(async () => {
+    const status = await getLocationPermissionStatus();
+    const legacy = mapLegacyLocationPermissionStatus(status);
+    setLocationPermissionStatus(
+      legacy === 'granted' ? 'granted' : legacy === 'denied' ? 'denied' : 'unavailable',
+    );
+    if (!isLocationAuthorized(status)) {
+      return;
     }
 
-    setLocationPermissionStatus('granted');
     Geolocation.getCurrentPosition(
       pos => applyLocationUpdate(pos),
       (_err: GeolocationError) => {
@@ -392,9 +385,30 @@ const MapScreen = () => {
     ) as unknown as number;
   }, [applyLocationUpdate]);
 
+  const requestLocationForMap = useCallback(async () => {
+    const status = await requestLocationPermissionIfNeeded();
+    const legacy = mapLegacyLocationPermissionStatus(status);
+    setLocationPermissionStatus(
+      legacy === 'granted' ? 'granted' : legacy === 'denied' ? 'denied' : 'unavailable',
+    );
+    if (status === 'denied' || status === 'restricted') {
+      showLocationDeniedInAppMessage();
+      return false;
+    }
+    if (!isLocationAuthorized(status)) {
+      return false;
+    }
+    if (watchIdRef.current != null) {
+      Geolocation.clearWatch(watchIdRef.current);
+      watchIdRef.current = null;
+    }
+    await startLocationWatchIfAuthorized();
+    return true;
+  }, [startLocationWatchIfAuthorized]);
+
   useFocusEffect(
     useCallback(() => {
-      requestAndStartLocationWatch().catch(() => {
+      void startLocationWatchIfAuthorized().catch(() => {
         setLocationPermissionStatus('unavailable');
       });
       return () => {
@@ -404,7 +418,7 @@ const MapScreen = () => {
         }
         setFollowUserMode(false);
       };
-    }, [requestAndStartLocationWatch]),
+    }, [startLocationWatchIfAuthorized]),
   );
 
   const getDistanceText = useCallback(
@@ -420,26 +434,26 @@ const MapScreen = () => {
     [userLocation],
   );
 
-  const filteredAndSortedGyms = useMemo(() => {
-    let filtered = MAP_GYMS;
-    if (searchQuery.trim()) {
-      const q = searchQuery.toLowerCase();
-      filtered = filtered.filter(
-        g =>
-          g.name.toLowerCase().includes(q) ||
-          g.city?.toLowerCase().includes(q) ||
-          g.address?.toLowerCase().includes(q) ||
-          g.brand?.toLowerCase().includes(q),
-      );
-    }
-    return filtered
-      .map(g => ({
-        gym: g,
-        distance: calculateDistance(userLocation.latitude, userLocation.longitude, g.latitude, g.longitude),
-      }))
-      .sort((a, b) => a.distance - b.distance)
-      .map(item => item.gym);
-  }, [searchQuery, userLocation]);
+  const favoriteGymIds = user?.favoriteGyms ?? [];
+
+  const {hits: searchHits, isActive: isSearchActive, showLoading: searchLoading} =
+    useGymSearch(searchQuery, {
+      userLat: userLocation.latitude,
+      userLng: userLocation.longitude,
+      favoriteIds: favoriteGymIds,
+      limit: 20,
+      gyms: MAP_GYMS,
+    });
+
+  const filteredAndSortedGyms = useMemo(
+    () => (isSearchActive ? searchHits.map(h => h.gym) : MAP_GYMS),
+    [isSearchActive, searchHits],
+  );
+
+  const searchMatchIds = useMemo(
+    () => new Set(filteredAndSortedGyms.map(g => g.id)),
+    [filteredAndSortedGyms],
+  );
 
   /** Alle aktive centre — markører (søgning skjuler ikke pins) */
   const allMapCenters = useMemo(
@@ -642,7 +656,7 @@ const MapScreen = () => {
         onMapReady={() => mapRef.current?.animateToRegion(initialRegion, 1000)}>
         <Marker.Animated
           coordinate={userAnimatedCoordinateRef.current as unknown as {latitude: number; longitude: number}}
-          title="Din placering">
+          title={t('map.yourLocation')}>
           <View style={styles.userMarkerWrap}>
             <Animated.View
               style={[
@@ -668,16 +682,36 @@ const MapScreen = () => {
             </View>
           </View>
         </Marker.Animated>
-        {allMapCenters.map(renderGymMarker)}
+        {allMapCenters
+          .filter(c => !isSearchActive || searchMatchIds.has(c.id))
+          .map(renderGymMarker)}
       </MapView>
 
       <SocialSearchBar
         variant="map"
         value={searchQuery}
         onChangeText={setSearchQuery}
-        placeholder="Søg efter fitness centre..."
+        placeholder={t('map.searchPlaceholder')}
         style={styles.searchContainer}
       />
+
+      {isSearchActive ? (
+        <View style={styles.mapSearchResults} pointerEvents="box-none">
+          <GymSearchResultsPanel
+            hits={searchHits}
+            isActive={isSearchActive}
+            showLoading={searchLoading}
+            favoriteIds={favoriteGymIds}
+            variant="map"
+            maxHeight={280}
+            onSelectGym={gym => {
+              Keyboard.dismiss();
+              handleSelectGym(gym);
+            }}
+            formatDistance={gym => getDistanceText(gym)}
+          />
+        </View>
+      ) : null}
 
       <MapTypePickerMenu
         visible={showMapTypePicker}
@@ -696,7 +730,7 @@ const MapScreen = () => {
       {locationPermissionStatus === 'denied' ? (
         <View style={styles.locationHint}>
           <Text style={styles.locationHintText}>
-            Slå lokation til for at se centre tæt på dig
+            {t('map.locationDisabled')}
           </Text>
         </View>
       ) : null}
@@ -722,14 +756,16 @@ const MapScreen = () => {
         </View>
       )}
 
-      {/* Nearby carousel */}
-      <View style={styles.carouselWrapper}>
-        <NearbyCentersCarousel
-          centers={nearestCentersForCarousel}
-          selectedGymId={selectedGym?.id ?? null}
-          onSelectCenter={handleSelectGym}
-        />
-      </View>
+      {/* Nearby carousel — hidden while search results are shown */}
+      {!isSearchActive ? (
+        <View style={styles.carouselWrapper}>
+          <NearbyCentersCarousel
+            centers={nearestCentersForCarousel}
+            selectedGymId={selectedGym?.id ?? null}
+            onSelectCenter={handleSelectGym}
+          />
+        </View>
+      ) : null}
 
       {/* Flydende kortknapper — altid synlige over karrusel */}
       <Animated.View
@@ -758,16 +794,21 @@ const MapScreen = () => {
         <View style={styles.mapControlSpacer} />
         <MapFloatingButton
           icon="locate"
-          accessibilityLabel="Centrer på min placering"
+          accessibilityLabel={t('map.centerOnMe')}
           onPress={() => {
-            setFollowUserMode(true);
-            mapRef.current?.animateCamera(
-              {
-                center: userLocation,
-                zoom: 16.2,
-              },
-              {duration: 600},
-            );
+            void requestLocationForMap().then(ok => {
+              if (!ok) {
+                return;
+              }
+              setFollowUserMode(true);
+              mapRef.current?.animateCamera(
+                {
+                  center: userLocation,
+                  zoom: 16.2,
+                },
+                {duration: 600},
+              );
+            });
           }}
         />
       </Animated.View>
@@ -778,7 +819,7 @@ const MapScreen = () => {
         <View style={styles.centersBarContent}>
           <View style={styles.centersBarHandle} />
           <Icon name="location" size={18} color={colors.primary} style={styles.centersBarIcon} />
-          <Text style={styles.centersBarText}>I Nærheden</Text>
+          <Text style={styles.centersBarText}>{t('map.nearby')}</Text>
         </View>
       </View>
 
@@ -795,7 +836,7 @@ const MapScreen = () => {
               <View style={styles.sheetHandleBar} />
             </View>
             <View style={styles.sheetHeader}>
-              <Text style={styles.sheetTitle}>I Nærheden</Text>
+              <Text style={styles.sheetTitle}>{t('map.nearby')}</Text>
               <TouchableOpacity onPress={handleCloseCentersSheet}>
                 <Icon name="close" size={24} color="#000" />
               </TouchableOpacity>
@@ -803,7 +844,7 @@ const MapScreen = () => {
             <ScrollView style={styles.sheetScroll} contentContainerStyle={styles.sheetContent} showsVerticalScrollIndicator={false}>
               {categorizedGyms.within5km.length > 0 && (
                 <View style={styles.sheetSection}>
-                  <Text style={styles.sheetSectionTitle}>Indenfor 5 km</Text>
+                  <Text style={styles.sheetSectionTitle}>{t('map.within5km')}</Text>
                   {categorizedGyms.within5km.map(gym => {
                     const activity = getActivityForGymId(gym.id);
                     return (
@@ -823,11 +864,15 @@ const MapScreen = () => {
                           <View style={styles.sheetActivity}>
                             <Icon name="people" size={14} color={colors.secondary} />
                             <Text style={[styles.sheetActivityText, {color: colors.secondary}]}>
-                              {activity.totalActiveCount} aktive
+                              {t('map.activeCount', {
+                                count: String(activity.totalActiveCount),
+                              })}
                             </Text>
                             <Icon name="person" size={14} color={colors.primary} style={{marginLeft: 12}} />
                             <Text style={[styles.sheetActivityText, {color: colors.primary}]}>
-                              {activity.friendsActiveCount} venner
+                              {t('map.friendsCount', {
+                                count: String(activity.friendsActiveCount),
+                              })}
                             </Text>
                           </View>
                         </View>
@@ -842,7 +887,7 @@ const MapScreen = () => {
               )}
               {categorizedGyms.beyond5km.length > 0 && (
                 <View style={styles.sheetSection}>
-                  <Text style={styles.sheetSectionTitle}>Længere væk</Text>
+                  <Text style={styles.sheetSectionTitle}>{t('map.furtherAway')}</Text>
                   {categorizedGyms.beyond5km.map(gym => {
                     const activity = getActivityForGymId(gym.id);
                     return (
@@ -862,11 +907,15 @@ const MapScreen = () => {
                           <View style={styles.sheetActivity}>
                             <Icon name="people" size={14} color={colors.secondary} />
                             <Text style={[styles.sheetActivityText, {color: colors.secondary}]}>
-                              {activity.totalActiveCount} aktive
+                              {t('map.activeCount', {
+                                count: String(activity.totalActiveCount),
+                              })}
                             </Text>
                             <Icon name="person" size={14} color={colors.primary} style={{marginLeft: 12}} />
                             <Text style={[styles.sheetActivityText, {color: colors.primary}]}>
-                              {activity.friendsActiveCount} venner
+                              {t('map.friendsCount', {
+                                count: String(activity.friendsActiveCount),
+                              })}
                             </Text>
                           </View>
                         </View>
@@ -896,6 +945,13 @@ const styles = StyleSheet.create({
     left: spacing.lg,
     right: spacing.lg,
     zIndex: 100,
+  },
+  mapSearchResults: {
+    position: 'absolute',
+    top: 28 + 50 + 8,
+    left: 0,
+    right: 0,
+    zIndex: 110,
   },
   mapControlsColumn: {
     position: 'absolute',

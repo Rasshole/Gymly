@@ -1,5 +1,5 @@
 /**
- * Profil – faner Feed (træninger + opslag) og Data (statistik, mål); titel/tandhjul i tab-header
+ * Profil – faner Feed (træninger + opslag) og Data (statistik); titel/tandhjul i tab-header
  */
 
 import React, {useMemo, useCallback, useEffect, useState} from 'react';
@@ -14,17 +14,16 @@ import {
   Modal,
   TextInput,
   TouchableWithoutFeedback,
-  Animated,
-  Easing,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useNavigation, useFocusEffect} from '@react-navigation/native';
 import {useAppStore} from '@/store/appStore';
 import {fetchFeaturedBadgeIdsForUser} from '@/services/supabase/profileFeaturedBadgesService';
 import {useFeedStore} from '@/store/feedStore';
-import {useGoalStore} from '@/store/goalStore';
 import {refreshWorkoutFeedFromServer} from '@/services/supabase/workoutPostService';
 import {subscribeWorkoutFeedRealtime} from '@/services/supabase/workoutPostService';
+import {SegmentedControl} from '@/components/ui/SegmentedControl';
+import {SheetHandle} from '@/components/ui/SheetHandle';
 import {
   ProfileHeader,
   ProfileCentersList,
@@ -39,7 +38,6 @@ import {Card} from '@/components/ui/Card';
 import type {FeedItem} from '@/store/feedStore';
 import {completedSessionsToWorkouts} from '@/services/supabase/profileCheckInHistory';
 import * as streak from '@/utils/streakUtils';
-import {SURFACE_GROUPS_IN_APP} from '@/config/launchSurfaceConfig';
 import {
   filterWorkoutsByPeriod,
   sumWorkoutMinutes,
@@ -51,7 +49,10 @@ import {useBadgeStore} from '@/store/badgeStore';
 import {useUserTrainingStats} from '@/hooks/useUserTrainingStats';
 import {formatGymNameWithBrand} from '@/utils/gymDisplay';
 import {loadProfileCentersForUser} from '@/services/supabase/profileCentersPublicService';
-import {saveUserCenters, subscribeUserCenters} from '@/services/supabase/userCentersService';
+import {
+  persistUserHomeGyms,
+  subscribeUserCenters,
+} from '@/services/supabase/userCentersService';
 import {emitProfileCentersChanged} from '@/realtime/profileCentersBridge';
 import type {ProfileCenterRow} from '@/components/profile/ProfileCentersList';
 import {EditProfileCentersSheet} from '@/components/profile/EditProfileCentersSheet';
@@ -59,7 +60,8 @@ import {GymlyToast} from '@/components/ui/GymlyToast';
 import {useGymStore} from '@/store/gymStore';
 import {useSessionStore} from '@/store/sessionStore';
 import colors from '@/theme/colors';
-import {spacing, typography, radius} from '@/theme/designTokens';
+import {spacing, typography, radius, shadows} from '@/theme/designTokens';
+import {useTranslation} from '@/i18n';
 import GymlyPostCard from '@/components/feed/GymlyPostCard';
 import {PostActionBottomSheet} from '@/components/feed/PostActionBottomSheet';
 import {feedItemToPostActionSheet} from '@/utils/postActionMappers';
@@ -83,38 +85,21 @@ const isPrItem = (i: FeedItem): boolean =>
 
 type ProfileTab = 'feed' | 'data';
 
-const DATA_PERIOD_OPTIONS: {key: WorkoutPeriod; label: string}[] = [
-  {key: 'all', label: 'I alt'},
-  {key: 'week', label: 'Uge'},
-  {key: 'month', label: 'Måned'},
-  {key: 'year', label: 'År'},
-];
-
 const ProfileScreen = () => {
   const navigation = useNavigation<any>();
+  const {t} = useTranslation();
+  const isAuthenticated = useAppStore(s => s.isAuthenticated);
   const {user, setUser} = useAppStore();
   const {feedItems} = useFeedStore();
-  const goals = useGoalStore(s => s.goals);
   const [tab, setTab] = useState<ProfileTab>('feed');
-  const [tabBarWidth, setTabBarWidth] = useState(0);
   const [dataWorkoutPeriod, setDataWorkoutPeriod] =
     useState<WorkoutPeriod>('week');
   const trainingStats = useUserTrainingStats(user?.id);
   const activeSession = useSessionStore(s => s.activeSession);
   const getActiveUsersCount = useGymStore(s => s.getActiveUsersCount);
-  const tabAnim = React.useRef(new Animated.Value(tab === 'feed' ? 0 : 1)).current;
   const [centerRows, setCenterRows] = useState<ProfileCenterRow[]>([]);
   const [centersSheetOpen, setCentersSheetOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
-
-  useEffect(() => {
-    Animated.timing(tabAnim, {
-      toValue: tab === 'feed' ? 0 : 1,
-      duration: 220,
-      easing: Easing.out(Easing.cubic),
-      useNativeDriver: true,
-    }).start();
-  }, [tab, tabAnim]);
 
   const {stats: profileStats, refresh: refreshProfileStats} = useProfileStats(user?.id);
   const {friendCount: friendsListCount, hasSyncedFriendList} = useFriends();
@@ -140,6 +125,16 @@ const ProfileScreen = () => {
     Record<string, Array<{author: string; text: string; id: string}>>
   >({});
   const [postActionItem, setPostActionItem] = useState<FeedItem | null>(null);
+
+  const dataPeriodOptions = useMemo(
+    (): {key: WorkoutPeriod; label: string}[] => [
+      {key: 'all', label: t('profile.periodAll')},
+      {key: 'week', label: t('profile.periodWeek')},
+      {key: 'month', label: t('profile.periodMonth')},
+      {key: 'year', label: t('profile.periodYear')},
+    ],
+    [t],
+  );
 
   useFocusEffect(
     useCallback(() => {
@@ -171,17 +166,20 @@ const ProfileScreen = () => {
     ]),
   );
 
-  const displayName = user?.displayName || 'Bruger';
-  const username = user?.username || 'bruger';
+  const displayName =
+    user?.displayName?.trim() ||
+    user?.email?.split('@')[0]?.trim() ||
+    '';
+  const username = user?.username?.trim() || '';
   const activeStatusText = useMemo(() => {
     if (activeSession?.gymName) {
-      return `🏋️ Træner nu i ${activeSession.gymName}`;
+      return t('profile.trainingNow', {gym: activeSession.gymName});
     }
     if (trainingStats.activeSessionMinutes > 0) {
-      return 'Aktiv nu';
+      return t('friendsScreen.activeNow');
     }
-    return 'Sidst set for nylig';
-  }, [activeSession?.gymName, trainingStats.activeSessionMinutes]);
+    return t('profile.lastSeenRecent');
+  }, [activeSession?.gymName, trainingStats.activeSessionMinutes, t]);
 
   const primaryCenterLabel = useMemo(() => {
     const first = centerRows[0];
@@ -190,8 +188,10 @@ const ProfileScreen = () => {
     }
     const nameLine = formatGymNameWithBrand(first.name, first.brand);
     const tail = first.city?.trim();
-    return tail ? `Træner ofte i ${nameLine} — ${tail}` : `Træner ofte i ${nameLine}`;
-  }, [centerRows]);
+    return tail
+      ? t('profile.trainsOftenCity', {gym: nameLine, city: tail})
+      : t('profile.trainsOften', {gym: nameLine});
+  }, [centerRows, t]);
 
   const refreshProfileCenters = useCallback(async () => {
     if (!user?.id) {
@@ -225,7 +225,7 @@ const ProfileScreen = () => {
         throw new Error('no user');
       }
       try {
-        const ids = await saveUserCenters(user.id, orderedIds);
+        const ids = await persistUserHomeGyms(user.id, orderedIds);
         setCentersSheetOpen(false);
         const cur = useAppStore.getState().user;
         if (cur && cur.id === user.id) {
@@ -234,11 +234,11 @@ const ProfileScreen = () => {
         emitProfileCentersChanged(user.id);
         await refreshProfileCenters();
       } catch {
-        setToastMessage('Kunne ikke gemme centre. Prøv igen.');
+        setToastMessage(t('profile.saveCentresFailed'));
         throw new Error('save centers failed');
       }
     },
-    [user?.id, setUser, refreshProfileCenters],
+    [user?.id, setUser, refreshProfileCenters, t],
   );
 
   const openCentersEditor = useCallback(() => {
@@ -383,7 +383,7 @@ const ProfileScreen = () => {
       {
         key: 'time',
         emoji: '⏱',
-        label: 'Træningstid',
+        label: t('profile.trainingTime'),
         value:
           dataWorkoutPeriod === 'all' &&
           trainingStats.activeSessionMinutes > 0
@@ -393,16 +393,9 @@ const ProfileScreen = () => {
       {
         key: 'friends',
         icon: 'people',
-        label: 'Venner',
+        label: t('tabs.friends'),
         value: trainingStats.friendsCount || friendCountDisplay,
         onPress: () => setFriendsListOpen(true),
-      },
-      {
-        key: 'groups',
-        icon: 'people-circle',
-        label: 'Grupper',
-        value: trainingStats.groupsCount,
-        onPress: () => navigation.navigate('Friends', {screen: 'Grupper'} as never),
       },
       {
         key: 'badges',
@@ -411,7 +404,7 @@ const ProfileScreen = () => {
         value: badgeCount,
       },
     ];
-    return SURFACE_GROUPS_IN_APP ? rows : rows.filter(r => r.key !== 'groups');
+    return rows;
   }, [
     dataTabWorkoutsSummary.count,
     dataTabWorkoutsSummary.minutes,
@@ -424,23 +417,8 @@ const ProfileScreen = () => {
     friendCountDisplay,
     badgeCount,
     navigation,
+    t,
   ]);
-
-  const myActiveGoals = useMemo(() => {
-    const goalUserId = user?.id;
-    return goals.filter(g => {
-      if (g.isCompleted) {
-        return false;
-      }
-      if (goalUserId && g.userId === goalUserId) {
-        return true;
-      }
-      if (g.userId === 'current_user') {
-        return true;
-      }
-      return false;
-    });
-  }, [goals, user?.id]);
 
   const toggleLike = useCallback(
     async (itemId: string) => {
@@ -581,6 +559,10 @@ const ProfileScreen = () => {
     ? commentsByFeedItem[activeCommentItem] ?? []
     : [];
 
+  if (!isAuthenticated || !user?.id) {
+    return null;
+  }
+
   return (
     <View style={styles.container}>
       <ScrollView
@@ -613,81 +595,35 @@ const ProfileScreen = () => {
             onPress={openCentersEditor}
             activeOpacity={0.85}>
             <Icon name="add-circle-outline" size={22} color={colors.primary} />
-            <Text style={styles.noCentersHintText}>Tilføj dine centre</Text>
+            <Text style={styles.noCentersHintText}>{t('profile.addHomeGyms')}</Text>
             <Icon name="chevron-forward" size={18} color={colors.textMuted} />
           </TouchableOpacity>
         )}
 
-        {/* Faner */}
-        <View style={styles.tabBar}>
-          <View
-            pointerEvents="none"
-            style={styles.tabBarMeasure}
-            onLayout={e => setTabBarWidth(e.nativeEvent.layout.width)}
-          />
-          <Animated.View
-            pointerEvents="none"
-            style={[
-              styles.tabSlider,
-              {
-                width: Math.max((tabBarWidth - 10) / 2, 0),
-                transform: [
-                  {
-                    translateX: tabAnim.interpolate({
-                      inputRange: [0, 1],
-                      outputRange: [0, Math.max((tabBarWidth - 10) / 2, 0)],
-                    }),
-                  },
-                ],
-              },
-            ]}
-          />
-          <Pressable
-            style={styles.tabBtn}
-            onPress={() => setTab('feed')}
-            android_ripple={{color: '#00000010'}}>
-            <Icon
-              name="newspaper-outline"
-              size={18}
-              color={tab === 'feed' ? colors.white : colors.textSecondary}
-            />
-            <Text
-              style={[styles.tabBtnText, tab === 'feed' && styles.tabBtnTextActive]}>
-              Feed
-            </Text>
-          </Pressable>
-          <Pressable
-            style={styles.tabBtn}
-            onPress={() => setTab('data')}
-            android_ripple={{color: '#00000010'}}>
-            <Icon
-              name="stats-chart-outline"
-              size={18}
-              color={tab === 'data' ? colors.white : colors.textSecondary}
-            />
-            <Text
-              style={[styles.tabBtnText, tab === 'data' && styles.tabBtnTextActive]}>
-              Data
-            </Text>
-          </Pressable>
-        </View>
+        <SegmentedControl<ProfileTab>
+          segments={[
+            {key: 'feed', label: t('profile.feedTab'), icon: 'newspaper-outline'},
+            {key: 'data', label: t('profile.dataTab'), icon: 'stats-chart-outline'},
+          ]}
+          value={tab}
+          onChange={setTab}
+          style={styles.tabBar}
+        />
 
         {tab === 'feed' ? (
           <View style={styles.section}>
             <View style={styles.blockHeaderRow}>
-              <Text style={styles.blockTitle}>Dine træninger</Text>
+              <Text style={styles.blockTitle}>{t('profile.yourWorkouts')}</Text>
               {profilePreviewSessions.length > 0 ? (
                 <TouchableOpacity
                   onPress={() => navigation.navigate('AllTrainings')}
                   hitSlop={{top: 8, bottom: 8, left: 8, right: 8}}
                   activeOpacity={0.7}>
-                  <Text style={styles.seeAll}>Se alle</Text>
+                  <Text style={styles.seeAll}>{t('profile.seeAll')}</Text>
                 </TouchableOpacity>
               ) : null}
             </View>
-            <Text style={styles.blockSubtitle}>
-              Historik fra dine seneste sessions
-            </Text>
+            <Text style={styles.blockSubtitle}>{t('profile.workoutHistorySub')}</Text>
             <Card variant="outlined" padding="md">
               {trainingStats.loading && trainingStats.recentSessions.length === 0 ? (
                 <View style={styles.sessionsLoadingBox}>
@@ -704,20 +640,16 @@ const ProfileScreen = () => {
               ) : (
                 <View style={styles.emptyInline}>
                   <Icon name="fitness-outline" size={32} color={colors.textMuted} />
-                  <Text style={styles.emptyTitle}>Ingen træninger endnu</Text>
-                  <Text style={styles.emptySubtext}>
-                    Dine afsluttede sessions vises her.
-                  </Text>
+                  <Text style={styles.emptyTitle}>{t('profile.noWorkoutsYet')}</Text>
+                  <Text style={styles.emptySubtext}>{t('profile.noWorkoutsSub')}</Text>
                 </View>
               )}
             </Card>
 
             <Text style={[styles.blockTitle, styles.blockTitleSpaced]}>
-              Opslag & delte træninger
+              {t('profile.postsAndShared')}
             </Text>
-            <Text style={styles.blockSubtitle}>
-              Billeder, PR&apos;s og hvad du har delt til feed
-            </Text>
+            <Text style={styles.blockSubtitle}>{t('profile.postsSub')}</Text>
             <View style={styles.profileFeedList}>
               {myFeedItems.length > 0 ? (
                 myFeedItems.map(post => {
@@ -754,15 +686,13 @@ const ProfileScreen = () => {
               ) : (
                 <View style={styles.emptyInline}>
                   <Icon name="images-outline" size={36} color={colors.textMuted} />
-                  <Text style={styles.emptyTitle}>Ingen opslag endnu</Text>
-                  <Text style={styles.emptySubtext}>
-                    Del din første træning 🔥
-                  </Text>
+                  <Text style={styles.emptyTitle}>{t('profile.noPosts')}</Text>
+                  <Text style={styles.emptySubtext}>{t('profile.shareFirst')}</Text>
                   <TouchableOpacity
                     style={styles.emptyCta}
                     onPress={() => navigation.navigate('CheckIn')}
                     activeOpacity={0.85}>
-                    <Text style={styles.emptyCtaText}>Start træning</Text>
+                    <Text style={styles.emptyCtaText}>{t('profile.startTraining')}</Text>
                   </TouchableOpacity>
                 </View>
               )}
@@ -770,59 +700,46 @@ const ProfileScreen = () => {
           </View>
         ) : (
           <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Statistik</Text>
-            <Text style={styles.dataPeriodHint}>
-              Check-ins og træningstid følger perioden nedenfor. Streak er altid
-              samlet.
-            </Text>
-            <View style={styles.periodChips}>
-              {DATA_PERIOD_OPTIONS.map(({key, label}) => {
-                const active = dataWorkoutPeriod === key;
-                return (
-                  <TouchableOpacity
-                    key={key}
-                    style={[styles.periodChip, active && styles.periodChipActive]}
-                    onPress={() => setDataWorkoutPeriod(key)}
-                    activeOpacity={0.85}>
-                    <Text
-                      style={[
-                        styles.periodChipText,
-                        active && styles.periodChipTextActive,
-                      ]}>
-                      {label}
-                    </Text>
-                  </TouchableOpacity>
-                );
-              })}
-            </View>
+            <Text style={styles.sectionTitle}>{t('profile.statistics')}</Text>
+            <Text style={styles.dataPeriodHint}>{t('profile.statsHint')}</Text>
+            <SegmentedControl<WorkoutPeriod>
+              variant="chips"
+              segments={dataPeriodOptions.map(({key, label}) => ({key, label}))}
+              value={dataWorkoutPeriod}
+              onChange={setDataWorkoutPeriod}
+              style={styles.periodChips}
+            />
             <View style={styles.streakBlock}>
               <StreakHighlight
                 currentStreak={trainingStats.currentStreakDays}
                 longestStreak={trainingStats.longestStreakDays}
                 onPress={() => navigation.navigate('CheckIn')}
               />
-              <Text style={styles.streakMicro}>Du er på vej 💪</Text>
+              <Text style={styles.streakMicro}>{t('profile.onYourWay')}</Text>
               <Text style={styles.streakMotivation}>
                 {trainingStats.currentStreakDays > 3
-                  ? 'Du er on fire 🔥'
+                  ? t('profile.onFire')
                   : trainingStats.currentStreakDays === 0
-                  ? 'Start din streak i dag'
-                  : 'Hold momentumet kørende'}
+                  ? t('profile.startStreakToday')
+                  : t('profile.keepMomentum')}
               </Text>
             </View>
             <Card variant="outlined" padding="lg" style={styles.statsCard}>
               <ProfileStatGrid stats={stats} />
             </Card>
 
-            <Text style={styles.recentWorkoutsHeading}>Seneste træninger</Text>
+            <Text style={styles.recentWorkoutsHeading}>{t('profile.recentWorkouts')}</Text>
             <Text style={styles.recentWorkoutsSub}>
               {dataTabWorkoutsSummary.count === 0
-                ? 'Ingen i valgt periode'
-                : `${dataTabWorkoutsSummary.count} træning${
-                    dataTabWorkoutsSummary.count === 1 ? '' : 'er'
-                  } · ${formatTotalTime(dataTabWorkoutsSummary.minutes)}`}
+                ? t('profile.noneInPeriod')
+                : `${t(
+                    dataTabWorkoutsSummary.count === 1
+                      ? 'profile.workoutCount'
+                      : 'profile.workoutCount_other',
+                    {count: String(dataTabWorkoutsSummary.count)},
+                  )} · ${formatTotalTime(dataTabWorkoutsSummary.minutes)}`}
             </Text>
-            <Card variant="outlined" padding="md">
+            <Card variant="outlined" padding="md" style={styles.recentWorkoutsCard}>
               {trainingStats.loading && trainingStats.recentSessions.length === 0 ? (
                 <View style={styles.sessionsLoadingBox}>
                   <ActivityIndicator color={colors.primary} />
@@ -838,42 +755,10 @@ const ProfileScreen = () => {
               ) : (
                 <View style={styles.emptyInline}>
                   <Icon name="calendar-outline" size={28} color={colors.textMuted} />
-                  <Text style={styles.emptyTitle}>Ingen træninger her</Text>
-                  <Text style={styles.emptySubtext}>
-                    Vælg en anden periode eller afslut sessioner for at se historik
-                  </Text>
+                  <Text style={styles.emptyTitle}>{t('profile.noWorkoutsHere')}</Text>
+                  <Text style={styles.emptySubtext}>{t('profile.noWorkoutsSub')}</Text>
                 </View>
               )}
-            </Card>
-
-            <Text style={styles.goalsHeading}>Mål</Text>
-            <Card variant="outlined" padding="md">
-              {myActiveGoals.length === 0 ? (
-                <Text style={styles.goalsEmpty}>
-                  Du har ingen aktive mål. Tilføj et for at holde fokus.
-                </Text>
-              ) : (
-                myActiveGoals.map(goal => (
-                  <View key={goal.id} style={styles.goalRow}>
-                    <Icon name="flag" size={18} color={colors.primary} />
-                    <View style={styles.goalBody}>
-                      <Text style={styles.goalTitle} numberOfLines={2}>
-                        {goal.title}
-                      </Text>
-                      <Text style={styles.goalMeta}>
-                        {goal.progress}% · {goal.description}
-                      </Text>
-                    </View>
-                  </View>
-                ))
-              )}
-              <TouchableOpacity
-                style={styles.addGoalBtn}
-                onPress={() => navigation.navigate('AddGoal')}
-                activeOpacity={0.85}>
-                <Icon name="add-circle-outline" size={22} color={colors.primary} />
-                <Text style={styles.addGoalBtnText}>Tilføj mål</Text>
-              </TouchableOpacity>
             </Card>
           </View>
         )}
@@ -887,7 +772,7 @@ const ProfileScreen = () => {
           <View style={styles.bottomSheetOverlay}>
             <TouchableWithoutFeedback>
               <View style={styles.bottomSheet}>
-                <View style={styles.commentHandle} />
+                <SheetHandle />
                 <View style={styles.bottomSheetHeader}>
                   <Text style={styles.modalTitle}>Biceps</Text>
                   <TouchableOpacity
@@ -931,7 +816,7 @@ const ProfileScreen = () => {
           <View style={styles.bottomSheetOverlay}>
             <TouchableWithoutFeedback>
               <View style={styles.bottomSheet}>
-                <View style={styles.commentHandle} />
+                <SheetHandle />
                 <View style={styles.bottomSheetHeader}>
                   <Text style={styles.modalTitle}>Kommentarer</Text>
                   <TouchableOpacity
@@ -979,7 +864,7 @@ const ProfileScreen = () => {
         initialCenterIds={user?.favoriteGyms ?? centerRows.map(r => r.centerId).filter(Boolean) as string[]}
         onClose={() => setCentersSheetOpen(false)}
         onSave={handleSaveCenters}
-        onLimitReached={() => setToastMessage('Du kan max vælge 3 centre')}
+        onLimitReached={() => setToastMessage(t('profile.maxCentres'))}
       />
       <GymlyToast message={toastMessage} onHidden={() => setToastMessage(null)} />
       <PostActionBottomSheet
@@ -1001,11 +886,11 @@ const styles = StyleSheet.create({
   },
   scroll: {flex: 1},
   scrollContent: {
-    paddingBottom: spacing.xxxl,
+    paddingBottom: spacing.lg,
   },
   section: {
     paddingHorizontal: spacing.lg,
-    marginBottom: spacing.xl,
+    marginBottom: spacing.lg,
   },
   sectionTitle: {
     ...typography.h4,
@@ -1013,52 +898,8 @@ const styles = StyleSheet.create({
     marginBottom: spacing.xs,
   },
   tabBar: {
-    flexDirection: 'row',
-    position: 'relative',
     marginHorizontal: spacing.lg,
     marginBottom: spacing.lg,
-    padding: 3,
-    backgroundColor: '#F2F2F7',
-    borderRadius: radius.full,
-    borderWidth: 1,
-    borderColor: colors.border,
-  },
-  tabSlider: {
-    position: 'absolute',
-    top: 3,
-    left: 3,
-    height: '86%',
-    backgroundColor: colors.primary,
-    borderRadius: radius.full,
-    shadowColor: colors.primary,
-    shadowOffset: {width: 0, height: 5},
-    shadowOpacity: 0.2,
-    shadowRadius: 8,
-    elevation: 3,
-  },
-  tabBtn: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: spacing.sm,
-    paddingVertical: spacing.md,
-    borderRadius: radius.full,
-  },
-  tabBarMeasure: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-  },
-  tabBtnText: {
-    ...typography.bodyBold,
-    color: colors.textSecondary,
-    fontSize: 15,
-  },
-  tabBtnTextActive: {
-    color: colors.white,
   },
   blockHeaderRow: {
     flexDirection: 'row',
@@ -1091,9 +932,10 @@ const styles = StyleSheet.create({
     marginBottom: spacing.lg,
     padding: spacing.md,
     backgroundColor: colors.primary + '10',
-    borderRadius: 12,
-    borderWidth: 1,
-    borderColor: colors.primary + '25',
+    borderRadius: radius.md,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.primary + '30',
+    ...shadows.sm,
   },
   noCentersHintText: {
     ...typography.body,
@@ -1139,31 +981,11 @@ const styles = StyleSheet.create({
     color: colors.textSecondary,
     marginBottom: spacing.sm,
   },
+  recentWorkoutsCard: {
+    marginBottom: 0,
+  },
   periodChips: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing.sm,
     marginBottom: spacing.md,
-  },
-  periodChip: {
-    paddingVertical: spacing.sm,
-    paddingHorizontal: spacing.md,
-    borderRadius: radius.md,
-    borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: colors.surface,
-  },
-  periodChipActive: {
-    borderColor: colors.primary,
-    backgroundColor: colors.primary + '18',
-  },
-  periodChipText: {
-    ...typography.small,
-    fontWeight: '600',
-    color: colors.textSecondary,
-  },
-  periodChipTextActive: {
-    color: colors.primary,
   },
   workoutHistoryRow: {
     flexDirection: 'row',
@@ -1218,19 +1040,11 @@ const styles = StyleSheet.create({
   },
   bottomSheet: {
     backgroundColor: colors.background,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    borderTopLeftRadius: radius.sheet,
+    borderTopRightRadius: radius.sheet,
     maxHeight: '70%',
     paddingBottom: spacing.lg,
-  },
-  commentHandle: {
-    alignSelf: 'center',
-    width: 40,
-    height: 4,
-    borderRadius: 2,
-    backgroundColor: colors.border,
-    marginTop: spacing.sm,
-    marginBottom: spacing.sm,
+    ...shadows.sheet,
   },
   bottomSheetHeader: {
     flexDirection: 'row',
@@ -1304,7 +1118,8 @@ const styles = StyleSheet.create({
   },
   emptyInline: {
     alignItems: 'center',
-    paddingVertical: spacing.lg,
+    paddingVertical: spacing.xl,
+    paddingHorizontal: spacing.md,
   },
   emptyTitle: {
     ...typography.bodyBold,
@@ -1319,58 +1134,15 @@ const styles = StyleSheet.create({
   },
   emptyCta: {
     marginTop: spacing.md,
-    paddingVertical: spacing.sm,
-    paddingHorizontal: spacing.lg,
-    backgroundColor: colors.primary + '15',
-    borderRadius: 10,
+    paddingVertical: spacing.sm + 2,
+    paddingHorizontal: spacing.xl,
+    backgroundColor: colors.primary + '14',
+    borderRadius: radius.full,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.primary + '35',
+    ...shadows.sm,
   },
   emptyCtaText: {
-    ...typography.bodyBold,
-    color: colors.primary,
-  },
-  goalsHeading: {
-    ...typography.bodyBold,
-    color: colors.text,
-    marginTop: spacing.lg,
-    marginBottom: spacing.sm,
-  },
-  goalsEmpty: {
-    ...typography.caption,
-    color: colors.textSecondary,
-    marginBottom: spacing.md,
-  },
-  goalRow: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: spacing.sm,
-    paddingVertical: spacing.sm,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: colors.border,
-  },
-  goalBody: {flex: 1},
-  goalTitle: {
-    ...typography.body,
-    fontWeight: '600',
-    color: colors.text,
-  },
-  goalMeta: {
-    ...typography.caption,
-    color: colors.textMuted,
-    marginTop: 4,
-  },
-  addGoalBtn: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: spacing.sm,
-    marginTop: spacing.md,
-    paddingVertical: spacing.md,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: colors.primary + '40',
-    backgroundColor: colors.primary + '08',
-  },
-  addGoalBtnText: {
     ...typography.bodyBold,
     color: colors.primary,
   },

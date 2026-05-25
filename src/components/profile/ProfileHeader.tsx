@@ -8,6 +8,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Avatar from '@/components/ui/Avatar';
 import colors from '@/theme/colors';
 import {radius, spacing, typography} from '@/theme/designTokens';
+import {useTranslation} from '@/i18n';
 
 type ProfileHeaderProps = {
   displayName: string;
@@ -83,6 +84,9 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   friendsCount = 0,
   onFriendsPress,
 }) => {
+  const {t} = useTranslation();
+  const friendsLabel = t('profile.friends');
+
   return (
     <View style={styles.container}>
       <View style={styles.centered}>
@@ -102,7 +106,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
             hitSlop={{top: 8, bottom: 8, left: 8, right: 8}}
             activeOpacity={0.75}
             accessibilityRole="button"
-            accessibilityLabel="Rediger profil">
+            accessibilityLabel={t('profile.editProfile')}>
             <Icon name="create-outline" size={22} color={colors.primary} />
           </TouchableOpacity>
         ) : null}
@@ -127,11 +131,11 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
       {onFriendsPress ? (
         <StatColButton
           value={friendsCount}
-          label="Venner"
+          label={friendsLabel}
           onPress={onFriendsPress}
         />
       ) : (
-        <StatCol value={friendsCount} label="Venner" />
+        <StatCol value={friendsCount} label={friendsLabel} />
       )}
     </View>
 

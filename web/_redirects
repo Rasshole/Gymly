@@ -1,6 +1,11 @@
 # Netlify — copy this file to the PUBLISH ROOT (same folder as your main index.html).
-# Rules are evaluated top → bottom. Put /confirm BEFORE any SPA catch-all.
+# Rules are evaluated top → bottom. Put auth paths BEFORE any SPA catch-all.
 # Query strings (?code=…) and hashes (#access_token…) are preserved on 200 rewrites.
+
+/auth/callback     /auth/callback/index.html 200!
+/auth/callback/    /auth/callback/index.html 200!
+/.well-known/apple-app-site-association /.well-known/apple-app-site-association 200!
+/.well-known/assetlinks.json /.well-known/assetlinks.json 200!
 
 /confirm           /confirm/index.html      200!
 /confirm/          /confirm/index.html      200!

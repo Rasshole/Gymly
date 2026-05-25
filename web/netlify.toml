@@ -4,6 +4,23 @@
 # Publish directory must contain: index.html (homepage), confirm/index.html, auth-confirm/index.html
 
 [[redirects]]
+  from = "/auth/callback"
+  to = "/auth/callback/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/auth/callback/"
+  to = "/auth/callback/index.html"
+  status = 200
+  force = true
+
+[[headers]]
+  for = "/.well-known/apple-app-site-association"
+  [headers.values]
+    Content-Type = "application/json"
+
+[[redirects]]
   from = "/confirm"
   to = "/confirm/index.html"
   status = 200

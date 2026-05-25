@@ -232,6 +232,14 @@ function preferenceAllows(
   return true;
 }
 
+/** Matches in-app bell badge (excludes DM/group + suppressed ranking rows). */
+const BADGE_EXCLUDED_NOTIFICATION_TYPES = [
+  "dm_message",
+  "message",
+  "gymly_group_message",
+  "leaderboard_movement",
+];
+
 async function countUnreadNotificationsForBadge(
   admin: ReturnType<typeof createClient>,
   userId: string,
@@ -240,7 +248,12 @@ async function countUnreadNotificationsForBadge(
     .from("notifications")
     .select("id", {count: "exact", head: true})
     .eq("user_id", userId)
-    .eq("is_read", false);
+    .eq("is_read", false)
+    .not(
+      "type",
+      "in",
+      `(${BADGE_EXCLUDED_NOTIFICATION_TYPES.map((t) => `"${t}"`).join(",")})`,
+    );
   if (error) {
     console.warn("send-push: badge count failed", error.message);
     return 0;

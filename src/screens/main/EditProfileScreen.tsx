@@ -28,9 +28,11 @@ import {useFriendStore} from '@/store/friendStore';
 import {useChatStore} from '@/store/chatStore';
 import AuthService from '@/services/auth/AuthService';
 import {upsertMyProfile, mergeProfileUsernameIntoUser} from '@/services/supabase/friendService';
+import {persistUserHomeGyms} from '@/services/supabase/userCentersService';
+import {emitProfileCentersChanged} from '@/realtime/profileCentersBridge';
 import {supabase} from '@/services/supabase/supabaseClient';
 import {
-  getUsernameFormatErrorDa,
+  getUsernameFormatError,
   normalizeUsernameForStorage,
   normalizeUsernameInput,
 } from '@/utils/usernameRules';
@@ -44,6 +46,7 @@ import {
   shadows,
 } from '@/theme/designTokens';
 import colors from '@/theme/colors';
+import {useTranslation, rt} from '@/i18n';
 import {
   launchCamera,
   launchImageLibrary,
@@ -55,6 +58,7 @@ type EditProfileNavigationProp = StackNavigationProp<any>;
 
 const EditProfileScreen = () => {
   const navigation = useNavigation<EditProfileNavigationProp>();
+  const {t, intlLocale, language} = useTranslation();
   const route = useRoute() as {params?: {forceUsernameChange?: boolean}};
   const {user, setUser} = useAppStore();
   const forceUsernameChange = route.params?.forceUsernameChange === true;
@@ -148,13 +152,13 @@ const EditProfileScreen = () => {
       msg.includes('duplicate') ||
       msg.includes('unique')
     ) {
-      return 'Brugernavnet er allerede taget';
+      return rt('editProfile.usernameTaken');
     }
     if (
       msg.includes('kun bogstaver, tal, punktum og _') ||
       msg.includes('invalid username')
     ) {
-      return 'Brugernavn må kun indeholde bogstaver, tal, punktum og _';
+      return rt('editProfile.usernameInvalid');
     }
     if (
       msg.includes('network') ||
@@ -162,12 +166,12 @@ const EditProfileScreen = () => {
       msg.includes('offline') ||
       msg.includes('connection')
     ) {
-      return 'Kunne ikke få forbindelse';
+      return rt('editProfile.noConnection');
     }
     if (msg.includes('row-level security') || msg.includes('rls')) {
-      return 'Kunne ikke gemme profil (mangler rettighed til egen profil).';
+      return rt('errors.couldNotSave');
     }
-    return 'Kunne ikke gemme profil';
+    return rt('errors.couldNotSave');
   }
 
   async function uploadAvatarIfNeeded(currentUserId: string): Promise<string> {
@@ -184,7 +188,7 @@ const EditProfileScreen = () => {
     }
     const response = await fetch(raw);
     if (!response.ok) {
-      throw new Error('Kunne ikke læse valgt billede');
+      throw new Error(rt('editProfile.couldNotReadImage'));
     }
     const body = await response.arrayBuffer();
     const path = `${currentUserId}/avatar-${Date.now()}.jpg`;
@@ -217,9 +221,9 @@ const EditProfileScreen = () => {
       }
       e.preventDefault();
       Alert.alert(
-        'Brugernavn påkrævet',
-        'Vælg et nyt brugernavn for at fortsætte med Gymly.',
-        [{text: 'OK'}],
+        t('editProfile.usernameRequired'),
+        t('editProfile.usernameRequiredBody'),
+        [{text: t('common.ok')}],
       );
     });
     return sub;
@@ -231,8 +235,8 @@ const EditProfileScreen = () => {
 
     if (gymIdsDraft.length < 1) {
       Alert.alert(
-        'Lokale centre',
-        'Vælg mindst ét primært lokale center (felt 1).',
+        t('editProfile.localCentres'),
+        t('editProfile.primaryCentreRequired'),
       );
       return;
     }
@@ -242,8 +246,8 @@ const EditProfileScreen = () => {
       if (!canChangeDisplayName()) {
         const daysUntil = Math.ceil(14 - ((Date.now() - lastDisplayNameChange!.getTime()) / (1000 * 60 * 60 * 24)));
         Alert.alert(
-          'Kan ikke ændre navn',
-          `Du kan ændre dit navn igen om ${daysUntil} dag${daysUntil !== 1 ? 'e' : ''}. Du kan kun ændre dit navn hver 14. dag.`
+          t('editProfile.cannotChangeName'),
+          t('editProfile.nameChangeCooldown', {days: String(daysUntil)}),
         );
         setDisplayName(user.displayName);
         return;
@@ -251,16 +255,16 @@ const EditProfileScreen = () => {
     }
 
     const nextUsernameNorm = normalizeUsernameForStorage(username);
-    const uFmt = getUsernameFormatErrorDa(nextUsernameNorm);
+    const uFmt = getUsernameFormatError(language, nextUsernameNorm);
     if (uFmt) {
-      Alert.alert('Brugernavn', uFmt);
+      Alert.alert(t('editProfile.username'), uFmt);
       return;
     }
 
     if (stuckOnForcedUsername) {
       Alert.alert(
-        'Brugernavn',
-        'Vælg et nyt brugernavn — det midlertidige skal skiftes.',
+        t('editProfile.username'),
+        t('editProfile.usernameMustChange'),
       );
       return;
     }
@@ -269,19 +273,19 @@ const EditProfileScreen = () => {
       if (!canChangeUsername()) {
         const daysUntil = Math.ceil(14 - ((Date.now() - lastUsernameChange!.getTime()) / (1000 * 60 * 60 * 24)));
         Alert.alert(
-          'Kan ikke ændre brugernavn',
-          `Du kan ændre dit brugernavn igen om ${daysUntil} dag${daysUntil !== 1 ? 'e' : ''}. Du kan kun ændre dit brugernavn hver 14. dag.`
+          t('editProfile.cannotChangeUsername'),
+          t('editProfile.usernameCooldown', {days: String(daysUntil)}),
         );
         setUsername(normalizeUsernameForStorage(user.username));
         return;
       }
       if (!usernameAvailability.canProceed) {
         if (usernameAvailability.checking) {
-          Alert.alert('Brugernavn', 'Vent et øjeblik …');
+          Alert.alert(t('editProfile.username'), t('editProfile.usernameWait'));
         } else if (usernameAvailability.available === false) {
-          Alert.alert('Brugernavn', 'Brugernavn er allerede taget');
+          Alert.alert(t('editProfile.username'), t('editProfile.usernameTaken'));
         } else {
-          Alert.alert('Brugernavn', 'Tjek brugernavnet og prøv igen.');
+          Alert.alert(t('editProfile.username'), t('editProfile.usernameCheck'));
         }
         return;
       }
@@ -311,18 +315,27 @@ const EditProfileScreen = () => {
         updatedAt: new Date(),
       };
 
-      await upsertMyProfile(updatedUser);
+      const savedGymIds = await persistUserHomeGyms(
+        user.id,
+        gymIdsDraft.slice(0, 3),
+      );
+      const userWithGyms = {...updatedUser, favoriteGyms: savedGymIds};
 
-      const syncedFromAuth = await AuthService.syncProfileMetadataFromUser(updatedUser);
+      await upsertMyProfile(userWithGyms);
+
+      const syncedFromAuth = await AuthService.syncProfileMetadataFromUser(userWithGyms);
       let finalUser: User = {
-        ...updatedUser,
+        ...userWithGyms,
         ...syncedFromAuth,
-        id: updatedUser.id,
-        email: updatedUser.email,
-        gdprConsent: updatedUser.gdprConsent,
-        featuredBadgeIds: updatedUser.featuredBadgeIds ?? syncedFromAuth.featuredBadgeIds,
+        id: userWithGyms.id,
+        email: userWithGyms.email,
+        gdprConsent: userWithGyms.gdprConsent,
+        featuredBadgeIds:
+          userWithGyms.featuredBadgeIds ?? syncedFromAuth.featuredBadgeIds,
+        favoriteGyms: savedGymIds,
       };
       finalUser = await mergeProfileUsernameIntoUser(finalUser);
+      emitProfileCentersChanged(user.id);
 
       if (displayName !== user.displayName) {
         setLastDisplayNameChange(new Date());
@@ -337,13 +350,13 @@ const EditProfileScreen = () => {
         finalUser.id,
         (finalUser.displayName || '').trim() || 'Dig',
       );
-      Alert.alert('Profil opdateret', 'Dine ændringer er blevet gemt.');
+      Alert.alert(t('editProfile.profileUpdated'), t('editProfile.profileUpdatedBody'));
       navigation.goBack();
     } catch (err) {
       if (__DEV__) {
         console.warn('[EditProfile] save failed', err);
       }
-      Alert.alert('Kunne ikke gemme profil', userFacingSaveError(err));
+      Alert.alert(t('common.error'), userFacingSaveError(err));
       return;
     } finally {
       setIsSaving(false);
@@ -353,35 +366,35 @@ const EditProfileScreen = () => {
   const getProfileVisibilityLabel = (visibility: ProfileVisibility): string => {
     switch (visibility) {
       case 'friends':
-        return 'Kun Venner';
+        return t('editProfile.visibilityFriends');
       case 'friends_and_gyms':
-        return 'Venner & Lokal Centre';
+        return t('editProfile.visibilityFriendsAndGyms');
       case 'everyone':
-        return 'Alle';
+        return t('editProfile.visibilityEveryone');
       case 'private':
-        return 'Privat';
+        return t('editProfile.visibilityPrivate');
       default:
-        return 'Privat';
+        return t('editProfile.visibilityPrivate');
     }
   };
 
   const getGenderLabel = (g: string): string => {
     switch (g) {
       case 'male':
-        return 'Mand';
+        return t('editProfile.genderMale');
       case 'female':
-        return 'Kvinde';
+        return t('editProfile.genderFemale');
       case 'other':
-        return 'Andet';
+        return t('editProfile.genderOther');
       case 'prefer_not_to_say':
-        return 'Foretrækker ikke at sige';
+        return t('editProfile.genderPreferNot');
       default:
-        return 'Vælg køn';
+        return t('editProfile.selectGender');
     }
   };
 
   const formatDate = (date: Date): string => {
-    return date.toLocaleDateString('da-DK', {
+    return date.toLocaleDateString(intlLocale, {
       day: '2-digit',
       month: '2-digit',
       year: 'numeric',
@@ -389,9 +402,9 @@ const EditProfileScreen = () => {
   };
 
   const handleProfilePhotoPick = () => {
-    Alert.alert('Vælg profilbillede', 'Hvordan vil du tilføje et billede?', [
+    Alert.alert(t('editProfile.pickPhotoTitle'), t('editProfile.pickPhotoHow'), [
       {
-        text: 'Tag billede',
+        text: t('editProfile.takePhoto'),
         onPress: async () => {
           const cameraOptions: CameraOptions = {
             mediaType: 'photo',
@@ -407,7 +420,7 @@ const EditProfileScreen = () => {
         },
       },
       {
-        text: 'Vælg fra bibliotek',
+        text: t('editProfile.chooseLibrary'),
         onPress: async () => {
           const response: ImagePickerResponse = await launchImageLibrary({
             mediaType: 'photo',
@@ -420,7 +433,7 @@ const EditProfileScreen = () => {
           }
         },
       },
-      {text: 'Annuller', style: 'cancel'},
+      {text: t('common.cancel'), style: 'cancel'},
     ]);
   };
 
@@ -433,28 +446,28 @@ const EditProfileScreen = () => {
           activeOpacity={0.7}>
           <Icon name="arrow-back" size={24} color="#000" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Rediger Profil</Text>
+        <Text style={styles.headerTitle}>{t('editProfile.title')}</Text>
         <TouchableOpacity
           onPress={() => void handleSave()}
           style={[styles.saveButton, saveBlockedByUsername && styles.saveButtonDisabled]}
           activeOpacity={0.7}
           disabled={saveBlockedByUsername}>
-          <Text style={styles.saveButtonText}>{isSaving ? 'Gemmer…' : 'Gem'}</Text>
+          <Text style={styles.saveButtonText}>
+            {isSaving ? t('editProfile.saving') : t('editProfile.save')}
+          </Text>
         </TouchableOpacity>
       </View>
 
       {forceUsernameChange ? (
         <View style={styles.forceBanner}>
-          <Text style={styles.forceBannerText}>
-            Dit brugernavn skal være unikt. Vælg et nyt — det gemmes med små bogstaver.
-          </Text>
+          <Text style={styles.forceBannerText}>{t('editProfile.forceUsernameBanner')}</Text>
         </View>
       ) : null}
 
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.content}>
         {/* Profile Image */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Profilbillede</Text>
+          <Text style={styles.sectionTitle}>{t('editProfile.profilePhoto')}</Text>
           <TouchableOpacity
             style={styles.imageContainer}
             onPress={handleProfilePhotoPick}
@@ -492,24 +505,24 @@ const EditProfileScreen = () => {
 
         {/* Display Name */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Navn</Text>
+          <Text style={styles.sectionTitle}>{t('editProfile.name')}</Text>
           <TextInput
             style={styles.input}
             value={displayName}
             onChangeText={setDisplayName}
-            placeholder="Dit navn"
+            placeholder={t('editProfile.namePlaceholder')}
             placeholderTextColor="#8E8E93"
           />
           {!canChangeDisplayName() && displayName !== user?.displayName && (
             <Text style={styles.warningText}>
-              Du kan kun ændre dit navn hver 14. dag
+              {t('editProfile.nameChangeWarning')}
             </Text>
           )}
         </View>
 
         {/* Username */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Brugernavn</Text>
+          <Text style={styles.sectionTitle}>{t('editProfile.username')}</Text>
           <TextInput
             style={[
               styles.input,
@@ -521,29 +534,29 @@ const EditProfileScreen = () => {
             ]}
             value={username}
             onChangeText={t => setUsername(normalizeUsernameInput(t))}
-            placeholder="Dit brugernavn"
+            placeholder={t('editProfile.usernamePlaceholder')}
             placeholderTextColor="#8E8E93"
             autoCapitalize="none"
             autoCorrect={false}
             maxLength={20}
           />
-          <Text style={styles.helperMuted}>Bogstaver, tal, punktum og _ · 3–20 tegn</Text>
+          <Text style={styles.helperMuted}>{t('editProfile.usernameRules')}</Text>
           {usernameAvailability.formatError ? (
             <View style={styles.usernameStatusRow}>
               <Icon name="close-circle" size={16} color={colors.error} />
               <Text style={styles.hintErr}>{usernameAvailability.formatError}</Text>
             </View>
           ) : usernameAvailability.checking && normalizeUsernameForStorage(username).length > 0 ? (
-            <Text style={styles.helperMuted}>Tjekker …</Text>
+            <Text style={styles.helperMuted}>{t('editProfile.usernameChecking')}</Text>
           ) : usernameAvailability.available === false ? (
             <View style={styles.usernameStatusRow}>
               <Icon name="close-circle" size={16} color={colors.error} />
-              <Text style={styles.hintErr}>Brugernavn er allerede taget</Text>
+              <Text style={styles.hintErr}>{t('editProfile.usernameTaken')}</Text>
             </View>
           ) : usernameAvailability.available === true && usernameNormChanged ? (
             <View style={styles.usernameStatusRow}>
               <Icon name="checkmark-circle" size={16} color={colors.primary} />
-              <Text style={styles.hintOk}>Brugernavn er ledigt</Text>
+              <Text style={styles.hintOk}>{t('editProfile.usernameAvailable')}</Text>
             </View>
           ) : null}
           {!canChangeUsername() && usernameNormChanged && (
@@ -555,12 +568,12 @@ const EditProfileScreen = () => {
 
         {/* Bio */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Bio</Text>
+          <Text style={styles.sectionTitle}>{t('editProfile.bio')}</Text>
           <TextInput
             style={[styles.input, styles.bioInput]}
             value={bio}
             onChangeText={setBio}
-            placeholder="Fortæl lidt om dig selv..."
+            placeholder={t('editProfile.bioPlaceholder')}
             placeholderTextColor="#8E8E93"
             multiline
             numberOfLines={4}
@@ -570,7 +583,7 @@ const EditProfileScreen = () => {
 
         {/* Default Biceps Emoji */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Standard biceps emoji</Text>
+          <Text style={styles.sectionTitle}>{t('editProfile.defaultBiceps')}</Text>
           <View style={styles.bicepsGrid}>
             {bicepsOptions.map(option => (
               <Pressable
@@ -590,7 +603,7 @@ const EditProfileScreen = () => {
 
         {/* Weight */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Vægt</Text>
+          <Text style={styles.sectionTitle}>{t('editProfile.weight')}</Text>
           <View style={styles.weightInputContainer}>
             <TextInput
               style={[styles.input, styles.weightInput]}
@@ -606,7 +619,7 @@ const EditProfileScreen = () => {
                   setWeight(numericValue);
                 }
               }}
-              placeholder="Vægt i kg"
+              placeholder={t('editProfile.weightPlaceholder')}
               placeholderTextColor="#8E8E93"
               keyboardType="decimal-pad"
             />
@@ -616,13 +629,13 @@ const EditProfileScreen = () => {
 
         {/* Gender */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Køn</Text>
+          <Text style={styles.sectionTitle}>{t('editProfile.gender')}</Text>
           <TouchableOpacity
             style={styles.pickerButton}
             onPress={() => setShowGenderPicker(!showGenderPicker)}
             activeOpacity={0.7}>
             <Text style={[styles.pickerButtonText, !gender && styles.pickerButtonPlaceholder]}>
-              {gender ? getGenderLabel(gender) : 'Vælg køn'}
+              {gender ? getGenderLabel(gender) : t('editProfile.selectGender')}
             </Text>
             <Icon name="chevron-down" size={20} color="#8E8E93" />
           </TouchableOpacity>
@@ -658,7 +671,7 @@ const EditProfileScreen = () => {
 
         {/* Date of Birth */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Fødselsdag</Text>
+          <Text style={styles.sectionTitle}>{t('editProfile.birthday')}</Text>
           <TouchableOpacity
             style={styles.pickerButton}
             onPress={() => setShowDatePicker(true)}
@@ -696,7 +709,7 @@ const EditProfileScreen = () => {
                     style={styles.datePickerButton}
                     onPress={() => setShowDatePicker(false)}
                     activeOpacity={0.7}>
-                    <Text style={styles.datePickerButtonText}>Vælg</Text>
+                    <Text style={styles.datePickerButtonText}>{t('editProfile.pickDate')}</Text>
                   </TouchableOpacity>
                 </View>
               )}
@@ -706,19 +719,19 @@ const EditProfileScreen = () => {
 
         {/* City */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>By</Text>
+          <Text style={styles.sectionTitle}>{t('editProfile.city')}</Text>
           <TextInput
             style={styles.input}
             value={city}
             onChangeText={setCity}
-            placeholder="Din by"
+            placeholder={t('editProfile.cityPlaceholder')}
             placeholderTextColor="#8E8E93"
           />
         </View>
 
         {/* Lokale centre (1 påkrævet, 2 valgfri) */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Lokale centre</Text>
+          <Text style={styles.sectionTitle}>{t('editProfile.localCentres')}</Text>
           <GymSlotsEditor
             key={(user?.favoriteGyms ?? []).join('-') || 'gym-slots'}
             initialIds={user?.favoriteGyms ?? []}
@@ -728,10 +741,10 @@ const EditProfileScreen = () => {
 
         {/* Privacy Settings */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Privatindstillinger</Text>
+          <Text style={styles.sectionTitle}>{t('editProfile.privacySettings')}</Text>
           
           <View style={styles.visibilitySection}>
-            <Text style={styles.settingLabel}>Profil synlighed</Text>
+            <Text style={styles.settingLabel}>{t('editProfile.profileVisibility')}</Text>
             <View style={styles.visibilityOptions}>
               {(['everyone', 'friends_and_gyms', 'friends', 'private'] as ProfileVisibility[]).map(option => (
                 <TouchableOpacity

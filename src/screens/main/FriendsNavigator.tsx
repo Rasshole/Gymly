@@ -1,6 +1,5 @@
 /**
- * Friends Navigator — top tabs (Venner, [Online], [Grupper], Centre, Kort).
- * Online + Grupper styres via `launchSurfaceConfig` — bevarer modulær genaktivering.
+ * Friends Navigator — Venner, Centre, Kort only.
  */
 
 import React, {useCallback, useEffect, useState, useRef} from 'react';
@@ -13,64 +12,35 @@ import {
   LayoutChangeEvent,
 } from 'react-native';
 import {useFocusEffect, useRoute} from '@react-navigation/native';
+import {useTranslation} from '@/i18n';
 import colors from '@/theme/colors';
 import {spacing} from '@/theme/designTokens';
-import {
-  SURFACE_ONLINE_SUBTAB_IN_FRIENDS,
-  SURFACE_GROUPS_IN_APP,
-} from '@/config/launchSurfaceConfig';
 import FriendsScreen from './FriendsScreen';
-import OnlineScreen from './OnlineScreen';
-import GroupsScreen from './GroupsScreen';
 import CentresScreen from './CentresScreen';
 import MapScreen from './MapScreen';
 
 export type FriendsTabParamList = {
   Venner: undefined;
-  Online: undefined;
-  Grupper: undefined;
   Centre: undefined;
   Kort: undefined;
 };
 
 export type FriendsSubRouteName = keyof FriendsTabParamList;
 
-const ALL_FRIENDS_TABS: {name: FriendsSubRouteName; label: string}[] = [
-  {name: 'Venner', label: 'Venner'},
-  {name: 'Online', label: 'Online'},
-  {name: 'Grupper', label: 'Grupper'},
-  {name: 'Centre', label: 'Centre'},
-  {name: 'Kort', label: 'Kort'},
-];
+const FRIENDS_TAB_NAMES: FriendsSubRouteName[] = ['Venner', 'Centre', 'Kort'];
 
-function visibleFriendsTabs(): {name: FriendsSubRouteName; label: string}[] {
-  return ALL_FRIENDS_TABS.filter(t => {
-    if (!SURFACE_ONLINE_SUBTAB_IN_FRIENDS && t.name === 'Online') {
-      return false;
-    }
-    if (!SURFACE_GROUPS_IN_APP && t.name === 'Grupper') {
-      return false;
-    }
-    return true;
-  });
-}
+const FRIENDS_TAB_LABEL_KEYS: Record<FriendsSubRouteName, string> = {
+  Venner: 'friendsTabs.friends',
+  Centre: 'friendsTabs.centres',
+  Kort: 'friendsTabs.map',
+};
 
 function isKnownFriendsParam(s: string): s is FriendsSubRouteName {
-  return ALL_FRIENDS_TABS.some(t => t.name === s);
+  return FRIENDS_TAB_NAMES.includes(s as FriendsSubRouteName);
 }
 
 function normalizeFriendsSubRoute(screen: string | undefined): FriendsSubRouteName {
   if (!screen || !isKnownFriendsParam(screen)) {
-    return 'Venner';
-  }
-  if (!SURFACE_ONLINE_SUBTAB_IN_FRIENDS && screen === 'Online') {
-    return 'Venner';
-  }
-  if (!SURFACE_GROUPS_IN_APP && screen === 'Grupper') {
-    return 'Venner';
-  }
-  const allowed = visibleFriendsTabs().map(t => t.name);
-  if (!allowed.includes(screen)) {
     return 'Venner';
   }
   return screen;
@@ -78,8 +48,11 @@ function normalizeFriendsSubRoute(screen: string | undefined): FriendsSubRouteNa
 
 const FriendsNavigator = () => {
   const route = useRoute();
-  const tabs = visibleFriendsTabs();
-  const tabBarPadH = tabs.length <= 3 ? spacing.md : spacing.sm;
+  const {t} = useTranslation();
+  const tabs = FRIENDS_TAB_NAMES.map(name => ({
+    name,
+    label: t(FRIENDS_TAB_LABEL_KEYS[name]),
+  }));
   const [active, setActive] = useState<FriendsSubRouteName>('Venner');
   const [tabBarWidth, setTabBarWidth] = useState(0);
   const indicatorX = useRef(new Animated.Value(0)).current;
@@ -99,7 +72,7 @@ const FriendsNavigator = () => {
     }, [syncFromParams]),
   );
 
-  const activeIndex = tabs.findIndex(t => t.name === active);
+  const activeIndex = tabs.findIndex(tab => tab.name === active);
 
   useEffect(() => {
     if (tabBarWidth <= 0 || tabs.length === 0) {
@@ -118,7 +91,7 @@ const FriendsNavigator = () => {
   const onTabRowLayout = (e: LayoutChangeEvent) => {
     const w = e.nativeEvent.layout.width;
     setTabBarWidth(w);
-    const idx = tabs.findIndex(t => t.name === active);
+    const idx = tabs.findIndex(tab => tab.name === active);
     if (w > 0 && tabs.length > 0) {
       indicatorX.setValue(Math.max(0, idx) * (w / tabs.length));
     }
@@ -128,10 +101,6 @@ const FriendsNavigator = () => {
     switch (active) {
       case 'Venner':
         return <FriendsScreen />;
-      case 'Online':
-        return <OnlineScreen />;
-      case 'Grupper':
-        return <GroupsScreen />;
       case 'Centre':
         return <CentresScreen />;
       case 'Kort':
@@ -145,7 +114,7 @@ const FriendsNavigator = () => {
 
   return (
     <View style={styles.container}>
-      <View style={[styles.tabBarOuter, {paddingHorizontal: tabBarPadH}]}>
+      <View style={styles.tabBarOuter}>
         <View style={styles.tabRow} onLayout={onTabRowLayout}>
           {tabs.map(tab => {
             const isFocused = active === tab.name;
@@ -197,6 +166,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: colors.border,
     paddingTop: 6,
+    paddingHorizontal: spacing.lg,
   },
   tabRow: {
     flexDirection: 'row',

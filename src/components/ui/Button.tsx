@@ -1,18 +1,19 @@
 /**
- * Button – Primary, secondary, ghost variants
+ * Button – unified CTA styles (primary, secondary, ghost, outline)
  */
 
 import React from 'react';
 import {
-  TouchableOpacity,
   Text,
   StyleSheet,
   ActivityIndicator,
   ViewStyle,
   TextStyle,
+  View,
 } from 'react-native';
 import colors from '@/theme/colors';
-import {spacing, radius} from '@/theme/designTokens';
+import {spacing, radius, typography, shadows, layout} from '@/theme/designTokens';
+import {GymlyPressable} from './GymlyPressable';
 
 type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'outline';
 
@@ -47,6 +48,7 @@ const Button: React.FC<ButtonProps> = ({
     styles[`${size}Button`],
     fullWidth && styles.fullWidth,
     isDisabled && styles.disabled,
+    variant === 'primary' && !isDisabled && shadows.glow,
     style,
   ];
 
@@ -58,20 +60,29 @@ const Button: React.FC<ButtonProps> = ({
   ];
 
   return (
-    <TouchableOpacity
+    <GymlyPressable
       style={buttonStyle}
       onPress={onPress}
       disabled={isDisabled}
-      activeOpacity={0.8}>
-      {loading ? (
-        <ActivityIndicator
-          color={variant === 'primary' || variant === 'secondary' ? colors.white : colors.primary}
-          size="small"
-        />
-      ) : (
-        <Text style={labelStyle}>{title}</Text>
-      )}
-    </TouchableOpacity>
+      haptic={isDisabled ? false : 'light'}>
+      <View style={styles.inner}>
+        {variant === 'primary' && !isDisabled ? (
+          <View style={styles.sheen} pointerEvents="none" />
+        ) : null}
+        {loading ? (
+          <ActivityIndicator
+            color={
+              variant === 'primary' || variant === 'secondary'
+                ? colors.white
+                : colors.primary
+            }
+            size="small"
+          />
+        ) : (
+          <Text style={labelStyle}>{title}</Text>
+        )}
+      </View>
+    </GymlyPressable>
   );
 };
 
@@ -79,16 +90,33 @@ const styles = StyleSheet.create({
   base: {
     alignItems: 'center',
     justifyContent: 'center',
+    borderRadius: radius.xl,
+    overflow: 'hidden',
+  },
+  inner: {
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  sheen: {
+    position: 'absolute',
+    top: 6,
+    left: '18%',
+    right: '18%',
+    height: 14,
     borderRadius: radius.md,
+    backgroundColor: 'rgba(255,255,255,0.22)',
   },
   fullWidth: {
     width: '100%',
   },
   disabled: {
-    opacity: 0.6,
+    opacity: 0.5,
   },
   primaryButton: {
     backgroundColor: colors.primary,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.18)',
   },
   secondaryButton: {
     backgroundColor: colors.primaryDark,
@@ -98,26 +126,27 @@ const styles = StyleSheet.create({
   },
   outlineButton: {
     backgroundColor: 'transparent',
-    borderWidth: 2,
+    borderWidth: 1.5,
     borderColor: colors.primary,
   },
   smButton: {
     paddingVertical: spacing.sm,
-    paddingHorizontal: spacing.md,
-    minHeight: 36,
+    paddingHorizontal: spacing.lg,
+    minHeight: 40,
   },
   mdButton: {
     paddingVertical: spacing.md,
-    paddingHorizontal: spacing.lg,
-    minHeight: 44,
+    paddingHorizontal: spacing.xl,
+    minHeight: layout.buttonMinHeight,
   },
   lgButton: {
     paddingVertical: spacing.lg,
-    paddingHorizontal: spacing.xl,
-    minHeight: 52,
+    paddingHorizontal: spacing.xxl,
+    minHeight: 56,
   },
   label: {
-    fontWeight: '600',
+    ...typography.bodyBold,
+    letterSpacing: -0.2,
   },
   primaryLabel: {
     color: colors.white,
@@ -138,7 +167,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   lgLabel: {
-    fontSize: 18,
+    fontSize: 17,
   },
 });
 

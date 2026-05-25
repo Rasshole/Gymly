@@ -8,6 +8,7 @@ import {useFeedStore} from '@/store/feedStore';
 import type {FeedItem} from '@/store/feedStore';
 import type {WorkoutPostRow} from '@/types/post.types';
 import {formatRelativeTime} from '@/utils/formatRelativeTime';
+import {getRuntimeLanguage} from '@/i18n/runtimeLanguage';
 import {withAvatarCacheBust} from '../../utils/avatar';
 import {formatGymNameWithBrand} from '@/utils/gymDisplay';
 import {detectGymChain} from '@/services/gymLogoService';
@@ -45,7 +46,7 @@ export function mapPostRowToFeedItem(row: WorkoutPostRow): FeedItem {
     user: row.author_display_name?.trim() || 'Bruger',
     userAvatarUrl: row.author_avatar_url || undefined,
     description: row.caption || '',
-    timestamp: formatRelativeTime(new Date(row.created_at)),
+    timestamp: formatRelativeTime(new Date(row.created_at), getRuntimeLanguage()),
     photoUri: row.image_url || undefined,
     workoutInfo,
     rating:

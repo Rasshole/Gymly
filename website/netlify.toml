@@ -1,6 +1,23 @@
 # gymlyapp.com på Netlify: build/publish skal pege på website/ (eller kopier disse redirects til root-config).
 
 [[redirects]]
+  from = "/auth/callback"
+  to = "/auth/callback/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/auth/callback/"
+  to = "/auth/callback/index.html"
+  status = 200
+  force = true
+
+[[headers]]
+  for = "/.well-known/apple-app-site-association"
+  [headers.values]
+    Content-Type = "application/json"
+
+[[redirects]]
   from = "/confirm"
   to = "/confirm/index.html"
   status = 200

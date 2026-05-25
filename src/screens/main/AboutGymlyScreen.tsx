@@ -1,6 +1,5 @@
 /**
  * About Gymly Screen
- * Information about Gymly app, its purpose and features
  */
 
 import React from 'react';
@@ -10,30 +9,30 @@ import {
   StyleSheet,
   ScrollView,
   SafeAreaView,
+  TouchableOpacity,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {TouchableOpacity} from 'react-native';
 import colors from '@/theme/colors';
+import {useTranslation} from '@/i18n';
 
 const AboutGymlyScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
+  const {t} = useTranslation();
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity
           onPress={() => navigation.goBack()}
           style={styles.backButton}>
           <Icon name="arrow-back" size={24} color="#000" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Om Gymly</Text>
+        <Text style={styles.headerTitle}>{t('about.title')}</Text>
         <View style={styles.headerRight} />
       </View>
 
-      {/* Content */}
       <ScrollView
         style={styles.scrollView}
         contentContainerStyle={styles.scrollContent}>
@@ -41,43 +40,35 @@ const AboutGymlyScreen = () => {
           <Text style={styles.logoText}>Gymly</Text>
         </View>
 
-        <Text style={styles.title}>Velkommen til Gymly</Text>
+        <Text style={styles.title}>{t('about.welcome')}</Text>
 
         <View style={styles.section}>
-          <Text style={styles.text}>
-            💪 Gymly er en social fitness-app, der gør træning synlig.
-          </Text>
+          <Text style={styles.text}>{t('about.p1')}</Text>
         </View>
 
         <View style={styles.section}>
-          <Text style={styles.text}>
-            📍 Check ind i dit center, se hvem der træner 👥, track din progression 📊 og bliv motiveret af dit netværk 🔥. Vi er en social fitness-app, der kombinerer træning, fællesskab og progression i én platform.
-          </Text>
+          <Text style={styles.text}>{t('about.p2')}</Text>
         </View>
 
         <View style={styles.section}>
-          <Text style={styles.text}>
-            Med Gymly kan du ✅ checke ind i dit fitnesscenter, se hvem der træner samtidig med dig 👥, tracke dine personlige rekorder 🏆, og følge dig og dine venners udvikling 📈.
-          </Text>
+          <Text style={styles.text}>{t('about.p3')}</Text>
         </View>
 
         <View style={styles.section}>
-          <Text style={styles.text}>
-            👀 Se hvem der er i centeret, 🗺️ find dit center, 🤝 find træningspartnere, og bliv en del af et fællesskab, hvor vi alle arbejder mod at blive bedre 💪.
-          </Text>
+          <Text style={styles.text}>{t('about.p4')}</Text>
         </View>
 
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Vores vision er at gøre træning:</Text>
+          <Text style={styles.sectionTitle}>{t('about.visionTitle')}</Text>
           <View style={styles.visionList}>
             <View style={styles.visionItem}>
-              <Text style={styles.visionText}>👥 Mere social</Text>
+              <Text style={styles.visionText}>{t('about.visionSocial')}</Text>
             </View>
             <View style={styles.visionItem}>
-              <Text style={styles.visionText}>⚡ Mere forpligtende</Text>
+              <Text style={styles.visionText}>{t('about.visionCommitment')}</Text>
             </View>
             <View style={styles.visionItem}>
-              <Text style={styles.visionText}>🔥 Mere motiverende.</Text>
+              <Text style={styles.visionText}>{t('about.visionMotivating')}</Text>
             </View>
           </View>
         </View>
@@ -126,20 +117,20 @@ const styles = StyleSheet.create({
   logoText: {
     fontSize: 48,
     fontWeight: 'bold',
-    color: '#007AFF',
+    color: colors.primary,
   },
   title: {
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: 'bold',
     color: colors.text,
     textAlign: 'center',
-    marginBottom: 32,
+    marginBottom: 24,
   },
   section: {
-    marginBottom: 32,
+    marginBottom: 20,
   },
   sectionTitle: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: '600',
     color: colors.text,
     marginBottom: 12,
@@ -149,34 +140,17 @@ const styles = StyleSheet.create({
     color: colors.textSecondary,
     lineHeight: 24,
   },
-  featureList: {
-    marginTop: 12,
-  },
-  featureItem: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    marginBottom: 12,
-  },
-  featureText: {
-    flex: 1,
-    fontSize: 16,
-    color: colors.textSecondary,
-    lineHeight: 24,
-    marginLeft: 12,
-  },
   visionList: {
-    marginTop: 12,
+    gap: 8,
   },
   visionItem: {
-    marginBottom: 8,
+    paddingVertical: 4,
   },
   visionText: {
     fontSize: 16,
-    color: colors.textSecondary,
+    color: colors.text,
     lineHeight: 24,
   },
 });
 
 export default AboutGymlyScreen;
-
-

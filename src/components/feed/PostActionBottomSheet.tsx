@@ -24,6 +24,7 @@ import {
   submitPostReport,
 } from '@/services/supabase/workoutPostService';
 import {isLikelyServerPostUuid, isLocalDemoPostId} from '@/utils/postIds';
+import {useTranslation} from '@/i18n';
 
 const SCREEN_H = Dimensions.get('window').height;
 
@@ -72,6 +73,7 @@ export const PostActionBottomSheet: React.FC<PostActionBottomSheetProps> = ({
   variant = 'workoutPost',
   onPostDeleted,
 }) => {
+  const {t} = useTranslation();
   const insets = useSafeAreaInsets();
   const backdrop = useRef(new Animated.Value(0)).current;
   const sheetY = useRef(new Animated.Value(SCREEN_H)).current;
@@ -164,7 +166,10 @@ export const PostActionBottomSheet: React.FC<PostActionBottomSheetProps> = ({
             if (res.ok) {
               Alert.alert('Tak', 'Vi har modtaget din anmeldelse.');
             } else {
-              Alert.alert('Beklager', res.message ?? 'Prøv igen senere.');
+              Alert.alert(
+                t('postActions.deleteWorkoutSorry'),
+                res.message ?? t('postActions.tryAgainLater'),
+              );
             }
             runClose();
           },
@@ -178,10 +183,10 @@ export const PostActionBottomSheet: React.FC<PostActionBottomSheetProps> = ({
     if (!post || !uid) {
       return;
     }
-    Alert.alert('Vil du slette denne træning?', undefined, [
-      {text: 'Annuller', style: 'cancel'},
+    Alert.alert(t('postActions.deleteWorkoutTitle'), undefined, [
+      {text: t('common.cancel'), style: 'cancel'},
       {
-        text: 'Slet',
+        text: t('common.delete'),
         style: 'destructive',
         onPress: async () => {
           const res = await deleteWorkoutPostForUser(post.id, uid, post.photoUri);
@@ -189,12 +194,12 @@ export const PostActionBottomSheet: React.FC<PostActionBottomSheetProps> = ({
             onPostDeleted?.(post.id);
             runClose();
           } else {
-            Alert.alert('Kunne ikke slette', res.message ?? 'Prøv igen.');
+            Alert.alert(t('errors.couldNotDelete'), res.message ?? t('errors.tryAgainLater'));
           }
         },
       },
     ]);
-  }, [post, onPostDeleted, runClose]);
+  }, [post, onPostDeleted, runClose, t]);
 
   return (
     <Modal
@@ -272,7 +277,7 @@ export const PostActionBottomSheet: React.FC<PostActionBottomSheetProps> = ({
                 onPress={handleDelete}
                 activeOpacity={0.75}>
                 <Icon name="trash-outline" size={22} color={colors.error} />
-                <Text style={styles.rowLabelDestructive}>Slet træning</Text>
+                <Text style={styles.rowLabelDestructive}>{t('postActions.deleteWorkout')}</Text>
               </TouchableOpacity>
             </>
           ) : null}

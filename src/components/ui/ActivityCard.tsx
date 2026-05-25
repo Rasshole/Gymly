@@ -7,7 +7,7 @@ import {View, Text, TouchableOpacity, StyleSheet, ViewStyle} from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons';
 import {UserAvatar} from './UserAvatar';
 import colors from '@/theme/colors';
-import {spacing, radius, typography} from '@/theme/designTokens';
+import {spacing, radius, typography, shadows} from '@/theme/designTokens';
 
 type ActivityCardProps = {
   userName: string;
@@ -93,11 +93,12 @@ const styles = StyleSheet.create({
     backgroundColor: colors.backgroundCard,
     borderRadius: radius.lg,
     marginBottom: spacing.sm,
-    borderWidth: 1,
+    borderWidth: StyleSheet.hairlineWidth,
     borderColor: colors.border,
-    borderLeftWidth: 4,
+    borderLeftWidth: 3,
     borderLeftColor: colors.primary,
     gap: spacing.md,
+    ...shadows.sm,
   },
   content: {
     flex: 1,
@@ -124,7 +125,7 @@ const styles = StyleSheet.create({
   iconWrap: {
     width: 40,
     height: 40,
-    borderRadius: radius.md,
+    borderRadius: radius.sm,
     alignItems: 'center',
     justifyContent: 'center',
   },

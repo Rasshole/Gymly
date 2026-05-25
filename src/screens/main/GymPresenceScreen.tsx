@@ -19,8 +19,10 @@ import {getLogoSource, getDefaultGymlyLogoAsset} from '@/services/gymLogoService
 import {useAppStore} from '@/store/appStore';
 import {useChatStore} from '@/store/chatStore';
 import {getOrCreateDmThread} from '@/services/supabase/dmService';
+import {useTranslation, getRuntimeLanguage} from '@/i18n';
 
 const GymPresenceScreen = () => {
+  const {t} = useTranslation();
   const navigation = useNavigation<any>();
   const route = useRoute<any>();
   const currentUser = useAppStore(s => s.user);
@@ -75,7 +77,7 @@ const GymPresenceScreen = () => {
           participants: [{id: friendId, name: friendName}],
         });
       } catch (e) {
-        Alert.alert('Besked', (e as Error).message);
+        Alert.alert(t('friendsScreen.messageError'), (e as Error).message);
       }
     },
     [currentUser, getChatByParticipants, navigation, upsertChat],
@@ -90,7 +92,7 @@ const GymPresenceScreen = () => {
         />
         <View style={styles.missingWrap}>
           <Text style={styles.missingText}>
-            Dette center har ingen aktive træninger lige nu.
+            {t('gymPresence.noActiveSessions')}
           </Text>
         </View>
       </View>
@@ -132,18 +134,23 @@ const GymPresenceScreen = () => {
                 <Text style={styles.address}>{detailCenter.address}</Text>
               ) : null}
               <Text style={styles.userCount}>
-                {detailCenter.totalActiveCount} aktive
                 {detailCenter.activeFriendsCount > 0
-                  ? ` · ${detailCenter.activeFriendsCount} venner`
-                  : ''}
+                  ? t('activeCenter.activeAndFriends', {
+                      count: detailCenter.totalActiveCount,
+                      friends: detailCenter.activeFriendsCount,
+                    })
+                  : t('activeCenter.active', {count: detailCenter.totalActiveCount})}
               </Text>
             </View>
           </View>
 
-          <Text style={styles.sectionLabel}>Dine venner her lige nu</Text>
+          <Text style={styles.sectionLabel}>{t('gymPresence.friendsHereNow')}</Text>
           {detailCenter.activeFriends.length > 0 ? (
             detailCenter.activeFriends.map(f => {
-              const w = formatWorkoutTypeDisplay(f.workoutType ?? undefined);
+              const w = formatWorkoutTypeDisplay(
+                f.workoutType ?? undefined,
+                getRuntimeLanguage(),
+              );
               const duration = formatActiveDurationSince(f.startedAt);
               return (
                 <View key={f.checkInId} style={styles.friendRow}>
@@ -164,14 +171,14 @@ const GymPresenceScreen = () => {
                     style={styles.msgBtn}
                     onPress={() => void openMessage(f.userId, f.displayName)}
                     activeOpacity={0.85}>
-                    <Text style={styles.msgBtnText}>Besked</Text>
+                    <Text style={styles.msgBtnText}>{t('home.message')}</Text>
                   </TouchableOpacity>
                 </View>
               );
             })
           ) : (
             <Text style={styles.emptyFriends}>
-              Ingen af dine venner træner her lige nu
+              {t('gymPresence.noFriendsHere')}
             </Text>
           )}
         </ScrollView>
@@ -196,8 +203,8 @@ const GymPresenceScreen = () => {
         ) : (
           <EmptyState
             icon="people-outline"
-            title="Ingen træner lige nu"
-            message="Vær den første til at tjekke ind"
+            title={t('gymPresence.noOneTraining')}
+            message={t('gymPresence.beFirst')}
             actionLabel="Tjek ind"
             onAction={() => navigation.navigate('CheckIn')}
           />

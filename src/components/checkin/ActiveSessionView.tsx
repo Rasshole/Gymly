@@ -24,16 +24,9 @@ import UserProfileModal from './UserProfileModal';
 import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows} from '@/theme/designTokens';
 import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
+import {getRuntimeLanguage, useTranslation} from '@/i18n';
 import {sortActiveUsersForDisplay} from '@/utils/sortActiveUsersForDisplay';
 import {useDemoModeStore} from '@/demo/demoModeStore';
-
-const LEGACY_WORKOUT_LABELS: Record<string, string> = {
-  fri: 'Fri træning',
-  styrke: 'Styrke',
-  kondi: 'Kondition',
-  ben: 'Ben',
-  overkrop: 'Overkrop',
-};
 
 function formatElapsed(seconds: number): string {
   const h = Math.floor(seconds / 3600);
@@ -100,6 +93,7 @@ export interface ActiveSessionViewProps {
 }
 
 const ActiveSessionView: React.FC<ActiveSessionViewProps> = ({onEndSession}) => {
+  const {t} = useTranslation();
   const navigation = useNavigation<any>();
   const {activeSession, getElapsedSeconds} = useSessionStore();
   const showAwayZoneWarning = useCheckInUIStore(s => s.showAwayZoneWarning);
@@ -167,11 +161,9 @@ const ActiveSessionView: React.FC<ActiveSessionViewProps> = ({onEndSession}) => 
     ? gyms.find(g => g.gymId === activeGymId)
     : gyms.find(g => g.gymName === activeSession?.gymName);
 
-  const currentUserName = user?.displayName ?? 'Dig';
+  const currentUserName = user?.displayName ?? t('common.you');
   const rawType = activeSession?.workoutType || '';
-  const workoutLabel = rawType.includes(',')
-    ? formatWorkoutTypeDisplay(rawType)
-    : LEGACY_WORKOUT_LABELS[rawType] ?? formatWorkoutTypeDisplay(rawType);
+  const workoutLabel = formatWorkoutTypeDisplay(rawType, getRuntimeLanguage());
 
   const activeUsersRaw: ActiveUser[] =
     gymPresence?.userList?.length && gymPresence.userList.length > 0
@@ -267,7 +259,7 @@ const ActiveSessionView: React.FC<ActiveSessionViewProps> = ({onEndSession}) => 
           style={styles.endButton}
           onPress={onEndSession}
           activeOpacity={0.86}>
-          <Text style={styles.endButtonText}>Afslut træning</Text>
+          <Text style={styles.endButtonText}>{t('checkIn.endWorkout')}</Text>
         </TouchableOpacity>
 
         <ActiveUsersList

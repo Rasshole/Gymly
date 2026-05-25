@@ -112,6 +112,8 @@ import {PushNotificationBootstrap} from '@/components/push/PushNotificationBoots
 import {UserBadgesRealtimeSync} from '@/components/badges/UserBadgesRealtimeSync';
 import {GymlyRealtimeHub} from '@/realtime/gymlyRealtimeHub';
 import {SURFACE_LEADERBOARD_IN_MAIN_CHROME} from '@/config/launchSurfaceConfig';
+import {useTranslation} from '@/i18n';
+import {LanguageSettingsScreen} from '@/screens/settings/LanguageScreen';
 import type {ActiveCenter} from '@/types/activeCenter.types';
 import type {GymPresence} from '@/types/gymPresence.types';
 export type CheckInStackParamList = {
@@ -120,7 +122,7 @@ export type CheckInStackParamList = {
 
 export type MainTabParamList = {
   Home: undefined;
-  Friends: {screen?: 'Venner' | 'Online' | 'Grupper' | 'Centre' | 'Kort'};
+  Friends: {screen?: 'Venner' | 'Centre' | 'Kort'};
   Badges: {highlightBadgeId?: string} | undefined;
   Messages: undefined;
   Profile: undefined;
@@ -209,6 +211,7 @@ export type MainStackParamList = {
   EditProfile: {forceUsernameChange?: boolean} | undefined;
   PushNotifications: undefined;
   FeedSorting: undefined;
+  LanguageSettings: undefined;
   ActivityFeed: undefined;
   GymPresence:
     | {activeCenter?: ActiveCenter; gym?: GymPresence}
@@ -271,6 +274,7 @@ const SettingsButton = () => {
 };
 
 const UpcomingButton = () => {
+  const {t} = useTranslation();
   const navigation = useNavigation<CompositeNavigationProp<
     BottomTabNavigationProp<MainTabParamList>,
     StackNavigationProp<MainStackParamList>
@@ -280,7 +284,7 @@ const UpcomingButton = () => {
       onPress={() => navigation.navigate('WorkoutSchedule', {initialTab: 'upcoming'})}
       style={tabHeaderStyles.iconTap}
       activeOpacity={0.75}
-      accessibilityLabel="Planlagte sessions">
+      accessibilityLabel={t('plannedSessions.title')}>
       <Icon name="calendar-outline" size={HEADER_ICON} color={colors.text} />
     </TouchableOpacity>
   );
@@ -334,6 +338,7 @@ const NotificationsButton = () => {
 };
 
 const MainTabs = () => {
+  const {t} = useTranslation();
   return (
     <Tab.Navigator
       tabBar={props => <CustomTabBar {...props} />}
@@ -353,6 +358,7 @@ const MainTabs = () => {
           fontWeight: '700',
           fontSize: 17,
           color: colors.text,
+          letterSpacing: -0.3,
         },
         headerLeftContainerStyle: {minWidth: HEADER_SIDE_SLOT},
         headerRightContainerStyle: {minWidth: HEADER_SIDE_SLOT},
@@ -370,38 +376,39 @@ const MainTabs = () => {
       <Tab.Screen
         name="Home"
         component={HomeScreen}
-        options={{title: 'Hjem'}}
+        options={{title: t('tabs.home')}}
       />
       <Tab.Screen
         name="Friends"
         component={FriendsNavigator}
-        options={{title: 'Venner'}}
+        options={{title: t('tabs.friends')}}
       />
       <Tab.Screen
         name="CheckIn"
         component={CheckInStack}
-        options={{title: 'Tjek ind'}}
+        options={{title: t('tabs.checkIn')}}
       />
       <Tab.Screen
         name="Badges"
         component={BadgesScreen}
-        options={{title: 'Badges'}}
+        options={{title: t('tabs.badges')}}
       />
       <Tab.Screen
         name="Messages"
         component={MessagesScreen}
-        options={{title: 'Beskeder'}}
+        options={{title: t('tabs.messages')}}
       />
       <Tab.Screen
         name="Profile"
         component={ProfileScreen}
-        options={{title: 'Profil'}}
+        options={{title: t('tabs.profile')}}
       />
     </Tab.Navigator>
   );
 };
 
 const MainNavigator = () => {
+  const {t} = useTranslation();
   return (
     <>
       <UsernameChangeGate />
@@ -429,16 +436,23 @@ const MainNavigator = () => {
         name="Settings"
         component={SettingsScreen}
         options={{
-          title: 'Indstillinger',
-          headerBackTitle: 'Tilbage',
+          title: t('settings.title'),
+          headerBackTitle: t('common.back'),
+        }}
+      />
+      <Stack.Screen
+        name="LanguageSettings"
+        component={LanguageSettingsScreen}
+        options={{
+          headerShown: false,
         }}
       />
       <Stack.Screen
         name="Notifications"
         component={NotificationsScreen}
         options={{
-          title: 'Notifikationer',
-          headerBackTitle: 'Tilbage',
+          title: t('notifications.title'),
+          headerBackTitle: t('common.back'),
         }}
       />
       <Stack.Screen
@@ -466,8 +480,8 @@ const MainNavigator = () => {
               name="WorkoutInvitations"
               component={WorkoutInvitationsScreen}
               options={{
-                title: 'Træningsinvitationer',
-                headerBackTitle: 'Tilbage',
+                title: t('nav.workoutInvitations'),
+                headerBackTitle: t('common.back'),
               }}
             />
             <Stack.Screen
@@ -616,32 +630,32 @@ const MainNavigator = () => {
         name="WorkoutHistory"
         component={WorkoutHistoryScreen}
         options={{
-          title: 'Tidligere workouts',
-          headerBackTitle: 'Tilbage',
+          title: t('nav.workoutHistory'),
+          headerBackTitle: t('common.back'),
         }}
       />
       <Stack.Screen
         name="AllTrainings"
         component={AllTrainingsScreen}
         options={{
-          title: 'Alle træninger',
-          headerBackTitle: 'Tilbage',
+          title: t('nav.allTrainings'),
+          headerBackTitle: t('common.back'),
         }}
       />
       <Stack.Screen
         name="UpcomingWorkouts"
         component={UpcomingWorkoutsScreen}
         options={{
-          title: 'Planlagte sessions',
-          headerBackTitle: 'Tilbage',
+          title: t('plannedSessions.title'),
+          headerBackTitle: t('common.back'),
         }}
       />
       <Stack.Screen
         name="WorkoutSchedule"
         component={WorkoutScheduleScreen}
         options={{
-          title: 'Planlagte sessions',
-          headerBackTitle: 'Tilbage',
+          title: t('plannedSessions.title'),
+          headerBackTitle: t('common.back'),
         }}
       />
       <Stack.Screen
@@ -662,16 +676,16 @@ const MainNavigator = () => {
         name="PushNotifications"
         component={PushNotificationsScreen}
         options={{
-          title: 'Push Notifikationer',
-          headerBackTitle: 'Tilbage',
+          title: t('nav.pushNotifications'),
+          headerBackTitle: t('common.back'),
         }}
       />
       <Stack.Screen
         name="FeedSorting"
         component={FeedSortingScreen}
         options={{
-          title: 'Feed Sortering',
-          headerBackTitle: 'Tilbage',
+          title: t('nav.feedSorting'),
+          headerBackTitle: t('common.back'),
         }}
       />
       <Stack.Screen

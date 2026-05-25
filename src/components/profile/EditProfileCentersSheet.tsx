@@ -9,6 +9,7 @@ import {
   Dimensions,
   FlatList,
   Modal,
+  PanResponder,
   Platform,
   Pressable,
   ScrollView,
@@ -44,6 +45,9 @@ const springClose = {
   useNativeDriver: true,
 } as const;
 
+const DISMISS_DRAG_THRESHOLD = 72;
+const DISMISS_VELOCITY = 0.65;
+
 function gymHaystack(gym: DanishGym): string {
   return `${gym.name} ${gym.brand ?? ''} ${gym.city ?? ''} ${gym.address ?? ''} ${gym.postalCode ?? ''}`
     .toLowerCase()
@@ -73,13 +77,27 @@ export const EditProfileCentersSheet: React.FC<EditProfileCentersSheetProps> = (
   onLimitReached,
 }) => {
   const insets = useSafeAreaInsets();
-  const backdrop = useRef(new Animated.Value(0)).current;
   const sheetY = useRef(new Animated.Value(SCREEN_H)).current;
   const baselineIdsRef = useRef<string[]>([]);
+  const dragStartYRef = useRef(0);
+  const listScrollYRef = useRef(0);
+  const closingRef = useRef(false);
 
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [query, setQuery] = useState('');
   const [saving, setSaving] = useState(false);
+
+  const sheetHeight = Math.min(SCREEN_H * 0.9, SCREEN_H - insets.top - 16);
+
+  const backdropOpacity = useMemo(
+    () =>
+      sheetY.interpolate({
+        inputRange: [0, sheetHeight, SCREEN_H],
+        outputRange: [1, 0.2, 0],
+        extrapolate: 'clamp',
+      }),
+    [sheetHeight, sheetY],
+  );
 
   useEffect(() => {
     if (!visible) {
@@ -94,19 +112,83 @@ export const EditProfileCentersSheet: React.FC<EditProfileCentersSheetProps> = (
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible]);
 
+  const animateSheetTo = useCallback(
+    (toValue: number, onDone?: () => void) => {
+      sheetY.stopAnimation();
+      Animated.spring(sheetY, {
+        toValue,
+        ...(toValue === 0 ? springOpen : springClose),
+      }).start(({finished}) => {
+        if (finished) {
+          onDone?.();
+        }
+      });
+    },
+    [sheetY],
+  );
+
+  const dismissSheet = useCallback(
+    (notifyParent = true) => {
+      if (closingRef.current) {
+        return;
+      }
+      closingRef.current = true;
+      animateSheetTo(SCREEN_H, () => {
+        closingRef.current = false;
+        if (notifyParent) {
+          onClose();
+        }
+      });
+    },
+    [animateSheetTo, onClose],
+  );
+
   useEffect(() => {
     if (visible) {
-      Animated.parallel([
-        Animated.timing(backdrop, {toValue: 1, duration: 220, useNativeDriver: true}),
-        Animated.spring(sheetY, {toValue: 0, ...springOpen}),
-      ]).start();
-    } else {
-      Animated.parallel([
-        Animated.timing(backdrop, {toValue: 0, duration: 180, useNativeDriver: true}),
-        Animated.spring(sheetY, {toValue: SCREEN_H, ...springClose}),
-      ]).start();
+      closingRef.current = false;
+      sheetY.setValue(SCREEN_H);
+      animateSheetTo(0);
+    } else if (!closingRef.current) {
+      animateSheetTo(SCREEN_H);
     }
-  }, [visible, backdrop, sheetY]);
+  }, [visible, animateSheetTo, sheetY]);
+
+  const panResponder = useMemo(
+    () =>
+      PanResponder.create({
+        onMoveShouldSetPanResponder: (_, gesture) =>
+          gesture.dy > 6 &&
+          Math.abs(gesture.dy) > Math.abs(gesture.dx) &&
+          listScrollYRef.current <= 2,
+        onPanResponderGrant: () => {
+          sheetY.stopAnimation(current => {
+            dragStartYRef.current = typeof current === 'number' ? current : 0;
+          });
+        },
+        onPanResponderMove: (_, gesture) => {
+          const next = Math.max(0, dragStartYRef.current + gesture.dy);
+          sheetY.setValue(next);
+        },
+        onPanResponderRelease: (_, gesture) => {
+          sheetY.stopAnimation(current => {
+            const offset = typeof current === 'number' ? current : 0;
+            const shouldDismiss =
+              offset > DISMISS_DRAG_THRESHOLD ||
+              gesture.vy > DISMISS_VELOCITY ||
+              offset > sheetHeight * 0.22;
+            if (shouldDismiss) {
+              dismissSheet(true);
+            } else {
+              animateSheetTo(0);
+            }
+          });
+        },
+        onPanResponderTerminate: () => {
+          animateSheetTo(0);
+        },
+      }),
+    [animateSheetTo, dismissSheet, sheetHeight, sheetY],
+  );
 
   const hasChanges = useMemo(
     () => !idsEqual(selectedIds, baselineIdsRef.current),
@@ -185,7 +267,6 @@ export const EditProfileCentersSheet: React.FC<EditProfileCentersSheetProps> = (
     }
   }, [saving, hasChanges, onSave, selectedIds, onClose]);
 
-  const sheetHeight = Math.min(SCREEN_H * 0.9, SCREEN_H - insets.top - 16);
   const saveDisabled = saving || !hasChanges;
 
   const renderSelectedSection = () => {
@@ -309,11 +390,16 @@ export const EditProfileCentersSheet: React.FC<EditProfileCentersSheetProps> = (
       presentationStyle="overFullScreen"
       statusBarTranslucent>
       <View style={styles.root}>
-        <Animated.View style={[styles.backdrop, {opacity: backdrop}]}>
-          <Pressable style={StyleSheet.absoluteFill} onPress={onClose} />
+        <Animated.View style={[styles.backdrop, {opacity: backdropOpacity}]}>
+          <Pressable
+            style={StyleSheet.absoluteFill}
+            onPress={() => dismissSheet(true)}
+            accessibilityLabel="Luk"
+          />
         </Animated.View>
 
         <Animated.View
+          {...panResponder.panHandlers}
           style={[
             styles.sheet,
             {
@@ -322,7 +408,9 @@ export const EditProfileCentersSheet: React.FC<EditProfileCentersSheetProps> = (
               transform: [{translateY: sheetY}],
             },
           ]}>
-          <View style={styles.handle} />
+          <View style={styles.handleWrap}>
+            <View style={styles.handle} />
+          </View>
 
           <View style={styles.headerBlock}>
             <View style={styles.headerTextCol}>
@@ -412,13 +500,16 @@ const styles = StyleSheet.create({
       android: {elevation: 16},
     }),
   },
+  handleWrap: {
+    alignItems: 'center',
+    paddingTop: spacing.xs,
+    paddingBottom: spacing.lg,
+  },
   handle: {
-    alignSelf: 'center',
     width: 36,
     height: 4,
     borderRadius: radius.full,
     backgroundColor: colors.border,
-    marginBottom: spacing.lg,
   },
   headerBlock: {
     flexDirection: 'row',

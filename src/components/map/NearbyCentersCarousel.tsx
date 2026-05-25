@@ -18,6 +18,7 @@ import GymLogoView from '@/components/ui/GymLogoView';
 import colors from '@/theme/colors';
 import {radius, spacing} from '@/theme/designTokens';
 import type {DanishGym} from '@/data/danishGyms';
+import {useTranslation} from '@/i18n';
 
 export interface NearbyCenterItem {
   gym: DanishGym;
@@ -44,6 +45,7 @@ function NearbyCard({
   isSelected: boolean;
   onPress: () => void;
 }) {
+  const {t} = useTranslation();
   const scale = useRef(new Animated.Value(1)).current;
   const {gym, distanceText, totalActiveCount, friendsActiveCount} = item;
   const hasActivity = totalActiveCount > 0 || friendsActiveCount > 0;
@@ -101,7 +103,7 @@ function NearbyCard({
               ) : null}
             </View>
           ) : (
-            <Text style={styles.activityEmpty}>Ingen aktive lige nu</Text>
+            <Text style={styles.activityEmpty}>{t('map.noOneActive')}</Text>
           )}
         </View>
       </Animated.View>
@@ -114,6 +116,7 @@ const NearbyCentersCarousel: React.FC<NearbyCentersCarouselProps> = ({
   selectedGymId,
   onSelectCenter,
 }) => {
+  const {t} = useTranslation();
   const flatListRef = useRef<FlatList>(null);
 
   useEffect(() => {
@@ -134,7 +137,7 @@ const NearbyCentersCarousel: React.FC<NearbyCentersCarouselProps> = ({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.sectionTitle}>Tæt på dig</Text>
+      <Text style={styles.sectionTitle}>{t('map.nearYou')}</Text>
       <FlatList
         ref={flatListRef}
         data={centers}

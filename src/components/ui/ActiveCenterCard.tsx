@@ -9,6 +9,7 @@ import {spacing, radius, shadows, typography} from '@/theme/designTokens';
 import {getLogoSource, getDefaultGymlyLogoAsset} from '@/services/gymLogoService';
 import {formatDistance} from '@/utils/geoUtils';
 import type {ActiveCenter} from '@/types/activeCenter.types';
+import {useTranslation} from '@/i18n';
 
 export type ActiveCenterCardProps = {
   center: ActiveCenter;
@@ -21,6 +22,7 @@ export const ActiveCenterCard: React.FC<ActiveCenterCardProps> = ({
   onPress,
   maxAvatars = 4,
 }) => {
+  const {t} = useTranslation();
   const logo = getLogoSource(center.danishGym?.brand, center.displayName);
   const avatars = center.activeFriends.slice(0, maxAvatars);
   return (
@@ -51,10 +53,12 @@ export const ActiveCenterCard: React.FC<ActiveCenterCardProps> = ({
             <Text style={styles.meta}>{formatDistance(center.distanceMeters)}</Text>
           )}
           <Text style={styles.counts}>
-            {center.totalActiveCount} aktive
             {center.activeFriendsCount > 0
-              ? ` · ${center.activeFriendsCount} venner`
-              : ''}
+              ? t('activeCenter.activeAndFriends', {
+                  count: center.totalActiveCount,
+                  friends: center.activeFriendsCount,
+                })
+              : t('activeCenter.active', {count: center.totalActiveCount})}
           </Text>
         </View>
       </View>

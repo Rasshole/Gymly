@@ -1,17 +1,17 @@
 /**
- * ProfileStatGrid – Stats grid for profile
+ * ProfileStatGrid – premium stats grid for profile Data tab
  */
 
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '@/theme/colors';
-import {spacing, typography} from '@/theme/designTokens';
+import {spacing, radius, typography, shadows, iconSize} from '@/theme/designTokens';
+import {GymlyPressable} from '@/components/ui/GymlyPressable';
 
 type StatItem = {
   key: string;
   icon?: string;
-  /** Fx 🏅 – matcher badge-stripen / hjem */
   emoji?: string;
   label: string;
   value: string | number;
@@ -24,26 +24,45 @@ type ProfileStatGridProps = {
 
 export const ProfileStatGrid: React.FC<ProfileStatGridProps> = ({stats}) => (
   <View style={styles.grid}>
-    {stats.map((stat, idx) => (
-      <TouchableOpacity
-        key={stat.key}
-        style={[styles.item, (idx + 1) % 2 === 0 && styles.itemRight]}
-        onPress={stat.onPress}
-        activeOpacity={stat.onPress ? 0.7 : 1}
-        disabled={!stat.onPress}>
-        <View style={styles.iconWrapper}>
-          {stat.emoji ? (
-            <Text style={styles.emojiMark} allowFontScaling={false}>
-              {stat.emoji}
-            </Text>
-          ) : (
-            <Icon name={stat.icon as any} size={20} color={colors.primary} />
-          )}
+    {stats.map(stat => {
+      const inner = (
+        <>
+          <View style={styles.iconWrapper}>
+            {stat.emoji ? (
+              <Text style={styles.emojiMark} allowFontScaling={false}>
+                {stat.emoji}
+              </Text>
+            ) : (
+              <Icon name={stat.icon as never} size={iconSize.sm} color={colors.primary} />
+            )}
+          </View>
+          <Text style={styles.value} numberOfLines={1}>
+            {stat.value}
+          </Text>
+          <Text style={styles.label} numberOfLines={2}>
+            {stat.label}
+          </Text>
+        </>
+      );
+
+      if (stat.onPress) {
+        return (
+          <GymlyPressable
+            key={stat.key}
+            onPress={stat.onPress}
+            haptic="light"
+            style={styles.item}>
+            {inner}
+          </GymlyPressable>
+        );
+      }
+
+      return (
+        <View key={stat.key} style={styles.item}>
+          {inner}
         </View>
-        <Text style={styles.value}>{stat.value}</Text>
-        <Text style={styles.label}>{stat.label}</Text>
-      </TouchableOpacity>
-    ))}
+      );
+    })}
   </View>
 );
 
@@ -51,33 +70,42 @@ const styles = StyleSheet.create({
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    marginHorizontal: -spacing.xs,
+    gap: spacing.sm,
   },
   item: {
-    width: '50%',
-    padding: spacing.xs,
+    width: '48%',
+    flexGrow: 1,
+    flexBasis: '46%',
+    backgroundColor: colors.backgroundCardLight,
+    borderRadius: radius.md,
+    padding: spacing.md,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: colors.border,
+    ...shadows.sm,
   },
-  itemRight: {},
   iconWrapper: {
-    width: 36,
-    height: 36,
-    borderRadius: 10,
-    backgroundColor: colors.primary + '15',
+    width: 40,
+    height: 40,
+    borderRadius: radius.sm,
+    backgroundColor: 'rgba(139, 92, 246, 0.1)',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: spacing.sm,
   },
   emojiMark: {
-    fontSize: 20,
-    lineHeight: 24,
+    fontSize: 22,
+    lineHeight: 26,
   },
   value: {
-    ...typography.h4,
+    ...typography.h3,
+    fontSize: 22,
     color: colors.text,
+    letterSpacing: -0.3,
   },
   label: {
     ...typography.caption,
-    color: colors.textSecondary,
-    marginTop: 2,
+    color: colors.textMuted,
+    marginTop: 4,
+    lineHeight: 16,
   },
 });

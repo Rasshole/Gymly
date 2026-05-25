@@ -6,7 +6,7 @@ import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '@/theme/colors';
-import {spacing, typography} from '@/theme/designTokens';
+import {spacing, typography, iconSize} from '@/theme/designTokens';
 
 type SectionHeaderProps = {
   title: string;
@@ -35,7 +35,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
         style={[styles.seeAll, alignSeeAllToTitle && styles.seeAllTopAligned]}
         activeOpacity={0.7}>
         <Text style={styles.seeAllText}>{seeAllLabel}</Text>
-        <Icon name="chevron-forward" size={18} color={colors.primary} />
+        <Icon name="chevron-forward" size={iconSize.sm} color={colors.primary} />
       </TouchableOpacity>
     )}
   </View>
@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
   title: {
     ...typography.h4,
     color: colors.text,
-    fontWeight: '700',
   },
   subtitle: {
     ...typography.caption,

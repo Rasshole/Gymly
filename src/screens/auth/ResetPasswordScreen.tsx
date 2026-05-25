@@ -21,12 +21,15 @@ import {useAppStore} from '@/store/appStore';
 import safeArea from '@/safeAreaContext';
 import Svg, {Defs, LinearGradient, Rect, Stop} from 'react-native-svg';
 import GymlyLogo from '@/components/GymlyLogo';
+import {useTranslation} from '@/i18n';
+import {setPasswordRecoveryActive} from '@/services/auth/authDeepLink';
 
 const {SafeAreaView} = safeArea;
 
 const MIN_LEN = 8;
 
 export default function ResetPasswordScreen() {
+  const {t} = useTranslation();
   const navigation = useNavigation<StackNavigationProp<any>>();
   const setUser = useAppStore(s => s.setUser);
   const isAuthenticated = useAppStore(s => s.isAuthenticated);
@@ -35,6 +38,12 @@ export default function ResetPasswordScreen() {
   const [saving, setSaving] = useState(false);
   const logoFloat = React.useRef(new Animated.Value(0)).current;
   const primaryPress = React.useRef(new Animated.Value(1)).current;
+
+  React.useEffect(() => {
+    return () => {
+      setPasswordRecoveryActive(false);
+    };
+  }, []);
 
   React.useEffect(() => {
     const loop = Animated.loop(
@@ -55,11 +64,11 @@ export default function ResetPasswordScreen() {
 
   const handleSave = async () => {
     if (!isValidLen) {
-      Alert.alert('Skift adgangskode', 'Adgangskoden skal være mindst 8 tegn.');
+      Alert.alert(t('authReset.title'), t('authReset.minLength'));
       return;
     }
     if (password !== confirmPassword) {
-      Alert.alert('Skift adgangskode', 'Adgangskoderne matcher ikke.');
+      Alert.alert(t('authReset.title'), t('authReset.passwordsMismatch'));
       return;
     }
 
@@ -77,9 +86,9 @@ export default function ResetPasswordScreen() {
         const mapped = AuthService.getMappedUser(session.user);
         setUser(mapped);
       }
-      Alert.alert('Skift adgangskode', 'Din adgangskode er ændret', [
+      Alert.alert(t('authReset.title'), t('authReset.changed'), [
         {
-          text: 'OK',
+          text: t('common.ok'),
           onPress: () => {
             if (navigation.canGoBack()) {
               navigation.goBack();
@@ -90,7 +99,7 @@ export default function ResetPasswordScreen() {
         },
       ]);
     } catch {
-      Alert.alert('Skift adgangskode', 'Kunne ikke opdatere adgangskode. Prøv igen.');
+      Alert.alert(t('authReset.title'), t('authReset.updateFailed'));
     } finally {
       setSaving(false);
     }
@@ -125,15 +134,13 @@ export default function ResetPasswordScreen() {
             <GymlyLogo size={72} />
           </Animated.View>
           <View style={styles.card}>
-        <Text style={styles.title}>Ny adgangskode</Text>
-        <Text style={styles.subtitle}>
-          Vælg en ny adgangskode for din konto.
-        </Text>
+        <Text style={styles.title}>{t('authReset.newPasswordTitle')}</Text>
+        <Text style={styles.subtitle}>{t('authReset.subtitle')}</Text>
 
         <TextInput
           value={password}
           onChangeText={setPassword}
-          placeholder="Ny adgangskode"
+          placeholder={t('authReset.newPasswordPlaceholder')}
           secureTextEntry
           autoCapitalize="none"
           autoCorrect={false}
@@ -141,12 +148,12 @@ export default function ResetPasswordScreen() {
           placeholderTextColor={colors.textMuted}
         />
         <Text style={[styles.validationText, isValidLen ? styles.validationOk : styles.validationError]}>
-          {isValidLen ? 'Min. 8 tegn opfyldt' : 'Adgangskoden skal være mindst 8 tegn'}
+          {isValidLen ? t('authReset.minLengthHint') : t('authReset.minLengthRequired')}
         </Text>
         <TextInput
           value={confirmPassword}
           onChangeText={setConfirmPassword}
-          placeholder="Gentag adgangskode"
+          placeholder={t('authReset.confirmPasswordPlaceholder')}
           secureTextEntry
           autoCapitalize="none"
           autoCorrect={false}
@@ -163,10 +170,10 @@ export default function ResetPasswordScreen() {
                 : styles.validationError,
           ]}>
           {confirmPassword.length === 0
-            ? 'Gentag adgangskode'
+            ? t('authReset.confirmPasswordPlaceholder')
             : passwordsMatch
-              ? 'Adgangskoder matcher'
-              : 'Adgangskoder matcher ikke'}
+              ? t('authReset.passwordsMatchOk')
+              : t('authReset.passwordsMismatchHint')}
         </Text>
 
         <TouchableOpacity

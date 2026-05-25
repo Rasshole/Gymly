@@ -18,8 +18,9 @@ import {
   BottomTabBarHeightCallbackContext,
 } from '@react-navigation/bottom-tabs';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {useTranslation} from '@/i18n';
 import colors from '@/theme/colors';
-import {spacing, radius} from '@/theme/designTokens';
+import {spacing, radius, shadows, typography} from '@/theme/designTokens';
 import {useChatStore} from '@/store/chatStore';
 import NotificationBadge from '@/components/ui/Badge';
 
@@ -33,16 +34,17 @@ const TAB_ICONS: Record<string, {focused: string; blur: string}> = {
   Profile: {focused: 'person', blur: 'person-outline'},
 };
 
-const tabLabels: Record<string, string> = {
-  Home: 'Hjem',
-  Friends: 'Venner',
-  CheckIn: 'Tjek ind',
-  Badges: 'Badges',
-  Messages: 'Beskeder',
-  Profile: 'Profil',
+const TAB_LABEL_KEYS: Record<string, string> = {
+  Home: 'tabs.home',
+  Friends: 'tabs.friends',
+  CheckIn: 'tabs.checkIn',
+  Badges: 'tabs.badges',
+  Messages: 'tabs.messages',
+  Profile: 'tabs.profile',
 };
 
 const CustomTabBar: React.FC<BottomTabBarProps> = ({state, descriptors, navigation}) => {
+  const {t} = useTranslation();
   const insets = useSafeAreaInsets();
   const onTabBarHeight = React.useContext(BottomTabBarHeightCallbackContext);
   const iconSize = 34;
@@ -80,7 +82,8 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({state, descriptors, navigati
             }
           };
 
-          const label = tabLabels[route.name] || options.title || route.name;
+          const labelKey = TAB_LABEL_KEYS[route.name];
+          const label = labelKey ? t(labelKey) : options.title || route.name;
           const ionPair = TAB_ICONS[route.name];
           const iconName = ionPair
             ? isFocused
@@ -97,8 +100,8 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({state, descriptors, navigati
               accessibilityLabel={options.tabBarAccessibilityLabel || options.title}
               onPress={onPress}
               style={styles.tab}
-              activeOpacity={0.7}>
-              <View style={styles.tabContent}>
+              activeOpacity={0.85}>
+              <View style={[styles.tabContent, isFocused && styles.tabContentFocused]}>
                 <View
                   style={route.name === 'Messages' ? styles.iconWithBadge : undefined}
                   pointerEvents="box-none">
@@ -188,11 +191,12 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   label: {
+    ...typography.badge,
     fontSize: 10,
     fontWeight: '600',
     textAlign: 'center',
     color: colors.text,
-    marginTop: 2,
+    marginTop: 3,
   },
   activeDot: {
     marginTop: 4,
