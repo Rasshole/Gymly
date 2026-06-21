@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet, Platform} from 'react-native';
 import type {MuscleGroup} from '@/types/workout.types';
 import MuscleGroupTileIcon from '@/components/ui/MuscleGroupTileIcon';
 import colors from '@/theme/colors';
@@ -69,7 +69,11 @@ const TrainingTypeMuscleGrid: React.FC<TrainingTypeMuscleGridProps> = ({
                 color={isActive ? '#fff' : colors.textMuted}
                 tintColor={isActive ? '#fff' : undefined}
               />
-              <Text style={[styles.label, isActive && styles.labelActive]}>
+              <Text
+                style={[styles.label, isActive && styles.labelActive]}
+                numberOfLines={2}
+                adjustsFontSizeToFit
+                minimumFontScaleFactor={0.85}>
                 {label}
               </Text>
             </TouchableOpacity>
@@ -113,9 +117,13 @@ const styles = StyleSheet.create({
   label: {
     marginTop: spacing.sm,
     fontSize: 14,
+    lineHeight: 20,
     fontWeight: '600',
     color: colors.text,
     textAlign: 'center',
+    ...(Platform.OS === 'android'
+      ? {includeFontPadding: false, textAlignVertical: 'center' as const}
+      : {}),
   },
   labelActive: {
     color: '#fff',

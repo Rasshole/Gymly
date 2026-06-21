@@ -3,6 +3,7 @@
  */
 
 import {useChatStore, type Chat} from '@/store/chatStore';
+import {sortChatsByLastActivity} from '@/utils/chatListSort';
 import {
   fetchDmInbox,
   fetchDmUnreadCountsByThread,
@@ -47,4 +48,7 @@ export async function syncDmInboxToStore(
     }
     upsert({...chat, unreadCount} as Chat);
   }
+  useChatStore.setState(state => ({
+    chats: sortChatsByLastActivity(state.chats),
+  }));
 }

@@ -9,7 +9,7 @@ import React, {
 import type {AppLanguage} from './types';
 import {LANGUAGE_NATIVE_LABELS} from './types';
 import {loadStoredLanguage, persistLanguage} from './storage';
-import {resolveDeviceLanguage} from './resolveDeviceLanguage';
+import {resolveDeviceLanguage, toSelectableLanguage} from './resolveDeviceLanguage';
 import {getTranslations} from './translations';
 import {createTranslator} from './translate';
 import {getDateFnsLocale, getIntlLocale} from './locales';
@@ -42,8 +42,9 @@ export function LanguageProvider({children}: {children: React.ReactNode}) {
         return;
       }
       if (stored) {
-        setLanguageState(stored);
-        setRuntimeLanguage(stored);
+        const active = toSelectableLanguage(stored);
+        setLanguageState(active);
+        setRuntimeLanguage(active);
         setHasUserChosenLanguage(true);
       } else {
         const device = resolveDeviceLanguage();

@@ -1,22 +1,15 @@
 import {
-  ACTIVE_CHECKIN_BUFFER_RADIUS,
   ACTIVE_CHECKIN_SAFE_RADIUS,
   ACTIVE_CHECKIN_SPIKE_MAX_DELTA_M,
-  ACTIVE_CHECKIN_STABLE_CONSECUTIVE_BUFFER,
   ACTIVE_CHECKIN_STABLE_CONSECUTIVE_OUTSIDE,
   MAX_DISTANCE_SAMPLES,
 } from '@/config/activeCheckinGeofenceConfig';
 
-export type GeofenceZone = 1 | 2 | 3;
+/** 1 = inden for center (≤200 m), 2 = uden for (>200 m) */
+export type GeofenceZone = 1 | 2;
 
 export function classifyGeofenceZone(distanceMeters: number): GeofenceZone {
-  if (distanceMeters <= ACTIVE_CHECKIN_SAFE_RADIUS) {
-    return 1;
-  }
-  if (distanceMeters <= ACTIVE_CHECKIN_BUFFER_RADIUS) {
-    return 2;
-  }
-  return 3;
+  return distanceMeters <= ACTIVE_CHECKIN_SAFE_RADIUS ? 1 : 2;
 }
 
 function median(values: number[]): number {
@@ -58,25 +51,16 @@ export function pushDistanceSample(
 }
 
 export function computeStableFlags(zoneHistory: GeofenceZone[]): {
-  stableBuffer: boolean;
   stableOutside: boolean;
   stableSafe: boolean;
 } {
   if (zoneHistory.length === 0) {
-    return {stableBuffer: false, stableOutside: false, stableSafe: false};
+    return {stableOutside: false, stableSafe: false};
   }
-  const last3 = zoneHistory.slice(-ACTIVE_CHECKIN_STABLE_CONSECUTIVE_BUFFER);
-  const stableBuffer =
-    last3.length === ACTIVE_CHECKIN_STABLE_CONSECUTIVE_BUFFER &&
-    last3.every((z) => z === 2);
-  const last2 = zoneHistory.slice(-ACTIVE_CHECKIN_STABLE_CONSECUTIVE_OUTSIDE);
+  const lastOutside = zoneHistory.slice(-ACTIVE_CHECKIN_STABLE_CONSECUTIVE_OUTSIDE);
   const stableOutside =
-    last2.length === ACTIVE_CHECKIN_STABLE_CONSECUTIVE_OUTSIDE &&
-    last2.every((z) => z === 3);
-  const lastSafe1 = zoneHistory[zoneHistory.length - 1] === 1;
-  return {
-    stableBuffer,
-    stableOutside,
-    stableSafe: lastSafe1,
-  };
+    lastOutside.length === ACTIVE_CHECKIN_STABLE_CONSECUTIVE_OUTSIDE &&
+    lastOutside.every((z) => z === 2);
+  const stableSafe = zoneHistory[zoneHistory.length - 1] === 1;
+  return {stableOutside, stableSafe};
 }

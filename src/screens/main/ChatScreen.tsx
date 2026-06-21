@@ -1002,14 +1002,16 @@ const ChatScreen = ({route, navigation}: ChatScreenProps) => {
       const useOptimistic = !!(chatId && isDmThreadId(chatId));
       const tempId = useOptimistic ? `pending-${Date.now()}` : '';
       if (useOptimistic && chatId) {
-        addMessageToChat(chatId, {
+        const optimisticMessage = {
           id: tempId,
           text: textToSend,
           senderId: currentUserId,
           timestamp: new Date(),
           isRead: false,
-          sendState: 'sending',
-        });
+          sendState: 'sending' as const,
+        };
+        addMessageToChat(chatId, optimisticMessage);
+        updateChatLastMessage(chatId, optimisticMessage, {fromCurrentUser: true});
       }
       setMessage('');
       setLocalTyping(false);

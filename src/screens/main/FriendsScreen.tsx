@@ -19,6 +19,8 @@ import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppStore} from '@/store/appStore';
 import {useFriendStore} from '@/store/friendStore';
+import {usePendingFriendRequestStore} from '@/store/pendingFriendRequestStore';
+import {useNotificationStore} from '@/store/notificationStore';
 import {useChatStore} from '@/store/chatStore';
 import {getOrCreateDmThread} from '@/services/supabase/dmService';
 import colors from '@/theme/colors';
@@ -89,9 +91,10 @@ const FriendsScreen = () => {
     stackNavigate('AddFriend');
   }, [stackNavigate]);
 
-  const openNotifications = useCallback(() => {
-    stackNavigate('Notifications');
-  }, [stackNavigate]);
+  const openFriendRequestsSheet = usePendingFriendRequestStore(s => s.openSheet);
+  const pendingFriendRequests = useNotificationStore(
+    s => s.incomingFriendRequestCount,
+  );
 
   const openFriendProfile = useCallback(
     (item: Friend) => {
@@ -386,7 +389,9 @@ const FriendsScreen = () => {
               variant="premium"
               style={styles.addFriendBanner}
             />
-            <FriendRequestsCard onPress={openNotifications} />
+            {pendingFriendRequests > 0 ? (
+              <FriendRequestsCard onPress={openFriendRequestsSheet} />
+            ) : null}
           </View>
         }
         showsVerticalScrollIndicator={false}
@@ -577,9 +582,11 @@ const FriendRequestsCard = ({onPress}: {onPress: () => void}) => {
           <Icon name="mail-unread" size={20} color={colors.primary} />
         </View>
         <View style={rowStyles.requestsTextCol}>
-          <Text style={rowStyles.requestsTitle}>{t('friendsScreen.friendRequests')}</Text>
+          <Text style={rowStyles.requestsTitle}>
+            {t('messages.friendRequestsTitle')}
+          </Text>
           <Text style={rowStyles.requestsSubtitle}>
-            {t('friendsScreen.friendRequestsSub')}
+            {t('messages.friendRequestsSubtitle')}
           </Text>
         </View>
         <View style={rowStyles.chevronWrap}>

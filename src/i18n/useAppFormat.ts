@@ -64,6 +64,29 @@ export function useAppFormat() {
     [t],
   );
 
+  const recordLabel = useCallback(
+    (days: number) =>
+      days === 1 ? t('format.recordOne') : t('format.recordMany', {count: String(days)}),
+    [t],
+  );
+
+  const formatTrainingDuration = useCallback(
+    (minutes: number) => {
+      if (minutes < 60) {
+        return t('format.durationMinutes', {count: String(minutes)});
+      }
+      const hours = Math.floor(minutes / 60);
+      const remainder = minutes % 60;
+      return remainder === 0
+        ? t('format.durationHoursOnly', {hours: String(hours)})
+        : t('format.durationHoursMinutes', {
+            hours: String(hours),
+            minutes: String(remainder),
+          });
+    },
+    [t],
+  );
+
   return {
     weekdayShort,
     formatDateLong,
@@ -72,6 +95,8 @@ export function useAppFormat() {
     streakLabel,
     daysUntil,
     dayWord,
+    recordLabel,
+    formatTrainingDuration,
     intlLocale,
     dateFnsLocale,
   };

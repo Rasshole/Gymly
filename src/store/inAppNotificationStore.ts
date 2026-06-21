@@ -7,12 +7,10 @@ import {
   markAllInAppRead,
   type NotificationRow,
 } from '@/services/notifications/inAppNotificationService';
-import {useNotificationStore} from '@/store/notificationStore';
 import {isDemoContentMode} from '@/demo/demoContentGate';
 import {buildDemoPayload} from '@/demo/buildDemoPayload';
 import {
   countBellUnreadFromRows,
-  setAppIconBadgeCount,
   syncAppIconBadgeFromRows,
 } from '@/services/push/appIconBadge';
 
@@ -48,11 +46,14 @@ export const useInAppNotificationStore = create<InAppState>((set, get) => ({
   loadedUserId: null,
   friendRequestOutcomes: {},
 
-  setRows: (r, uid) => set({rows: r, loadedUserId: uid}),
+  setRows: (r, uid) => {
+    syncAppIconBadgeFromRows(r);
+    set({rows: r, loadedUserId: uid});
+  },
 
   reset: () => {
+    syncAppIconBadgeFromRows([]);
     set({rows: [], dbUnread: 0, loadedUserId: null, friendRequestOutcomes: {}});
-    setAppIconBadgeCount(0);
   },
 
   refresh: async (userId: string) => {
@@ -62,34 +63,26 @@ export const useInAppNotificationStore = create<InAppState>((set, get) => ({
     }
     if (isDemoContentMode()) {
       const d = buildDemoPayload(userId);
-      const frP = d.notificationRows.filter(
-        r => r.type === 'friend_request' && !r.is_read,
-      ).length;
       const nextRows = d.notificationRows;
       const bellUnread = countBellUnreadFromRows(nextRows);
+      syncAppIconBadgeFromRows(nextRows);
       set(state => ({
         rows: nextRows,
         dbUnread: bellUnread,
         loadedUserId: userId,
         friendRequestOutcomes: state.friendRequestOutcomes,
       }));
-      syncAppIconBadgeFromRows(nextRows);
-      useNotificationStore.getState().setIncomingFriendRequestCount(frP);
       return;
     }
     const data = await fetchInAppNotifications(userId);
     const bellUnread = countBellUnreadFromRows(data);
+    syncAppIconBadgeFromRows(data);
     set(state => ({
       rows: data,
       dbUnread: bellUnread,
       loadedUserId: userId,
       friendRequestOutcomes: state.friendRequestOutcomes,
     }));
-    syncAppIconBadgeFromRows(data);
-    const frP = data.filter(
-      r => r.type === 'friend_request' && !r.is_read,
-    ).length;
-    useNotificationStore.getState().setIncomingFriendRequestCount(frP);
   },
 
   setFriendRequestOutcome: (notifId, outcome, peerName) => {
@@ -99,10 +92,6 @@ export const useInAppNotificationStore = create<InAppState>((set, get) => ({
           ? {...r, is_read: true}
           : r,
       );
-      const frP = nextRows.filter(
-        r => r.type === 'friend_request' && !r.is_read,
-      ).length;
-      useNotificationStore.getState().setIncomingFriendRequestCount(frP);
       const patch = {
         rows: nextRows,
         friendRequestOutcomes: {
@@ -129,10 +118,6 @@ export const useInAppNotificationStore = create<InAppState>((set, get) => ({
       const next = state.rows.filter(r => r.id !== notifId);
       const outcomes = {...state.friendRequestOutcomes};
       delete outcomes[notifId];
-      const frP = next.filter(
-        r => r.type === 'friend_request' && !r.is_read,
-      ).length;
-      useNotificationStore.getState().setIncomingFriendRequestCount(frP);
       const patch = {
         rows: next,
         friendRequestOutcomes: outcomes,
@@ -158,20 +143,24 @@ export const useInAppNotificationStore = create<InAppState>((set, get) => ({
   },
 
   markAllRead: async userId => {
-    set(state => ({
-      rows: state.rows.map(r => ({...r, is_read: true})),
-      dbUnread: 0,
-      friendRequestOutcomes: state.friendRequestOutcomes,
-    }));
-    setAppIconBadgeCount(0);
+    set(state => {
+      const next = state.rows.map(r => ({...r, is_read: true}));
+      syncAppIconBadgeFromRows(next);
+      return {
+        rows: next,
+        dbUnread: 0,
+        friendRequestOutcomes: state.friendRequestOutcomes,
+      };
+    });
     await markAllInAppRead(userId);
-    set(state => ({
-      rows: state.rows.map(r => ({...r, is_read: true})),
-      dbUnread: 0,
-      friendRequestOutcomes: state.friendRequestOutcomes,
-    }));
-    setAppIconBadgeCount(0);
-    useNotificationStore.getState().setIncomingFriendRequestCount(0);
+    set(state => {
+      syncAppIconBadgeFromRows(state.rows);
+      return {
+        rows: state.rows.map(r => ({...r, is_read: true})),
+        dbUnread: 0,
+        friendRequestOutcomes: state.friendRequestOutcomes,
+      };
+    });
   },
 }));
 
@@ -200,10 +189,6 @@ export function attachInAppNotificationsToHubChannel(
           }
           const nextRows = [n, ...state.rows];
           const bellUnread = countBellUnreadFromRows(nextRows);
-          const frP = nextRows.filter(
-            r => r.type === 'friend_request' && !r.is_read,
-          ).length;
-          useNotificationStore.getState().setIncomingFriendRequestCount(frP);
           syncAppIconBadgeFromRows(nextRows);
           return {rows: nextRows, dbUnread: bellUnread};
         });

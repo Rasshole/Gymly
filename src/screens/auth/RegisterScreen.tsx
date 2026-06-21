@@ -1,5 +1,5 @@
 /**
- * Gymly onboarding — 5 trin + færdig / e-mailbekræftelse. Email, adgangskode, fødselsdato, mobil og placeringstilladelse.
+ * Gymly onboarding — email, adgangskode, profil, centre og træning; direkte ind i appen efter signup.
  */
 
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
@@ -21,7 +21,6 @@ import {
   Dimensions,
   Linking,
   Pressable,
-  AppState,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
@@ -30,7 +29,6 @@ import {AuthStackParamList} from '@/navigation/authStackParamList';
 import {useAppStore} from '@/store/appStore';
 import AuthService from '@/services/auth/AuthService';
 import {navigationRef} from '@/navigation/navigationRef';
-import {supabase} from '@/services/supabase/supabaseClient';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon from 'react-native-vector-icons/Ionicons';
 import GymlyLogo from '@/components/GymlyLogo';
@@ -43,8 +41,6 @@ import {
   CameraOptions,
   ImagePickerResponse,
 } from 'react-native-image-picker';
-import {User} from '@/types/user.types';
-import {AuthTokens} from '@/types/auth.types';
 import {isValidDanishMobile, normalizeDanishPhone} from '@/utils/phoneUtils';
 import {gymSearchMatchesTokens} from '@/utils/gymSearch';
 import {formatGymDisplayName} from '@/utils/gymDisplay';
@@ -75,17 +71,10 @@ import {
   ONBOARDING,
 } from '@/components/onboarding';
 
-const SPLASH_KETTLEBELL = require('@/assets/images/splash-kettlebell.png');
 const REG_PICKER_GYMS = getActiveDanishGyms();
 
 type RegisterScreenNavigationProp = StackNavigationProp<AuthStackParamList, 'Register'>;
-type Step =
-  | 'entry'
-  | 'profile'
-  | 'gym'
-  | 'social'
-  | 'done'
-  | 'verification';
+type Step = 'entry' | 'profile' | 'gym' | 'social';
 
 /** Register wizard steps (language is step 1 globally). */
 const FLOW_STEPS: Step[] = ['entry', 'profile', 'gym', 'social'];
@@ -142,13 +131,6 @@ const RegisterScreen = () => {
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [marketingConsent, setMarketingConsent] = useState(false);
   const [analyticsConsent, setAnalyticsConsent] = useState(false);
-  const [pendingAuth, setPendingAuth] = useState<{user: User; tokens: AuthTokens} | null>(null);
-  const [verificationSplashVisible, setVerificationSplashVisible] = useState(false);
-  const splashOpacity = useRef(new Animated.Value(0)).current;
-  const splashLogoScale = useRef(new Animated.Value(0.45)).current;
-  const splashRingScale = useRef(new Animated.Value(0.6)).current;
-  const splashRingOpacity = useRef(new Animated.Value(0)).current;
-  const splashFinishTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const contentFade = useRef(new Animated.Value(1)).current;
   const logoFloat = useRef(new Animated.Value(0)).current;
   const progressAnim = useRef(new Animated.Value(2 / ONBOARDING_TOTAL_STEPS)).current;
@@ -443,6 +425,11 @@ const RegisterScreen = () => {
     setIsLoading(true);
     try {
       const favoriteGymIds = buildFavoriteGymIds();
+      if (favoriteGymIds.length === 0) {
+        Alert.alert(t('register.alertGym'), t('register.alertGymRequired'));
+        setIsLoading(false);
+        return;
+      }
       const birthYear = dateOfBirth.getFullYear();
       const dateOfBirthIso = streak.getLocalDateString(dateOfBirth);
       const phoneNormalized = normalizeDanishPhone(phoneNumber);
@@ -452,7 +439,7 @@ const RegisterScreen = () => {
         return;
       }
 
-      const {user, tokens, needsEmailConfirmation} = await AuthService.register({
+      const {user, tokens} = await AuthService.register({
         email: email.trim(),
         username: normalizeUsernameForStorage(username),
         phoneNumber: phoneNormalized,
@@ -466,7 +453,7 @@ const RegisterScreen = () => {
           analyticsConsent,
           locationTrackingConsent: locationPermissionStatus === 'granted',
         },
-        favoriteGyms: favoriteGymIds.length > 0 ? favoriteGymIds : undefined,
+        favoriteGyms: favoriteGymIds,
         profileImageUrl: profilePhotoUri || undefined,
         bio: bio.trim() || undefined,
         trainingGoal: trainingGoal.trim() || undefined,
@@ -474,13 +461,16 @@ const RegisterScreen = () => {
         dateOfBirth: dateOfBirthIso,
       });
 
-      if (needsEmailConfirmation) {
-        setStep('verification');
-        return;
+      if (!tokens) {
+        throw new Error(t('register.alertRegisterRetry'));
       }
-      if (!tokens) throw new Error(t('register.alertRegisterRetry'));
-      setPendingAuth({user, tokens});
-      setStep('done');
+      login(user, tokens);
+      if (navigationRef.isReady()) {
+        navigationRef.reset({
+          index: 0,
+          routes: [{name: 'Main'}],
+        });
+      }
     } catch (error: any) {
       Alert.alert(
         t('register.alertRegisterFailed'),
@@ -491,47 +481,11 @@ const RegisterScreen = () => {
     }
   };
 
-  const handleEnterGymly = () => {
-    if (!pendingAuth) {
-      return;
-    }
-    login(pendingAuth.user, pendingAuth.tokens);
-    setPendingAuth(null);
-    if (navigationRef.isReady()) {
-      navigationRef.reset({
-        index: 0,
-        routes: [{name: 'Main'}],
-      });
-    }
-  };
-
   useEffect(() => {
     if (step !== 'profile') {
       setShowDatePicker(false);
     }
   }, [step]);
-
-  useEffect(() => {
-    if (step !== 'verification') {
-      return;
-    }
-    const sub = AppState.addEventListener('change', next => {
-      if (next === 'active') {
-        void supabase.auth.refreshSession().catch(() => {});
-      }
-    });
-    return () => sub.remove();
-  }, [step]);
-
-  useEffect(
-    () => () => {
-      if (splashFinishTimerRef.current) {
-        clearTimeout(splashFinishTimerRef.current);
-        splashFinishTimerRef.current = null;
-      }
-    },
-    [],
-  );
 
   useEffect(() => {
     const loop = Animated.loop(
@@ -580,49 +534,7 @@ const RegisterScreen = () => {
     }).start();
   }, [passwordToggleAnim, showPassword]);
 
-  const enterAppAfterEmailConfirmed = useCallback(
-    (user: User, tokens: AuthTokens) => {
-      login(user, tokens);
-      if (navigationRef.isReady()) {
-        navigationRef.reset({
-          index: 0,
-          routes: [{name: 'Main'}],
-        });
-      }
-    },
-    [login],
-  );
-
-  const handleVerificationContinue = () => {
-    if (!email.trim() || !password) {
-      Alert.alert(t('register.alertInfoMissing'), t('register.alertInfoMissingBody'));
-      return;
-    }
-    setIsLoading(true);
-    void AuthService.completeSignupAfterEmailConfirmation(email.trim(), password)
-      .then(({user, tokens}) => {
-        if (!tokens) {
-          Alert.alert(t('register.alertNotVerified'), t('register.alertNotVerifiedBody'));
-          return;
-        }
-        enterAppAfterEmailConfirmed(user, tokens);
-      })
-      .catch(error => {
-        const msg =
-          error instanceof Error
-            ? error.message
-            : t('register.alertNotVerifiedBody');
-        Alert.alert(t('register.alertNotVerified'), msg);
-      })
-      .finally(() => setIsLoading(false));
-  };
-
   const handleBackPress = () => {
-    if (step === 'done') return;
-    if (step === 'verification') {
-      navigation.navigate('Login');
-      return;
-    }
     if (step === 'entry') {
       navigation.navigate('Language');
       return;
@@ -649,18 +561,8 @@ const RegisterScreen = () => {
         title: t('register.stepTrainingTitle'),
         sub: t('register.stepTrainingSub'),
       },
-      verification: {
-        title: t('register.stepVerifyTitle'),
-        sub: t('register.stepVerifySub', {
-          email: email.trim() || '…',
-        }),
-      },
-      done: {
-        title: t('register.stepDoneTitle'),
-        sub: t('register.stepDoneSub'),
-      },
     }),
-    [t, email],
+    [t],
   );
 
   const renderProgress = () => {
@@ -757,17 +659,17 @@ const RegisterScreen = () => {
         </View>
       )}
       <OnboardingPrimaryButton
-        label="Fortsæt"
+        label={t('register.continue')}
         onPress={handleEntryContinue}
         disabled={!(password.length > 0 && passwordErrors.length === 0 && email.trim())}
       />
       <View style={styles.inlineLogin}>
-        <Text style={styles.muted}>Har du allerede en konto? </Text>
+        <Text style={styles.muted}>{t('register.haveAccount')} </Text>
         <Pressable
           onPress={() => navigation.navigate('Login')}
           hitSlop={12}
           style={({pressed}) => [styles.loginLinkWrap, pressed && styles.loginLinkPressed]}>
-          <Text style={styles.link}>Log ind</Text>
+          <Text style={styles.link}>{t('register.logIn')}</Text>
         </Pressable>
       </View>
     </View>
@@ -788,7 +690,7 @@ const RegisterScreen = () => {
           />
           <TextInput
             style={[styles.input, styles.inputHalf]}
-            placeholder="Efternavn"
+            placeholder={t('register.lastName')}
             placeholderTextColor={colors.textMuted}
             value={lastName}
             onChangeText={setLastName}
@@ -883,7 +785,7 @@ const RegisterScreen = () => {
             <Text style={styles.hintErr}>{usernameAvailability.formatError}</Text>
           </View>
         ) : usernameAvailability.checking && normalizeUsernameForStorage(username).length > 0 ? (
-          <Text style={styles.helperMuted}>Tjekker …</Text>
+          <Text style={styles.helperMuted}>{t('register.usernameChecking')}</Text>
         ) : usernameAvailability.available === false ? (
           <View style={styles.usernameStatusRow}>
             <Icon name="close-circle" size={16} color={colors.error} />
@@ -1104,65 +1006,6 @@ const RegisterScreen = () => {
     </View>
   );
 
-  const renderDone = () => (
-    <View style={styles.doneSection}>
-      <View style={styles.doneLogo}>
-        <GymlyLogo size={88} />
-      </View>
-      <Text style={styles.doneTitle}>{t('register.doneTitle')}</Text>
-      <Text style={styles.doneSub}>{t('register.doneSub')}</Text>
-      <OnboardingPrimaryButton label={t('register.enterGymly')} onPress={handleEnterGymly} />
-    </View>
-  );
-
-  const renderVerification = () => (
-    <View style={styles.section}>
-      <View style={styles.verifyHero}>
-        <View style={styles.verifyHeroIcon}>
-          <MaterialIcon name="email-check-outline" size={32} color={colors.primary} />
-        </View>
-        <Text style={styles.verifyHeroText}>{t('register.verifyAlmost')}</Text>
-      </View>
-      <Text style={styles.verifyBlockLabel}>{t('register.verifyMail')}</Text>
-      <View style={[styles.card, styles.verifyCard, shadows.sm]}>
-        <TextInput
-          style={[styles.input, styles.verifyEmailInput]}
-          value={email}
-          editable={false}
-          selectTextOnFocus
-        />
-        <View style={styles.verifyLinks}>
-          <Pressable
-            style={({pressed}) => [styles.verifyLinkBtn, pressed && styles.verifyLinkBtnPressed]}
-            onPress={async () => {
-              try {
-                await AuthService.resendEmailConfirmation(email.trim());
-                Alert.alert(t('register.alertSent'), t('register.alertResent'));
-              } catch (e: any) {
-                Alert.alert(t('common.error'), e?.message || t('register.alertCouldNotSend'));
-              }
-            }}>
-            <MaterialIcon name="refresh" size={18} color={colors.primary} />
-            <Text style={styles.verifyLinkText}>{t('register.verifyResend')}</Text>
-          </Pressable>
-          <Pressable
-            style={({pressed}) => [styles.verifyLinkBtn, pressed && styles.verifyLinkBtnPressed]}
-            onPress={() => Linking.openURL('mailto:')}>
-            <MaterialIcon name="open-in-new" size={18} color={colors.primary} />
-            <Text style={styles.verifyLinkText}>{t('register.verifyOpenMail')}</Text>
-          </Pressable>
-        </View>
-      </View>
-
-      <OnboardingPrimaryButton
-        label={t('register.verifyConfirmed')}
-        onPress={handleVerificationContinue}
-        loading={isLoading}
-        style={styles.verifyConfirmedBtn}
-      />
-    </View>
-  );
-
   const renderBody = () => {
     switch (step) {
       case 'entry':
@@ -1173,16 +1016,12 @@ const RegisterScreen = () => {
         return renderGym();
       case 'social':
         return renderSocial();
-      case 'done':
-        return renderDone();
-      case 'verification':
-        return renderVerification();
       default:
         return null;
     }
   };
 
-  const showBack = step !== 'done';
+  const showBack = true;
 
   return (
     <View style={styles.screen}>
@@ -1198,29 +1037,6 @@ const RegisterScreen = () => {
           <Rect x="0" y="0" width="100%" height="100%" fill="url(#registerBg)" />
         </Svg>
       </View>
-      {verificationSplashVisible ? (
-        <Animated.View
-          style={[styles.verificationSplashOverlay, {opacity: splashOpacity}]}
-          pointerEvents="auto">
-          <Animated.View
-            style={[
-              styles.verificationSplashRing,
-              {
-                opacity: splashRingOpacity,
-                transform: [{scale: splashRingScale}],
-              },
-            ]}
-          />
-          <Animated.Image
-            source={SPLASH_KETTLEBELL}
-            resizeMode="contain"
-            style={[
-              styles.verificationSplashLogo,
-              {transform: [{scale: splashLogoScale}]},
-            ]}
-          />
-        </Animated.View>
-      ) : null}
       {showBack ? (
         <Pressable
           style={[styles.backBtn, {top: insets.top + spacing.sm}]}
@@ -1259,26 +1075,24 @@ const RegisterScreen = () => {
                 },
               ],
             }}>
-            {step !== 'done' ? (
-              <Animated.View
-                style={[
-                  styles.logoWrap,
-                  {
-                    transform: [
-                      {
-                        translateY: logoFloat.interpolate({
-                          inputRange: [0, 1],
-                          outputRange: [0, -5],
-                        }),
-                      },
-                    ],
-                  },
-                ]}>
-                <View style={styles.logoHalo}>
-                  <GymlyLogo size={76} />
-                </View>
-              </Animated.View>
-            ) : null}
+            <Animated.View
+              style={[
+                styles.logoWrap,
+                {
+                  transform: [
+                    {
+                      translateY: logoFloat.interpolate({
+                        inputRange: [0, 1],
+                        outputRange: [0, -5],
+                      }),
+                    },
+                  ],
+                },
+              ]}>
+              <View style={styles.logoHalo}>
+                <GymlyLogo size={76} />
+              </View>
+            </Animated.View>
             <View style={styles.formMax}>
               {renderProgress()}
               <Text style={styles.title}>{titles[step].title}</Text>
@@ -1295,24 +1109,6 @@ const RegisterScreen = () => {
 const styles = StyleSheet.create({
   screen: {flex: 1, backgroundColor: '#FFFFFF'},
   bgGradientWrap: {...StyleSheet.absoluteFillObject},
-  verificationSplashOverlay: {
-    ...StyleSheet.absoluteFillObject,
-    zIndex: 200,
-    backgroundColor: '#FFFFFF',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  verificationSplashRing: {
-    position: 'absolute',
-    width: 280,
-    height: 280,
-    borderRadius: 140,
-    backgroundColor: colors.primary + '18',
-  },
-  verificationSplashLogo: {
-    width: 220,
-    height: 220,
-  },
   flex: {flex: 1},
   scrollContent: {
     paddingHorizontal: spacing.xl,
@@ -1855,98 +1651,6 @@ const styles = StyleSheet.create({
     }),
   },
   gdprMiniText: {fontSize: 12, color: colors.textMuted, lineHeight: 18},
-  doneSection: {alignItems: 'center', paddingTop: spacing.md},
-  doneLogo: {marginBottom: spacing.lg},
-  doneTitle: {fontSize: 28, fontWeight: '800', color: colors.text, marginBottom: spacing.sm},
-  doneSub: {
-    fontSize: 16,
-    color: colors.textSecondary,
-    textAlign: 'center',
-    lineHeight: 24,
-    marginBottom: spacing.xl,
-    paddingHorizontal: spacing.sm,
-  },
-  verifyHero: {
-    alignItems: 'center',
-    marginBottom: spacing.lg,
-    gap: spacing.sm,
-  },
-  verifyHeroIcon: {
-    width: 56,
-    height: 56,
-    borderRadius: 28,
-    backgroundColor: 'rgba(139, 92, 246, 0.12)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: 'rgba(139, 92, 246, 0.2)',
-  },
-  verifyHeroText: {
-    fontSize: 14,
-    fontWeight: '700',
-    color: colors.primaryDark,
-    letterSpacing: -0.1,
-  },
-  verifyCard: {marginTop: spacing.xs},
-  verifyEmailInput: {fontWeight: '600', color: colors.text},
-  verifyBlockLabel: {
-    fontSize: 11,
-    fontWeight: '700',
-    color: colors.textMuted,
-    textTransform: 'uppercase',
-    letterSpacing: 0.9,
-    marginBottom: spacing.sm,
-  },
-  verifyLinkBtn: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 6,
-    paddingVertical: spacing.md,
-    paddingHorizontal: spacing.sm,
-    borderRadius: radius.lg,
-    backgroundColor: 'rgba(139, 92, 246, 0.08)',
-    borderWidth: 1,
-    borderColor: 'rgba(139, 92, 246, 0.14)',
-  },
-  verifyLinkBtnPressed: {opacity: 0.85, backgroundColor: 'rgba(139, 92, 246, 0.14)'},
-  verifyLinkText: {fontSize: 14, fontWeight: '700', color: colors.primary},
-  verifyBlockLabelSpaced: {marginTop: spacing.lg},
-  verifyHintShort: {
-    fontSize: 13,
-    color: colors.textSecondary,
-    marginBottom: spacing.sm,
-    marginTop: -spacing.xs,
-  },
-  verifyHintBold: {fontWeight: '700', color: colors.text},
-  verifyOtpLabel: {
-    fontSize: 13,
-    fontWeight: '600',
-    color: colors.text,
-    marginTop: spacing.sm,
-    marginBottom: spacing.xs,
-  },
-  verifyRowBtns: {flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm, marginTop: spacing.sm},
-  secondaryBtn: {
-    flex: 1,
-    minWidth: 120,
-    paddingVertical: spacing.md,
-    paddingHorizontal: spacing.sm,
-    borderRadius: radius.md,
-    borderWidth: 1,
-    borderColor: colors.primary,
-    alignItems: 'center',
-    backgroundColor: colors.backgroundCard,
-  },
-  secondaryBtnPrimary: {
-    backgroundColor: colors.primary + '14',
-    borderColor: colors.primary,
-  },
-  secondaryBtnText: {fontSize: 14, fontWeight: '600', color: colors.primaryDark},
-  secondaryBtnTextPrimary: {fontSize: 14, fontWeight: '700', color: colors.primaryDark},
-  verifyConfirmedBtn: {marginTop: spacing.md},
-  verifyLinks: {flexDirection: 'row', gap: spacing.sm, marginTop: spacing.md},
 });
 
 export default RegisterScreen;

@@ -28,8 +28,8 @@ import {useGymlyGroupsStore} from '@/store/gymlyGroupsStore';
 import {useWorkoutPlanStore} from '@/store/workoutPlanStore';
 import {loadWorkoutPlanEntriesForUser} from '@/services/supabase/plannedWorkoutService';
 import {useFriendStore} from '@/store/friendStore';
-import {useNotificationStore} from '@/store/notificationStore';
-import {listPendingIncomingRequests} from '@/services/supabase/friendService';
+import {emitProfileCentersChanged} from '@/realtime/profileCentersBridge';
+import {usePendingFriendRequestStore} from '@/store/pendingFriendRequestStore';
 import {useBadgeStore} from '@/store/badgeStore';
 import {useSessionStore} from '@/store/sessionStore';
 import {deleteMyLiveWorkoutSession} from '@/services/supabase/liveWorkoutSessionService';
@@ -109,9 +109,7 @@ export function GymlyRealtimeHub() {
       useFriendStore.getState().load(userId).catch(() => {});
       return;
     }
-    listPendingIncomingRequests(userId)
-      .then(rows => useNotificationStore.getState().setIncomingFriendRequestCount(rows.length))
-      .catch(() => {});
+    usePendingFriendRequestStore.getState().load(userId).catch(() => {});
     useFriendStore.getState().load(userId).catch(() => {});
     const dn = useAppStore.getState().user?.displayName?.trim() || 'Bruger';
     syncDmInboxToStore(userId, dn).catch(() => {});
@@ -204,6 +202,8 @@ export function GymlyRealtimeHub() {
         const favoriteGyms = Array.isArray(rawGyms)
           ? rawGyms.map(x => String(x)).filter(Boolean).slice(0, 3)
           : u.favoriteGyms;
+        const prevGyms = (u.favoriteGyms ?? []).join(',');
+        const nextGyms = (favoriteGyms ?? []).join(',');
         useAppStore.getState().setUser(
           {
             ...u,
@@ -216,6 +216,12 @@ export function GymlyRealtimeHub() {
           },
           {skipProfileSync: true},
         );
+        if (prevGyms !== nextGyms) {
+          emitProfileCentersChanged(u.id);
+          if (__DEV__) {
+            console.log('[homeGyms] realtime.profiles_gyms', {userId: u.id, favoriteGyms});
+          }
+        }
         logRealtimeStore('profiles', 'merge_self');
       } catch {
         /* ignore */

@@ -14,7 +14,7 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import Svg, {Defs, LinearGradient, Rect, Stop} from 'react-native-svg';
 import {BADGE_BY_ID} from '@/config/badgeDefinitions';
-import {upcomingBadgeHint} from '@/services/badgeEngine';
+import {upcomingBadgeHintT} from '@/i18n/badgeLabels';
 import type {BadgeDefinition, BadgeProgress} from '@/types/badge.types';
 import {getBadgeProgressList, useBadgeStore} from '@/store/badgeStore';
 import colors from '@/theme/colors';
@@ -286,9 +286,9 @@ export function ProfileBadgeStrip({
         kind: 'upcoming' as const,
         def: r.def,
         progress: r.progress,
-        hint: upcomingBadgeHint(r.def, r.progress),
+        hint: upcomingBadgeHintT(t, r.def, r.progress),
       }));
-  }, [userId, viewingOtherUser, unlockSnap, statsSnap]);
+  }, [userId, viewingOtherUser, unlockSnap, statsSnap, t]);
 
   const displayItems = useMemo((): StripItem[] => {
     if (sortedUnlocked.length > 0) {

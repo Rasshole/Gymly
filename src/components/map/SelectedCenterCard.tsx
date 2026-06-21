@@ -8,7 +8,8 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import GymLogoView from '@/components/ui/GymLogoView';
 import colors from '@/theme/colors';
-import {ACTIVITY_LABELS, type ActivityLevel} from '@/data/mapCenterActivity';
+import {ACTIVITY_LABEL_KEYS, type ActivityLevel} from '@/data/mapCenterActivity';
+import {useTranslation} from '@/i18n';
 
 export interface SelectedCenterCardProps {
   gymName: string;
@@ -37,8 +38,9 @@ const SelectedCenterCard: React.FC<SelectedCenterCardProps> = ({
   onClose,
   onViewDetails,
 }) => {
+  const {t} = useTranslation();
   const hasAnyone = totalActiveCount > 0 || friendsActiveCount > 0;
-  const statusLabel = ACTIVITY_LABELS[activityLevel];
+  const statusLabel = t(ACTIVITY_LABEL_KEYS[activityLevel]);
   const statusColor =
     activityLevel === 'busy'
       ? colors.secondary
@@ -71,7 +73,9 @@ const SelectedCenterCard: React.FC<SelectedCenterCardProps> = ({
           )}
           <View style={styles.distanceRow}>
             <Icon name="location" size={14} color={colors.primary} />
-            <Text style={styles.distanceText}>{distanceText} væk</Text>
+            <Text style={styles.distanceText}>
+              {t('format.away', {distance: distanceText})}
+            </Text>
           </View>
         </View>
       </View>
@@ -89,13 +93,13 @@ const SelectedCenterCard: React.FC<SelectedCenterCardProps> = ({
               <View style={styles.activityItem}>
                 <Icon name="people" size={18} color={colors.secondary} style={{marginRight: 6}} />
                 <Text style={[styles.activityValue, {color: colors.secondary}]}>
-                  {totalActiveCount} {totalActiveCount === 1 ? 'person' : 'personer'} aktive
+                  {t('map.peopleActive', {count: String(totalActiveCount)})}
                 </Text>
               </View>
               <View style={styles.activityItem}>
                 <Icon name="person" size={18} color={colors.primary} style={{marginRight: 6}} />
                 <Text style={[styles.activityValue, {color: colors.primary}]}>
-                  {friendsActiveCount} {friendsActiveCount === 1 ? 'ven' : 'venner'} aktive
+                  {t('map.friendsActive', {count: String(friendsActiveCount)})}
                 </Text>
               </View>
             </View>
@@ -107,7 +111,7 @@ const SelectedCenterCard: React.FC<SelectedCenterCardProps> = ({
             </View>
           </>
         ) : (
-          <Text style={styles.activityEmpty}>Ingen er tjekket ind lige nu</Text>
+          <Text style={styles.activityEmpty}>{t('map.noOneCheckedIn')}</Text>
         )}
       </View>
 
@@ -124,7 +128,9 @@ const SelectedCenterCard: React.FC<SelectedCenterCardProps> = ({
             )}
           </View>
           <Text style={styles.friendsLabel}>
-            {friendsActiveCount === 1 ? 'Ven' : 'Venner'} træner her nu
+            {friendsActiveCount === 1
+              ? t('map.friendsTrainingHere_one')
+              : t('map.friendsTrainingHere_other')}
           </Text>
         </View>
       )}
@@ -133,7 +139,7 @@ const SelectedCenterCard: React.FC<SelectedCenterCardProps> = ({
         style={styles.detailsButton}
         onPress={onViewDetails}
         activeOpacity={0.8}>
-        <Text style={styles.detailsButtonText}>Se detaljer</Text>
+        <Text style={styles.detailsButtonText}>{t('map.seeDetails')}</Text>
         <Icon name="chevron-forward" size={18} color="#fff" style={{marginLeft: 6}} />
       </TouchableOpacity>
     </View>

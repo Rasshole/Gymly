@@ -11,7 +11,7 @@ export type {Notification, NotificationType};
 interface NotificationState {
   notifications: Notification[];
   unreadCount: number;
-  /** Indgående venneanmodninger (Supabase) — vises på klokke-badge sammen med unreadCount */
+  /** Pending venneanmodninger (friend_requests) — klokke-badge i header */
   incomingFriendRequestCount: number;
 
   // Actions

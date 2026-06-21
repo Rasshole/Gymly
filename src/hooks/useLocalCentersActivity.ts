@@ -7,10 +7,8 @@ import {
   loadLocalCentersActivity,
   type LocalCenterActivity,
 } from '@/services/supabase/localCentersActivityService';
-import {
-  fetchUserCenterIdsOrdered,
-  subscribeUserCenters,
-} from '@/services/supabase/userCentersService';
+import {fetchUserHomeGymIds} from '@/services/supabase/homeGymsService';
+import {subscribeUserCenters} from '@/services/supabase/userCentersService';
 import {canUseDemoContentControls, isDemoContentMode} from '@/demo/demoContentGate';
 import {buildDemoPayload} from '@/demo/buildDemoPayload';
 import {useDemoModeStore} from '@/demo/demoModeStore';
@@ -65,7 +63,7 @@ export function useLocalCentersActivity(userId: string | undefined) {
     }
 
     try {
-      const fromDb = await fetchUserCenterIdsOrdered(userId);
+      const fromDb = await fetchUserHomeGymIds(userId, favoriteGyms ?? []);
       if (fromDb.length > 0) {
         ids = fromDb;
         const storeIds = (favoriteGyms ?? []).filter(Boolean).slice(0, 3);
@@ -79,8 +77,13 @@ export function useLocalCentersActivity(userId: string | undefined) {
           }
         }
       }
-    } catch {
-      /* keep store ids as fallback */
+      if (__DEV__) {
+        console.log('[homeGyms] Home.load', {userId, ids});
+      }
+    } catch (e) {
+      if (__DEV__) {
+        console.warn('[homeGyms] Home.load_error', userId, e);
+      }
     }
 
     setResolvedCenterIds(ids);

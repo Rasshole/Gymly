@@ -10,6 +10,8 @@ export type CheckInEndReason =
   | 'geofence_outside'
   | 'left_geofence';
 
+export type CheckoutReason = 'manual' | 'auto_distance' | 'system_recovery' | 'logout';
+
 /** Række fra public.check_ins (session-lifecycle) */
 export interface SupabaseCheckInRow {
   id: string;
@@ -28,6 +30,9 @@ export interface SupabaseCheckInRow {
   away_started_at?: string | null;
   last_distance_meters?: number | null;
   auto_checkout_reason?: string | null;
+  checkout_reason?: CheckoutReason | string | null;
+  workout_needs_review?: boolean | null;
+  duration_minutes?: number | null;
   end_reason?: string | null;
   planned_workout_id?: string | null;
 }

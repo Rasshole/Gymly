@@ -1,0 +1,44 @@
+Deploy af gymlyapp.com (mappe website/)
+=====================================
+
+Målet er at https://gymlyapp.com/confirm viser confirm/index.html — ikke forsiden.
+
+────────────────────────────────────
+1) MANUELT (File Manager / FTP-klient)
+────────────────────────────────────
+Upload HELE indholdet af denne mappe (website/) til webhotellets DOCUMENT ROOT
+(typisk public_html, www eller htdocs — dér hvor index.html til forsiden allerede ligger).
+
+Vigtigt:
+  • auth/callback/index.html → https://gymlyapp.com/auth/callback (åbner gymly://)
+  • .well-known/apple-app-site-association + assetlinks.json (universal links)
+  • confirm/index.html → omdirigerer til /auth/callback
+  • auth-confirm/ med index.html til .../auth-confirm/index.html
+  • reset-password/index.html
+  • Upload også _redirects (Netlify), vercel.json, netlify.toml, .htaccess (Apache) eller brug
+    nginx-confirm.conf hvis du kører nginx — alt efter hvad dit host bruger.
+
+Tjek i browser:
+  https://gymlyapp.com/auth/callback
+  https://gymlyapp.com/.well-known/apple-app-site-association  (skal være JSON, ikke HTML)
+  https://gymlyapp.com/confirm
+
+────────────────────────────────────
+2) AUTOMATISK (GitHub Actions)
+────────────────────────────────────
+Kræver at sitet hostes med FTP/SFTP som GitHub kan nå.
+
+  a) Commit og push website/ + .github/workflows/deploy-gymlyapp-website.yml til GitHub.
+  b) Repo → Settings → Secrets and variables → Actions → New repository secret:
+       GYMLYAPP_FTP_SERVER
+       GYMLYAPP_FTP_USERNAME
+       GYMLYAPP_FTP_PASSWORD
+       GYMLYAPP_FTP_SERVER_DIR  (valgfri, fx /public_html/ — skal matche document root)
+  c) Actions → "Deploy gymlyapp website" → Run workflow
+
+Hvis du bruger Netlify/Vercel i stedet: tilknyt repo i deres dashboard med base directory
+eller publish directory = website, og brug _redirects / vercel.json fra website/.
+
+────────────────────────────────────
+Jeg kan ikke deploye for dig fra Cursor (ingen adgang til dit host eller dine passwords).
+Når secrets er sat, kører workflow’en upload for dig.

@@ -45,3 +45,8 @@ export function setAppIconBadgeCount(count: number): void {
 export function syncAppIconBadgeFromRows(rows: NotificationRow[]): void {
   setAppIconBadgeCount(countBellUnreadFromRows(rows));
 }
+
+/** App-ikon badge = kun pending venneanmodninger (matcher klokke i header). */
+export function syncAppIconBadgeFriendRequestCount(count: number): void {
+  setAppIconBadgeCount(count);
+}

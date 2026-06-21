@@ -28,6 +28,7 @@ const sv = {
     daysAgo_other: '{{count}} dagar sedan',
     you: 'Du',
     friend: 'Vän',
+    close: 'Stäng',
     unknownUser: 'Okänd användare',
   },
   language: {

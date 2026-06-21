@@ -9,6 +9,7 @@ import {
 import {sessionDurationMinutes} from '@/utils/trainingStatsFromCheckIns';
 import type {
   CheckInEndReason,
+  CheckoutReason,
   CheckInSubmitResult,
   SubmitCheckInParams,
   SupabaseCheckInRow,
@@ -79,7 +80,7 @@ function isOptionalCheckInColumnError(message: string | undefined): boolean {
   if (!message) {
     return false;
   }
-  return /column|duration_minutes|end_reason|auto_checkout|away_started|last_distance|geofence|schema cache/i.test(
+  return /column|duration_minutes|end_reason|checkout_reason|workout_needs_review|auto_checkout|away_started|last_distance|geofence|schema cache/i.test(
     message,
   );
 }
@@ -108,6 +109,8 @@ export async function completeActiveTrainingSession(
   params: {
     checkInId?: string | null;
     endReason?: CheckInEndReason;
+    checkoutReason?: CheckoutReason;
+    workoutNeedsReview?: boolean;
     autoCheckoutReason?: AutoCheckoutKind;
   },
 ): Promise<CompletedTrainingSession> {
@@ -150,16 +153,49 @@ export async function completeActiveTrainingSession(
   const startedAt = new Date(String(existingCheckIn.started_at));
   const durationMinutes = sessionDurationMinutes(startedAt, nowDate);
   const endReason = params.endReason ?? 'user';
+  const checkoutReason = params.checkoutReason ?? null;
+  const workoutNeedsReview =
+    params.workoutNeedsReview === true ||
+    checkoutReason === 'auto_distance';
   const auto =
     params.autoCheckoutReason != null
       ? params.autoCheckoutReason
-      : endReason === 'inactivity' || endReason === 'left_geofence'
-        ? (endReason as AutoCheckoutKind)
-        : null;
+      : checkoutReason === 'auto_distance'
+        ? 'left_geofence'
+        : checkoutReason === 'system_recovery'
+          ? 'inactivity'
+          : endReason === 'inactivity' || endReason === 'left_geofence'
+            ? (endReason as AutoCheckoutKind)
+            : null;
 
   const patchAttempts: Array<Record<string, unknown>> = [
     {is_active: false, ended_at: now},
     {is_active: false, ended_at: now, end_reason: endReason},
+    {
+      is_active: false,
+      ended_at: now,
+      end_reason: endReason,
+      duration_minutes: durationMinutes,
+      geofence_grace_started_at: null,
+      geofence_grace_kind: null,
+      away_started_at: null,
+      last_distance_meters: null,
+      auto_checkout_reason: auto,
+      checkout_reason: checkoutReason,
+      workout_needs_review: workoutNeedsReview,
+    },
+    {
+      is_active: false,
+      ended_at: now,
+      end_reason: endReason,
+      duration_minutes: durationMinutes,
+      geofence_grace_started_at: null,
+      geofence_grace_kind: null,
+      away_started_at: null,
+      last_distance_meters: null,
+      auto_checkout_reason: auto,
+      checkout_reason: checkoutReason,
+    },
     {
       is_active: false,
       ended_at: now,
@@ -329,11 +365,7 @@ export async function patchCheckInAwayState(
       away_started_at: patch.away_started_at,
       last_distance_meters: patch.last_distance_meters,
       geofence_grace_started_at: patch.away_started_at,
-      geofence_grace_kind: patch.away_started_at
-        ? patch.last_distance_meters != null && patch.last_distance_meters > 800
-          ? 'outside'
-          : 'buffer'
-        : null,
+      geofence_grace_kind: patch.away_started_at ? 'outside' : null,
     })
     .eq('id', checkInId)
     .eq('user_id', userId)

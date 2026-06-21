@@ -19,10 +19,9 @@ import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {
   useTranslation,
-  SUPPORTED_LANGUAGES,
-  LANGUAGE_NATIVE_LABELS,
-  ONBOARDING_LANGUAGES,
-  type AppLanguage,
+  SELECTABLE_LANGUAGES,
+  toSelectableLanguage,
+  type SelectableLanguage,
 } from '@/i18n';
 import colors from '@/theme/colors';
 import {spacing, radius, typography, shadows, layout, fonts} from '@/theme/designTokens';
@@ -32,7 +31,7 @@ import Svg, {Defs, LinearGradient, Rect, Stop} from 'react-native-svg';
 
 const SPLASH_KETTLEBELL = require('@/assets/images/splash-kettlebell.png');
 
-const ONBOARDING_LABEL_KEYS: Record<'da' | 'en', 'language.optionDa' | 'language.optionEn'> = {
+const OPTION_LABEL_KEYS: Record<SelectableLanguage, 'language.optionDa' | 'language.optionEn'> = {
   da: 'language.optionDa',
   en: 'language.optionEn',
 };
@@ -47,9 +46,8 @@ export function LanguageScreenContent({mode}: Props) {
   const {language, setLanguage, t} = useTranslation();
   const isOnboarding = mode === 'onboarding';
 
-  const [pending, setPending] = useState<AppLanguage>(
-    ONBOARDING_LANGUAGES.includes(language as 'da' | 'en') ? language : 'da',
-  );
+  const activeLanguage = toSelectableLanguage(language);
+  const [pending, setPending] = useState<SelectableLanguage>(activeLanguage);
   const fade = useRef(new Animated.Value(0)).current;
   const logoFloat = useRef(new Animated.Value(0)).current;
 
@@ -77,9 +75,7 @@ export function LanguageScreenContent({mode}: Props) {
     ? t('language.onboardingSubtitle')
     : t('language.chooseSubtitle');
 
-  const languages = isOnboarding ? ONBOARDING_LANGUAGES : SUPPORTED_LANGUAGES;
-
-  const handleSelect = (lang: AppLanguage) => {
+  const handleSelect = (lang: SelectableLanguage) => {
     setPending(lang);
     if (!isOnboarding) {
       void setLanguage(lang);
@@ -131,7 +127,8 @@ export function LanguageScreenContent({mode}: Props) {
       <Animated.ScrollView
         contentContainerStyle={[
           styles.content,
-          isOnboarding && {paddingTop: spacing.xl},
+          isOnboarding && styles.contentOnboarding,
+          !isOnboarding && styles.contentSettings,
           {paddingBottom: insets.bottom + spacing.xl},
         ]}
         showsVerticalScrollIndicator={false}
@@ -147,14 +144,10 @@ export function LanguageScreenContent({mode}: Props) {
         <Text style={[styles.title, isOnboarding && styles.titleOnboarding]}>{title}</Text>
         <Text style={styles.subtitle}>{subtitle}</Text>
 
-        <View style={styles.options}>
-          {languages.map(lang => {
-            const selected = (isOnboarding ? pending : language) === lang;
-            const labelKey =
-              lang === 'da' || lang === 'en'
-                ? ONBOARDING_LABEL_KEYS[lang]
-                : null;
-            const label = labelKey ? t(labelKey) : LANGUAGE_NATIVE_LABELS[lang];
+        <View style={[styles.options, !isOnboarding && styles.optionsSettings]}>
+          {SELECTABLE_LANGUAGES.map(lang => {
+            const selected = (isOnboarding ? pending : activeLanguage) === lang;
+            const label = t(OPTION_LABEL_KEYS[lang]);
             return (
               <GymlyPressable
                 key={lang}
@@ -233,6 +226,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: layout.screenPaddingH + spacing.sm,
     flexGrow: 1,
   },
+  contentOnboarding: {
+    paddingTop: spacing.xl,
+  },
+  contentSettings: {
+    justifyContent: 'center',
+  },
   logoWrap: {
     alignSelf: 'center',
     marginBottom: spacing.xl,
@@ -278,6 +277,11 @@ const styles = StyleSheet.create({
   options: {
     gap: spacing.md,
     marginBottom: spacing.xl,
+  },
+  optionsSettings: {
+    gap: spacing.lg,
+    marginTop: spacing.sm,
+    marginBottom: spacing.lg,
   },
   optionCard: {
     flexDirection: 'row',

@@ -70,19 +70,17 @@ import * as streak from '@/utils/streakUtils';
 import {useLocalCentersActivity} from '@/hooks/useLocalCentersActivity';
 import type {LocalCenterActivity} from '@/services/supabase/localCentersActivityService';
 import {findGymById} from '@/utils/gymDisplay';
-import {
-  fetchPostBicepsStates,
-  fetchPostBicepsUsers,
-  subscribePostBicepsRealtime,
-  togglePostBicepsReaction,
-  type PostBicepsUser,
-} from '@/services/supabase/workoutReactionService';
+import {fetchPostBicepsUsers, type PostBicepsUser} from '@/services/supabase/workoutReactionService';
+import {usePostEngagement} from '@/hooks/usePostEngagement';
+import {GymlyToast} from '@/components/ui/GymlyToast';
 import {
   getUserStatsMap,
   subscribeUserStats,
   type UserStats,
 } from '@/services/supabase/userStatsService';
 import {useTranslation, useAppFormat, rt} from '@/i18n';
+import {EditProfileCentersSheet} from '@/components/profile/EditProfileCentersSheet';
+import {syncUserHomeGymsAfterSave} from '@/services/supabase/homeGymsService';
 
 type HomeScreenNavigationProp = StackNavigationProp<any>;
 
@@ -397,6 +395,36 @@ const HomeScreen = () => {
     loading: localCentersLoading,
     refresh: refreshLocalCenters,
   } = useLocalCentersActivity(user?.id);
+  const [centersSheetOpen, setCentersSheetOpen] = useState(false);
+  const [centersToastMessage, setCentersToastMessage] = useState<string | null>(null);
+
+  const handleSaveCenters = useCallback(
+    async (orderedIds: string[]) => {
+      if (!user?.id) {
+        throw new Error('no user');
+      }
+      const uid = user.id;
+      try {
+        await syncUserHomeGymsAfterSave(uid, orderedIds, {skipProfileSync: true});
+        setCentersSheetOpen(false);
+        await refreshLocalCenters();
+      } catch (e) {
+        if (__DEV__) {
+          console.warn('[homeGyms] Home.save_ui_error', {
+            userId: uid,
+            message: e instanceof Error ? e.message : String(e),
+          });
+        }
+        setCentersToastMessage(t('profile.saveCentresFailed'));
+        throw new Error('save centers failed');
+      }
+    },
+    [user?.id, refreshLocalCenters, t],
+  );
+
+  const openCentersEditor = useCallback(() => {
+    setCentersSheetOpen(true);
+  }, []);
 
   useFocusEffect(
     useCallback(() => {
@@ -463,12 +491,14 @@ const HomeScreen = () => {
   }, [dashboardStreak, dashboardWeeklyCheckins, dashboardWeeklyMinutes]);
   const safeAreaBottom = insets?.bottom ?? 0;
   const {feedItems} = useFeedStore();
+  const feedPostIds = useMemo(() => feedItems.map(item => item.id), [feedItems]);
+  const engagement = usePostEngagement(feedPostIds, user?.id);
+  const feedReactions = engagement.reactions;
+  const [engagementToast, setEngagementToast] = useState<string | null>(null);
   const userBicepsEmoji = user?.bicepsEmoji || '💪🏻';
   const [addedFriends, setAddedFriends] = useState<string[]>([]);
   const [now, setNow] = useState(Date.now());
-  const [feedReactions, setFeedReactions] = useState<Record<string, {liked: boolean; likes: number}>>({});
   const [authorStatsByUserId, setAuthorStatsByUserId] = useState<Record<string, UserStats>>({});
-  const [bicepsBusyByPost, setBicepsBusyByPost] = useState<Record<string, boolean>>({});
   const [selectedActiveNowUser, setSelectedActiveNowUser] = useState<ActiveUser | null>(null);
   const [bicepsListVisible, setBicepsListVisible] = useState(false);
   const [bicepsListLoading, setBicepsListLoading] = useState(false);
@@ -477,12 +507,13 @@ const HomeScreen = () => {
   const [commentModalVisible, setCommentModalVisible] = useState(false);
   const [activeCommentItem, setActiveCommentItem] = useState<string | null>(null);
   const [commentInput, setCommentInput] = useState('');
-  const [commentsByFeedItem, setCommentsByFeedItem] = useState<
-    Record<string, Array<{author: string; text: string; id: string}>>
-  >({});
-  const [commentLikes, setCommentLikes] = useState<
-    Record<string, Record<string, {liked: boolean; likes: number}>>
-  >({});
+  const commentsByFeedItem = useMemo(() => {
+    const out: Record<string, Array<{author: string; text: string; id: string}>> = {};
+    for (const [postId, list] of Object.entries(engagement.commentsByPost)) {
+      out[postId] = list.map(c => ({author: c.author, text: c.text, id: c.id}));
+    }
+    return out;
+  }, [engagement.commentsByPost]);
   const [commentedItems, setCommentedItems] = useState<string[]>([]);
   const [postActionItem, setPostActionItem] = useState<FeedItem | null>(null);
   const [commentInputFocused, setCommentInputFocused] = useState(false);
@@ -542,87 +573,29 @@ const HomeScreen = () => {
   }, [user?.id]);
 
   useEffect(() => {
-    const uid = user?.id;
-    const postIds = feedItems.map(item => item.id);
-    if (!uid || postIds.length === 0) {
-      setFeedReactions({});
+    if (!user?.id || !isDemoContentMode()) {
       return;
     }
-    if (isDemoContentMode()) {
-      setFeedReactions(prev => {
-        const next: Record<string, {liked: boolean; likes: number}> = {...prev};
-        for (const id of postIds) {
-          if (id.startsWith('demo-feed-')) {
-            next[id] = {liked: false, likes: 4 + (id.charCodeAt(id.length - 1) % 12)};
-          }
-        }
-        return next;
-      });
+    const demoIds = feedItems.filter(i => i.id.startsWith('demo-feed-')).map(i => i.id);
+    if (demoIds.length === 0) {
       return;
     }
-    let cancelled = false;
-    const load = async () => {
-      try {
-        const states = await fetchPostBicepsStates(postIds, uid);
-        if (cancelled) {
-          return;
-        }
-        setFeedReactions(prev => {
-          const next: Record<string, {liked: boolean; likes: number}> = {};
-          for (const id of postIds) {
-            const state = states[id];
-            next[id] = {
-              liked: state?.reactedByMe ?? false,
-              likes: state?.count ?? 0,
-            };
-          }
-          for (const [id, value] of Object.entries(prev)) {
-            if (!next[id]) {
-              next[id] = value;
-            }
-          }
-          return next;
-        });
-      } catch {
-        // ignore temporary reaction fetch errors
-      }
-    };
-    void load();
-    return () => {
-      cancelled = true;
-    };
+    // Demo feed keeps synthetic counts (no Supabase)
   }, [feedItems, user?.id]);
 
   useEffect(() => {
-    const uid = user?.id;
-    if (!uid || isDemoContentMode()) {
+    if (!bicepsListVisible || !bicepsListPostId) {
       return;
     }
-    return subscribePostBicepsRealtime(postId => {
-      if (!feedItems.some(item => item.id === postId)) {
-        return;
+    void (async () => {
+      try {
+        const users = await fetchPostBicepsUsers(bicepsListPostId);
+        setBicepsListUsers(users);
+      } catch {
+        // ignore
       }
-      void (async () => {
-        try {
-          const states = await fetchPostBicepsStates([postId], uid);
-          const state = states[postId];
-          if (!state) {
-            return;
-          }
-          setFeedReactions(prev => ({
-            ...prev,
-            [postId]: {liked: state.reactedByMe, likes: state.count},
-          }));
-          if (bicepsListVisible && bicepsListPostId === postId) {
-            const users = await fetchPostBicepsUsers(postId);
-            setBicepsListUsers(users);
-          }
-        } catch {
-          // ignore transient realtime update errors
-        }
-      })();
-    });
-  }, [user?.id, feedItems, bicepsListVisible, bicepsListPostId]);
+    })();
+  }, [bicepsListVisible, bicepsListPostId, feedReactions]);
 
   useEffect(() => {
     const authorIds = [...new Set(feedItems.map(item => item.userId).filter(Boolean) as string[])];
@@ -949,51 +922,19 @@ const HomeScreen = () => {
     });
   };
 
-  const toggleLikeOptimistic = (itemId: string, skipParticles = false) => {
-    setFeedReactions(prev => {
-      const existing = prev[itemId] ?? {liked: false, likes: 0};
-      const nextLiked = !existing.liked;
-      if (nextLiked) {
-        runBicepsAnimation(itemId, !skipParticles);
-      }
-      return {
-        ...prev,
-        [itemId]: {
-          liked: nextLiked,
-          likes: Math.max(0, existing.likes + (nextLiked ? 1 : -1)),
-        },
-      };
-    });
-  };
-
   const toggleLike = useCallback(
     async (itemId: string, skipParticles = false) => {
-      if (bicepsBusyByPost[itemId]) {
-        return;
+      const wasLiked = feedReactionsRef.current[itemId]?.liked ?? false;
+      if (!wasLiked) {
+        runBicepsAnimation(itemId, !skipParticles);
       }
-      const before = feedReactionsRef.current[itemId] ?? {liked: false, likes: 0};
-      setBicepsBusyByPost(prev => ({...prev, [itemId]: true}));
-      toggleLikeOptimistic(itemId, skipParticles);
       try {
-        const result = await togglePostBicepsReaction(itemId);
-        setFeedReactions(prev => ({
-          ...prev,
-          [itemId]: {liked: result.reacted, likes: result.count},
-        }));
+        await engagement.togglePostLike(itemId);
       } catch {
-        setFeedReactions(prev => ({
-          ...prev,
-          [itemId]: before,
-        }));
-      } finally {
-        setBicepsBusyByPost(prev => {
-          const next = {...prev};
-          delete next[itemId];
-          return next;
-        });
+        setEngagementToast(t('home.likeFailed'));
       }
     },
-    [bicepsBusyByPost],
+    [engagement.togglePostLike, t],
   );
 
   const feedReactionsRef = useRef(feedReactions);
@@ -1193,17 +1134,8 @@ const HomeScreen = () => {
     setPostActionItem(null);
   }, []);
 
-  const handlePostDeletedSideEffects = useCallback((postId: string) => {
-    setFeedReactions(prev => {
-      const next = {...prev};
-      delete next[postId];
-      return next;
-    });
-    setCommentsByFeedItem(prev => {
-      const next = {...prev};
-      delete next[postId];
-      return next;
-    });
+  const handlePostDeletedSideEffects = useCallback((_postId: string) => {
+    // Feed refresh removes deleted post; engagement hook reloads on post id change
   }, []);
 
   const openPostActionMenu = useCallback((item: FeedItem) => {
@@ -1212,36 +1144,25 @@ const HomeScreen = () => {
 
   const handleSubmitComment = () => {
     const trimmed = commentInput.trim();
-    if (!trimmed || !activeCommentItem) {
+    if (!trimmed || !activeCommentItem || engagement.submittingComment) {
       return;
     }
-    const authorName = user?.displayName || user?.username || 'Du';
-    const commentId = `${activeCommentItem}_${Date.now()}_${Math.random()}`;
-    setCommentsByFeedItem(prev => ({
-      ...prev,
-      [activeCommentItem]: [...(prev[activeCommentItem] ?? []), {author: authorName, text: trimmed, id: commentId}],
-    }));
-    setCommentedItems(prev =>
-      prev.includes(activeCommentItem) ? prev : [...prev, activeCommentItem],
-    );
-    setCommentInput('');
+    const authorName = user?.displayName || user?.username || 'You';
+    void (async () => {
+      const ok = await engagement.submitComment(activeCommentItem, trimmed, authorName);
+      if (ok) {
+        setCommentedItems(prev =>
+          prev.includes(activeCommentItem) ? prev : [...prev, activeCommentItem],
+        );
+        setCommentInput('');
+      } else {
+        setEngagementToast(t('home.commentFailed'));
+      }
+    })();
   };
 
   const toggleCommentLike = (feedItemId: string, commentId: string) => {
-    setCommentLikes(prev => {
-      const feedLikes = prev[feedItemId] ?? {};
-      const commentLike = feedLikes[commentId] ?? {liked: false, likes: 0};
-      return {
-        ...prev,
-        [feedItemId]: {
-          ...feedLikes,
-          [commentId]: {
-            liked: !commentLike.liked,
-            likes: Math.max(0, commentLike.likes + (commentLike.liked ? -1 : 1)),
-          },
-        },
-      };
-    });
+    void engagement.toggleCommentLike(feedItemId, commentId);
   };
 
   const openReels = (itemId: string) => {
@@ -1557,7 +1478,7 @@ const HomeScreen = () => {
                 <TouchableOpacity
                   style={styles.localCenterEmptyBtn}
                   activeOpacity={0.8}
-                  onPress={() => navigation.navigate('EditProfile')}>
+                  onPress={openCentersEditor}>
                   <Text style={styles.localCenterEmptyBtnText}>{t('home.addCentreBtn')}</Text>
                 </TouchableOpacity>
               </Card>
@@ -1679,10 +1600,7 @@ const HomeScreen = () => {
               ? {transform: [{scale: likeAnim.scale}]}
               : undefined;
             const particles = likeAnim?.particles ?? [];
-            const hasCommented = commentedItems.includes(item.id);
-            const commentColor = hasCommented ? '#2563EB' : '#0F172A';
             const isLiked = feedReactions[item.id]?.liked ?? false;
-            const likeColor = isLiked ? '#2563EB' : '#0F172A';
             const isAnimating = animatingItems[item.id];
             return (
               <View
@@ -1946,11 +1864,7 @@ const HomeScreen = () => {
                     style={styles.feedSocialCountTap}
                     onPress={() => openBicepsList(item.id)}
                     activeOpacity={0.75}>
-                    <Text
-                      style={[
-                        styles.feedSocialPillText,
-                        isLiked && styles.feedActionTextLiked,
-                      ]}>
+                    <Text style={styles.feedSocialPillText}>
                       {feedReactions[item.id]?.likes ?? 0}
                     </Text>
                   </TouchableOpacity>
@@ -1960,12 +1874,8 @@ const HomeScreen = () => {
                     style={styles.feedSocialPill}
                     onPress={() => openComments(item.id)}
                     activeOpacity={0.8}>
-                    <Icon name="chatbubble-outline" size={16} color={commentColor} />
-                    <Text
-                      style={[
-                        styles.feedSocialPillText,
-                        hasCommented && styles.feedActionTextLiked,
-                      ]}>
+                    <Icon name="chatbubble-outline" size={16} color={colors.primary} />
+                    <Text style={styles.feedCommentPillText}>
                       {commentsByFeedItem[item.id]?.length ?? 0}
                     </Text>
                   </TouchableOpacity>
@@ -2140,8 +2050,9 @@ const HomeScreen = () => {
                         const itemKey = activeCommentItem ?? '';
                         const commentId = comment.id || `${itemKey}_comment_${index}`;
                         const commentLike =
-                          (itemKey ? commentLikes[itemKey]?.[commentId] : undefined) ??
-                          {liked: false, likes: 0};
+                          (itemKey
+                            ? engagement.getCommentLike(itemKey, commentId)
+                            : {liked: false, likes: 0});
                         return (
                           <View key={commentId} style={styles.commentRow}>
                             <View style={styles.commentAvatar}>
@@ -2557,8 +2468,9 @@ const HomeScreen = () => {
                         const itemKey = activeCommentItem ?? '';
                         const commentId = comment.id || `${itemKey}_comment_${index}`;
                         const commentLike =
-                          (itemKey ? commentLikes[itemKey]?.[commentId] : undefined) ??
-                          {liked: false, likes: 0};
+                          (itemKey
+                            ? engagement.getCommentLike(itemKey, commentId)
+                            : {liked: false, likes: 0});
                         return (
                           <View key={commentId} style={styles.commentRow}>
                             <View style={styles.commentAvatar}>
@@ -2811,6 +2723,20 @@ const HomeScreen = () => {
           </Modal>
         )}
         </Modal>
+      <EditProfileCentersSheet
+        visible={centersSheetOpen}
+        initialCenterIds={(user?.favoriteGyms ?? []).filter(Boolean) as string[]}
+        onClose={() => setCentersSheetOpen(false)}
+        onSave={handleSaveCenters}
+        onLimitReached={() => setCentersToastMessage(t('profile.maxCentres'))}
+      />
+      <GymlyToast
+        message={centersToastMessage ?? engagementToast}
+        onHidden={() => {
+          setCentersToastMessage(null);
+          setEngagementToast(null);
+        }}
+      />
     </View>
   );
 };
@@ -3671,6 +3597,11 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '700',
     color: colors.text,
+  },
+  feedCommentPillText: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: colors.primary,
   },
   feedLikeButton: {
     paddingHorizontal: 10,

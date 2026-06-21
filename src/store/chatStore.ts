@@ -4,6 +4,11 @@ import {DanishGym} from '@/data/danishGyms';
 import {MuscleGroup} from '@/types/workout.types';
 import {safeDisplayName} from '@/utils/displayName';
 import {getMessagePreview} from '@/utils/dmMessagePreview';
+import {
+  mergeChatActivity,
+  messageTimestamp,
+  sortChatsByLastActivity,
+} from '@/utils/chatListSort';
 
 export type PlannedWorkoutDmEmbed =
   | {
@@ -161,7 +166,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
         return state;
       }
       return {
-        chats: [...state.chats, chat],
+        chats: sortChatsByLastActivity([...state.chats, chat]),
       };
     });
   },
@@ -170,16 +175,19 @@ export const useChatStore = create<ChatState>((set, get) => ({
     const fromCurrentUser = options?.fromCurrentUser ?? false;
     const openId = get().foregroundOpenChatId;
     const skipUnread = fromCurrentUser || openId === chatId;
+    const activityAt = messageTimestamp(message);
     set((state) => ({
-      chats: state.chats.map((chat) =>
-        chat.id === chatId
-          ? {
-              ...chat,
-              lastMessage: message,
-              lastActivity: new Date(),
-              unreadCount: skipUnread ? chat.unreadCount : chat.unreadCount + 1,
-            }
-          : chat,
+      chats: sortChatsByLastActivity(
+        state.chats.map((chat) =>
+          chat.id === chatId
+            ? {
+                ...chat,
+                lastMessage: message,
+                lastActivity: activityAt,
+                unreadCount: skipUnread ? chat.unreadCount : chat.unreadCount + 1,
+              }
+            : chat,
+        ),
       ),
     }));
     if (!fromCurrentUser && openId !== chatId) {
@@ -332,14 +340,14 @@ export const useChatStore = create<ChatState>((set, get) => ({
       if (i >= 0) {
         const next = [...state.chats];
         const prev = state.chats[i];
-        next[i] = {
+        next[i] = mergeChatActivity(prev, {
           ...prev,
           ...chat,
           participantIds: chat.participantIds,
           participantNames: chat.participantNames,
           unreadCount: mergeUnread(prev.unreadCount),
-        };
-        return {chats: next};
+        } as Chat);
+        return {chats: sortChatsByLastActivity(next)};
       }
       const byParticipants = state.chats.find(
         (c) =>
@@ -348,28 +356,30 @@ export const useChatStore = create<ChatState>((set, get) => ({
       );
       if (byParticipants) {
         return {
-          chats: state.chats.map((c) =>
-            c.id === byParticipants.id
-              ? {
-                  ...c,
-                  id: chat.id,
-                  ...chat,
-                  participantIds: chat.participantIds,
-                  participantNames: chat.participantNames,
-                  unreadCount: mergeUnread(c.unreadCount),
-                }
-              : c,
+          chats: sortChatsByLastActivity(
+            state.chats.map((c) =>
+              c.id === byParticipants.id
+                ? mergeChatActivity(c, {
+                    ...c,
+                    id: chat.id,
+                    ...chat,
+                    participantIds: chat.participantIds,
+                    participantNames: chat.participantNames,
+                    unreadCount: mergeUnread(c.unreadCount),
+                  } as Chat)
+                : c,
+            ),
           ),
         };
       }
       return {
-        chats: [
+        chats: sortChatsByLastActivity([
           ...state.chats,
           {
             ...chat,
             unreadCount: mergeUnread(0),
           } as Chat,
-        ],
+        ]),
       };
     });
   },
@@ -514,7 +524,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
       }));
     });
     set({
-      chats: normalizedChats,
+      chats: sortChatsByLastActivity(normalizedChats),
       messagesByChat: { ...state.messagesByChat, ...normalizedMessages },
     });
   },

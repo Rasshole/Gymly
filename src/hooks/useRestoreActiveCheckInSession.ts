@@ -8,6 +8,7 @@ import {
   startWorkoutLiveActivity,
 } from '@/services/ios/workoutLiveActivity';
 import {formatWorkoutTypeDisplay} from '@/utils/muscleGroupLabels';
+import {clearPersistedAwayStateOnResume} from '@/services/autoCheckout/runAutoCheckoutEvaluation';
 
 /**
  * Genopret aktiv træning fra Supabase ved app-start / resume.
@@ -31,6 +32,7 @@ export function useRestoreActiveCheckInSession(): void {
       if (cur?.checkInId === session.checkInId) {
         return;
       }
+      void clearPersistedAwayStateOnResume(session.checkInId!, userId);
       useSessionStore.getState().startSession(session);
       void startWorkoutLiveActivity(
         formatWorkoutTypeDisplay(session.workoutType || ''),

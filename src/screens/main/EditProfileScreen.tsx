@@ -28,8 +28,6 @@ import {useFriendStore} from '@/store/friendStore';
 import {useChatStore} from '@/store/chatStore';
 import AuthService from '@/services/auth/AuthService';
 import {upsertMyProfile, mergeProfileUsernameIntoUser} from '@/services/supabase/friendService';
-import {persistUserHomeGyms} from '@/services/supabase/userCentersService';
-import {emitProfileCentersChanged} from '@/realtime/profileCentersBridge';
 import {supabase} from '@/services/supabase/supabaseClient';
 import {
   getUsernameFormatError,
@@ -37,7 +35,6 @@ import {
   normalizeUsernameInput,
 } from '@/utils/usernameRules';
 import {useUsernameAvailability} from '@/hooks/useUsernameAvailability';
-import {GymSlotsEditor} from '@/components/profile/GymSlotsEditor';
 import {ProfileVisibility, type User} from '@/types/user.types';
 import {
   spacing,
@@ -87,12 +84,6 @@ const EditProfileScreen = () => {
     user?.privacySettings.profileVisibility || 'private'
   );
   const [isSaving, setIsSaving] = useState(false);
-  const [gymIdsDraft, setGymIdsDraft] = useState<string[]>(
-    () => (user?.favoriteGyms?.filter(Boolean) as string[] | undefined) ?? [],
-  );
-  const handleGymIdsChange = useCallback((ids: string[]) => {
-    setGymIdsDraft(ids);
-  }, []);
   const bicepsOptions = ['💪🏻', '💪🏼', '💪🏽', '💪🏾', '💪🏿', '🦾'];
 
   // Track last changes for 14-day limit
@@ -233,14 +224,6 @@ const EditProfileScreen = () => {
     if (!user) return;
     if (isSaving) return;
 
-    if (gymIdsDraft.length < 1) {
-      Alert.alert(
-        t('editProfile.localCentres'),
-        t('editProfile.primaryCentreRequired'),
-      );
-      return;
-    }
-
     // Validate display name change
     if (displayName !== user.displayName) {
       if (!canChangeDisplayName()) {
@@ -307,7 +290,7 @@ const EditProfileScreen = () => {
         dateOfBirth: dateOfBirth || undefined,
         city: city.trim() || undefined,
         bicepsEmoji: bicepsEmoji,
-        favoriteGyms: gymIdsDraft.slice(0, 3),
+        favoriteGyms: (user.favoriteGyms ?? []).filter(Boolean).slice(0, 3),
         privacySettings: {
           ...user.privacySettings,
           profileVisibility,
@@ -315,27 +298,20 @@ const EditProfileScreen = () => {
         updatedAt: new Date(),
       };
 
-      const savedGymIds = await persistUserHomeGyms(
-        user.id,
-        gymIdsDraft.slice(0, 3),
-      );
-      const userWithGyms = {...updatedUser, favoriteGyms: savedGymIds};
+      await upsertMyProfile(updatedUser);
 
-      await upsertMyProfile(userWithGyms);
-
-      const syncedFromAuth = await AuthService.syncProfileMetadataFromUser(userWithGyms);
+      const syncedFromAuth = await AuthService.syncProfileMetadataFromUser(updatedUser);
       let finalUser: User = {
-        ...userWithGyms,
+        ...updatedUser,
         ...syncedFromAuth,
-        id: userWithGyms.id,
-        email: userWithGyms.email,
-        gdprConsent: userWithGyms.gdprConsent,
+        id: updatedUser.id,
+        email: updatedUser.email,
+        gdprConsent: updatedUser.gdprConsent,
         featuredBadgeIds:
-          userWithGyms.featuredBadgeIds ?? syncedFromAuth.featuredBadgeIds,
-        favoriteGyms: savedGymIds,
+          updatedUser.featuredBadgeIds ?? syncedFromAuth.featuredBadgeIds,
+        favoriteGyms: updatedUser.favoriteGyms,
       };
       finalUser = await mergeProfileUsernameIntoUser(finalUser);
-      emitProfileCentersChanged(user.id);
 
       if (displayName !== user.displayName) {
         setLastDisplayNameChange(new Date());
@@ -726,16 +702,6 @@ const EditProfileScreen = () => {
             onChangeText={setCity}
             placeholder={t('editProfile.cityPlaceholder')}
             placeholderTextColor="#8E8E93"
-          />
-        </View>
-
-        {/* Lokale centre (1 påkrævet, 2 valgfri) */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>{t('editProfile.localCentres')}</Text>
-          <GymSlotsEditor
-            key={(user?.favoriteGyms ?? []).join('-') || 'gym-slots'}
-            initialIds={user?.favoriteGyms ?? []}
-            onIdsChange={handleGymIdsChange}
           />
         </View>
 

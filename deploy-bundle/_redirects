@@ -1,0 +1,17 @@
+# gymlyapp.com — Netlify publish root = denne mappe (website/).
+# Auth paths skal IKKE ende på SPA index.html. Query og hash bevares ved 200!.
+
+/auth/callback     /auth/callback/index.html 200!
+/auth/callback/    /auth/callback/index.html 200!
+/.well-known/apple-app-site-association /.well-known/apple-app-site-association 200!
+/.well-known/assetlinks.json /.well-known/assetlinks.json 200!
+
+/confirm           /confirm/index.html       200!
+/confirm/          /confirm/index.html       200!
+/auth/confirm      /auth-confirm/index.html  200!
+/auth/confirm/     /auth-confirm/index.html  200!
+/reset-password    /reset-password/index.html 200!
+/reset-password/   /reset-password/index.html 200!
+
+# SPA fallback (sidste linje). Udkommentér hvis du allerede har /* i netlify.toml.
+# /*                /index.html               200

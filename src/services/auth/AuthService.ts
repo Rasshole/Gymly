@@ -16,11 +16,7 @@ import {User, UserLogin, UserRegistration, type ConsentType} from '@/types/user.
 import SecureStorage from '../security/SecureStorage';
 import {supabase} from '@/services/supabase/supabaseClient';
 import {getLocalDateString} from '@/utils/streakUtils';
-import {
-  SUPABASE_ALLOW_UNVERIFIED_LOGIN,
-  SUPABASE_EMAIL_REDIRECT,
-  SUPABASE_PASSWORD_RESET_REDIRECT,
-} from '@/config/supabaseConfig';
+import {SUPABASE_PASSWORD_RESET_REDIRECT} from '@/config/supabaseConfig';
 import {User as SupabaseUser} from '@supabase/supabase-js';
 import {normalizeDanishPhone} from '@/utils/phoneUtils';
 import {
@@ -29,6 +25,8 @@ import {
 } from '@/utils/usernameRules';
 import {isUsernameAvailableInSupabase} from '@/services/supabase/usernameAvailabilityService';
 import {mergeProfileUsernameIntoUser} from '@/services/supabase/friendService';
+import {emitProfileCentersChanged} from '@/realtime/profileCentersBridge';
+import {fetchUserHomeGymIds} from '@/services/supabase/homeGymsService';
 import {persistUserHomeGyms} from '@/services/supabase/userCentersService';
 
 class AuthService {
@@ -246,6 +244,12 @@ class AuthService {
       return m ? `${hint}\n\nDetalje: ${m}` : hint;
     }
     if (
+      lower.includes('email not confirmed') ||
+      lower.includes('email_not_confirmed')
+    ) {
+      return 'E-mail-bekræftelse er stadig aktiveret i Supabase. Slå «Confirm email» fra under Authentication → Providers → Email, gem, og prøv igen.';
+    }
+    if (
       lower.includes('redirect') &&
       (lower.includes('not allowed') ||
         lower.includes('invalid') ||
@@ -291,7 +295,6 @@ class AuthService {
           email: data.email,
           password: data.password,
           options: {
-            emailRedirectTo: SUPABASE_EMAIL_REDIRECT || undefined,
             data: {
               username: normalizedUsername,
               phoneNumber: data.phoneNumber,
@@ -375,22 +378,59 @@ class AuthService {
         };
       }
 
-      if (!signupData.session) {
-        await SecureStorage.saveUserData(user);
-        return {
-          user,
-          tokens: undefined,
-          needsEmailConfirmation: true,
-        };
+      let session = signupData.session;
+
+      if (!session) {
+        const signInAfterSignup = await supabase.auth.signInWithPassword({
+          email: data.email,
+          password: data.password,
+        });
+        if (signInAfterSignup.error) {
+          await SecureStorage.saveUserData(user);
+          throw new Error(
+            this.humanizeAuthMessage(signInAfterSignup.error.message),
+          );
+        }
+        if (!signInAfterSignup.data.session || !signInAfterSignup.data.user) {
+          throw new Error(
+            'Konto oprettet, men login mislykkedes. Prøv at logge ind med din e-mail og adgangskode.',
+          );
+        }
+        session = signInAfterSignup.data.session;
+        user = await mergeProfileUsernameIntoUser(
+          this.mapSupabaseUser(signInAfterSignup.data.user),
+        );
       }
 
-      const tokens = this.mapSessionTokens(signupData.session);
-      if (user.id && data.favoriteGyms?.length) {
+      const tokens = this.mapSessionTokens(session);
+      if (user.id) {
+        const gymIds = (data.favoriteGyms ?? []).filter(Boolean);
+        if (gymIds.length === 0) {
+          throw new Error('Select at least one home gym to continue');
+        }
         try {
-          const savedIds = await persistUserHomeGyms(user.id, data.favoriteGyms);
+          if (__DEV__) {
+            console.log('[homeGyms] Auth.register_save_start', {userId: user.id, gymIds});
+          }
+          const savedIds = await persistUserHomeGyms(user.id, gymIds);
           user = {...user, favoriteGyms: savedIds, updatedAt: new Date()};
+          emitProfileCentersChanged(user.id);
+          if (__DEV__) {
+            console.log('[homeGyms] Auth.register_save_success', {userId: user.id, savedIds});
+          }
         } catch (gymErr) {
           logAuthDebug('[AuthService] persistUserHomeGyms after register', gymErr);
+          if (__DEV__) {
+            console.warn('[homeGyms] Auth.register_save_failed', {
+              userId: user.id,
+              message: gymErr instanceof Error ? gymErr.message : String(gymErr),
+            });
+          }
+          throw new Error(
+            gymErr instanceof Error
+              ? gymErr.message
+              : 'Could not save your home gyms. Check your connection and try again.',
+          );
         }
       }
       await SecureStorage.saveTokens(tokens);
@@ -435,31 +475,7 @@ class AuthService {
       }
 
       if (error) {
-        const errorMessage = error.message || 'Login fejlede. Prøv igen.';
-        const errorCode = (error as {code?: string}).code;
-        const isUnconfirmed =
-          errorCode === 'email_not_confirmed' ||
-          errorMessage.toLowerCase().includes('email not confirmed');
-        if (SUPABASE_ALLOW_UNVERIFIED_LOGIN && isUnconfirmed) {
-          const storedUser = await SecureStorage.getUserData();
-          if (
-            storedUser &&
-            storedUser.email.toLowerCase() === credentials.email.toLowerCase()
-          ) {
-            const betaTokens: AuthTokens = {
-              accessToken: this.generateMockToken(),
-              refreshToken: this.generateMockToken(),
-              expiresAt: Date.now() + 3600000,
-            };
-            await SecureStorage.saveTokens(betaTokens);
-            await SecureStorage.saveUserData(storedUser);
-            return {
-              user: storedUser,
-              tokens: betaTokens,
-            };
-          }
-        }
-        throw new Error(this.humanizeAuthMessage(errorMessage));
+        throw new Error(this.humanizeAuthMessage(error.message || 'Login fejlede. Prøv igen.'));
       }
 
       if (!data.session || !data.user) {
@@ -548,27 +564,6 @@ class AuthService {
     }
   }
 
-  async resendEmailConfirmation(email: string): Promise<void> {
-    const {error} = await supabase.auth.resend({
-      type: 'signup',
-      email,
-      options: {
-        emailRedirectTo: SUPABASE_EMAIL_REDIRECT || undefined,
-      },
-    });
-    if (error) {
-      throw new Error(this.humanizeAuthMessage(error.message));
-    }
-  }
-
-  private isSupabaseEmailConfirmed(user: SupabaseUser): boolean {
-    if (user.email_confirmed_at) {
-      return true;
-    }
-    const confirmedAt = (user as {confirmed_at?: string | null}).confirmed_at;
-    return Boolean(confirmedAt);
-  }
-
   private async sessionFromSupabaseUser(
     session: NonNullable<Awaited<ReturnType<typeof supabase.auth.getSession>>['data']['session']>,
   ): Promise<AuthResponse> {
@@ -577,91 +572,24 @@ class AuthService {
     const stored = await SecureStorage.getUserData();
     const gymIds =
       (user.favoriteGyms?.length ? user.favoriteGyms : stored?.favoriteGyms) ?? [];
-    if (user.id && gymIds.length > 0) {
+    if (user.id) {
       try {
-        const savedIds = await persistUserHomeGyms(user.id, gymIds);
-        user = {...user, favoriteGyms: savedIds, updatedAt: new Date()};
+        const resolved = await fetchUserHomeGymIds(user.id, gymIds);
+        if (resolved.length > 0) {
+          user = {...user, favoriteGyms: resolved, updatedAt: new Date()};
+        } else if (gymIds.length > 0) {
+          const savedIds = await persistUserHomeGyms(user.id, gymIds);
+          user = {...user, favoriteGyms: savedIds, updatedAt: new Date()};
+          emitProfileCentersChanged(user.id);
+        }
       } catch (gymErr) {
-        logAuthDebug('[AuthService] persistUserHomeGyms after session', gymErr);
+        logAuthDebug('[AuthService] home gyms after session', gymErr);
       }
     }
     const tokens = this.mapSessionTokens(session);
     await SecureStorage.saveTokens(tokens);
     await SecureStorage.saveUserData(user);
     return {user, tokens};
-  }
-
-  /**
-   * After the user confirms email in the browser, refresh session and sign in.
-   * Only succeeds when Supabase reports a confirmed email.
-   */
-  async completeSignupAfterEmailConfirmation(
-    email: string,
-    password: string,
-  ): Promise<AuthResponse> {
-    this.validateEmail(email);
-    if (!password) {
-      throw new Error('Adgangskode er påkrævet');
-    }
-
-    const normalizedEmail = email.trim().toLowerCase();
-
-    await supabase.auth.refreshSession().catch(() => {});
-
-    const {
-      data: {session: existing},
-    } = await supabase.auth.getSession();
-
-    if (
-      existing?.user &&
-      existing.access_token &&
-      existing.refresh_token &&
-      existing.user.email?.toLowerCase() === normalizedEmail &&
-      this.isSupabaseEmailConfirmed(existing.user)
-    ) {
-      return this.sessionFromSupabaseUser(existing);
-    }
-
-    const signInOnce = () =>
-      supabase.auth.signInWithPassword({
-        email: normalizedEmail,
-        password,
-      });
-
-    let {data, error} = await signInOnce();
-    if (error && this.isLikelyNetworkFailure(error.message || '')) {
-      await new Promise<void>(resolve => setTimeout(resolve, 750));
-      const second = await signInOnce();
-      data = second.data;
-      error = second.error;
-    }
-
-    if (error) {
-      const errorMessage = error.message || '';
-      const errorCode = (error as {code?: string}).code;
-      const isUnconfirmed =
-        errorCode === 'email_not_confirmed' ||
-        errorMessage.toLowerCase().includes('email not confirmed');
-      if (isUnconfirmed) {
-        throw new Error(
-          'Vi kan ikke se bekræftelsen endnu. Prøv igen om lidt.',
-        );
-      }
-      throw new Error(this.humanizeAuthMessage(errorMessage || 'Login fejlede. Prøv igen.'));
-    }
-
-    if (!data.session || !data.user) {
-      throw new Error('Vi kan ikke se bekræftelsen endnu. Prøv igen om lidt.');
-    }
-
-    if (!this.isSupabaseEmailConfirmed(data.user)) {
-      await supabase.auth.signOut().catch(() => {});
-      throw new Error(
-        'Vi kan ikke se bekræftelsen endnu. Prøv igen om lidt.',
-      );
-    }
-
-    return this.sessionFromSupabaseUser(data.session);
   }
 
   /**

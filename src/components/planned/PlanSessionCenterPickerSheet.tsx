@@ -257,7 +257,7 @@ const PlanSessionCenterPickerSheet: React.FC<PlanSessionCenterPickerSheetProps> 
       if (sorted.length === 0) {
         return [{title: '', data: [] as DanishGym[]}];
       }
-      return [{title: 'Resultater', data: sorted}];
+      return [{title: t('centerPicker.searchResults'), data: sorted}];
     }
 
     const favorites = favoriteGyms;
@@ -267,7 +267,7 @@ const PlanSessionCenterPickerSheet: React.FC<PlanSessionCenterPickerSheetProps> 
 
     const out: GymSection[] = [];
     if (favorites.length > 0) {
-      out.push({title: 'Dine centre', data: favorites});
+      out.push({title: t('centerPicker.yourCentres'), data: favorites});
     }
     out.push({title: t('centerPicker.nearbySection'), data: nearbySorted});
     return out;
@@ -279,6 +279,7 @@ const PlanSessionCenterPickerSheet: React.FC<PlanSessionCenterPickerSheetProps> 
     distanceFor,
     liveByGymId,
     getActiveUsersCount,
+    t,
   ]);
 
   const renderRow = useCallback(
@@ -304,7 +305,7 @@ const PlanSessionCenterPickerSheet: React.FC<PlanSessionCenterPickerSheetProps> 
                 {fav ? (
                   <View style={styles.favChip}>
                     <Ionicons name="star" size={12} color={colors.primary} />
-                    <Text style={styles.favChipText}>Gemt</Text>
+                    <Text style={styles.favChipText}>{t('centerPicker.saved')}</Text>
                   </View>
                 ) : null}
               </View>
@@ -327,7 +328,7 @@ const PlanSessionCenterPickerSheet: React.FC<PlanSessionCenterPickerSheetProps> 
         </TouchableOpacity>
       );
     },
-    [getGymStatus, distanceFor, liveByGymId, getActiveUsersCount, user?.favoriteGyms, onSelect],
+    [getGymStatus, distanceFor, liveByGymId, getActiveUsersCount, user?.favoriteGyms, onSelect, t],
   );
 
   const renderSectionHeader = useCallback(

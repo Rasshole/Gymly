@@ -27,13 +27,8 @@ import {useGoalStore} from '@/store/goalStore';
 import {useBadgeStore} from '@/store/badgeStore';
 import {supabase} from '@/services/supabase/supabaseClient';
 import {subscribeWorkoutFeedRealtime} from '@/services/supabase/workoutPostService';
-import {
-  fetchPostBicepsStates,
-  fetchPostBicepsUsers,
-  subscribePostBicepsRealtime,
-  togglePostBicepsReaction,
-  type PostBicepsUser,
-} from '@/services/supabase/workoutReactionService';
+import {fetchPostBicepsUsers, type PostBicepsUser} from '@/services/supabase/workoutReactionService';
+import {usePostEngagement} from '@/hooks/usePostEngagement';
 import {getOrCreateDmThread} from '@/services/supabase/dmService';
 import {
   isFriendWith,
@@ -238,12 +233,6 @@ const FriendProfileScreen = () => {
     ProfileCompletedSession[]
   >([]);
   const [sessionsLoading, setSessionsLoading] = useState(true);
-  const [feedReactions, setFeedReactions] = useState<
-    Record<string, {liked: boolean; likes: number}>
-  >({});
-  const [bicepsBusyByPost, setBicepsBusyByPost] = useState<Record<string, boolean>>(
-    {},
-  );
   const [bicepsListVisible, setBicepsListVisible] = useState(false);
   const [bicepsListLoading, setBicepsListLoading] = useState(false);
   const [bicepsListUsers, setBicepsListUsers] = useState<PostBicepsUser[]>([]);
@@ -251,9 +240,6 @@ const FriendProfileScreen = () => {
   const [commentModalVisible, setCommentModalVisible] = useState(false);
   const [activeCommentItem, setActiveCommentItem] = useState<string | null>(null);
   const [commentInput, setCommentInput] = useState('');
-  const [commentsByFeedItem, setCommentsByFeedItem] = useState<
-    Record<string, Array<{author: string; text: string; id: string}>>
-  >({});
   const [postActionItem, setPostActionItem] = useState<FeedItem | null>(null);
   const [supabaseFriendStats, setSupabaseFriendStats] =
     useState<SupabaseUserStats | null>(null);
@@ -397,6 +383,12 @@ const FriendProfileScreen = () => {
         rows = centersFromGymNameStrings(params.gyms ?? []);
       }
       setProfileCenterRows(rows);
+      if (__DEV__) {
+        console.log('[homeGyms] PublicProfile.load', {
+          friendId,
+          ids: rows.map(r => r.centerId),
+        });
+      }
     } catch {
       setProfileCenterRows([]);
     }
@@ -829,79 +821,34 @@ const FriendProfileScreen = () => {
     [feedItems, friendId, friendUser],
   );
 
+  const myFeedPostIds = useMemo(() => myFeedItems.map(item => item.id), [myFeedItems]);
+  const engagement = usePostEngagement(myFeedPostIds, currentUser?.id);
+  const feedReactions = engagement.reactions;
+  const commentsByFeedItem = useMemo(() => {
+    const out: Record<string, Array<{author: string; text: string; id: string}>> = {};
+    for (const [postId, list] of Object.entries(engagement.commentsByPost)) {
+      out[postId] = list.map(c => ({author: c.author, text: c.text, id: c.id}));
+    }
+    return out;
+  }, [engagement.commentsByPost]);
+
   useEffect(() => {
     return subscribeWorkoutFeedRealtime();
   }, []);
 
   useEffect(() => {
-    const uid = currentUser?.id;
-    const postIds = myFeedItems.map(item => item.id);
-    if (!uid || postIds.length === 0) {
-      setFeedReactions({});
+    if (!bicepsListVisible || !bicepsListPostId) {
       return;
     }
-    let cancelled = false;
-    const load = async () => {
+    void (async () => {
       try {
-        const states = await fetchPostBicepsStates(postIds, uid);
-        if (cancelled) {
-          return;
-        }
-        setFeedReactions(prev => {
-          const next: Record<string, {liked: boolean; likes: number}> = {};
-          for (const id of postIds) {
-            const state = states[id];
-            next[id] = {
-              liked: state?.reactedByMe ?? false,
-              likes: state?.count ?? 0,
-            };
-          }
-          for (const [id, value] of Object.entries(prev)) {
-            if (!next[id]) {
-              next[id] = value;
-            }
-          }
-          return next;
-        });
+        const users = await fetchPostBicepsUsers(bicepsListPostId);
+        setBicepsListUsers(users);
       } catch {
-        // ignore transient errors
+        // ignore
       }
-    };
-    void load();
-    return () => {
-      cancelled = true;
-    };
-  }, [currentUser?.id, myFeedItems]);
-
-  useEffect(() => {
-    const uid = currentUser?.id;
-    if (!uid) {
-      return;
-    }
-    return subscribePostBicepsRealtime(postId => {
-      if (!myFeedItems.some(item => item.id === postId)) {
-        return;
-      }
-      void (async () => {
-        try {
-          const states = await fetchPostBicepsStates([postId], uid);
-          const state = states[postId];
-          if (state) {
-            setFeedReactions(prev => ({
-              ...prev,
-              [postId]: {liked: state.reactedByMe, likes: state.count},
-            }));
-          }
-          if (bicepsListVisible && bicepsListPostId === postId) {
-            const users = await fetchPostBicepsUsers(postId);
-            setBicepsListUsers(users);
-          }
-        } catch {
-          // ignore transient errors
-        }
-      })();
-    });
-  }, [currentUser?.id, myFeedItems, bicepsListVisible, bicepsListPostId]);
+    })();
+  }, [bicepsListVisible, bicepsListPostId, feedReactions]);
 
   const dataTabWorkouts = useMemo(
     () => filterWorkoutsByPeriod(workoutsFromCheckIns, dataWorkoutPeriod),
@@ -1021,33 +968,9 @@ const FriendProfileScreen = () => {
 
   const toggleLike = useCallback(
     async (itemId: string) => {
-      if (bicepsBusyByPost[itemId]) {
-        return;
-      }
-      const previous = feedReactions[itemId] ?? {liked: false, likes: 0};
-      const optimisticLiked = !previous.liked;
-      const optimisticLikes = Math.max(
-        0,
-        previous.likes + (optimisticLiked ? 1 : -1),
-      );
-      setFeedReactions(prev => ({
-        ...prev,
-        [itemId]: {liked: optimisticLiked, likes: optimisticLikes},
-      }));
-      setBicepsBusyByPost(prev => ({...prev, [itemId]: true}));
-      try {
-        const result = await togglePostBicepsReaction(itemId);
-        setFeedReactions(prev => ({
-          ...prev,
-          [itemId]: {liked: result.reacted, likes: result.count},
-        }));
-      } catch {
-        setFeedReactions(prev => ({...prev, [itemId]: previous}));
-      } finally {
-        setBicepsBusyByPost(prev => ({...prev, [itemId]: false}));
-      }
+      await engagement.togglePostLike(itemId);
     },
-    [bicepsBusyByPost, feedReactions],
+    [engagement.togglePostLike],
   );
 
   const openBicepsList = useCallback(async (itemId: string) => {
@@ -1085,17 +1008,8 @@ const FriendProfileScreen = () => {
     setPostActionItem(null);
   }, []);
 
-  const handlePostDeletedSideEffects = useCallback((postId: string) => {
-    setFeedReactions(prev => {
-      const next = {...prev};
-      delete next[postId];
-      return next;
-    });
-    setCommentsByFeedItem(prev => {
-      const next = {...prev};
-      delete next[postId];
-      return next;
-    });
+  const handlePostDeletedSideEffects = useCallback((_postId: string) => {
+    // Engagement hook reloads when post ids change
   }, []);
 
   const openPostActionMenu = useCallback((post: FeedItem) => {
@@ -1103,24 +1017,21 @@ const FriendProfileScreen = () => {
   }, []);
 
   const addComment = useCallback(() => {
-    if (!activeCommentItem) {
+    if (!activeCommentItem || engagement.submittingComment) {
       return;
     }
     const text = commentInput.trim();
     if (!text) {
       return;
     }
-    const nextComment = {
-      id: `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
-      author: currentUser?.displayName || 'Bruger',
-      text,
-    };
-    setCommentsByFeedItem(prev => ({
-      ...prev,
-      [activeCommentItem]: [...(prev[activeCommentItem] ?? []), nextComment],
-    }));
-    setCommentInput('');
-  }, [activeCommentItem, commentInput, currentUser?.displayName]);
+    const author = currentUser?.displayName || t('common.you');
+    void (async () => {
+      const ok = await engagement.submitComment(activeCommentItem, text, author);
+      if (ok) {
+        setCommentInput('');
+      }
+    })();
+  }, [activeCommentItem, commentInput, currentUser?.displayName, engagement, t]);
 
   const parseWorkoutInfo = useCallback((info?: string) => {
     const fallback = {gymName: 'Center', duration: '0 min', workoutType: 'fri'};

@@ -48,12 +48,12 @@ import {useFriends} from '@/hooks/useFriends';
 import {useBadgeStore} from '@/store/badgeStore';
 import {useUserTrainingStats} from '@/hooks/useUserTrainingStats';
 import {formatGymNameWithBrand} from '@/utils/gymDisplay';
-import {loadProfileCentersForUser} from '@/services/supabase/profileCentersPublicService';
 import {
-  persistUserHomeGyms,
-  subscribeUserCenters,
-} from '@/services/supabase/userCentersService';
-import {emitProfileCentersChanged} from '@/realtime/profileCentersBridge';
+  loadUserHomeGymCentersForProfile,
+  resolveHomeGymCenterRows,
+  syncUserHomeGymsAfterSave,
+} from '@/services/supabase/homeGymsService';
+import {subscribeUserCenters} from '@/services/supabase/userCentersService';
 import type {ProfileCenterRow} from '@/components/profile/ProfileCentersList';
 import {EditProfileCentersSheet} from '@/components/profile/EditProfileCentersSheet';
 import {GymlyToast} from '@/components/ui/GymlyToast';
@@ -62,23 +62,12 @@ import {useSessionStore} from '@/store/sessionStore';
 import colors from '@/theme/colors';
 import {spacing, typography, radius, shadows} from '@/theme/designTokens';
 import {useTranslation} from '@/i18n';
+import {useAppFormat} from '@/i18n/useAppFormat';
 import GymlyPostCard from '@/components/feed/GymlyPostCard';
 import {PostActionBottomSheet} from '@/components/feed/PostActionBottomSheet';
 import {feedItemToPostActionSheet} from '@/utils/postActionMappers';
-import {
-  fetchPostBicepsStates,
-  fetchPostBicepsUsers,
-  subscribePostBicepsRealtime,
-  togglePostBicepsReaction,
-  type PostBicepsUser,
-} from '@/services/supabase/workoutReactionService';
-
-const formatTotalTime = (minutes: number): string => {
-  if (minutes < 60) return `${minutes} min`;
-  const h = Math.floor(minutes / 60);
-  const m = minutes % 60;
-  return m === 0 ? `${h} timer` : `${h}t ${m}m`;
-};
+import {fetchPostBicepsUsers, type PostBicepsUser} from '@/services/supabase/workoutReactionService';
+import {usePostEngagement} from '@/hooks/usePostEngagement';
 
 const isPrItem = (i: FeedItem): boolean =>
   i.type === 'pr' || ((i.prInfo?.trim()?.length ?? 0) > 0);
@@ -88,6 +77,7 @@ type ProfileTab = 'feed' | 'data';
 const ProfileScreen = () => {
   const navigation = useNavigation<any>();
   const {t} = useTranslation();
+  const {dayWord, formatTrainingDuration} = useAppFormat();
   const isAuthenticated = useAppStore(s => s.isAuthenticated);
   const {user, setUser} = useAppStore();
   const {feedItems} = useFeedStore();
@@ -108,12 +98,6 @@ const ProfileScreen = () => {
     ? (friendsListCount ?? 0)
     : (profileStats?.friendsCount ?? 0);
   const [friendsListOpen, setFriendsListOpen] = useState(false);
-  const [feedReactions, setFeedReactions] = useState<
-    Record<string, {liked: boolean; likes: number}>
-  >({});
-  const [bicepsBusyByPost, setBicepsBusyByPost] = useState<Record<string, boolean>>(
-    {},
-  );
   const [bicepsListVisible, setBicepsListVisible] = useState(false);
   const [bicepsListLoading, setBicepsListLoading] = useState(false);
   const [bicepsListUsers, setBicepsListUsers] = useState<PostBicepsUser[]>([]);
@@ -121,9 +105,6 @@ const ProfileScreen = () => {
   const [commentModalVisible, setCommentModalVisible] = useState(false);
   const [activeCommentItem, setActiveCommentItem] = useState<string | null>(null);
   const [commentInput, setCommentInput] = useState('');
-  const [commentsByFeedItem, setCommentsByFeedItem] = useState<
-    Record<string, Array<{author: string; text: string; id: string}>>
-  >({});
   const [postActionItem, setPostActionItem] = useState<FeedItem | null>(null);
 
   const dataPeriodOptions = useMemo(
@@ -134,36 +115,6 @@ const ProfileScreen = () => {
       {key: 'year', label: t('profile.periodYear')},
     ],
     [t],
-  );
-
-  useFocusEffect(
-    useCallback(() => {
-      refreshWorkoutFeedFromServer().catch(() => {});
-      refreshProfileStats();
-      void trainingStats.refresh();
-      if (user?.id) {
-        void loadFriendStore(user.id);
-        void refreshProfileCenters();
-        void fetchFeaturedBadgeIdsForUser(user.id).then(ids => {
-          const cur = useAppStore.getState().user;
-          if (!cur || cur.id !== user.id) {
-            return;
-          }
-          const a = (cur.featuredBadgeIds ?? []).join(',');
-          const b = ids.join(',');
-          if (a !== b) {
-            setUser({...cur, featuredBadgeIds: ids});
-          }
-        });
-      }
-    }, [
-      refreshProfileStats,
-      user?.id,
-      loadFriendStore,
-      trainingStats.refresh,
-      setUser,
-      refreshProfileCenters,
-    ]),
   );
 
   const displayName =
@@ -198,13 +149,58 @@ const ProfileScreen = () => {
       setCenterRows([]);
       return;
     }
-    try {
-      const rows = await loadProfileCentersForUser(user.id);
-      setCenterRows(rows);
-    } catch {
-      setCenterRows([]);
+    const storeIds = user.favoriteGyms ?? [];
+    if (storeIds.length > 0) {
+      setCenterRows(resolveHomeGymCenterRows(storeIds));
     }
-  }, [user?.id]);
+    try {
+      const rows = await loadUserHomeGymCentersForProfile(user.id, storeIds);
+      setCenterRows(rows);
+      if (__DEV__) {
+        console.log('[homeGyms] Profile.load', {
+          userId: user.id,
+          ids: rows.map(r => r.centerId),
+        });
+      }
+    } catch (e) {
+      if (__DEV__) {
+        console.warn('[homeGyms] Profile.load_error', user.id, e);
+      }
+      if (storeIds.length === 0) {
+        setCenterRows([]);
+      }
+    }
+  }, [user?.id, user?.favoriteGyms]);
+
+  useFocusEffect(
+    useCallback(() => {
+      refreshWorkoutFeedFromServer().catch(() => {});
+      refreshProfileStats();
+      void trainingStats.refresh();
+      if (user?.id) {
+        void loadFriendStore(user.id);
+        void refreshProfileCenters();
+        void fetchFeaturedBadgeIdsForUser(user.id).then(ids => {
+          const cur = useAppStore.getState().user;
+          if (!cur || cur.id !== user.id) {
+            return;
+          }
+          const a = (cur.featuredBadgeIds ?? []).join(',');
+          const b = ids.join(',');
+          if (a !== b) {
+            setUser({...cur, featuredBadgeIds: ids});
+          }
+        });
+      }
+    }, [
+      refreshProfileStats,
+      user?.id,
+      loadFriendStore,
+      trainingStats.refresh,
+      setUser,
+      refreshProfileCenters,
+    ]),
+  );
 
   useEffect(() => {
     void refreshProfileCenters();
@@ -224,21 +220,30 @@ const ProfileScreen = () => {
       if (!user?.id) {
         throw new Error('no user');
       }
+      const uid = user.id;
+      if (__DEV__) {
+        console.log('[homeGyms] Profile.save_ui_started', {userId: uid, orderedIds});
+      }
       try {
-        const ids = await persistUserHomeGyms(user.id, orderedIds);
-        setCentersSheetOpen(false);
-        const cur = useAppStore.getState().user;
-        if (cur && cur.id === user.id) {
-          setUser({...cur, favoriteGyms: ids, updatedAt: new Date()}, {skipProfileSync: true});
+        await syncUserHomeGymsAfterSave(uid, orderedIds, {skipProfileSync: true});
+        if (__DEV__) {
+          console.log('[homeGyms] Profile.save_ui_success', {userId: uid});
         }
-        emitProfileCentersChanged(user.id);
+        setCentersSheetOpen(false);
         await refreshProfileCenters();
-      } catch {
+      } catch (e) {
+        if (__DEV__) {
+          console.warn('[homeGyms] Profile.save_ui_error', {
+            userId: uid,
+            source: 'handleSaveCenters',
+            message: e instanceof Error ? e.message : String(e),
+          });
+        }
         setToastMessage(t('profile.saveCentresFailed'));
         throw new Error('save centers failed');
       }
     },
-    [user?.id, setUser, refreshProfileCenters, t],
+    [user?.id, refreshProfileCenters, t],
   );
 
   const openCentersEditor = useCallback(() => {
@@ -258,79 +263,34 @@ const ProfileScreen = () => {
     );
   }, [feedItems, user?.id, displayName]);
 
+  const myFeedPostIds = useMemo(() => myFeedItems.map(item => item.id), [myFeedItems]);
+  const engagement = usePostEngagement(myFeedPostIds, user?.id);
+  const feedReactions = engagement.reactions;
+  const commentsByFeedItem = useMemo(() => {
+    const out: Record<string, Array<{author: string; text: string; id: string}>> = {};
+    for (const [postId, list] of Object.entries(engagement.commentsByPost)) {
+      out[postId] = list.map(c => ({author: c.author, text: c.text, id: c.id}));
+    }
+    return out;
+  }, [engagement.commentsByPost]);
+
   useEffect(() => {
     return subscribeWorkoutFeedRealtime();
   }, []);
 
   useEffect(() => {
-    const uid = user?.id;
-    const postIds = myFeedItems.map(item => item.id);
-    if (!uid || postIds.length === 0) {
-      setFeedReactions({});
+    if (!bicepsListVisible || !bicepsListPostId) {
       return;
     }
-    let cancelled = false;
-    const load = async () => {
+    void (async () => {
       try {
-        const states = await fetchPostBicepsStates(postIds, uid);
-        if (cancelled) {
-          return;
-        }
-        setFeedReactions(prev => {
-          const next: Record<string, {liked: boolean; likes: number}> = {};
-          for (const id of postIds) {
-            const state = states[id];
-            next[id] = {
-              liked: state?.reactedByMe ?? false,
-              likes: state?.count ?? 0,
-            };
-          }
-          for (const [id, value] of Object.entries(prev)) {
-            if (!next[id]) {
-              next[id] = value;
-            }
-          }
-          return next;
-        });
+        const users = await fetchPostBicepsUsers(bicepsListPostId);
+        setBicepsListUsers(users);
       } catch {
-        // ignore temporary reaction fetch errors
+        // ignore
       }
-    };
-    void load();
-    return () => {
-      cancelled = true;
-    };
-  }, [myFeedItems, user?.id]);
-
-  useEffect(() => {
-    const uid = user?.id;
-    if (!uid) {
-      return;
-    }
-    return subscribePostBicepsRealtime(postId => {
-      if (!myFeedItems.some(item => item.id === postId)) {
-        return;
-      }
-      void (async () => {
-        try {
-          const states = await fetchPostBicepsStates([postId], uid);
-          const state = states[postId];
-          if (state) {
-            setFeedReactions(prev => ({
-              ...prev,
-              [postId]: {liked: state.reactedByMe, likes: state.count},
-            }));
-          }
-          if (bicepsListVisible && bicepsListPostId === postId) {
-            const users = await fetchPostBicepsUsers(postId);
-            setBicepsListUsers(users);
-          }
-        } catch {
-          // ignore transient realtime update errors
-        }
-      })();
-    });
-  }, [user?.id, myFeedItems, bicepsListVisible, bicepsListPostId]);
+    })();
+  }, [bicepsListVisible, bicepsListPostId, feedReactions]);
 
   const uid = user?.id ?? '';
   const workoutsFromCheckIns = useMemo(
@@ -364,19 +324,19 @@ const ProfileScreen = () => {
       {
         key: 'current-streak',
         emoji: streak.getStreakBadge(trainingStats.currentStreakDays) || '🔥',
-        label: 'Current streak',
-        value: `${trainingStats.currentStreakDays} dage`,
+        label: t('profile.statCurrentStreak'),
+        value: dayWord(trainingStats.currentStreakDays),
       },
       {
         key: 'longest-streak',
         emoji: streak.getStreakBadge(trainingStats.longestStreakDays) || '👑',
-        label: 'Longest streak',
-        value: `${trainingStats.longestStreakDays} dage`,
+        label: t('profile.statLongestStreak'),
+        value: dayWord(trainingStats.longestStreakDays),
       },
       {
         key: 'checkins',
         emoji: '💪',
-        label: 'Check-ins',
+        label: t('profile.statCheckIns'),
         value: dataTabWorkoutsSummary.count,
         onPress: () => navigation.navigate('CheckIn'),
       },
@@ -387,8 +347,11 @@ const ProfileScreen = () => {
         value:
           dataWorkoutPeriod === 'all' &&
           trainingStats.activeSessionMinutes > 0
-            ? `${formatTotalTime(dataTabWorkoutsSummary.minutes)} (+${trainingStats.activeSessionMinutes} min i gang)`
-            : formatTotalTime(dataTabWorkoutsSummary.minutes),
+            ? `${formatTrainingDuration(dataTabWorkoutsSummary.minutes)} ${t(
+                'profile.activeSessionExtra',
+                {minutes: String(trainingStats.activeSessionMinutes)},
+              )}`
+            : formatTrainingDuration(dataTabWorkoutsSummary.minutes),
       },
       {
         key: 'friends',
@@ -400,7 +363,7 @@ const ProfileScreen = () => {
       {
         key: 'badges',
         emoji: '🏅',
-        label: 'Badges',
+        label: t('tabs.badges'),
         value: badgeCount,
       },
     ];
@@ -418,40 +381,19 @@ const ProfileScreen = () => {
     badgeCount,
     navigation,
     t,
+    dayWord,
+    formatTrainingDuration,
   ]);
 
   const toggleLike = useCallback(
     async (itemId: string) => {
-      if (bicepsBusyByPost[itemId]) {
-        return;
-      }
-      const previous = feedReactions[itemId] ?? {liked: false, likes: 0};
-      const optimisticLiked = !previous.liked;
-      const optimisticLikes = Math.max(
-        0,
-        previous.likes + (optimisticLiked ? 1 : -1),
-      );
-      setFeedReactions(prev => ({
-        ...prev,
-        [itemId]: {liked: optimisticLiked, likes: optimisticLikes},
-      }));
-      setBicepsBusyByPost(prev => ({...prev, [itemId]: true}));
       try {
-        const result = await togglePostBicepsReaction(itemId);
-        setFeedReactions(prev => ({
-          ...prev,
-          [itemId]: {liked: result.reacted, likes: result.count},
-        }));
+        await engagement.togglePostLike(itemId);
       } catch {
-        setFeedReactions(prev => ({
-          ...prev,
-          [itemId]: previous,
-        }));
-      } finally {
-        setBicepsBusyByPost(prev => ({...prev, [itemId]: false}));
+        setToastMessage(t('home.likeFailed'));
       }
     },
-    [bicepsBusyByPost, feedReactions],
+    [engagement.togglePostLike, t],
   );
 
   const openBicepsList = useCallback(async (itemId: string) => {
@@ -487,25 +429,23 @@ const ProfileScreen = () => {
   }, []);
 
   const addComment = useCallback(() => {
-    if (!activeCommentItem) {
+    if (!activeCommentItem || engagement.submittingComment) {
       return;
     }
     const text = commentInput.trim();
     if (!text) {
       return;
     }
-    const author = displayName || 'Bruger';
-    const nextComment = {
-      id: `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
-      author,
-      text,
-    };
-    setCommentsByFeedItem(prev => ({
-      ...prev,
-      [activeCommentItem]: [...(prev[activeCommentItem] ?? []), nextComment],
-    }));
-    setCommentInput('');
-  }, [activeCommentItem, commentInput, displayName]);
+    const author = displayName || t('common.you');
+    void (async () => {
+      const ok = await engagement.submitComment(activeCommentItem, text, author);
+      if (ok) {
+        setCommentInput('');
+      } else {
+        setToastMessage(t('home.commentFailed'));
+      }
+    })();
+  }, [activeCommentItem, commentInput, displayName, engagement, t]);
 
   const parseWorkoutInfo = useCallback((info?: string) => {
     const fallback = {
@@ -737,7 +677,7 @@ const ProfileScreen = () => {
                       ? 'profile.workoutCount'
                       : 'profile.workoutCount_other',
                     {count: String(dataTabWorkoutsSummary.count)},
-                  )} · ${formatTotalTime(dataTabWorkoutsSummary.minutes)}`}
+                  )} · ${formatTrainingDuration(dataTabWorkoutsSummary.minutes)}`}
             </Text>
             <Card variant="outlined" padding="md" style={styles.recentWorkoutsCard}>
               {trainingStats.loading && trainingStats.recentSessions.length === 0 ? (

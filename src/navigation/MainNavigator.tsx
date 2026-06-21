@@ -101,8 +101,10 @@ import FeedSortingScreen from '@/screens/main/FeedSortingScreen';
 import ActivityFeedScreen from '@/screens/main/ActivityFeedScreen';
 import GymPresenceScreen from '@/screens/main/GymPresenceScreen';
 import AddFriendScreen from '@/screens/main/AddFriendScreen';
-import {useInAppNotifications} from '@/hooks/useInAppNotifications';
 import {InAppNotificationBootstrap} from '@/components/inApp/InAppNotificationBootstrap';
+import {PendingFriendRequestBootstrap} from '@/components/friends/PendingFriendRequestBootstrap';
+import {FriendRequestsSheet} from '@/components/friends/FriendRequestsSheet';
+import {useInAppNotificationStore} from '@/store/inAppNotificationStore';
 import CustomTabBar from '@/components/CustomTabBar';
 import {useAppStore} from '@/store/appStore';
 import NotificationBadge from '@/components/ui/Badge';
@@ -309,26 +311,27 @@ const LeaderboardHeaderButton = () => {
 
 // Notifications button component for header
 const NotificationsButton = () => {
-  const navigation = useNavigation<CompositeNavigationProp<
-    BottomTabNavigationProp<MainTabParamList>,
-    StackNavigationProp<MainStackParamList>
-  >>();
-  const {dbUnread: bellTotal} = useInAppNotifications();
+  const {t} = useTranslation();
+  const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
+  const bellUnread = useInAppNotificationStore(s => s.dbUnread);
 
   return (
     <View style={tabHeaderStyles.headerSideLeft}>
       <TouchableOpacity
-        onPress={() => {
-          navigation.navigate('Notifications');
-        }}
+        onPress={() => navigation.navigate('Notifications')}
         style={tabHeaderStyles.iconTap}
         activeOpacity={0.75}
-        accessibilityLabel="Notifikationer">
+        accessibilityLabel={t('notifications.title')}>
         <View style={tabHeaderStyles.bellWrap}>
           <Icon name="notifications-outline" size={HEADER_ICON} color={colors.text} />
-          {bellTotal > 0 ? (
+          {bellUnread > 0 ? (
             <View style={tabHeaderStyles.notifBadge} pointerEvents="none">
-              <NotificationBadge count={bellTotal} variant="error" maxCount={99} compact />
+              <NotificationBadge
+                count={bellUnread}
+                variant="error"
+                maxCount={99}
+                compact
+              />
             </View>
           ) : null}
         </View>
@@ -414,6 +417,8 @@ const MainNavigator = () => {
       <UsernameChangeGate />
       <GymlyRealtimeHub />
       <InAppNotificationBootstrap />
+      <PendingFriendRequestBootstrap />
+      <FriendRequestsSheet />
       <PushNotificationBootstrap />
       <UserBadgesRealtimeSync />
       <CheckInSessionController />

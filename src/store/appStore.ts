@@ -11,12 +11,11 @@ import AuthService from '@/services/auth/AuthService';
 import {supabase} from '@/services/supabase/supabaseClient';
 import {mergeProfileUsernameIntoUser, upsertMyProfile} from '@/services/supabase/friendService';
 import {useBadgeStore} from '@/store/badgeStore';
-import {finishWorkoutSession} from '@/services/session/finishWorkoutSession';
+import {completeWorkoutSession} from '@/services/session/completeWorkoutSession';
 import {
-  fetchUserCenterIdsOrdered,
-  persistUserHomeGyms,
-} from '@/services/supabase/userCentersService';
-import {emitProfileCentersChanged} from '@/realtime/profileCentersBridge';
+  fetchUserHomeGymIds,
+  syncUserHomeGymsAfterSave,
+} from '@/services/supabase/homeGymsService';
 import {
   clearAllUserStores,
   clearLocalUserSession,
@@ -87,7 +86,10 @@ export const useAppStore = create<AppState>((set, get) => ({
           : fromAuth;
         mergedUser = await mergeProfileUsernameIntoUser(mergedUser);
         try {
-          const centerIds = await fetchUserCenterIdsOrdered(mergedUser.id);
+          const centerIds = await fetchUserHomeGymIds(
+            mergedUser.id,
+            mergedUser.favoriteGyms ?? storedUser?.favoriteGyms,
+          );
           if (centerIds.length > 0) {
             mergedUser = {
               ...mergedUser,
@@ -199,7 +201,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     const currentUserId = get().user?.id ?? null;
     try {
       if (currentUserId) {
-        await finishWorkoutSession({
+        await completeWorkoutSession({
           reason: 'logout',
           userId: currentUserId,
         });
@@ -227,7 +229,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     const currentUserId = get().user?.id ?? null;
     try {
       if (currentUserId) {
-        await finishWorkoutSession({
+        await completeWorkoutSession({
           reason: 'logout',
           userId: currentUserId,
         });
@@ -272,21 +274,11 @@ export const useAppStore = create<AppState>((set, get) => ({
       return;
     }
     const userId = state.user.id;
-    void persistUserHomeGyms(userId, gymIds)
-      .then(savedIds => {
-        const cur = get().user;
-        if (!cur || cur.id !== userId) {
-          return;
+    void syncUserHomeGymsAfterSave(userId, gymIds)
+      .then(({user: updatedUser}) => {
+        if (updatedUser?.id === userId) {
+          set({user: updatedUser});
         }
-        const updatedUser = {
-          ...cur,
-          favoriteGyms: savedIds,
-          updatedAt: new Date(),
-        };
-        set({user: updatedUser});
-        SecureStorage.saveUserData(updatedUser).catch(() => {});
-        syncPublicProfileToSupabase(updatedUser);
-        emitProfileCentersChanged(userId);
       })
       .catch(err => {
         if (__DEV__) {

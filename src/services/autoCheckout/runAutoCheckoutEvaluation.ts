@@ -1,17 +1,16 @@
 /**
- * Auto-checkout: kun bekræftet afstand fra center (ikke inaktivitet, ikke app-genstart).
+ * Auto-checkout: GPS >200 m → completeWorkoutSession + stop timer + modal.
  */
-import {Alert, type AppStateStatus} from 'react-native';
+import {type AppStateStatus} from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 import {ACTIVE_CHECKIN_LOCATION_INTERVAL_MS} from '@/config/activeCheckinGeofenceConfig';
 import {getGymLatLngForCheckIn} from '@/utils/gymCoordinatesForCheckIn';
 import {getDistanceInMeters} from '@/utils/geoUtils';
+import {pushDistanceSample, type GeofenceZone} from '@/logic/activeCheckinGeofenceEngine';
 import {
-  classifyGeofenceZone,
-  computeStableFlags,
-  pushDistanceSample,
-  type GeofenceZone,
-} from '@/logic/activeCheckinGeofenceEngine';
+  decideGeofenceAutoCheckout,
+  shouldShowAwayZoneWarning,
+} from '@/services/autoCheckout/evaluateAutoCheckout';
 import {
   getActiveCheckInForUser,
   patchCheckInAwayState,
@@ -19,16 +18,11 @@ import {
 } from '@/services/supabase/checkInService';
 import {activeSessionFromSupabaseRow, useSessionStore} from '@/store/sessionStore';
 import {useCheckInUIStore} from '@/store/checkInUIStore';
-import {
-  getAutoCheckoutDevDistanceOverride,
-  getEffectiveAwayStartedAt,
-} from '@/services/autoCheckout/autoCheckoutDevOverrides';
-import {decideGeofenceAutoCheckout} from '@/services/autoCheckout/evaluateAutoCheckout';
-import type {CheckInEndReason, SupabaseCheckInRow} from '@/types/checkIn.types';
-import {finishWorkoutSession} from '@/services/session/finishWorkoutSession';
-import {isDemoContentMode} from '@/demo/demoContentGate';
+import {getAutoCheckoutDevDistanceOverride} from '@/services/autoCheckout/autoCheckoutDevOverrides';
+import type {SupabaseCheckInRow} from '@/types/checkIn.types';
+import {completeWorkoutSession} from '@/services/session/completeWorkoutSession';
 
-const GEO_OPTIONS = {enableHighAccuracy: true, timeout: 20000, maximumAge: 60000};
+const GEO_OPTIONS = {enableHighAccuracy: true, timeout: 12_000, maximumAge: 5000};
 
 type GeolocationResponseLike = {coords: {latitude: number; longitude: number}};
 
@@ -36,16 +30,25 @@ type DistBufferState = {
   buf: number[];
   prev: number | null;
   zoneHistory: GeofenceZone[];
-  /** Første gyldige GPS efter resume — ingen afstands-auto-checkout før dette. */
-  locationConfirmed: boolean;
+  clientAwayStartedAt: string | null;
+  lastDistM: number | null;
+  lastCoordsAt: number;
 };
 
 const distBuffers = new Map<string, DistBufferState>();
-const geoWarned = new Set<string>();
+const checkoutInFlight = new Set<string>();
+
 function getBuf(checkInId: string): DistBufferState {
   let b = distBuffers.get(checkInId);
   if (!b) {
-    b = {buf: [], prev: null, zoneHistory: [], locationConfirmed: false};
+    b = {
+      buf: [],
+      prev: null,
+      zoneHistory: [],
+      clientAwayStartedAt: null,
+      lastDistM: null,
+      lastCoordsAt: 0,
+    };
     distBuffers.set(checkInId, b);
   }
   return b;
@@ -63,35 +66,74 @@ function getPosition(): Promise<GeolocationResponseLike | null> {
 
 export {ACTIVE_CHECKIN_LOCATION_INTERVAL_MS as AUTO_CHECKOUT_INTERVAL_MS};
 
+export function isAutoCheckoutInProgress(checkInId?: string | null): boolean {
+  if (!checkInId) {
+    return checkoutInFlight.size > 0;
+  }
+  return checkoutInFlight.has(checkInId);
+}
+
 export function resetAutoCheckoutBuffersForTest(checkInId?: string): void {
   if (checkInId) {
     distBuffers.delete(checkInId);
-    geoWarned.delete(checkInId);
-    geoWarned.delete(`${checkInId}_geo_warn`);
+    checkoutInFlight.delete(checkInId);
   } else {
     distBuffers.clear();
-    geoWarned.clear();
+    checkoutInFlight.clear();
   }
+}
+
+export function resetAutoCheckoutTrackingOnRestore(checkInId?: string): void {
+  if (checkInId) {
+    distBuffers.delete(checkInId);
+    return;
+  }
+  distBuffers.clear();
+}
+
+export async function clearPersistedAwayStateOnResume(
+  checkInId: string,
+  userId: string,
+): Promise<void> {
+  resetAutoCheckoutTrackingOnRestore(checkInId);
+  try {
+    await patchCheckInAwayState(checkInId, userId, {
+      away_started_at: null,
+      last_distance_meters: null,
+    });
+  } catch {
+    /* offline */
+  }
+}
+
+/** Prefer fresh high-accuracy GPS; optional coords are fallback only. */
+async function resolveUserPosition(
+  userCoords?: {latitude: number; longitude: number} | null,
+): Promise<{latitude: number; longitude: number} | null> {
+  const pos = await getPosition();
+  if (pos) {
+    return {latitude: pos.coords.latitude, longitude: pos.coords.longitude};
+  }
+  if (userCoords) {
+    return userCoords;
+  }
+  return null;
 }
 
 export async function runAutoCheckoutEvaluation(params: {
   userId: string;
   appState: AppStateStatus;
+  userCoords?: {latitude: number; longitude: number} | null;
 }): Promise<void> {
-  const {userId, appState} = params;
-  const isForeground = appState === 'active';
-  const now = Date.now();
-
-  const row = await getActiveCheckInForUser(userId).catch(() => null);
-  if (!row) {
-    if (__DEV__) {
-      console.log('[AutoCheckout] active session: none (DB empty)');
-    }
+  const {userId, appState, userCoords} = params;
+  if (appState !== 'active') {
     return;
   }
 
-  if (__DEV__) {
-    console.log('[AutoCheckout] session id:', row.id, 'foreground:', isForeground);
+  const now = Date.now();
+  const row = await getActiveCheckInForUser(userId).catch(() => null);
+  if (!row?.started_at || row.ended_at) {
+    return;
   }
 
   if (
@@ -105,22 +147,15 @@ export async function runAutoCheckoutEvaluation(params: {
     }
   }
 
-  if (!isForeground) {
-    if (__DEV__) {
-      console.log('[AutoCheckout] skip distance (app not foreground)');
-    }
+  if (checkoutInFlight.has(row.id)) {
     return;
   }
 
-  const awayForEval = getEffectiveAwayStartedAt(row.away_started_at ?? null, new Date(now));
+  const st = getBuf(row.id);
   const target = getGymLatLngForCheckIn(String(row.gym_id));
   if (!target) {
     if (__DEV__) {
-      console.warn(
-        '[AutoCheckout] missing center lat/lng for gym_id=',
-        row.gym_name,
-        row.gym_id,
-      );
+      console.warn('[AutoCheckout] missing gym coordinates', row.gym_id);
     }
     return;
   }
@@ -129,180 +164,172 @@ export async function runAutoCheckoutEvaluation(params: {
   const devD = getAutoCheckoutDevDistanceOverride();
   if (devD != null) {
     distM = devD;
-    const stDev = getBuf(row.id);
-    stDev.locationConfirmed = true;
-    stDev.zoneHistory = [
-      ...stDev.zoneHistory,
-      classifyGeofenceZone(devD),
-    ].slice(-5);
+    st.zoneHistory = [...st.zoneHistory, devD > 200 ? 2 : 1].slice(-5) as GeofenceZone[];
+    st.lastDistM = devD;
+    st.lastCoordsAt = now;
   } else {
-    const pos = await getPosition();
-    if (!pos) {
-      if (__DEV__) {
-        console.log('[AutoCheckout] no GPS — session stays active');
+    const position = await resolveUserPosition(userCoords);
+    if (!position) {
+      if (st.lastDistM != null && now - st.lastCoordsAt < 120_000) {
+        distM = st.lastDistM;
+      } else {
+        return;
       }
-      return;
-    }
-    const raw = getDistanceInMeters(
-      pos.coords.latitude,
-      pos.coords.longitude,
-      target.latitude,
-      target.longitude,
-    );
-    const st = getBuf(row.id);
-    const {buffer, median, rejectedSpike} = pushDistanceSample(st.buf, raw, {
-      previousMedianForSpikeCheck: st.prev,
-    });
-    st.buf = buffer;
-    st.prev = median;
-    if (rejectedSpike) {
-      if (__DEV__) {
-        console.log('[AutoCheckout] distance spike ignored');
+    } else {
+      const raw = getDistanceInMeters(
+        position.latitude,
+        position.longitude,
+        target.latitude,
+        target.longitude,
+      );
+      const pushed = pushDistanceSample(st.buf, raw, {
+        previousMedianForSpikeCheck: st.prev,
+      });
+      st.buf = pushed.buffer;
+      st.prev = pushed.median;
+      if (pushed.rejectedSpike) {
+        if (__DEV__) {
+          console.log('[AutoCheckout] GPS spike ignored');
+        }
+        return;
       }
-      return;
+      distM = pushed.median;
+      st.zoneHistory = [...st.zoneHistory, pushed.zone].slice(-5);
+      st.lastDistM = distM;
+      st.lastCoordsAt = now;
     }
-    distM = median;
-    const zone = classifyGeofenceZone(distM);
-    st.zoneHistory = [...st.zoneHistory, zone].slice(-5);
-    st.locationConfirmed = true;
   }
 
-  const st = getBuf(row.id);
-  if (!st.locationConfirmed && devD == null) {
+  if (distM == null) {
     return;
   }
 
-  const stable = computeStableFlags(st.zoneHistory);
+  const awayIso =
+    st.clientAwayStartedAt ?? row.away_started_at ?? null;
+  const decision = decideGeofenceAutoCheckout(distM, awayIso, now);
+
+  useCheckInUIStore
+    .getState()
+    .setShowAwayZoneWarning(shouldShowAwayZoneWarning(decision, distM));
+
   if (__DEV__) {
-    console.log('[AutoCheckout] distance:', distM, 'm', 'stable:', stable);
-    console.log('[AutoCheckout] away_started_at:', awayForEval);
+    console.log('[AutoCheckout]', {
+      distM: Math.round(distM),
+      action: decision.action,
+      awayIso: st.clientAwayStartedAt ?? row.away_started_at,
+    });
   }
 
-  if (stable.stableSafe) {
-    useCheckInUIStore.getState().setShowAwayZoneWarning(false);
-    if (awayForEval) {
+  switch (decision.action) {
+    case 'clear_away':
+      st.clientAwayStartedAt = null;
       try {
         await patchCheckInAwayState(row.id, userId, {
           away_started_at: null,
-          last_distance_meters: Math.round(distM!),
+          last_distance_meters: Math.round(distM),
         });
+        await updateCheckInLastSeenAt(row.id, userId, new Date());
       } catch {
         /* ignore */
       }
-    }
-    try {
-      await updateCheckInLastSeenAt(row.id, userId, new Date());
-    } catch {
-      /* ignore */
-    }
-    return;
-  }
+      return;
 
-  if (!awayForEval && !stable.stableBuffer && !stable.stableOutside) {
-    try {
-      await updateCheckInLastSeenAt(row.id, userId, new Date());
-    } catch {
-      /* ignore */
-    }
-    return;
-  }
-
-  const d = decideGeofenceAutoCheckout(distM!, awayForEval, now);
-
-  if (d.action === 'clear_away') {
-    useCheckInUIStore.getState().setShowAwayZoneWarning(false);
-    try {
-      await patchCheckInAwayState(row.id, userId, {
-        away_started_at: null,
-        last_distance_meters: distM!,
-      });
-    } catch {
-      /* ignore */
-    }
-  } else if (d.action === 'set_away') {
-    useCheckInUIStore.getState().setShowAwayZoneWarning(true);
-    if (!geoWarned.has(`${row.id}_geo_warn`)) {
-      geoWarned.add(`${row.id}_geo_warn`);
-      if (!isDemoContentMode()) {
-        Alert.alert(
-          'Tjek ind',
-          'Det ser ud til, at du har forladt centeret. Du bliver snart automatisk tjekket ud.',
-          [{text: 'OK'}],
-        );
-      }
-    }
-    try {
-      await patchCheckInAwayState(row.id, userId, {
-        away_started_at: d.awayStartedAt,
-        last_distance_meters: d.lastDistance,
-      });
-    } catch {
-      /* ignore */
-    }
-  } else if (d.action === 'checkout_away') {
-    if (!stable.stableOutside) {
-      useCheckInUIStore.getState().setShowAwayZoneWarning(true);
+    case 'set_away':
+      st.clientAwayStartedAt = decision.awayStartedAt;
       try {
         await patchCheckInAwayState(row.id, userId, {
-          away_started_at: awayForEval ?? new Date(now).toISOString(),
-          last_distance_meters: Math.round(distM!),
+          away_started_at: decision.awayStartedAt,
+          last_distance_meters: decision.lastDistance,
         });
+        await updateCheckInLastSeenAt(row.id, userId, new Date());
       } catch {
         /* ignore */
       }
-    } else {
-      if (__DEV__) {
-        console.log('[AutoCheckout] triggering reason: left_geofence');
-      }
-      await performAutoEnd(
-        row,
-        userId,
-        'left_geofence',
-        'Du var væk fra centeret længe nok (auto-udtjek).',
-      );
       return;
-    }
-  } else if (d.action === 'update_distance_only') {
-    useCheckInUIStore.getState().setShowAwayZoneWarning(true);
-    try {
-      await patchCheckInAwayState(row.id, userId, {
-        away_started_at: d.awayStartedUnchanged,
-        last_distance_meters: d.lastDistance,
-      });
-    } catch {
-      /* ignore */
-    }
-  } else if (d.action === 'none') {
-    if (d.lastDistance > 400) {
-      useCheckInUIStore.getState().setShowAwayZoneWarning(true);
-    } else {
-      useCheckInUIStore.getState().setShowAwayZoneWarning(false);
-    }
-  }
 
-  try {
-    await updateCheckInLastSeenAt(row.id, userId, new Date());
-  } catch {
-    /* ignore */
+    case 'update_distance_only':
+      st.clientAwayStartedAt = decision.awayStartedUnchanged;
+      try {
+        await patchCheckInAwayState(row.id, userId, {
+          away_started_at: decision.awayStartedUnchanged,
+          last_distance_meters: decision.lastDistance,
+        });
+        await updateCheckInLastSeenAt(row.id, userId, new Date());
+      } catch {
+        /* ignore */
+      }
+      return;
+
+    case 'checkout_away':
+      await performAutoDistanceCheckout(row, userId, distM, st);
+      return;
+
+    case 'none':
+    default:
+      try {
+        await updateCheckInLastSeenAt(row.id, userId, new Date());
+      } catch {
+        /* ignore */
+      }
+      return;
   }
 }
 
-async function performAutoEnd(
+async function performAutoDistanceCheckout(
   row: SupabaseCheckInRow,
   userId: string,
-  reason: CheckInEndReason,
-  body: string,
-) {
-  geoWarned.add(row.id);
-  await finishWorkoutSession({
-    reason: 'auto',
-    userId,
-    checkInId: row.id,
-    endReason: reason,
-    autoCheckoutReason: reason === 'left_geofence' ? reason : undefined,
-  });
-  if (__DEV__) {
-    console.log('[AutoCheckout] reason:', reason);
+  distM: number,
+  st: DistBufferState,
+): Promise<void> {
+  if (checkoutInFlight.has(row.id)) {
+    return;
   }
-  Alert.alert('Du blev automatisk tjekket ud', body, [{text: 'OK'}]);
+  checkoutInFlight.add(row.id);
+  useCheckInUIStore.getState().setShowAwayZoneWarning(false);
+
+  const session = useSessionStore.getState().activeSession;
+  const startedAt =
+    session?.startTime?.toISOString() ?? row.started_at ?? new Date().toISOString();
+
+  try {
+    const completed = await completeWorkoutSession({
+      reason: 'auto_distance',
+      userId,
+      sessionId: row.id,
+    });
+
+    const durationMinutes =
+      completed?.durationMinutes ??
+      Math.max(
+        1,
+        Math.floor((Date.now() - new Date(startedAt).getTime()) / (60 * 1000)),
+      );
+
+    useCheckInUIStore.getState().notifyImmediateAutoCheckoutReview({
+      checkInId: row.id,
+      userId,
+      gymId: session?.gymId ?? String(row.gym_id),
+      gymName: session?.gymName ?? row.gym_name,
+      workoutType: session?.workoutType ?? row.workout_type ?? '',
+      durationMinutes,
+      startedAt,
+    });
+
+    if (__DEV__) {
+      console.log('[AutoCheckout] completed', {checkInId: row.id, distM});
+    }
+  } catch (err) {
+    if (__DEV__) {
+      console.warn('[AutoCheckout] completeWorkoutSession failed', err);
+    }
+    const stillActive = await getActiveCheckInForUser(userId).catch(() => null);
+    if (!stillActive?.id) {
+      useSessionStore.getState().endSession();
+      useCheckInUIStore.getState().setShowAwayZoneWarning(false);
+    }
+  } finally {
+    st.clientAwayStartedAt = null;
+    distBuffers.delete(row.id);
+    checkoutInFlight.delete(row.id);
+  }
 }

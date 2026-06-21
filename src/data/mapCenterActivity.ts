@@ -39,8 +39,8 @@ export function getMapCenterActivity(
   };
 }
 
-export const ACTIVITY_LABELS: Record<ActivityLevel, string> = {
-  calm: 'Roligt',
-  moderate: 'God aktivitet',
-  busy: 'Travlt',
+export const ACTIVITY_LABEL_KEYS: Record<ActivityLevel, string> = {
+  calm: 'map.activityCalm',
+  moderate: 'map.activityModerate',
+  busy: 'map.activityBusy',
 };

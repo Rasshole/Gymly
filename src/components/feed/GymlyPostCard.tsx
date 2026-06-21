@@ -151,8 +151,8 @@ const GymlyPostCard: React.FC<GymlyPostCardProps> = ({
           style={styles.reactionButton}
           onPress={onCommentPress}
           activeOpacity={0.7}>
-          <Icon name="chatbubble-outline" size={18} color={colors.textSecondary} />
-          <Text style={styles.reactionCount}>{commentCount}</Text>
+          <Icon name="chatbubble-outline" size={18} color={colors.primary} />
+          <Text style={styles.commentCount}>{commentCount}</Text>
         </TouchableOpacity>
         <Text style={styles.timestamp}>{timestamp}</Text>
       </View>
@@ -281,7 +281,12 @@ const styles = StyleSheet.create({
   reactionCount: {
     ...typography.caption,
     fontWeight: '600',
-    color: colors.textSecondary,
+    color: colors.text,
+  },
+  commentCount: {
+    ...typography.caption,
+    fontWeight: '600',
+    color: colors.primary,
   },
   timestamp: {
     ...typography.caption,

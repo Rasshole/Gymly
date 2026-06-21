@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Opening Gymly…</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #f5f3ff;
+      color: #0f172a;
+      padding: 24px;
+      text-align: center;
+    }
+    .card {
+      max-width: 360px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px 24px;
+      box-shadow: 0 8px 32px rgba(99, 102, 241, 0.12);
+    }
+    h1 { font-size: 20px; margin: 0 0 8px; }
+    p { margin: 0 0 20px; color: #64748b; font-size: 15px; line-height: 1.5; }
+    a.btn {
+      display: inline-block;
+      padding: 14px 24px;
+      background: #8b5cf6;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 16px;
+    }
+    .hint { margin-top: 16px; font-size: 13px; color: #94a3b8; }
+  </style>
+  <script>
+    (function () {
+      var APP_CALLBACK = 'gymly://auth/callback';
+      var search = window.location.search || '';
+      var hash = window.location.hash || '';
+      var deepLink = APP_CALLBACK + search + hash;
+
+      function openApp() {
+        window.location.replace(deepLink);
+      }
+
+      openApp();
+
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('open-app');
+        if (btn) {
+          btn.setAttribute('href', deepLink);
+          btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            openApp();
+          });
+        }
+      });
+
+      setTimeout(function () {
+        var el = document.getElementById('status');
+        if (el) {
+          el.textContent = 'Tap below to open Gymly on this device.';
+        }
+      }, 1200);
+    })();
+  </script>
+</head>
+<body>
+  <div class="card">
+    <h1>Opening Gymly</h1>
+    <p id="status">Redirecting you back to the app…</p>
+    <a id="open-app" class="btn" href="gymly://auth/callback">Open Gymly</a>
+    <p class="hint">Use the Gymly app on your phone — not the App Store.</p>
+  </div>
+</body>
+</html>

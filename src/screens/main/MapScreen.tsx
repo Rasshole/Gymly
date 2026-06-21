@@ -43,6 +43,7 @@ import {formatGymDisplayName} from '@/utils/gymDisplay';
 import {useTranslation} from '@/i18n';
 import {useGymSearch} from '@/hooks/useGymSearch';
 import {GymSearchResultsPanel} from '@/components/gym/GymSearchResultsPanel';
+import {selectMapCarouselGyms} from '@/utils/mapCarouselGyms';
 
 const MAP_GYMS = getActiveDanishGyms();
 import {useAppStore} from '@/store/appStore';
@@ -478,8 +479,26 @@ const MapScreen = () => {
     }
   }, [allMapCenters]);
 
+  const hasActiveGymsOnMap = useMemo(
+    () => allMapCenters.some(c => c.totalActiveCount > 0),
+    [allMapCenters],
+  );
+
   const nearestCentersForCarousel = useMemo(() => {
-    return filteredAndSortedGyms.slice(0, 5).map(gym => {
+    const carouselGyms = selectMapCarouselGyms(
+      MAP_GYMS.map(gym => ({
+        gym,
+        activeUsersCount:
+          allMapCenters.find(x => x.id === gym.id)?.totalActiveCount ?? 0,
+        distanceKm: calculateDistance(
+          userLocation.latitude,
+          userLocation.longitude,
+          gym.latitude,
+          gym.longitude,
+        ),
+      })),
+    );
+    return carouselGyms.map(gym => {
       const c = allMapCenters.find(x => x.id === gym.id);
       return {
         gym,
@@ -488,7 +507,7 @@ const MapScreen = () => {
         friendsActiveCount: c?.friendsActiveCount ?? 0,
       };
     });
-  }, [filteredAndSortedGyms, allMapCenters, getDistanceText]);
+  }, [allMapCenters, getDistanceText, userLocation]);
 
   const categorizedGyms = useMemo(() => {
     const withDist = MAP_GYMS.map(g => ({
@@ -763,6 +782,7 @@ const MapScreen = () => {
             centers={nearestCentersForCarousel}
             selectedGymId={selectedGym?.id ?? null}
             onSelectCenter={handleSelectGym}
+            hasActiveGyms={hasActiveGymsOnMap}
           />
         </View>
       ) : null}

@@ -26,9 +26,12 @@ import {useAppStore} from '@/store/appStore';
 import {isDemoContentMode} from '@/demo/demoContentGate';
 import {getInitialChats, getInitialMessages} from '@/services/data';
 import {syncDmInboxToStore} from '@/services/supabase/dmInboxSync';
+import {sortChatsByLastActivity} from '@/utils/chatListSort';
 import {supabase} from '@/services/supabase/supabaseClient';
 import {useFormatRelativeTime} from '@/hooks/useFormatRelativeTime';
 import {useTranslation} from '@/i18n';
+import {useNotificationStore} from '@/store/notificationStore';
+import {usePendingFriendRequestStore} from '@/store/pendingFriendRequestStore';
 import {safeDisplayName} from '@/utils/displayName';
 import {getMessagePreview} from '@/utils/dmMessagePreview';
 import colors from '@/theme/colors';
@@ -170,7 +173,7 @@ function formatLastSeenText(
   return t('messages.lastSeenHours', {hours});
 }
 
-const UnreadBanner = ({count}: {count: number}) => {
+const FriendRequestsBanner = ({onPress}: {onPress: () => void}) => {
   const {t} = useTranslation();
   const opacity = useRef(new Animated.Value(0)).current;
   const translateY = useRef(new Animated.Value(6)).current;
@@ -190,21 +193,29 @@ const UnreadBanner = ({count}: {count: number}) => {
         useNativeDriver: true,
       }),
     ]).start();
-  }, [count, opacity, translateY]);
+  }, [opacity, translateY]);
 
   return (
-    <Animated.View
-      style={[
-        styles.unreadStrip,
-        {opacity, transform: [{translateY}]},
-      ]}>
-      <View style={styles.unreadStripIconWrap}>
-        <Icon name="notifications" size={16} color={colors.primary} />
-      </View>
-      <Text style={styles.unreadStripText}>
-        {t('messages.newMessages', {count})}
-      </Text>
-    </Animated.View>
+    <Pressable onPress={onPress} accessibilityRole="button">
+      <Animated.View
+        style={[
+          styles.unreadStrip,
+          {opacity, transform: [{translateY}]},
+        ]}>
+        <View style={styles.unreadStripIconWrap}>
+          <Icon name="person-add" size={16} color={colors.primary} />
+        </View>
+        <View style={styles.friendRequestsBannerText}>
+          <Text style={styles.friendRequestsBannerTitle}>
+            {t('messages.friendRequestsTitle')}
+          </Text>
+          <Text style={styles.friendRequestsBannerSubtitle}>
+            {t('messages.friendRequestsSubtitle')}
+          </Text>
+        </View>
+        <Icon name="chevron-forward" size={18} color={colors.textMuted} />
+      </Animated.View>
+    </Pressable>
   );
 };
 
@@ -354,9 +365,10 @@ const MessagesScreen = () => {
   const formatRelativeTime = useFormatRelativeTime();
   const {chats, seedChatsFromInitial, markChatAsRead} = useChatStore();
   const messagesByChat = useChatStore(s => s.messagesByChat);
-  const totalMessageUnread = useChatStore(s =>
-    s.chats.reduce((sum, c) => sum + (c.unreadCount ?? 0), 0),
+  const pendingFriendRequests = useNotificationStore(
+    s => s.incomingFriendRequestCount,
   );
+  const openFriendRequestsSheet = usePendingFriendRequestStore(s => s.openSheet);
   const dmPresenceByUser = useChatStore(s => s.dmPresenceByUser);
   const upsertDmPresence = useChatStore(s => s.upsertDmPresence);
   const {user} = useAppStore();
@@ -402,7 +414,7 @@ const MessagesScreen = () => {
   const conversations = useMemo(() => {
     const meId = user?.id;
     const meName = user?.displayName;
-    return chats
+    return sortChatsByLastActivity(chats)
       .map((chat) => ({
         id: chat.id,
         name: safeDisplayName(getConversationTitle(chat, meId, meName)),
@@ -578,8 +590,8 @@ const MessagesScreen = () => {
             : [styles.list, {paddingBottom: listBottomPad}]
         }
         ListHeaderComponent={
-          totalMessageUnread > 0 && conversations.length > 0 ? (
-            <UnreadBanner count={totalMessageUnread} />
+          pendingFriendRequests > 0 ? (
+            <FriendRequestsBanner onPress={openFriendRequestsSheet} />
           ) : null
         }
         ListEmptyComponent={
@@ -685,12 +697,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  unreadStripText: {
+  friendRequestsBannerText: {
+    flex: 1,
+    minWidth: 0,
+  },
+  friendRequestsBannerTitle: {
     ...typography.small,
     color: colors.text,
-    flex: 1,
-    fontWeight: '600',
+    fontWeight: '700',
     lineHeight: 19,
+  },
+  friendRequestsBannerSubtitle: {
+    ...typography.caption,
+    color: colors.textSecondary,
+    marginTop: 2,
+    lineHeight: 17,
   },
   searchInput: {
     flex: 1,

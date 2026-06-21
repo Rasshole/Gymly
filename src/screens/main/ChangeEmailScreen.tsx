@@ -20,9 +20,11 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {useAppStore} from '@/store/appStore';
 import colors from '@/theme/colors';
+import {useTranslation} from '@/i18n';
 
 const ChangeEmailScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
+  const {t} = useTranslation();
   const {user, setUser} = useAppStore();
   const [newEmail, setNewEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -36,17 +38,17 @@ const ChangeEmailScreen = () => {
 
   const handleSave = async () => {
     if (!newEmail.trim()) {
-      Alert.alert('Fejl', 'Indtast venligst en ny email adresse');
+      Alert.alert(t('common.error'), t('changeEmail.enterNew'));
       return;
     }
 
     if (!validateEmail(newEmail)) {
-      Alert.alert('Fejl', 'Indtast venligst en gyldig email adresse');
+      Alert.alert(t('common.error'), t('changeEmail.invalidEmail'));
       return;
     }
 
     if (newEmail.toLowerCase() === currentEmail.toLowerCase()) {
-      Alert.alert('Info', 'Dette er allerede din nuværende email adresse');
+      Alert.alert(t('common.ok'), t('changeEmail.sameEmail'));
       return;
     }
 
@@ -63,19 +65,15 @@ const ChangeEmailScreen = () => {
         };
         setUser(updatedUser);
         
-        Alert.alert(
-          'Succes',
-          'Din email adresse er blevet opdateret',
-          [
-            {
-              text: 'OK',
-              onPress: () => navigation.goBack(),
-            },
-          ],
-        );
+        Alert.alert(t('changeEmail.successTitle'), t('changeEmail.successBody'), [
+          {
+            text: t('common.ok'),
+            onPress: () => navigation.goBack(),
+          },
+        ]);
       }
     } catch (error) {
-      Alert.alert('Fejl', 'Kunne ikke opdatere email adresse. Prøv igen senere.');
+      Alert.alert(t('common.error'), t('changeEmail.updateFailed'));
     } finally {
       setIsLoading(false);
     }
@@ -93,7 +91,7 @@ const ChangeEmailScreen = () => {
             style={styles.backButton}>
             <Icon name="arrow-back" size={24} color="#000" />
           </TouchableOpacity>
-          <Text style={styles.headerTitle}>Skift Email</Text>
+          <Text style={styles.headerTitle}>{t('changeEmail.title')}</Text>
           <View style={styles.headerRight} />
         </View>
 
@@ -101,7 +99,7 @@ const ChangeEmailScreen = () => {
         <View style={styles.content}>
           {/* Current Email */}
           <View style={styles.section}>
-            <Text style={styles.label}>Nuværende email</Text>
+            <Text style={styles.label}>{t('changeEmail.currentEmail')}</Text>
             <View style={styles.currentEmailContainer}>
               <Text style={styles.currentEmail}>{currentEmail}</Text>
             </View>
@@ -109,10 +107,10 @@ const ChangeEmailScreen = () => {
 
           {/* New Email Input */}
           <View style={styles.section}>
-            <Text style={styles.label}>Ny email</Text>
+            <Text style={styles.label}>{t('changeEmail.newEmail')}</Text>
             <TextInput
               style={styles.input}
-              placeholder="Indtast ny email adresse"
+              placeholder={t('changeEmail.newEmailPlaceholder')}
               placeholderTextColor="#8E8E93"
               value={newEmail}
               onChangeText={setNewEmail}
@@ -133,7 +131,7 @@ const ChangeEmailScreen = () => {
             disabled={!newEmail.trim() || isLoading}
             activeOpacity={0.7}>
             <Text style={styles.saveButtonText}>
-              {isLoading ? 'Gemmer...' : 'Gem'}
+              {isLoading ? t('changeEmail.saving') : t('common.save')}
             </Text>
           </TouchableOpacity>
         </View>

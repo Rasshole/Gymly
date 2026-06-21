@@ -31,6 +31,8 @@ export interface NearbyCentersCarouselProps {
   centers: NearbyCenterItem[];
   selectedGymId: string | null;
   onSelectCenter: (gym: DanishGym) => void;
+  /** When any gym has active check-ins, show "Aktive centre" / "Active gyms". */
+  hasActiveGyms?: boolean;
 }
 
 const CARD_WIDTH = Dimensions.get('window').width * 0.74;
@@ -89,7 +91,7 @@ function NearbyCard({
                 <View style={styles.activityChip}>
                   <Icon name="people" size={11} color={colors.secondary} />
                   <Text style={[styles.activityChipText, {color: colors.secondary}]}>
-                    {totalActiveCount} aktive
+                    {t('map.activeCount', {count: String(totalActiveCount)})}
                   </Text>
                 </View>
               ) : null}
@@ -97,13 +99,13 @@ function NearbyCard({
                 <View style={[styles.activityChip, styles.activityChipFriends]}>
                   <Icon name="person" size={11} color={colors.primary} />
                   <Text style={[styles.activityChipText, {color: colors.primaryDark}]}>
-                    {friendsActiveCount} venner
+                    {t('map.friendsCount', {count: String(friendsActiveCount)})}
                   </Text>
                 </View>
               ) : null}
             </View>
           ) : (
-            <Text style={styles.activityEmpty}>{t('map.noOneActive')}</Text>
+            <Text style={styles.activityEmpty}>{t('map.noOneCheckedIn')}</Text>
           )}
         </View>
       </Animated.View>
@@ -115,6 +117,7 @@ const NearbyCentersCarousel: React.FC<NearbyCentersCarouselProps> = ({
   centers,
   selectedGymId,
   onSelectCenter,
+  hasActiveGyms = false,
 }) => {
   const {t} = useTranslation();
   const flatListRef = useRef<FlatList>(null);
@@ -137,7 +140,9 @@ const NearbyCentersCarousel: React.FC<NearbyCentersCarouselProps> = ({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.sectionTitle}>{t('map.nearYou')}</Text>
+      <Text style={styles.sectionTitle}>
+        {hasActiveGyms ? t('map.activeGyms') : t('map.nearYou')}
+      </Text>
       <FlatList
         ref={flatListRef}
         data={centers}

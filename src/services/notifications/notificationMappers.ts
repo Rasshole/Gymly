@@ -1,5 +1,7 @@
 import type {NotificationRow, InAppNotificationType} from '@/services/notifications/inAppNotificationService';
 import type {Notification, NotificationType} from '@/types/notification.types';
+import {getRuntimeLanguage} from '@/i18n/runtimeLanguage';
+import {formatSocialNotificationBody} from '@/services/notifications/socialNotificationCopy';
 import {safeDisplayName} from '@/utils/displayName';
 import {formatGymNameWithBrand} from '@/utils/gymDisplay';
 import {detectGymChain} from '@/services/gymLogoService';
@@ -34,6 +36,11 @@ function mapType(t: InAppNotificationType): NotificationType {
     case 'workout_reaction':
       return 'workout_reaction';
     case 'biceps_reaction':
+    case 'post_like':
+      return 'biceps_reaction';
+    case 'post_comment':
+      return 'message';
+    case 'comment_like':
       return 'biceps_reaction';
     case 'gymly_group_invite':
     case 'gymly_group_invite_declined':
@@ -114,10 +121,25 @@ export function mapRowToViewNotification(row: NotificationRow): Notification {
   const formattedCenterName = centerNameRaw
     ? formatGymNameWithBrand(centerNameRaw, inferredBrand)
     : undefined;
+  const socialBody = formatSocialNotificationBody(getRuntimeLanguage(), {
+    type: row.type,
+    actorName:
+      (data.actorName as string) ||
+      actorName ||
+      undefined,
+    likeCount:
+      typeof data.likeCount === 'number'
+        ? data.likeCount
+        : typeof data.likeCount === 'string'
+          ? parseInt(data.likeCount, 10)
+          : undefined,
+    grouped: Boolean(data.grouped),
+  });
+
   const displayBody =
     row.type === 'dm_message'
       ? getMessagePreview({text: row.body ?? ''})
-      : (row.body ?? '');
+      : socialBody || (row.body ?? '');
 
   return {
     id: rowId,

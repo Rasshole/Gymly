@@ -57,6 +57,7 @@ import {
 } from '@/utils/friendRequestRpcErrors';
 import {useInAppNotificationStore} from '@/store/inAppNotificationStore';
 import {useFriendStore} from '@/store/friendStore';
+import {usePendingFriendRequestStore} from '@/store/pendingFriendRequestStore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {getOrCreateDmThread} from '@/services/supabase/dmService';
 import {sendWorkoutBicepsReaction} from '@/services/supabase/workoutReactionService';
@@ -568,7 +569,12 @@ const NotificationsScreenInner = () => {
       }
       return;
     }
-    if (item.type === 'biceps_reaction') {
+    if (
+      item.type === 'biceps_reaction' ||
+      item.dbType === 'post_like' ||
+      item.dbType === 'post_comment' ||
+      item.dbType === 'comment_like'
+    ) {
       navigation.navigate('Home');
       return;
     }
@@ -739,6 +745,7 @@ const NotificationsScreenInner = () => {
       await acceptFriendRequest(frId);
       void markRead(notifId);
       void loadFriendStore(user.id);
+      void usePendingFriendRequestStore.getState().load(user.id);
       void refetch();
     } catch (e: unknown) {
       const msg = getSupabaseRpcErrorMessage(e);
@@ -826,6 +833,7 @@ const NotificationsScreenInner = () => {
     try {
       await declineFriendRequest(frId);
       void markRead(notifId);
+      void usePendingFriendRequestStore.getState().load(user.id);
       void refetch();
     } catch (e: unknown) {
       const msg = getSupabaseRpcErrorMessage(e);

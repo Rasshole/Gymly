@@ -52,14 +52,6 @@ export function labelForMuscleToken(raw: string, language: AppLanguage): string 
   return u || (language === 'en' ? 'Workout' : 'Træning');
 }
 
-/**
- * Træningstyper der på check-in fylder "hele kortet" alene (kan ikke kombineres med
- * specifikke muskelgrupper indtil produktet understøtter fx Cardio + Ben).
- */
-export const CHECKIN_EXCLUSIVE_GROUP_KEYS: ReadonlySet<MuscleGroup> = new Set([
-  'cardio',
-]);
-
 /** Normaliser ældre keys fra DB/notifikationer */
 export function normalizeLegacyMuscleKey(part: string): string {
   const p = part.trim().toLowerCase().replace(/\s+/g, '_');
@@ -83,11 +75,7 @@ export function encodeMuscleGroupsForSession(groups: MuscleGroup[]): string {
   if (sorted.length === 0) {
     return 'cardio';
   }
-  if (sorted.length === 1 && sorted[0] === 'cardio') {
-    return 'cardio';
-  }
-  const specific = sorted.filter(g => !CHECKIN_EXCLUSIVE_GROUP_KEYS.has(g));
-  return specific.length > 0 ? specific.join(',') : 'cardio';
+  return sorted.join(',');
 }
 
 /**
@@ -132,19 +120,15 @@ export function parseMuscleGroupsFromSession(workoutType: string): MuscleGroup[]
 }
 
 /**
- * Check-in grid: `cardio` er eksklusiv; andre typer er multi-select (indtil produktet udvider).
+ * Check-in grid: alle træningstyper kan vælges frit (fx cardio + bryst).
  */
 export function toggleCheckInMuscleGroup(
   prev: MuscleGroup[],
   key: MuscleGroup,
 ): MuscleGroup[] {
-  if (CHECKIN_EXCLUSIVE_GROUP_KEYS.has(key)) {
-    return [key];
-  }
-  const withoutExclusive = prev.filter(k => !CHECKIN_EXCLUSIVE_GROUP_KEYS.has(k));
-  if (withoutExclusive.includes(key)) {
-    const next = withoutExclusive.filter(k => k !== key);
+  if (prev.includes(key)) {
+    const next = prev.filter(k => k !== key);
     return next.length === 0 ? ['cardio'] : next;
   }
-  return [...withoutExclusive, key];
+  return [...prev, key];
 }

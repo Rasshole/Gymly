@@ -18,7 +18,6 @@ export interface AuthState {
 export interface AuthResponse {
   user: User;
   tokens?: AuthTokens;
-  needsEmailConfirmation?: boolean;
 }
 
 import {User} from './user.types';

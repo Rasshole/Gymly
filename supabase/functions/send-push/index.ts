@@ -203,7 +203,14 @@ function preferenceAllows(
   if (type === "friend_request" || type === "friend_request_accepted") {
     return p.friend_requests_enabled;
   }
-  if (type === "friend_checked_in" || type === "workout_reaction" || type === "biceps_reaction") {
+  if (
+    type === "friend_checked_in" ||
+    type === "workout_reaction" ||
+    type === "biceps_reaction" ||
+    type === "post_like" ||
+    type === "post_comment" ||
+    type === "comment_like"
+  ) {
     return p.check_ins_enabled;
   }
   if (

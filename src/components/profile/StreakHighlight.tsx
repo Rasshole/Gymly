@@ -7,7 +7,6 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import colors from '@/theme/colors';
 import {spacing, typography} from '@/theme/designTokens';
 import * as streak from '@/utils/streakUtils';
-import {useTranslation} from '@/i18n';
 import {useAppFormat} from '@/i18n/useAppFormat';
 
 type StreakHighlightProps = {
@@ -21,8 +20,7 @@ export const StreakHighlight: React.FC<StreakHighlightProps> = ({
   longestStreak,
   onPress,
 }) => {
-  const {t} = useTranslation();
-  const {streakLabel, daysUntil} = useAppFormat();
+  const {streakLabel, daysUntil, recordLabel} = useAppFormat();
   const icon = streak.getStreakIcon(currentStreak);
   const displayIcon = icon || '💪';
   const next = streak.getNextMilestone(currentStreak);
@@ -53,7 +51,7 @@ export const StreakHighlight: React.FC<StreakHighlightProps> = ({
         {milestoneHint ? <Text style={styles.milestone}>{milestoneHint}</Text> : null}
         {longestStreak != null && longestStreak > 0 && (
           <Text style={styles.subtext}>
-            {t('format.record', {count: String(longestStreak)})}
+            {recordLabel(longestStreak)}
           </Text>
         )}
       </View>

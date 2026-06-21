@@ -5,6 +5,7 @@
 import {navigationRef} from '@/navigation/navigationRef';
 import {useAppStore} from '@/store/appStore';
 import {useFriendStore} from '@/store/friendStore';
+import {usePendingFriendRequestStore} from '@/store/pendingFriendRequestStore';
 import {useInAppNotificationStore} from '@/store/inAppNotificationStore';
 import {useGymlyGroupsStore} from '@/store/gymlyGroupsStore';
 import {useFeedStore} from '@/store/feedStore';
@@ -37,6 +38,7 @@ export function clearAllUserStores(previousUserId?: string | null): void {
   useSessionStore.getState().endSession();
   useCheckInUIStore.getState().setShowAwayZoneWarning(false);
   useFriendStore.getState().reset();
+  usePendingFriendRequestStore.getState().reset();
   useInAppNotificationStore.getState().reset();
   useGymlyGroupsStore.getState().reset();
   useFeedStore.getState().setFeedItems([]);

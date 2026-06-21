@@ -17,11 +17,17 @@ export const GYMLY_AUTH_CALLBACK_WEB = 'https://gymlyapp.com/auth/callback';
 /** Opens the app with the same hash/query as the web callback. */
 export const GYMLY_AUTH_CALLBACK_DEEP_LINK = `${GYMLY_DEEP_LINK_SCHEME}://auth/callback`;
 
+/** Web email-confirm page (user taps "Åbn Gymly" before app opens). */
+export const GYMLY_EMAIL_CONFIRM_WEB = 'https://gymlyapp.com/confirm';
+
 /**
- * After email confirm / magic link — redirects via web bridge → gymly://auth/callback.
+ * Optional redirect if you re-enable confirm-email in Supabase (not required for signup).
  * Site URL: https://gymlyapp.com
  */
-export const SUPABASE_EMAIL_REDIRECT = GYMLY_AUTH_CALLBACK_WEB;
+export const SUPABASE_EMAIL_REDIRECT = GYMLY_EMAIL_CONFIRM_WEB;
+
+/** Signup/login do not require verified email — disable "Confirm email" in Supabase Dashboard. */
+export const SUPABASE_REQUIRE_EMAIL_CONFIRMATION = false;
 
 /**
  * Password reset in browser (PKCE verifier is not in the app mail client).
@@ -33,6 +39,5 @@ export const SUPABASE_PASSWORD_RESET_REDIRECT = 'https://gymlyapp.com/reset-pass
 export const SUPABASE_PASSWORD_RESET_SUCCESS_DEEP_LINK =
   `${GYMLY_DEEP_LINK_SCHEME}://auth/callback?flow=password_reset_success`;
 
-/** @deprecated Use GYMLY_AUTH_CALLBACK_WEB */
-export const SUPABASE_LEGACY_EMAIL_CONFIRM_WEB = 'https://gymlyapp.com/confirm';
-export const SUPABASE_ALLOW_UNVERIFIED_LOGIN = false;
+/** @deprecated Use GYMLY_EMAIL_CONFIRM_WEB */
+export const SUPABASE_LEGACY_EMAIL_CONFIRM_WEB = GYMLY_EMAIL_CONFIRM_WEB;

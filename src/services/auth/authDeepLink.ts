@@ -85,6 +85,9 @@ export function isAuthDeepLinkUrl(url: string): boolean {
   if (u.includes('gymlyapp://home') || u.includes('gymly://home')) {
     return true;
   }
+  if (u.includes('gymly://confirmed') || u.includes('gymlyapp://confirmed')) {
+    return true;
+  }
   if (
     u.includes('/auth/callback') ||
     u.includes('auth/callback') ||
@@ -150,6 +153,9 @@ function classifyFlow(url: string, params: ParsedAuthParams): AuthDeepLinkFlow {
     return 'password_reset_success';
   }
   if (lower.includes('gymlyapp://home') || lower.includes('gymly://home')) {
+    return 'session_restore';
+  }
+  if (lower.includes('gymly://confirmed') || lower.includes('gymlyapp://confirmed')) {
     return 'session_restore';
   }
   const type = (params.type ?? '').toLowerCase();

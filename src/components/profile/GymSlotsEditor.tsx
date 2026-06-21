@@ -20,6 +20,7 @@ import {formatGymDisplayName} from '@/utils/gymDisplay';
 const PICKER_GYMS = getActiveDanishGyms();
 import colors from '@/theme/colors';
 import {spacing, typography, shadows} from '@/theme/designTokens';
+import {useTranslation} from '@/i18n';
 
 function slotsFromIds(ids: (string | undefined)[]): (DanishGym | null)[] {
   return [0, 1, 2].map(i => {
@@ -65,6 +66,7 @@ export const GymSlotsEditor: React.FC<GymSlotsEditorProps> = ({
   initialIds,
   onIdsChange,
 }) => {
+  const {t} = useTranslation();
   const [favoriteGyms, setFavoriteGyms] = useState<(DanishGym | null)[]>(() =>
     slotsFromIds(initialIds),
   );
@@ -133,9 +135,7 @@ export const GymSlotsEditor: React.FC<GymSlotsEditorProps> = ({
 
   return (
     <View style={styles.wrap}>
-      <Text style={styles.helperMuted}>
-        Center 1 er dit primære lokale center. Du kan tilføje op til to ekstra.
-      </Text>
+      <Text style={styles.helperMuted}>{t('editProfile.localCentresHint')}</Text>
       {favoriteGymLabels.map((label, index) => {
         const isActive = activeGymIndex === index;
         return (
@@ -144,7 +144,11 @@ export const GymSlotsEditor: React.FC<GymSlotsEditorProps> = ({
               <Text style={styles.gymIndex}>{index + 1}</Text>
               <TextInput
                 style={[styles.input, styles.gymInput]}
-                placeholder={index === 0 ? 'Primært center *' : 'Valgfrit center'}
+                placeholder={
+                  index === 0
+                    ? `${t('register.gymPrimary')} *`
+                    : t('editProfile.optionalCentre')
+                }
                 placeholderTextColor={colors.textMuted}
                 value={label}
                 onFocus={() => {

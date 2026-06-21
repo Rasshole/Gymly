@@ -78,10 +78,6 @@ import SwipeCheckIn from '@/components/checkin/SwipeCheckIn';
 import CheckInSplashOverlay from '@/components/checkin/CheckInSplashOverlay';
 import SocialSearchBar from '@/components/social/SocialSearchBar';
 import {
-  createWorkoutPost,
-  refreshWorkoutFeedFromServer,
-} from '@/services/supabase/workoutPostService';
-import {
   LIVE_HEARTBEAT_INTERVAL_MS,
   touchMyLiveWorkoutSession,
   upsertLiveWorkoutSession,
@@ -89,7 +85,9 @@ import {
 import {
   startWorkoutLiveActivity,
 } from '@/services/ios/workoutLiveActivity';
-import {finishWorkoutSession} from '@/services/session/finishWorkoutSession';
+import {completeWorkoutSession} from '@/services/session/completeWorkoutSession';
+import {applyWorkoutSummaryShare} from '@/services/session/applyWorkoutSummaryShare';
+import {isAutoCheckoutInProgress} from '@/services/autoCheckout/runAutoCheckoutEvaluation';
 import {useUserTrainingStats} from '@/hooks/useUserTrainingStats';
 import {isDemoContentMode} from '@/demo/demoContentGate';
 import {useDemoModeStore} from '@/demo/demoModeStore';
@@ -110,14 +108,6 @@ function coordsOffsetNorthMeters(lat: number, lng: number, northM: number) {
 function resolveDemoCheckInShowcaseGym(): DanishGym | null {
   return CHECKIN_GYMS.find(g => g.id === DEMO_CHECKIN_SHOWCASE_GYM_ID) ?? null;
 }
-
-const MOOD_TO_RATING: Record<string, number> = {
-  angry: 1,
-  neutral: 2,
-  ok: 3,
-  good: 4,
-  amazing: 5,
-};
 
 /** 2 kolonner × 5 rækker — samme rækkefølge som tidligere Gymly check-in */
 const MUSCLE_GROUP_KEYS: MuscleGroup[] = [
@@ -143,12 +133,15 @@ const VERTICAL_SCALE = 0.85; // Strammere lodret: mere plads til ét-skærms-lay
 const MUSCLE_CARD_HEIGHT = 64;
 const BASE_MUSCLE_ICON = 30;
 const BASE_MUSCLE_ICON_MARGIN_RIGHT = 8;
-const BASE_MUSCLE_LABEL_LINE_HEIGHT = 14;
+const BASE_MUSCLE_LABEL_FONT_SIZE = 13;
+/** Must be >= fontSize — scaled lineHeight below fontSize clips ascenders (fx "Cardio"). */
+const BASE_MUSCLE_LABEL_LINE_HEIGHT = 18;
 
 /** Strammere grid — mindre scroll på tjek-ind */
 const MUSCLE_ICON_SIZE = Math.round(BASE_MUSCLE_ICON * VERTICAL_SCALE);
 const MUSCLE_ICON_MARGIN_RIGHT = Math.round(BASE_MUSCLE_ICON_MARGIN_RIGHT * VERTICAL_SCALE);
-const MUSCLE_LABEL_LINE_HEIGHT = Math.round(BASE_MUSCLE_LABEL_LINE_HEIGHT * VERTICAL_SCALE);
+const MUSCLE_LABEL_FONT_SIZE = BASE_MUSCLE_LABEL_FONT_SIZE;
+const MUSCLE_LABEL_LINE_HEIGHT = BASE_MUSCLE_LABEL_LINE_HEIGHT;
 
 const SECTION_SUB_BELOW_MARGIN_TOP = Math.round(2 * VERTICAL_SCALE);
 const GYM_SECTION_HEADER_MARGIN_BOTTOM = spacing.sm;
@@ -758,8 +751,9 @@ const CheckInScreen = () => {
       runAutoCheckoutEvaluation({
         userId: user.id,
         appState: AppState.currentState,
+        userCoords: userLocation,
       }).catch(() => {});
-    }, [user?.id]),
+    }, [user?.id, userLocation?.latitude, userLocation?.longitude]),
   );
 
   const handleCheckIn = async () => {
@@ -866,6 +860,9 @@ const CheckInScreen = () => {
   );
 
   const handleEndSession = () => {
+    if (isAutoCheckoutInProgress(activeSession?.checkInId)) {
+      return;
+    }
     setShowSummaryModal(true);
   };
 
@@ -896,11 +893,15 @@ const CheckInScreen = () => {
       const checkInId = sessionSnapshot?.checkInId ?? null;
 
       if (user?.id) {
+        if (isAutoCheckoutInProgress(checkInId)) {
+          setShowSummaryModal(false);
+          return;
+        }
         try {
-          await finishWorkoutSession({
+          await completeWorkoutSession({
             reason: 'manual',
             userId: user.id,
-            checkInId,
+            sessionId: checkInId,
           });
           await refreshTrainingStats();
         } catch (err) {
@@ -909,7 +910,7 @@ const CheckInScreen = () => {
               ? err.message
               : t('checkIn.workoutNotSaved');
           if (__DEV__) {
-            console.warn('[CheckIn] finishWorkoutSession failed', err);
+            console.warn('[CheckIn] completeWorkoutSession failed', err);
           }
           Alert.alert(t('checkIn.couldNotFinish'), detail);
           setShowSummaryModal(false);
@@ -930,35 +931,24 @@ const CheckInScreen = () => {
           workoutType: sessionSnapshot.workoutType,
           notes: data.caption || undefined,
         });
-        if (data.shareToFeed) {
-          if (!user?.id) {
-            Alert.alert(
-              t('plannedSessions.loginRequired'),
-              t('checkIn.mustLoginToShare'),
-            );
-          } else {
-            try {
-              await createWorkoutPost({
-                userId: user.id,
-                authorDisplayName: user.displayName?.trim() || 'Bruger',
-                mediaUri: data.mediaUri,
-                caption: data.caption.trim(),
-                durationMinutes,
-                centerName: sessionSnapshot.gymName,
-                workoutTypeLabel: formatWorkoutTypeDisplay(
-                  sessionSnapshot.workoutType,
-                  getRuntimeLanguage(),
-                ),
-                moodRating: MOOD_TO_RATING[data.mood] ?? null,
-              });
-              await refreshWorkoutFeedFromServer();
-            } catch {
-              Alert.alert(
-                t('checkIn.couldNotShare'),
-                t('checkIn.shareFailedBody'),
-              );
-            }
-          }
+        if (data.shareToFeed && user?.id) {
+          await applyWorkoutSummaryShare({
+            userId: user.id,
+            authorDisplayName: user.displayName ?? '',
+            gymName: sessionSnapshot.gymName,
+            workoutType: sessionSnapshot.workoutType,
+            durationMinutes,
+            mediaUri: data.mediaUri,
+            caption: data.caption,
+            mood: data.mood,
+            shareToFeed: true,
+            t,
+          });
+        } else if (data.shareToFeed && !user?.id) {
+          Alert.alert(
+            t('plannedSessions.loginRequired'),
+            t('checkIn.mustLoginToShare'),
+          );
         }
       }
       returnToCheckInMain();
@@ -1266,18 +1256,22 @@ const CheckInScreen = () => {
                       <MuscleGroupTileIcon
                         group={key}
                         size={MUSCLE_ICON_SIZE}
-                        style={{marginRight: MUSCLE_ICON_MARGIN_RIGHT}}
+                        style={styles.muscleIconLeft}
                         color={isSelected ? colors.white : colors.textMuted}
                         tintColor={isSelected ? colors.white : undefined}
                       />
-                      <Text
-                        style={[
-                          styles.muscleLabelHorizontal,
-                          isSelected && styles.muscleLabelHorizontalSelected,
-                        ]}
-                        numberOfLines={2}>
-                        {label}
-                      </Text>
+                      <View style={styles.muscleLabelWrap}>
+                        <Text
+                          style={[
+                            styles.muscleLabelHorizontal,
+                            isSelected && styles.muscleLabelHorizontalSelected,
+                          ]}
+                          numberOfLines={2}
+                          adjustsFontSizeToFit
+                          minimumFontScaleFactor={0.85}>
+                          {label}
+                        </Text>
+                      </View>
                     </Pressable>
                   );
                 })}
@@ -1692,8 +1686,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    paddingVertical: 0,
+    paddingVertical: 4,
     paddingHorizontal: spacing.md + 2,
+    overflow: 'visible',
     borderRadius: radius.lg,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: colors.border,
@@ -1729,16 +1724,23 @@ const styles = StyleSheet.create({
     width: MUSCLE_ICON_SIZE,
     height: MUSCLE_ICON_SIZE,
     marginRight: MUSCLE_ICON_MARGIN_RIGHT,
+    flexShrink: 0,
   },
   muscleImageSelected: {tintColor: colors.white},
-  muscleLabelHorizontal: {
+  muscleLabelWrap: {
     flex: 1,
     minWidth: 0,
-    fontSize: 13,
+    justifyContent: 'center',
+  },
+  muscleLabelHorizontal: {
+    fontSize: MUSCLE_LABEL_FONT_SIZE,
     lineHeight: MUSCLE_LABEL_LINE_HEIGHT,
     fontWeight: '600',
     color: colors.text,
     textAlign: 'left',
+    ...(Platform.OS === 'android'
+      ? {includeFontPadding: false, textAlignVertical: 'center' as const}
+      : {}),
   },
   muscleLabelHorizontalSelected: {color: colors.white},
   soloCard: {

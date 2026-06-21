@@ -1,23 +1,106 @@
-import {useEffect, useRef} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {AppState, type AppStateStatus} from 'react-native';
+import Geolocation from '@react-native-community/geolocation';
 import {useAppStore} from '@/store/appStore';
 import {
   runAutoCheckoutEvaluation,
   AUTO_CHECKOUT_INTERVAL_MS,
 } from '@/services/autoCheckout/runAutoCheckoutEvaluation';
-import {useOptionalUserCoords} from '@/hooks/useOptionalUserCoords';
 import {useSessionStore} from '@/store/sessionStore';
 import {updateCheckInLastSeenAt} from '@/services/supabase/checkInService';
+import {
+  configureGeolocationForPermissionSafety,
+  getLocationPermissionStatus,
+  isLocationAuthorized,
+} from '@/services/location/locationPermission';
 
 /**
- * Global auto-checkout: kun afstand når app er i forgrunden + GPS bekræftet.
- * Afslutter aldrig session ved app-genstart eller manglende GPS.
+ * Auto-checkout mens aktiv session + app i forgrunden.
+ * Bruger høj-præcisions GPS-watch under aktiv træning.
  */
 export function useAutoCheckoutController(): void {
   const userId = useAppStore(s => s.user?.id);
   const activeCheckInId = useSessionStore(s => s.activeSession?.checkInId);
-  const coords = useOptionalUserCoords();
+  const [coords, setCoords] = useState<{latitude: number; longitude: number} | null>(
+    null,
+  );
   const appStateRef = useRef<AppStateStatus>(AppState.currentState);
+  const coordsRef = useRef(coords);
+  coordsRef.current = coords;
+
+  useEffect(() => {
+    if (!userId || !activeCheckInId) {
+      setCoords(null);
+      return;
+    }
+
+    let watchId: number | null = null;
+    let mounted = true;
+
+    configureGeolocationForPermissionSafety();
+
+    const startWatch = () => {
+      Geolocation.getCurrentPosition(
+        pos => {
+          if (mounted) {
+            setCoords({
+              latitude: pos.coords.latitude,
+              longitude: pos.coords.longitude,
+            });
+          }
+        },
+        () => {},
+        {enableHighAccuracy: true, timeout: 12_000, maximumAge: 5000},
+      );
+      watchId = Geolocation.watchPosition(
+        pos => {
+          if (mounted) {
+            setCoords({
+              latitude: pos.coords.latitude,
+              longitude: pos.coords.longitude,
+            });
+          }
+        },
+        () => {},
+        {
+          enableHighAccuracy: true,
+          distanceFilter: 5,
+          interval: 4000,
+          fastestInterval: 2000,
+          useSignificantChanges: false,
+        },
+      ) as unknown as number;
+    };
+
+    void getLocationPermissionStatus().then(status => {
+      if (!mounted) {
+        return;
+      }
+      if (!isLocationAuthorized(status)) {
+        setCoords(null);
+        return;
+      }
+      startWatch();
+    });
+
+    return () => {
+      mounted = false;
+      if (watchId != null) {
+        Geolocation.clearWatch(watchId);
+      }
+    };
+  }, [userId, activeCheckInId]);
+
+  const evaluate = () => {
+    if (!userId || appStateRef.current !== 'active') {
+      return;
+    }
+    void runAutoCheckoutEvaluation({
+      userId,
+      appState: appStateRef.current,
+      userCoords: coordsRef.current,
+    });
+  };
 
   useEffect(() => {
     if (!userId) {
@@ -36,55 +119,24 @@ export function useAutoCheckoutController(): void {
         }
       }
       if (next === 'active') {
-        runAutoCheckoutEvaluation({
-          userId,
-          appState: 'active',
-        }).catch(() => {});
+        evaluate();
       }
     });
     return () => sub.remove();
   }, [userId]);
 
   useEffect(() => {
-    if (!userId || !activeCheckInId || appStateRef.current !== 'active') {
+    if (!userId || !activeCheckInId) {
       return;
     }
-    runAutoCheckoutEvaluation({
-      userId,
-      appState: 'active',
-    }).catch(() => {});
-  }, [userId, activeCheckInId]);
+    evaluate();
+  }, [userId, activeCheckInId, coords?.latitude, coords?.longitude]);
 
   useEffect(() => {
-    if (!userId || !coords || !activeCheckInId || appStateRef.current !== 'active') {
+    if (!userId || !activeCheckInId) {
       return;
     }
-    runAutoCheckoutEvaluation({
-      userId,
-      appState: 'active',
-    }).catch(() => {});
-  }, [userId, coords, activeCheckInId]);
-
-  useEffect(() => {
-    if (!userId) {
-      return;
-    }
-    const session = useSessionStore.getState().activeSession;
-    if (!session?.checkInId) {
-      return;
-    }
-    const id = setInterval(() => {
-      if (appStateRef.current !== 'active') {
-        return;
-      }
-      if (!useSessionStore.getState().activeSession?.checkInId) {
-        return;
-      }
-      runAutoCheckoutEvaluation({
-        userId,
-        appState: appStateRef.current,
-      }).catch(() => {});
-    }, AUTO_CHECKOUT_INTERVAL_MS);
+    const id = setInterval(evaluate, AUTO_CHECKOUT_INTERVAL_MS);
     return () => clearInterval(id);
   }, [userId, activeCheckInId]);
 }

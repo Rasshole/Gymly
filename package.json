@@ -6,9 +6,13 @@
   "scripts": {
     "postinstall": "patch-package",
     "android": "react-native run-android",
+    "ensure:metro": "bash ios/scripts/start-metro-if-needed.sh",
+    "preios": "npm run ensure:metro",
     "ios": "react-native run-ios --scheme GymlyFresh",
     "start": "react-native start",
+    "metro": "react-native start",
     "start:clean": "react-native start --reset-cache",
+    "metro:clean": "react-native start --reset-cache",
     "ios:open": "open ios/Gymly.xcworkspace",
     "ios:pod": "cd ios && pod install",
     "serve:email-confirm": "npx --yes serve web/local-email-confirm -l 3000",

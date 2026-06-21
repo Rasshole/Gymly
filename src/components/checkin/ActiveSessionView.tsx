@@ -244,8 +244,7 @@ const ActiveSessionView: React.FC<ActiveSessionViewProps> = ({onEndSession}) => 
           {showAwayZoneWarning && !demoCenterCrowdActive ? (
             <View style={styles.awayWarningBanner} accessibilityRole="alert">
               <Text style={styles.awayWarningText}>
-                Det ser ud til, at du har forladt centeret. Du bliver snart automatisk
-                tjekket ud.
+                {t('checkIn.awayWarning')}
               </Text>
             </View>
           ) : null}

@@ -3,7 +3,7 @@ import {Alert} from 'react-native';
 import {useAppStore} from '@/store/appStore';
 import {useSessionStore} from '@/store/sessionStore';
 import {getActiveCheckInForUser} from '@/services/supabase/checkInService';
-import {finishWorkoutSession} from '@/services/session/finishWorkoutSession';
+import {completeWorkoutSession} from '@/services/session/completeWorkoutSession';
 import {ACTIVE_SESSION_RECOVERY_PROMPT_MS} from '@/services/supabase/activeSessionsSync';
 
 /**
@@ -42,10 +42,10 @@ export function useStaleSessionRecovery(): void {
               text: 'Afslut træning',
               style: 'destructive',
               onPress: () => {
-                void finishWorkoutSession({
+                void completeWorkoutSession({
                   reason: 'manual',
                   userId,
-                  checkInId: row.id,
+                  sessionId: row.id,
                 });
               },
             },

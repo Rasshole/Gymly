@@ -43,7 +43,6 @@ const SettingsScreen = () => {
     consent?.analyticsConsent ?? false
   );
   const [autoplayVideo, setAutoplayVideo] = useState(true);
-  const [appearance, setAppearance] = useState<'system' | 'light' | 'dark'>('system');
   const [units, setUnits] = useState<'metric' | 'imperial'>('metric');
   const [deviceComingSoonOpen, setDeviceComingSoonOpen] = useState(false);
   const [demoBusy, setDemoBusy] = useState(false);
@@ -294,12 +293,6 @@ const SettingsScreen = () => {
     </View>
   );
 
-  const appearanceLabel =
-    appearance === 'system'
-      ? t('settings.appearanceValueSystem')
-      : appearance === 'light'
-        ? t('settings.appearanceValueLight')
-        : t('settings.appearanceValueDark');
   const unitsLabel =
     units === 'metric' ? t('settings.unitsValueMetric') : t('settings.unitsValueImperial');
   return (
@@ -372,24 +365,6 @@ const SettingsScreen = () => {
             title={t('settings.connectDevice')}
             subtitle={t('settings.connectDeviceSub')}
             onPress={openDeviceComingSoon}
-          />
-          <SettingRow
-            icon="options-outline"
-            title={t('settings.appearance')}
-            rightElement={
-              <View style={styles.rowValueContainer}>
-                <Text style={styles.rowValue}>{appearanceLabel}</Text>
-                <Icon name="chevron-forward" size={20} color={colors.textMuted} />
-              </View>
-            }
-            onPress={() =>
-              Alert.alert(t('settings.appearance'), t('settings.appearancePick'), [
-                  {text: t('settings.appearanceSystem'), onPress: () => setAppearance('system')},
-                  {text: t('settings.appearanceLight'), onPress: () => setAppearance('light')},
-                  {text: t('settings.appearanceDark'), onPress: () => setAppearance('dark')},
-                  {text: t('common.cancel'), style: 'cancel'},
-                ])
-            }
           />
           <SettingRow
             icon="resize-outline"
